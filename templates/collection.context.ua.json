@@ -1,0 +1,15 @@
+{
+  "parent": "collection.json",
+  "context": {
+    "market": "ua"
+  },
+  "sections": {
+    "banner": {
+      "settings": {
+        "show_collection_title": true
+      },
+      "blocks": {
+      }
+    }
+  }
+}

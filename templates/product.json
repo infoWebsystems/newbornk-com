@@ -1,0 +1,182 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "58772005-ffce-40ba-8987-901c185f3569": {
+          "type": "size_guide",
+          "settings": {
+            "show_size_popup": true
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "cf442759-f444-4b42-9fc6-00597fe88231": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Інформація",
+            "content": "",
+            "page": "",
+            "liquid": "{{ product.description }}",
+            "icon": "none"
+          }
+        },
+        "fb04cf8f-a9cf-4800-9185-a5394e71424e": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Доставка, оплата, примірка",
+            "content": "<p><strong>ДОСТАВКА<\/strong><br\/><br\/>Ми намагаємось обробляти та відправляти замовлення протягом поточного дня або наступного робочого дня.<br\/>• Доставка по Києву та до інших міст України здійснюється за допомогою сервісу «Нова Пошта». • Післяплата на Новій Пошті надає можливість перевірити та приміряти товар перед оплатою.<br\/>• Безкоштовна доставка для замовлень на суму від 8000 грн.<br\/>• Подарунки для замовлень на суму від 3000 грн.<br\/><br\/><strong>ОПЛАТА<\/strong><br\/>• Замовлення можна оплатити банківською карткою онлайн, переказом на картку (деталі обговорюються з менеджером), післяплатою при отриманні у відділенні Нової Пошти.<br\/>• Новина: оплата замовлення частинами від MONOBANK вже на нашому сайті. Обираєте \"Оплата картами\", потім оибраєте \"Installments\". Якщо треба допомога, пишіть нам у телеграмі: <a href=\"https:\/\/t.me\/newbornk\" title=\"https:\/\/t.me\/newbornk\">@newbornk<\/a><br\/>• Новина: оплата замовлення частинами від Нова Пошта у відділенні. Докладніше: <a href=\"https:\/\/novapay.ua\/credit\/\" target=\"_blank\" title=\"https:\/\/novapay.ua\/credit\/\">посилання<\/a>.<br\/><br\/><strong>ПРИМІРКА<\/strong><br\/>Ви маєте можливість примірки обраних вами товарів в нашому офісі в центрі Києва за попередньою домовленістю. Додатково, ви можете отримати консультацію від нашого консультанта Олега (писали про нього тут). Звертайтеся за номером: +380988402389 або через телеграм <a href=\"https:\/\/t.me\/newbornk\" title=\"https:\/\/t.me\/newbornk\">@newbornk<\/a>.<\/p>",
+            "page": "",
+            "liquid": "{% render 'pickup' %}",
+            "icon": "none"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "70bbe489-815e-4f89-aaee-8f79b7917887": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "ІНФОРМАЦІЯ",
+            "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}<\/p>",
+            "page": "",
+            "liquid": "",
+            "icon": "none"
+          }
+        },
+        "c1df5e55-1f87-4887-9282-ab39f4ff2c07": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "РОЗМІРНА СІТКА",
+            "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}<\/p>",
+            "page": "",
+            "liquid": "",
+            "icon": "none"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "subtitle",
+        "price",
+        "variant_picker",
+        "58772005-ffce-40ba-8987-901c185f3569",
+        "quantity_selector",
+        "buy_buttons",
+        "cf442759-f444-4b42-9fc6-00597fe88231",
+        "fb04cf8f-a9cf-4800-9185-a5394e71424e",
+        "description",
+        "70bbe489-815e-4f89-aaee-8f79b7917887",
+        "c1df5e55-1f87-4887-9282-ab39f4ff2c07",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "enable_video_looping": false
+      }
+    },
+    "16323088197825d104": {
+      "type": "featured-collection-slider",
+      "disabled": true,
+      "settings": {
+        "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "collection": "frontpage",
+        "products_to_show": 6,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": false
+      }
+    },
+    "1627050417092b6041": {
+      "type": "featured-collection-slider",
+      "settings": {
+        "title": "{{ product.vendor }}",
+        "collection": "salomon",
+        "products_to_show": 6,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": true,
+        "show_vendor": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16323088197825d104",
+    "1627050417092b6041",
+    "product-recommendations"
+  ]
+}
