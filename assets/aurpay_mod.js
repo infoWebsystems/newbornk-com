@@ -5,7 +5,7 @@ if (typeof jQuery == 'undefined') {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-var aurpay_auto = false;
+var aurpay_auto = true;
 
 var aurpay_api_host = "https://shopify.aurpay.net"
 
