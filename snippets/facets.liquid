@@ -16,7 +16,7 @@
   assign total_active_values = 0
   if results.url
     assign results_url = results.url
-  else 
+  else
     assign terms = results.terms | escape
     assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
   endif
@@ -42,48 +42,53 @@
               {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
               {% case filter.type %}
               {% when 'list' %}
+              {% assign coll_title = collection.title | downcase %}
+              {% if filter.param_name == 'filter.p.m.my_fields.discount' and coll_title != 'sale' %}
+                {% continue %}
+              {% else %}
                 <details class="js-filter" data-index="{{ forloop.index }}">
-                  <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
-                    <div>
-                      {% if filter.label == 'Brand' %}
-                        <span>Бренди</span>
-                      {% elsif filter.label == 'Size' %}
-                        <span>Розмір</span>
-                      {% else %}
-                        <span>{{ filter.label | escape }}</span>
-                      {% endif %}
-                      {% render 'icon-caret' %}
+                    <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
+                      <div>
+                        {% if filter.label == 'Brand' %}
+                          <span>Бренди</span>
+                        {% elsif filter.label == 'Size' %}
+                          <span>Розмір</span>
+                        {% else %}
+                          <span>{{ filter.label | escape }}</span>
+                        {% endif %}
+                        {% render 'icon-caret' %}
+                      </div>
+                    </summary>
+                    <div class="facets__display">
+                      <div class="facets__header">
+                        <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+                        <facet-remove>
+                          <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                            {{ 'products.facets.reset' | t }}
+                          </a>
+                        </facet-remove>
+                      </div>
+                      <ul class="facets__list list-unstyled header__submenu list-menu motion-reduce header-submenu__third--level" role="list">
+                        {%- for value in filter.values -%}
+                          <li class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                            <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                              <input type="checkbox"
+                                name="{{ value.param_name }}"
+                                value="{{ value.value }}"
+                                id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                                {% if value.active %}checked{% endif %}
+                                {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                              >
+                              <div class="facet-checkbox__title">{{ value.label | escape }}</div> {% if filter.label != 'Brand' %}<div class="facet-checkbox__title facet-checkbox__number">({{ value.count }})</div>{% endif %}
+                              <div class="icon icon-checkmark icon-checkmark__plus"></div>
+                              <div class="facet-checkbox__background"></div>
+                            </label>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
                     </div>
-                  </summary>
-                  <div class="facets__display">
-                    <div class="facets__header">
-                      <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
-                      <facet-remove>
-                        <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
-                          {{ 'products.facets.reset' | t }}
-                        </a>
-                      </facet-remove>
-                    </div>
-                    <ul class="facets__list list-unstyled header__submenu list-menu motion-reduce header-submenu__third--level" role="list">
-                      {%- for value in filter.values -%}
-                        <li class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
-                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
-                            <input type="checkbox"
-                              name="{{ value.param_name }}"
-                              value="{{ value.value }}"
-                              id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                              {% if value.active %}checked{% endif %}
-                              {% if value.count == 0 and value.active == false %}disabled{% endif %}
-                            >
-                            <div class="facet-checkbox__title">{{ value.label | escape }}</div> {% if filter.label != 'Brand' %}<div class="facet-checkbox__title facet-checkbox__number">({{ value.count }})</div>{% endif %}
-                            <div class="icon icon-checkmark icon-checkmark__plus"></div>
-                            <div class="facet-checkbox__background"></div>
-                          </label>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
-                </details>
+                  </details>
+              {% endif %}
               {% when 'price_range' %}
                 {% liquid
                   assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
@@ -216,11 +221,11 @@
                       <input id="{{ option.value }}" class="__select__input" type="radio" value="{{ option.value | escape }}" name="sort_by" {% if sort_by == option.value %}selected="selected" {% endif %}/>
                       <label for="{{ option.value }}" class="__select__label"><span>{{ option.name | escape }}</span></label>
                     {% endif %}
-                  {%- endfor -%} 
+                  {%- endfor -%}
                 </div>
-              </div> 
+              </div>
             </div>
-          </div> 
+          </div>
         {%- endif -%}
 
         <div class="product-count light" role="status">
@@ -238,7 +243,7 @@
               <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
             </svg>
           </div>
-        </div>          
+        </div>
       </form>
     </facet-filters-form>
   {%- endunless -%}
@@ -292,7 +297,7 @@
                   <details class="mobile-facets__details js-filter" data-index="mobile-{{ forloop.index }}">
                     <summary class="mobile-facets__summary focus-inset">
                       <div>
-                        <span>{{ filter.label | escape }}</span>                        
+                        <span>{{ filter.label | escape }}</span>
                         <span class="mobile-facets__arrow no-js-hidden">{% render 'icon-arrow' %}</span>
                         <noscript>{% render 'icon-caret' %}</noscript>
                       </div>
@@ -441,7 +446,7 @@
             {%- if results.terms -%}
               <input type="hidden" name="q" value="{{ results.terms | escape }}">
               <input name="options[prefix]" type="hidden" value="last">
-            {%- endif -%}            
+            {%- endif -%}
           </div>
         </form>
       </facet-filters-form>
