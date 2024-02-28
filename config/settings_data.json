@@ -188,8 +188,8 @@
         "settings": {
           "customThemeName": "Dawn",
           "additionalWLButtonCssClasses": "",
-          "additionalWLCartBubbleCssClasses": "",
-          "extraHTMLToAppend": ""
+          "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
+          "extraHTMLToAppend": "<style>\n.wishlisthero-floating button{\n width: auto!important;\n height: auto!important;\n padding: 0;\n}\n<\/style>"
         }
       }
     }
