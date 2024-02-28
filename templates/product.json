@@ -51,6 +51,13 @@
             "show_dynamic_checkout": false
           }
         },
+        "text_hT8TPe": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.info.size_model | metafield_text }}",
+            "text_style": "body"
+          }
+        },
         "cf442759-f444-4b42-9fc6-00597fe88231": {
           "type": "collapsible_tab",
           "settings": {
@@ -115,6 +122,7 @@
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
         "buy_buttons",
+        "text_hT8TPe",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
         "description",
