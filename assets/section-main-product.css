@@ -976,3 +976,7 @@ label.disabled-label.label__swatch:before {
 .label__swatch {
   overflow: hidden;
 }
+
+.size_model{
+  padding-left: 2rem;
+}

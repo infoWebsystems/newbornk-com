@@ -27,8 +27,8 @@
 </svg>
 <style>
   details[open]>.header__icon--menu .icon-hamburger {
-    visibility: visible; 
-    opacity: 1; 
+    visibility: visible;
+    opacity: 1;
     transform: scale(1.0);
     transform: rotate(90deg);
   }
@@ -183,7 +183,7 @@
     -webkit-animation: animateLocalization var(--duration-default) ease;
             animation: animateLocalization var(--duration-default) ease;
     bottom: auto;
-    top: 50px;          
+    top: 50px;
     background: #373737;
   }
 
@@ -210,7 +210,7 @@
   .menu-drawer .menu-opening[open] .icon-plus{
     display: none;
   }
-  
+
   .js .menu-drawer__submenu {
     position: unset;
     top: 0;
@@ -283,10 +283,10 @@
     right: 0;
     margin: auto;
     border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;  
+    border-bottom-right-radius: 15px;
   }
 }
-  .field input.search__input, .field__input.search__input{    
+  .field input.search__input, .field__input.search__input{
    border-radius: 4px;
 }
 @media (max-width: 767px) and (min-width: 440px){
@@ -311,7 +311,7 @@
     right: 0;
     margin: auto;
     border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;   
+    border-bottom-right-radius: 15px;
   }
   .header__icon:hover .icon {
     -webkit-transform: scale(0.9);
@@ -319,7 +319,7 @@
     transform: scale(0.9);
   }
 }
-  @media (min-width: 767px) {  
+  @media (min-width: 767px) {
     .search-modal.modal__content {
       width: calc(100% - 160px);
       right: 0;
@@ -332,7 +332,7 @@
   .predictive-search__item--link {
     display:flex;
 }
-  .field input.search__input:focus-visible, .field__input.search__input:focus-visible{    
+  .field input.search__input:focus-visible, .field__input.search__input:focus-visible{
    box-shadow: 0 0 0 .1rem var(--color-foreground-55);
 }
 }
@@ -516,7 +516,7 @@
                                     {%- endif -%}
                                   {%- endfor %}
                                 {%- endfor %}
-                                {% assign ua_brands_array = ua_brands | split: '~' | sort %} 
+                                {% assign ua_brands_array = ua_brands | split: '~' | sort %}
                                 {% assign sale_brands = '' %}
                                 {% paginate sale_collection.products by 5000 %}
                                   {% for p in sale_collection.products %}
@@ -775,7 +775,7 @@
                                     {%- endif -%}
                                   {%- endfor %}
                                 {%- endfor %}
-                                {% assign ua_brands_array = ua_brands | split: '~' | sort %} 
+                                {% assign ua_brands_array = ua_brands | split: '~' | sort %}
                                 {% assign sale_brands = '' %}
                                 {% paginate sale_collection.products by 5000 %}
                                   {% for p in sale_collection.products %}
@@ -965,7 +965,7 @@
                                     {%- endif -%}
                                   {%- endfor %}
                                 {%- endfor %}
-                                {% assign ua_brands_array = ua_brands | split: '~' | sort %} 
+                                {% assign ua_brands_array = ua_brands | split: '~' | sort %}
                                 {% assign sale_brands = '' %}
                                 {% paginate sale_collection.products by 5000 %}
                                   {% for p in sale_collection.products %}
@@ -998,7 +998,7 @@
                         <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                           <a class="summary-link" href="/pages/about-us">
                             <span {%- if link.child_active %}class="header__active-menu-item"{% endif %}>
-                              Про нас 
+                              Про нас
                             </span>
                           </a>
                         </summary>
@@ -1009,7 +1009,7 @@
                         <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                           <a class="summary-link" href="/pages/faq">
                             <span {%- if link.child_active %}class="header__active-menu-item"{% endif %}>
-                              FAQ 
+                              FAQ
                             </span>
                           </a>
                         </summary>
@@ -1031,7 +1031,7 @@
                         <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                           <a class="summary-link" href="#">
                             <span {%- if link.child_active %}class="header__active-menu-item"{% endif %}>
-                              Social 
+                              Social
                             </span>
                           </a>
                           {% render 'icon-plus' %}
@@ -1059,7 +1059,7 @@
                                   TELEGRAM
                                 </a>
                               </li>
-                            </ul> 
+                            </ul>
                           </div>
                         </div>
                       </details>
@@ -1210,7 +1210,7 @@
               {%- endif -%}
                 <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
                   <div class="field">
-                    <input class="search__input field__input" 
+                    <input class="search__input field__input"
                       id="Search-In-Modal-1"
                       type="search"
                       name="q"
@@ -1226,7 +1226,7 @@
                         autocorrect="off"
                         autocomplete="off"
                         autocapitalize="off"
-                        spellcheck="false" 
+                        spellcheck="false"
                       {%- endif -%}
                     >
                     <label class="field__label" for="Search-In-Modal-1">{{ 'general.search.search' | t }}</label>
@@ -1235,9 +1235,9 @@
                       <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
                         <use href="#icon-search"/>
                       </svg>
-                    </button> 
+                    </button>
                   </div>
-                  
+
                   {%- if settings.predictive_search_enabled -%}
                     <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
                       <div class="predictive-search__loading-state">
@@ -1252,7 +1252,7 @@
                 </form>
               {%- if settings.predictive_search_enabled -%}
                 </predictive-search>
-              {%- endif -%} 
+              {%- endif -%}
               <button type="button" class="modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
                 <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
                   <use href="#icon-close"/>
@@ -1279,7 +1279,7 @@
               alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
             -->
           {% render 'icon-logo' %}
-          
+
           {%- else -%}
             <span class="h2">{{ shop.name }}</span>
           {%- endif -%}
@@ -1344,25 +1344,25 @@
       <style>
         .trm-header .header__icon.header__icon--search .visually-hidden{
           padding:1.8rem 1.2rem;
-          margin-top: 1px;       
+          margin-top: 1px;
         }
         @media (max-width:767px) {
           .trm-header .header__icon.header__icon--search.header__icon--account {
             display: block;
           }
-          
+
             .trm-header .header__icon--account.header__icon--search svg.icon-search {
               display: flex;
               height: 100%;
           }
 
-          .trm-header .header__icon.header__icon--search .visually-hidden{     
+          .trm-header .header__icon.header__icon--search .visually-hidden{
           display: block;
         }
-          
+
         }
         @media (max-width:750px) {
-          .trm-header .header__icon.header__icon--search .visually-hidden{     
+          .trm-header .header__icon.header__icon--search .visually-hidden{
           display: none;
         }
         }
@@ -1387,7 +1387,7 @@
           {%- endform -%}
         </noscript>
         <style>
-        
+
         </style>
         <localization-form>
           {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
@@ -1410,8 +1410,8 @@
                   {% assign language_iso_code = language.iso_code %}
                 {% endif %}
                 <li class="disclosure__item" tabindex="-1">
-                  <a class="link link--text disclosure__link caption-large{% if language_iso_code == localization_language_iso_code %} disclosure__link--active{% endif %} focus-inset" 
-                    href="/{% unless language.primary %}{{ language.iso_code }}{% endunless %} " hreflang="{{ language.iso_code }}" 
+                  <a class="link link--text disclosure__link caption-large{% if language_iso_code == localization_language_iso_code %} disclosure__link--active{% endif %} focus-inset"
+                    href="/{% unless language.primary %}{{ language.iso_code }}{% endunless %} " hreflang="{{ language.iso_code }}"
                     lang="{{ language.iso_code }}"
                     {% if language_iso_code == localization_language_iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}">
                     {{ language.name | capitalize }}
@@ -1438,17 +1438,17 @@
               <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-close"/>
               </svg>
-            
+
           </summary>
           <div class="search-modal modal__content" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
             <div class="modal-overlay"></div>
             <div class="search-modal__content" tabindex="-1">
               {%- if settings.predictive_search_enabled -%}
                 <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
-              {%- endif -%} 
+              {%- endif -%}
                 <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
                   <div class="field">
-                    <input class="search__input field__input" 
+                    <input class="search__input field__input"
                       id="Search-In-Modal"
                       type="search"
                       name="q"
@@ -1464,7 +1464,7 @@
                         autocorrect="off"
                         autocomplete="off"
                         autocapitalize="off"
-                        spellcheck="false" 
+                        spellcheck="false"
                       {%- endif -%}
                     >
                     <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
@@ -1473,9 +1473,9 @@
                       <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
                         <use href="#icon-search"/>
                       </svg>
-                    </button> 
+                    </button>
                   </div>
-                  
+
                   {%- if settings.predictive_search_enabled -%}
                     <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
                       <div class="predictive-search__loading-state">
@@ -1499,7 +1499,7 @@
             </div>
           </div>
         </details>
-      </details-modal>      
+      </details-modal>
       <!--details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -1535,9 +1535,9 @@
           </div>
         </details>
       </details-modal-->
-              
+
      {%- endif -%}
-      
+
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link link--text focus-inset">
           {% render 'icon-account' %}
@@ -1552,6 +1552,8 @@
           </span>
         </a>
       {%- endif -%}
+
+      {% render 'wishlisthero-header-icon.liquid' %}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
         {%- comment -%}

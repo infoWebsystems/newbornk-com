@@ -93,7 +93,7 @@
     <div class="grid__item product__media-wrapper" style="position: relative;">
 
       {%- render 'trm_badge_new' with product_card_product: product -%}
-      
+
       <slider-component class="slider-mobile-gutter">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ "accessibility.skip_to_product_info" | t }}
@@ -148,7 +148,7 @@
           {%- when '@app' -%}
             {% render block %}
           {%- when 'text' -%}
-        
+
             {%- if product.metafields.brand.handle == blank -%}
               <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">
                 {{- block.settings.text -}}
@@ -159,7 +159,7 @@
                 <a class='product__link' href='{{- collections[handle].url -}}'>{{- block.settings.text -}}</a>
               </p>
             {%- endif -%}
-        
+
           {%- when 'title' -%}
             <h1 class="product__title">
               {{ product.title | escape }}
@@ -197,7 +197,7 @@
               </details>
             </div>
           {%- when 'size_guide' -%}
-        
+
           {{ size_guide }}
 
           {%- when 'quantity_selector' -%}
@@ -410,7 +410,7 @@
       <button id="ModalClose-{{ section.id }}" type="button" class="product-media-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
 
       <div class="product-media-modal__content" role="document" aria-label="{{ 'products.modal.label' | t }}" tabindex="0">
-        
+
         <slider-component id="GalleryViewer-{{ section.id }}" class="slider-mobile-gutter">
           <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
             {{ "accessibility.skip_to_product_info" | t }}
@@ -484,7 +484,7 @@
             <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-right-slide' %}</button>
           </div>
         </slider-component>
-        
+
         <!--{%- for media in product.media -%}
           {%- if media.media_type == 'image' -%}
             <img
@@ -566,7 +566,7 @@
             {%- endif -%}
           {%- endif -%}
         {%- endfor -%}-->
-        
+
       </div>
     </div>
   </product-modal>
@@ -583,9 +583,9 @@
       </div>
     </modal-dialog>
   {%- endfor -%}
-  
+
   {% if metafield.size_quide.value %}
-  
+
   <style>
     #PopupModal-sizeQuide .product-popup-modal__toggle {
       position: static;
@@ -596,7 +596,7 @@
       padding: 0;
       height: 10px;
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__title {
       padding: 0;
       margin: 0;
@@ -608,17 +608,17 @@
       text-transform: uppercase;
       color: #000000;
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__toggle .icon {
       width: 100%;
       height: 100%;
       color: #000;
     }
-    
+
     #PopupModal-sizeQuide.product-popup-modal {
       background-color: rgba(255, 255, 255, 0.8);
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__content {
       max-width: 605px;
       height: auto;
@@ -631,14 +631,14 @@
       border: 1px solid #000000;
       box-sizing: border-box;
       border-radius: 4px;
-      
+
       padding: 20px 32px;
     }
 
     #PopupModal-sizeQuide .product-popup-modal__content-info {
       padding: 0;
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__header {
       display: flex;
       flex-direction: row;
@@ -646,11 +646,11 @@
       justify-content: space-between;
       margin-bottom: 40px;
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__footer {
       margin-top: 40px;
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__content img {
         max-width: 100%;
         height: 100%;
@@ -659,7 +659,7 @@
         min-height: 100%;
         min-width: 100%;
     }
-    
+
     #PopupModal-sizeQuide .product-popup-modal__text {
       font-family: Formular;
       font-style: normal;
@@ -671,19 +671,19 @@
       padding: 0;
       margin: 0;
     }
-    
+
     @media screen and (min-width: 576px) {
       #PopupModal-sizeQuide .product-popup-modal__button {
         display: none;
       }
     }
-    
+
     @media screen and (max-width: 576px) {
       #PopupModal-sizeQuide.product-popup-modal {
       	top: auto;
         bottom: 0;
       }
-      
+
       #PopupModal-sizeQuide .product-popup-modal__content {
       	top: 0;
         left: 0;
@@ -696,46 +696,46 @@
         border: none;
         border-radius: unset;
       }
-      
+
       #PopupModal-sizeQuide .product-popup-modal__text {
         font-size: 12px;
         text-align: center;
       }
-            
+
       #PopupModal-sizeQuide .product-popup-modal__button {
       	display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        
+
         padding: 24px;
-        
+
         width: 100%;
         min-height: 17px;
-        
+
         position: absolute;
         bottom: 17px;
         right: 0;
         left: 0;
-        
+
         background-color: #fff;
         border: none;
-        
+
         font-family: Formular;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
         line-height: 17px;
-        
+
         letter-spacing: -0.02em;
         text-transform: uppercase;
 
         color: #000000;
       }
     }
-    
+
   </style>
-  
+
   <modal-dialog id="PopupModal-sizeQuide" class="product-popup-modal">
     <div role="dialog" aria-label="Size Quide" aria-modal="true" class="product-popup-modal__content" tabindex="-1">
       <div class='product-popup-modal__header'>
@@ -752,12 +752,12 @@
       <div class='product-popup-modal__footer'>
         <p class='product-popup-modal__text'>{{- 'products.modal.text' | t -}}</p>
       </div>
-      
+
       <button class='product-popup-modal__button'>{{- 'products.modal.close' | t -}}</button>
     </div>
   </modal-dialog>
   {% endif %}
-  
+
 </section>
 
 {% javascript %}

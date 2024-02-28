@@ -19,6 +19,7 @@
         {% if  collection.handle == "women" or collection.handle == "men" or current_tags contains 'Жіноче' or current_tags contains 'Чоловіче' %}
             <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}" tabindex="-1">
                 <div class="card__inner">
+                    {% render 'wishlisthero-collection-product' with product: product %}
                     {%- if product_card_product.featured_media -%}
                         {%- liquid
                             assign featured_media_aspect_ratio = product_card_product.featured_media.aspect_ratio
@@ -76,7 +77,7 @@
                     {%- endif -%}
 
                     {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
-          
+
                     <div class="card__badge">
                         {%- if product_card_product.available == false -%}
                             <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
@@ -145,7 +146,7 @@
                     {%- endif -%}
 
                     {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
-          
+
                     <div class="card__badge">
                         {%- if product_card_product.available == false -%}
                             <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
@@ -161,7 +162,7 @@
             </div>
 
         {% endif %}
-        
+
         {% if show_info %}
 
             <div class="card-information">
