@@ -53,6 +53,7 @@
         },
         "text_hT8TPe": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.metafields.info.size_model | metafield_text }}",
             "text_style": "body"
