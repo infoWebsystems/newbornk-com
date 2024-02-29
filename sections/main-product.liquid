@@ -212,7 +212,7 @@
           {%- when '@app' -%}
             {% render block %}
           {%- when 'text' -%}
-          
+
               <!-- {%- if product.metafields.brand.handle == blank -%} -->
               <p class="product__text{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}">
                 {%- for product_vendor in shop.vendors -%}
@@ -487,7 +487,14 @@
                 </div>
               {%- endform -%}
             </product-form>
-
+          {% if product.metafields.info.size_model != blank and section.settings.enable_size_model == true %}
+            {% assign ul = product.metafields.info.size_model.value %}
+            <ul class="size_model">
+              {% for li in ul %}
+                <li>{{ li }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
           {%- endcase -%}
         {%- endfor -%}
       </div>
@@ -1147,6 +1154,12 @@
       "id": "enable_video_looping",
       "default": false,
       "label": "t:sections.main-product.settings.enable_video_looping.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_size_model",
+      "default": true,
+      "label": "t:sections.main-product.settings.enable_size_model.label"
     }
   ]
 }

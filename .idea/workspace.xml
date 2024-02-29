@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="wishlist">
-      <change afterPath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/section-header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/section-header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/layout/theme.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/uk.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/header.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/product-card.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/product-card.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en.default.schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en.default.schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/main-product.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-product.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +75,8 @@
       <workItem from="1709033661554" duration="35000" />
       <workItem from="1709033828567" duration="1382000" />
       <workItem from="1709116548604" duration="5655000" />
-      <workItem from="1709192417446" duration="3444000" />
+      <workItem from="1709192417446" duration="3538000" />
+      <workItem from="1709224854213" duration="528000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -146,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709143664839</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="wishlist">
+      <option name="closed" value="true" />
+      <created>1709197084221</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709197084221</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +161,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
