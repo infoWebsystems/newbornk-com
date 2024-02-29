@@ -830,5 +830,15 @@
         "default": "@media screen and (max-width: 768px) {}"
       }
     ]
+  },
+  {
+    "name": "Wishlist",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_wishlist",
+        "label": "Show Wishlist"
+      }
+    ]
   }
 ]

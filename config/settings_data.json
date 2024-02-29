@@ -33,6 +33,7 @@
     "social_instagram_link": "https:\/\/www.instagram.com\/newborn.kyiv\/",
     "language_switcher_enabled": true,
     "language_switcher_position": "bottom-right",
+    "show_wishlist": true,
     "checkout_logo_image": "shopify:\/\/shop_images\/newborn_logo.png",
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#ccf951",
@@ -189,7 +190,7 @@
           "customThemeName": "Dawn",
           "additionalWLButtonCssClasses": "",
           "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
-          "extraHTMLToAppend": "<style>\n.wishlisthero-floating button{\n width: auto!important;\n height: auto!important;\n padding: 0;\n}\n<\/style>"
+          "extraHTMLToAppend": ""
         }
       }
     }

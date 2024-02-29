@@ -115,7 +115,7 @@ summary.list-menu__item {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  
+
 }
 .trm-header .header__menu-item:hover,
 .trm-header .header__icon:hover .visually-hidden{
@@ -135,6 +135,7 @@ sticky-header.header-wrapper {
   text-decoration: none;
 }
 .trm-header .header__icon--account .visually-hidden,
+.trm-header .header__icon--wishlist .visually-hidden,
 .trm-header .header__icon--cart .visually-hidden {
   clip: unset;
   width: auto;

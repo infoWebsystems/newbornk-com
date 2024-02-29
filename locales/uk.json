@@ -1539,5 +1539,8 @@
       "date_ascending": "Дата, від старої до нової",
       "date_descending": "Дата, від нової до старої"
     }
+  },
+  "wishlist": {
+    "header_link": "Список бажань"
   }
 }

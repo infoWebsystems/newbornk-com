@@ -1368,6 +1368,13 @@
         }
       </style>
 
+      {% if settings.show_wishlist == true %}
+        {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
+        <a href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset">
+          <span class="visually-hidden">{{ 'wishlist.header_link' | t }}</span>
+        </a>
+      {% endif %}
+
       {%- comment -%}
       <div class="header__icon header__icon--localization">
         <noscript>
@@ -1552,8 +1559,6 @@
           </span>
         </a>
       {%- endif -%}
-
-      {% render 'wishlisthero-header-icon' %}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
         {%- comment -%}
