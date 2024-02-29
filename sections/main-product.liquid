@@ -207,13 +207,13 @@
     <div class="product__info-wrapper grid__item">
       <div id="ProductInfo-{{ section.id }}" class="product__info-container{% if section.settings.enable_sticky_info %} product__info-container--sticky{% endif %}">
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
+        here
         {%- for block in section.blocks -%}
           {%- case block.type -%}
           {%- when '@app' -%}
             {% render block %}
           {%- when 'text' -%}
-            {% if product.metafields.info.size_model != blank and block.settings.text != blank %}here
+            {% if product.metafields.info.size_model != blank and block.settings.text != blank %}
               {% assign ul = product.metafields.info.size_model.value %}
               <ul class="size_model">
                 {% for li in ul %}
