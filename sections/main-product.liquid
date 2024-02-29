@@ -213,7 +213,7 @@
           {%- when '@app' -%}
             {% render block %}
           {%- when 'text' -%}
-            {% if product.metafields.info.size_model != blank and block.settings.text != blank %}
+            {% if product.metafields.info.size_model != blank and block.settings.text != blank %}here
               {% assign ul = product.metafields.info.size_model.value %}
               <ul class="size_model">
                 {% for li in ul %}
