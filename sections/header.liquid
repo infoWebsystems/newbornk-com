@@ -1362,9 +1362,10 @@
 
         }
         @media (max-width:750px) {
-          .trm-header .header__icon.header__icon--search .visually-hidden{
-          display: none;
-        }
+          .trm-header .header__icon.header__icon--search .visually-hidden,
+          .trm-header .header__icon.header__icon--wishlist .visually-hidden{
+              display: none;
+          }
         }
       </style>
 
@@ -1372,6 +1373,7 @@
         {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
         <a href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset">
           <span class="visually-hidden">{{ 'wishlist.header_link' | t }}</span>
+          {% render 'icon-wishlist' %}
         </a>
       {% endif %}
 

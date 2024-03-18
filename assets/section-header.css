@@ -223,6 +223,14 @@ sticky-header.header-wrapper {
     right: 15px;
     top: 15px;
   }
+
+  .header__icon--wishlist {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 39px;
+    top: 1px;
+  }
   #cart-icon-bubble:hover,
   .trm-header .header__icon:hover .visually-hidden,
   .trm-header .header__menu-item:hover{
@@ -244,6 +252,15 @@ sticky-header.header-wrapper {
     top: -8px;
     left: 3px;
     overflow: visible;
+  }
+  .header__icon--wishlist .cart-count-bubble{
+    top: 0;
+    padding-left: 15px;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+  .header__icon--wishlist .cart-count-bubble:after{
+    content: '';
   }
   .menu-drawer svg.icon-plus,
   .menu-drawer svg.icon-minus {
