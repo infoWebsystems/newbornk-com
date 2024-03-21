@@ -134,6 +134,9 @@ sticky-header.header-wrapper {
   width: auto;
   text-decoration: none;
 }
+.trm-header .header__icon > svg{
+  display: none;
+}
 .trm-header .header__icon--account .visually-hidden,
 .trm-header .header__icon--wishlist .visually-hidden,
 .trm-header .header__icon--cart .visually-hidden {
@@ -203,6 +206,9 @@ sticky-header.header-wrapper {
 }
 
 @media (max-width: 749px) {
+  .trm-header .header__icon>svg {
+    display: flex;
+  }
   .menu-drawer__navigation .header__icon--localization {
     padding-left: 22px;
   }
