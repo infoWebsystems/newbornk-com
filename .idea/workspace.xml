@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="size model fix">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="wishlist icon mob fix2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/section-header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/section-header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collection.context.ua.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709225426869</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="wishlist icon mob fix2">
+      <option name="closed" value="true" />
+      <created>1711031113583</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711031113583</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +204,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="wishlist" />
     <MESSAGE value="size model fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="size model fix" />
+    <MESSAGE value="wishlist icon mob fix2" />
+    <option name="LAST_COMMIT_MESSAGE" value="wishlist icon mob fix2" />
   </component>
 </project>

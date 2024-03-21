@@ -206,7 +206,7 @@ sticky-header.header-wrapper {
 }
 
 @media (max-width: 749px) {
-  .trm-header .header__icon>svg {
+  .trm-header .header__icon>svg:not(.modal__toggle-close) {
     display: flex;
   }
   .menu-drawer__navigation .header__icon--localization {
