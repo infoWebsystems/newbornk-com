@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="wishlist">
-      <change beforePath="$PROJECT_DIR$/config/settings_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_data.json" afterDir="false" />
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="wishlist icon mob fix2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/section-header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/section-header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Liquid File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -22,6 +31,10 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="0ef7de85-1917-462f-a32f-3735b4166176" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/bin/php" />
   <component name="ProjectId" id="2b1qTLOUFIAFnfDKO1xdoXNN0XT" />
@@ -59,6 +72,12 @@
       <workItem from="1707123987066" duration="3841000" />
       <workItem from="1707130471650" duration="856000" />
       <workItem from="1709033661554" duration="35000" />
+      <workItem from="1709033828567" duration="1382000" />
+      <workItem from="1709116548604" duration="5655000" />
+      <workItem from="1709192417446" duration="3538000" />
+      <workItem from="1709224854213" duration="840000" />
+      <workItem from="1709563047023" duration="49000" />
+      <workItem from="1710767486616" duration="1761000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -68,7 +87,87 @@
       <option name="project" value="LOCAL" />
       <updated>1707127367665</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="merge master">
+      <option name="closed" value="true" />
+      <created>1709033888601</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709033888601</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test">
+      <option name="closed" value="true" />
+      <created>1709123519889</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709123519889</updated>
+    </task>
+    <task id="LOCAL-00004" summary="merge">
+      <option name="closed" value="true" />
+      <created>1709130845348</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709130845348</updated>
+    </task>
+    <task id="LOCAL-00005" summary="merge">
+      <option name="closed" value="true" />
+      <created>1709133474754</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709133474754</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix">
+      <option name="closed" value="true" />
+      <created>1709133781337</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709133781337</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <option name="closed" value="true" />
+      <created>1709133989295</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709133989295</updated>
+    </task>
+    <task id="LOCAL-00008" summary="wishlist">
+      <option name="closed" value="true" />
+      <created>1709143664839</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709143664839</updated>
+    </task>
+    <task id="LOCAL-00009" summary="wishlist">
+      <option name="closed" value="true" />
+      <created>1709197084221</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709197084221</updated>
+    </task>
+    <task id="LOCAL-00010" summary="size model fix">
+      <option name="closed" value="true" />
+      <created>1709225426869</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709225426869</updated>
+    </task>
+    <task id="LOCAL-00011" summary="wishlist icon mob fix2">
+      <option name="closed" value="true" />
+      <created>1711031113583</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1711031113583</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -79,7 +178,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -87,7 +198,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixes filter" />
+    <MESSAGE value="merge master" />
+    <MESSAGE value="test" />
+    <MESSAGE value="merge" />
+    <MESSAGE value="fix" />
     <MESSAGE value="wishlist" />
-    <option name="LAST_COMMIT_MESSAGE" value="wishlist" />
+    <MESSAGE value="size model fix" />
+    <MESSAGE value="wishlist icon mob fix2" />
+    <option name="LAST_COMMIT_MESSAGE" value="wishlist icon mob fix2" />
   </component>
 </project>
