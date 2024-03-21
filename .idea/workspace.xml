@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="wishlist icon mob fix2">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/section-header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/section-header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/page.contact.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/page.contact.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/wikiwoo/Desktop/projectShopify/newbornk-com&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -78,6 +79,7 @@
       <workItem from="1709224854213" duration="840000" />
       <workItem from="1709563047023" duration="49000" />
       <workItem from="1710767486616" duration="1761000" />
+      <workItem from="1711033631568" duration="184000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
