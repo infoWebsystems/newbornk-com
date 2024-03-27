@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="files">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="fix wishlist icon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/wishlisthero-styles.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/page.contact.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/page.contact.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/section-header.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/section-header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/header.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +78,8 @@
       <workItem from="1709224854213" duration="840000" />
       <workItem from="1709563047023" duration="49000" />
       <workItem from="1710767486616" duration="1761000" />
-      <workItem from="1711033631568" duration="184000" />
+      <workItem from="1711033631568" duration="380000" />
+      <workItem from="1711548030236" duration="1089000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -169,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711031113583</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix wishlist icon">
+      <option name="closed" value="true" />
+      <created>1711033880228</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711033880228</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +215,7 @@
     <MESSAGE value="wishlist" />
     <MESSAGE value="size model fix" />
     <MESSAGE value="wishlist icon mob fix2" />
-    <option name="LAST_COMMIT_MESSAGE" value="wishlist icon mob fix2" />
+    <MESSAGE value="fix wishlist icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix wishlist icon" />
   </component>
 </project>
