@@ -12,12 +12,12 @@
             "language": "UK"
           }
         },
-        "1630994380b1b22eeb-0": {
+        "1630994380b1b22eeb-2": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_2024-02-13_12-59-27.png",
-            "image_phone": "shopify:\/\/shop_images\/Mask_group.jpg",
-            "banner_link": "shopify:\/\/collections\/sale",
+            "image": "shopify:\/\/shop_images\/Frame_578.png",
+            "image_phone": "shopify:\/\/shop_images\/Frame_580.png",
+            "banner_link": "shopify:\/\/collections\/new-arrivals",
             "language": "UK"
           }
         },
@@ -30,21 +30,21 @@
             "language": "UK"
           }
         },
-        "1630994380b1b22eeb-2": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_578.png",
-            "image_phone": "shopify:\/\/shop_images\/Frame_580.png",
-            "banner_link": "shopify:\/\/collections\/new-arrivals",
-            "language": "UK"
-          }
-        },
         "ce6d2dc3-91a2-4167-94e4-935de9a1b462": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_566884.jpg",
-            "image_phone": "shopify:\/\/shop_images\/Ban_jan22_sale_mob_41de1e5e-c6a9-45fb-acec-48691a46ff42.jpg",
-            "banner_link": "shopify:\/\/collections\/pleasures",
+            "image": "shopify:\/\/shop_images\/static1_4.png",
+            "image_phone": "shopify:\/\/shop_images\/static1-1.png",
+            "banner_link": "shopify:\/\/collections\/market",
+            "language": "UK"
+          }
+        },
+        "1630994380b1b22eeb-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/image_2024-02-13_12-59-27.png",
+            "image_phone": "shopify:\/\/shop_images\/Mask_group.jpg",
+            "banner_link": "shopify:\/\/collections\/sale",
             "language": "UK"
           }
         },
@@ -61,10 +61,10 @@
       },
       "block_order": [
         "1630994380b1b22eeb-1",
-        "1630994380b1b22eeb-0",
-        "22a50905-f3ab-4163-8763-bbc28328aa48",
         "1630994380b1b22eeb-2",
+        "22a50905-f3ab-4163-8763-bbc28328aa48",
         "ce6d2dc3-91a2-4167-94e4-935de9a1b462",
+        "1630994380b1b22eeb-0",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
       "settings": {
