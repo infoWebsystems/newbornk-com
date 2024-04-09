@@ -97,7 +97,7 @@
           "type": "text",
           "settings": {
             "text": "<p>NEWBORN K - місце, що об'єднує ком'юніті креативного класу Києва.<\/p>",
-            "max_width": 800
+            "max_width": 0
           }
         }
       },
@@ -107,8 +107,8 @@
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
-        "margin_top": 85,
-        "margin_bottom": 85
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     }
   },
