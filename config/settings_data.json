@@ -122,6 +122,13 @@
           "enable_language_selector": false,
           "payment_enable": true
         }
+      },
+      "stub": {
+        "type": "stub",
+        "settings": {
+          "btn-text": "Button text",
+          "button_link": "shopify:\/\/blogs\/news"
+        }
       }
     },
     "content_for_index": [

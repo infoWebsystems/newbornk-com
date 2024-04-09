@@ -1,0 +1,48 @@
+{{ 'stub.css' | asset_url | stylesheet_tag }}
+<div class="stub-wrapper">
+    <div class="stub-video-wrapper">
+        <video class="hg-video" muted="" loop="" playsinline="" autoplay="">
+            <source src="https://cdn.shopify.com/videos/c/o/v/dd9b7825fc6c4ba591332a5a3ba58b0d.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="stub-content">
+        {% if section.settings.button_link != blank %}
+
+            <div class="klaviyo-form-UAEDet"></div>
+
+            <div class="link-wrap">
+                <a href="{{ section.settings.button_link }}" class="link">
+                    {{ section.settings.btn-text }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "stub section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "btn-text",
+      "label": "Button text",
+      "default": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+
+  ],
+  "blocks": [
+  ],
+  "presets": [
+    {
+      "name":"stub section"
+    }
+  ]
+}
+{% endschema %}
