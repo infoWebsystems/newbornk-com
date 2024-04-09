@@ -19,7 +19,7 @@
         "9e8d71c0-844b-4b11-b677-38b3bf2bfc88": {
           "type": "text",
           "settings": {
-            "text": "<p>онлайн концепт-стор з унікальною селекцією товарів,<\/p>",
+            "text": "<p>онлайн концепт-стор з унікальною селекцією товарів, що поєднує в собі магазин одягу та lifestyle-продукції від локальних та іноземних брендів.<\/p>",
             "max_width": 790
           }
         }
@@ -30,42 +30,8 @@
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
-        "margin_top": 0,
+        "margin_top": 85,
         "margin_bottom": 0
-      }
-    },
-    "164434510806ba7910": {
-      "type": "slider",
-      "settings": {
-        "collection": "зимно",
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_vendor": false,
-        "show_arrow": false,
-        "brand_collection": false,
-        "show_info": false
-      }
-    },
-    "16443296830aabadcd": {
-      "type": "rich-text-v2",
-      "blocks": {
-        "719dbf53-c816-494d-aabd-07891099c901": {
-          "type": "text",
-          "settings": {
-            "text": "<p>що поєднує в собі магазин одягу та lifestyle-продукції від локальних та іноземних брендів.<br\/><\/p>",
-            "max_width": 790
-          }
-        }
-      },
-      "block_order": [
-        "719dbf53-c816-494d-aabd-07891099c901"
-      ],
-      "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "margin_top": 0,
-        "margin_bottom": 200
       }
     },
     "16443297726d9930ec": {
@@ -85,8 +51,8 @@
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
-        "margin_top": 200,
-        "margin_bottom": 0
+        "margin_top": 85,
+        "margin_bottom": 85
       }
     },
     "1644331226522565af": {
@@ -141,8 +107,8 @@
       "settings": {
         "color_scheme": "background-1",
         "full_width": true,
-        "margin_top": 150,
-        "margin_bottom": 0
+        "margin_top": 85,
+        "margin_bottom": 85
       }
     }
   },
@@ -150,8 +116,6 @@
     "main",
     "1644333406ba1c490d",
     "16443297349827cfa2",
-    "164434510806ba7910",
-    "16443296830aabadcd",
     "16443297726d9930ec",
     "1644331226522565af",
     "1644328026eafaf09c"
