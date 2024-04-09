@@ -10,6 +10,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: .7;
 }
 .stub-content{
     position: absolute;
@@ -44,4 +45,9 @@
 }
 .stub-wrapper .klaviyo-form{
     border-radius: 5px !important;
+}
+@media screen and (max-width: 749px){
+    .stub-content{
+       width: 90%;
+    }
 }
