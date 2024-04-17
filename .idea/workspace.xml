@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="wishlist icon mob fix2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/stub.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/stub.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sections/stub.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/stub.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +91,7 @@
       <workItem from="1710767486616" duration="1761000" />
       <workItem from="1712656024828" duration="2086000" />
       <workItem from="1713343959866" duration="4496000" />
-      <workItem from="1713352650993" duration="4053000" />
+      <workItem from="1713352650993" duration="4330000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
