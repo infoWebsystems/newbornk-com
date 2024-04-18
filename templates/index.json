@@ -163,7 +163,7 @@
         "collection": "sale",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.5,
-        "show_view_all": true,
+        "show_view_all": false,
         "swipe_on_mobile": false,
         "image_ratio": "adapt",
         "show_secondary_image": false,
