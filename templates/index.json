@@ -67,6 +67,7 @@
         "1630994380b1b22eeb-1",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
+      "disabled": true,
       "settings": {
         "image_width": "third",
         "image_ratio": "adapt",
@@ -179,6 +180,7 @@
         "1626450162f5dda00b-1",
         "1626450162f5dda00b-0"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "image_ratio": "square",
@@ -192,6 +194,7 @@
     },
     "16264502060c7e1d80": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "LIFESTYLE",
         "collection": "lifestyle",
