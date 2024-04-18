@@ -31,18 +31,17 @@
 
 <div class="collection handle-{{handle}} page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %} page-width-full">
   <div class="{% if section.settings.show_view_all and section.settings.swipe_on_mobile %}title-wrapper-with-link{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
-    <h2 class="title{% if title == blank %} title--no-heading{% endif %}">      
-      <a href="{{ url }}">{{ 'templates.collection.slider.title' | t }} {{ title }}
+    <h2 class="title{% if title == blank %} title--no-heading{% endif %}">
+      <a href="{{ url }}">{% if section.settings.show_text == 'true' %} {{ 'templates.collection.slider.title' | t }}{% endif %}  {{ title }}
       {%- if section.settings.show_arrow %}{% render 'icon-caret' %} {% endif %}
       </a>
-      
     </h2>
 
     {%- if section.settings.show_view_all and section.settings.swipe_on_mobile -%}
       <a href="{{ url }}" class="link underlined-link large-up-hide">{{ 'sections.featured_collection.view_all' | t }}</a>
     {%- endif -%}
   </div>
-  
+
   {%- liquid
     assign products_to_display = section.settings.collection.all_products_count
 
@@ -50,7 +49,7 @@
       assign products_to_display = section.settings.products_to_show
     endif
   %}
-  
+
   <div class="swiper-container swiper-container-collection section-{{section.id}}" >
     <ul class="swiper-wrapper" role="list" >
       {%- for product in products -%}
@@ -99,7 +98,7 @@ var menu = [];
 {% endjavascript %}
 
   <script>
-    const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', { 
+    const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
           slidesPerView: {{ product_show }},
           speed:100,
           centeredSlides : false,
@@ -110,7 +109,7 @@ var menu = [];
           slidesOffsetAfter: 0,
           mousewheel: {
             releaseOnEdges: true,
-          }, 
+          },
           breakpoints: {
             320: {
               slidesPerView: {{ product_show_mobile }},
@@ -126,7 +125,7 @@ var menu = [];
             }
           }
 
-        });  
+        });
   </script>
 {% schema %}
 {
@@ -139,6 +138,12 @@ var menu = [];
       "id":"title",
       "default":"Title",
       "label":"t:sections.featured-collection-slider.settings.title.label"
+    },
+    {
+      "type":"checkbox",
+      "id":"show_text",
+      "default":true,
+      "label":"Show text 'ALL PRODUCTS FROM'"
     },
     {
       "type":"collection",
