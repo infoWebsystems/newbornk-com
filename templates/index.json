@@ -166,10 +166,10 @@
         "show_view_all": false,
         "swipe_on_mobile": false,
         "image_ratio": "adapt",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "add_image_padding": false,
-        "show_vendor": false,
-        "show_arrow": false,
+        "show_vendor": true,
+        "show_arrow": true,
         "brand_collection": false
       }
     },
