@@ -88,6 +88,7 @@
       "type": "featured-collection-slider",
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
+        "show_text": false,
         "collection": "new-arrivals",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
@@ -144,6 +145,7 @@
       "type": "featured-collection-slider",
       "settings": {
         "title": "РОЗПРОДАЖ",
+        "show_text": true,
         "collection": "sale",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.5,
