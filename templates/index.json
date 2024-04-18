@@ -140,22 +140,6 @@
         "show_view_all": false
       }
     },
-    "1626416564a7b86704": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "РОЗПРОДАЖ",
-        "collection": "sale",
-        "full_width": true,
-        "products_to_show": 4,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
-      }
-    },
     "featured_collection_slider_3jzXAK": {
       "type": "featured-collection-slider",
       "settings": {
@@ -243,7 +227,6 @@
     "image_banner",
     "1626369903c393cced",
     "1626416534da40dc37",
-    "1626416564a7b86704",
     "featured_collection_slider_3jzXAK",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
