@@ -21,7 +21,7 @@
     "pluginseo_metaDescriptionCollectionTemplate": "Купити %% current_tags || join: ', ' || append_not_empty: ' ' %%%% collection.title || escape %%. ❰❰NEWBORN K❱❱. Видатні дизайнери світу та України. Досконала якість! 📦 Доставка по Україні 💫Даруйте собі впевненість з нашими речами!",
     "pluginseo_metaDescription404Template": "Сторінку, яку ви запитували, неможливо знайти, відвідайте %% shop.domain %% замість цього",
     "pluginseo_structuredDataDisplayLogo": true,
-    "pluginseo_structuredDataSocialProfileLinks": "https://www.instagram.com/newborn.kyiv/\nhttps://www.facebook.com/newborn.kyiv\nhttps://t.me/newbornk",
+    "pluginseo_structuredDataSocialProfileLinks": "https:\/\/www.instagram.com\/newborn.kyiv\/\nhttps:\/\/www.facebook.com\/newborn.kyiv\nhttps:\/\/t.me\/newbornk",
     "colors_accent_1": "#000000",
     "colors_accent_2": "#ccf951",
     "colors_text": "#000000",
@@ -29,12 +29,12 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
-    "social_facebook_link": "https://www.facebook.com/newborn.kyiv",
-    "social_instagram_link": "https://www.instagram.com/newborn.kyiv/",
+    "social_facebook_link": "https:\/\/www.facebook.com\/newborn.kyiv",
+    "social_instagram_link": "https:\/\/www.instagram.com\/newborn.kyiv\/",
     "language_switcher_enabled": true,
     "language_switcher_position": "bottom-right",
     "show_wishlist": true,
-    "checkout_logo_image": "shopify://shop_images/newborn_logo.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/newborn_logo.png",
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#ccf951",
     "sections": {
@@ -43,6 +43,7 @@
         "blocks": {
           "announcement-bar-0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Безкоштовна Доставка від 8000 грн",
               "color_scheme": "accent-2",
@@ -60,7 +61,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify://shop_images/newborn_logo.png",
+          "logo": "shopify:\/\/shop_images\/newborn_logo.png",
           "logo_width": 130,
           "logo_position": "middle-left",
           "menu_position": "center",
@@ -90,7 +91,7 @@
           "e7003153-6cde-4572-9831-cb6cf1415d7c": {
             "type": "logo",
             "settings": {
-              "logo": "shopify://shop_images/footer_logo.png"
+              "logo": "shopify:\/\/shop_images\/footer_logo.png"
             }
           },
           "e748077d-4503-4060-8448-791035314aae": {
@@ -126,8 +127,7 @@
       "stub": {
         "type": "stub",
         "settings": {
-          "btn-text": "Button text",
-          "button_link": "shopify://blogs/news"
+          "btn-text": "Button text"
         }
       }
     },
@@ -136,7 +136,7 @@
     ],
     "blocks": {
       "8765772171712610185": {
-        "type": "shopify://apps/t-lab-ai-language-translate/blocks/language_switcher/b5b83690-efd4-434d-8c6a-a5cef4019faf",
+        "type": "shopify:\/\/apps\/t-lab-ai-language-translate\/blocks\/language_switcher\/b5b83690-efd4-434d-8c6a-a5cef4019faf",
         "disabled": true,
         "settings": {
           "enable_language_switcher": true,
@@ -167,13 +167,13 @@
         }
       },
       "12793297677437526120": {
-        "type": "shopify://apps/t-lab-ai-language-translate/blocks/custom_translations/b5b83690-efd4-434d-8c6a-a5cef4019faf",
+        "type": "shopify:\/\/apps\/t-lab-ai-language-translate\/blocks\/custom_translations\/b5b83690-efd4-434d-8c6a-a5cef4019faf",
         "disabled": false,
         "settings": {
         }
       },
       "15683396631634586217": {
-        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
           "button_color": "#cbf951",
@@ -185,7 +185,7 @@
         }
       },
       "7870687481494312845": {
-        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+        "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/app-embed\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
         "disabled": false,
         "settings": {
           "customThemeName": "Dawn",
@@ -195,7 +195,7 @@
         }
       },
       "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {
         }

@@ -87,6 +87,7 @@
     },
     "1626369903c393cced": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": false,
@@ -144,6 +145,7 @@
     },
     "featured_collection_slider_3jzXAK": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "settings": {
         "title": "РОЗПРОДАЖ",
         "show_text": true,
