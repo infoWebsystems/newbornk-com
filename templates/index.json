@@ -66,7 +66,6 @@
         },
         "1630994380b1b22eeb-0": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/image_2024-02-13_12-59-27.png",
             "image_phone": "shopify:\/\/shop_images\/Mask_group.jpg",
@@ -76,7 +75,6 @@
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
             "image_phone": "shopify:\/\/shop_images\/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
@@ -104,7 +102,6 @@
     },
     "image_banner": {
       "type": "image-banner",
-      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/banner.png",
         "desktop_text_box_position": "flex-end",
@@ -236,6 +233,11 @@
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"><\/div>"
       }
+    },
+    "referbi_component": {
+      "type": "referbi-component",
+      "settings": {
+      }
     }
   },
   "order": [
@@ -246,6 +248,7 @@
     "1626416564a7b86704",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
-    "custom_liquid_tBx87F"
+    "custom_liquid_tBx87F",
+    "referbi_component"
   ]
 }
