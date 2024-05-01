@@ -39,6 +39,13 @@
             "language": "UK"
           }
         },
+        "slide_BHnyDT": {
+          "type": "slide",
+          "settings": {
+            "banner_link": "",
+            "language": "UK"
+          }
+        },
         "1630994380b1b22eeb-2": {
           "type": "slide",
           "settings": {
@@ -76,13 +83,6 @@
             "banner_link": "shopify:\/\/collections\/gift_ideas",
             "language": "UK"
           }
-        },
-        "slide_rCBTTt": {
-          "type": "slide",
-          "settings": {
-            "banner_link": "",
-            "language": "UK"
-          }
         }
       },
       "block_order": [
@@ -90,11 +90,11 @@
         "ce6d2dc3-91a2-4167-94e4-935de9a1b462",
         "1630994380b1b22eeb-1",
         "slide_TyEeBH",
+        "slide_BHnyDT",
         "1630994380b1b22eeb-2",
         "22a50905-f3ab-4163-8763-bbc28328aa48",
         "1630994380b1b22eeb-0",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
-        "slide_rCBTTt"
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
       "settings": {
         "image_width": "third",
