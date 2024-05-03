@@ -50,7 +50,6 @@
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
             "image_phone": "shopify:\/\/shop_images\/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
@@ -86,7 +85,6 @@
     },
     "1626369903c393cced": {
       "type": "featured-collection-slider",
-      "disabled": true,
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": false,
@@ -130,7 +128,6 @@
         "1626416534da40dc37-1",
         "1626416534da40dc37-2"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "image_ratio": "adapt",
@@ -144,7 +141,6 @@
     },
     "featured_collection_slider_3jzXAK": {
       "type": "featured-collection-slider",
-      "disabled": true,
       "settings": {
         "title": "РОЗПРОДАЖ",
         "show_text": true,
@@ -181,7 +177,6 @@
         "1626450162f5dda00b-1",
         "1626450162f5dda00b-0"
       ],
-      "disabled": true,
       "settings": {
         "title": "",
         "image_ratio": "square",
@@ -195,7 +190,6 @@
     },
     "16264502060c7e1d80": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "LIFESTYLE",
         "collection": "lifestyle",
@@ -212,14 +206,12 @@
     },
     "custom_liquid_tBx87F": {
       "type": "custom-liquid",
-      "disabled": true,
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"><\/div>"
       }
     },
     "stub_PKkLpD": {
       "type": "stub",
-      "disabled": true,
       "settings": {
         "btn-text": "Button text",
         "logo_link": "",
