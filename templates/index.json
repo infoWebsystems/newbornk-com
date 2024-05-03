@@ -212,6 +212,7 @@
     },
     "stub_PKkLpD": {
       "type": "stub",
+      "disabled": true,
       "settings": {
         "btn-text": "Button text",
         "logo_link": "",
