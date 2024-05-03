@@ -67,7 +67,6 @@
         "1630994380b1b22eeb-1",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
-      "disabled": true,
       "settings": {
         "image_width": "third",
         "image_ratio": "adapt",
@@ -220,6 +219,7 @@
     },
     "stub_PKkLpD": {
       "type": "stub",
+      "disabled": true,
       "settings": {
         "btn-text": "Button text",
         "logo_link": "",
