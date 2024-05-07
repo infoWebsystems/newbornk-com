@@ -48,6 +48,7 @@
         "4625a754-5e73-46d3-ac66-f7be0d9e5fb0",
         "18dda8e4-0a7f-4e90-80f7-a5e973ef0c04"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Contact form"
       }
@@ -112,13 +113,21 @@
         "1fd21b55-8335-430b-8128-5a3e7c7fa39d",
         "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f"
       ],
+      "disabled": true,
       "settings": {
+      }
+    },
+    "custom_liquid_rrgHY8": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-WVChGP\"><\/div>"
       }
     }
   },
   "order": [
     "main",
     "form",
-    "info"
+    "info",
+    "custom_liquid_rrgHY8"
   ]
 }
