@@ -21,9 +21,7 @@
 <div class="collection handle-{{handle}} page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %} page-width-full">
   <div class="{% if section.settings.show_view_all and section.settings.swipe_on_mobile %}title-wrapper-with-link{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
     <h2 class="title{% if title == blank %} title--no-heading{% endif %}">
-      <a href="{{ url }}">{{ title }}
-      {%- if section.settings.show_arrow %}{% render 'icon-caret' %} {% endif %}
-      </a>
+      {{ title }}
     </h2>
   </div>
 
@@ -35,7 +33,7 @@
     endif
   %}
 <div>
-  <product-recommendations  class="" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=10">
+  <product-recommendations  class="recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=10">
     <div  class=" swiper-container swiper-container-collection section-slider-recommendation section-{{section.id}}"  >
         <ul class="swiper-wrapper" role="list" >
              {% for recommendation in recommendations.products %}

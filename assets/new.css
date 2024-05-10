@@ -138,3 +138,9 @@
 div[aria-label="vk"],  div[aria-label="ok"]{
   display: none;
 }
+.price-item--sale{
+  margin-left: 6px;
+}
+.swiper-slide .card-information .price--on-sale .price__sale{
+  justify-content: center;
+}

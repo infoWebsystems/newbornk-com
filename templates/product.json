@@ -133,6 +133,7 @@
       "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "show_text": true,
         "collection": "frontpage",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
@@ -150,6 +151,7 @@
       "type": "featured-collection-slider",
       "settings": {
         "title": "{{ product.vendor }}",
+        "show_text": true,
         "collection": "salomon",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
@@ -180,7 +182,7 @@
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",
         "show_secondary_image": true,
-        "add_image_padding": true,
+        "add_image_padding": false,
         "show_vendor": true,
         "show_arrow": true,
         "brand_collection": true
