@@ -112,7 +112,7 @@
     "featured_collection_slider_DLy7wd": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "Title",
+        "title": "Бестселлери",
         "show_text": true,
         "collection": "найпопулярніше",
         "products_to_show": 6.5,
