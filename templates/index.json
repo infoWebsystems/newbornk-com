@@ -113,7 +113,7 @@
       "type": "featured-collection-slider",
       "settings": {
         "title": "Бестселлери",
-        "show_text": true,
+        "show_text": false,
         "collection": "найпопулярніше",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.5,
