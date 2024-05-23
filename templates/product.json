@@ -124,7 +124,8 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "enable_video_looping": false
+        "enable_video_looping": false,
+        "enable_size_model": true
       }
     },
     "16323088197825d104": {
@@ -132,6 +133,7 @@
       "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "show_text": true,
         "collection": "frontpage",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
@@ -149,6 +151,7 @@
       "type": "featured-collection-slider",
       "settings": {
         "title": "{{ product.vendor }}",
+        "show_text": true,
         "collection": "salomon",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
@@ -164,6 +167,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",
@@ -171,12 +175,25 @@
         "add_image_padding": true,
         "show_vendor": true
       }
+    },
+    "recommendation_slider_YPywew": {
+      "type": "recommendation-slider",
+      "settings": {
+        "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": true
+      }
     }
   },
   "order": [
     "main",
     "16323088197825d104",
     "1627050417092b6041",
-    "product-recommendations"
+    "product-recommendations",
+    "recommendation_slider_YPywew"
   ]
 }

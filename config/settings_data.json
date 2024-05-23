@@ -43,6 +43,7 @@
         "blocks": {
           "announcement-bar-0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Безкоштовна Доставка від 8000 грн",
               "color_scheme": "accent-2",
@@ -122,6 +123,12 @@
           "enable_language_selector": false,
           "payment_enable": true
         }
+      },
+      "stub": {
+        "type": "stub",
+        "settings": {
+          "btn-text": "Button text"
+        }
       }
     },
     "content_for_index": [
@@ -165,12 +172,6 @@
         "settings": {
         }
       },
-      "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "15683396631634586217": {
         "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
@@ -197,6 +198,12 @@
           "additionalWLButtonCssClasses": "",
           "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
           "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n<\/style>\n\n<script src=\"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/arrive\/2.4.1\/arrive.min.js\"><\/script>\n<script type=\"text\/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n<\/script>"
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
         }
       }
     }
