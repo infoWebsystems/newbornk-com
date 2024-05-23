@@ -109,6 +109,24 @@
         "brand_collection": false
       }
     },
+    "featured_collection_slider_DLy7wd": {
+      "type": "featured-collection-slider",
+      "settings": {
+        "title": "Title",
+        "show_text": true,
+        "collection": "найпопулярніше",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "show_arrow": false,
+        "brand_collection": false
+      }
+    },
     "1626416534da40dc37": {
       "type": "collection-list",
       "blocks": {
@@ -234,6 +252,7 @@
     "1630994380770cb550",
     "image_banner",
     "1626369903c393cced",
+    "featured_collection_slider_DLy7wd",
     "1626416534da40dc37",
     "featured_collection_slider_3jzXAK",
     "1626450162f5dda00b",
