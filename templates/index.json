@@ -41,6 +41,7 @@
         },
         "slide_BHnyDT": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "banner_link": "",
             "language": "UK"
@@ -66,6 +67,7 @@
         },
         "1630994380b1b22eeb-0": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/image_2024-02-13_12-59-27.png",
             "image_phone": "shopify:\/\/shop_images\/Mask_group.jpg",

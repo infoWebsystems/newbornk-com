@@ -1,8 +1,0 @@
-{
-  "parent": "page.welcome.json",
-  "context": {
-    "market": "international"
-  },
-  "sections": {
-  }
-}
