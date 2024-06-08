@@ -3,6 +3,16 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "slide_BHnyDT": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DTF_957091f5-8e6d-44ba-bcf0-8fb14bec992a.jpg",
+            "image_phone": "shopify:\/\/shop_images\/Ban_jan22_sale_mob_83caf057-18e7-4012-8481-5b5ba129999e.jpg",
+            "banner_link": "shopify:\/\/collections\/new-arrivals",
+            "language": "UK"
+          }
+        },
         "slide_wHpNAY": {
           "type": "slide",
           "settings": {
@@ -24,9 +34,9 @@
         "1630994380b1b22eeb-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Comp_3_0-00-00-00__1_2.png",
-            "image_phone": "shopify:\/\/shop_images\/static2.jpg",
-            "banner_link": "shopify:\/\/collections\/helas",
+            "image": "shopify:\/\/shop_images\/Ban_gram_ukr_desk_bc9bf4e5-4d6b-440f-972f-5a4c3fec442d.jpg",
+            "image_phone": "shopify:\/\/shop_images\/Ban_gram_ukr_mob_cb8e5fb7-3f09-4136-a5fb-4ff0f76e84b0.jpg",
+            "banner_link": "shopify:\/\/collections\/babylon",
             "language": "UK"
           }
         },
@@ -36,16 +46,6 @@
             "image": "shopify:\/\/shop_images\/static1_5.png",
             "image_phone": "shopify:\/\/shop_images\/static2_11.png",
             "banner_link": "shopify:\/\/collections\/pleasures",
-            "language": "UK"
-          }
-        },
-        "slide_BHnyDT": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify:\/\/shop_images\/DTF_957091f5-8e6d-44ba-bcf0-8fb14bec992a.jpg",
-            "image_phone": "shopify:\/\/shop_images\/Ban_jan22_sale_mob_83caf057-18e7-4012-8481-5b5ba129999e.jpg",
-            "banner_link": "shopify:\/\/collections\/new-arrivals",
             "language": "UK"
           }
         },
@@ -70,11 +70,11 @@
         }
       },
       "block_order": [
+        "slide_BHnyDT",
         "slide_wHpNAY",
         "ce6d2dc3-91a2-4167-94e4-935de9a1b462",
         "1630994380b1b22eeb-1",
         "slide_TyEeBH",
-        "slide_BHnyDT",
         "1630994380b1b22eeb-0",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
