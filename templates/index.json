@@ -5,7 +5,6 @@
       "blocks": {
         "slide_BHnyDT": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/DTF_957091f5-8e6d-44ba-bcf0-8fb14bec992a.jpg",
             "image_phone": "shopify:\/\/shop_images\/Ban_jan22_sale_mob_83caf057-18e7-4012-8481-5b5ba129999e.jpg",
@@ -61,6 +60,7 @@
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
             "image_phone": "shopify:\/\/shop_images\/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
