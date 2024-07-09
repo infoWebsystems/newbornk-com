@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "1630994380770cb550": {
@@ -100,7 +109,7 @@
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "new-arrivals",
+        "collection": "нові-надходження",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
