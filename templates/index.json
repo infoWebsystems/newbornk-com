@@ -32,6 +32,7 @@
         },
         "slide_wHpNAY": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/gramdesktop_3.png",
             "image_phone": "shopify:\/\/shop_images\/gramobile_3.png",
@@ -50,6 +51,7 @@
         },
         "slide_TyEeBH": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/static1_5.png",
             "image_phone": "shopify:\/\/shop_images\/static2_11.png",
@@ -69,7 +71,6 @@
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
             "image_phone": "shopify:\/\/shop_images\/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
