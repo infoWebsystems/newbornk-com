@@ -52,7 +52,6 @@
         "blocks": {
           "announcement-bar-0": {
             "type": "announcement",
-            "disabled": true,
             "settings": {
               "text": "Безкоштовна Доставка від 4000 грн",
               "color_scheme": "accent-2",
