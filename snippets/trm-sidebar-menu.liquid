@@ -254,7 +254,6 @@
                           {% assign collection = collections[collection_handle] %}
 
                           {% assign product_count = 0 %}
-                          {% assign page_size = 50 %}
 
                           {% paginate collection.products by 1000 %}
                             {% for product in collection.products %}
@@ -276,7 +275,7 @@
                             data-url="{{ childlink.url }}"
                             {% endcomment %}
                             data-products-in-collection="{{ product_count }}"
-                            style="padding: 0;"></span>
+                            style="padding: 0;">{{ product_count }}</span>
                         {% comment %} END {% endcomment %}
                         </a>
                       {%- else -%}
@@ -479,88 +478,12 @@
 </nav>
 
 <script>
-    // document.addEventListener('DOMContentLoaded', function() {
-    //   function fetchProductsCountInCollection(shopifyStoreUrl, accessToken, collectionHandle) {
-      
-    // }
-
-    // document.querySelectorAll('.collection-title').forEach(element => {
-    //   // let collectionHandle = element.getAttribute('data-collection-handle');
-    //   let encodedUrl = element.dataset.url;
-
-    //   let parts = encodedUrl.split('/');
-    //   let lastPartEncoded = parts[parts.length - 1];
-    //   let lastPartDecoded = decodeURIComponent(lastPartEncoded); // decoded part url
-
-    //     // Example usage:
-    // const shopifyStoreUrl = 'newbornk.com';
-    // const accessToken = 'ef373ff998cb10c714215fbcd549b452';
-    // const collectionHandle = 'accessoires'; 
-
-    //   fetchProductsCountInCollection(shopifyStoreUrl, accessToken, collectionHandle);
-    // });
-    // });
-
-    // https://980e2d2b4dd6d7a0fe26eff72f8ce590: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@newbornk.com/admin/api/2023-07/collections/279964221600/products.json
-    // https://newbornk.com/admin/api/2023-07/collections/279964221600/products.json
-
-    // 2
-
-  //   const accessToken = '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';
-  // const shop = 'newbornk.com';
-  // const apiVersion = '2023-07';
-  // const collectionId = '279964221600';
-
-  // const apiUrl = `https://${shop}/admin/api/${apiVersion}/collections/${collectionId}/products.json`;
-
-  // fetch(apiUrl, {
-  // mode: 'no-cors',
-  // headers: {
-  //   'X-Shopify-Access-Token': accessToken,
-  //   'Content-Type': 'application/json'
-  // }
-  // })
-  // .then(response => {
-  //   if (!response.ok) {
-  //     throw new Error(`HTTP error! Status: ${response.status}`);
-  //   }
-  //   return response.json();
-  // })
-  // .then(data => {
-  //   console.log('Products in collection:', data.products);
-  // })
-  // .catch(error => console.error('Error fetching collection products:', error));
-
-
-  // 3 
-
-  // fetch('https://newbornk.com/admin/api/2023-07/collections/279964221600/products.json', {
-  // method: 'GET',
-  // mode: 'no-cors',
-  // headers: {
-  //   'X-Shopify-Access-Token': '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',
-  //   'Content-Type': 'application/json'
-  // }
-  // })
-  // .then(response => {
-  //   if (!response.ok) {
-  //     throw new Error(`HTTP error! Status: ${response.status}`);
-  //   }
-  //   return response.json();
-  // })
-  // .then(data => {
-  //   console.log('Products in collection:', data.products);
-  // })
-  // .catch(error => console.error('Error fetching collection products:', error));
-
-  // Hide products in sidebar childlinks with no products
-
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.collection-title').forEach(element => {
-        const productsCount = element.getAttribute('data-products-in-collection');
-        if (+productsCount === 0) {
-          element.closest('li').style.display = 'none';
-        }
-      });
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.collection-title').forEach(element => {
+      const productsCount = element.getAttribute('data-products-in-collection');
+      if (+productsCount === 0) {
+        element.closest('li').style.display = 'none';
+      }
     });
+  });
 </script>
