@@ -576,101 +576,29 @@
                                         <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
                                           {{ childlink.title | escape }}
                                           {% comment %} START {% endcomment %}
-
                                           {% assign full_url = childlink.url %}
                                           {% assign url_parts = full_url | split: '/' %}
                                           {% assign tag_to_count = url_parts | last %}
-
-                                          {% assign tag_to_count = tag_to_count | replace: '%20', ' ' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%2D', '-' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%90', 'А' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%91', 'Б' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%92', 'В' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%93', 'Г' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%94', 'Д' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%95', 'Е' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%84', 'Є' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%96', 'Ж' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%97', 'З' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%98', 'И' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%86', 'І' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%87', 'Ї' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%99', 'Й' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%9A', 'К' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%9B', 'Л' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%9C', 'М' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%9D', 'Н' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%9E', 'О' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%9F', 'П' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A0', 'Р' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A1', 'С' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A2', 'Т' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A3', 'У' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A4', 'Ф' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A5', 'Х' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A6', 'Ц' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A7', 'Ч' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A8', 'Ш' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%A9', 'Щ' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%AE', 'Ю' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%AF', 'Я' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B0', 'а' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B1', 'б' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B2', 'в' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B3', 'г' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B4', 'д' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B5', 'е' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%94', 'є' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B6', 'ж' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B7', 'з' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B8', 'и' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%96', 'і' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%97', 'ї' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%B9', 'й' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%BA', 'к' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%BB', 'л' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%BC', 'м' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%BD', 'н' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%BE', 'о' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D0%BF', 'п' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%80', 'р' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%81', 'с' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%82', 'т' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%83', 'у' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%84', 'ф' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%85', 'х' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%86', 'ц' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%87', 'ч' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%88', 'ш' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%89', 'щ' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%8E', 'ю' %}
-                                          {% assign tag_to_count = tag_to_count | replace: '%D1%8F', 'я' %}
-
+                
+                                          {% assign tag_to_count = tag_to_count | url_decode %}
+                
                                           {% assign collection_handle = childlink.object.handle %}
                                           {% assign collection = collections[collection_handle] %}
-
-                                          {% assign product_count = 0 %}
-
-                                          {% paginate collection.products by 1000 %}
-                                            {% for product in collection.products %}
-                                              {% assign cleaned_product_tags = product.tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
-                                              {% assign cleaned_product_tag_to_count = tag_to_count | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
-
-                                              {% if cleaned_product_tags contains cleaned_product_tag_to_count %}
-                                                {% assign product_count = product_count | plus: 1 %}
-                                              {% endif %}
-                                            {% endfor %}
-                                          {% endpaginate %}
-
+                
+                                          {% assign is_product_count = 0 %}
+                
+                
+                                          {% assign collection_tags = collection.all_tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                                          {% assign cleaned_product_tags = product.tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                                          {% assign cleaned_product_tag_to_count = tag_to_count | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                
+                                          {% if collection_tags contains cleaned_product_tag_to_count %}
+                                            {% assign is_product_count = 1 %}
+                                          {% endif %}
+                
                                           <span
                                             class="collection-title"
-                                            {% comment %}
-                                            data-collection-handle="{{ childlink.object.handle }}"
-                                            {% endcomment %}
-                                            {% comment %}
-                                            data-url="{{ childlink.url }}"
-                                            {% endcomment %}
-                                            data-products-in-collection="{{ product_count }}"
+                                            data-products-in-collection="{{ is_product_count }}"
                                             style="padding: 0;"></span>
                                         {% comment %} END {% endcomment %}
                                         </a>
