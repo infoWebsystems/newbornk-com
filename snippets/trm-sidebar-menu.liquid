@@ -11,7 +11,7 @@
     {% assign cur_tags = sale_collection.all_tags %}
     {% assign col_tag = 'Чоловікам+Чоловіче,Жінкам+Жіноче,Аксесуари+Аксесуари,Взуття+Взуття,Lifestyle+Lifestyle' | split: ',' %}
     {% assign found_tag = false %}
-    <li>
+    {% comment %} <li>
       <details-disclosure>
         <details>
           <summary class="header__menu-item list-menu__item link focus-inset">
@@ -151,7 +151,7 @@
           </ul>
         </details>
       </details-disclosure>
-    </li>
+    </li> {% endcomment %}
     {%- for link in section.settings.menu_sidebar.links -%}
       {% if link.title != 'Бренди' %}
         <li>
