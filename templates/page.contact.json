@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -64,7 +73,7 @@
         "c8ea31b6-bc74-4f49-81ca-abef5dc6eaf9": {
           "type": "phone",
           "settings": {
-            "phone": "+380 67 57 88 507"
+            "phone": "+380 97 044 3333"
           }
         },
         "83665029-ada5-4004-82e9-11e95ca91c7c": {
