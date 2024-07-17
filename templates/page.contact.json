@@ -80,15 +80,15 @@
           "type": "working_hours",
           "settings": {
             "view": "short",
-            "short_weekdays": "11:00 - 20:00",
-            "short_weekend": "11:00 - 19:00",
-            "monday": "11:00 - 20:00",
-            "tuesday": "11:00 - 20:00",
-            "wednesday": "11:00 - 20:00",
-            "thursday": "11:00 - 20:00",
-            "friday": "11:00 - 20:00",
-            "saturday": "11:00 - 20:00",
-            "sunday": "11:00 - 19:00"
+            "short_weekdays": "11:00 - 21:00",
+            "short_weekend": "11:00 - 21:00",
+            "monday": "11:00 - 21:00",
+            "tuesday": "11:00 - 21:00",
+            "wednesday": "11:00 - 21:00",
+            "thursday": "11:00 - 21:00",
+            "friday": "11:00 - 21:00",
+            "saturday": "11:00 - 21:00",
+            "sunday": "11:00 - 21:00"
           }
         },
         "92db4d45-7fa4-4055-b13d-e755116eb814": {
