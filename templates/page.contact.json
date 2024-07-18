@@ -79,7 +79,7 @@
         "83665029-ada5-4004-82e9-11e95ca91c7c": {
           "type": "working_hours",
           "settings": {
-            "view": "short",
+            "view": "full",
             "short_weekdays": "11:00 - 21:00",
             "short_weekend": "11:00 - 21:00",
             "monday": "11:00 - 21:00",
@@ -94,7 +94,7 @@
         "92db4d45-7fa4-4055-b13d-e755116eb814": {
           "type": "address",
           "settings": {
-            "street": "вул. Велика Житомирська, 20, 2 поверх",
+            "street": "вул. Велика Житомирська, 20",
             "url": "https:\/\/maps.app.goo.gl\/VtaNBz5cXNtQKzAF6"
           }
         },
