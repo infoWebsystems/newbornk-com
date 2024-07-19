@@ -575,6 +575,32 @@
                                       {%- if childlink.links == blank -%}
                                         <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
                                           {{ childlink.title | escape }}
+                                          {% comment %} START {% endcomment %}
+                                          {% assign full_url = childlink.url %}
+                                          {% assign url_parts = full_url | split: '/' %}
+                                          {% assign tag_to_count = url_parts | last %}
+                
+                                          {% assign tag_to_count = tag_to_count | url_decode %}
+                
+                                          {% assign collection_handle = childlink.object.handle %}
+                                          {% assign collection = collections[collection_handle] %}
+                
+                                          {% assign is_product_count = 0 %}
+                
+                
+                                          {% assign collection_tags = collection.all_tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                                          {% assign cleaned_product_tags = product.tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                                          {% assign cleaned_product_tag_to_count = tag_to_count | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                
+                                          {% if collection_tags contains cleaned_product_tag_to_count %}
+                                            {% assign is_product_count = 1 %}
+                                          {% endif %}
+                
+                                          <span
+                                            class="collection-title"
+                                            data-products-in-collection="{{ is_product_count }}"
+                                            style="padding: 0;"></span>
+                                        {% comment %} END {% endcomment %}
                                         </a>
                                       {%- else -%}
                                         <details>
