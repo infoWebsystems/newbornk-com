@@ -154,7 +154,7 @@
     </li> {% endcomment %}
     {%- for link in section.settings.menu_sidebar.links -%}
       {% if link.title != 'Бренди' %}
-        <li>
+        <li class="sidemenu-link">
           {%- if link.links != blank -%}
 
             {% comment %} <a class="sidebar_link" href="{{ link.url }}">

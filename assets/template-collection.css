@@ -965,8 +965,12 @@ input.mobile-facets__checkbox {
 
 .facets-box {
   padding-left: 5px;
-  /* margin-top: 25px; */
+  margin-top: 25px;
 }
+
+/* li.sidemenu-link + collection-filters-form .facets-box {
+  margin-top: 0;
+} */
 
 .facets-box .facets-container .facets__display {
   position: unset;
