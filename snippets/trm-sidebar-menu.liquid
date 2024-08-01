@@ -156,14 +156,25 @@
       {% if link.title != 'Бренди' %}
         <li>
           {%- if link.links != blank -%}
+
+            {% comment %} <a class="sidebar_link" href="{{ link.url }}">
+              <summary class="header__menu-item list-menu__item link focus-inset">
+                <span
+                  {%- if link.child_active %}
+                    class="header__active-menu-item"
+                  {% endif %}>{{ link.title | escape }}
+                </span>
+              </summary>
+            </a> {% endcomment %}
+
+
             <details-disclosure>
               <details>
                 <summary class="header__menu-item list-menu__item link focus-inset">
                   <span
                     {%- if link.child_active %}
                     class="header__active-menu-item"
-                    {% endif %}>{{ link.title | escape }}</span>
-                {% comment %} {% render 'icon-caret' %} {% endcomment %}
+                    {% endif %}><a href="{{ link.url }}">{{ link.title | escape }}</a></span>
                 </summary>
                 <ul
                   class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce"
@@ -179,7 +190,6 @@
                           aria-current="page"
                           {% endif %}>
                         {{ childlink.title | escape }}
-                          {% comment %} START {% endcomment %}
 
                           {% assign full_url = childlink.url %}
                           {% assign url_parts = full_url | split: '/' %}
@@ -188,12 +198,12 @@
                           {% assign tag_to_count = tag_to_count | url_decode %}
 
                           {% assign collection_handle = childlink.object.handle %}
-                          {% assign collection = collections[collection_handle] %}
+                          {% assign current_collection = collections[collection_handle] %}
 
                           {% assign is_product_count = 0 %}
 
 
-                          {% assign collection_tags = collection.all_tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
+                          {% assign collection_tags = current_collection.all_tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
                           {% assign cleaned_product_tags = product.tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
                           {% assign cleaned_product_tag_to_count = tag_to_count | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
 
@@ -205,7 +215,6 @@
                             class="collection-title"
                             data-products-in-collection="{{ is_product_count }}"
                             style="padding: 0;"></span>
-                        {% comment %} END {% endcomment %}
                         </a>
                       {%- else -%}
                         <details>
@@ -231,7 +240,7 @@
                       {%- endif -%}
                     </li>
                   {%- endfor -%}
-                </ul>
+                </ul> 
               </details>
             </details-disclosure>
           {%- else -%}
@@ -248,6 +257,23 @@
             </a>
           {%- endif -%}
         </li>
+
+        {% comment %} {% assign url = link.url %}
+        {% assign parts = url | split: '/' %}
+        {% assign last_part = parts | last %}
+
+        {% if last_part == collection.handle %}
+          <collection-filters-form class="facets facets-mobile">
+            <li class="facets-box">
+              {% render 'facets-sidebar'
+                , results: collection
+                , enable_filtering: true
+                , enable_sorting: true
+                , collapse_on_larger_devices: false
+                , hide_summary: true %}
+            </li>
+          </collection-filters-form>
+        {% endif %} {% endcomment %}
       {% endif %}
     {%- endfor -%}
     {% assign sale_collection = collections['sale'] %}
@@ -394,6 +420,7 @@
         </details>
       </details-disclosure>
     </li>
+
     <collection-filters-form class="facets facets-mobile">
       <li class="facets-box">
         {% render 'facets'
@@ -405,6 +432,7 @@
     </collection-filters-form>
   </ul>
 </nav>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
