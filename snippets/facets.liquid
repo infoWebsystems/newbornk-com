@@ -46,48 +46,51 @@
               {% if filter.param_name == 'filter.p.m.my_fields.discount' and coll_title != 'sale' %}
                 {% continue %}
               {% else %}
+              {% if filter.label != 'Category' %}
                 <details class="js-filter" data-index="{{ forloop.index }}">
-                    <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
-                      <div>
-                        {% if filter.label == 'Brand' %}
-                          <span>Бренди</span>
-                        {% elsif filter.label == 'Size' %}
-                          <span>Розмір</span>
-                        {% else %}
-                          <span>{{ filter.label | escape }}</span>
-                        {% endif %}
-                        {% render 'icon-caret' %}
-                      </div>
-                    </summary>
-                    <div class="facets__display">
-                      <div class="facets__header">
-                        <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
-                        <facet-remove>
-                          <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
-                            {{ 'products.facets.reset' | t }}
-                          </a>
-                        </facet-remove>
-                      </div>
-                      <ul class="facets__list list-unstyled header__submenu list-menu motion-reduce header-submenu__third--level" role="list">
-                        {%- for value in filter.values -%}
-                          <li class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
-                            <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
-                              <input type="checkbox"
-                                name="{{ value.param_name }}"
-                                value="{{ value.value }}"
-                                id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                                {% if value.active %}checked{% endif %}
-                                {% if value.count == 0 and value.active == false %}disabled{% endif %}
-                              >
-                              <div class="facet-checkbox__title">{{ value.label | escape }}</div> {% if filter.label != 'Brand' %}<div class="facet-checkbox__title facet-checkbox__number">({{ value.count }})</div>{% endif %}
-                              <div class="icon icon-checkmark icon-checkmark__plus"></div>
-                              <div class="facet-checkbox__background"></div>
-                            </label>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
+                  <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
+                    <div>
+                      {% if filter.label == 'Brand' %}
+                        <span>Бренди</span>
+                      {% elsif filter.label == 'Size' %}
+                        <span>Розмір</span>
+                      {% else %}
+                        <span>{{ filter.label | escape }}</span>
+                      {% endif %}
+                      {% render 'icon-caret' %}
                     </div>
-                  </details>
+                  </summary>
+                  <div class="facets__display">
+                    <div class="facets__header">
+                      <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
+                      <facet-remove>
+                        <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
+                          {{ 'products.facets.reset' | t }}
+                        </a>
+                      </facet-remove>
+                    </div>
+                    <ul class="facets__list list-unstyled header__submenu list-menu motion-reduce header-submenu__third--level" role="list">
+                      {%- for value in filter.values -%}
+                        <li class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}" class="facet-checkbox{% if value.count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}">
+                            <input type="checkbox"
+                              name="{{ value.param_name }}"
+                              value="{{ value.value }}"
+                              id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                              {% if value.active %}checked{% endif %}
+                              {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                            >
+                            <div class="facet-checkbox__title">{{ value.label | escape }}</div> {% if filter.label != 'Brand' %}<div class="facet-checkbox__title facet-checkbox__number">({{ value.count }})</div>{% endif %}
+                            <div class="icon icon-checkmark icon-checkmark__plus"></div>
+                            <div class="facet-checkbox__background"></div>
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+                </details>
+              {% endif %}
+                
               {% endif %}
               {% when 'price_range' %}
                 {% liquid

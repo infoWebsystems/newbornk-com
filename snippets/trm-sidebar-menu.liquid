@@ -157,7 +157,7 @@
         <li class="sidemenu-link">
           {%- if link.links != blank -%}
 
-            <a class="sidebar_link" href="{{ link.url }}">
+            {% comment %} <a class="sidebar_link" href="{{ link.url }}">
               <summary class="header__menu-item list-menu__item link focus-inset">
                 <span
                   {%- if link.child_active %}
@@ -165,10 +165,10 @@
                   {% endif %}>{{ link.title | escape }}
                 </span>
               </summary>
-            </a>
+            </a> {% endcomment %}
 
 
-            {% comment %} <details-disclosure>
+            <details-disclosure>
               <details>
                 <summary class="header__menu-item list-menu__item link focus-inset">
                   <span
@@ -242,7 +242,7 @@
                   {%- endfor -%}
                 </ul> 
               </details>
-            </details-disclosure> {% endcomment %}
+            </details-disclosure>
           {%- else -%}
             <a
               href="{{ link.url }}"
@@ -258,7 +258,7 @@
           {%- endif -%}
         </li>
 
-        {% assign url = link.url %}
+        {% comment %} {% assign url = link.url %}
         {% assign parts = url | split: '/' %}
         {% assign last_part = parts | last %}
 
@@ -273,7 +273,7 @@
                 , hide_summary: true %}
             </li>
           </collection-filters-form>
-        {% endif %}
+        {% endif %} {% endcomment %}
       {% endif %}
     {%- endfor -%}
     {% assign sale_collection = collections['sale'] %}

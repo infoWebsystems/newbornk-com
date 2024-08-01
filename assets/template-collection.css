@@ -968,9 +968,9 @@ input.mobile-facets__checkbox {
   margin-top: 25px;
 }
 
-li.sidemenu-link + collection-filters-form .facets-box {
+/* li.sidemenu-link + collection-filters-form .facets-box {
   margin-top: 0;
-}
+} */
 
 .facets-box .facets-container .facets__display {
   position: unset;
