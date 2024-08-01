@@ -46,8 +46,10 @@
               {% if filter.param_name == 'filter.p.m.my_fields.discount' and coll_title != 'sale' %}
                 {% continue %}
               {% else %}
-                <details class="js-filter" data-index="{{ forloop.index }}">
-                    <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
+                <details class="js-filter" data-index="{{ forloop.index }}" open>
+                    <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex" {% if hide_summary %}
+                      style="display: none;"
+                    {% endif %}>
                       <div>
                         {% if filter.label == 'Brand' %}
                           <span>Бренди</span>

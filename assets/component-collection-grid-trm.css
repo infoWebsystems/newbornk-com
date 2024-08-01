@@ -38,9 +38,9 @@
         width: 100%;
     }   
 }
-.sidebar-menu li {
-    
-
+.sidebar-menu li a.sidebar_link {
+    text-decoration: none;
+    text-transform: uppercase;
 }
 .sidebar-menu .list-menu--disclosure {
     position: relative;
@@ -214,6 +214,14 @@
 .collection-filters .header__active-menu-item {
     padding: 5px 10px;
     border-radius: 5px;
+}
+.collection-filters .header__menu-item span {
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+.collection-filters .header__menu-item span a {
+    text-decoration: none;
+    color: inherit;
 }
 .collection-filters .header__menu-item span {
     padding: 8px 12px;

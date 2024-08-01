@@ -965,7 +965,7 @@ input.mobile-facets__checkbox {
 
 .facets-box {
   padding-left: 5px;
-  margin-top: 25px;
+  /* margin-top: 25px; */
 }
 
 .facets-box .facets-container .facets__display {
