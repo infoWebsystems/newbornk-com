@@ -357,7 +357,7 @@ body.template-collection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  word-break: break-word;
+  /* word-break: break-word; */
 }
 
 .facet-checkbox input[type='checkbox'] {
@@ -968,9 +968,9 @@ input.mobile-facets__checkbox {
   margin-top: 25px;
 }
 
-/* li.sidemenu-link + collection-filters-form .facets-box {
+li.sidemenu-link + collection-filters-form .facets-box {
   margin-top: 0;
-} */
+}
 
 .facets-box .facets-container .facets__display {
   position: unset;
