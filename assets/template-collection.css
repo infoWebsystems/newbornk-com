@@ -357,7 +357,7 @@ body.template-collection {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  word-break: break-word;
+  /* word-break: break-word; */
 }
 
 .facet-checkbox input[type='checkbox'] {
