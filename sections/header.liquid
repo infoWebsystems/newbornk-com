@@ -354,7 +354,7 @@
 
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu list-menu" role="list">
-      <li>
+      {% comment %} <li>
                       <details>
                           <summary class="menu-drawer__mobil--sale menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                             <a class="summary-link" href="/collections/new-arrivals">
@@ -548,7 +548,7 @@
                 </div>
               </div>
             </details>
-                        </li>
+                        </li> {% endcomment %}
                     {%- for link in section.settings.menu_mobile.links -%}
                       <li>
                         {%- if link.links != blank -%}
