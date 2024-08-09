@@ -2761,13 +2761,25 @@ main {
     margin-bottom: 390px;
   }
 
-svg.product-bage-new {
+svg.product-bage-new,
+div.product-bage-last-size {
     position: absolute;
-    z-index: 1;
     top: 1rem;
     left: 1rem;
     height: 36px;
     width: auto;
+    z-index: 10;
+}
+
+div.product-bage-last-size {
+    font-size: 14px;
+    border-radius: 20px;
+    font-weight: 100;
+    padding: 3px 20px;
+    color: #fff;
+    background-color: #000;
+    display: flex;
+    align-items: center;
 }
 svg.product-media-bage-new {
     position: absolute;

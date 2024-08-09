@@ -1,5 +1,5 @@
-{%- for tag in product_card_product.tags -%}
-  {%- if tag == 'NEW' -%}
+{% comment %} {%- for tag in product_card_product.tags -%} {% endcomment %}
+  {%- if product_card_product.tags contains "NEW" and product_card_product.tags contains "last-size" -%}
     {%- comment -%}
     <svg class="product-bage-new"  width="40" height="20" viewBox="0 0 130 67" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="130" height="67" rx="33.5" fill="white"/>
@@ -9,15 +9,42 @@
     </svg>
     {%- endcomment -%}
     <svg class="product-bage-new"  width="40" height="20" viewBox="0 0 130 67" style="enable-background:new 0 0 130 67;" >
-    <style type="text/css">
-      .st0{fill:#FFFFFF;}
-    </style>
-    <path d="M33.5,0h63C115,0,130,15,130,33.5l0,0C130,52,115,67,96.5,67h-63C15,67,0,52,0,33.5l0,0C0,15,15,0,33.5,0z"/>
-    <path class="st0" d="M52,24v16.6h-0.5L42.1,24H39v18.4h1.7V25.8h0.5l9.4,16.6h3.1V24H52z"/>
-    <path class="st0" d="M60,40.9v-7.3h8.8V32H60v-6.5h10.8V24H58.3v18.4h12.9v-1.5H60z"/>
-    <path class="st0" d="M82.1,30.6l-3.8,10h-0.5L75.6,24h-1.7l2.4,18.4h3L83,32.3h0.5l3.8,10.1h3L92.7,24H91l-2.1,16.6h-0.5l-3.8-10
-      H82.1z"/>
+      <style type="text/css">
+        .st0{fill:#FFFFFF;}
+      </style>
+      <path d="M33.5,0h63C115,0,130,15,130,33.5l0,0C130,52,115,67,96.5,67h-63C15,67,0,52,0,33.5l0,0C0,15,15,0,33.5,0z"/>
+      <path class="st0" d="M52,24v16.6h-0.5L42.1,24H39v18.4h1.7V25.8h0.5l9.4,16.6h3.1V24H52z"/>
+      <path class="st0" d="M60,40.9v-7.3h8.8V32H60v-6.5h10.8V24H58.3v18.4h12.9v-1.5H60z"/>
+      <path class="st0" d="M82.1,30.6l-3.8,10h-0.5L75.6,24h-1.7l2.4,18.4h3L83,32.3h0.5l3.8,10.1h3L92.7,24H91l-2.1,16.6h-0.5l-3.8-10
+        H82.1z"/>
     </svg>
-    {%- break -%}
+    {% break %}
   {%- endif -%}
-{%- endfor -%}
+
+  {%- if product_card_product.tags contains "NEW" -%}
+    <svg class="product-bage-new"  width="40" height="20" viewBox="0 0 130 67" style="enable-background:new 0 0 130 67;" >
+      <style type="text/css">
+        .st0{fill:#FFFFFF;}
+      </style>
+      <path d="M33.5,0h63C115,0,130,15,130,33.5l0,0C130,52,115,67,96.5,67h-63C15,67,0,52,0,33.5l0,0C0,15,15,0,33.5,0z"/>
+      <path class="st0" d="M52,24v16.6h-0.5L42.1,24H39v18.4h1.7V25.8h0.5l9.4,16.6h3.1V24H52z"/>
+      <path class="st0" d="M60,40.9v-7.3h8.8V32H60v-6.5h10.8V24H58.3v18.4h12.9v-1.5H60z"/>
+      <path class="st0" d="M82.1,30.6l-3.8,10h-0.5L75.6,24h-1.7l2.4,18.4h3L83,32.3h0.5l3.8,10.1h3L92.7,24H91l-2.1,16.6h-0.5l-3.8-10
+        H82.1z"/>
+    </svg>
+    {% break %}
+  {%- endif -%}
+
+  {%- if product_card_product.tags contains "last-size" -%}
+    <div class="product-bage-last-size">
+      LAST SIZE
+    </div>
+    {% break %}
+  {%- endif -%}
+
+  {% comment %} {%- if tag == 'last-size' -%}
+    <div class="product-bage-last-size">
+      LAST SIZE
+    </div>
+  {%- endif -%} {% endcomment %}
+{% comment %} {%- endfor -%} {% endcomment %}
