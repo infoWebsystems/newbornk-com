@@ -158,7 +158,8 @@
 .product__info-container--sticky {
   top:100px!important;
 }
-.main-gallery svg.product-bage-new {
+.main-gallery svg.product-bage-new,
+.main-gallery div.product-bage-last-size {
   position: absolute;
   z-index: 99;
   top: 2rem;
