@@ -15,8 +15,8 @@
         "slide_BHnyDT": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Comp_4_0_00_00_00_1.png",
-            "image_phone": "shopify:\/\/shop_images\/Comp_5_0_00_00_00.png",
+            "image": "shopify:\/\/shop_images\/arigato_desktop.png",
+            "image_phone": "shopify:\/\/shop_images\/arigato_mobile.png",
             "banner_link": "shopify:\/\/collections\/sale",
             "language": "UK"
           }
