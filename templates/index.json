@@ -93,6 +93,7 @@
     },
     "image_banner": {
       "type": "image-banner",
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/banner.png",
         "desktop_text_box_position": "flex-end",
