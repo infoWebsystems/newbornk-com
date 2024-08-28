@@ -354,7 +354,15 @@
 
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu list-menu" role="list">
-      {% comment %} <li>
+      
+
+
+
+
+
+
+
+                {% comment %} <li>
                       <details>
                           <summary class="menu-drawer__mobil--sale menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                             <a class="summary-link" href="/collections/new-arrivals">
@@ -485,7 +493,6 @@
                     {% endfor %}
                     {% if found_tag %}
                       <li>
-                        {% comment %} Бренди {% endcomment %}
                         <details>
                           <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                             <a class="summary-link" href="/collections/brands">
@@ -509,7 +516,6 @@
                                     {%- continue -%}
                                   {%- endunless -%}
                                   {% for sub_link in link.links -%}
-                                    {% comment %} {{ sub_link.title }} {% endcomment %}
                                     {%- if sub_link.title contains ' 🇺🇦' -%}
                                       {%- assign cur_brand = sub_link.title | replace: ' 🇺🇦', '' -%}
                                       {%- assign ua_brands = ua_brands | append: cur_brand | append: '~' -%}
@@ -549,6 +555,17 @@
               </div>
             </details>
                         </li> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
                     {%- for link in section.settings.menu_mobile.links -%}
                       <li>
                         {%- if link.links != blank -%}
@@ -576,7 +593,7 @@
                                         <a href="{{ childlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if childlink.current %} menu-drawer__menu-item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
                                           {{ childlink.title | escape }}
                                           {% comment %} START {% endcomment %}
-                                          {% assign full_url = childlink.url %}
+                                          {% comment %} {% assign full_url = childlink.url %}
                                           {% assign url_parts = full_url | split: '/' %}
                                           {% assign tag_to_count = url_parts | last %}
                 
@@ -599,7 +616,7 @@
                                           <span
                                             class="collection-title"
                                             data-products-in-collection="{{ is_product_count }}"
-                                            style="padding: 0;"></span>
+                                            style="padding: 0;"></span> {% endcomment %}
                                         {% comment %} END {% endcomment %}
                                         </a>
                                       {%- else -%}
