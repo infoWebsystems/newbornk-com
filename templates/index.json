@@ -15,8 +15,8 @@
         "slide_BHnyDT": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/desk_1.png",
-            "image_phone": "shopify:\/\/shop_images\/Comp_4_0_00_03_00_1.png",
+            "image": "shopify:\/\/shop_images\/arigato_desktop.png",
+            "image_phone": "shopify:\/\/shop_images\/arigato_mobile.png",
             "banner_link": "shopify:\/\/collections\/sale",
             "language": "UK"
           }
@@ -32,7 +32,6 @@
         },
         "slide_wHpNAY": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/gramdesktop_3.png",
             "image_phone": "shopify:\/\/shop_images\/gramobile_3.png",
@@ -51,7 +50,6 @@
         },
         "slide_TyEeBH": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/static1_5.png",
             "image_phone": "shopify:\/\/shop_images\/static2_11.png",
@@ -61,7 +59,6 @@
         },
         "1630994380b1b22eeb-0": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify:\/\/shop_images\/image_2024-02-13_12-59-27.png",
             "image_phone": "shopify:\/\/shop_images\/Mask_group.jpg",
@@ -163,7 +160,6 @@
     },
     "1626416564a7b86704": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "РОЗПРОДАЖ",
         "collection": "sale",
@@ -248,11 +244,6 @@
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"><\/div>"
       }
-    },
-    "referbi_component": {
-      "type": "referbi-component",
-      "settings": {
-      }
     }
   },
   "order": [
@@ -264,7 +255,6 @@
     "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
-    "custom_liquid_tBx87F",
-    "referbi_component"
+    "custom_liquid_tBx87F"
   ]
 }
