@@ -241,6 +241,9 @@
     letter-spacing: 0em;
     color: #000000;
 }
+  .menu-drawer__menu-item.add-margin{
+    padding: 1rem 3.2rem;}
+
   .menu-drawer .list-menu {
     list-style: none;
     padding: 0;
@@ -579,23 +582,23 @@
                                           {% assign full_url = childlink.url %}
                                           {% assign url_parts = full_url | split: '/' %}
                                           {% assign tag_to_count = url_parts | last %}
-                
+
                                           {% assign tag_to_count = tag_to_count | url_decode %}
-                
+
                                           {% assign collection_handle = childlink.object.handle %}
                                           {% assign collection = collections[collection_handle] %}
-                
+
                                           {% assign is_product_count = 0 %}
-                
-                
+
+
                                           {% assign collection_tags = collection.all_tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
                                           {% assign cleaned_product_tags = product.tags | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
                                           {% assign cleaned_product_tag_to_count = tag_to_count | join: ',' | downcase | replace: '-', '' | replace: ' ', '' %}
-                
+
                                           {% if collection_tags contains cleaned_product_tag_to_count %}
                                             {% assign is_product_count = 1 %}
                                           {% endif %}
-                
+
                                           <span
                                             class="collection-title"
                                             data-products-in-collection="{{ is_product_count }}"
@@ -633,8 +636,8 @@
                             </div>
                           </details>
                         {%- else -%}
-                          <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %}"{% if link.current %} aria-current="page"{% endif %}>
-                            {{ link.title | escape }}
+                          <a href="{{ link.url }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.current %} menu-drawer__menu-item--active{% endif %} {% if link.url contains "gift-card" %} add-margin {% endif %}"{% if link.current %} aria-current="page"{% endif %}>
+                           {{ link.title | escape }}
                           </a>
                         {%- endif -%}
                       </li>
@@ -1573,8 +1576,8 @@
      {%- endif -%}
 
       {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link link--text focus-inset">
-          {% render 'icon-account' %}
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset">
+         {% render 'icon-account' %}
           <span class="visually-hidden">
             {%- liquid
               if customer

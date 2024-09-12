@@ -6,10 +6,9 @@
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 
 
-
 <div class="page-width ">
   <div class="grid">
-  
+
  <section id="shopify-section-main-cart-items" class="grid__item--two-third">
   <cart-items class="{% if cart == empty %} is-empty{% endif %}">
     <div class="title-wrapper-with-link">
@@ -227,7 +226,7 @@
     </form>
   </cart-items>
   </section>
-    
+
   <section id="shopify-section-main-cart-footer" class="grid__item--one-third">
 
   <div class="{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="shopify-section-main-cart-footer">
@@ -302,11 +301,11 @@
       </div>
     </div>
   </div>
-    
+
   </section>
-    
+
   </div>
-  
+
 </div>
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
