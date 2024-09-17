@@ -187,3 +187,8 @@ div[aria-label="vk"],  div[aria-label="ok"]{
   }
 }
 
+.header__icon--account.account{
+  margin: 0;
+  max-width: none;
+  padding: 0;
+}
