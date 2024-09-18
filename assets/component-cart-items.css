@@ -462,6 +462,8 @@ cart-remove-button .icon-remove {
     margin-left: 15px;
     border-radius: 4px;
     margin-right: 0;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
   }
 }
 cart-remove-button a.button {
