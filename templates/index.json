@@ -15,18 +15,18 @@
         "slide_BHnyDT": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/desk_1.png",
-            "image_phone": "shopify:\/\/shop_images\/Comp_4_0_00_03_00_1.png",
-            "banner_link": "shopify:\/\/collections\/sale",
+            "image": "shopify://shop_images/desk_1.png",
+            "image_phone": "shopify://shop_images/Comp_4_0_00_03_00_1.png",
+            "banner_link": "shopify://collections/sale",
             "language": "UK"
           }
         },
         "1630994380b1b22eeb-1": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Ban_gram_ukr_desk_bc9bf4e5-4d6b-440f-972f-5a4c3fec442d.jpg",
-            "image_phone": "shopify:\/\/shop_images\/Ban_gram_ukr_mob_cb8e5fb7-3f09-4136-a5fb-4ff0f76e84b0.jpg",
-            "banner_link": "shopify:\/\/collections\/babylon",
+            "image": "shopify://shop_images/Ban_gram_ukr_desk_bc9bf4e5-4d6b-440f-972f-5a4c3fec442d.jpg",
+            "image_phone": "shopify://shop_images/Ban_gram_ukr_mob_cb8e5fb7-3f09-4136-a5fb-4ff0f76e84b0.jpg",
+            "banner_link": "shopify://collections/babylon",
             "language": "UK"
           }
         },
@@ -34,18 +34,18 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/gramdesktop_3.png",
-            "image_phone": "shopify:\/\/shop_images\/gramobile_3.png",
-            "banner_link": "shopify:\/\/collections\/gramicci",
+            "image": "shopify://shop_images/gramdesktop_3.png",
+            "image_phone": "shopify://shop_images/gramobile_3.png",
+            "banner_link": "shopify://collections/gramicci",
             "language": "UK"
           }
         },
         "ce6d2dc3-91a2-4167-94e4-935de9a1b462": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/static1_4.png",
-            "image_phone": "shopify:\/\/shop_images\/static1-1.png",
-            "banner_link": "shopify:\/\/collections\/market",
+            "image": "shopify://shop_images/static1_4.png",
+            "image_phone": "shopify://shop_images/static1-1.png",
+            "banner_link": "shopify://collections/market",
             "language": "UK"
           }
         },
@@ -53,9 +53,9 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/static1_5.png",
-            "image_phone": "shopify:\/\/shop_images\/static2_11.png",
-            "banner_link": "shopify:\/\/collections\/pleasures",
+            "image": "shopify://shop_images/static1_5.png",
+            "image_phone": "shopify://shop_images/static2_11.png",
+            "banner_link": "shopify://collections/pleasures",
             "language": "UK"
           }
         },
@@ -63,18 +63,18 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_2024-02-13_12-59-27.png",
-            "image_phone": "shopify:\/\/shop_images\/Mask_group.jpg",
-            "banner_link": "shopify:\/\/collections\/sale",
+            "image": "shopify://shop_images/image_2024-02-13_12-59-27.png",
+            "image_phone": "shopify://shop_images/Mask_group.jpg",
+            "banner_link": "shopify://collections/sale",
             "language": "UK"
           }
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
-            "image_phone": "shopify:\/\/shop_images\/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
-            "banner_link": "shopify:\/\/collections\/gift_ideas",
+            "image": "shopify://shop_images/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
+            "image_phone": "shopify://shop_images/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
+            "banner_link": "shopify://collections/gift_ideas",
             "language": "UK"
           }
         }
@@ -98,7 +98,7 @@
       "type": "image-banner",
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/banner.png",
+        "image": "shopify://shop_images/banner.png",
         "desktop_text_box_position": "flex-end",
         "color_scheme": "background-1",
         "stack_images_on_mobile": true,
@@ -110,7 +110,7 @@
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "нові-надходження",
+        "collection": "new_arrivals",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
@@ -246,7 +246,7 @@
     "custom_liquid_tBx87F": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"><\/div>"
+        "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
       }
     },
     "referbi_component": {
