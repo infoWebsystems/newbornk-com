@@ -12,3 +12,10 @@
   color: #FFFFFF;
   word-break: break-word;
 }
+
+@media (max-width: 749px) {
+  .badge {
+    font-size: 0.9rem;
+    padding: 0.45rem 1.2rem;
+  }
+}

@@ -143,6 +143,7 @@
       },
       "share": "Share this product",
       "sold_out": "Sold out",
+      "online_only": "Online only",
       "unavailable": "Unavailable",
       "vendor": "Vendor",
       "video_exit_message": "{{ title }} opens full screen video in same window.",

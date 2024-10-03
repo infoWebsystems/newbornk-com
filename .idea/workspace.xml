@@ -6,9 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="fix wishlist icon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/component-cart-items.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-cart-items.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/new.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/new.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/main-cart-items.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-cart-items.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/component-badge.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-badge.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings_schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_schema.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/layout/theme.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en.default.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en.default.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/uk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/product-card.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/product-card.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/trm_badge_new.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/trm_badge_new.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

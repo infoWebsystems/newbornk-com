@@ -220,6 +220,7 @@
       },
       "share": "Поділитись",
       "sold_out": "Розпродано",
+      "online_only": "Тільки ONLINE",
       "unavailable": "Недоступно",
       "vendor": "Бренд",
       "video_exit_message": "{{ title }} відкриває повноекранне відео в тому самому вікні.",
