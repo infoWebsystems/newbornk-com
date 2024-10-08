@@ -160,7 +160,7 @@
 
                     {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
 
-                    <div class="card__badge">here
+                    <div class="card__badge">
                         {%- if product_card_product.available == false -%}
                             <span class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}" aria-hidden="true">
                               {{ 'products.product.sold_out' | t }}
@@ -170,6 +170,11 @@
                               {{ 'products.product.on_sale' | t }} {{ product_card_product.compare_at_price | minus: product_card_product.price | times: 100 | divided_by: product_card_product.compare_at_price }}%
                             </span>
                         {%- endif -%}
+                        {% if product_card_product.tags contains 'onlineonly' %}
+                          <span class="badge badge--bottom-left color-{{ settings.online_only_badge_color_scheme }}">
+                            {{ 'products.product.online_only' | t }}
+                          </span>
+                        {% endif %}
                     </div>
                 </div>
             </div>
