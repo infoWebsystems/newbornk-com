@@ -380,6 +380,9 @@ a.product__text {
 /* Product media */
 
 @media screen and (max-width: 749px) {
+  .product .price > .badge:not(:last-of-type){
+    margin-right: 6px;
+  }
   .product__media-list {
     margin-left: -2.5rem;
     padding-bottom: 2rem;
