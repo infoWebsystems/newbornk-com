@@ -290,6 +290,7 @@ cart-remove-button .icon-remove {
             box-shadow: none;
     width: 90%;
     display: table;
+    margin-top: 15px;
   }
 
   .cart-items th {
@@ -380,6 +381,7 @@ cart-remove-button .icon-remove {
     margin-bottom: 0;
     margin-right: 0;
     width: 100%;
+    margin-top: 70px;
   }
 }
 @media screen and (max-width: 749px) {

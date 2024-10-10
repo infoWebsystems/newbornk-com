@@ -30,20 +30,21 @@
     "pluginseo_metaDescriptionCollectionTemplate": "Купити %% current_tags || join: ', ' || append_not_empty: ' ' %%%% collection.title || escape %%. ❰❰NEWBORN K❱❱. Видатні дизайнери світу та України. Досконала якість! 📦 Доставка по Україні 💫Даруйте собі впевненість з нашими речами!",
     "pluginseo_metaDescription404Template": "Сторінку, яку ви запитували, неможливо знайти, відвідайте %% shop.domain %% замість цього",
     "pluginseo_structuredDataDisplayLogo": true,
-    "pluginseo_structuredDataSocialProfileLinks": "https:\/\/www.instagram.com\/newborn.kyiv\/\nhttps:\/\/www.facebook.com\/newborn.kyiv\nhttps:\/\/t.me\/newbornk",
+    "pluginseo_structuredDataSocialProfileLinks": "https://www.instagram.com/newborn.kyiv/\nhttps://www.facebook.com/newborn.kyiv\nhttps://t.me/newbornk",
     "colors_accent_1": "#000000",
     "colors_accent_2": "#ccf951",
     "colors_text": "#000000",
     "sale_badge_color_scheme": "sale-badge",
+    "online_only_badge_color_scheme": "background-3",
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
-    "social_facebook_link": "https:\/\/www.facebook.com\/newborn.kyiv",
-    "social_instagram_link": "https:\/\/www.instagram.com\/newborn.kyiv\/",
+    "social_facebook_link": "https://www.facebook.com/newborn.kyiv",
+    "social_instagram_link": "https://www.instagram.com/newborn.kyiv/",
     "language_switcher_enabled": true,
     "language_switcher_position": "bottom-right",
     "show_wishlist": true,
-    "checkout_logo_image": "shopify:\/\/shop_images\/newborn_logo.png",
+    "checkout_logo_image": "shopify://shop_images/newborn_logo.png",
     "checkout_accent_color": "#000000",
     "checkout_button_color": "#ccf951",
     "sections": {
@@ -69,7 +70,7 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/newborn_logo.png",
+          "logo": "shopify://shop_images/newborn_logo.png",
           "logo_width": 130,
           "logo_position": "middle-left",
           "menu_position": "center",
@@ -99,7 +100,7 @@
           "e7003153-6cde-4572-9831-cb6cf1415d7c": {
             "type": "logo",
             "settings": {
-              "logo": "shopify:\/\/shop_images\/footer_logo.png"
+              "logo": "shopify://shop_images/footer_logo.png"
             }
           },
           "e748077d-4503-4060-8448-791035314aae": {
@@ -143,38 +144,40 @@
 
     ],
     "blocks": {
-      "15683396631634586217": {
-        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": false,
-        "settings": {
-          "button_color": "#cbf951",
-          "button_icon": "chat_bubble",
-          "button_text": "no_text",
-          "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "👋 Привіт! Будь ласка, напишіть нам, якщо у вас є запитання. Ми раді завжди раді допомогти!"
-        }
-      },
       "1173261918193615741": {
-        "type": "shopify:\/\/apps\/geo-pro-geolocation-redirects\/blocks\/geopro\/16fc5313-7aee-4e90-ac95-f50fc7c8b657",
+        "type": "shopify://apps/geo-pro-geolocation-redirects/blocks/geopro/16fc5313-7aee-4e90-ac95-f50fc7c8b657",
         "disabled": false,
         "settings": {
         }
       },
       "7870687481494312845": {
-        "type": "shopify:\/\/apps\/wishlist-hero\/blocks\/app-embed\/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
         "disabled": false,
         "settings": {
           "customThemeName": "Dawn",
           "additionalWLButtonCssClasses": "",
           "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
-          "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n<\/style>\n\n<script src=\"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/arrive\/2.4.1\/arrive.min.js\"><\/script>\n<script type=\"text\/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n<\/script>"
+          "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>"
         }
       },
       "855628211100114053": {
-        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
         "settings": {
+        }
+      },
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#cbf951",
+          "secondary_color": "#FFFFFF",
+          "ternary_color": "#6A6A6A",
+          "button_icon": "chat_bubble",
+          "button_text": "no_text",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Привіт! Будь ласка, напишіть нам, якщо у вас є запитання. Ми раді завжди раді допомогти!"
         }
       }
     }

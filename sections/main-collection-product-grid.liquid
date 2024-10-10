@@ -21,7 +21,7 @@
 <div class="page-width collection-sorting" id="main-collection-filters" data-id="{{ section.id }}">
   {%- if section.settings.enable_sorting -%}
   {%- assign total_active_values = 0 -%}
-  
+
 	<div class='collection-filters__wrapper collection-filters__wrapper--facets'>
   <div class='collection-filters__breadcrumbs'>
     {% render 'breadcrumbs' %}
@@ -32,7 +32,7 @@
     <form id="CollectionSortingForm" class="facets__form facets__form-grid">
       {% if collection.current_vendor or collection.current_type %}
       <input type="hidden" name="q" value="{{ collection.current_vendor }}{{ collection.current_type }}">
-      {% endif %}        
+      {% endif %}
       <div class="collection-filters__item sorting">
         <div class="collection-filters__field">
           <div class="__select" data-state="">
@@ -79,9 +79,9 @@
                 <p class="mobile-facets__count">{% comment %} {{ 'sections.collection_template.product_count' | t: product_count: collection.products_count, count: collection.all_products_count }}</p>{% endcomment %}
               </div>
             </div>
-            <div class="mobile-facets__main">              
+            <div class="mobile-facets__main">
 
-              {%- if section.settings.enable_sorting -%}                
+              {%- if section.settings.enable_sorting -%}
               <div class="collection-filters__item sorting">
                 <div class="collection-filters__field">
                   <div class="__select" data-state="active">
@@ -145,7 +145,7 @@
 
 <div class="collection-filters filters-sidebar collection-filters__mobile page-width" id="main-collection-filters" data-id="{{ section.id }}">
   {%- if section.settings.enable_menu -%}
-  {% render 'trm-sidebar-menu' %}
+    {% render 'trm-sidebar-menu' %}
   {% endif %}
 
   {%- if section.settings.enable_filtering -%}
@@ -564,22 +564,22 @@
 
 {% if template contains 'collection' %}
 <style>
-  
+
   .collection-filters__wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .collection-filters__breadcrumbs {
   	margin-left: calc(20% + 2rem);
   }
-  
+
   #main-collection-product-grid {
   	margin-top: 0;
   }
-  
+
   .page-width--breadcrumbs {
     margin: 0;
     padding: 0;
@@ -589,7 +589,7 @@
   .collection-hero__breadcrumbs {
     display: none;
   }
-  
+
   .facets__form {
   	gap: 0;
   }
@@ -598,7 +598,7 @@
     .collection-hero__breadcrumbs {
       display: block;
     }
-    
+
     .collection-filters__wrapper {
       display: none;
     }
@@ -611,38 +611,38 @@
       margin: 0;
       padding-bottom: 0;
     }
-    
+
     .collection-products {
       margin-top: 1rem;
     }
-    
+
     .collection-sorting menu-drawer summary.summary-first {
       top: -25px;
     }
-    
+
     .mobile-facets__wrapper {
       margin-bottom: 0;
     }
-    
+
     .page-width--breadcrumbs {
       margin: 0;
       padding: 0;
       margin-left: 0px;
     }
-    
+
     .breadcrumbs__item:not(:last-child):after {
       margin: 0 0.2em;
     }
-    
+
     .breadcrumbs__link, .breadcrumbs__item a {
       padding: 0;
     }
-    
+
     .collection-hero {
       margin-top: 2rem;
     }
   }
-  
+
 </style>
 {% endif %}
 
@@ -696,7 +696,7 @@ document.querySelector('.facets-button__box').classList.remove('facets-button__b
 
 let sel_2 = document.querySelectorAll('.__select-all');
 sel_2.forEach(selectSingle => {
-    
+
 let sel_1 = document.querySelectorAll('.__select__title_content-all');
 sel_1.forEach(selectSingle_title => {
 

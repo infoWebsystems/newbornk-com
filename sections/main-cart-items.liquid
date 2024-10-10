@@ -28,7 +28,8 @@
                 <th class="cart-item__media_details-heading cart-items__heading--wide caption-with-letter-spacing" colspan="2" scope="col" style="padding-left:0;">{{ 'sections.cart.headings.product' | t }}</th>
                 <th class="cart-item__prices-heading caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.price' | t }}</th>
                 <th class="cart-item__quantity-heading cart-items__heading--wide medium-up caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.quantity' | t }}</th>
-                <th class="cart-item__totals-heading medium-up right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.remove' | t }}</th></tr>
+                <th class="cart-item__totals-heading medium-up right caption-with-letter-spacing" colspan="1" scope="col">{{ 'sections.cart.headings.remove' | t }}</th>
+              </tr>
             </thead>
 
             <tbody>
@@ -209,7 +210,7 @@
                       </ul>
                     </div>
                     <div class="btns-wrap">
-                      {% comment %}price{% endcomment %}
+                    {% comment %}price{% endcomment %}
                       <div class="cart-item__price-wrapper">
                         {%- if item.original_price != item.final_price -%}
                           <dl class="cart-item__discounted-prices">
@@ -291,7 +292,7 @@
                       </div>
                     </div>
 
-
+                  </td>
 
                 </tr>
               {%- endfor -%}
