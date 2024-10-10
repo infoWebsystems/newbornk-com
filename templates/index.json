@@ -152,7 +152,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "РОЗПРОДАЖ",
-        "collection": "sale",
+        "collection": "aries",
         "full_width": true,
         "products_to_show": 4,
         "show_view_all": false,
