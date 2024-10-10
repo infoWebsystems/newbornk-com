@@ -15,8 +15,17 @@
         "slide_BHnyDT": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/desk_1.png",
-            "image_phone": "shopify://shop_images/Comp_4_0_00_03_00_1.png",
+            "image": "shopify://shop_images/DTF_f50586a0-a0fd-4b60-b3ef-63cbd8e099bf.jpg",
+            "image_phone": "shopify://shop_images/Ban_jan22_sale_mob_1a7f8f3d-e985-45fb-bddf-bbaa9e44430b.jpg",
+            "banner_link": "shopify://collections/new_arrivals",
+            "language": "UK"
+          }
+        },
+        "1630994380b1b22eeb-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/image_2024-02-13_12-59-27.png",
+            "image_phone": "shopify://shop_images/Mask_group.jpg",
             "banner_link": "shopify://collections/sale",
             "language": "UK"
           }
@@ -32,7 +41,6 @@
         },
         "slide_wHpNAY": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/gramdesktop_3.png",
             "image_phone": "shopify://shop_images/gramobile_3.png",
@@ -40,32 +48,12 @@
             "language": "UK"
           }
         },
-        "ce6d2dc3-91a2-4167-94e4-935de9a1b462": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/static1_4.png",
-            "image_phone": "shopify://shop_images/static1-1.png",
-            "banner_link": "shopify://collections/market",
-            "language": "UK"
-          }
-        },
         "slide_TyEeBH": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/static1_5.png",
             "image_phone": "shopify://shop_images/static2_11.png",
             "banner_link": "shopify://collections/pleasures",
-            "language": "UK"
-          }
-        },
-        "1630994380b1b22eeb-0": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/image_2024-02-13_12-59-27.png",
-            "image_phone": "shopify://shop_images/Mask_group.jpg",
-            "banner_link": "shopify://collections/sale",
             "language": "UK"
           }
         },
@@ -81,11 +69,10 @@
       },
       "block_order": [
         "slide_BHnyDT",
+        "1630994380b1b22eeb-0",
         "1630994380b1b22eeb-1",
         "slide_wHpNAY",
-        "ce6d2dc3-91a2-4167-94e4-935de9a1b462",
         "slide_TyEeBH",
-        "1630994380b1b22eeb-0",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
       "settings": {
@@ -129,13 +116,13 @@
         "1626416534da40dc37-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "felt"
+            "collection": "dickies"
           }
         },
         "1626416534da40dc37-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "market"
+            "collection": "aries"
           }
         },
         "1626416534da40dc37-2": {
@@ -163,7 +150,6 @@
     },
     "1626416564a7b86704": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
         "title": "РОЗПРОДАЖ",
         "collection": "sale",
@@ -202,13 +188,13 @@
         "1626450162f5dda00b-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "gramicci"
+            "collection": "newborn-k"
           }
         },
         "1626450162f5dda00b-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "pleasures"
+            "collection": "rains"
           }
         }
       },
@@ -248,11 +234,6 @@
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
       }
-    },
-    "referbi_component": {
-      "type": "referbi-component",
-      "settings": {
-      }
     }
   },
   "order": [
@@ -264,7 +245,6 @@
     "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
-    "custom_liquid_tBx87F",
-    "referbi_component"
+    "custom_liquid_tBx87F"
   ]
 }
