@@ -303,18 +303,18 @@
         <li class="sidemenu-link">
           {%- if link.links != blank -%}
 
-            <a class="sidebar_link" href="{{ link.url }}">
-              <summary class="header__menu-item list-menu__item link focus-inset">
-                <span
-                  {%- if link.child_active %}
-                    class="header__active-menu-item"
-                  {% endif %}>{{ link.title | escape }}
-                </span>
-              </summary>
-            </a>
+            {% comment %}<a class="sidebar_link" href="{{ link.url }}">{% endcomment %}
+              {% comment %}<summary class="header__menu-item list-menu__item link focus-inset">{% endcomment %}
+                {% comment %}<span{% endcomment %}
+                  {% comment %}{%- if link.child_active %}{% endcomment %}
+                    {% comment %}class="header__active-menu-item"{% endcomment %}
+                  {% comment %}{% endif %}>{{ link.title | escape }}{% endcomment %}
+                {% comment %}</span>{% endcomment %}
+              {% comment %}</summary>{% endcomment %}
+            {% comment %}</a>{% endcomment %}
 
 
-            {% comment %} <details-disclosure>
+             <details-disclosure>
               <details>
                 <summary class="header__menu-item list-menu__item link focus-inset">
                   <span
@@ -388,7 +388,7 @@
                   {%- endfor -%}
                 </ul>
               </details>
-            </details-disclosure> {% endcomment %}
+            </details-disclosure>
           {%- else -%}
             <a
               href="{{ link.url }}"
@@ -408,7 +408,7 @@
         {% assign parts = url | split: '/' %}
         {% assign last_part = parts | last %}
 
-        {% if last_part == collection.handle %}
+        {% if last_part == collection.handle and false %}
           <collection-filters-form class="facets facets-mobile">
             <li class="facets-box">
               {% render 'facets-sidebar'

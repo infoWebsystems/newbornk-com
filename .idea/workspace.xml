@@ -4,29 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="merge develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/component-badge.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-badge.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/component-cart-items.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-cart-items.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/component-collection-grid-trm.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-collection-grid-trm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/component-product-swiper.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-product-swiper.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/new.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/new.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/section-main-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/section-main-product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_schema.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/layout/theme.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en.default.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en.default.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/uk.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/uk.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/header.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/main-cart-items.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-cart-items.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/main-cart.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-cart.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/price.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/price.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/product-card.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/product-card.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snippets/trm-sidebar-menu.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/trm-sidebar-menu.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/trm_badge_new.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/trm_badge_new.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711033880228</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="merge develop">
+      <option name="closed" value="true" />
+      <created>1728552571767</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728552571767</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +229,7 @@
     <MESSAGE value="size model fix" />
     <MESSAGE value="wishlist icon mob fix2" />
     <MESSAGE value="fix wishlist icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix wishlist icon" />
+    <MESSAGE value="merge develop" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge develop" />
   </component>
 </project>
