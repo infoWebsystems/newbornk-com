@@ -192,3 +192,10 @@ div[aria-label="vk"],  div[aria-label="ok"]{
   max-width: none;
   padding: 0;
 }
+div .header__submenu {
+  background-color: transparent !important;
+}
+div .sidebar-menu details summary.header__menu-item {
+  display: inline-flex;
+  align-items: center;
+}
