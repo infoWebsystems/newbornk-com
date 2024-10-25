@@ -503,7 +503,8 @@
         "checkout_context": {
           "step_one": "{{ shop_name }} - Checkout"
         },
-        "choose_billing_address": "Виребіть із запропонованих варіантів"
+        "choose_billing_address": "Виребіть із запропонованих варіантів",
+        "choose_delivery_strategy": "Оберіть спосіб доставки"
       },
       "contact": {
         "title": "Інформація",
@@ -575,7 +576,8 @@
         "pick_up_in_two_to_four_hours": "Готовий до самовивозу через 4 години",
         "pick_up_immediately": "Готовий до видачі",
         "pick_up_next_day": "Готовий до самовивозу наступного дня",
-        "pick_up_from_store": "Самовивіз з магазину"
+        "pick_up_from_store": "Самовивіз з магазину",
+        "ship_to_address": "Адресна доставка"
       },
       "customer_account": {
         "not_user_label": "Not {{ first_name }}?",
