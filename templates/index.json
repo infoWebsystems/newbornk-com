@@ -150,6 +150,7 @@
     },
     "1626416564a7b86704": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "РОЗПРОДАЖ",
         "collection": "aries",
