@@ -12,6 +12,24 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "slide_TyEeBH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Frame_567215.jpg",
+            "image_phone": "shopify://shop_images/Frame_567216.jpg",
+            "banner_link": "shopify://collections/han-kjobenhavn",
+            "language": "UK"
+          }
+        },
+        "1630994380b1b22eeb-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/BAN_UY_1_ea25a8e8-6634-4c9d-9121-5a453b6f0819.jpg",
+            "image_phone": "shopify://shop_images/Ban_gram_ukr_mob_ce21e61a-e2e6-43dc-94cd-3d055c75ef72.jpg",
+            "banner_link": "shopify://collections/new-amsterdam",
+            "language": "UK"
+          }
+        },
         "slide_wHpNAY": {
           "type": "slide",
           "settings": {
@@ -30,30 +48,12 @@
             "language": "UK"
           }
         },
-        "1630994380b1b22eeb-1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/BAN_UY_1_ea25a8e8-6634-4c9d-9121-5a453b6f0819.jpg",
-            "image_phone": "shopify://shop_images/Ban_gram_ukr_mob_ce21e61a-e2e6-43dc-94cd-3d055c75ef72.jpg",
-            "banner_link": "shopify://collections/new-amsterdam",
-            "language": "UK"
-          }
-        },
         "1630994380b1b22eeb-0": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/image_2024-02-13_12-59-27.png",
             "image_phone": "shopify://shop_images/Mask_group.jpg",
             "banner_link": "shopify://collections/sale",
-            "language": "UK"
-          }
-        },
-        "slide_TyEeBH": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/static1_5.png",
-            "image_phone": "shopify://shop_images/static2_11.png",
-            "banner_link": "shopify://collections/pleasures",
             "language": "UK"
           }
         },
@@ -68,11 +68,11 @@
         }
       },
       "block_order": [
+        "slide_TyEeBH",
+        "1630994380b1b22eeb-1",
         "slide_wHpNAY",
         "slide_BHnyDT",
-        "1630994380b1b22eeb-1",
         "1630994380b1b22eeb-0",
-        "slide_TyEeBH",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
       ],
       "settings": {
