@@ -248,11 +248,6 @@
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
       }
-    },
-    "referbi_component": {
-      "type": "referbi-component",
-      "settings": {
-      }
     }
   },
   "order": [
@@ -264,7 +259,6 @@
     "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
-    "custom_liquid_tBx87F",
-    "referbi_component"
+    "custom_liquid_tBx87F"
   ]
 }
