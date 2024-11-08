@@ -152,9 +152,9 @@
      {% comment %}  body #bingc-active {
         background: #47a447 !important;
       } {% endcomment %}
-      body #bingc-passive div.bingc-passive-overlay {
+    {% comment %}  body #bingc-passive div.bingc-passive-overlay {
         background: #47a447 !important;
-      }
+      } {% endcomment %}
     </style>
     {%- unless settings.type_body_font.system? -%}
     <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
