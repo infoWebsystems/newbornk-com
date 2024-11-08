@@ -198,3 +198,16 @@ div .header__submenu {
 div .sidebar-menu {
   width: -webkit-fill-available;
 }
+div .sidebar-menu details[open] summary.header__menu-item.caption-large:after {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-large:after {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.sidebar-menu details[open] details[open] .list-menu{
+ padding-left: 15px !important;
+}
