@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="merge develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/new.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/new.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/layout/theme.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/trm-sidebar-menu.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/trm-sidebar-menu.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/component-collection-grid-trm.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/component-collection-grid-trm.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +115,7 @@
       <workItem from="1731054782584" duration="802000" />
       <workItem from="1731057344418" duration="985000" />
       <workItem from="1731062638428" duration="511000" />
-      <workItem from="1731314628343" duration="3678000" />
+      <workItem from="1731314628343" duration="4012000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
