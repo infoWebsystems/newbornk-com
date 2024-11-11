@@ -207,7 +207,7 @@ div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-
   -webkit-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
   transform: rotate(135deg);
-  padding-bottom: 1.5px;
+  padding-bottom: 2px;
 }
 .sidebar-menu details[open] details[open] .list-menu{
  padding-left: 15px !important;
