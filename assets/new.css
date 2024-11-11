@@ -207,7 +207,17 @@ div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-
   -webkit-transform: rotate(135deg);
   -ms-transform: rotate(135deg);
   transform: rotate(135deg);
+  padding-bottom: 1.5px;
 }
 .sidebar-menu details[open] details[open] .list-menu{
  padding-left: 15px !important;
 }
+@media (max-width:749px) {
+  div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-large:after {
+    padding-bottom: 3px;
+  }
+}
+#icon-wishlist-header{
+  opacity: 0;
+}
+

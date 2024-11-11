@@ -128,6 +128,7 @@
     }
     {% endstyle %}
 
+
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'new.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' or request.page_type == 'product' %}
@@ -147,6 +148,13 @@
         }
       }
     </style>
+      {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' %}
+          <style>
+              a#icon-wishlist-header{
+                  opacity: 1;
+              }
+          </style>
+      {%- endif -%}
     {%- unless settings.type_body_font.system? -%}
     <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -180,7 +188,6 @@
     <main id="MainContent" class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %}" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-
 
     {% section 'footer' %}
 
