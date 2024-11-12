@@ -9,8 +9,8 @@
 
   <ul class="list-menu list-menu--inline sidebar-menu" role="list">
 
-      {% comment %}------- link NEW ------{% endcomment %}
-аааа
+      {% comment %}------- link NEW ------
+
 
       {% assign sale_collection = collections['_new'] %}
       {% assign cur_tags = sale_collection.all_tags %}
@@ -108,7 +108,7 @@
               </details>
           </details-disclosure>
       </li>
-
+{% endcomment %}
 
     {%- for link in section.settings.menu_sidebar.links -%}
       {% if link.title != 'Бренди' and link.title != 'НОВЕ' %}
@@ -226,7 +226,7 @@
     {%- endfor -%}
 
 
-      {% comment %}------- link SALE ------{% endcomment %}
+      {% comment %}------- link SALE ------
 
       {% assign sale_collection = collections['sale'] %}
       {% assign cur_tags = sale_collection.all_tags %}
@@ -323,7 +323,7 @@
               </details>
           </details-disclosure>
       </li>
-
+{% endcomment %}
     <collection-filters-form class="facets facets-mobile">
       <li class="facets-box">
         {% render 'facets'
