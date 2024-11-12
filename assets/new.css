@@ -214,10 +214,16 @@ div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-
 }
 @media (max-width:749px) {
   div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-large:after {
-    padding-bottom: 3px;
+    padding-bottom: 5px;
+  }
+  .sidebar-menu details[open] summary.header__menu-item:after {
+   top: 4px;
   }
 }
 #icon-wishlist-header{
   opacity: 0;
 }
 
+.sidebar-menu details[open] summary.header__menu-item:after {
+  padding-bottom: 3px;
+}
