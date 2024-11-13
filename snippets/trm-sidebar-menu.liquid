@@ -365,7 +365,7 @@
   function addStyleToActiveFilter(item){
 
       if (window.location.pathname.includes('collections/'+item)) {
-          const filterItemNew = document.querySelector('.filter-item-'+item);
+          let filterItemNew = document.querySelector('.filter-item-'+item);
 
           if (filterItemNew) {
               filterItemNew.setAttribute('open', 'open');
@@ -412,10 +412,8 @@
           }
       }
   }
-  let filterItemNew = 'new'
-  let filterItemSale = 'sale'
-  addStyleToActiveFilter(filterItemNew);
-  addStyleToActiveFilter(filterItemSale);
+  addStyleToActiveFilter('new');
+  addStyleToActiveFilter('sale');
 
 
 </script>
