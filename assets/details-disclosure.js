@@ -15,13 +15,13 @@ class DetailsDisclosure extends HTMLElement {
 
     const summaryElement = openDetailsElement.querySelector('summary');
     openDetailsElement.removeAttribute('open');
-    summaryElement.focus();
+     summaryElement.focus();
   }
 
   onFocusOut() {
     setTimeout(() => {
       if (!this.contains(document.activeElement)) this.close();
-    })
+    }, 200)
   }
 
   close() {

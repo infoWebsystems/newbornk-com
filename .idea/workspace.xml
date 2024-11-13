@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="merge develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/trm-sidebar-menu.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/trm-sidebar-menu.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bad-global.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/bad-global.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/details-disclosure.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/details-disclosure.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/product-card.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/product-card.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +119,7 @@
       <workItem from="1731062638428" duration="511000" />
       <workItem from="1731314628343" duration="4655000" />
       <workItem from="1731422033749" duration="961000" />
-      <workItem from="1731483645768" duration="974000" />
+      <workItem from="1731483645768" duration="10599000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -264,5 +266,17 @@
     <MESSAGE value="fix wishlist icon" />
     <MESSAGE value="merge develop" />
     <option name="LAST_COMMIT_MESSAGE" value="merge develop" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/assets/bad-global.js</url>
+          <line>231</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
