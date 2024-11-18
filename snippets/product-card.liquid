@@ -38,7 +38,7 @@
                                     {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
                             >
                                 {% if collection.handle == unisexFilter[0] or unisexFilter[0] == blank or unisexFilter[1].size == blank or current_tags contains 'Чоловіче' %}
-                                  {{  }}
+                                
                                 <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
                 {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
                 {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
@@ -58,7 +58,7 @@
                                 {% assign unisexFilterSecondImg = product_card_product.media[1].alt | escape | split: "#@" %}
 
                                 {% if collection.handle == unisexFilterSecondImg[0] or unisexFilterSecondImg[0] == blank or unisexFilterSecondImg[1].size == blank or current_tags contains 'Жіноче' %}
-                                  {% if collection.handle == unisexFilterSecondImg[0]  %} 1{% endif %}
+                                
                                 {%- if product_card_product.media[1] != nil and show_secondary_image -%}
                                     <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
                   {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
