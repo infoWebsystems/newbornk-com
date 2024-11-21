@@ -545,7 +545,7 @@
         "state_and_territory_label": "State/territory",
         "state_and_territory_placeholder": "State/territory",
         "phone_label": "Телефон",
-        "optional_phone_label": "Телефон",
+        "optional_phone_label": "Телефон (обов'язково)",
         "phone_placeholder": "Телефон",
         "phone_tooltip": "Якщо нам потрібно зв’язатися з вами щодо вашого замовлення",
         "zip_code_label": "Індекс (будь-яке значення)",
