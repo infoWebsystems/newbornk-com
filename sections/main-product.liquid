@@ -8,6 +8,15 @@
 {{ 'component-product-swiper.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-product-trm.css' | asset_url | stylesheet_tag }}
 
+<a id="product-admin-link" href="/admin/products/{{product.id}}" target="_blank" style="display: none;">Edit Product</a>
+<script>
+  $(function () { // when DOM is ready
+    if($("iframe#admin-bar-iframe").length) {
+      $("#product-admin-link").show();
+    }
+  });
+</script>
+
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-deferred-media.css' | asset_url }}" media="print" onload="this.media='all'">
 
