@@ -12,6 +12,16 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "slide_7qGUkq": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Worldwide_desk_de206057-9e3e-4f59-8eda-75f83b60f632.jpg",
+            "image_phone": "shopify://shop_images/Worldwide_mob_a172e339-6050-4b44-a35c-def883eae1ea.jpg",
+            "banner_link": "shopify://collections/new_arrivals",
+            "language": "UK"
+          }
+        },
         "slide_BHnyDT": {
           "type": "slide",
           "settings": {
@@ -59,6 +69,7 @@
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Frame_202_1f133780-7d8d-4690-a084-5621ac5e8b84.jpg",
             "image_phone": "shopify://shop_images/Frame_376_e7cf6ee2-bb0c-4223-9736-ffa988ae0c46.jpg",
@@ -68,6 +79,7 @@
         }
       },
       "block_order": [
+        "slide_7qGUkq",
         "slide_BHnyDT",
         "slide_TyEeBH",
         "1630994380b1b22eeb-1",
