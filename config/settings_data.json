@@ -54,7 +54,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Безкоштовна Доставка при оплаті замовлення від 4000 грн",
+              "text": "Безкоштовна Доставка на замовлення від 4000 грн",
               "color_scheme": "accent-2",
               "text_color": "#000000",
               "link": ""
