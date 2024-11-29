@@ -64,8 +64,7 @@
         "block_order": [
           "announcement-bar-0"
         ],
-        "settings": {
-        }
+        "settings": {}
       },
       "header": {
         "type": "header",
@@ -75,7 +74,7 @@
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu",
-          "menu_mobile": "mobile-menu",
+          "menu_mobile": "sidebar-menu-test-1",
           "show_line_separator": false,
           "show_search": true
         }
@@ -105,8 +104,7 @@
           },
           "e748077d-4503-4060-8448-791035314aae": {
             "type": "newsletter",
-            "settings": {
-            }
+            "settings": {}
           },
           "13e033f9-23dc-4fdc-a7c7-ec12ffcbc1ea": {
             "type": "link_list",
@@ -140,15 +138,12 @@
         }
       }
     },
-    "content_for_index": [
-
-    ],
+    "content_for_index": [],
     "blocks": {
       "1173261918193615741": {
         "type": "shopify://apps/geo-pro-geolocation-redirects/blocks/geopro/16fc5313-7aee-4e90-ac95-f50fc7c8b657",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       },
       "7870687481494312845": {
         "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
@@ -163,8 +158,7 @@
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
         "disabled": false,
-        "settings": {
-        }
+        "settings": {}
       }
     }
   }
