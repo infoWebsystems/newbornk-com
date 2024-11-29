@@ -234,5 +234,6 @@ div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-
 @media (max-width: 749px) {
     .header__icon--wishlist {
         right: 39px;
+      position: relative;
     }
 }
