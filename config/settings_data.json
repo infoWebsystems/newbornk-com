@@ -74,7 +74,7 @@
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu",
-          "menu_mobile": "sidebar-menu-test-1",
+          "menu_mobile": "mobile-menu",
           "show_line_separator": false,
           "show_search": true
         }
