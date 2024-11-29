@@ -221,7 +221,9 @@ div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-
   }
 }
 #icon-wishlist-header{
-  opacity: 0;
+  svg{
+    min-width: 1em;
+  }
 }
 
 .sidebar-menu details[open] summary.header__menu-item:after {

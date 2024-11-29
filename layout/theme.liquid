@@ -7,7 +7,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
+
     </script>
       <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11284981969">
@@ -148,13 +148,7 @@
         }
       }
     </style>
-      {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' %}
-          <style>
-              a#icon-wishlist-header{
-                  opacity: 1;
-              }
-          </style>
-      {%- endif -%}
+
     {%- unless settings.type_body_font.system? -%}
     <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
