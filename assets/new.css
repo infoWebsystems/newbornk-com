@@ -229,3 +229,10 @@ div .sidebar-menu details[open] details[open] summary.header__menu-item.caption-
 .sidebar-menu details[open] summary.header__menu-item:after {
   padding-bottom: 3px;
 }
+
+
+@media (max-width: 749px) {
+    .header__icon--wishlist {
+        right: 39px;
+    }
+}
