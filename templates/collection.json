@@ -27,7 +27,7 @@
         "show_vendor": true,
         "enable_filtering": true,
         "enable_menu": true,
-        "menu_sidebar": "sidebar-menu-original",
+        "menu_sidebar": "sidebar-menu-1",
         "enable_sorting": true
       }
     }
