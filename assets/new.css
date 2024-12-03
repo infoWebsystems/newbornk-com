@@ -345,3 +345,6 @@ svg:not(:root).svg-inline--fa {
 cart-items div.title-wrapper-with-link{
   display: none;
 }
+a#icon-wishlist-header{
+  opacity: 0;
+}
