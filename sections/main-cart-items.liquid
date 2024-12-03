@@ -191,6 +191,9 @@
                   </td>
                   <td class="cart-item-mob-details" >
                     <div class="cart-item-title">
+                      {%- if section.settings.show_vendor -%}
+                        <p class="caption-with-letter-spacing light brand-title">{{ item.product.vendor }}</p>
+                      {%- endif -%}
                       <a href="{{ item.product.url }}" class="cart-item__name break">{{ item.product.title | escape }}</a>
                       {%- if item.product.has_only_default_variant == false -%}
                         {%- for option in item.options_with_values -%}
@@ -208,8 +211,31 @@
                           </li>
                         {%- endfor -%}
                       </ul>
-                    </div>
-                    <div class="btns-wrap">
+                      {% comment %}guantity{% endcomment %}
+                      <div class="cart-item__quantity">
+                        {% comment %}<label class="medium-down" for="Quantity-{{ item.index | plus: 1 }}">{% endcomment %}
+                        {% comment %}{{ 'products.product.quantity.label' | t }}{% endcomment %}
+                        {% comment %}</label>{% endcomment %}
+                        <quantity-input class="quantity">
+                          <button class="quantity__button no-js-hidden" name="minus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
+                            {% render 'icon-minus' %}
+                          </button>
+                          <input class="quantity__input"
+                                 type="number"
+                                 name="updates[]"
+                                 value="{{ item.quantity }}"
+                                 min="0"
+                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                 id="Quantity-{{ item.index | plus: 1 }}"
+                                 data-index="{{ item.index | plus: 1 }}"
+                          >
+                          <button class="quantity__button no-js-hidden" name="plus" type="button">
+                            <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
+                            {% render 'icon-plus' %}
+                          </button>
+                        </quantity-input>
+                      </div>
                     {% comment %}price{% endcomment %}
                       <div class="cart-item__price-wrapper">
                         {%- if item.original_price != item.final_price -%}
@@ -248,32 +274,8 @@
                         </span>
                         {%- endif -%}
                       </div>
-                      {% comment %}guantity{% endcomment %}
-                      <div class="cart-item__quantity">
-                        <label class="medium-down" for="Quantity-{{ item.index | plus: 1 }}">
-                          {{ 'products.product.quantity.label' | t }}
-                        </label>
-                        <quantity-input class="quantity">
-                          <button class="quantity__button no-js-hidden" name="minus" type="button">
-                            <span class="visually-hidden">{{ 'products.product.quantity.decrease' | t: product: item.product.title | escape }}</span>
-                            {% render 'icon-minus' %}
-                          </button>
-                          <input class="quantity__input"
-                                 type="number"
-                                 name="updates[]"
-                                 value="{{ item.quantity }}"
-                                 min="0"
-                                 aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
-                                 id="Quantity-{{ item.index | plus: 1 }}"
-                                 data-index="{{ item.index | plus: 1 }}"
-                          >
-                          <button class="quantity__button no-js-hidden" name="plus" type="button">
-                            <span class="visually-hidden">{{ 'products.product.quantity.increase' | t: product: item.product.title | escape }}</span>
-                            {% render 'icon-plus' %}
-                          </button>
-                        </quantity-input>
-                      </div>
-
+                    </div>
+                    <div class="btns-wrap">
                       {% comment %}remove button{% endcomment %}
                       <div class="cart-item__totals">
                         <div class="loading-overlay hidden">
