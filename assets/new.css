@@ -349,7 +349,7 @@ a#icon-wishlist-header{
   opacity: 0;
 }
 
-.button.needsclick{
+button.needsclick{
   bottom: 146px!important;
   right: 12px!important;
   left: auto!important;
