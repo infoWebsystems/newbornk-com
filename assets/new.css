@@ -365,3 +365,7 @@ button.needsclick{
     }
   }
 }
+
+#shop-hcaptcha-badge-container{
+  display: none!important;
+}
