@@ -14,6 +14,7 @@
       "blocks": {
         "slide_7qGUkq": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Worldwide_desk_48d9155c-b988-47d0-a6c1-0c4a04826b49.jpg",
             "image_phone": "shopify://shop_images/Worldwide_mob_a6f9faf1-02a4-45d6-bdb9-9213a02193a0.jpg",
