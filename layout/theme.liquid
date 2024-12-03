@@ -205,9 +205,16 @@
     {% section 'announcement-bar' %}
     {% section 'header' %}
 
-    <main id="MainContent" class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %}" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %} {% if template.name == 'cart' %}cart-wrap{% endif %}" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
+
+    {% if customer.tags   contains 'admin' and template.name == 'product' %}
+        {% assign store_permanent_domain = shop.permanent_domain | replace: ".myshopify.com"  %}
+        <div class="admin-products-link">
+            <a href="https://admin.shopify.com/store/{{ store_permanent_domain }}/products/{{ product.id }}" target="_blank">EDIT PRODUCT </a>
+        </div>
+    {% endif %}
 
     {% section 'footer' %}
 
