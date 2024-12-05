@@ -366,6 +366,17 @@ button[aria-label="Open Form"].needsclick{
     left: auto!important;
     bottom: 75px!important;
     margin: 16px!important;
+  } 
+  animation-name: appsOpacity;
+  animation-duration: 0.7s;
+  animation-delay: .02s;
+} 
+@keyframes appsOpacity {
+  0% {
+   opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
