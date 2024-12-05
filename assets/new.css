@@ -369,7 +369,7 @@ button[aria-label="Open Form"].needsclick{
   } 
   animation-name: appsOpacity;
   animation-duration: 0.2s;
-  animation-delay: 1s;
+  animation-delay: 2.2s;
 } 
 @keyframes appsOpacity {
   0% {
