@@ -369,7 +369,7 @@ opacity: 0;
   } 
   animation-name: appsOpacity;
   animation-duration: 0.2s;
-  animation-delay: 2.2s;
+  animation-delay: 2.4s;
   animation-fill-mode: forwards; 
 } 
 @keyframes appsOpacity {
