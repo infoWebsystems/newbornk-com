@@ -350,6 +350,9 @@ a#icon-wishlist-header{
 }
 #bingc-phone-button.bingc-show {
   bottom: 111px !important;
+    @media (max-width: 990px){
+       bottom: 152px !important;
+    }
 }
 button[aria-label="Open Form"].needsclick{
   bottom: 100px!important;
@@ -360,7 +363,7 @@ button[aria-label="Open Form"].needsclick{
     width: 64px!important;
     right: 2%!important;
     left: auto!important;
-    bottom: 20px!important;
+    bottom: 75px!important;
     margin: 16px!important;
   }
 }
