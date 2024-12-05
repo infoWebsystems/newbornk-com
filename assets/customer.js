@@ -16,7 +16,6 @@ class CustomerAddresses {
   constructor() {
     this.elements = this._getElements();
     if (Object.keys(this.elements).length === 0) return;
-    console.log('if')
     this._setupCountries();
     this._setupEventListeners();
   }
@@ -51,7 +50,6 @@ class CustomerAddresses {
 
   _setupEventListeners() {
     this.elements.toggleButtons.forEach((element) => { 
-      console.log(this.elements)
       element.addEventListener('click', this._handleAddEditButtonClick);
     });
     this.elements.cancelButtons.forEach((element) => {
