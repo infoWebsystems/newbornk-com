@@ -348,14 +348,96 @@ cart-items div.title-wrapper-with-link{
 a#icon-wishlist-header{
   opacity: 0;
 }
+
+button.needsclick{
+  bottom: 146px!important;
+  right: 12px!important;
+  left: auto!important;
+
+
+  @media (max-width: 749px) {
+    bottom: 150px!important;
+    right: 24px!important;
+    width: 50px!important;
+    height: 50px!important;
+    svg{
+      background-size: 26px !important;
+    }
+  }
+}
+
+#shop-hcaptcha-badge-container{
+  display: none!important;
+}
+
+#NewsletterForm--footer:-webkit-autofill,
+#NewsletterForm--footer:-webkit-autofill:hover,
+#NewsletterForm--footer:-webkit-autofill:focus,
+#NewsletterForm--footer:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0 30px black inset !important;
+  color:  #ffffff !important;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff !important;
+}
+/*Change text in autofill textbox*/
+#NewsletterForm--footer:-webkit-autofill{
+  -webkit-text-fill-color: #ffffff  !important;
+  color:  #ffffff  !important;
+}
+@media screen and (max-width: 950px) {
+  div .newsletter-form__message--success {
+    position: absolute;
+    bottom: 0;
+    right: auto;
+    top: 131%;
+    margin: 0;
+    left: 0;
+  }
+}
+
+div input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none !important;
+  background-color: transparent !important;
+  color: fieldtext !important;
+}
+@media screen and (max-width: 749px){
+  .footer .newsletter-form{
+    align-items: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  }
+}
+.footer .footer-block__newsletter .field__input {
+  padding-right: 46px;
+}
+div .menu-drawer summary.menu-drawer__menu-item {
+  padding-left: 32px;
+}
+@media screen and (max-width: 990px){
+  .menu-opening div.menu-drawer__submenu summary.menu-drawer__menu-item{
+    padding-left: 52px!important;
+  }
+  .menu-opening div.menu-drawer__submenu .menu-drawer__menu-item{
+    padding-left: 40px!important;
+  }
+  details ul.menu-drawer__menu details .menu-drawer__submenu ul.menu-drawer__menu .list-menu{
+    padding-left: 32px;
+  }
+}
+
 #bingc-phone-button.bingc-show {
   bottom: 111px !important;
-    @media (max-width: 990px){
-       bottom: 152px !important;
-    }
+  @media (max-width: 990px){
+    bottom: 152px !important;
+  }
 }
 button[aria-label="Open Form"].needsclick{
-opacity: 0;
+  opacity: 0;
   bottom: 100px!important;
   height: 80px!important;
   width: 80px!important;
@@ -374,13 +456,12 @@ opacity: 0;
 }
 @keyframes appsOpacity {
   0% {
-   opacity: 0;
+    opacity: 0;
   }
   100% {
     opacity: 1;
   }
 }
-
 #shop-hcaptcha-badge-container{
   display: none!important;
 }
