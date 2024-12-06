@@ -349,22 +349,6 @@ a#icon-wishlist-header{
   opacity: 0;
 }
 
-button.needsclick{
-  bottom: 146px!important;
-  right: 12px!important;
-  left: auto!important;
-
-
-  @media (max-width: 749px) {
-    bottom: 150px!important;
-    right: 24px!important;
-    width: 50px!important;
-    height: 50px!important;
-    svg{
-      background-size: 26px !important;
-    }
-  }
-}
 
 #shop-hcaptcha-badge-container{
   display: none!important;
