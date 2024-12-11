@@ -1291,6 +1291,13 @@
         "page_title": "Способи оплати",
         "title": "Способи оплати",
         "update_card_button_label": "Оновити кошик"
+      },
+      "wallets": {
+        "errors": {
+          "missing": {
+            "phone": "Введіть номер телефону"
+          }
+        }
       }
     },
     "pagination": {
