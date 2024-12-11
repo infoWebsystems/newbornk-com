@@ -16,9 +16,9 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Worldwide_desk_48d9155c-b988-47d0-a6c1-0c4a04826b49.jpg",
-            "image_phone": "shopify://shop_images/Worldwide_mob_a6f9faf1-02a4-45d6-bdb9-9213a02193a0.jpg",
-            "banner_link": "shopify://collections/new_arrivals",
+            "image": "shopify://shop_images/sale_desk_2.png",
+            "image_phone": "shopify://shop_images/sale_mob_2_2.png",
+            "banner_link": "shopify://collections/sale-1",
             "language": "UK"
           }
         },
