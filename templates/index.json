@@ -23,6 +23,7 @@
         },
         "slide_BHnyDT": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Frame_567295.jpg",
             "image_phone": "shopify://shop_images/Ban_jan22_sale_mob_932f34a3-5ff0-4dee-8e11-5390586a9321.jpg",
