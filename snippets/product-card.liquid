@@ -17,7 +17,7 @@
         <span class="visually-hidden">{{ product_card_product.title | escape }}</span>
 
 
-        {% if  collection.handle == "women" or collection.handle == "жіноче" or collection.handle contains "жіноч" or  collection.handle == "men" or collection.handle == "чоловіче"  or current_tags contains 'Жіноче' or current_tags contains 'Чоловіче' %}
+        {% if  collection.handle contains "women" or collection.handle == "жіноче" or collection.handle contains "жіноч" or  collection.handle == "men" or collection.handle == "чоловіче"  or current_tags contains 'Жіноче' or current_tags contains 'Чоловіче' %}
 
             <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}" tabindex="-1">
                 <div class="card__inner">
@@ -37,7 +37,7 @@
                             <div class="media media--transparent media--{{ media_size }} media--hover-effect"
                                     {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
                             >
-                                {% if collection.handle == unisexFilter[0] or collection.handle contains  'чолові'  or unisexFilter[0] == blank or unisexFilter[1].size == blank or current_tags contains 'Чоловіче' %}
+                                {% if collection.handle == unisexFilter[0]  or collection.handle contains  'чолові'  or unisexFilter[0] == blank or unisexFilter[1].size == blank or current_tags contains 'Чоловіче' %}
 
                                 <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
                 {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
@@ -57,7 +57,7 @@
 
                                 {% assign unisexFilterSecondImg = product_card_product.media[1].alt | escape | split: "#@" %}
 
-                                {% if collection.handle == unisexFilterSecondImg[0] or collection.handle contains  'жіноч' or collection.handle contains  'жінкам' or unisexFilterSecondImg[0] == blank or unisexFilterSecondImg[1].size == blank or current_tags contains 'Жіноче' %}
+                                {% if collection.handle == unisexFilterSecondImg[0] or collection.handle contains  'жіноч'  or collection.handle contains  'women' or collection.handle contains  'жінкам' or unisexFilterSecondImg[0] == blank or unisexFilterSecondImg[1].size == blank or current_tags contains 'Жіноче' %}
 
                                 {%- if product_card_product.media[1] != nil and show_secondary_image -%}
                                     <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
