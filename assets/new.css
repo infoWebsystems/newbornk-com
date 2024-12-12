@@ -420,7 +420,7 @@ div .menu-drawer summary.menu-drawer__menu-item {
     bottom: 152px !important;
   }
 }
-button[aria-label="Open Form"].needsclick{
+button[aria-label="Open Form"].needsclick, div[aria-label="Open Form"].needsclick{
   opacity: 0;
   bottom: 100px!important;
   height: 80px!important;
