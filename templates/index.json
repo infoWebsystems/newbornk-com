@@ -248,10 +248,20 @@
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
       }
+    },
+    "buttons_Aehtdg": {
+      "type": "buttons",
+      "settings": {
+        "button_link": "shopify://collections/men",
+        "button_title": "ЧОЛОВІКАМ",
+        "button_link_2": "shopify://collections/women",
+        "button_title_2": "Жінкам"
+      }
     }
   },
   "order": [
     "1630994380770cb550",
+    "buttons_Aehtdg",
     "image_banner",
     "1626369903c393cced",
     "1626416534da40dc37",
