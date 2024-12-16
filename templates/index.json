@@ -81,6 +81,15 @@
         "swipe_on_mobile": false
       }
     },
+    "buttons_jMcVeM": {
+      "type": "buttons",
+      "settings": {
+        "button_link": "shopify://collections/men",
+        "button_title": "ЧОЛОВІКАМ",
+        "button_link_2": "shopify://collections/women",
+        "button_title_2": "Жінкам"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "disabled": true,
@@ -234,15 +243,6 @@
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
-      }
-    },
-    "buttons_jMcVeM": {
-      "type": "buttons",
-      "settings": {
-        "button_link": "",
-        "button_title": "",
-        "button_link_2": "",
-        "button_title_2": ""
       }
     }
   },
