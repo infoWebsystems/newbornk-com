@@ -116,9 +116,9 @@
     "1626369903c393cced": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
+        "title": "ІДЕЇ ДЛЯ ПОДАРУНКІВ",
         "show_text": true,
-        "collection": "new_arrivals",
+        "collection": "gift_ideas",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
