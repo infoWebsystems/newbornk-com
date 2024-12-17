@@ -182,6 +182,7 @@
     },
     "recommendation_slider_YPywew": {
       "type": "recommendation-slider",
+      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",
