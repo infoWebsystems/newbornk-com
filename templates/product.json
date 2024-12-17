@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -21,8 +21,7 @@
         },
         "title": {
           "type": "title",
-          "settings": {
-          }
+          "settings": {}
         },
         "subtitle": {
           "type": "text",
@@ -33,8 +32,7 @@
         },
         "price": {
           "type": "price",
-          "settings": {
-          }
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -51,8 +49,7 @@
         "quantity_selector": {
           "type": "quantity_selector",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -74,7 +71,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Доставка, оплата, примірка",
-            "content": "<p><strong>ДОСТАВКА<\/strong><br\/><br\/>Ми намагаємось обробляти та відправляти замовлення протягом поточного дня або наступного робочого дня.<br\/>• Доставка по Києву та до інших міст України здійснюється за допомогою сервісу «Нова Пошта». • Післяплата на Новій Пошті надає можливість перевірити та приміряти товар перед оплатою.<\/p><p>• Після плата частинами з викоританням NovaPay після примірки<br\/>• Безкоштовна доставка для замовлень на суму від 4000 грн.<br\/><br\/><strong>ОПЛАТА<\/strong><br\/>• Замовлення можна оплатити банківською карткою онлайн, переказом на картку (деталі обговорюються з менеджером), післяплатою при отриманні у відділенні Нової Пошти.<br\/>• Новина: оплата замовлення частинами від NovaPay у відділенні. Докладніше: <a href=\"https:\/\/novapay.ua\/credit\/\" target=\"_blank\" title=\"https:\/\/novapay.ua\/credit\/\">посилання<\/a>.<br\/><br\/><strong>ПРИМІРКА<\/strong><br\/>Ви маєте можливість примірки обраних вами товарів в нашому магазині за адресою вул. Велика Житомирська 20.<\/p>",
+            "content": "<p><strong>ДОСТАВКА</strong><br/><br/>Ми намагаємось обробляти та відправляти замовлення протягом поточного дня або наступного робочого дня.<br/>• Доставка по Києву та до інших міст України здійснюється за допомогою сервісу «Нова Пошта». • Післяплата на Новій Пошті надає можливість перевірити та приміряти товар перед оплатою.</p><p>• Після плата частинами з викоританням NovaPay після примірки<br/>• Безкоштовна доставка для замовлень на суму від 4000 грн.<br/><br/><strong>ОПЛАТА</strong><br/>• Замовлення можна оплатити банківською карткою онлайн, переказом на картку (деталі обговорюються з менеджером), післяплатою при отриманні у відділенні Нової Пошти.<br/>• Новина: оплата замовлення частинами від NovaPay у відділенні. Докладніше: <a href=\"https://novapay.ua/credit/\" target=\"_blank\" title=\"https://novapay.ua/credit/\">посилання</a>.<br/><br/><strong>ПРИМІРКА</strong><br/>Ви маєте можливість примірки обраних вами товарів в нашому магазині за адресою вул. Велика Житомирська 20.</p>",
             "page": "",
             "liquid": "{% render 'pickup' %}",
             "icon": "none"
@@ -83,15 +80,14 @@
         "description": {
           "type": "description",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         },
         "70bbe489-815e-4f89-aaee-8f79b7917887": {
           "type": "collapsible_tab",
           "disabled": true,
           "settings": {
             "heading": "ІНФОРМАЦІЯ",
-            "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}</p>",
             "page": "",
             "liquid": "",
             "icon": "none"
@@ -102,7 +98,7 @@
           "disabled": true,
           "settings": {
             "heading": "РОЗМІРНА СІТКА",
-            "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}<\/p>",
+            "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}</p>",
             "page": "",
             "liquid": "",
             "icon": "none"
@@ -111,8 +107,7 @@
         "share": {
           "type": "share",
           "disabled": true,
-          "settings": {
-          }
+          "settings": {}
         }
       },
       "block_order": [
@@ -159,9 +154,9 @@
     "1627050417092b6041": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "{{ product.vendor }}",
-        "show_text": true,
-        "collection": "salomon",
+        "title": "ІДЕЇ ДЛЯ ПОДАРУНКІВ",
+        "show_text": false,
+        "collection": "gift_ideas",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
         "show_view_all": false,
