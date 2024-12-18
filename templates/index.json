@@ -23,7 +23,6 @@
         },
         "slide_BHnyDT": {
           "type": "slide",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/UA_Desktop_1_2.jpg",
             "image_phone": "shopify://shop_images/UA_Mobile_2.jpg",
