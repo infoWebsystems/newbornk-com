@@ -21,15 +21,6 @@
             "language": "UK"
           }
         },
-        "slide_7qGUkq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/sale_desk_2.png",
-            "image_phone": "shopify://shop_images/sale_mob_2_2_8c0be906-69d9-4223-b7cb-9213b0192633.png",
-            "banner_link": "shopify://collections/sale",
-            "language": ""
-          }
-        },
         "slide_BHnyDT": {
           "type": "slide",
           "disabled": true,
@@ -38,6 +29,15 @@
             "image_phone": "shopify://shop_images/UA_Mobile_2.jpg",
             "banner_link": "shopify://collections/gift-cards",
             "language": "UK"
+          }
+        },
+        "slide_7qGUkq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/sale_desk_2.png",
+            "image_phone": "shopify://shop_images/sale_mob_2_2_8c0be906-69d9-4223-b7cb-9213b0192633.png",
+            "banner_link": "shopify://collections/sale",
+            "language": ""
           }
         },
         "slide_TyEeBH": {
@@ -80,8 +80,8 @@
       },
       "block_order": [
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
-        "slide_7qGUkq",
         "slide_BHnyDT",
+        "slide_7qGUkq",
         "slide_TyEeBH",
         "1630994380b1b22eeb-1",
         "slide_wHpNAY",
