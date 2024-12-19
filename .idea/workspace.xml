@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="merge develop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/new.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/new.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sections/slideshow.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/slideshow.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
