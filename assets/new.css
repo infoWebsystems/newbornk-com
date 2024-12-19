@@ -507,3 +507,19 @@ button[aria-label="Open Form"].needsclick{
     box-shadow: 0 0 0 .2rem  #ccf951;
   }
 }
+
+.cart-price-regular{
+  text-decoration: line-through;
+  opacity: .7;
+  padding: 0  5px;
+  font-size: 1.2rem;
+  letter-spacing: 0rem;
+  line-height: 1.5;
+  @media (max-width: 749px){
+    font-size: 1.3rem;
+  }
+}
+span.cart-item-price{
+  display: flex;
+  align-items: center;
+}
