@@ -142,8 +142,13 @@
                           </div>
                         {%- endif -%}
                       {%- else -%}
-                        <span class="price">
-                          {{ item.original_price | money }}
+                          <span>
+                             {% if item.product.compare_at_price > 0 %}
+                               <span class="cart-price-regular">
+                              {{ item.product.compare_at_price  | money}}
+                            </span>
+                           {% endif %}
+                          <span  class="price">{{ item.original_price | money }}</span>
                         </span>
                       {%- endif -%}
                     </div>
@@ -269,9 +274,16 @@
                             </div>
                           {%- endif -%}
                         {%- else -%}
-                          <span class="price">
-                          {{ item.original_price | money }}
-                        </span>
+                          <span class="cart-item-price">
+                             {% if item.product.compare_at_price > 0 %}
+                               <span class="cart-price-regular">
+                                {{ item.product.compare_at_price  | money}}
+                              </span>
+                             {% endif %}
+                              <span class="price">
+                              {{ item.original_price | money }}
+                            </span>
+                          </span>
                         {%- endif -%}
                       </div>
                     </div>
