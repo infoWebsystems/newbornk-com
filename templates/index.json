@@ -118,7 +118,7 @@
       "settings": {
         "title": "РОЗПРОДАЖ",
         "show_text": true,
-        "collection": "gift_ideas",
+        "collection": "sale",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
