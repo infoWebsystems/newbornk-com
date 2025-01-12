@@ -189,9 +189,9 @@
     "featured_collection_slider_zaYJcr": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "РОЗПРОДАЖ",
+        "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "sale",
+        "collection": "new_arrivals",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
