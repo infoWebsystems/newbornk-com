@@ -44,7 +44,7 @@
               {% when 'list' %}
               {% assign coll_title = collection.title | downcase %}
               {% if filter.param_name == 'filter.p.m.my_fields.discount' and coll_title != 'sale' %}
-                
+                {% continue %}
               {% else %}
                 {% if filter.label == 'Category' %}
                   <details class="js-filter" data-index="{{ forloop.index }}" open>
