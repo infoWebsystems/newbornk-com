@@ -138,6 +138,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'new.css' | asset_url | stylesheet_tag }}
+    {{ 'size-chart.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' or request.page_type == 'product' %}
     <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
     <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
@@ -196,6 +197,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% endif %}
 
     <script src='{{ 'app.js' | asset_url }}' defer></script>
+    <script src='{{ 'size-chart.js' | asset_url }}' defer></script>
 
     {% render 'wishlisthero-styles.liquid' %}
 
@@ -283,8 +285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% comment %}{% render 'translation-lab-language-switcher-floating' %}{% endcomment %}
 
 
-    {% render 'translation-lab-switcher-custom' %}
-    {%- endcomment -%}
+    {% comment %} {% render 'translation-lab-switcher-custom' %} {% endcomment %}
     <script type="text/javascript">
       (function(d, w, s) {
         var widgetHash = 'q57maszf730pmvmuqcld', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;

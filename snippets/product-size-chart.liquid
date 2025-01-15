@@ -1,0 +1,27 @@
+{% liquid
+    assign size_chart_obj = product.metafields.custom.size_chart.value
+    assign size_chart_table = size_chart_obj.table.value
+%}
+{% if size_chart_obj != blank %}
+    <div class="wrapper-modal customer-modal modal-overlay productSizeModal desktop-fullScreen center-position {{ id }}">
+        <div class="wrapper-modal__top-block">
+            <button class="btn-transparent js-close-modal-btn">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 11L11 1" stroke="black"/>
+                  <path d="M1 1L11 11" stroke="black"/>
+                </svg>
+            </button>
+        </div>
+        <div class="wrapper-content">
+            <div class="wrapper-tabs-block">
+                <div class="wrapper-tabs-block__content show tab-centimeters">
+                    <div class="wrapper-table">
+                        {{ size_chart_table.content }}
+                    </div>
+                </div>
+
+                <div class="wrapper-tabs-block__note">{{ 'products.info_labels.size_guide_note' | t }}</div>
+            </div>
+        </div>
+    </div>
+  {% endif %}
