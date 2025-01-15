@@ -15,8 +15,8 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/sale_desk_2.png",
-            "image_phone": "shopify://shop_images/sale_mob_2_2_8c0be906-69d9-4223-b7cb-9213b0192633.png",
+            "image": "shopify://shop_images/SALE_horiz.png",
+            "image_phone": "shopify://shop_images/SALE_vert.png",
             "banner_link": "shopify://collections/sale",
             "language": ""
           }
