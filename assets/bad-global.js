@@ -270,11 +270,11 @@ class MenuDrawer extends HTMLElement {
     const summaryElement = event.currentTarget;
     const detailsElement = summaryElement.parentNode;
     const isOpen = detailsElement.hasAttribute('open');
-console.log('1');
+
     if (detailsElement === this.mainDetailsToggle) {
       if(isOpen) event.preventDefault();
       isOpen ? this.closeMenuDrawer(summaryElement) : this.openMenuDrawer(summaryElement);
-      
+
     } else {
       trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
 
@@ -362,10 +362,10 @@ class HeaderDrawer extends MenuDrawer {
     this.borderOffset = this.borderOffset || this.closest('.header-wrapper').classList.contains('header-wrapper--border-bottom') ? 1 : 0;
     document.documentElement.style.setProperty('--header-bottom-position', `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`);
 
-    setTimeout(() => { 
+    setTimeout(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
     //console.log('3');
-   
+
     });
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
@@ -438,7 +438,7 @@ class DeferredMedia extends HTMLElement {
 }
 
 customElements.define('deferred-media', DeferredMedia);
-    
+
     Function.prototype.bind = function(parent) {
     var f = this;
     var args = [];

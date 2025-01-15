@@ -1,0 +1,48 @@
+<div class="page-width">
+  <div class="buttons-section">
+    {% if section.settings.button_link != blank and section.settings.button_title != blank %}
+      <a href="{{ section.settings.button_link  }}" class=" button button--full-width button--primary">{{ section.settings.button_title }}
+      </a>
+    {% endif %}
+    {% if section.settings.button_link_2 != blank and section.settings.button_title_2 != blank %}
+      <a href="{{ section.settings.button_link_2  }}" class=" button button--full-width button--primary">{{ section.settings.button_title_2 }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Buttons",
+  "tag": "section",
+  "class": "buttons-section-wrap",
+  "settings": [
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link 1"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button text 1"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Button link 2"
+    },
+    {
+      "type": "text",
+      "id": "button_title_2",
+      "label": "Button text 2"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Buttons"
+    }
+  ]
+}
+{% endschema %}

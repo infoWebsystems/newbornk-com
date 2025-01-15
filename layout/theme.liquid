@@ -1,6 +1,13 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>{% render 'spdn' %}
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MXSVV32');</script>
+<!-- End Google Tag Manager -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7BE6ZYNN9"></script>
     <script>
@@ -8,8 +15,19 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-X7BE6ZYNN9');
     </script>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11284981969">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11284981969');
+</script>
+
+
     <script src="{{ 'custom_h1_script.js' | asset_url }}"></script>
     <meta charset="utf-8">
     {% include 'pluginseo' %}
@@ -117,6 +135,7 @@
     }
     {% endstyle %}
 
+
     {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'new.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' or request.page_type == 'product' %}
@@ -137,25 +156,32 @@
       }
     </style>
     <style>
+      #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button {
+    background: #c7ec51 !important;
+}
+      #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes {
+    background: #c7ec51 !important;
+}
       body #bingc-phone-button svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-       fill: #47B447 !important;
+       fill: #c7ec51 !important;
       }
       body #bingc-phone-button:hover svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-        fill: #47b447 !important;
+        fill: #c7ec51 !important;
       }
       body #bingc-phone-button div.bingc-phone-button-tooltip {
-        background: #47b447 !important;
+        background: #c7ec51 !important;
       }
       body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
-        fill: #47b447 !important;
+        fill: #c7ec51 !important;
       }
-     {% comment %}  body #bingc-active {
-        background: #47a447 !important;
-      } {% endcomment %}
-    {% comment %}  body #bingc-passive div.bingc-passive-overlay {
-        background: #47a447 !important;
-      } {% endcomment %}
     </style>
+      {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' %}
+          <style>
+              a#icon-wishlist-header{
+                  opacity: 1;
+              }
+          </style>
+      {%- endif -%}
     {%- unless settings.type_body_font.system? -%}
     <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -176,9 +202,15 @@
    {% capture adoricsnippet %}{% include "adoric-apps-common" %}{% endcapture %}{% unless adoricsnippet contains "Liquid error" %}{{ adoricsnippet }}{% endunless %}
    <meta name="google-site-verification" content="3lSZiF14Fa-u21OZGIXiMaguwBJgQnyzUqorK5vG9g0" />
    <meta name="google-site-verification" content="cIoKTzCKehHrd-DQjxMORaLir9ukPggviWKS8Czw-Ho" />
-    <img alt="icon" id="svgicon" width="1400" height="1400" style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;"  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+" loading="eager"></head>
+    <img alt="icon" id="svgicon" width="1400" height="1400" style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;"  src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+" loading="eager">
+  <script data-orderly-url="https://orderly-app.io" data-orderly-theme="orderly" data-orderly-script="GLOBAL" src="{{ 'orderly-script.js' | asset_url }}" async></script>
+  </head>
 
   <body class="template-{{ request.page_type | handle }}">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXSVV32"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>
@@ -186,10 +218,16 @@
     {% section 'announcement-bar' %}
     {% section 'header' %}
 
-    <main id="MainContent" class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %}" role="main" tabindex="-1">
+    <main id="MainContent" class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %} {% if template.name == 'cart' %}cart-wrap{% endif %}" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
+    {% if customer.tags   contains 'admin' and template.name == 'product' %}
+        {% assign store_permanent_domain = shop.permanent_domain | replace: ".myshopify.com"  %}
+        <div class="admin-products-link">
+            <a href="https://admin.shopify.com/store/{{ store_permanent_domain }}/products/{{ product.id }}" target="_blank">EDIT PRODUCT </a>
+        </div>
+    {% endif %}
 
     {% section 'footer' %}
 
@@ -246,7 +284,7 @@
 
 
     {% render 'translation-lab-switcher-custom' %}
-
+    {%- endcomment -%}
     <script type="text/javascript">
       (function(d, w, s) {
         var widgetHash = 'q57maszf730pmvmuqcld', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
@@ -254,6 +292,5 @@
         var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
       })(document, window, 'script');
     </script>
-
   </body>
 </html>

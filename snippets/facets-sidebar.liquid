@@ -43,7 +43,8 @@
               {% case filter.type %}
               {% when 'list' %}
               {% assign coll_title = collection.title | downcase %}
-              {% if filter.param_name == 'filter.p.m.my_fields.discount' and coll_title != 'sale' %}
+                {% comment %}filter.p.m.my_fields.discount{% endcomment %}
+              {% if filter.param_name == 'filter.p.m.my_fields.discounts' and coll_title != 'sale' %}
                 {% continue %}
               {% else %}
                 {% if filter.label == 'Category' %}

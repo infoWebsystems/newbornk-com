@@ -49,7 +49,7 @@ class CustomerAddresses {
   }
 
   _setupEventListeners() {
-    this.elements.toggleButtons.forEach((element) => {
+    this.elements.toggleButtons.forEach((element) => { 
       element.addEventListener('click', this._handleAddEditButtonClick);
     });
     this.elements.cancelButtons.forEach((element) => {

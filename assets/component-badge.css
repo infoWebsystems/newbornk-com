@@ -19,3 +19,9 @@
     padding: 0.45rem 1.2rem;
   }
 }
+.card--product .card__badge{
+flex-direction: column;
+}
+.card--product .card__badge .badge{
+  width: fit-content;
+}

@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin language editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "header": {
@@ -30,9 +30,9 @@
       "calculate": "Розраховується під час оформлення замовлення",
       "cart_error": "Під час оновлення кошика сталася помилка. Будь ласка, спробуйте ще раз.",
       "cart_quantity_error_html": "Ви можете додати лише [quantity] цього товару у свій кошик.",
-      "taxes_and_shipping_policy_at_checkout_html": "Податки та <a href=\"{{ link }}\">доставка<\/a> розраховуються під час оформлення замовлення",
+      "taxes_and_shipping_policy_at_checkout_html": "Податки та <a href=\"{{ link }}\">доставка</a> розраховуються під час оформлення замовлення",
       "taxes_included_but_shipping_at_checkout": "Податок включено, доставка розраховується під час оформлення замовлення",
-      "taxes_included_and_shipping_policy_html": "Податок включено. <a href=\"{{ link }}\">Доставка<\/a> розраховується під час оформлення замовлення.",
+      "taxes_included_and_shipping_policy_html": "Податок включено. <a href=\"{{ link }}\">Доставка</a> розраховується під час оформлення замовлення.",
       "taxes_and_shipping_at_checkout": "Податки та доставка розраховуються під час оформлення замовлення",
       "headings": {
         "product": "Товар",
@@ -82,7 +82,7 @@
       "sort_by_label": "Сортувати",
       "title": "Колекція",
       "to": "До",
-      "use_fewer_filters_html": "Використати менше фільтрів або <a class=\"{{ class }}\" href=\"{{ link }}\">очистити все<\/a>"
+      "use_fewer_filters_html": "Використати менше фільтрів або <a class=\"{{ class }}\" href=\"{{ link }}\">очистити все</a>"
     }
   },
   "general": {
@@ -94,7 +94,7 @@
       "login_form_error": "Неправильний пароль!",
       "login_form_submit": "Введіть",
       "modal": "Password modal",
-      "admin_link_html": "Ви власник магазину? <a href=\"\/admin\" class=\"link underlined-link\">Увійдіть тут<\/a>",
+      "admin_link_html": "Ви власник магазину? <a href=\"/admin\" class=\"link underlined-link\">Увійдіть тут</a>",
       "powered_by_shopify_html": "Цей магазин буде працювати на {{ shopify }}"
     },
     "breadcrumbs": {
@@ -216,8 +216,8 @@
         "view_store_info": "Перегляд інформації про магазин",
         "check_other_stores": "Перевірте наявність в інших магазинах",
         "pick_up_available": "Можливий самовивіз",
-        "pick_up_available_at_html": "Забрати можна за адресою <span class=\"color-foreground\">{{ location_name }}<\/span>",
-        "pick_up_unavailable_at_html": "Самовивезення зараз недоступне за адресою <span class=\"color-foreground\">{{ location_name }}<\/span>",
+        "pick_up_available_at_html": "Забрати можна за адресою <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Самовивезення зараз недоступне за адресою <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Не вдалося завантажити доступність самовивезення",
         "refresh": "Оновити"
       },
@@ -328,10 +328,10 @@
     }
   },
   "localization": {
-    "country_label": "Країна\/регіон",
+    "country_label": "Країна/регіон",
     "language_label": "Мова",
     "update_language": "Оновити мову",
-    "update_country": "Оновити країну\/регіон"
+    "update_country": "Оновити країну/регіон"
   },
   "customer": {
     "account": {
@@ -360,7 +360,7 @@
       "address1": "Адреса 1",
       "address2": "Адреса 2",
       "city": "Місто",
-      "country": "Країна\/регіон",
+      "country": "Країна/регіон",
       "province": "Провінція",
       "zip": "Поштовий індекс",
       "phone": "Телефон",
@@ -503,7 +503,8 @@
         "checkout_context": {
           "step_one": "{{ shop_name }} - Checkout"
         },
-        "choose_billing_address": "Виребіть із запропонованих варіантів"
+        "choose_billing_address": "Виребіть із запропонованих варіантів",
+        "choose_delivery_strategy": "Оберіть спосіб доставки"
       },
       "contact": {
         "title": "Інформація",
@@ -524,7 +525,7 @@
         "optional_company_label": "№ Відділеня Нової Пошти (не обов'язково)",
         "address2_label": "№ Відділення Нової Пошти ",
         "optional_address2_label": "№ Відділеня Нової Пошти",
-        "country_code": "Country\/Region",
+        "country_code": "Country/Region",
         "province_label": "Province",
         "province_placeholder": "Province",
         "county_label": "County",
@@ -541,10 +542,10 @@
         "governorate_placeholder": "Governorate",
         "emirate_label": "Emirate",
         "emirate_placeholder": "Emirate",
-        "state_and_territory_label": "State\/territory",
-        "state_and_territory_placeholder": "State\/territory",
+        "state_and_territory_label": "State/territory",
+        "state_and_territory_placeholder": "State/territory",
         "phone_label": "Телефон",
-        "optional_phone_label": "Телефон (необов'язково)",
+        "optional_phone_label": "Телефон (обов'язково)",
         "phone_placeholder": "Телефон",
         "phone_tooltip": "Якщо нам потрібно зв’язатися з вами щодо вашого замовлення",
         "zip_code_label": "Індекс (будь-яке значення)",
@@ -574,7 +575,9 @@
         "pick_up_in_zero_to_two_hours": "Готовий до самовивозу через 2 години",
         "pick_up_in_two_to_four_hours": "Готовий до самовивозу через 4 години",
         "pick_up_immediately": "Готовий до видачі",
-        "pick_up_next_day": "Готовий до самовивозу наступного дня"
+        "pick_up_next_day": "Готовий до самовивозу наступного дня",
+        "pick_up_from_store": "Самовивіз з магазину",
+        "ship_to_address": "Адресна доставка"
       },
       "customer_account": {
         "not_user_label": "Not {{ first_name }}?",
@@ -624,10 +627,10 @@
         "gift_card_has_been_removed": "Подарункову картку видалено",
         "gift_card_subscriptions_notice": "Подарункові картки застосовуватимуться лише на Ваше перше замовлення",
         "discount_already_applied": "До цього замовлення вже застосовано знижку. Ви не можете додати ще одну знижку.",
-        "cart_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> промокод не дійсний для товарів у кошику",
-        "discount_requires_customer_notice": "Введіть інформацію про доставку, щоб застосувати <strong>{{ code }}<\/strong> промокод",
-        "customer_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> промокод зараз недоступний",
-        "shipping_information_does_not_meet_discount_requirements_notice": "<strong>{{ code }}<\/strong> промокод недоступний для вашої адреси доставки",
+        "cart_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> промокод не дійсний для товарів у кошику",
+        "discount_requires_customer_notice": "Введіть інформацію про доставку, щоб застосувати <strong>{{ code }}</strong> промокод",
+        "customer_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> промокод зараз недоступний",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong>{{ code }}</strong> промокод недоступний для вашої адреси доставки",
         "customer_already_used_once_per_customer_discount_notice": "The {{ code }} промокод вже використаний",
         "subtotal_label": "Сума",
         "shipping_label": "Доставка",
@@ -769,8 +772,8 @@
         "card_information_notice": "Усі транзакції захищені та зашифровані. Інформація про кредитну картку ніколи не зберігається.",
         "name_on_card_label": "Ім'я на картці",
         "name_on_card_placeholder": "Ім'я на картці",
-        "card_expiry_label": "Дата закінчення терміну дії (Місяць \/ Рік)",
-        "card_expiry_placeholder": "Дата закінчення терміну дії (Місяць \/ Рік)",
+        "card_expiry_label": "Дата закінчення терміну дії (Місяць / Рік)",
+        "card_expiry_placeholder": "Дата закінчення терміну дії (Місяць / Рік)",
         "credit_card_start_month": "Початок місяця",
         "credit_card_start_year": "Початок року",
         "card_verification_value_label": "Код безпеки",
@@ -781,8 +784,8 @@
         "card_verification_value_explanation": "Тризначний код безпеки, як правило, знаходиться на звороті вашої картки. Картки American Express мають 4-значний код, розташований спереду.",
         "card_verification_value_explanation_amex": "4-значний код безпеки на лицьовій стороні вашої картки",
         "card_verification_value_explanation_other": "3-значний код безпеки на звороті вашої картки",
-        "card_start_label": "Дата випуску (Місяць \/ Рік)",
-        "card_start_placeholder": "Дата випуску (Місяць \/ Рік)",
+        "card_start_label": "Дата випуску (Місяць / Рік)",
+        "card_start_placeholder": "Дата випуску (Місяць / Рік)",
         "card_issue_number_label": "Issue number",
         "card_issue_number_placeholder": "Issue number",
         "card_change_label": "Змінити",
@@ -790,7 +793,7 @@
         "masked_digits_label": "•••• {{ last_digits }}",
         "saved_by_payment_method": "Збережено  {{ payment_method }}",
         "pay_with_payment_method": "Оплатити за допомогою {{ payment_method }}",
-        "free_order_notice_html": "Ваше замовлення <strong>безкоштовне<\/strong>. Оплата не потрібна.",
+        "free_order_notice_html": "Ваше замовлення <strong>безкоштовне</strong>. Оплата не потрібна.",
         "express_checkout_free_order": "Безкоштовне замовлення ",
         "offsite_gateway_redirect_hint": "Після натискання кнопки “{{ button_label }}”, ви будете перенаправлені на ОПЛАТУ КАРТОЮ, щоб надійно завершити свою покупку.\n",
         "offsite_gateway_redirect_hint_multi_currency_html": "{{ gateway_label }} усього {{ total_shop_price }}",
@@ -814,7 +817,7 @@
         "ideal_label": "iDEAL",
         "bank_picker_label": "Банк",
         "subscription_card_update_agreement_label": "Зміна способу оплати оновить вашу підписку та майбутні періодичні платежі.",
-        "subscription_agreement_label_html": "Я розумію, що погоджуюсь на передплату. Предплата продовжуватиметься за ціною та періодичністю, зазначеними доти, доки не закінчиться або стане <a class=\"link--small\" data-modal=\"true\" data-title-text=\"{{ subscription_policy }}\" href=\"{{ policy_href }}\">скасовано<\/a>.",
+        "subscription_agreement_label_html": "Я розумію, що погоджуюсь на передплату. Предплата продовжуватиметься за ціною та періодичністю, зазначеними доти, доки не закінчиться або стане <a class=\"link--small\" data-modal=\"true\" data-title-text=\"{{ subscription_policy }}\" href=\"{{ policy_href }}\">скасовано</a>.",
         "change_currency_section_description": "Вибрати валюту",
         "no_real_orders_dev_store": "This store can't accept real orders or real payments.",
         "waiting_on_payment_methods": "Отримання доступних способів оплати ...",
@@ -826,8 +829,8 @@
           "other": "Ваше замовлення покривається вашими подарунковими картками."
         },
         "card_fields_unavailable_html": {
-          "one": "Платежі за допомогою кредитних карток зараз недоступні.<br><a href=\"{{ current_url }}\">Оновіть цю сторінку<\/a> або повторіть спробу пізніше.",
-          "other": "Платежі за допомогою кредитних карток зараз недоступні.<br><a href=\"{{ current_url }}\">Оновіть цю сторінку<\/a> або спробуйте інший спосіб оплати."
+          "one": "Платежі за допомогою кредитних карток зараз недоступні.<br><a href=\"{{ current_url }}\">Оновіть цю сторінку</a> або повторіть спробу пізніше.",
+          "other": "Платежі за допомогою кредитних карток зараз недоступні.<br><a href=\"{{ current_url }}\">Оновіть цю сторінку</a> або спробуйте інший спосіб оплати."
         },
         "billing_address_title": "Адреса для виставлення рахунків",
         "same_billing_address_label": "Я одержувач",
@@ -839,7 +842,7 @@
       },
       "payment_summary": {
         "gift_card_current_balance_notice": "Поточний баланс  {{ amount }}",
-        "credit_card_expires_on_notice": "Термін дії закінчується {{ month }}\/{{ year }}",
+        "credit_card_expires_on_notice": "Термін дії закінчується {{ month }}/{{ year }}",
         "express_payment_gateway_label": "Експрес",
         "manual_payment_gateway_label": "Вручну",
         "billing_address_title": "Дані одержувача",
@@ -856,9 +859,9 @@
         "address_address1_blank": "Введіть адресу ",
         "address_address2_blank": "Введіть № Відділеня Нової Пошти",
         "address_city_blank": "Введіть Місто",
-        "address_country_blank": "Виберіть країну \/ регіон",
-        "address_country_not_supported": "В даний час ми не доставляємо в цю країну \/ регіон. Введіть нову адресу для доставки та повторіть спробу.",
-        "address_province_blank": "Select a state \/ province",
+        "address_country_blank": "Виберіть країну / регіон",
+        "address_country_not_supported": "В даний час ми не доставляємо в цю країну / регіон. Введіть нову адресу для доставки та повторіть спробу.",
+        "address_province_blank": "Select a state / province",
         "address_company_blank": "Enter a company name",
         "address_phone_blank": "Введіть дійсний номер телефону",
         "address_zip_blank": "Введіть поштовий індекс",
@@ -894,7 +897,8 @@
         "subscription_agreement_blank": "Щоб продовжити покупку, прийміть умови підписки",
         "physical_gift_card_invalid_quantity": "Позиції фізичних подарункових карток повинні містити кількість, яка відповідає кількості кодів подарункових карток.",
         "physical_gift_card_duplicate_code": "Позиція фізичної подарункової картки містить дублікат коду.",
-        "physical_gift_card_invalid_code": "Код фізичної подарункової картки недійсний."
+        "physical_gift_card_invalid_code": "Код фізичної подарункової картки недійсний.",
+        "phone_blank": "Введіть номер телефону"
       },
       "payment_errors": {
         "generic_error": "Під час обробки вашого платежу виникла проблема. Спробуйте ще раз або скористайтеся іншим способом оплати.",
@@ -929,7 +933,8 @@
         "shipping_method_not_available_updated": {
           "one": "Доданий вами товар не надходить у ваше місцезнаходження. Видаліть його, щоб перевірити, або зверніться до нас.",
           "other": "Один або кілька доданих вами елементів не надсилаються до вашого місцезнаходження. Видаліть їх, щоб перевірити, або зв’яжіться з магазином."
-        }
+        },
+        "empty_state": "Введіть свою адресу, щоб переглянути доступні способи доставки."
       },
       "alternative_payment_method_banner": {
         "express_checkout": "Експрес-оплата",
@@ -1287,6 +1292,13 @@
         "page_title": "Способи оплати",
         "title": "Способи оплати",
         "update_card_button_label": "Оновити кошик"
+      },
+      "wallets": {
+        "errors": {
+          "missing": {
+            "phone": "Введіть номер телефону"
+          }
+        }
       }
     },
     "pagination": {
@@ -1318,7 +1330,7 @@
       "prefecture": "Prefecture",
       "province": "Province",
       "state": "State",
-      "state_and_territory": "State\/territory",
+      "state_and_territory": "State/territory",
       "county": "County",
       "emirate": "Emirate",
       "governorate": "Governorate",
@@ -1376,7 +1388,7 @@
       "expired": "термін дії закінчився",
       "invalid_start_date_or_issue_number_for_debit": "потрібна дійсна дата початку або номер випуску",
       "invalid_expiry_year": "не є дійсним роком закінчення терміну дії",
-      "reset_password_html": "Ця електронна адреса вже пов’язана з обліковим записом. Якщо цей обліковий запис є вашим, ви можете <a href=\"\/account\/login#recover\">скинути пароль<\/a>",
+      "reset_password_html": "Ця електронна адреса вже пов’язана з обліковим записом. Якщо цей обліковий запис є вашим, ви можете <a href=\"/account/login#recover\">скинути пароль</a>",
       "verify_email": "Ми надіслали електронний лист на адресу {{ customer_email }}, натисніть на посилання, щоб підтвердити свою електронну адресу."
     },
     "notices": {
@@ -1425,7 +1437,7 @@
           "declined": "Платіж відхилено",
           "inventory": "Товари недоступні",
           "fraud": "Black List",
-          "customer": "Клієнт змінив \/ скасував замовлення",
+          "customer": "Клієнт змінив / скасував замовлення",
           "other": "Інше"
         }
       },
@@ -1439,7 +1451,7 @@
         "too_many_line_items_error": "Кошик не може містити більше ніж {{ max }} товарів.",
         "link_expired": "Термін дії посилання закінчився",
         "link_no_longer_exists": "Посилання більше не існує.",
-        "stock_problems_html": "Один або кілька предметів більше не доступні. Ми надали <a href='{{ link }}'>оновлений кошик<\/a>.",
+        "stock_problems_html": "Один або кілька предметів більше не доступні. Ми надали <a href='{{ link }}'>оновлений кошик</a>.",
         "changed": "Кошик змінено",
         "items_changed": "Змінився один або кілька товарів.",
         "product_sold_out": "Товар '{{ name }}' вже розпроданий.",
@@ -1466,29 +1478,29 @@
       },
       "open_tracking": {
         "opt_in": {
-          "opted_in_html": "<b>YВи вибрали відстеження електронних листів.<\/b>",
+          "opted_in_html": "<b>YВи вибрали відстеження електронних листів.</b>",
           "visibility": "Статистика відкриття електронних листів повідомлятимуться анонімно. Ми побачимо лише, чи ви відкрили електронний лист як частину сукупної статистики відкриття електронних листів.",
-          "opt_out_html": "Ви можете <a style='text-decoration:underline;' href='{{ link }}'>відмовитися<\/a> від відкритого відстеження електронних листів, якщо ви не хочете ділитися цією інформацією.",
+          "opt_out_html": "Ви можете <a style='text-decoration:underline;' href='{{ link }}'>відмовитися</a> від відкритого відстеження електронних листів, якщо ви не хочете ділитися цією інформацією.",
           "preview_bar": "Ви попередньо переглядаєте, що бачать клієнти, коли вони вирішать відстежувати відкриті повідомлення електронних листів."
         },
         "opt_out": {
-          "opted_out_html": "<b>Ви відмовились від відкритого відстеження електронних листів<\/b>",
+          "opted_out_html": "<b>Ви відмовились від відкритого відстеження електронних листів</b>",
           "visibility": "Ми не побачимо, чи ви відкривали наші електронні листи.",
-          "opt_in_html": "<a style='text-decoration:underline;' href='{{ link }}'>Увімкнути<\/a> щоб відкрити відстеження електронних листів.",
+          "opt_in_html": "<a style='text-decoration:underline;' href='{{ link }}'>Увімкнути</a> щоб відкрити відстеження електронних листів.",
           "preview_bar": "Ви попередньо переглядаєте те, що бачать клієнти, коли вони відмовляться від відкритого відстеження електронних листів."
         },
         "no_longer_track": {
-          "status_html": "<b>Ми більше не відстежуємо відкриття електронних листів.<\/b>",
+          "status_html": "<b>Ми більше не відстежуємо відкриття електронних листів.</b>",
           "privacy_policy": "Після надсилання цього електронного листа ми оновили нашу політику конфіденційності і більше не відстежуємо відкриття."
         },
         "track": {
-          "status_html": "<b>Повідомляти про відстеження електронних листів.<\/b>",
+          "status_html": "<b>Повідомляти про відстеження електронних листів.</b>",
           "visibility": "Ми побачимо лише, чи ви відкрили електронний лист, як частину загальної статистики відкриття електронних листів."
         },
         "updated_policy": {
-          "status_html": "<b>Повідомляти про відстеження електронних листів.<\/b>",
+          "status_html": "<b>Повідомляти про відстеження електронних листів.</b>",
           "visibility": "Ми оновили нашу політику, і тепер електронні листи відстужуються. Статистика відкриття електронної пошти повідомлятимуться анонімно. Ми побачимо, чи ви відкрили електронне повідомлення як частину загальної статистики відкриття електронних листів.",
-          "opt_out_html": "Якщо ви не хочете ділитися цією інформацією, ви можете <a style='text-decoration:underline;' href='{{ link }}'>скасувати підписку.<\/a>"
+          "opt_out_html": "Якщо ви не хочете ділитися цією інформацією, ви можете <a style='text-decoration:underline;' href='{{ link }}'>скасувати підписку.</a>"
         }
       }
     },
