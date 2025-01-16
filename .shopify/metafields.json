@@ -139,6 +139,16 @@
         "name": "single_line_text_field",
         "category": "TEXT"
       }
+    },
+    {
+      "key": "size_chart",
+      "namespace": "custom",
+      "name": "Size chart",
+      "description": "",
+      "type": {
+        "name": "metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [

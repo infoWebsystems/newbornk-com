@@ -82,7 +82,12 @@
                                             {%- else -%}
                                                 <details>
                                                     <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
-                                                        {{ childlink.title | escape }}
+                                                        <a
+                                                        href="{{ childlink.url }}"
+                                                        class="header__menu-item link link--text"
+                                                        style="padding: 0;">
+                                                            {{ childlink.title | escape }}
+                                                        </a>
                                                         {% render 'icon-caret' %}
                                                     </summary>
                                                     <ul class="header__submenu list-menu motion-reduce">
@@ -124,10 +129,7 @@
                         {% if link.current %}
                             aria-current="page"
                                 {% endif %}>
-              <span
-                {%- if link.current %}
-                    class="header__active-menu-item"
-                      {% endif %}>{{ link.title | escape }}</span>
+              <span {%- if link.current %}class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                         </a>
                     {% endif %}
                     {%- endif -%}
