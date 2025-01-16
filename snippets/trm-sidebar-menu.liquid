@@ -82,13 +82,13 @@
                                             {%- else -%}
                                                 <details>
                                                     <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
-                                                        {% comment %} <a
+                                                        <a
                                                         href="{{ childlink.url }}"
                                                         class="header__menu-item link link--text"
                                                         style="padding: 0;">
                                                             {{ childlink.title | escape }}
-                                                        </a> {% endcomment %}
-                                                        {{ childlink.title | escape }}
+                                                        </a>
+                                                        {% comment %} {{ childlink.title | escape }} {% endcomment %}
                                                         {% render 'icon-caret' %}
                                                     </summary>
                                                     <ul class="header__submenu list-menu motion-reduce">
