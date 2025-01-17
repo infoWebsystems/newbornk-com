@@ -260,6 +260,7 @@
       "clear_filter": "Очистка фiльтра"
     },
     "info_labels": {
+      "size_guide_title": "Розмірна сітка",
       "size_guide": "розмірна сітка",
       "size_guide_note": "Усі розміри вказані в сантиметрах"
     }

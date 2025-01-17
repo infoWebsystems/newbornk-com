@@ -5,6 +5,7 @@
 {% if size_chart_obj != blank %}
     <div class="wrapper-modal customer-modal modal-overlay productSizeModal desktop-fullScreen center-position {{ id }}">
         <div class="wrapper-modal__top-block">
+            <div class="wrapper-modal__top-block__title">{{ 'products.info_labels.size_guide_title' | t }} {{ product.vendor }}</div>
             <button class="btn-transparent js-close-modal-btn">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 11L11 1" stroke="black"/>

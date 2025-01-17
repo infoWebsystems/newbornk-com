@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   gap: 17px;
-  padding: 58px 32px 26px 32px;
+  padding: 20px 32px 26px 32px;
 
   border: 1px solid #000000;
   border-radius: 4px;
@@ -21,7 +21,7 @@
 @media screen and (max-width: 991px) {
   .wrapper-modal {
       /* padding: 24px 12px */
-      padding: 40px 12px 20px 12px;
+      padding: 20px 12px 20px 12px;
   }
 }
 
@@ -59,6 +59,18 @@
   transform: translate(-50%, -50%);
   /* transform: translateX(-50%); */
   display: none
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper-modal.center-position {
+    width: max-content !important;
+    max-width: calc(100% - 32px) !important;
+    /* left: 16px !important;
+    right: 16px !important; */
+    /* padding-left: 16px;
+    padding-right: 16px;
+    transform: translate(0, -50%) !important; */
+  }
 }
 
 .wrapper-modal.center-position.show {
@@ -101,13 +113,20 @@
   align-items: center
 }
 
+.wrapper-modal__top-block__title {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+}
+
 .wrapper-modal__top-block .btn-transparent {
   cursor: pointer;
   margin: 0;
   padding: 0;
-  position: absolute;
+  /* position: absolute;
   top: 22px;
-  right: 22px;
+  right: 22px; */
   background-color: transparent;
   border: none;
 }
@@ -558,6 +577,16 @@
   right: 0
 }
 
+@media screen and (max-width: 991px) {
+  .wrapper-modal.desktop-fullScreen {
+    width: max-content !important;
+    max-width: calc(100% - 32px) !important;
+    /* left: 16px !important;
+    right: 16px !important;
+    transform: translate(0, -50%) !important; */
+  }
+}
+
 .wrapper-modal.productShippingModal .wrapper-list {
   display: flex;
   flex-direction: column;
@@ -594,7 +623,8 @@
 }
 
 .wrapper-modal.productSizeModal {
-  gap: 22px
+  gap: 22px;
+  max-width: 650px;
 }
 
 .wrapper-modal.productSizeModal .wrapper-tabs-block__btns {
@@ -616,7 +646,14 @@
 }
 
 .wrapper-modal.productSizeModal .wrapper-tabs-block__content.show {
-  display: block
+  display: block;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 991px) {
+  .wrapper-modal.productSizeModal .wrapper-tabs-block__content.show {
+    margin-top: 20px;
+  }
 }
 
 .wrapper-modal.productSizeModal .wrapper-tabs-block__content .wrapper-table {
@@ -945,9 +982,9 @@
 }
 
 .wrapper-modal.customer-modal {
-  width: 100%;
+  /* width: 100%; */
   /* max-width: 332px; */
-  max-width: max-content;
+  /* max-width: max-content; */
 }
 
 @media screen and (max-width: 991px) {
