@@ -663,6 +663,7 @@
 
 .wrapper-modal.productSizeModal .wrapper-tabs-block__content .wrapper-table table {
   width: 100%;
+  width: auto !important;
   border-collapse: collapse;
   border-spacing: 12px;
   border-color: transparent;
@@ -711,13 +712,22 @@
 }
 
 .wrapper-modal.productSizeModal .wrapper-tabs-block__content .wrapper-table table tbody td {
-  padding-right: 10px;
-  padding-bottom: 2px;
+  /* padding-right: 10px; */
+  padding-bottom: 0;
+  padding-top: 0;
   white-space: nowrap;
   text-align: left !important;
   text-transform: uppercase;
   font-weight: 400;
   min-width: 110px
+}
+
+.wrapper-modal.productSizeModal .wrapper-tabs-block__content .wrapper-table table tbody td:not(:first-child) {
+  text-align: center !important;
+}
+
+.wrapper-modal.productSizeModal .wrapper-tabs-block__content .wrapper-table table tbody tr td:not(:first-child) {
+  width: 110px !important;
 }
 
 .wrapper-modal.productSizeModal .wrapper-tabs-block__content .wrapper-table table tbody td:nth-child(2n) {
