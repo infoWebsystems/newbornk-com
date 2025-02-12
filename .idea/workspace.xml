@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="merge develop" />
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="updates">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728552571767</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="updates">
+      <option name="closed" value="true" />
+      <created>1739388865825</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739388865825</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +277,8 @@
     <MESSAGE value="wishlist icon mob fix2" />
     <MESSAGE value="fix wishlist icon" />
     <MESSAGE value="merge develop" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge develop" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -10,6 +10,7 @@
 <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
 
+{%- assign collection = section.settings.collection -%}
 {%- assign products = section.settings.collection.products -%}
 {%- assign title = section.settings.title | escape -%}
 {%- assign url = section.settings.collection.url -%}
@@ -19,7 +20,7 @@
 
   {%- assign handle = product.vendor | downcase | handle -%}
 
-  {%- if handle != blank -%}
+  {%- if handle != blank and product.handle != 'gift-card' -%}
     {%- assign collection = collections[handle] -%}
 	{%- assign products = collection.all_products -%}
     {%- assign title = collection.title | escape -%}
