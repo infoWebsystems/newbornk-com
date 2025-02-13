@@ -21,7 +21,7 @@
     {%- assign handle = product.vendor | downcase | handle -%}
     {% assign collection_vendor = collections[handle] %}
 
-    {%- if handle != blank and collection_vendor.all_products_count > 5 -%}
+    {%- if handle != blank and collection_vendor != blank and collection_vendor.all_products_count > 5 -%}
       {%- assign collection = collections[handle] -%}
       {%- assign products = collection.all_products -%}
       {%- assign title = collection.title | escape -%}
