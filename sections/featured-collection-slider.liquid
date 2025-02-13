@@ -10,31 +10,36 @@
 <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- assign collection = section.settings.collection -%}
 {%- assign products = section.settings.collection.products -%}
 {%- assign title = section.settings.title | escape -%}
 {%- assign url = section.settings.collection.url -%}
+{% assign featured_collection_metafield = product.metafields.custom.featured_collection.value %}
 
 {% if section.settings.brand_collection == true %}
-{%- if template contains 'product' -%}
+  {%- if template contains 'product' -%}
 
-  {%- assign handle = product.vendor | downcase | handle -%}
+    {%- assign handle = product.vendor | downcase | handle -%}
 
-  {%- if handle != blank and product.handle != 'gift-card' -%}
-    {%- assign collection = collections[handle] -%}
-	{%- assign products = collection.all_products -%}
-    {%- assign title = collection.title | escape -%}
-    {%- assign url = collection.url -%}
+    {%- if handle != blank and collections[handle].all_products_count != 0 -%}
+      {%- assign collection = collections[handle] -%}
+      {%- assign products = collection.all_products -%}
+      {%- assign title = collection.title | escape -%}
+      {%- assign url = collection.url -%}
+    {% elsif featured_collection_metafield != blank %}
+      {%- assign collection = featured_collection_metafield -%}
+      {%- assign products = collection.all_products -%}
+      {%- assign title = collection.title | escape -%}
+      {%- assign url = collection.url -%}
+    {%- endif -%}
+
   {%- endif -%}
-
-{%- endif -%}
 {% endif %}
 
 <div class="collection handle-{{handle}} page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %} page-width-full">
   <div class="{% if section.settings.show_view_all and section.settings.swipe_on_mobile %}title-wrapper-with-link{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
     <h2 class="title{% if title == blank %} title--no-heading{% endif %}">
       <a href="{{ url }}">{% if section.settings.show_text == 'true' %} {{ 'templates.collection.slider.title' | t }}{% endif %}  {{ title }}
-      {%- if section.settings.show_arrow %}{% render 'icon-caret' %} {% endif %}
+        {%- if section.settings.show_arrow %}{% render 'icon-caret' %} {% endif %}
       </a>
     </h2>
 
@@ -56,12 +61,12 @@
       {%- for product in products -%}
         <li class="swiper-slide">
           {% render 'product-card',
-            product_card_product: product,
-            media_size: section.settings.image_ratio,
-            show_secondary_image: section.settings.show_secondary_image,
-            add_image_padding: section.settings.add_image_padding,
-            show_vendor: section.settings.show_vendor,
-            show_info: true
+                  product_card_product: product,
+                  media_size: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  add_image_padding: section.settings.add_image_padding,
+                  show_vendor: section.settings.show_vendor,
+                  show_info: true
           %}
         </li>
       {%- else -%}
@@ -77,8 +82,8 @@
   {%- if section.settings.show_view_all and section.settings.collection.all_products_count > section.settings.products_to_show -%}
     <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
       <a href="{{ url }}"
-        class="button"
-        aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: title }}"
+         class="button"
+         aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: title }}"
       >
         {{ 'sections.featured_collection.view_all' | t }}
       </a>
@@ -88,7 +93,7 @@
 <style>
   .swiper-container-collection {
     overflow: hidden;
-}
+  }
 </style>
 {% assign product_show = section.settings.products_to_show | times:1.0 %}
 {% assign product_show_mobile = section.settings.products_to_show_mobile | times:1.0 %}
@@ -98,36 +103,36 @@
 var menu = [];
 {% endjavascript %}
 
-  <script>
-    const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
-          slidesPerView: {{ product_show }},
-          speed:100,
-          centeredSlides : false,
-          touchRatio: 1,
-          slideToClickedSlide: false,
-          cssMode: false,
-          freeMode: true,
-          slidesOffsetAfter: 0,
-          mousewheel: {
-            releaseOnEdges: true,
-          },
-          breakpoints: {
-            320: {
-              slidesPerView: {{ product_show_mobile }},
-              spaceBetween: 20
-            },
-            480: {
-              slidesPerView: {{ product_show_mobile }},
-              spaceBetween: 30
-            },
-            640: {
-              slidesPerView: {{ product_show }},
-              spaceBetween: 15
-            }
-          }
+<script>
+  const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
+    slidesPerView: {{ product_show }},
+    speed:100,
+    centeredSlides : false,
+    touchRatio: 1,
+    slideToClickedSlide: false,
+    cssMode: false,
+    freeMode: true,
+    slidesOffsetAfter: 0,
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: {{ product_show_mobile }},
+        spaceBetween: 20
+      },
+      480: {
+        slidesPerView: {{ product_show_mobile }},
+        spaceBetween: 30
+      },
+      640: {
+        slidesPerView: {{ product_show }},
+        spaceBetween: 15
+      }
+    }
 
-        });
-  </script>
+  });
+</script>
 {% schema %}
 {
   "name":"t:sections.featured-collection-slider.name",

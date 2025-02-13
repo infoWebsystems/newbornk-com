@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="updates">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="gift card PDP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" afterDir="false" />
     </list>
@@ -237,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739388865825</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="gift card PDP">
+      <option name="closed" value="true" />
+      <created>1739390220167</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1739390220167</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +286,8 @@
     <MESSAGE value="fix wishlist icon" />
     <MESSAGE value="merge develop" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="gift card PDP" />
+    <option name="LAST_COMMIT_MESSAGE" value="gift card PDP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
