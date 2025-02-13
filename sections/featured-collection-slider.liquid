@@ -20,12 +20,12 @@
 
     {%- assign handle = product.vendor | downcase | handle -%}
 
-    {%- if handle != blank and collections[handle].all_products_count != 0 -%}
+    {%- if handle != blank and collections[handle].all_products_count > 5 -%}
       {%- assign collection = collections[handle] -%}
       {%- assign products = collection.all_products -%}
       {%- assign title = collection.title | escape -%}
       {%- assign url = collection.url -%}
-    {% elsif featured_collection_metafield != blank %}
+    {% elsif featured_collection_metafield != blank and featured_collection_metafield.all_products_count > 5 %}
       {%- assign collection = featured_collection_metafield -%}
       {%- assign products = collection.all_products -%}
       {%- assign title = collection.title | escape -%}
