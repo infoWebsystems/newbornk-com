@@ -65,6 +65,43 @@
           "enable_language_selector": true,
           "payment_enable": true
         }
+      },
+      "header-outlet": {
+        "type": "header-outlet",
+        "settings": {
+          "logo": "shopify://shop_images/newborn_logo.png",
+          "logo_width": 100,
+          "logo_position": "middle-left",
+          "menu_position": "center",
+          "menu": "main-menu-outlet",
+          "menu_mobile": "mobile-menu-outlet",
+          "show_line_separator": true,
+          "show_search": true
+        }
+      },
+      "footer-outlet": {
+        "type": "footer-outlet",
+        "blocks": {
+          "footer-outlet-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          }
+        },
+        "block_order": [
+          "footer-outlet-0"
+        ],
+        "settings": {
+          "color_scheme": "background-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Sign up to our emails",
+          "show_social": false,
+          "enable_country_selector": true,
+          "enable_language_selector": true,
+          "payment_enable": true
+        }
       }
     },
     "content_for_index": []
