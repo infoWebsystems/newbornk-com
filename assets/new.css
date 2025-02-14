@@ -579,8 +579,8 @@ span.cart-item-price{
 .move-outlet{
   position: fixed;
   z-index: 9999999;
-  bottom: 40px;
-  right: 10px;
+  bottom: 80px;
+  right: 15px;
   text-decoration: none;
 }
 .move-outlet__container{
