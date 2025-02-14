@@ -721,7 +721,6 @@
                     }
                 }
             </style>
-
             {% if settings.show_wishlist == true %}
                 {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
                 <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset">
@@ -1067,6 +1066,9 @@ customElements.define('localization-form-header', LocalizationFormHeader);
   "class":"trm-header",
   "settings": [
     {
+      "type": "header",
+      "content": "Header settings"
+    },{
       "type": "image_picker",
       "id": "logo",
       "label": "t:sections.header.settings.logo.label"
