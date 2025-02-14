@@ -18,9 +18,9 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Welcome to our store",
-              "color_scheme": "accent-1",
-              "text_color": "#ffffff",
+              "text": "Безкоштовна доставка від 4000 грн",
+              "color_scheme": "accent-2",
+              "text_color": "#000000",
               "link": ""
             }
           }
@@ -70,12 +70,12 @@
         "type": "header-outlet",
         "settings": {
           "logo": "shopify://shop_images/newborn_logo.png",
-          "logo_width": 100,
+          "logo_width": 130,
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu-outlet",
           "menu_mobile": "mobile-menu-outlet",
-          "show_line_separator": true,
+          "show_line_separator": false,
           "show_search": true
         }
       },
