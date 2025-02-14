@@ -91,10 +91,18 @@
               "heading": "",
               "menu": "footer-top-outlet"
             }
+          },
+          "link_list_BRmX4C": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-social-outlet"
+            }
           }
         },
         "block_order": [
-          "footer-outlet-0"
+          "footer-outlet-0",
+          "link_list_BRmX4C"
         ],
         "settings": {
           "color_scheme": "background-1",
