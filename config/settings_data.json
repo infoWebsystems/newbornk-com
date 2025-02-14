@@ -99,15 +99,15 @@
               "menu": "footer-social-outlet"
             }
           },
-          "newsletter_bPAqfx": {
-            "type": "newsletter",
-            "settings": {}
-          },
           "logo_6pMDCA": {
             "type": "logo",
             "settings": {
               "logo": "shopify://shop_images/footer_logo.png"
             }
+          },
+          "newsletter_bPAqfx": {
+            "type": "newsletter",
+            "settings": {}
           },
           "link_list_PBYVzt": {
             "type": "link_list",
@@ -120,17 +120,17 @@
         "block_order": [
           "footer-outlet-0",
           "link_list_BRmX4C",
-          "newsletter_bPAqfx",
           "logo_6pMDCA",
+          "newsletter_bPAqfx",
           "link_list_PBYVzt"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "accent-1",
           "newsletter_enable": true,
-          "newsletter_heading": "Sign up to our emails",
+          "newsletter_heading": "Підписатися на розсилку",
           "show_social": false,
           "enable_country_selector": true,
-          "enable_language_selector": true,
+          "enable_language_selector": false,
           "payment_enable": true
         }
       }
