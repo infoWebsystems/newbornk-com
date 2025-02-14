@@ -136,6 +136,71 @@
         "settings": {
           "btn-text": "Button text"
         }
+      },
+      "header-outlet": {
+        "type": "header-outlet",
+        "settings": {
+          "logo": "shopify://shop_images/newborn_logo.png",
+          "logo_width": 130,
+          "logo_position": "middle-left",
+          "menu_position": "center",
+          "menu": "main-menu-outlet",
+          "menu_mobile": "mobile-menu-outlet",
+          "show_line_separator": false,
+          "show_search": true
+        }
+      },
+      "footer-outlet": {
+        "type": "footer-outlet",
+        "blocks": {
+          "footer-outlet-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-top-outlet"
+            }
+          },
+          "link_list_VJ3zhK": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-social-outlet"
+            }
+          },
+          "logo_AQAnW7": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify://shop_images/footer_logo.png"
+            }
+          },
+          "newsletter_eYN8WF": {
+            "type": "newsletter",
+            "settings": {}
+          },
+          "link_list_dqdBQ7": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-policy-outlet"
+            }
+          }
+        },
+        "block_order": [
+          "footer-outlet-0",
+          "link_list_VJ3zhK",
+          "logo_AQAnW7",
+          "newsletter_eYN8WF",
+          "link_list_dqdBQ7"
+        ],
+        "settings": {
+          "color_scheme": "accent-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Підписатися на розсилку",
+          "show_social": false,
+          "enable_country_selector": true,
+          "enable_language_selector": false,
+          "payment_enable": true
+        }
       }
     },
     "content_for_index": [],
