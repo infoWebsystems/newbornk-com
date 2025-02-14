@@ -596,7 +596,6 @@ span.cart-item-price{
   transition: all 0.3s ease-in-out;
 }
 .move-outlet__container:hover{
-  border: 1px solid #c3c3c3;
   box-shadow: none;
 }
 .move-outlet__container span{
