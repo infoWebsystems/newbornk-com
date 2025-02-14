@@ -88,8 +88,8 @@
           "footer-outlet-0": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "heading": "",
+              "menu": "footer-top-outlet"
             }
           }
         },
