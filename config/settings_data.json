@@ -9,6 +9,9 @@
  */
 {
   "current": {
+    "colors_accent_1": "#000000",
+    "colors_accent_2": "#ccf951",
+    "colors_text": "#000000",
     "url_move_outlet": "shopify://pages/outlet",
     "url_move_main": "/",
     "sections": {
