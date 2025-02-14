@@ -98,11 +98,31 @@
               "heading": "",
               "menu": "footer-social-outlet"
             }
+          },
+          "newsletter_bPAqfx": {
+            "type": "newsletter",
+            "settings": {}
+          },
+          "logo_6pMDCA": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify://shop_images/footer_logo.png"
+            }
+          },
+          "link_list_PBYVzt": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-policy-outlet"
+            }
           }
         },
         "block_order": [
           "footer-outlet-0",
-          "link_list_BRmX4C"
+          "link_list_BRmX4C",
+          "newsletter_bPAqfx",
+          "logo_6pMDCA",
+          "link_list_PBYVzt"
         ],
         "settings": {
           "color_scheme": "background-1",
