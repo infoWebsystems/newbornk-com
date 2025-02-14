@@ -9,44 +9,8 @@
  */
 {
   "current": {
-    "pluginseo_pageTitleEnableAppender": true,
-    "pluginseo_pageTitleTemplateApplyToAll": true,
-    "pluginseo_pageTitleTruncateEnableForCollections": true,
-    "pluginseo_pageTitleTruncateEnableForProducts": true,
-    "pluginseo_pageTitleTruncateEnableForPages": true,
-    "pluginseo_pageTitleDefaultTemplate": "%% page_title %%",
-    "pluginseo_pageTitleSearchTemplate": "%% search.terms %% at %% shop.name %%",
-    "pluginseo_pageTitleProductTemplate": "ᐉ %% product.title %%%% product.selected_variant.title || prepend_not_empty: ' ' %% купити в Україні",
-    "pluginseo_pageTitleCollectionTemplate": "%% current_tags || join: ', ' || append_not_empty: ' ' %% %% collection.title || escape %% купити в Україні",
-    "pluginseo_pageTitleCatalogTemplate": "%% current_tags || join: ', ' || append_not_empty: ' ' %% %% collection.title || escape %% купити в Україні",
-    "pluginseo_pageTitle404Template": "404: Сторінку не знайдено - %% shop.name %%",
-    "pluginseo_metaDescriptionTemplateApplyToAll": true,
-    "pluginseo_metaDescriptionTruncateEnableForCollections": true,
-    "pluginseo_metaDescriptionTruncateEnableForProducts": true,
-    "pluginseo_metaDescriptionTruncateEnableForPages": true,
-    "pluginseo_metaDescriptionTruncateEnableForArticles": true,
-    "pluginseo_metaDescriptionTruncateEnableForBlogs": true,
-    "pluginseo_metaDescriptionProductTemplate": "%% product.title %%%% product.selected_variant.title || prepend_not_empty: ' ' %%. ❰❰NEWBORN K❱❱ Краща ціна. Тільки орігінал! Досконала якість! 📦 Доставка по Україні 💫Даруйте собі впевненість з нашими речами!",
-    "pluginseo_metaDescriptionCollectionTemplate": "Купити %% current_tags || join: ', ' || append_not_empty: ' ' %%%% collection.title || escape %%. ❰❰NEWBORN K❱❱. Видатні дизайнери світу та України. Досконала якість! 📦 Доставка по Україні 💫Даруйте собі впевненість з нашими речами!",
-    "pluginseo_metaDescription404Template": "Сторінку, яку ви запитували, неможливо знайти, відвідайте %% shop.domain %% замість цього",
-    "pluginseo_structuredDataDisplayLogo": true,
-    "pluginseo_structuredDataSocialProfileLinks": "https://www.instagram.com/newborn.kyiv/\nhttps://www.facebook.com/newborn.kyiv\nhttps://t.me/newbornk",
-    "colors_accent_1": "#000000",
-    "colors_accent_2": "#ccf951",
-    "colors_text": "#000000",
-    "sale_badge_color_scheme": "sale-badge",
-    "online_only_badge_color_scheme": "background-3",
-    "predictive_search_enabled": true,
-    "predictive_search_show_vendor": false,
-    "predictive_search_show_price": false,
-    "social_facebook_link": "https://www.facebook.com/newborn.kyiv",
-    "social_instagram_link": "https://www.instagram.com/newborn.kyiv/",
-    "language_switcher_enabled": true,
-    "language_switcher_position": "bottom-right",
-    "show_wishlist": true,
-    "checkout_logo_image": "shopify://shop_images/newborn_logo.png",
-    "checkout_accent_color": "#000000",
-    "checkout_button_color": "#ccf951",
+    "url_move_outlet": "shopify://pages/outlet",
+    "url_move_main": "/",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -54,9 +18,9 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Безкоштовна доставка від 4000 грн",
-              "color_scheme": "accent-2",
-              "text_color": "#000000",
+              "text": "Welcome to our store",
+              "color_scheme": "accent-1",
+              "text_color": "#ffffff",
               "link": ""
             }
           }
@@ -69,13 +33,12 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify://shop_images/newborn_logo.png",
-          "logo_width": 130,
+          "logo_width": 100,
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu",
-          "menu_mobile": "mobile-menu",
-          "show_line_separator": false,
+          "menu_mobile": "main-menu",
+          "show_line_separator": true,
           "show_search": true
         }
       },
@@ -85,142 +48,25 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "",
-              "menu": "footer-top"
-            }
-          },
-          "ee7af1e9-f8b8-44ba-89df-42007ca9a2df": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-social"
-            }
-          },
-          "e7003153-6cde-4572-9831-cb6cf1415d7c": {
-            "type": "logo",
-            "settings": {
-              "logo": "shopify://shop_images/footer_logo.png"
-            }
-          },
-          "e748077d-4503-4060-8448-791035314aae": {
-            "type": "newsletter",
-            "settings": {}
-          },
-          "13e033f9-23dc-4fdc-a7c7-ec12ffcbc1ea": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-policy"
+              "heading": "Quick links",
+              "menu": "footer"
             }
           }
         },
         "block_order": [
-          "footer-0",
-          "ee7af1e9-f8b8-44ba-89df-42007ca9a2df",
-          "e7003153-6cde-4572-9831-cb6cf1415d7c",
-          "e748077d-4503-4060-8448-791035314aae",
-          "13e033f9-23dc-4fdc-a7c7-ec12ffcbc1ea"
+          "footer-0"
         ],
         "settings": {
-          "color_scheme": "accent-1",
+          "color_scheme": "background-1",
           "newsletter_enable": true,
-          "newsletter_heading": "Підписатися на розсилку",
+          "newsletter_heading": "Sign up to our emails",
           "show_social": false,
           "enable_country_selector": true,
-          "enable_language_selector": false,
-          "payment_enable": true
-        }
-      },
-      "stub": {
-        "type": "stub",
-        "settings": {
-          "btn-text": "Button text"
-        }
-      },
-      "header-outlet": {
-        "type": "header-outlet",
-        "settings": {
-          "logo": "shopify://shop_images/newborn_logo.png",
-          "logo_width": 130,
-          "logo_position": "middle-left",
-          "menu_position": "center",
-          "menu": "main-menu-outlet",
-          "menu_mobile": "mobile-menu-outlet",
-          "show_line_separator": false,
-          "show_search": true
-        }
-      },
-      "footer-outlet": {
-        "type": "footer-outlet",
-        "blocks": {
-          "footer-outlet-0": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-top-outlet"
-            }
-          },
-          "link_list_VJ3zhK": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-social-outlet"
-            }
-          },
-          "logo_AQAnW7": {
-            "type": "logo",
-            "settings": {
-              "logo": "shopify://shop_images/footer_logo.png"
-            }
-          },
-          "newsletter_eYN8WF": {
-            "type": "newsletter",
-            "settings": {}
-          },
-          "link_list_dqdBQ7": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-policy-outlet"
-            }
-          }
-        },
-        "block_order": [
-          "footer-outlet-0",
-          "link_list_VJ3zhK",
-          "logo_AQAnW7",
-          "newsletter_eYN8WF",
-          "link_list_dqdBQ7"
-        ],
-        "settings": {
-          "color_scheme": "accent-1",
-          "newsletter_enable": true,
-          "newsletter_heading": "Підписатися на розсилку",
-          "show_social": false,
-          "enable_country_selector": true,
-          "enable_language_selector": false,
+          "enable_language_selector": true,
           "payment_enable": true
         }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "7870687481494312845": {
-        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
-        "settings": {
-          "customThemeName": "Dawn",
-          "additionalWLButtonCssClasses": "",
-          "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
-          "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>",
-
-        }
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    "content_for_index": []
   }
 }
