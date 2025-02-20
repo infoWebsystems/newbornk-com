@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="outlet page button">
-      <change beforePath="$PROJECT_DIR$/assets/new.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/new.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/featured-collection.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/featured-collection.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/recommendation-slider.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/recommendation-slider.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snippets/product-card.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/product-card.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,22 +57,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop-outlet",
-    "last_opened_file_path": "/Users/user/WebstormProjects/newbornk-com-latest-v/sections",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop-outlet&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/user/WebstormProjects/newbornk-com-latest-v/sections&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sections" />
@@ -123,6 +128,9 @@
       <workItem from="1731590153916" duration="1853000" />
       <workItem from="1732873875237" duration="1302000" />
       <workItem from="1733228341165" duration="2351000" />
+      <workItem from="1739803001484" duration="862000" />
+      <workItem from="1739978868358" duration="3769000" />
+      <workItem from="1739997209081" duration="4683000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -300,7 +308,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739552112908</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="outlet page button">
+      <option name="closed" value="true" />
+      <created>1739552379214</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1739552379214</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

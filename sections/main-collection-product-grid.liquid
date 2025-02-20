@@ -541,16 +541,33 @@
                                                                             {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
                                                                             {% endif %} negative-margin">
       {%- for product in collection.products -%}
-      <li class="grid__item">
-        {% render 'product-card',
-                product_card_product: product,
-        media_size: section.settings.image_ratio,
-        show_secondary_image: section.settings.show_secondary_image,
-        add_image_padding: section.settings.add_image_padding,
-        show_vendor: section.settings.show_vendor
-        show_info: true
-        %}
-      </li>
+        {% assign tags = product.tags | join: ', ' %}
+        {% if tags contains 'Outlet' and template contains 'outlet' %}
+          <li class="grid__item">
+            {% render 'product-card',
+                    product_card_product: product,
+            media_size: section.settings.image_ratio,
+            show_secondary_image: section.settings.show_secondary_image,
+            add_image_padding: section.settings.add_image_padding,
+            show_vendor: section.settings.show_vendor
+            show_info: true
+            %}
+          </li>
+        {% endif %}
+        {% unless tags contains 'Outlet' %}
+          {% unless template contains 'outlet' %}
+            <li class="grid__item">
+              {% render 'product-card',
+                      product_card_product: product,
+                      media_size: section.settings.image_ratio,
+                      show_secondary_image: section.settings.show_secondary_image,
+                      add_image_padding: section.settings.add_image_padding,
+                      show_vendor: section.settings.show_vendor
+              show_info: true
+              %}
+            </li>
+          {% endunless %}
+        {% endunless %}
       {%- endfor -%}
     </ul>
 
