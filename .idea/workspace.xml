@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="outlet page button">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="sidebar collection outlet">
+      <change afterPath="$PROJECT_DIR$/snippets/trm-sidebar-menu-outlet.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/featured-collection-slider.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/featured-collection.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/featured-collection.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/recommendation-slider.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/recommendation-slider.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snippets/product-card.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/snippets/product-card.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collection.default-outlet.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collection.default-outlet.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,7 @@
       <workItem from="1733228341165" duration="2351000" />
       <workItem from="1739803001484" duration="862000" />
       <workItem from="1739978868358" duration="3769000" />
-      <workItem from="1739997209081" duration="4683000" />
+      <workItem from="1739997209081" duration="6684000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -316,7 +314,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739552379214</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="newProducts array for sections">
+      <option name="closed" value="true" />
+      <created>1740040270875</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1740040270876</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +368,9 @@
     <MESSAGE value="outlet PDP PLP" />
     <MESSAGE value="outlet page" />
     <MESSAGE value="outlet page button" />
-    <option name="LAST_COMMIT_MESSAGE" value="outlet page button" />
+    <MESSAGE value="newProducts array for sections" />
+    <MESSAGE value="sidebar collection outlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="sidebar collection outlet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
