@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="breadcrumbs outlet fix">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="outlet in header">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/layout/theme.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sections/header-outlet.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header-outlet.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sections/header.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header.liquid" afterDir="false" />
     </list>
@@ -129,7 +127,7 @@
       <workItem from="1733228341165" duration="2351000" />
       <workItem from="1739803001484" duration="862000" />
       <workItem from="1739978868358" duration="3769000" />
-      <workItem from="1739997209081" duration="10461000" />
+      <workItem from="1739997209081" duration="10880000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -339,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740071058654</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="outlet in header">
+      <option name="closed" value="true" />
+      <created>1740150501658</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1740150501658</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,7 +394,8 @@
     <MESSAGE value="newProducts array for sections" />
     <MESSAGE value="sidebar collection outlet" />
     <MESSAGE value="breadcrumbs outlet fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="breadcrumbs outlet fix" />
+    <MESSAGE value="outlet in header" />
+    <option name="LAST_COMMIT_MESSAGE" value="outlet in header" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
