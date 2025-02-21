@@ -249,25 +249,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {% section 'footer' %}
     {% endif %}
 
-    {% if settings.show_move_outlet == true %}
-        {% if template contains 'outlet' %}
-            {% assign url_move_outlet = settings.url_move_main %}
-            {% assign text_move_outlet = settings.text_move_main %}
-        {% else %}
-            {% assign text_move_outlet = settings.text_move_outlet %}
-            {% assign url_move_outlet = settings.url_move_outlet %}
-        {% endif %}
-        {% if url_move_outlet != blank and text_move_outlet != blank %}
-            <a class="move-outlet" href="{{ url_move_outlet }}">
-                <div class="move-outlet__container">
-                    <span>
-                        {{ text_move_outlet }}
-                    </span>
-                </div>
-            </a>
-        {% endif %}
-    {% endif %}
-
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
