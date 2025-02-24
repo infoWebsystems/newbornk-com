@@ -242,7 +242,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <a href="https://admin.shopify.com/store/{{ store_permanent_domain }}/products/{{ product.id }}" target="_blank">EDIT PRODUCT </a>
         </div>
     {% endif %}
-
+    {% section 'popup-cart-discount' %}
     {% if template contains 'outlet' %}
         {% section 'footer-outlet' %}
     {% else %}
@@ -297,18 +297,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
     {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
-
-    {% comment %}{% render 'translation-lab-language-switcher-floating' %}{% endcomment %}
-
-
-    {% comment %} {% render 'translation-lab-switcher-custom' %} {% endcomment %}
-    {% comment %} <script type="text/javascript">
-      (function(d, w, s) {
-        var widgetHash = 'q57maszf730pmvmuqcld', gcw = d.createElement(s); gcw.type = 'text/javascript'; gcw.async = true;
-        gcw.src = '//widgets.binotel.com/getcall/widgets/'+ widgetHash +'.js';
-        var sn = d.getElementsByTagName(s)[0]; sn.parentNode.insertBefore(gcw, sn);
-      })(document, window, 'script');
-    </script>
-    {% endcomment %}
   </body>
 </html>

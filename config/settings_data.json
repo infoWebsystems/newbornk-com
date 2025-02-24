@@ -135,6 +135,15 @@
           "enable_language_selector": false,
           "payment_enable": true
         }
+      },
+      "popup-cart-discount": {
+        "type": "popup-cart-discount",
+        "settings": {
+          "show_popup-discount": true,
+          "title": "Дякуємо що скористалися промо-кодом!",
+          "text": "Ваша знижка буде автоматично додана в кошику при оформленні замовлення.",
+          "logo": "shopify://shop_images/popup-logo.svg"
+        }
       }
     },
     "content_for_index": []

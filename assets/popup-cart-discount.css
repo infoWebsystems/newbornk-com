@@ -1,0 +1,86 @@
+.popup-discount{
+    z-index: 999999999;
+    position: fixed;
+    top: 50%;
+    display: none;
+    visibility: hidden;
+    left: -100%;
+    transition: all 0.7s ease-in-out;
+    transform: translate(-50%, -50%);
+}
+.popup-discount.show{
+    left: 50%;
+    display: block;
+    visibility: visible;
+}
+.popup-discount__container{
+    background-color: white;
+    padding: 24px 58px 35px;
+    position: relative;
+    max-width: 600px;
+    box-shadow: 0px 0px 15px #000;
+}
+.popup-discount__body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 23px;
+    justify-content: center;
+}
+.popup-discount__logo{
+    display: flex;
+}
+.popup-discount__close{
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    top: 35px;
+    right: 24px;
+}
+.popup-discount__heading{
+    color: #000;
+    text-align: center;
+    font-family: 'Formular';
+    font-size: 58px;
+    font-weight: 300;
+    line-height: 70px;
+    text-transform: uppercase;
+    margin: 0 -50px;
+}
+.popup-discount__message{
+    padding: 32px;
+    border-radius: 8.2px;
+    background-color: #CCF951;
+}
+.popup-discount__text{
+    color: #000;
+    text-align: center;
+    font-family: 'Formular';
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 27px;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 990px) {
+    .popup-discount__container{
+        padding: 20px 15px 30px;
+        max-width: 400px;
+        width: 100%;
+    }
+    .popup-discount__heading{
+        margin: 0;
+        width: 100%;
+        font-size: 40px;
+        line-height: 130%;
+    }
+    .popup-discount__close {
+        top: 30px;
+        right: 20px;
+    }
+    .popup-discount__message {
+        padding: 18px;
+    }
+    .popup-discount__text{
+        font-size: 18px;
+    }
+}

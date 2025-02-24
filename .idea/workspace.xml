@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="outlet in header">
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="outlet in header fix">
+      <change afterPath="$PROJECT_DIR$/assets/popup-cart-discount.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/popup-cart-discount.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sections/popup-cart-discount.liquid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/snippets/svg.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/header-outlet.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header-outlet.liquid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/header.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/theme.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/layout/theme.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Liquid File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -54,22 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop-outlet&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/user/WebstormProjects/newbornk-com-latest-v/sections&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "develop-outlet",
+    "last_opened_file_path": "/Users/user/WebstormProjects/newbornk-com-latest-v/sections",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sections" />
@@ -127,7 +134,7 @@
       <workItem from="1733228341165" duration="2351000" />
       <workItem from="1739803001484" duration="862000" />
       <workItem from="1739978868358" duration="3769000" />
-      <workItem from="1739997209081" duration="10880000" />
+      <workItem from="1739997209081" duration="18319000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -345,7 +352,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740150501658</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="outlet in header fix">
+      <option name="closed" value="true" />
+      <created>1740150883505</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1740150883505</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,7 +410,8 @@
     <MESSAGE value="sidebar collection outlet" />
     <MESSAGE value="breadcrumbs outlet fix" />
     <MESSAGE value="outlet in header" />
-    <option name="LAST_COMMIT_MESSAGE" value="outlet in header" />
+    <MESSAGE value="outlet in header fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="outlet in header fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
