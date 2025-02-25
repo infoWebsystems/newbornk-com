@@ -1,19 +1,18 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
       "disabled": true,
-      "settings": {
-      }
+      "settings": {}
     },
     "form": {
       "type": "contact-form",
@@ -94,8 +93,8 @@
         "92db4d45-7fa4-4055-b13d-e755116eb814": {
           "type": "address",
           "settings": {
-            "street": "вул. Велика Житомирська, 20",
-            "url": "https:\/\/maps.app.goo.gl\/VtaNBz5cXNtQKzAF6"
+            "street": "м Київ, вул. Велика Житомирська, 20",
+            "url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6"
           }
         },
         "1fd21b55-8335-430b-8128-5a3e7c7fa39d": {
@@ -121,8 +120,7 @@
         "1fd21b55-8335-430b-8128-5a3e7c7fa39d",
         "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f"
       ],
-      "settings": {
-      }
+      "settings": {}
     }
   },
   "order": [
