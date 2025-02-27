@@ -888,16 +888,11 @@
       {%- endif -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
-        {%- comment -%}
-        {%- liquid
-          if cart == empty
-            render 'icon-cart-empty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-        {%- endcomment -%}
-        {%- render 'icon-cart' -%}
+        {% if cart.discount_applications != blank %}
+          {%- render 'icon-cart-discount' -%}
+        {% else %}
+          {%- render 'icon-cart' -%}
+        {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
