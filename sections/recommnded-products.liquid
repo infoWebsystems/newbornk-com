@@ -61,17 +61,6 @@ var menu = [];
                 {%- endfor -%}
             </ul>
         </div>
-
-        {%- if section.settings.show_view_all and products_length > section.settings.products_to_show -%}
-            <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
-                <a href="{{ url }}"
-                   class="button"
-                   aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: title }}"
-                >
-                    {{ 'sections.featured_collection.view_all' | t }}
-                </a>
-            </div>
-        {%- endif -%}
     </div>
     <style>
         .swiper-container-collection {
