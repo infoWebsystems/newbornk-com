@@ -135,7 +135,7 @@
     "recommnded_products_YDGUXi": {
       "type": "recommnded-products",
       "settings": {
-        "title": "Title",
+        "title": "Recommended products",
         "show_text": false,
         "collection": "",
         "products_to_show": 6.5,
