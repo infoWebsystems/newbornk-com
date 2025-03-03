@@ -136,18 +136,17 @@
       "type": "recommnded-products",
       "settings": {
         "title": "Recommended products",
-        "show_text": false,
         "collection": "",
-        "products_to_show": 6.5,
+        "products_to_show": 6,
         "products_to_show_mobile": 1.5,
         "show_view_all": true,
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "image_ratio": "adapt",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "add_image_padding": false,
-        "show_vendor": false,
-        "show_arrow": false,
-        "brand_collection": false
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": true
       }
     },
     "16323088197825d104": {
