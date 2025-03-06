@@ -277,18 +277,18 @@
   "templates": {
     "days_of_week": {
       "short_weekdays": "Пн - Сб",
-      "short_weekend": "Вс",
+      "short_weekend": "Нд",
       "monday": "Понеділок",
-      "tuesday": "Вторник",
-      "wednesday": "Среда",
+      "tuesday": "Вівторок",
+      "wednesday": "Середа",
       "thursday": "Четверг",
-      "friday": "Пятница",
-      "saturday": "Суббота",
-      "sunday": "Воскресенье"
+      "friday": "П'ятниця",
+      "saturday": "Субота",
+      "sunday": "Неділя"
     },
     "collection": {
       "slider": {
-        "title": ""
+        "title": "Всі товари від"
       }
     },
     "search": {
@@ -320,9 +320,9 @@
         "phone": "Номер телефону",
         "comment": "Коментар ",
         "send": "Надіслати",
-        "address": "Адрес",
-        "work_time": "Время работы call-центра",
-        "request_type": "Причина обращения",
+        "address": "Адреса",
+        "work_time": "Час роботи служби підтримки",
+        "request_type": "Причина звернення",
         "post_success": "Дякуємо, що звернулися до нас. Ми зв’яжемося з вами якнайшвидше.",
         "error_heading": "Будь ласка, відрегулюйте наступне:"
       }
