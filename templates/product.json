@@ -155,7 +155,7 @@
       "type": "featured-collection-slider",
       "settings": {
         "title": "Вам може сподобатись",
-        "show_text": true,
+        "show_text": false,
         "collection": "bareen",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
