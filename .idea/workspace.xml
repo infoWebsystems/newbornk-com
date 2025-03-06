@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="popup discount cart">
-      <change afterPath="$PROJECT_DIR$/snippets/icon-cart-discount.liquid" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sections/header.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/header.liquid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
