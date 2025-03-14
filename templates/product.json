@@ -64,6 +64,7 @@
             "content": "",
             "page": "",
             "liquid": "{{ product.description }}",
+            "enable_more_text": true,
             "icon": "none"
           }
         },
@@ -74,6 +75,7 @@
             "content": "<h5><strong>Оплата</strong></h5><ul><li>Онлайн-оплата кредитною або дебетовою карткою <strong>Visa, Mastercard</strong> через сервіс <strong>Plata by MONO</strong>:</li><li>Оплата в концепт-сторі за адресою: <strong>м. Київ, вул. Велика Житомирська, 20</strong></li></ul><h5><strong>Доставка</strong></h5><p><strong>Безкоштовна доставка на замовлення від 5000 грн (за умови повної передплати).</strong></p><ul><li>Доставка здійснюється кур'єрською службою <strong>«Нова Пошта»</strong> до дверей.</li></ul><p><strong>Термін відправлення:</strong> 0-1 робочий день.</p><p><strong>Термін доставки:</strong> 1-2 робочі дні.</p><ul><li>Самовивіз</li></ul><p>Ви можете забрати замовлення самостійно за адресою:</p><p><strong>м. Київ, вул. Велика Житомирська, 20</strong>.</p><ul><li>Доставка таксі по Києву</li></ul><p>Можлива доставка таксі по Києву <strong>за умови повної передплати</strong>.<br/><br/><strong>ПРИМІРКА</strong><br/>Ви маєте можливість примірки обраних вами товарів в нашому магазині за адресою <strong>м. Київ, вул. Велика Житомирська, 20</strong>.</p>",
             "page": "",
             "liquid": "{% render 'pickup' %}",
+            "enable_more_text": false,
             "icon": "none"
           }
         },
@@ -90,6 +92,7 @@
             "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}</p>",
             "page": "",
             "liquid": "",
+            "enable_more_text": false,
             "icon": "none"
           }
         },
@@ -101,6 +104,7 @@
             "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}</p>",
             "page": "",
             "liquid": "",
+            "enable_more_text": false,
             "icon": "none"
           }
         },
