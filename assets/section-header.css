@@ -250,7 +250,8 @@ sticky-header.header-wrapper {
     margin: 0;
     position: absolute;
     right: 15px;
-    top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .header__icon--wishlist {
@@ -317,7 +318,6 @@ sticky-header.header-wrapper {
   }
   #cart-icon-bubble {
     right: 11px;
-    top: 11px;
   }
 }
 .header__active-menu-item {

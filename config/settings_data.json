@@ -136,6 +136,15 @@
         "settings": {
           "btn-text": "Button text"
         }
+      },
+      "popup-cart-discount": {
+        "type": "popup-cart-discount",
+        "settings": {
+          "show_popup-discount": true,
+          "title": "Дякуємо що скористалися промо-кодом!",
+          "text": "Ваша знижка буде автоматично додана в кошику при оформленні замовлення.",
+          "logo": "shopify://shop_images/newborn_logo_8fba7af7-24f9-4e70-9254-ba4ccc505c99.png"
+        }
       }
     },
     "content_for_index": [],
