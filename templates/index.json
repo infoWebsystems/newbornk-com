@@ -191,7 +191,7 @@
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "new_arrivals",
+        "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
