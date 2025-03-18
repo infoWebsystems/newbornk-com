@@ -44,7 +44,7 @@
           "settings": {
             "image": "shopify://shop_images/DTF_f50586a0-a0fd-4b60-b3ef-63cbd8e099bf.jpg",
             "image_phone": "shopify://shop_images/Ban_jan22_sale_mob_1a7f8f3d-e985-45fb-bddf-bbaa9e44430b.jpg",
-            "banner_link": "shopify://collections/new_arrivals",
+            "banner_link": "shopify://collections/novi-nadkhodzhennia",
             "language": "UK"
           }
         },
@@ -106,7 +106,7 @@
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "new_arrivals",
+        "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
