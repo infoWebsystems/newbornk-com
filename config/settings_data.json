@@ -34,6 +34,7 @@
     "colors_accent_1": "#000000",
     "colors_accent_2": "#ccf951",
     "colors_text": "#000000",
+    "show_move_outlet": false,
     "url_move_outlet": "shopify://pages/outlet",
     "text_move_outlet": "Outlet",
     "url_move_main": "/",
