@@ -15,9 +15,9 @@
         "1630994380b1b22eeb-0": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/2_3.jpg",
-            "image_phone": "shopify://shop_images/NASA_VERT_fbfa9225-dc26-4850-9dec-df8e3b3f6c6b.jpg",
-            "banner_link": "shopify://collections/sale",
+            "image": "shopify://shop_images/S_HOR_K.png",
+            "image_phone": "shopify://shop_images/S_VERT_K.png",
+            "banner_link": "shopify://collections/novi-nadkhodzhennia",
             "language": "UK"
           }
         },
@@ -113,6 +113,24 @@
         "adapt_height_first_image": false
       }
     },
+    "featured_collection_slider_zaYJcr": {
+      "type": "featured-collection-slider",
+      "settings": {
+        "title": "НОВІ НАДХОДЖЕННЯ",
+        "show_text": true,
+        "collection": "novi-nadkhodzhennia",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.6,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": false
+      }
+    },
     "1626416534da40dc37": {
       "type": "collection-list",
       "blocks": {
@@ -174,24 +192,6 @@
         "title": "РОЗПРОДАЖ",
         "show_text": true,
         "collection": "sale",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.6,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true,
-        "brand_collection": false
-      }
-    },
-    "featured_collection_slider_zaYJcr": {
-      "type": "featured-collection-slider",
-      "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
-        "show_text": true,
-        "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
