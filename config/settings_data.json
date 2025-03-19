@@ -61,12 +61,13 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo_width": 100,
+          "logo": "shopify://shop_images/newborn_logo.png",
+          "logo_width": 130,
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu",
           "menu_mobile": "main-menu",
-          "show_line_separator": true,
+          "show_line_separator": false,
           "show_search": true
         }
       },
@@ -76,21 +77,49 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
-              "menu": "footer"
+              "heading": "",
+              "menu": "footer-top"
+            }
+          },
+          "link_list_G8QRnK": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-social"
+            }
+          },
+          "logo_JU8grA": {
+            "type": "logo",
+            "settings": {
+              "logo": "shopify://shop_images/footer_logo.png"
+            }
+          },
+          "newsletter_HFV8XU": {
+            "type": "newsletter",
+            "settings": {}
+          },
+          "link_list_Y3piqn": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-policy"
             }
           }
         },
         "block_order": [
-          "footer-0"
+          "footer-0",
+          "link_list_G8QRnK",
+          "logo_JU8grA",
+          "newsletter_HFV8XU",
+          "link_list_Y3piqn"
         ],
         "settings": {
-          "color_scheme": "background-1",
+          "color_scheme": "accent-1",
           "newsletter_enable": true,
           "newsletter_heading": "Sign up to our emails",
           "show_social": false,
           "enable_country_selector": true,
-          "enable_language_selector": true,
+          "enable_language_selector": false,
           "payment_enable": true
         }
       },
