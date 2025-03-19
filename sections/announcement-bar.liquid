@@ -1,4 +1,8 @@
-{%- if section.blocks.size > 0 -%}{%- for block in section.blocks -%}{%- render 'annoncement' block: block -%}{%- endfor -%}{%- endif -%}
+{%- if section.blocks.size > 0 -%}
+  {%- for block in section.blocks -%}
+    {%- render 'annoncement' block: block -%}
+  {%- endfor -%}
+{%- endif -%}
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",

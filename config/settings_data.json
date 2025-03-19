@@ -34,19 +34,10 @@
     "colors_accent_1": "#000000",
     "colors_accent_2": "#ccf951",
     "colors_text": "#000000",
-    "sale_badge_color_scheme": "sale-badge",
-    "online_only_badge_color_scheme": "background-3",
-    "predictive_search_enabled": true,
-    "predictive_search_show_vendor": false,
-    "predictive_search_show_price": false,
-    "social_facebook_link": "https://www.facebook.com/newborn.kyiv",
-    "social_instagram_link": "https://www.instagram.com/newborn.kyiv/",
-    "language_switcher_enabled": true,
-    "language_switcher_position": "bottom-right",
-    "show_wishlist": true,
-    "checkout_logo_image": "shopify://shop_images/newborn_logo.png",
-    "checkout_accent_color": "#000000",
-    "checkout_button_color": "#ccf951",
+    "url_move_outlet": "shopify://pages/outlet",
+    "text_move_outlet": "Outlet",
+    "url_move_main": "/",
+    "text_move_main": "Головний сайт",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -69,13 +60,12 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify://shop_images/newborn_logo.png",
-          "logo_width": 130,
+          "logo_width": 100,
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu",
-          "menu_mobile": "mobile-menu",
-          "show_line_separator": false,
+          "menu_mobile": "main-menu",
+          "show_line_separator": true,
           "show_search": true
         }
       },
@@ -85,41 +75,78 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "",
-              "menu": "footer-top"
+              "heading": "Quick links",
+              "menu": "footer"
             }
-          },
-          "ee7af1e9-f8b8-44ba-89df-42007ca9a2df": {
+          }
+        },
+        "block_order": [
+          "footer-0"
+        ],
+        "settings": {
+          "color_scheme": "background-1",
+          "newsletter_enable": true,
+          "newsletter_heading": "Sign up to our emails",
+          "show_social": false,
+          "enable_country_selector": true,
+          "enable_language_selector": true,
+          "payment_enable": true
+        }
+      },
+      "header-outlet": {
+        "type": "header-outlet",
+        "settings": {
+          "logo": "shopify://shop_images/newborn_logo.png",
+          "logo_width": 130,
+          "logo_position": "middle-left",
+          "menu_position": "center",
+          "menu": "test-menu-outlry",
+          "menu_mobile": "mobile-menu-outlet",
+          "show_line_separator": false,
+          "show_search": true
+        }
+      },
+      "footer-outlet": {
+        "type": "footer-outlet",
+        "blocks": {
+          "footer-outlet-0": {
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-social"
+              "menu": "footer-top-outlet"
             }
           },
-          "e7003153-6cde-4572-9831-cb6cf1415d7c": {
+          "link_list_BRmX4C": {
+            "type": "link_list",
+            "settings": {
+              "heading": "",
+              "menu": "footer-social-outlet"
+            }
+          },
+          "logo_6pMDCA": {
             "type": "logo",
             "settings": {
               "logo": "shopify://shop_images/footer_logo.png"
             }
           },
-          "e748077d-4503-4060-8448-791035314aae": {
+          "newsletter_bPAqfx": {
             "type": "newsletter",
             "settings": {}
           },
-          "13e033f9-23dc-4fdc-a7c7-ec12ffcbc1ea": {
+          "link_list_PBYVzt": {
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-policy"
+              "menu": "footer-policy-outlet"
             }
           }
         },
         "block_order": [
-          "footer-0",
-          "ee7af1e9-f8b8-44ba-89df-42007ca9a2df",
-          "e7003153-6cde-4572-9831-cb6cf1415d7c",
-          "e748077d-4503-4060-8448-791035314aae",
-          "13e033f9-23dc-4fdc-a7c7-ec12ffcbc1ea"
+          "footer-outlet-0",
+          "link_list_BRmX4C",
+          "logo_6pMDCA",
+          "newsletter_bPAqfx",
+          "link_list_PBYVzt"
         ],
         "settings": {
           "color_scheme": "accent-1",
@@ -131,10 +158,13 @@
           "payment_enable": true
         }
       },
-      "stub": {
-        "type": "stub",
+      "popup-cart-discount": {
+        "type": "popup-cart-discount",
         "settings": {
-          "btn-text": "Button text"
+          "show_popup-discount": true,
+          "title": "Дякуємо що скористалися промо-кодом!",
+          "text": "Ваша знижка буде автоматично додана в кошику при оформленні замовлення.",
+          "logo": "shopify://shop_images/popup-logo.svg"
         }
       }
     },

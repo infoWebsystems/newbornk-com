@@ -76,16 +76,26 @@
             "banner_link": "shopify://collections/gift_ideas",
             "language": "UK"
           }
+        },
+        "1630994380b1b22eeb-0": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/image_2024-02-13_12-59-27.png",
+            "image_phone": "shopify://shop_images/Mask_group.jpg",
+            "banner_link": "shopify://collections/sale",
+            "language": "UK"
+          }
         }
       },
       "block_order": [
-        "1630994380b1b22eeb-0",
         "slide_7qGUkq",
         "slide_wHpNAY",
         "slide_TyEeBH",
         "slide_BHnyDT",
         "1630994380b1b22eeb-1",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021"
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
+        "1630994380b1b22eeb-0"
       ],
       "settings": {
         "image_width": "third",
@@ -113,7 +123,7 @@
         "adapt_height_first_image": false
       }
     },
-    "featured_collection_slider_zaYJcr": {
+    "1626369903c393cced": {
       "type": "featured-collection-slider",
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
@@ -186,7 +196,7 @@
         "show_arrow": true
       }
     },
-    "1626369903c393cced": {
+    "featured_collection_slider_zaYJcr": {
       "type": "featured-collection-slider",
       "settings": {
         "title": "РОЗПРОДАЖ",
@@ -262,10 +272,10 @@
     "1630994380770cb550",
     "buttons_Aehtdg",
     "image_banner",
-    "featured_collection_slider_zaYJcr",
+    "1626369903c393cced",
     "1626416534da40dc37",
     "1626416564a7b86704",
-    "1626369903c393cced",
+    "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
     "custom_liquid_tBx87F"

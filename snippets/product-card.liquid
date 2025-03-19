@@ -11,7 +11,8 @@
     Usage:
     {% render 'product-card', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
-
+{% assign tags = product_card_product.tags | join: ', ' %}
+{% comment %}{{ template }}-{% if tags contains 'Outlet' %}OUTLET{% endif %}{% endcomment %}
 <div class="card-wrapper">
     <a href="{{ product_card_product.url | default: '#' | within: collection }}" class="full-unstyled-link">
         <span class="visually-hidden">{{ product_card_product.title | escape }}</span>

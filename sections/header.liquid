@@ -360,7 +360,6 @@
 
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu list-menu" role="list">
-
                     {%- for link in section.settings.menu_mobile.links -%}
                       <li>
                         {%- if link.links != blank -%}
@@ -451,6 +450,22 @@
                         {%- endif -%}
                       </li>
                     {%- endfor -%}
+                    {% if settings.show_move_outlet == true %}
+                      {% if template contains 'outlet' %}
+                        {% assign url_move_outlet = settings.url_move_main %}
+                        {% assign text_move_outlet = settings.text_move_main %}
+                      {% else %}
+                        {% assign text_move_outlet = settings.text_move_outlet %}
+                        {% assign url_move_outlet = settings.url_move_outlet %}
+                      {% endif %}
+                      {% if url_move_outlet != blank and text_move_outlet != blank %}
+                        <li>
+                          <a href="{{ url_move_outlet }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                            {{ text_move_outlet | escape }}
+                          </a>
+                        </li>
+                      {% endif %}
+                    {% endif %}
                   </ul>
                 </nav>
 
@@ -690,6 +705,22 @@
               {%- endif -%}
             </li>
           {%- endfor -%}
+          {% if settings.show_move_outlet == true %}
+            {% if template contains 'outlet' %}
+              {% assign url_move_outlet = settings.url_move_main %}
+              {% assign text_move_outlet = settings.text_move_main %}
+            {% else %}
+              {% assign text_move_outlet = settings.text_move_outlet %}
+              {% assign url_move_outlet = settings.url_move_outlet %}
+            {% endif %}
+            {% if url_move_outlet != blank and text_move_outlet != blank %}
+              <li>
+                <a href="{{ url_move_outlet }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset">
+                  <span>{{ text_move_outlet }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
         </ul>
       </nav>
     {%- endif -%}
@@ -857,16 +888,11 @@
       {%- endif -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
-        {%- comment -%}
-        {%- liquid
-          if cart == empty
-            render 'icon-cart-empty'
-          else
-            render 'icon-cart'
-          endif
-        -%}
-        {%- endcomment -%}
-        {%- render 'icon-cart' -%}
+        {% if cart.discount_applications != blank %}
+          {%- render 'icon-cart-discount' -%}
+        {% else %}
+          {%- render 'icon-cart' -%}
+        {% endif %}
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}
         {%- if cart != empty -%}
           <div class="cart-count-bubble">

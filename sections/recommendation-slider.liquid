@@ -32,11 +32,31 @@
       assign products_to_display = section.settings.products_to_show
     endif
   %}
+
+  {% assign new_products = null | sort %}
+  {% for item in recommendations.products %}
+    {% assign tags = item.tags | join: ', ' %}
+    {% unless template contains 'outlet' %}
+      {% unless tags contains 'Outlet' %}
+        {% assign prod = item | sort %}
+        {% assign new_products = new_products | concat: prod %}
+      {% endunless %}
+    {% else %}
+      {% if tags contains 'Outlet' %}
+        {% assign prod = item | sort %}
+        {% assign new_products = new_products | concat: prod %}
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+  {% for it in new_products %}
+    {% assign length = forloop.length %}
+  {% endfor %}
+
 <div>
   <product-recommendations  class="recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=10">
     <div  class=" swiper-container swiper-container-collection section-slider-recommendation section-{{section.id}}"  >
         <ul class="swiper-wrapper" role="list" >
-             {% for recommendation in recommendations.products %}
+             {% for recommendation in new_products %}
               <li class="swiper-slide">
                 {% render 'product-card',
                         product_card_product: recommendation,

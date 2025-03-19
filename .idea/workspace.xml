@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="merge develop" />
+    <list default="true" id="7ec4795a-2afd-4c68-9e80-e688f54ae210" name="Changes" comment="popup discount cart">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" beforeDir="false" afterPath="$PROJECT_DIR$/sections/main-collection-product-grid.liquid" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Liquid File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -55,8 +60,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop-outlet&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/user/WebstormProjects/newbornk-com-latest-v/sections&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -121,6 +127,11 @@
       <workItem from="1731590153916" duration="1853000" />
       <workItem from="1732873875237" duration="1302000" />
       <workItem from="1733228341165" duration="2351000" />
+      <workItem from="1739803001484" duration="862000" />
+      <workItem from="1739978868358" duration="3769000" />
+      <workItem from="1739997209081" duration="21653000" />
+      <workItem from="1740554718181" duration="333000" />
+      <workItem from="1740672844637" duration="1914000" />
     </task>
     <task id="LOCAL-00001" summary="fixes filter">
       <option name="closed" value="true" />
@@ -226,7 +237,135 @@
       <option name="project" value="LOCAL" />
       <updated>1728552571767</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="updates">
+      <option name="closed" value="true" />
+      <created>1739538832597</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739538832597</updated>
+    </task>
+    <task id="LOCAL-00015" summary="outlet">
+      <option name="closed" value="true" />
+      <created>1739539332096</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1739539332096</updated>
+    </task>
+    <task id="LOCAL-00016" summary="outlet footer, header">
+      <option name="closed" value="true" />
+      <created>1739545256979</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739545256979</updated>
+    </task>
+    <task id="LOCAL-00017" summary="outlet">
+      <option name="closed" value="true" />
+      <created>1739546957321</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739546957322</updated>
+    </task>
+    <task id="LOCAL-00018" summary="outlet PDP PLP">
+      <option name="closed" value="true" />
+      <created>1739547338533</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1739547338533</updated>
+    </task>
+    <task id="LOCAL-00019" summary="outlet page">
+      <option name="closed" value="true" />
+      <created>1739547629045</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1739547629045</updated>
+    </task>
+    <task id="LOCAL-00020" summary="outlet page button">
+      <option name="closed" value="true" />
+      <created>1739551298269</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1739551298269</updated>
+    </task>
+    <task id="LOCAL-00021" summary="outlet page button">
+      <option name="closed" value="true" />
+      <created>1739551422555</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1739551422555</updated>
+    </task>
+    <task id="LOCAL-00022" summary="outlet page button">
+      <option name="closed" value="true" />
+      <created>1739552112908</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1739552112908</updated>
+    </task>
+    <task id="LOCAL-00023" summary="outlet page button">
+      <option name="closed" value="true" />
+      <created>1739552379214</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1739552379214</updated>
+    </task>
+    <task id="LOCAL-00024" summary="newProducts array for sections">
+      <option name="closed" value="true" />
+      <created>1740040270875</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1740040270876</updated>
+    </task>
+    <task id="LOCAL-00025" summary="sidebar collection outlet">
+      <option name="closed" value="true" />
+      <created>1740042400438</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1740042400438</updated>
+    </task>
+    <task id="LOCAL-00026" summary="breadcrumbs outlet fix">
+      <option name="closed" value="true" />
+      <created>1740071058654</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1740071058654</updated>
+    </task>
+    <task id="LOCAL-00027" summary="outlet in header">
+      <option name="closed" value="true" />
+      <created>1740150501658</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1740150501658</updated>
+    </task>
+    <task id="LOCAL-00028" summary="outlet in header fix">
+      <option name="closed" value="true" />
+      <created>1740150883505</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1740150883505</updated>
+    </task>
+    <task id="LOCAL-00029" summary="popup discount cart">
+      <option name="closed" value="true" />
+      <created>1740397446525</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1740397446525</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +405,19 @@
     <MESSAGE value="wishlist icon mob fix2" />
     <MESSAGE value="fix wishlist icon" />
     <MESSAGE value="merge develop" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge develop" />
+    <MESSAGE value="updates" />
+    <MESSAGE value="outlet footer, header" />
+    <MESSAGE value="outlet" />
+    <MESSAGE value="outlet PDP PLP" />
+    <MESSAGE value="outlet page" />
+    <MESSAGE value="outlet page button" />
+    <MESSAGE value="newProducts array for sections" />
+    <MESSAGE value="sidebar collection outlet" />
+    <MESSAGE value="breadcrumbs outlet fix" />
+    <MESSAGE value="outlet in header" />
+    <MESSAGE value="outlet in header fix" />
+    <MESSAGE value="popup discount cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="popup discount cart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
