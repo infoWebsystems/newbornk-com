@@ -12,15 +12,6 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
-        "1630994380b1b22eeb-0": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/S_HOR_K.png",
-            "image_phone": "shopify://shop_images/S_VERT_K.png",
-            "banner_link": "shopify://collections/novi-nadkhodzhennia",
-            "language": "UK"
-          }
-        },
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
@@ -147,7 +138,7 @@
         "1626416534da40dc37-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "helas"
+            "collection": "carhartt-wip-kupyty-v-ukraini-newborn-k"
           }
         },
         "1626416534da40dc37-1": {
