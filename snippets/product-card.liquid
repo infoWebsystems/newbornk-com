@@ -99,8 +99,14 @@
                               {{ 'products.product.on_sale' | t }} {{ product_card_product.compare_at_price | minus: product_card_product.price | times: 100 | divided_by: product_card_product.compare_at_price }}%
                             </span>
                         {%- endif -%}
-
                     </div>
+                    {% if settings.show_add_to_cart %}
+                        <div class="card__add-to-cart" data-id="{{ product_card_product.first_available_variant.id }}" data-url="{{ routes.cart_add_url }}">
+                            <div class="container">
+                                {%- render 'icon-cart' -%}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
