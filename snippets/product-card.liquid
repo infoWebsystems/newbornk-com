@@ -38,44 +38,80 @@
                             <div class="media media--transparent media--{{ media_size }} media--hover-effect"
                                     {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
                             >
-                                {% if collection.handle == unisexFilter[0]  or collection.handle contains  'чолові'  or unisexFilter[0] == blank or unisexFilter[1].size == blank or current_tags contains 'Чоловіче' %}
+                                {% if collection.handle contains  'women' or collection.handle contains  'zhinkam' %}
+                                   {% assign unisexFilterSecondImg = product_card_product.media[1].alt | escape | split: "#@" %}
+                                    {% if collection.handle == unisexFilterSecondImg[0] or collection.handle contains  'жіноч'  or collection.handle contains  'women' or collection.handle contains  'жінкам' or unisexFilterSecondImg[0] == blank or unisexFilterSecondImg[1].size == blank or current_tags contains 'Жіноче' %}
+                                        {%- if product_card_product.media[1] != nil and show_secondary_image -%}
+                                            <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
+                                                 src="{{ product_card_product.media[1] | img_url: '533x' }}"
+                                                 sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                 alt="{{ product_card_product.media[1].alt | escape }}"
+                                                 loading="lazy"
+                                                 class="motion-reduce"
+                                                 width="{{ product_card_product.media[1].width }}"
+                                                 height="{{ product_card_product.media[1].height }}"
+                                            >
+                                        {%- endif -%}
+                                    {% endif %}
 
-                                <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
-                                     src="{{ product_card_product.featured_media | img_url: '533x' }}"
-                                     sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                     alt="{{ product_card_product.featured_media.alt | escape }}"
-                                     loading="lazy"
-                                     class="motion-reduce"
-                                     width="{{ product_card_product.featured_media.width }}"
-                                     height="{{ product_card_product.featured_media.height }}"
-                                >
-                                {% endif %}
+                                    {% if collection.handle == unisexFilter[0]  or collection.handle contains  'чолові'  or unisexFilter[0] == blank or unisexFilter[1].size == blank or current_tags contains 'Чоловіче' %}
+                                        <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+                                             src="{{ product_card_product.featured_media | img_url: '533x' }}"
+                                             sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                             alt="{{ product_card_product.featured_media.alt | escape }}"
+                                             loading="lazy"
+                                             class="motion-reduce"
+                                             width="{{ product_card_product.featured_media.width }}"
+                                             height="{{ product_card_product.featured_media.height }}"
+                                        >
+                                    {% endif %}
+                                {% else %}
+                                   {% if collection.handle == unisexFilter[0]  or collection.handle contains  'чолові'  or unisexFilter[0] == blank or unisexFilter[1].size == blank or current_tags contains 'Чоловіче' %}
+                                        <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+                                            {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+                                             src="{{ product_card_product.featured_media | img_url: '533x' }}"
+                                             sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                             alt="{{ product_card_product.featured_media.alt | escape }}"
+                                             loading="lazy"
+                                             class="motion-reduce"
+                                             width="{{ product_card_product.featured_media.width }}"
+                                             height="{{ product_card_product.featured_media.height }}"
+                                        >
+                                    {% endif %}
 
-                                {% assign unisexFilterSecondImg = product_card_product.media[1].alt | escape | split: "#@" %}
-
-                                {% if collection.handle == unisexFilterSecondImg[0] or collection.handle contains  'жіноч'  or collection.handle contains  'women' or collection.handle contains  'жінкам' or unisexFilterSecondImg[0] == blank or unisexFilterSecondImg[1].size == blank or current_tags contains 'Жіноче' %}
-
-                                {%- if product_card_product.media[1] != nil and show_secondary_image -%}
-                                    <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
-                                         src="{{ product_card_product.media[1] | img_url: '533x' }}"
-                                         sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                         alt="{{ product_card_product.media[1].alt | escape }}"
-                                         loading="lazy"
-                                         class="motion-reduce"
-                                         width="{{ product_card_product.media[1].width }}"
-                                         height="{{ product_card_product.media[1].height }}"
-                                    >
-                                {%- endif -%}
+                                    {% assign unisexFilterSecondImg = product_card_product.media[1].alt | escape | split: "#@" %}
+                                    {% if collection.handle == unisexFilterSecondImg[0] or collection.handle contains  'жіноч'  or collection.handle contains  'women' or collection.handle contains  'жінкам' or unisexFilterSecondImg[0] == blank or unisexFilterSecondImg[1].size == blank or current_tags contains 'Жіноче' %}
+                                        {%- if product_card_product.media[1] != nil and show_secondary_image -%}
+                                            <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
+                                                  {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
+                                                 src="{{ product_card_product.media[1] | img_url: '533x' }}"
+                                                 sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                                 alt="{{ product_card_product.media[1].alt | escape }}"
+                                                 loading="lazy"
+                                                 class="motion-reduce"
+                                                 width="{{ product_card_product.media[1].width }}"
+                                                 height="{{ product_card_product.media[1].height }}"
+                                            >
+                                        {%- endif -%}
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         </div>
@@ -86,7 +122,7 @@
                     {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
 
                     <div class="card__badge">
-                      {% if product_card_product.tags contains 'onlineonly' %}
+                        {% if product_card_product.tags contains 'onlineonly' %}
                             <span class="badge badge--bottom-left color-{{ settings.online_only_badge_color_scheme }}">
                                 {{ 'products.product.online_only' | t }}
                             </span>
@@ -125,28 +161,61 @@
                             <div class="media media--transparent media--{{ media_size }} media--hover-effect"
                                     {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
                             >
-                                <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
-                {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
-                                     src="{{ product_card_product.featured_media | img_url: '533x' }}"
-                                     sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                     alt="{{ product_card_product.featured_media.alt | escape }}"
-                                     loading="lazy"
-                                     class="motion-reduce"
-                                     width="{{ product_card_product.featured_media.width }}"
-                                     height="{{ product_card_product.featured_media.height }}"
-                                >
+                                {% if collection.handle contains  'women' or collection.handle contains  'zhinkam' %}
+                                   {%- if product_card_product.media[1] != nil and show_secondary_image -%}
+                                        <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
+                                             src="{{ product_card_product.media[1] | img_url: '533x' }}"
+                                             sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                             alt="{{ product_card_product.media[1].alt | escape }}"
+                                             loading="lazy"
+                                             class="motion-reduce"
+                                             width="{{ product_card_product.media[1].width }}"
+                                             height="{{ product_card_product.media[1].height }}"
+                                        >
+                                    {%- endif -%}
 
-                                {%- if product_card_product.media[1] != nil and show_secondary_image -%}
+                                    <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+                                         src="{{ product_card_product.featured_media | img_url: '533x' }}"
+                                         sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                         alt="{{ product_card_product.featured_media.alt | escape }}"
+                                         loading="lazy"
+                                         class="motion-reduce"
+                                         width="{{ product_card_product.featured_media.width }}"
+                                         height="{{ product_card_product.featured_media.height }}"
+                                    >
+                                {% else %}
+                                    <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
+                                        {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
+                                         src="{{ product_card_product.featured_media | img_url: '533x' }}"
+                                         sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                                         alt="{{ product_card_product.featured_media.alt | escape }}"
+                                         loading="lazy"
+                                         class="motion-reduce"
+                                         width="{{ product_card_product.featured_media.width }}"
+                                         height="{{ product_card_product.featured_media.height }}"
+                                    >
+
+                                    {%- if product_card_product.media[1] != nil and show_secondary_image -%}
                                     <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
-                  {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
+                                          {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
+                                          {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
                                          src="{{ product_card_product.media[1] | img_url: '533x' }}"
                                          sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
                                          alt="{{ product_card_product.media[1].alt | escape }}"
@@ -156,6 +225,7 @@
                                          height="{{ product_card_product.media[1].height }}"
                                     >
                                 {%- endif -%}
+                                {% endif %}
                             </div>
                         </div>
                     {%- else -%}
@@ -165,8 +235,8 @@
                     {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
 
                     <div class="card__badge">
-                      {% if product_card_product.tags contains 'onlineonly' %}
-                          <span class="badge badge--bottom-left color-{{ settings.online_only_badge_color_scheme }}">
+                        {% if product_card_product.tags contains 'onlineonly' %}
+                            <span class="badge badge--bottom-left color-{{ settings.online_only_badge_color_scheme }}">
                             {{ 'products.product.online_only' | t }}
                           </span>
                         {% endif %}
@@ -196,7 +266,7 @@
                     {%- endif -%}
 
                     {%- if product_card_product.featured_media -%}
-                      <span class="card-information__text h5">
+                        <span class="card-information__text h5">
                         {{ product_card_product.title | escape }}
                       </span>
                     {%- endif -%}
