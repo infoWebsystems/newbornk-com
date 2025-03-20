@@ -1,5 +1,46 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(1)
+    async function addToCart(variantId, quantity = 1, cartUrl, item) {
+        try {
+            const response = await fetch(`${cartUrl}.js`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: variantId,
+                    quantity: quantity
+                })
+            });
+            if (!response.ok) throw new Error('Error add to cart');
+            const data = await response.json();
+
+            updateCartCount(item);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function updateCartCount(item) {
+        try {
+            const response = await fetch('/cart.js');
+            if (!response.ok) throw new Error('Error get cart');
+
+            const data = await response.json();
+            const totalItems = data.item_count;
+
+            const cartCountElement = document.querySelector('.cart-count-bubble span');
+            if (cartCountElement) {
+                cartCountElement.textContent = totalItems;
+            }
+
+            if(item){
+                item.classList.remove('loading');
+            }
+            return totalItems;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
     function initShowMoreText() {
 
             document.querySelectorAll(".show-more-text").forEach(container => {
@@ -35,5 +76,24 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     }
 
+    function initCardAddToCart(){
+        const buttonsCardAddToCart = document.querySelectorAll('.card__add-to-cart');
+        if(buttonsCardAddToCart.length > 0){
+            buttonsCardAddToCart.forEach(function (item) {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    item.classList.add('loading');
+                    const itemId = item.dataset.id;
+                    const cartUrl = item.dataset.url;
+                    console.log('itemId', itemId)
+                    console.log('cartUrl', cartUrl)
+                    addToCart(itemId, 1, cartUrl, item);
+                })
+            })
+        }
+    }
+
     initShowMoreText()
+    initCardAddToCart()
 });

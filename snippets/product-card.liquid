@@ -180,6 +180,13 @@
                         {%- endif -%}
 
                     </div>
+                    {% if settings.show_add_to_cart %}
+                        <div class="card__add-to-cart" data-id="{{ product_card_product.first_available_variant.id }}" data-url="{{ routes.cart_add_url }}">
+                            <div class="container">
+                                {%- render 'icon-cart' -%}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 
