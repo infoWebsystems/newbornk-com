@@ -94,6 +94,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function initFiterImgsPlp() {
+        const filterW_MButtons = document.querySelectorAll('.filter-w-m .button');
+
+        if (filterW_MButtons.length > 0) {
+            filterW_MButtons.forEach(function (button) {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    filterW_MButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    let identificator = button.dataset.ident;
+                    const blocksImgs = document.querySelectorAll("#main-collection-product-grid .grid__item");
+
+                    blocksImgs.forEach(item => {
+                        const mediaBlock = item.querySelector(".media");
+                        if (!mediaBlock) return;
+
+                        const images = Array.from(mediaBlock.querySelectorAll("img"));
+                        if (images.length < 2) return;
+                        const getIdentifier = function (img) {
+                            return img.alt.split("@")[0] + "@";
+                        };
+
+                        const firstImage = images[0];
+                        const firstImageIdentifier = getIdentifier(firstImage);
+                        if (firstImageIdentifier === identificator.toLowerCase()) return;
+                        const itemImage = images.find(img => getIdentifier(img) === identificator.toLowerCase());
+
+                        if (itemImage) {
+                            mediaBlock.prepend(itemImage);
+                        }
+                    });
+                });
+            });
+        }
+
+    }
+
     initShowMoreText()
     initCardAddToCart()
+    initFiterImgsPlp()
 });

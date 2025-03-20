@@ -30,6 +30,13 @@
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}
+
+      {% if section.settings.show_filter_w_m %}
+        <div class="filter-w-m buttons-section">
+          <a href="#" data-ident="men#@" class="button button--full-width button--primary">ЧОЛОВІКАМ</a>
+          <a href="#" data-ident="women#@" class=" button button--full-width button--primary" >Жінкам</a>
+        </div>
+      {% endif %}
     </div>
 
     {%- if section.settings.show_collection_image and collection.image -%}
@@ -79,6 +86,12 @@
       "id": "show_collection_title",
       "default": false,
       "label": "Show collection title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_w_m",
+      "default": true,
+      "label": "Show filter for women&men"
     }
   ]
 }
