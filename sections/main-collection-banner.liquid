@@ -33,8 +33,8 @@
 
       {% if section.settings.show_filter_w_m %}
         <div class="filter-w-m buttons-section">
-          <a href="#" data-ident="men#@" class="button button--full-width button--primary">ЧОЛОВІКАМ</a>
-          <a href="#" data-ident="women#@" class=" button button--full-width button--primary" >Жінкам</a>
+          <a href="#" data-ident="men#@" class="button button--full-width button--primary">{{ section.settings.text_men }}</a>
+          <a href="#" data-ident="women#@" class=" button button--full-width button--primary">{{ section.settings.text_women }}</a>
         </div>
       {% endif %}
     </div>
@@ -92,6 +92,18 @@
       "id": "show_filter_w_m",
       "default": true,
       "label": "Show filter for women&men"
+    },
+    {
+      "type": "text",
+      "id": "text_women",
+      "default": 'Жінкам',
+      "label": "Button text women"
+    },
+    {
+      "type": "text",
+      "id": "text_men",
+      "default": 'Чоловікам',
+      "label": "Button text men"
     }
   ]
 }
