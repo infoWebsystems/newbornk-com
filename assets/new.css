@@ -468,15 +468,14 @@ button[aria-label="Open Form"].needsclick, div[aria-label="Open Form"].needsclic
   }
 
   .button{
-    background-color: #ccf951;
+    background-color: white;
     color: #000;
-    border-color: #ccf951;
-    outline-color: #ccf951;
+    border-color: #000;
+    outline-color: transparent;
     width: 50%;
-    -webkit-box-shadow: 0 0 0 .1rem  #ccf951;
-    box-shadow: 0 0 0 .1rem  #ccf951;
     height: 92px;
     font-size: 40px;
+    border-radius: 3px;
 
     @media screen and (max-width: 749px){
       width: 100%;
@@ -486,9 +485,9 @@ button[aria-label="Open Form"].needsclick, div[aria-label="Open Form"].needsclic
     }
   }
   .button:hover{
-    -webkit-box-shadow: 0 0 0 .1rem  #ccf951;
-    box-shadow: 0 0 0 .1rem  #ccf951;
-    box-shadow: 0 0 0 .2rem  #ccf951;
+    border-color: #CCF951;
+    background-color: #CCF951;
+    box-shadow: none;
   }
 }
 
