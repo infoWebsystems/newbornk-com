@@ -41,6 +41,7 @@
     "text_move_outlet": "Outlet",
     "url_move_main": "/",
     "text_move_main": "Головний сайт",
+    "show_wishlist": true,
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
