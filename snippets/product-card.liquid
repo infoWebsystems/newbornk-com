@@ -12,8 +12,12 @@
     {% render 'product-card', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
+{% assign url_product = product_card_product.url | remove: routes.root_url %}
+{% assign url_collection = product_card_product.url | default: '#' | within: collection | remove: url_product %}
+{% assign url = product_card_product.url | default: '#' %}
+
 <div class="card-wrapper">
-    <a href="{{ product_card_product.url | default: '#' | within: collection }}" class="full-unstyled-link">
+    <a href="{{ url }}?url={{ url_collection }}&title={{ collection.title }}" class="full-unstyled-link">
         <span class="visually-hidden">{{ product_card_product.title | escape }}</span>
 
 

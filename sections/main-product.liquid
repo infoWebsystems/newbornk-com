@@ -804,6 +804,7 @@
 </section>
 
 {% render 'product-size-chart', product: product, id: 'js-productSizeModal-modal' %}
+<script src="{{ 'breadcrumbs-custom-item.js' | asset_url }}" defer="defer"></script>
 
 {% javascript %}
   class ProductModal extends ModalDialog {
