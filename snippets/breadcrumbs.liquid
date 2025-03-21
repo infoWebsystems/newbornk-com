@@ -72,7 +72,7 @@
     {%- case t -%}
       {%- when 'page' -%}
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ page.title }}</p>
         </li>
       {%- when 'product' -%}
     
@@ -93,7 +93,7 @@
         {%- endif -%}
 
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ product.title }}</p>
         </li>
       {%- when 'collection' and collection.handle -%}
         {%- if current_tags -%}
@@ -106,7 +106,7 @@
           </li>
         {%- else -%}
           <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+            <p class="breadcrumbs__link" aria-current="page">{{ collection.title }}</>
           </li>
         {%- endif -%}
       {%- when 'blog' -%}
@@ -128,11 +128,11 @@
           {{ blog.title | link_to: blog.url }}
         </li>
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ article.title }}</p>
         </li>
       {%- else -%}
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ page_title }}</p>
         </li>
     {%- endcase -%}
   </ol>
