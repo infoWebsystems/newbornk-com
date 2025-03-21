@@ -86,14 +86,16 @@
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-top"
+              "menu": "footer-top",
+              "show_lang_switcher": true
             }
           },
           "ee7af1e9-f8b8-44ba-89df-42007ca9a2df": {
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-social"
+              "menu": "footer-social",
+              "show_lang_switcher": false
             }
           },
           "e7003153-6cde-4572-9831-cb6cf1415d7c": {
@@ -110,7 +112,8 @@
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-policy"
+              "menu": "footer-policy",
+              "show_lang_switcher": false
             }
           }
         },
@@ -127,7 +130,7 @@
           "newsletter_heading": "Підписатися на розсилку",
           "show_social": false,
           "enable_country_selector": true,
-          "enable_language_selector": false,
+          "enable_language_selector": true,
           "payment_enable": true
         }
       },
