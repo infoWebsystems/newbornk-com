@@ -319,6 +319,16 @@
     </ul>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.location.pathname !== "/") {
+          const cleanPath = window.location.pathname.replace(/\/+$/, '');
+          const cleanUrl = window.location.origin + cleanPath + window.location.search;
+
+          if (window.location.href !== cleanUrl) {
+            window.location.replace(cleanUrl);
+          }
+        }
+      });
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
         cart_change_url: '{{ routes.cart_change_url }}',
