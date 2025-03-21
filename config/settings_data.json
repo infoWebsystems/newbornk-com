@@ -87,7 +87,7 @@
             "settings": {
               "heading": "",
               "menu": "footer-top",
-              "show_lang_switcher": true
+              "show_lang_switcher": false
             }
           },
           "ee7af1e9-f8b8-44ba-89df-42007ca9a2df": {

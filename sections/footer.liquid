@@ -16,7 +16,7 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- if section.settings.enable_language_selector and shop.locale == 'ru' -%}
+{%- if section.settings.enable_language_selector and template == 'search' -%}
   {% capture lang_switcher %}
     <div class="footer__column footer__localization">
       <noscript>
