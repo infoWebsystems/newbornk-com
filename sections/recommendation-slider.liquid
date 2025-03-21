@@ -32,26 +32,26 @@
       assign products_to_display = section.settings.products_to_show
     endif
   %}
-<div>
-  <product-recommendations  class="recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=10">
-    <div  class=" swiper-container swiper-container-collection section-slider-recommendation section-{{section.id}}"  >
-        <ul class="swiper-wrapper" role="list" >
-             {% for recommendation in recommendations.products %}
-              <li class="swiper-slide">
-                {% render 'product-card',
-                        product_card_product: recommendation,
-                  media_size: section.settings.image_ratio,
-                  show_secondary_image: section.settings.show_secondary_image,
-                  add_image_padding: section.settings.add_image_padding,
-                  show_vendor: section.settings.show_vendor,
-                  show_info: true
-                %}
-              </li>
-          {%- endfor -%}
-        </ul>
-    </div>
-  </product-recommendations>
-</div>
+  <div>
+    <product-recommendations  class="recommendations" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=10">
+      <div  class=" swiper-container swiper-container-collection section-slider-recommendation section-{{section.id}}"  >
+          <ul class="swiper-wrapper" role="list" >
+               {% for recommendation in recommendations.products %}
+                <li class="swiper-slide">
+                  {% render 'product-card',
+                          product_card_product: recommendation,
+                    media_size: section.settings.image_ratio,
+                    show_secondary_image: section.settings.show_secondary_image,
+                    add_image_padding: section.settings.add_image_padding,
+                    show_vendor: section.settings.show_vendor,
+                    show_info: true
+                  %}
+                </li>
+            {%- endfor -%}
+          </ul>
+      </div>
+    </product-recommendations>
+  </div>
 
 </div>
 <style>

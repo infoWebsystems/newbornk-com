@@ -86,7 +86,7 @@
     </div>
 
     {%- if section.settings.show_view_all and section.settings.collection.all_products_count > section.settings.products_to_show -%}
-      <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
+      <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}" style="margin-top: 2em;">
         <a href="{{ url }}"
            class="button"
            aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: title }}"
