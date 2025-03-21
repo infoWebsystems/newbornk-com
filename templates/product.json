@@ -65,6 +65,7 @@
             "page": "",
             "liquid": "{{ product.description }}",
             "enable_more_text": true,
+            "lines": 3,
             "icon": "none"
           }
         },
@@ -76,6 +77,7 @@
             "page": "",
             "liquid": "{% render 'pickup' %}",
             "enable_more_text": false,
+            "lines": 3,
             "icon": "none"
           }
         },
@@ -93,6 +95,7 @@
             "page": "",
             "liquid": "",
             "enable_more_text": false,
+            "lines": 3,
             "icon": "none"
           }
         },
@@ -105,6 +108,7 @@
             "page": "",
             "liquid": "",
             "enable_more_text": false,
+            "lines": 3,
             "icon": "none"
           }
         },
@@ -186,7 +190,6 @@
     },
     "recommendation_slider_YPywew": {
       "type": "recommendation-slider",
-      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",

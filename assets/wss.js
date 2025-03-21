@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
             const totalItems = data.item_count;
 
-            const cartCountElement = document.querySelector('.cart-count-bubble span');
+            const cartCountElement = document.querySelector('.header__icon.header__icon--cart .visually-hidden');
             if (cartCountElement) {
-                cartCountElement.textContent = totalItems;
+                cartCountElement.innerHTML = `${window.translation.cart} <div class="cart-count-bubble"><span aria-hidden="true">${totalItems}</span></div>`;
             }
 
             if(item){
@@ -77,21 +77,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function initCardAddToCart(){
-        const buttonsCardAddToCart = document.querySelectorAll('.card__add-to-cart');
-        if(buttonsCardAddToCart.length > 0){
-            buttonsCardAddToCart.forEach(function (item) {
-                item.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    item.classList.add('loading');
-                    const itemId = item.dataset.id;
-                    const cartUrl = item.dataset.url;
-                    console.log('itemId', itemId)
-                    console.log('cartUrl', cartUrl)
-                    addToCart(itemId, 1, cartUrl, item);
+            const buttonsCardAddToCart = document.querySelectorAll('.card__add-to-cart');
+            if(buttonsCardAddToCart.length > 0){
+                buttonsCardAddToCart.forEach(function (item) {
+                    item.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        item.classList.add('loading');
+                        const itemId = item.dataset.id;
+                        const cartUrl = item.dataset.url;
+                        console.log('itemId', itemId)
+                        console.log('cartUrl', cartUrl)
+                        addToCart(itemId, 1, cartUrl, item);
+                    })
                 })
-            })
-        }
+            }
     }
 
     function initFiterImgsPlp() {
@@ -140,7 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    initShowMoreText()
-    initCardAddToCart()
+    initShowMoreText();
+    setTimeout(function () {
+        initCardAddToCart();
+    },1300)
+    window.initCardAddToCart = initCardAddToCart;
     initFiterImgsPlp()
 });
