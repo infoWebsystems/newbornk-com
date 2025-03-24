@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const newUrl = window.location.origin + window.location.pathname;
+        console.log('newUrl', newUrl)
         window.history.replaceState({}, document.title, newUrl);
     }
 });
