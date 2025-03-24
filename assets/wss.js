@@ -144,9 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     initShowMoreText();
-    setTimeout(function () {
-        initCardAddToCart();
-    },1300)
+    initCardAddToCart();
     window.initCardAddToCart = initCardAddToCart;
     initFiterImgsPlp();
     window.initFiterImgsPlp = initFiterImgsPlp;
