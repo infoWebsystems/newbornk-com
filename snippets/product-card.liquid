@@ -17,7 +17,7 @@
 {% assign url = product_card_product.url | default: '#' %}
 
 <div class="card-wrapper">
-    <a href="{{ url }}?url={{ url_collection }}&title={{ collection.title }}" class="full-unstyled-link">
+    <a href="{{ url }}{% if url contains '?' %}&{% else %}?{% endif %}url={{ url_collection }}&title={{ collection.title }}" class="full-unstyled-link">
         <span class="visually-hidden">{{ product_card_product.title | escape }}</span>
 
 
