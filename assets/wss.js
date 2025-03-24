@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
     }
 
-    function initFiterImgsPlp() {
+    function initFiterImgsPlp(removeActive) {
         const filterW_MButtons = document.querySelectorAll('.filter-w-m .button');
         const filterWMBlock = document.querySelector('.filter-w-m');
         if (filterWMBlock == null) {
@@ -107,6 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 filterWMBlock.classList.remove('hidden');
                 if (filterW_MButtons.length > 0) {
                     filterW_MButtons.forEach(function (button) {
+                        if(removeActive){
+                            button.classList.remove('active');
+                        }
                         button.addEventListener('click', function (e) {
                             e.preventDefault();
                             filterW_MButtons.forEach(btn => btn.classList.remove('active'));
@@ -145,5 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
         initCardAddToCart();
     },1300)
     window.initCardAddToCart = initCardAddToCart;
-    initFiterImgsPlp()
+    initFiterImgsPlp();
+    window.initFiterImgsPlp = initFiterImgsPlp;
 });
