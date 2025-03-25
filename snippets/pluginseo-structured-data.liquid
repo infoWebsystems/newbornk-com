@@ -189,7 +189,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
 {%- endcomment -%}
 
 {%- assign links = settings.pluginseo_structuredDataSocialProfileLinks | newline_to_br | split: '<br />' -%}
-
+{%- comment -%}
 <script data-desc="seo-organization" type="application/ld+json">
   {
     "@context": "http://schema.org",
@@ -212,7 +212,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
   }
 </script>
 
-{%- comment -%}
+
   https://developers.google.com/search/docs/data-types/products
 {%- endcomment -%}
 {%- if rootTemplate == 'product' -%}
