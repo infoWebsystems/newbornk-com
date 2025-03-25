@@ -25,7 +25,7 @@
                       {% assign order_num = 0 %}
                       {% assign brand_num = 0 %}
                       {% assign brand_numer = 0 %}
-                          <div class="">
+                      <div class="">
                        {%- for value in filter.values -%}    
                         {% assign alfabeta_next_num =  value.value | slice: 0 | upcase %}
                         {% unless alfabeta_num == alfabeta_next_num %}
@@ -49,55 +49,71 @@
                         {% if vendor_handle contains '-amp-' %}
                           {% assign vendor_handle = vendor_handle | replace: "amp-" %}
                         {%- endif -%}
-                            
+
+                        {% if collections[vendor_handle] != blank and collections[vendor_handle].template contains 'outlet' %}{% endif %}
+
+                        {% if collections[vendor_handle] != blank and collection.template_suffix contains 'outlet' %}
+                          {% assign vendor_handle = vendor_handle | append: '-outlet' %}
+                          {% assign isOutlet = false %}
+                          {% for item in collections[vendor_handle].products %}
+                            {% if item.template_suffix contains 'outlet' %}
+                              {% assign isOutlet = true %}
+                              {% break %}
+                            {% endif %}
+                          {% endfor %}
+                          {% if isOutlet == false %}
+                            {% continue %}
+                          {% endif %}
+                        {% endif %}
+
                         {% unless alfabeta == alfabeta_next %}
-                         {% assign brand_numer = brand_numer | plus: 1 %}
-                            
-                         {% if brand_numer == 1 %} 
-                           {% assign order_num = order_num | plus: 1 %}   
-                         {% endif%}
-                            
-                         {% if brand_numer <= brand_num_col and brand_numer != 1 %} 
-                           {% assign order_num = order_num | plus: 3 %}   
-                         {% endif%}
-                            
-                         {% if brand_numer == brand_num_start_col_2 %} 
-                           {% assign order_num = brand_numer | minus: brand_num_col | plus: 1 %}   
-                         {% endif%}
-                            
-                         {% if brand_numer <= brand_num_col_2 and brand_numer > brand_num_col and brand_numer != brand_num_start_col_2 %} 
-                           {% assign order_num = order_num | plus: 3 %}   
-                         {% endif%}
-                            
-                         {% if brand_numer == brand_num_start_col_3 %} 
-                           {% assign order_num = brand_numer | minus: brand_num_col_2 | plus: 2 %}   
-                         {% endif%}
-                            
-                         {% if brand_numer <= brand_num_col_3 and brand_numer > brand_num_col and brand_numer > brand_num_col_2 and brand_numer != brand_num_start_col_3 %} 
-                           {% assign order_num = order_num | plus: 3 %}   
-                         {% endif%}    
-                            
-                          </div>
-                          <div class="brand-block brand-{{brand_numer}}" style="order:{{order_num}}">
-                            <h2 class="brand-letter">{{ alfabeta_next }}</h2>
-                            <p class="brand-first-title">
-                              {%- if collections[vendor_handle]  -%}
-                                <a class="brand-title" href="{{ collections[vendor_handle].url }}">{{ collections[vendor_handle].title }}</a>
-                              {%- else -%}
-                                <a class="brand-title" href="{{vendor_handle}}">{{ vendor_handle }}</a>
-                              {%- endif -%}
-                            </p>
-                            </br>
-                            {% assign alfabeta = alfabeta_next %}
-                        {% else %}
-                            <p class="brand-next-title {{ vendor_handle }}">
-                              {%- if collections[vendor_handle]  -%}
-                                <a class="brand-title" href="{{ collections[vendor_handle].url }}">{{ collections[vendor_handle].title }}</a>
-                              {%- else -%}
-                                <a class="brand-title" href="{{vendor_handle}}">{{ vendor_handle }}</a>
-                              {%- endif -%}
-                            </p>
-                        {% endunless %}
+                           {% assign brand_numer = brand_numer | plus: 1 %}
+
+                           {% if brand_numer == 1 %}
+                             {% assign order_num = order_num | plus: 1 %}
+                           {% endif%}
+
+                           {% if brand_numer <= brand_num_col and brand_numer != 1 %}
+                             {% assign order_num = order_num | plus: 3 %}
+                           {% endif%}
+
+                           {% if brand_numer == brand_num_start_col_2 %}
+                             {% assign order_num = brand_numer | minus: brand_num_col | plus: 1 %}
+                           {% endif%}
+
+                           {% if brand_numer <= brand_num_col_2 and brand_numer > brand_num_col and brand_numer != brand_num_start_col_2 %}
+                             {% assign order_num = order_num | plus: 3 %}
+                           {% endif%}
+
+                           {% if brand_numer == brand_num_start_col_3 %}
+                             {% assign order_num = brand_numer | minus: brand_num_col_2 | plus: 2 %}
+                           {% endif%}
+
+                           {% if brand_numer <= brand_num_col_3 and brand_numer > brand_num_col and brand_numer > brand_num_col_2 and brand_numer != brand_num_start_col_3 %}
+                             {% assign order_num = order_num | plus: 3 %}
+                           {% endif%}
+
+                            </div>
+                            <div class="brand-block brand-{{brand_numer}}" style="order:{{order_num}}">
+                              <h2 class="brand-letter">{{ alfabeta_next }}</h2>
+                              <p class="brand-first-title">
+                                {%- if collections[vendor_handle] -%}
+                                  <a class="brand-title" href="{{ collections[vendor_handle].url }}">{{ collections[vendor_handle].title }}</a>
+                                {%- else -%}
+                                  <a class="brand-title">{{ vendor_handle }}</a>
+                                {%- endif -%}
+                              </p>
+                              </br>
+                              {% assign alfabeta = alfabeta_next %}
+                          {% else %}
+                              <p class="brand-next-title {{ vendor_handle }}">
+                                {%- if collections[vendor_handle] -%}
+                                  <a class="brand-title" href="{{ collections[vendor_handle].url }}">{{ collections[vendor_handle].title }}</a>
+                                {%- else -%}
+                                  <a class="brand-title">{{ vendor_handle }}</a>
+                                {%- endif -%}
+                              </p>
+                          {% endunless %}
                         {% assign alfabeta_next =  value.value | slice: 0 | upcase %}
                       {%- endfor -%}
                     </div>
