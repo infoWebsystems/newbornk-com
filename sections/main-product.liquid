@@ -180,7 +180,7 @@
             {%- unless media.id == product.selected_or_first_available_variant.featured_media.id and  media.media_type == 'video' and  media.media_type == 'external_video' -%}
               {% assign unisexFilter = media.preview_image.alt | escape | split: "#@" %}
 
-                {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women"    %}
+                {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women" %}
                   {% if unisexFilter[0] == "women"  or unisexFilter[0] == blank or unisexFilter[0].size <= 0  %}
                     <li class="swiper-slide">
                       <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
