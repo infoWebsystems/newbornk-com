@@ -64,7 +64,7 @@
             "content": "",
             "page": "",
             "liquid": "{{ product.description }}",
-            "enable_more_text": true,
+            "enable_more_text": false,
             "lines": 3,
             "icon": "none"
           }
