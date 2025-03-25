@@ -140,6 +140,23 @@
         "enable_size_model": true
       }
     },
+    "recommnded_products_6nWBpp": {
+      "type": "recommnded-products",
+      "settings": {
+        "title": "Recommended products",
+        "collection": "",
+        "products_to_show": 6,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": true
+      }
+    },
     "16323088197825d104": {
       "type": "featured-collection-slider",
       "disabled": true,
@@ -203,6 +220,7 @@
   },
   "order": [
     "main",
+    "recommnded_products_6nWBpp",
     "16323088197825d104",
     "1627050417092b6041",
     "product-recommendations",
