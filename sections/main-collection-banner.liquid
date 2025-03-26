@@ -28,7 +28,13 @@
       {%- endif -%}
 
       {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+        {% assign show_more_text = section.settings.show_more_text %}
+        {% assign description_lines = section.settings.description_lines %}
+        {% assign description_lines_mob = section.settings.description_lines_mob %}
+        <div class="collection-hero__description rte" {% if show_more_text %} style="overflow: hidden; " data-text="{{ collection.description | strip_html }}" data-showmoredesk="{{ description_lines | plus: 1 }}" data-showmoremob="{{ description_lines_mob | plus: 1 }}"{% endif %}>
+          <p style="margin-top: 1em" class="short-text">{{ collection.description | strip_html }}</p>
+          {{ collection.description }}
+        </div>
       {%- endif -%}
 
       {% if section.settings.show_filter_w_m %}
@@ -73,6 +79,21 @@
       "id": "show_collection_description",
       "default": false,
       "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },{
+      "type": "checkbox",
+      "id": "show_more_text",
+      "default": true,
+      "label": "Enable more text?"
+    },{
+      "type": "number",
+      "id": "description_lines",
+      "default": 10,
+      "label": "Descriptions lines desktop"
+    },{
+      "type": "number",
+      "id": "description_lines_mob",
+      "default": 7,
+      "label": "Descriptions lines mobile"
     },
     {
       "type": "checkbox",

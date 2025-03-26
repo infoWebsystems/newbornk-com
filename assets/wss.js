@@ -42,38 +42,61 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     function initShowMoreText() {
+        document.querySelectorAll(".collection-hero__description").forEach(container => {
+            const showMoreDesk = parseInt(container.getAttribute("data-showmoredesk"), 10) || 0;
+            const showMoreMob = parseInt(container.getAttribute("data-showmoremob"), 10) || 0;
+            const isMobile = window.innerWidth <= 768;
+            const maxLines = isMobile ? showMoreMob : showMoreDesk;
 
-            document.querySelectorAll(".show-more-text").forEach(container => {
+            if (!maxLines) return;
+
+            const shortText = container.querySelector(".short-text");
+            if (!shortText) return;
+
+            const lineHeight = parseInt(window.getComputedStyle(shortText).lineHeight, 10) || 20;
+            const shortTextHeight = shortText.scrollHeight;
+            const maxHeight = maxLines * lineHeight;
+
+            container.style.transition = "max-height 0.5s ease-in-out";
+            console.log('shortTextHeight <= maxHeight', shortTextHeight ,maxHeight)
+            if (shortTextHeight <= maxHeight) {
+                console.log(1)
+                shortText.style.display = "none";
+                container.style.maxHeight = '100%';
+            } else {
                 console.log(2)
-                const lineHeight = parseInt(getComputedStyle(container).lineHeight);
-                const maxHeight = lineHeight * 3;
-                const readMore = container.dataset.readMore;
-                const hide = container.dataset.hide;
-                const countLine = container.dataset.lines;
-
-                if (container.scrollHeight <= maxHeight) return;
-
-                container.style.maxHeight = `${maxHeight}px`;
                 container.style.overflow = "hidden";
-                container.style.transition = "max-height 0.3s ease";
+                container.style.maxHeight = `${maxHeight}px`;
 
-                const button = document.createElement("span");
-                button.classList.add("show-more-btn");
-                button.style.cursor = 'pointer';
-                button.style.textDecoration = 'underline';
-                button.textContent = readMore;
+                const toggleButton = document.createElement("a");
+                toggleButton.textContent = window.translation.read_more;
+                toggleButton.classList.add("show-more-button");
+                toggleButton.style.cursor = "pointer";
+                toggleButton.style.color = "black";
+                toggleButton.style.textDecoration = "underline";
+                toggleButton.href = "#";
+                container.after(toggleButton);
 
-                button.addEventListener("click", function () {
-                    if (container.style.maxHeight === "none") {
+                let isExpanded = false;
+                toggleButton.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    if (isExpanded) {
+                        shortText.style.display = "";
                         container.style.maxHeight = `${maxHeight}px`;
-                        button.textContent = readMore;
+                        toggleButton.textContent = window.translation.read_more;
                     } else {
-                        container.style.maxHeight = "none";
-                        button.textContent = hide;
+                        shortText.style.display = "none";
+                        container.style.maxHeight = `${container.scrollHeight}px`;
+                        setTimeout(() => {
+                            container.style.maxHeight = "none";
+                        }, 500);
+                        toggleButton.textContent = window.translation.read_less;
                     }
+                    isExpanded = !isExpanded;
                 });
-                container.after(button);
-            });
+            }
+        });
+
     }
 
     function initCardAddToCart(){

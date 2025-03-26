@@ -87,7 +87,7 @@
   },
   "general": {
     "read_more": "Читати більше",
-    "hide": "Згорнути",
+    "read_less": "Згорнути",
     "password_page": {
       "login_form_heading": "Увійти в магазин за допомогою пароля:",
       "login_password_button": "Введіть пароль",
