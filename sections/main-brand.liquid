@@ -50,6 +50,10 @@
                           {% assign vendor_handle = vendor_handle | replace: "amp-" %}
                         {%- endif -%}
 
+                          {% if vendor_handle == 'newbornk-pl' %}
+                              {% continue %}
+                          {% endif %}
+
                         {% if collections[vendor_handle] != blank and collections[vendor_handle].template contains 'outlet' %}{% endif %}
 
                         {% if collections[vendor_handle] != blank and collection.template_suffix contains 'outlet' %}
