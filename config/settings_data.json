@@ -69,7 +69,7 @@
           "logo_position": "middle-left",
           "menu_position": "center",
           "menu": "main-menu",
-          "menu_mobile": "main-menu",
+          "menu_mobile": "mobile-menu",
           "show_line_separator": false,
           "show_search": true
         }
@@ -231,11 +231,6 @@
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!"
         }
-      },
-      "1457458739866175117": {
-        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
-        "disabled": false,
-        "settings": {}
       }
     }
   }
