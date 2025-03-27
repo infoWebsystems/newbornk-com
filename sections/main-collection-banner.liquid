@@ -5,7 +5,29 @@
 {% render 'breadcrumbs' %}
 </div>
 {% endunless%}
-
+{% if section.settings.show_more_text %}
+  {% assign description_lines = section.settings.description_lines %}
+  {% assign description_lines_mob = section.settings.description_lines_mob %}
+  <style>
+    .collection-hero__description.less{
+      display: -webkit-box;
+      display: -moz-box;
+      overflow: hidden;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp: {{ description_lines }};
+      line-clamp: {{ description_lines }};
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+    @media screen and (max-width: 768px) {
+      .collection-hero__description.less{
+        -webkit-line-clamp: {{ description_lines_mob }};
+        line-clamp: {{ description_lines_mob }};
+      }
+    }
+  </style>
+{% endif %}
 
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %}">
   <div class="collection-hero__inner page-width">
@@ -28,11 +50,7 @@
       {%- endif -%}
 
       {%- if section.settings.show_collection_description -%}
-        {% assign show_more_text = section.settings.show_more_text %}
-        {% assign description_lines = section.settings.description_lines %}
-        {% assign description_lines_mob = section.settings.description_lines_mob %}
-        <div class="collection-hero__description rte" {% if show_more_text %} style="overflow: hidden; " data-text="{{ collection.description | strip_html }}" data-showmoredesk="{{ description_lines | plus: 1 }}" data-showmoremob="{{ description_lines_mob | plus: 1 }}"{% endif %}>
-          <p style="margin-top: 1em" class="short-text">{{ collection.description | strip_html }}</p>
+        <div class="collection-hero__description less rte" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
           {{ collection.description }}
         </div>
       {%- endif -%}

@@ -42,60 +42,45 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     function initShowMoreText() {
-        document.querySelectorAll(".collection-hero__description").forEach(container => {
-            const showMoreDesk = parseInt(container.getAttribute("data-showmoredesk"), 10) || 0;
-            const showMoreMob = parseInt(container.getAttribute("data-showmoremob"), 10) || 0;
-            const isMobile = window.innerWidth <= 768;
-            const maxLines = isMobile ? showMoreMob : showMoreDesk;
+        const descriptionBlock = document.querySelector(".collection-hero__description");
+        if (!descriptionBlock) return;
 
-            if (!maxLines) return;
+        const showMoreDesk = parseInt(descriptionBlock.dataset.lines, 10) || 0;
+        const showMoreMob = parseInt(descriptionBlock.dataset.linesMob, 10) || 0;
+        const lineHeight = parseFloat(window.getComputedStyle(descriptionBlock).lineHeight);
+        const contentHeight = descriptionBlock.scrollHeight;
+        const maxLines = window.innerWidth <= 768 ? showMoreMob : showMoreDesk;
+        const maxHeight = maxLines * lineHeight;
 
-            const shortText = container.querySelector(".short-text");
-            if (!shortText) return;
+        if (contentHeight > maxHeight) {
+            descriptionBlock.classList.add("less");
+            descriptionBlock.style.maxHeight = maxHeight + "px";
+            descriptionBlock.style.overflow = "hidden";
 
-            const lineHeight = parseInt(window.getComputedStyle(shortText).lineHeight, 10) || 20;
-            const shortTextHeight = shortText.scrollHeight;
-            const maxHeight = maxLines * lineHeight;
+            const toggleButton = document.createElement("a");
+            toggleButton.href = "#";
+            toggleButton.innerText = window.translation.read_more;
+            toggleButton.style.display = "block";
+            toggleButton.style.color = "black";
+            toggleButton.style.cursor = "pointer";
 
-            container.style.transition = "max-height 0.5s ease-in-out";
-            console.log('shortTextHeight <= maxHeight', shortTextHeight ,maxHeight)
-            if (shortTextHeight <= maxHeight) {
-                console.log(1)
-                shortText.style.display = "none";
-                container.style.maxHeight = '100%';
-            } else {
-                console.log(2)
-                container.style.overflow = "hidden";
-                container.style.maxHeight = `${maxHeight}px`;
+            toggleButton.addEventListener("click", function (e) {
+                e.preventDefault();
+                if (descriptionBlock.classList.contains("less")) {
+                    descriptionBlock.classList.remove("less");
+                    descriptionBlock.style.maxHeight = "none";
+                    toggleButton.innerText = window.translation.read_less;
+                } else {
+                    descriptionBlock.classList.add("less");
+                    descriptionBlock.style.maxHeight = maxHeight + "px";
+                    toggleButton.innerText = window.translation.read_more;
+                }
+            });
 
-                const toggleButton = document.createElement("a");
-                toggleButton.textContent = window.translation.read_more;
-                toggleButton.classList.add("show-more-button");
-                toggleButton.style.cursor = "pointer";
-                toggleButton.style.color = "black";
-                toggleButton.style.textDecoration = "underline";
-                toggleButton.href = "#";
-                container.after(toggleButton);
-
-                let isExpanded = false;
-                toggleButton.addEventListener("click", (event) => {
-                    event.preventDefault();
-                    if (isExpanded) {
-                        shortText.style.display = "";
-                        container.style.maxHeight = `${maxHeight}px`;
-                        toggleButton.textContent = window.translation.read_more;
-                    } else {
-                        shortText.style.display = "none";
-                        container.style.maxHeight = `${container.scrollHeight}px`;
-                        setTimeout(() => {
-                            container.style.maxHeight = "none";
-                        }, 500);
-                        toggleButton.textContent = window.translation.read_less;
-                    }
-                    isExpanded = !isExpanded;
-                });
-            }
-        });
+            descriptionBlock.after(toggleButton);
+        } else {
+            descriptionBlock.classList.remove("less");
+        }
 
     }
 
