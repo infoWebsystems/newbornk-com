@@ -107,11 +107,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const filterWMBlock = document.querySelector('.filter-w-m');
         if (filterWMBlock == null) {
         } else {
-            const referrer = document.referrer;
-            const parts = referrer.split('/').filter(Boolean);
-            const lastPart = parts.length ? parts[parts.length - 1] : false;
-            console.log('lastPart', lastPart)
-            if(lastPart == 'brands'){
+            const urlObj = new URL(window.location.href);
+            const hasParam = urlObj.searchParams.get('filter-m-w') === 'true';
+            if(hasParam){
                 filterWMBlock.classList.remove('hidden');
                 if (filterW_MButtons.length > 0) {
                     filterW_MButtons.forEach(function (button) {
