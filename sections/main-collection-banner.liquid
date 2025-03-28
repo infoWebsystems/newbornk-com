@@ -5,7 +5,29 @@
 {% render 'breadcrumbs' %}
 </div>
 {% endunless%}
-
+{% if section.settings.show_more_text %}
+  {% assign description_lines = section.settings.description_lines %}
+  {% assign description_lines_mob = section.settings.description_lines_mob %}
+  <style>
+    .collection-hero__description.less{
+      display: -webkit-box;
+      display: -moz-box;
+      overflow: hidden;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp: {{ description_lines }};
+      line-clamp: {{ description_lines }};
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+    @media screen and (max-width: 768px) {
+      .collection-hero__description.less{
+        -webkit-line-clamp: {{ description_lines_mob }};
+        line-clamp: {{ description_lines_mob }};
+      }
+    }
+  </style>
+{% endif %}
 
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %}">
   <div class="collection-hero__inner page-width">
@@ -28,8 +50,17 @@
       {%- endif -%}
 
       {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+        <div class="collection-hero__description less rte" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
+          {{ collection.description }}
+        </div>
       {%- endif -%}
+
+      {% if section.settings.show_filter_w_m %}
+        <div class="filter-w-m buttons-section hidden">
+          <a href="#" data-ident="men#@" class="button button--full-width button--primary">{{ section.settings.text_men }}</a>
+          <a href="#" data-ident="women#@" class=" button button--full-width button--primary">{{ section.settings.text_women }}</a>
+        </div>
+      {% endif %}
     </div>
 
     {%- if section.settings.show_collection_image and collection.image -%}
@@ -66,6 +97,21 @@
       "id": "show_collection_description",
       "default": false,
       "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },{
+      "type": "checkbox",
+      "id": "show_more_text",
+      "default": true,
+      "label": "Enable more text?"
+    },{
+      "type": "number",
+      "id": "description_lines",
+      "default": 10,
+      "label": "Descriptions lines desktop"
+    },{
+      "type": "number",
+      "id": "description_lines_mob",
+      "default": 7,
+      "label": "Descriptions lines mobile"
     },
     {
       "type": "checkbox",
@@ -79,6 +125,22 @@
       "id": "show_collection_title",
       "default": false,
       "label": "Show collection title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_w_m",
+      "default": true,
+      "label": "Show filter for women&men"
+    },
+    {
+      "type": "text",
+      "id": "text_women",
+      "label": "Button text women"
+    },
+    {
+      "type": "text",
+      "id": "text_men",
+      "label": "Button text men"
     }
   ]
 }

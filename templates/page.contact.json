@@ -119,7 +119,8 @@
         "18dda8e4-0a7f-4e90-80f7-a5e973ef0c04"
       ],
       "settings": {
-        "heading": "Contact form"
+        "heading": "Contact form",
+        "margin_bottom": 71
       }
     }
   },

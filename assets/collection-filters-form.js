@@ -62,6 +62,8 @@ class CollectionFiltersForm extends HTMLElement {
         this.filterData = [...this.filterData, { html, url }];
         this.renderFilters(html, event);
         this.renderProductGrid(html);
+        window.initCardAddToCart();
+        window.initFiterImgsPlp(true);
       });
   }
 

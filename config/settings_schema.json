@@ -894,5 +894,16 @@
         "label": "Show Wishlist"
       }
     ]
+  },
+  {
+    "name": "Product card",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_add_to_cart",
+        "label": "Show add to cart",
+        "default": true
+      }
+    ]
   }
 ]

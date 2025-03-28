@@ -62,7 +62,7 @@
 {% endjavascript %}
 
 {% if new_products != blank and length > 5 %}
-  <div class="collection handle-{{handle}} page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %} page-width-full">
+  <div class="collection handle-{{handle}} page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 and false %} page-width-desktop{% endif %} page-width-full">
     <div class="{% if section.settings.show_view_all and section.settings.swipe_on_mobile %}title-wrapper-with-link{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
       <h2 class="title{% if title == blank %} title--no-heading{% endif %}">
         <a href="{{ url }}">{% if section.settings.show_text == 'true' %} {{ 'templates.collection.slider.title' | t }}{% endif %}  {{ title }}
@@ -107,7 +107,7 @@
     </div>
 
     {%- if section.settings.show_view_all and section.settings.collection.all_products_count > section.settings.products_to_show -%}
-      <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}">
+      <div class="center{% if section.settings.swipe_on_mobile %} small-hide medium-hide{% endif %}" style="margin-top: 2em;">
         <a href="{{ url }}"
            class="button"
            aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: title }}"
