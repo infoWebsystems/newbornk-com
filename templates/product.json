@@ -143,7 +143,7 @@
     "recommnded_products_6nWBpp": {
       "type": "recommnded-products",
       "settings": {
-        "title": "Recommended products",
+        "title": "Рекомендовані товари",
         "collection": "",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
@@ -178,8 +178,10 @@
     },
     "recommnded_products_9YHPDM": {
       "type": "recommnded-products",
+      "disabled": true,
       "settings": {
         "title": "Рекомендовані продукти",
+        "collection": "",
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
         "show_view_all": false,
