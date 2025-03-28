@@ -109,7 +109,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             const urlObj = new URL(window.location.href);
             const hasParam = urlObj.searchParams.get('filter-m-w') === 'true';
-            if(hasParam){
+            if(hasParam ||  filterWMBlock.classList.contains('filter-m-w')){
+                filterWMBlock.classList.add('filter-m-w');
                 filterWMBlock.classList.remove('hidden');
                 if (filterW_MButtons.length > 0) {
                     filterW_MButtons.forEach(function (button) {
