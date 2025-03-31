@@ -1,10 +1,10 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
+  <head>{% render 'spdn' %}
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
-    {% render 'spdn' %}
+    
     <!-- Google Tag Manager GUNZA -->
     <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -367,5 +367,5 @@
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
     {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
-  </body>
+  {% render 'spdn4' %}</body>
 </html>
