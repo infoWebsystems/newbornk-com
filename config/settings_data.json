@@ -15,7 +15,7 @@
     "url_move_outlet": "shopify://pages/outlet",
     "text_move_outlet": "OUTLET",
     "url_move_main": "/",
-    "text_move_main": "Головний сайт",
+    "text_move_main": "ГОЛОВНА СТОРІНКА",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
