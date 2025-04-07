@@ -578,6 +578,7 @@
                 <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
               {%- endif -%}
                 <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <input type="hidden" name="type" value="product">
                   <div class="field">
                     <input class="search__input field__input"
                       id="Search-In-Modal-1"
@@ -781,6 +782,7 @@
                 <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
               {%- endif -%}
                 <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <input type="hidden" name="type" value="product">
                   <div class="field">
                     <input class="search__input field__input"
                       id="Search-In-Modal"
@@ -1069,7 +1071,7 @@ twq('config','opld2');
 </script>
 
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}&type=product" %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",

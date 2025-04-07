@@ -55,7 +55,7 @@
 {%- liquid
   assign sort_by = search.sort_by | default: search.default_sort_by
   assign terms = search.terms | escape
-  assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+  assign search_url = '?q=' | append: terms | append: '&type=product&options%5Bprefix%5D=last&sort_by=' | append: sort_by
 -%}
 
 <div class="template-search spaced-section{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %}">
@@ -70,6 +70,7 @@
         <predictive-search data-loading-text="{{ 'accessibility.loading' | t }}">
       {%- endif -%} 
         <form action="{{ routes.search_url }}" method="get" role="search" class="search">
+          <input type="hidden" name="type" value="product">
           <div class="field">
             <input
               class="search__input field__input"
