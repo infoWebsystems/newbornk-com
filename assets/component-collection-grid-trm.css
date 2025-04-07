@@ -205,6 +205,9 @@
 .collection-brands-list {
   width: 100%;
 }
+.collection-filters .sidebar-menu details:first-of-type{
+    margin-top: 0.8rem;
+}
 .collection-filters .sidebar-menu details {
   margin-bottom: 1.5rem;
 }

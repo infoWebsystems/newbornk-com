@@ -111,7 +111,7 @@
                             {% if link.current %}
                                 aria-current="page"
                                     {% endif %}>
-                                <span {%- if link.current %}class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                                <span {%- if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
                             </a>
                         {% endif %}
                     {%- endif -%}
