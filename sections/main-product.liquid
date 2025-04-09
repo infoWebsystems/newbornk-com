@@ -108,7 +108,7 @@
           {%- if product.selected_or_first_available_variant.featured_media != null and  media.media_type != 'video' and  media.media_type != 'external_video' -%}
             {%- assign media = product.selected_or_first_available_variant.featured_media -%}
             {% assign unisexFilter = media.preview_image.alt | escape | split: "#@" %}
-            {% if  collection.handle == "women" or collection.handle == "men" or collection.handle contains  "чолові"  or collection.handle contains  "жіноч" or collection.handle contains  "жінкам" %}
+            {% if  collection.handle == "women" or collection.handle == "men" or collection.handle contains  "чолові"  or collection.handle contains  "жіноч" or collection.handle contains  "zhinoch" or collection.handle contains  "жінкам" %}
               {% if collection.handle == unisexFilter[0] or unisexFilter[0] == blank or unisexFilter[0].size <= 0 or  collection.handle contains  "жіноч" %}
                 <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                   {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id %}
