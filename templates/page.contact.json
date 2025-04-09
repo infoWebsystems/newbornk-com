@@ -17,27 +17,6 @@
     "info": {
       "type": "contact-info",
       "blocks": {
-        "92db4d45-7fa4-4055-b13d-e755116eb814": {
-          "type": "address",
-          "settings": {
-            "street": "м Київ, вул. Велика Житомирська, 20",
-            "url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6"
-          }
-        },
-        "1fd21b55-8335-430b-8128-5a3e7c7fa39d": {
-          "type": "address",
-          "settings": {
-            "street": "ФОП Амеган Аннет-Мауанам",
-            "url": ""
-          }
-        },
-        "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f": {
-          "type": "address",
-          "settings": {
-            "street": "ІПН\t3368316041",
-            "url": ""
-          }
-        },
         "12eef3a6-d223-4ef0-83b5-ba82b6c6e215": {
           "type": "email",
           "settings": {
@@ -64,15 +43,36 @@
             "saturday": "11:00 - 21:00",
             "sunday": "11:00 - 21:00"
           }
+        },
+        "92db4d45-7fa4-4055-b13d-e755116eb814": {
+          "type": "address",
+          "settings": {
+            "street": "м Київ, вул. Велика Житомирська, 20",
+            "url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6"
+          }
+        },
+        "1fd21b55-8335-430b-8128-5a3e7c7fa39d": {
+          "type": "address",
+          "settings": {
+            "street": "ФОП Амеган Аннет-Мауанам",
+            "url": ""
+          }
+        },
+        "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f": {
+          "type": "address",
+          "settings": {
+            "street": "ІПН\t3368316041",
+            "url": ""
+          }
         }
       },
       "block_order": [
-        "92db4d45-7fa4-4055-b13d-e755116eb814",
-        "1fd21b55-8335-430b-8128-5a3e7c7fa39d",
-        "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f",
         "12eef3a6-d223-4ef0-83b5-ba82b6c6e215",
         "c8ea31b6-bc74-4f49-81ca-abef5dc6eaf9",
-        "83665029-ada5-4004-82e9-11e95ca91c7c"
+        "83665029-ada5-4004-82e9-11e95ca91c7c",
+        "92db4d45-7fa4-4055-b13d-e755116eb814",
+        "1fd21b55-8335-430b-8128-5a3e7c7fa39d",
+        "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f"
       ],
       "settings": {}
     },
