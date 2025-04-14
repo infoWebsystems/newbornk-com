@@ -53,7 +53,7 @@
                                     {% if product_card_product.media[3] != blank and unisexFilterSecondImg == 'women' %}
                                         {% assign second_image = product_card_product.media[3] %}
                                     {% else %}
-                                        {% assign second_image = product_card_product.media[1] %}
+                                        {% assign second_image = product_card_product.featured_media %}
                                     {% endif %}
 
                                     {%- if first_image != nil   -%}
