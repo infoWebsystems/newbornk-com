@@ -110,8 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const referrer = document.referrer;
             const parts = referrer.split('/').filter(Boolean);
             const lastPart = parts.length ? parts[parts.length - 1] : false;
-            console.log('lastPart', lastPart)
-            if(lastPart == 'brands'){
+
+            const currentPath = window.location.pathname;
+            const currentSegments = currentPath.split('/').filter(Boolean);
+            const isTargetCollectionPage = currentSegments[0] === 'collections' && ['novi-nadkhodzhennia', 'sale'].includes(currentSegments[1]);
+
+            if(lastPart == 'brands' || isTargetCollectionPage){
                 filterWMBlock.classList.remove('hidden');
                 if (filterW_MButtons.length > 0) {
                     filterW_MButtons.forEach(function (button) {
