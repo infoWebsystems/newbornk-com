@@ -36,7 +36,7 @@
     "colors_text": "#000000",
     "sale_badge_color_scheme": "sale-badge",
     "online_only_badge_color_scheme": "background-3",
-    "show_move_outlet": false,
+    "show_move_outlet": true,
     "url_move_outlet": "shopify://pages/outlet",
     "text_move_outlet": "Outlet",
     "url_move_main": "/",
