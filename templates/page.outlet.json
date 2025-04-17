@@ -132,6 +132,22 @@
         "brand_collection": false
       }
     },
+    "16264502060c7e1d801": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "АУТЛЕТ",
+        "collection": "cholovikam-outlet",
+        "full_width": true,
+        "products_to_show": 12,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true
+      }
+    },
     "1626416534da40dc371": {
       "type": "collection-list",
       "blocks": {
@@ -236,22 +252,6 @@
         "show_view_all": false
       }
     },
-    "16264502060c7e1d801": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "LIFESTYLE",
-        "collection": "lifestyle",
-        "full_width": true,
-        "products_to_show": 4,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
-      }
-    },
     "custom_liquid_tBx87F1": {
       "type": "custom-liquid",
       "settings": {
@@ -264,11 +264,11 @@
     "buttons_Aehtdg1",
     "image_banner",
     "1626369903c393cced1",
+    "16264502060c7e1d801",
     "1626416534da40dc371",
     "1626416564a7b867044",
     "featured_collection_slider_zaYJcr1",
     "1626450162f5dda00b1",
-    "16264502060c7e1d801",
     "custom_liquid_tBx87F1"
   ]
 }
