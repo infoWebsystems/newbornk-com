@@ -38,9 +38,9 @@
     "online_only_badge_color_scheme": "background-3",
     "show_move_outlet": true,
     "url_move_outlet": "shopify://pages/outlet",
-    "text_move_outlet": "Outlet",
+    "text_move_outlet": "OUTLET",
     "url_move_main": "/",
-    "text_move_main": "Головний сайт",
+    "text_move_main": "ГОЛОВНИЙ САЙТ",
     "show_wishlist": true,
     "sections": {
       "announcement-bar": {
