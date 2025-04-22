@@ -131,14 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                 const images = Array.from(mediaBlock.querySelectorAll("img"));
                                 if (images.length < 2) return;
                                 const getIdentifier = function (img) {
-                                    return img.alt.split("@")[0] + "@";
+                                    return (img.alt.split("@")[0] + "@").trim();
                                 };
 
                                 const firstImage = images[0];
                                 const firstImageIdentifier = getIdentifier(firstImage);
                                 if (firstImageIdentifier === identificator.toLowerCase()) return;
-                                const itemImage = images.find(img => getIdentifier(img) === identificator.toLowerCase());
 
+                                const itemImage = images.find(img => getIdentifier(img) === identificator.toLowerCase());
                                 if (itemImage) {
                                     mediaBlock.prepend(itemImage);
                                 }
