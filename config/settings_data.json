@@ -153,7 +153,7 @@
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-social-outlet"
+              "menu": "footer-social"
             }
           },
           "logo_6pMDCA": {
@@ -170,7 +170,7 @@
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-policy-outlet"
+              "menu": "footer-policy"
             }
           }
         },
