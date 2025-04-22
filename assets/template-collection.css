@@ -12,7 +12,7 @@ body.template-collection {
 }
 
 .collection-hero__title.h1, h1.collection-hero__title {
-  display: none;
+  /*display: none;*/
 }
 
 @media screen and (max-width: 749px) {

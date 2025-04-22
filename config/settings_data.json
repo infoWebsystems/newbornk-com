@@ -81,14 +81,16 @@
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-top"
+              "menu": "footer-top",
+              "show_lang_switcher": false
             }
           },
           "link_list_G8QRnK": {
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-social"
+              "menu": "footer-social",
+              "show_lang_switcher": false
             }
           },
           "logo_JU8grA": {
@@ -105,7 +107,8 @@
             "type": "link_list",
             "settings": {
               "heading": "",
-              "menu": "footer-policy"
+              "menu": "footer-policy",
+              "show_lang_switcher": false
             }
           }
         },
@@ -187,7 +190,7 @@
           "newsletter_heading": "Підписатися на розсилку",
           "show_social": false,
           "enable_country_selector": true,
-          "enable_language_selector": false,
+          "enable_language_selector": true,
           "payment_enable": true
         }
       },

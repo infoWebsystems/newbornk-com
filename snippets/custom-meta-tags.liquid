@@ -1,0 +1,9 @@
+{% if current_page > 1 %}
+    {% if template == 'collection' %}
+        <title>{{ 'meta_tags.title_pagination' | t: title: page_title, number: current_page }}</title>
+        <meta name="description" content="{{ 'meta_tags.description_pagination' | t: description: page_description, number: current_page }}">
+    {% endif %}
+{% else %}
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+{% endif %}

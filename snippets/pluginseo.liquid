@@ -21,8 +21,12 @@
 {%- assign rootTemplate = template | split: '.' | first -%}
 
 {%- include 'pluginseo-langify' -%}
-{%- include 'pluginseo-page-title' -%}
-{%- include 'pluginseo-meta-description' -%}
+{% if current_page > 0 %}
+    {% render 'custom-meta-tags' %}
+{% else %}
+    {%- include 'pluginseo-page-title' -%}
+    {%- include 'pluginseo-meta-description' -%}
+{% endif %}
 {%- include 'pluginseo-structured-data' -%}
 {%- include 'pluginseo-not-found' -%}
 

@@ -36,17 +36,26 @@
       <div class='collection-hero__breadcrumbs'>
         {% render 'breadcrumbs' %}
       </div>
-        
-      {%- if section.settings.show_collection_title -%}
-      <h1 class="collection-hero__title">
+      {% capture title %}
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {% if collection.title == 'SALE' and current_tags != blank %}
-        {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: " "}}{%- endcapture -%}
-          Розпродаж: {{ current_tags | join: "  "}}
+          {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: " "}}{%- endcapture -%}
+          {{ 'products.product.on_sale' | t }}: {{ current_tags | join: "  "}}
         {% else %}
           {{- collection.title | escape -}}
         {% endif %}
-      </h1>
+      {% endcapture %}
+      {% if current_page > 1 %}
+        <h1 style="display: none;">
+          {{ 'meta_tags.h1_pagination' | t: title: title, number: current_page }}
+        </h1>
+        {% else %}
+        <h1 style="display: none;">{{ title }}</h1>
+      {% endif %}
+      {%- if section.settings.show_collection_title -%}
+      <h2 class="collection-hero__title h1">
+        {{ title}}
+      </h2>
       {%- endif -%}
 
       {%- if section.settings.show_collection_description -%}

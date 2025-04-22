@@ -167,12 +167,12 @@
             {% if  collection.handle == "women" or collection.handle == "men" %}
               {% if collection.handle == unisexFilter[0] or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
                 <li class="swiper-slide">
-                  <img src="{{ media | img_url: 'master' }}">
+                  <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product %}">
                 </li>
               {% endif %}
             {% else %}
               <li class="swiper-slide">
-                <img src="{{ media | img_url: 'master' }}">
+                <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product %}">
               </li>
             {% endif %}
           {%- endif -%}
@@ -180,21 +180,21 @@
             {%- unless media.id == product.selected_or_first_available_variant.featured_media.id and  media.media_type == 'video' and  media.media_type == 'external_video' -%}
               {% assign unisexFilter = media.preview_image.alt | escape | split: "#@" %}
 
-                {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women"    %}
+                {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women" %}
                   {% if unisexFilter[0] == "women"  or unisexFilter[0] == blank or unisexFilter[0].size <= 0  %}
                     <li class="swiper-slide">
-                      <img src="{{ media | img_url: 'master' }}">
+                      <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
                     </li>
                   {% endif %}
                 {% elsif  collection.handle contains "чолові" or collection.handle contains "men-"   or collection.handle == "men"  %}
                   {% if unisexFilter[0] == "men" or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
                     <li class="swiper-slide">
-                      <img src="{{ media | img_url: 'master' }}">
+                      <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
                     </li>
                   {% endif %}
                 {% else %}
                   <li class="swiper-slide">
-                    <img src="{{ media | img_url: 'master' }}">
+                    <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
                   </li>
                 {% endif %}
 
@@ -803,6 +803,7 @@
 </section>
 
 {% render 'product-size-chart', product: product, id: 'js-productSizeModal-modal' %}
+<script src="{{ 'breadcrumbs-custom-item.js' | asset_url }}" defer="defer"></script>
 
 {% javascript %}
   class ProductModal extends ModalDialog {
