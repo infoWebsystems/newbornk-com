@@ -396,5 +396,13 @@
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
     {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
-  {% render 'spdn4' %}</body>
+  {% render 'spdn4' %}
+  <!-- KeyCRM online chat widget begin -->
+<script type="text/javascript">
+(function(w,d,t,u,c){
+  var s=d.createElement(t),j=d.getElementsByTagName(t)[0];s.src=u;s["async"]=true;s.defer=true;s.onload=function(){KeyCRM.render(c);};j.parentNode.insertBefore(s,j)
+})(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"bc3f252a-342f-42cb-a3a6-3219b681731b"});
+</script>
+<!-- KeyCRM online chat widget end -->
+  </body>
 </html>
