@@ -120,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function initFiterImgsPlp(removeActive) {
         const filterW_MButtons = document.querySelectorAll('.filter-w-m .button');
         const filterWMBlock = document.querySelector('.filter-w-m');
+
         if (filterWMBlock !== null) {
             const refCollectionHandles = ['brands', 'test1'];
             const targetCollectionHandles = ['novi-nadkhodzhennia', 'sale'];
@@ -133,25 +134,17 @@ document.addEventListener("DOMContentLoaded", function () {
             const collectionsIndex = refParts.indexOf('collections');
             const fromHandle = (collectionsIndex !== -1 && refParts[collectionsIndex + 1]) ? refParts[collectionsIndex + 1] : null;
 
-            if (fromHandle && refCollectionHandles.includes(fromHandle)) {
+            if (currentHandle && (targetCollectionHandles.includes(currentHandle) || refCollectionHandles.includes(currentHandle))) {
+                deleteCookie('came_from_collection');
+                deleteCookie('visited_collection');
+                console.log(`[logic] Deleted cookies — current collection is target or ref`);
+            } else if (fromHandle && refCollectionHandles.includes(fromHandle)) {
+                // Інакше, якщо прийшли з ref-колекції — зберігаємо куки
                 setCookie('came_from_collection', fromHandle, 1);
                 setCookie('visited_collection', currentHandle, 1);
             }
 
-            let savedFrom = getCookie('came_from_collection');
-            let savedVisited = getCookie('visited_collection');
-
-            if (
-                savedFrom &&
-                savedVisited &&
-                currentHandle !== savedVisited &&
-                !targetCollectionHandles.includes(currentHandle)
-            ) {
-                console.log(`[logic] Deleting cookie — left target collection`);
-                deleteCookie('came_from_collection');
-                deleteCookie('visited_collection');
-                savedFrom = null;
-            }
+            const savedFrom = getCookie('came_from_collection');
 
             const shouldShowButtons =
                 targetCollectionHandles.includes(currentHandle) ||
