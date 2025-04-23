@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>
-    {% render 'spdn' %}
+  <head>{% render 'spdn' %}
+    
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
@@ -396,7 +396,7 @@
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
     {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
-  {% render 'spdn4' %}
+  
   <!-- KeyCRM online chat widget begin -->
 <script type="text/javascript">
 (function(w,d,t,u,c){
@@ -404,5 +404,5 @@
 })(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"bc3f252a-342f-42cb-a3a6-3219b681731b"});
 </script>
 <!-- KeyCRM online chat widget end -->
-  </body>
+  {% render 'spdn4' %}</body>
 </html>
