@@ -120,11 +120,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function initFiterImgsPlp(removeActive) {
         const filterW_MButtons = document.querySelectorAll('.filter-w-m .button');
         const filterWMBlock = document.querySelector('.filter-w-m');
+        const refCollectionHandles = ['brands', 'brendy-outlet'];
+        const targetCollectionHandles = ['novi-nadkhodzhennia', 'sale'];
 
         if (filterWMBlock !== null) {
-            const refCollectionHandles = ['brands', 'test1'];
-            const targetCollectionHandles = ['novi-nadkhodzhennia', 'sale'];
-
             const currentPath = window.location.pathname;
             const currentSegments = currentPath.split('/').filter(Boolean);
             const currentHandle = currentSegments[0] === 'collections' ? currentSegments[1] : null;
