@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const filterWMBlock = document.querySelector('.filter-w-m');
         const refCollectionHandles = ['brands', 'brendy-outlet'];
         const targetCollectionHandles = ['novi-nadkhodzhennia', 'sale'];
+        const currentUrl = window.location.href;
 
         if (filterWMBlock !== null) {
             const currentPath = window.location.pathname;
@@ -138,7 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 deleteCookie('visited_collection');
                 console.log(`[logic] Deleted cookies — current collection is target or ref`);
             } else if (fromHandle && refCollectionHandles.includes(fromHandle)) {
-                // Інакше, якщо прийшли з ref-колекції — зберігаємо куки
                 setCookie('came_from_collection', fromHandle, 1);
                 setCookie('visited_collection', currentHandle, 1);
             }
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const shouldShowButtons =
                 targetCollectionHandles.includes(currentHandle) ||
-                (savedFrom && refCollectionHandles.includes(savedFrom));
+                (savedFrom && refCollectionHandles.includes(savedFrom) && currentUrl.includes('&show-gender'));
 
             console.log(`[logic] shouldShowButtons: ${shouldShowButtons}`);
 
@@ -195,6 +195,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
+
+
+
+
+
+
+
 
     initShowMoreText();
     initCardAddToCart();
