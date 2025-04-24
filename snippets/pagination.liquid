@@ -25,7 +25,7 @@
               {%- for part in paginate.parts -%}
                 <li>
                   {%- if part.is_link -%}
-                    <a href="{% if part.title != 1 %}{{ part.url }}{% else %}{{ part.url | remove: '?page=1' }}{% endif %}{{ anchor }}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+                    <a href="{% if part.title != 1 %}{{ part.url }}{% else %}{{ part.url | remove: 'page=1' }}{% endif %}{{ anchor }}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
                   {%- else -%}
                     {%- if part.title == paginate.current_page -%}
                       <span class="pagination__item pagination__item--current" aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
