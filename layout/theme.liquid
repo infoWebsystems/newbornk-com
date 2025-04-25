@@ -404,5 +404,17 @@
 })(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"bc3f252a-342f-42cb-a3a6-3219b681731b"});
 </script>
 <!-- KeyCRM online chat widget end -->
-  {% render 'spdn4' %}</body>
+  {% render 'spdn4' %}
+  
+<script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+<script>
+  window.renderBadge = function() {
+    var ratingBadgeContainer = document.createElement("div");
+    document.body.appendChild(ratingBadgeContainer);
+    window.gapi.load('ratingbadge', function() {
+      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 500810630});
+    });
+  }
+</script>
+      </body>
 </html>
