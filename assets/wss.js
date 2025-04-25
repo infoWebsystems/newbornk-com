@@ -120,79 +120,79 @@ document.addEventListener("DOMContentLoaded", function () {
     function initFiterImgsPlp(removeActive) {
         const filterW_MButtons = document.querySelectorAll('.filter-w-m .button');
         const filterWMBlock = document.querySelector('.filter-w-m');
-        const refCollectionHandles = ['brands', 'brendy-outlet'];
         const targetCollectionHandles = ['novi-nadkhodzhennia', 'sale'];
         const currentUrl = window.location.href;
 
-        if (filterWMBlock !== null) {
-            const currentPath = window.location.pathname;
-            const currentSegments = currentPath.split('/').filter(Boolean);
-            const currentHandle = currentSegments[0] === 'collections' ? currentSegments[1] : null;
+        if (!filterWMBlock) return;
 
-            const referrer = document.referrer;
-            const refParts = referrer.split('/').filter(Boolean);
-            const collectionsIndex = refParts.indexOf('collections');
-            const fromHandle = (collectionsIndex !== -1 && refParts[collectionsIndex + 1]) ? refParts[collectionsIndex + 1] : null;
+        const currentPath = window.location.pathname;
+        const currentSegments = currentPath.split('/').filter(Boolean);
+        const currentHandle = currentSegments[0] === 'collections' ? currentSegments[1] : null;
+        const isShowGender = currentUrl.includes('&show-gender');
 
-            if (currentHandle && (targetCollectionHandles.includes(currentHandle) || refCollectionHandles.includes(currentHandle))) {
-                deleteCookie('came_from_collection');
-                deleteCookie('visited_collection');
-                console.log(`[logic] Deleted cookies — current collection is target or ref`);
-            } else if (fromHandle && refCollectionHandles.includes(fromHandle)) {
-                setCookie('came_from_collection', fromHandle, 1);
-                setCookie('visited_collection', currentHandle, 1);
-            }
+        // якщо є параметр — зберігаємо handle в куку
+        if (isShowGender && currentHandle) {
+            setCookie('gender_filter_collection', currentHandle, 1);
+            console.log(`[logic] Saved handle to cookie: ${currentHandle}`);
+        }
 
-            const savedFrom = getCookie('came_from_collection');
+        const savedHandle = getCookie('gender_filter_collection');
 
-            const shouldShowButtons =
-                targetCollectionHandles.includes(currentHandle) ||
-                (savedFrom && refCollectionHandles.includes(savedFrom) && currentUrl.includes('&show-gender'));
+        const shouldShowButtons =
+            (currentHandle && (
+                isShowGender ||
+                (savedHandle && currentHandle === savedHandle) ||
+                targetCollectionHandles.includes(currentHandle)
+            ));
 
-            console.log(`[logic] shouldShowButtons: ${shouldShowButtons}`);
+        console.log(`[logic] currentHandle: ${currentHandle}`);
+        console.log(`[logic] savedHandle: ${savedHandle}`);
+        console.log(`[logic] shouldShowButtons: ${shouldShowButtons}`);
 
-            if (shouldShowButtons) {
-                filterWMBlock.classList.remove('hidden');
-                console.log(`[logic] Showing buttons`);
+        if (shouldShowButtons) {
+            filterWMBlock.classList.remove('hidden');
+            console.log(`[logic] Showing buttons`);
 
-                if (filterW_MButtons.length > 0) {
-                    filterW_MButtons.forEach(function (button) {
-                        if (typeof removeActive !== 'undefined' && removeActive) {
-                            button.classList.remove('active');
-                        }
+            if (filterW_MButtons.length > 0) {
+                filterW_MButtons.forEach(function (button) {
+                    if (typeof removeActive !== 'undefined' && removeActive) {
+                        button.classList.remove('active');
+                    }
 
-                        button.addEventListener('click', function (e) {
-                            e.preventDefault();
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
 
-                            filterW_MButtons.forEach(btn => btn.classList.remove('active'));
-                            button.classList.add('active');
+                        filterW_MButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
 
-                            const identificator = button.dataset.ident;
-                            const blocksImgs = document.querySelectorAll("#main-collection-product-grid .grid__item");
+                        const identificator = button.dataset.ident;
+                        const blocksImgs = document.querySelectorAll("#main-collection-product-grid .grid__item");
 
-                            blocksImgs.forEach(item => {
-                                const mediaBlock = item.querySelector(".media");
-                                if (!mediaBlock) return;
+                        blocksImgs.forEach(item => {
+                            const mediaBlock = item.querySelector(".media");
+                            if (!mediaBlock) return;
 
-                                const images = Array.from(mediaBlock.querySelectorAll("img"));
-                                if (images.length < 2) return;
+                            const images = Array.from(mediaBlock.querySelectorAll("img"));
+                            if (images.length < 2) return;
 
-                                const getIdentifier = (img) => (img.alt.split("@")[0] + "@").trim();
+                            const getIdentifier = (img) => (img.alt.split("@")[0] + "@").trim();
 
-                                const firstImage = images[0];
-                                const firstImageIdentifier = getIdentifier(firstImage);
+                            const firstImage = images[0];
+                            const firstImageIdentifier = getIdentifier(firstImage);
 
-                                if (firstImageIdentifier === identificator.toLowerCase()) return;
+                            if (firstImageIdentifier === identificator.toLowerCase()) return;
 
-                                const itemImage = images.find(img => getIdentifier(img) === identificator.toLowerCase());
-                                if (itemImage) {
-                                    mediaBlock.prepend(itemImage);
-                                }
-                            });
+                            const itemImage = images.find(img => getIdentifier(img) === identificator.toLowerCase());
+                            if (itemImage) {
+                                mediaBlock.prepend(itemImage);
+                            }
                         });
                     });
-                }
+                });
             }
+        } else {
+            deleteCookie('gender_filter_collection');
+            console.log(`[logic] Hiding buttons and deleting cookie`);
         }
     }
 
