@@ -12,6 +12,15 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/S_HOR_W.png",
+            "image_phone": "shopify://shop_images/banner_v.png",
+            "banner_link": "shopify://collections/novi-nadkhodzhennia",
+            "language": "UK"
+          }
+        },
         "slide_wHpNAY": {
           "type": "slide",
           "settings": {
@@ -58,16 +67,6 @@
             "language": "UK"
           }
         },
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/S_HOR_W.png",
-            "image_phone": "shopify://shop_images/banner_v.png",
-            "banner_link": "shopify://collections/novi-nadkhodzhennia",
-            "language": "UK"
-          }
-        },
         "1630994380b1b22eeb-0": {
           "type": "slide",
           "disabled": true,
@@ -80,12 +79,12 @@
         }
       },
       "block_order": [
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "slide_wHpNAY",
         "slide_TyEeBH",
         "slide_BHnyDT",
         "slide_7qGUkq",
         "1630994380b1b22eeb-1",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "1630994380b1b22eeb-0"
       ],
       "settings": {
