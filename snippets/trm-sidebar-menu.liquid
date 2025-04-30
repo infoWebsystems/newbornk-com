@@ -40,7 +40,7 @@
                                     {%- for childlink in link.links -%}
                                         <li data-url="{{ childlink.url | url_decode  }}">
                                             {%- if childlink.links == blank -%}
-                                                {% assign handle = childlink.url | url_decode | split: "/"  | slice: 2  | last | strip   %}
+                                                {% assign handle = childlink.url | url_decode | split: "/" | last | strip   %}
                                                 {% assign fiterCollection = collections[handle] %}
                                                 {% assign countProducts = fiterCollection.all_products_count | plus: 0 %}
                                                 {% if  countProducts > 0%}
