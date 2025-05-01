@@ -52,9 +52,9 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/S_HOR_K_fd10a366-e171-415f-aafd-c80b55c4e85d.png",
-            "image_phone": "shopify://shop_images/S_VERT_K_2dddf7f4-3f48-4a46-89a7-98074eaaa5b4.png",
-            "banner_link": "shopify://collections/novi-nadkhodzhennia",
+            "image": "shopify://shop_images/banner_big.png",
+            "image_phone": "shopify://shop_images/banner_small_a8a53f44-50e3-43a4-8b0c-a06cd50a4015.png",
+            "banner_link": "shopify://collections/mid-season-sale",
             "language": ""
           }
         },
