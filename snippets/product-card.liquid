@@ -23,7 +23,7 @@
         <span class="visually-hidden">{{ product_card_product.title | escape }}</span>
 
 
-        {% if  collection.handle contains "women" or collection.handle == "жіноче" or collection.handle contains "жіноч"  or collection.handle contains "zhinoch" or  collection.handle == "men" or collection.handle == "чоловіче" or collection.handle contains "cholo"  or current_tags contains 'Жіноче' or current_tags contains 'Чоловіче' %}
+        {% if  collection.handle contains "women" or collection.handle == "жіноче" or collection.handle contains "жіноч"  or collection.handle contains "zhinoch" or  collection.handle contains "men" or collection.handle contains "чоловіче" or collection.handle contains "cholo"  or current_tags contains 'Жіноче' or current_tags contains 'Чоловіче' %}
 
             <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}" tabindex="-1">
                 <div class="card__inner">
@@ -54,12 +54,12 @@
                                         {% if product_card_product.media[1] != blank %}
                                             {% assign first_image = product_card_product.media[1] %}
                                         {% else %}
-                                            {% assign first_image = product_card_product.media[0] %}
+                                            {% assign first_image = product_card_product.media[2] %}
                                         {% endif %}
                                         {% if product_card_product.media[3] != blank %}
                                             {% assign second_image = product_card_product.media[3] %}
                                         {% else %}
-                                            {% assign second_image = product_card_product.media[2] %}
+                                            {% assign second_image = product_card_product.media[0] %}
                                         {% endif %}
 
                                     {%- if first_image != blank   -%}
