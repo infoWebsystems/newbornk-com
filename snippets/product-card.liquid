@@ -44,22 +44,22 @@
 
 
 
-                                {% if collection.handle contains 'zhin' or collection.handle contains 'women'  %}
+                                {% if collection.handle contains 'zhin' or collection.handle contains 'жіноч' or collection.handle contains 'women'  %}
 
                                     {% assign second_image = '' %}
                                     {% assign first_image = '' %}
                                     {% assign unisexFilterFirstImg = product_card_product.media[1].alt | escape | split: "#@" | first %}
                                     {% assign unisexFilterSecondImg = product_card_product.media[3].alt | escape | split: "#@" | first %}
 
-                                        {% if product_card_product.media[1] != blank and unisexFilterFirstImg == 'women' %}
+                                        {% if product_card_product.media[1] != blank %}
                                             {% assign first_image = product_card_product.media[1] %}
-                                            {% assign second_image = product_card_product.featured_media %}
-                                        {% elsif product_card_product.media[3] != blank and unisexFilterFirstImg == 'women' %}
-                                            {% assign first_image = product_card_product.media[3] %}
-                                            {% assign second_image = product_card_product.media[2] %}
                                         {% else %}
-                                            {% assign first_image = product_card_product.featured_media %}
-                                            {% assign second_image = product_card_product.media[1] %}
+                                            {% assign first_image = product_card_product.media[0] %}
+                                        {% endif %}
+                                        {% if product_card_product.media[3] != blank %}
+                                            {% assign second_image = product_card_product.media[3] %}
+                                        {% else %}
+                                            {% assign second_image = product_card_product.media[2] %}
                                         {% endif %}
 
                                     {%- if first_image != blank   -%}
@@ -116,12 +116,8 @@
                                     {% assign second_image = '' %}
                                     {% assign unisexFilterSecondImg = product_card_product.media[2].alt | escape | split: "#@" | first %}
 
-                                    {% if product_card_product.media[1] != blank and unisexFilterSecondImg == 'men' %}
-                                        {% assign second_image = product_card_product.media[1] %}
-                                    {% elsif product_card_product.media[3] != blank and unisexFilterSecondImg == 'men' %}
-                                        {% assign second_image = product_card_product.media[3] %}
-                                    {% else %}
-                                        {% assign second_image = product_card_product.media[1] %}
+                                    {% if product_card_product.media[2] != blank %}
+                                        {% assign second_image = product_card_product.media[2] %}
                                     {% endif %}
 
                                     {%- if second_image != blank and show_secondary_image -%}
@@ -196,39 +192,7 @@
                             <div class="media media--transparent media--{{ media_size }} media--hover-effect"
                                     {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}
                             >
-                                {% if collection.handle contains  'women' or collection.handle contains  'zhinkam' %}
-                                    {%- if product_card_product.media[1] != nil and show_secondary_image -%}
-                                        <img srcset="{%- if product_card_product.media[1].width >= 165 -%}{{ product_card_product.media[1] | img_url: '165x' }} 165w,{%- endif -%}
-                                          {%- if product_card_product.media[1].width >= 360 -%}{{ product_card_product.media[1] | img_url: '360x' }} 360w,{%- endif -%}
-                                          {%- if product_card_product.media[1].width >= 533 -%}{{ product_card_product.media[1] | img_url: '533x' }} 533w,{%- endif -%}
-                                          {%- if product_card_product.media[1].width >= 720 -%}{{ product_card_product.media[1] | img_url: '720x' }} 720w,{%- endif -%}
-                                          {%- if product_card_product.media[1].width >= 940 -%}{{ product_card_product.media[1] | img_url: '940x' }} 940w,{%- endif -%}
-                                          {%- if product_card_product.media[1].width >= 1066 -%}{{ product_card_product.media[1] | img_url: '1066x' }} 1066w{%- endif -%}"
-                                             src="{{ product_card_product.media[1] | img_url: '533x' }}"
-                                             sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                             alt="{{ product_card_product.media[1].alt | escape }}"
-                                             loading="lazy"
-                                             class="motion-reduce"
-                                             width="{{ product_card_product.media[1].width }}"
-                                             height="{{ product_card_product.media[1].height }}"
-                                        >
-                                    {%- endif -%}
 
-                                    <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
-                                        {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
-                                        {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
-                                        {%- if product_card_product.featured_media.width >= 720 -%}{{ product_card_product.featured_media | img_url: '720x' }} 720w,{%- endif -%}
-                                        {%- if product_card_product.featured_media.width >= 940 -%}{{ product_card_product.featured_media | img_url: '940x' }} 940w,{%- endif -%}
-                                        {%- if product_card_product.featured_media.width >= 1066 -%}{{ product_card_product.featured_media | img_url: '1066x' }} 1066w{%- endif -%}"
-                                         src="{{ product_card_product.featured_media | img_url: '533x' }}"
-                                         sizes="(min-width: 1100px) 535px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
-                                         alt="{{ product_card_product.featured_media.alt | escape }}"
-                                         loading="lazy"
-                                         class="motion-reduce"
-                                         width="{{ product_card_product.featured_media.width }}"
-                                         height="{{ product_card_product.featured_media.height }}"
-                                    >
-                                {% else %}
                                     <img srcset="{%- if product_card_product.featured_media.width >= 165 -%}{{ product_card_product.featured_media | img_url: '165x' }} 165w,{%- endif -%}
                                         {%- if product_card_product.featured_media.width >= 360 -%}{{ product_card_product.featured_media | img_url: '360x' }} 360w,{%- endif -%}
                                         {%- if product_card_product.featured_media.width >= 533 -%}{{ product_card_product.featured_media | img_url: '533x' }} 533w,{%- endif -%}
@@ -260,7 +224,7 @@
                                              height="{{ product_card_product.media[1].height }}"
                                         >
                                     {%- endif -%}
-                                {% endif %}
+
                             </div>
                         </div>
                     {%- else -%}
