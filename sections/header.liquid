@@ -890,7 +890,8 @@
       {%- endif -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
-        {% if cart.discount_applications != blank %}
+        {% assign discount_size = cart.discount_applications | size %}
+        {% if discount_size > 0 %}
           {%- render 'icon-cart-discount' -%}
         {% else %}
           {%- render 'icon-cart' -%}
