@@ -99,7 +99,12 @@ class VariantSelects extends HTMLElement {
         const destination = document.getElementById(id);
         const source = html.getElementById(id);
 
+        const titleProduct = document.querySelector('.product__title');
+        const fetchTitleProduct = html.querySelector('.product__title');
+
         if (source && destination) destination.innerHTML = source.innerHTML;
+
+        if (titleProduct != null && fetchTitleProduct != null) titleProduct.innerHTML = fetchTitleProduct.innerHTML;
 
         document.getElementById(`price-${this.dataset.section}`)?.classList.remove('visibility-hidden');
         this.toggleAddButton(!this.currentVariant.available, window.variantStrings.soldOut);
