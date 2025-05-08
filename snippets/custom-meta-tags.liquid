@@ -1,9 +1,28 @@
+{% liquid
+    assign page_title_custom = page_title
+    assign page_description_custom = page_description
+
+    assign collection_vendor_size = collection.all_vendors | size
+
+    if page_title_custom == blank and template.name == 'collection' and collection_vendor_size > 1
+        assign page_title_custom = 'general.SEO.collection_title' | t: title: collection.title
+    elsif page_description_custom == blank and template.name == 'collection' and collection_vendor_size == 1
+        assign page_title_custom = 'general.SEO.collection_brand_title' | t: title: collection.title
+    endif
+
+    if page_description_custom == blank and template.name == 'collection' and collection_vendor_size > 1
+        assign page_description_custom = 'general.SEO.collection_description' | t: title: collection.title
+    elsif page_description_custom == blank and template.name == 'collection' and collection_vendor_size == 1
+        assign page_description_custom = 'general.SEO.collection_brand_description' | t: title: collection.title
+    endif
+%}
+
 {% if current_page > 1 %}
     {% if template == 'collection' or template == 'collection.default-outlet' %}
         <title>{{ 'meta_tags.title_pagination' | t: title: page_title, number: current_page }}</title>
         <meta name="description" content="{{ 'meta_tags.description_pagination' | t: description: page_description, number: current_page }}">
     {% endif %}
 {% else %}
-    <title>{{ page_title }}</title>
-    <meta name="description" content="{{ page_description }}">
+    <title>{{ page_title_custom }}</title>
+    <meta name="description" content="{{ page_description_custom }}">
 {% endif %}

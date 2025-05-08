@@ -36,22 +36,24 @@
       <div class='collection-hero__breadcrumbs'>
         {% render 'breadcrumbs' %}
       </div>
+
       {% capture title %}
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {% if collection.title == 'SALE' and current_tags != blank %}
-          {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: " "}}{%- endcapture -%}
-          {{ 'products.product.on_sale' | t }}: {{ current_tags | join: "  "}}
+        {% assign collection_vendor_size = collection.all_vendors | size %}
+        {% if collection_vendor_size == 1 %}
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {% if collection.title == 'SALE' and current_tags != blank %}
+            {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: " "}}{%- endcapture -%}
+            {{ 'products.product.on_sale' | t }}: {{ current_tags | join: "  "}}
+          {% else %}
+            {{- collection.title | escape -}}
+          {% endif %}
         {% else %}
-          {{- collection.title | escape -}}
+          {{ collection.title }}
         {% endif %}
       {% endcapture %}
-      {% if current_page > 1 %}
-        <h1 style="display: none;">
-          {{ 'meta_tags.h1_pagination' | t: title: title, number: current_page }}
-        </h1>
-        {% else %}
-        <h1 style="display: none;">{{ title }}</h1>
-      {% endif %}
+
+      <h1 style="display: none">{{ title }}</h1>
+
       {%- if section.settings.show_collection_title -%}
       <h2 class="collection-hero__title h1">
         {{ title}}

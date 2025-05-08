@@ -86,6 +86,12 @@
     }
   },
   "general": {
+    "SEO": {
+      "collection_title": "Брендові {{title}} - купити в Києві | NEWBORN K",
+      "collection_brand_title": "{{title}} купити в Києві та Україні | NEWBORN K",
+      "collection_description": "Купити брендові {{title}} в інтернет-магазині【NEWBORN K】⏩ 100% оригінал та відмінна якість від топових виробників \uD83D\uDCE6 Швидка доставка по Києву та Україні \uD83D\uDCAB Замовляйте вже зараз",
+      "collection_brand_description": "Купити одяг бренду {{title}} в інтернет-магазині 【NEWBORN K】⏩ Досконала якість і 100% оригінал ⏩ Широкий асортимент за доступною ціною \uD83D\uDCE6 Швидка доставка по Києву та Україні, безкоштовна від 5000 грн. \uD83D\uDCAB"
+    },
     "read_more": "Читати більше",
     "read_less": "Згорнути",
     "password_page": {
