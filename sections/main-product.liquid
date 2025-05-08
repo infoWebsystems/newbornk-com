@@ -108,7 +108,7 @@
           {%- if product.selected_or_first_available_variant.featured_media != null and  media.media_type != 'video' and  media.media_type != 'external_video' -%}
             {%- assign media = product.selected_or_first_available_variant.featured_media -%}
             {% assign unisexFilter = media.preview_image.alt | escape | split: "#@" %}
-            {% if  collection.handle == "women" or collection.handle == "men" or collection.handle contains  "чолові"  or collection.handle contains  "жіноч" or collection.handle contains  "жінкам" %}
+            {% if  collection.handle == "women" or collection.handle == "men" or collection.handle contains  "чолові"  or collection.handle contains  "жіноч" or collection.handle contains  "zhinoch" or collection.handle contains  "жінкам" %}
               {% if collection.handle == unisexFilter[0] or unisexFilter[0] == blank or unisexFilter[0].size <= 0 or  collection.handle contains  "жіноч" %}
                 <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                   {% render 'product-thumbnail', media: media, position: 'featured', loop: section.settings.enable_video_looping, modal_id: section.id %}
@@ -126,18 +126,18 @@
             {%- unless media.id == product.selected_or_first_available_variant.featured_media.id and  media.media_type == 'video' and  media.media_type == 'external_video' -%}
               {% assign unisexFilter = media.preview_image.alt | escape | split: "#@" %}
 
-              {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women"    %}
-                {% if unisexFilter[0] == "women"  or unisexFilter[0] == blank or unisexFilter[0].size <= 0  %}
-                  <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
-                    {% render 'product-thumbnail-cat', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
-                  </li>
-                {% endif %}
-              {% elsif  collection.handle contains "чолові" or collection.handle contains "men-"   or collection.handle == "men"  %}
-                {% if unisexFilter[0] == "men" or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
-                  <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
-                    {% render 'product-thumbnail-cat', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
-                  </li>
-                {% endif %}
+              {% if collection.handle contains "жіноч" or collection.handle contains "жінк" or collection.handle contains "women" and template contains 'collection' %}
+                  {% if unisexFilter[0] == "women"  or unisexFilter[0] == blank or unisexFilter[0].size <= 0  %}
+                    <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+                      {% render 'product-thumbnail-cat', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
+                    </li>
+                  {% endif %}
+              {% elsif  collection.handle contains "чолові" or collection.handle contains "men-" or collection.handle == "men" and template contains 'collection' %}
+                  {% if unisexFilter[0] == "men" or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
+                    <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+                      {% render 'product-thumbnail-cat', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
+                    </li>
+                  {% endif %}
               {% else %}
                 <li class="swiper-slide product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
                   {% render 'product-thumbnail-cat', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
@@ -167,12 +167,12 @@
             {% if  collection.handle == "women" or collection.handle == "men" %}
               {% if collection.handle == unisexFilter[0] or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
                 <li class="swiper-slide">
-                  <img src="{{ media | img_url: 'master' }}">
+                  <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product %}">
                 </li>
               {% endif %}
             {% else %}
               <li class="swiper-slide">
-                <img src="{{ media | img_url: 'master' }}">
+                <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product %}">
               </li>
             {% endif %}
           {%- endif -%}
@@ -180,21 +180,21 @@
             {%- unless media.id == product.selected_or_first_available_variant.featured_media.id and  media.media_type == 'video' and  media.media_type == 'external_video' -%}
               {% assign unisexFilter = media.preview_image.alt | escape | split: "#@" %}
 
-                {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women"    %}
+                {% if  collection.handle contains "жіноч" or  collection.handle contains "жінк" or collection.handle contains "women" and template contains 'collection' %}
                   {% if unisexFilter[0] == "women"  or unisexFilter[0] == blank or unisexFilter[0].size <= 0  %}
                     <li class="swiper-slide">
-                      <img src="{{ media | img_url: 'master' }}">
+                      <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
                     </li>
                   {% endif %}
-                {% elsif  collection.handle contains "чолові" or collection.handle contains "men-"   or collection.handle == "men"  %}
+                {% elsif  collection.handle contains "чолові" or collection.handle contains "men-"   or collection.handle == "men" and template contains 'collection' %}
                   {% if unisexFilter[0] == "men" or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
                     <li class="swiper-slide">
-                      <img src="{{ media | img_url: 'master' }}">
+                      <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
                     </li>
                   {% endif %}
                 {% else %}
                   <li class="swiper-slide">
-                    <img src="{{ media | img_url: 'master' }}">
+                    <img src="{{ media | img_url: 'master' }}" alt="{% render 'render-alt-img', alt: media.alt, object: product, i: forloop.index %}">
                   </li>
                 {% endif %}
 
@@ -245,7 +245,7 @@
             {%- endif -%} -->
           {%- when 'title' -%}
             <h1 class="product__title">
-              {{ product.title | escape }}
+              {{ product.title | escape }} {{ product.vendor }} {% if product.selected_or_first_available_variant.barcode != blank %}{{ product.selected_or_first_available_variant.barcode | prepend: '(' | append: ')' }}{% endif %}
             </h1>
           {%- when 'price' -%}
             <div class="no-js-hidden" id="price-{{ section.id }}">
@@ -263,25 +263,24 @@
             {%- endif -%}
           {%- when 'collapsible_tab' -%}
             {% if  block.settings.content != blank or block.settings.page.content != blank or block.settings.liquid != blank %}
-            <div class="product__accordion accordion">
-              <details>
-                <summary>
-                  <div class="summary__title">
-                    {% render 'icon-accordion', icon: block.settings.icon %}
-                    <h2 class="h4 accordion__title">
-                      {{ block.settings.heading | default: block.settings.page.title }}
-                    </h2>
+              <div class="product__accordion accordion">
+                <details>
+                  <summary>
+                    <div class="summary__title">
+                      {% render 'icon-accordion', icon: block.settings.icon %}
+                      <h2 class="h4 accordion__title">
+                        {{ block.settings.heading | default: block.settings.page.title }}
+                      </h2>
+                    </div>
+                    {% render 'icon-caret' %}
+                  </summary>
+                  <div class="accordion__content rte {% if block.settings.enable_more_text %}show-more-text{% endif %}" {% if block.settings.enable_more_text %}data-read-more="{{ 'general.read_more' | t }}" data-hide="{{ 'general.hide' | t }}" data-lines="{{ block.settings.lines }}"{% endif %}>
+                      {{ block.settings.liquid }}
+                      {{ block.settings.content }}
+                      {{ block.settings.page.content }}
                   </div>
-                  {% render 'icon-caret' %}
-                </summary>
-                <div class="accordion__content rte">
-                  {{ block.settings.liquid }}
-                  {{ block.settings.content }}
-                  {{ block.settings.page.content }}
-
-                </div>
-              </details>
-            </div>
+                </details>
+              </div>
             {% endif %}
           {%- when 'size_guide' -%}
 
@@ -804,6 +803,7 @@
 </section>
 
 {% render 'product-size-chart', product: product, id: 'js-productSizeModal-modal' %}
+<script src="{{ 'breadcrumbs-custom-item.js' | asset_url }}" defer="defer"></script>
 
 {% javascript %}
   class ProductModal extends ModalDialog {
@@ -1031,6 +1031,16 @@
           "type": "liquid",
           "id": "liquid",
           "label": "Liquid Code"
+        },{
+          "type": "checkbox",
+          "id": "enable_more_text",
+          "label": "Enable more text?",
+          "default": false
+        },{
+          "type": "number",
+          "id": "lines",
+          "label": "How many lines to show?",
+          "default": 3
         },
         {
           "type": "select",

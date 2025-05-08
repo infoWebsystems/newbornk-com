@@ -360,7 +360,6 @@
 
                 <nav class="menu-drawer__navigation">
                   <ul class="menu-drawer__menu list-menu" role="list">
-
                     {%- for link in section.settings.menu_mobile.links -%}
                       <li>
                         {%- if link.links != blank -%}
@@ -451,6 +450,22 @@
                         {%- endif -%}
                       </li>
                     {%- endfor -%}
+                    {% if settings.show_move_outlet == true %}
+                      {% if template contains 'outlet' %}
+                        {% assign url_move_outlet = settings.url_move_main %}
+                        {% assign text_move_outlet = settings.text_move_main %}
+                      {% else %}
+                        {% assign text_move_outlet = settings.text_move_outlet %}
+                        {% assign url_move_outlet = settings.url_move_outlet %}
+                      {% endif %}
+                      {% if url_move_outlet != blank and text_move_outlet != blank %}
+                        <li>
+                          <a href="{{ url_move_outlet }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+                            {{ text_move_outlet | escape }}
+                          </a>
+                        </li>
+                      {% endif %}
+                    {% endif %}
                   </ul>
                 </nav>
 
@@ -563,6 +578,7 @@
                 <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
               {%- endif -%}
                 <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <input type="hidden" name="type" value="product">
                   <div class="field">
                     <input class="search__input field__input"
                       id="Search-In-Modal-1"
@@ -690,6 +706,22 @@
               {%- endif -%}
             </li>
           {%- endfor -%}
+          {% if settings.show_move_outlet == true %}
+            {% if template contains 'outlet' %}
+              {% assign url_move_outlet = settings.url_move_main %}
+              {% assign text_move_outlet = settings.text_move_main %}
+            {% else %}
+              {% assign text_move_outlet = settings.text_move_outlet %}
+              {% assign url_move_outlet = settings.url_move_outlet %}
+            {% endif %}
+            {% if url_move_outlet != blank and text_move_outlet != blank %}
+              <li>
+                <a href="{{ url_move_outlet }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset">
+                  <span>{{ text_move_outlet }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
         </ul>
       </nav>
     {%- endif -%}
@@ -750,6 +782,7 @@
                 <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
               {%- endif -%}
                 <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                  <input type="hidden" name="type" value="product">
                   <div class="field">
                     <input class="search__input field__input"
                       id="Search-In-Modal"
@@ -857,12 +890,13 @@
       {%- endif -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
-        {% if cart.discount_applications != blank %}
+        {% assign discount_size = cart.discount_applications | size %}
+        {% if discount_size > 0 %}
           {%- render 'icon-cart-discount' -%}
         {% else %}
           {%- render 'icon-cart' -%}
         {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }} {% if cart.discount_applications != blank %}<p class="discount-percent">%</p>{% endif %}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
             {%- if cart.item_count < 100 -%}
@@ -1018,27 +1052,41 @@ twq('config','opld2');
   {
     "@context": "http://schema.org",
     "@type": "Organization",
-    "name": {{ shop.name | json }},
-    {% if section.settings.logo %}
-      {% assign image_size = section.settings.logo.width | append: 'x' %}
-      "logo": {{ section.settings.logo | img_url: image_size | prepend: "https:" | json }},
+    "name": "{{ shop.name }}",
+    "url": "{{ shop.url }}",
+    {% if shop.brand.logo != blank %}
+      "logo": "{{ shop.brand.logo | img_url: "master" }}",
     {% endif %}
     "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
+      "{{ settings.social_twitter_link }}",
+      "{{ settings.social_facebook_link }}",
+      "{{ settings.social_pinterest_link }}",
+      "{{ settings.social_instagram_link }}",
+      "{{ settings.social_tumblr_link }}",
+      "{{ settings.social_snapchat_link }}",
+      "{{ settings.social_youtube_link }}",
+      "{{ settings.social_vimeo_link }}"
     ],
-    "url": {{ shop.url | append: page.url | json }}
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ shop.phone }}",
+        "contactType": "customer service",
+        "email": "{{ shop.email }}"
+      },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ shop.address.street }}",
+        "addressLocality": "{{ shop.address.city }}",
+        "addressRegion": "{{ shop.address.province }}",
+        "postalCode": "{{ shop.address.zip }}",
+        "addressCountry": "{{ shop.address.country }}"
+      }
   }
 </script>
 
+
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
+  {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}&type=product" %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",

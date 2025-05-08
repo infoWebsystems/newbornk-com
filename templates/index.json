@@ -15,10 +15,19 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/SALE_horiz.png",
-            "image_phone": "shopify://shop_images/SALE_vert.png",
-            "banner_link": "shopify://collections/sale",
+            "image": "shopify://shop_images/banner_big.png",
+            "image_phone": "shopify://shop_images/banner_small_a8a53f44-50e3-43a4-8b0c-a06cd50a4015.png",
+            "banner_link": "shopify://collections/mid-season-sale",
             "language": ""
+          }
+        },
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/S_HOR_W.png",
+            "image_phone": "shopify://shop_images/banner_v.png",
+            "banner_link": "shopify://collections/novi-nadkhodzhennia",
+            "language": "UK"
           }
         },
         "slide_wHpNAY": {
@@ -58,16 +67,6 @@
             "language": "UK"
           }
         },
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Desktop_2.jpg",
-            "image_phone": "shopify://shop_images/Mobile_2.jpg",
-            "banner_link": "shopify://collections/gift_ideas",
-            "language": "UK"
-          }
-        },
         "1630994380b1b22eeb-0": {
           "type": "slide",
           "disabled": true,
@@ -81,11 +80,11 @@
       },
       "block_order": [
         "slide_7qGUkq",
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "slide_wHpNAY",
         "slide_TyEeBH",
         "slide_BHnyDT",
         "1630994380b1b22eeb-1",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "1630994380b1b22eeb-0"
       ],
       "settings": {
@@ -117,9 +116,9 @@
     "1626369903c393cced": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "РОЗПРОДАЖ",
+        "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "sale",
+        "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
@@ -138,19 +137,19 @@
         "1626416534da40dc37-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "helas"
+            "collection": "carhartt-wip"
           }
         },
         "1626416534da40dc37-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "gramicci"
+            "collection": "published-by"
           }
         },
         "1626416534da40dc37-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "pleasures"
+            "collection": "carne-bollente"
           }
         }
       },
@@ -187,12 +186,31 @@
         "show_arrow": true
       }
     },
+    "featured_collection_slider_XbArfi": {
+      "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "settings": {
+        "title": "MID SEASON SALE",
+        "show_text": true,
+        "collection": "mid-season-sale",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.6,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": false
+      }
+    },
     "featured_collection_slider_zaYJcr": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
+        "title": "РОЗПРОДАЖ",
         "show_text": true,
-        "collection": "novi-nadkhodzhennia",
+        "collection": "sale",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
@@ -211,13 +229,13 @@
         "1626450162f5dda00b-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "carne-bollente"
+            "collection": "new-amsterdam"
           }
         },
         "1626450162f5dda00b-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "aries"
+            "collection": "rombaut"
           }
         }
       },
@@ -266,6 +284,7 @@
     "1626369903c393cced",
     "1626416534da40dc37",
     "1626416564a7b86704",
+    "featured_collection_slider_XbArfi",
     "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",

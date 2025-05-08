@@ -86,6 +86,8 @@
     }
   },
   "general": {
+    "read_more": "Читати більше",
+    "read_less": "Згорнути",
     "password_page": {
       "login_form_heading": "Увійти в магазин за допомогою пароля:",
       "login_password_button": "Введіть пароль",
@@ -191,6 +193,7 @@
   },
   "products": {
     "product": {
+      "photo": "Фото",
       "size_guide": "Розмірна сітка {{ vendor }}",
       "cart": "Перейти в кошик",
       "add_to_cart": "ДОДАТИ У КОШИК",
@@ -277,18 +280,18 @@
   "templates": {
     "days_of_week": {
       "short_weekdays": "Пн - Сб",
-      "short_weekend": "Вс",
-      "monday": "Понедельник",
-      "tuesday": "Вторник",
-      "wednesday": "Среда",
+      "short_weekend": "Нд",
+      "monday": "Понеділок",
+      "tuesday": "Вівторок",
+      "wednesday": "Середа",
       "thursday": "Четверг",
-      "friday": "Пятница",
-      "saturday": "Суббота",
-      "sunday": "Воскресенье"
+      "friday": "П'ятниця",
+      "saturday": "Субота",
+      "sunday": "Неділя"
     },
     "collection": {
       "slider": {
-        "title": ""
+        "title": "Всі товари від"
       }
     },
     "search": {
@@ -320,9 +323,9 @@
         "phone": "Номер телефону",
         "comment": "Коментар ",
         "send": "Надіслати",
-        "address": "Адрес",
-        "work_time": "Время работы call-центра",
-        "request_type": "Причина обращения",
+        "address": "Адреса",
+        "work_time": "Час роботи служби підтримки",
+        "request_type": "Причина звернення",
         "post_success": "Дякуємо, що звернулися до нас. Ми зв’яжемося з вами якнайшвидше.",
         "error_heading": "Будь ласка, відрегулюйте наступне:"
       }
@@ -1569,5 +1572,10 @@
   },
   "wishlist": {
     "header_link": "Список бажань"
+  },
+  "meta_tags": {
+    "title_pagination": "{{title}} | Storinka {{number}}",
+    "description_pagination": "{{description}} | Storinka {{number}}",
+    "h1_pagination": "{{title}} | Storinka {{number}}"
   }
 }

@@ -1,0 +1,11 @@
+{% capture alt %}
+    {% if alt != blank %}
+        {{ alt | escape }}
+    {% else %}
+        {% if object != blank %}
+            {{ object.title }} {% if i != blank %}{{ 'products.product.photo' | t }} {{ i }}{% endif %}
+        {% endif %}
+    {% endif %}
+{% endcapture %}
+
+{{ alt | strip }}

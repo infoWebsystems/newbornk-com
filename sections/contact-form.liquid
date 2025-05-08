@@ -1,6 +1,6 @@
 <link href="{{ 'contact-form-v2.css' | asset_url}}" rel="stylesheet" />
 
-<div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+<div class="contact page-width page-width--narrow section-{{ section.id }}-padding" style="margin-bottom: {{ section.settings.margin_bottom }}px">
   <header class='contact-header'>
     <h2 class='contact-header__title'>{{ 'templates.contact.header.title' | t }}</h2>
     <p class='contact-header__content'>{{ 'templates.contact.header.content' | t }}</p>
@@ -116,6 +116,13 @@
       "id": "heading",
       "default": "Contact form",
       "label": "Heading"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "default": 70,
+      "info": "in px",
+      "label": "Margin bottom"
     }
   ],
   "blocks": [

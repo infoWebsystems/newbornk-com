@@ -17,7 +17,7 @@
       "login_form_error": "Неправильный пароль.",
       "login_form_submit": "Ввести",
       "modal": "Модальное окно входа с паролем",
-      "admin_link_html": "Вы владелец магазина? <a href=\"\/admin\" class=\"link underlined-link\">Войдите здесь<\/a>",
+      "admin_link_html": "Вы владелец магазина? <a href=\"/admin\" class=\"link underlined-link\">Войдите здесь</a>",
       "powered_by_shopify_html": "Этот магазин работает на платформе {{ shopify }}"
     },
     "breadcrumbs": {
@@ -60,7 +60,9 @@
       "share": "Поделиться",
       "share_url": "Поделиться URL-адресом",
       "success_message": "Скопировано в буфер обмена."
-    }
+    },
+    "read_more": "Читать больше",
+    "read_less": "Свернуть"
   },
   "date_formats": {
     "month_year": "%B, %Y"
@@ -84,7 +86,8 @@
       "new_window": "Открывается в новом окне.",
       "external": "Открывает внешний сайт."
     },
-    "of": "из"
+    "of": "из",
+    "skip_to_product_info": "Перейти к информации о продукте"
   },
   "blogs": {
     "article": {
@@ -143,14 +146,56 @@
         "view_store_info": "Сведения о магазине",
         "check_other_stores": "Проверить наличие в других магазинах",
         "pick_up_available": "Самовывоз доступен",
-        "pick_up_available_at_html": "Самовывоз доступен: <strong>{{ location_name }}<\/strong>",
-        "pick_up_unavailable_at_html": "Самовывоз сейчас недоступен: <strong>{{ location_name }}<\/strong>",
+        "pick_up_available_at_html": "Самовывоз доступен: <strong>{{ location_name }}</strong>",
+        "pick_up_unavailable_at_html": "Самовывоз сейчас недоступен: <strong>{{ location_name }}</strong>",
         "unavailable": "Не удалось загрузить сведения о доступности самовывоза",
         "refresh": "Обновить"
-      }
+      },
+      "size_guide": "Размерная сетка {{ vendor }}",
+      "cart": "Перейти в корзину",
+      "buy_now": "Быстрая покупка",
+      "select_giftcard_nominal": "Выбрать номинал",
+      "media": {
+        "open_featured_media": "Откройте предлагаемые медиа в просмотре галереи",
+        "open_media": "Откройте медиа {{ index }} в просмотре галереи",
+        "play_model": "Воспроизвести в 3D Viewer",
+        "play_video": "Воспроизвести видео"
+      },
+      "online_only": "Только ONLINE"
     },
     "modal": {
-      "label": "Галерея мультимедиа"
+      "label": "Галерея мультимедиа",
+      "close": "закрыть",
+      "text": "Все размеры указаны в сантиметрах. Что еще дописать?"
+    },
+    "facets": {
+      "apply": "Принять",
+      "clear_all": "Очистить все",
+      "from": "Вид",
+      "filter_and_sort": "Фильтр и сортировка",
+      "filter_by_label": "Фильтр:",
+      "filter_button": "Фильтр",
+      "filters_selected": {
+        "one": "{{ count }} выбрано",
+        "other": "{{ count }} выбрано"
+      },
+      "max_price": "Самая высокая цена {{ price }}",
+      "product_count": {
+        "one": "{{ product_count }} из {{ count }} товара",
+        "other": "{{ product_count }} из {{ count }} товаров"
+      },
+      "product_count_simple": {
+        "one": "{{ count }} товар",
+        "other": "{{ count }} товаров"
+      },
+      "sort_button": "Сортировка",
+      "sort_by_label": "Сортировка по:",
+      "clear_filter": "Очистка фильтра"
+    },
+    "info_labels": {
+      "size_guide_title": "Размерная сетка",
+      "size_guide": "размерная сетка",
+      "size_guide_note": "Все размеры указаны в сантиметрах"
     }
   },
   "collections": {
@@ -162,7 +207,8 @@
       "price_ascending": "Цена: от маленькой к большой",
       "price_descending": "Цена: от большой к маленькой",
       "date_descending": "Новые товары",
-      "date_ascending": "Старые товары"
+      "date_ascending": "Старые товары",
+      "manual": "Рекомендуемые"
     }
   },
   "templates": {
@@ -175,7 +221,12 @@
         "few": "{{ count }} рез. по запросу «{{ terms }}»",
         "many": "{{ count }} рез. по запросу «{{ terms }}»"
       },
-      "page": "Страница"
+      "page": "Страница",
+      "results_with_count_and_term": {
+        "one": "Найдено {{ count }} результат для \" {{terms }} \"",
+        "other": "Найдено {{ count }} результатов для \" {{terms }} \""
+      },
+      "search_for": "Показать все результаты поиска"
     },
     "cart": {
       "cart": "Корзина"
@@ -188,12 +239,33 @@
         "comment": "Комментарий",
         "send": "Отправить",
         "post_success": "Спасибо за обращение. Мы свяжемся с вами как можно скорее.",
-        "error_heading": "Измените следующие элементы:"
+        "error_heading": "Измените следующие элементы:",
+        "address": "Адрес",
+        "work_time": "Время работы службы поддержки",
+        "request_type": "Причина обращения"
+      },
+      "header": {
+        "title": "Напишите нам",
+        "content": "Если у вас есть какие-либо вопросы по Вашему заказу, пожалуйста, заполните форму ниже. Мы свяжемся с вами как можно скорее."
       }
     },
     "404": {
       "title": "Страница не найдена",
       "subtext": "404"
+    },
+    "days_of_week": {
+      "short_weekend": "Вс",
+      "monday": "Понедельник",
+      "tuesday": "Вторник",
+      "wednesday": "Среда",
+      "friday": "Пятница",
+      "saturday": "Суббота",
+      "sunday": "Воскресенье"
+    },
+    "collection": {
+      "slider": {
+        "title": "Все товары от"
+      }
     }
   },
   "sections": {
@@ -220,9 +292,9 @@
       "calculate": "Подсчитывается в Чекауте",
       "cart_error": "Не удалось обновить корзину. Повторите попытку.",
       "cart_quantity_error_html": "Максимально допустимое количество единиц этого товара в корзине: [количество].",
-      "taxes_and_shipping_policy_at_checkout_html": "Налоги и стоимость <a href=\"{{ link }}\">доставки<\/a>, рассчитанные при оформлении заказа",
+      "taxes_and_shipping_policy_at_checkout_html": "Налоги и стоимость <a href=\"{{ link }}\">доставки</a>, рассчитанные при оформлении заказа",
       "taxes_included_but_shipping_at_checkout": "Сумма налога и стоимость доставки, рассчитанные при оформлении заказа",
-      "taxes_included_and_shipping_policy_html": "Налоги включены. <a href=\"{{ link }}\">Стоимость доставки<\/a> рассчитывается при оформлении заказа.",
+      "taxes_included_and_shipping_policy_html": "Налоги включены. <a href=\"{{ link }}\">Стоимость доставки</a> рассчитывается при оформлении заказа.",
       "taxes_and_shipping_at_checkout": "Налоги и стоимость доставки, рассчитанные при оформлении заказа",
       "update": "Обновить",
       "headings": {
@@ -253,7 +325,10 @@
       "title": "Коллекция",
       "sort_by_label": "Сортировать",
       "sort_button": "Сортировать",
-      "product_count": "Продуктов: {{ count }}",
+      "product_count": {
+        "one": "Показан {{ product_count }} из {{ count }} продукта",
+        "other": "Показан {{ product_count }} из {{ count }} продуктов"
+      },
       "empty": "Продукты не найдены",
       "apply": "Добавить",
       "clear": "Удалить",
@@ -265,14 +340,18 @@
       "max_price": "Максимальная цена: {{ price }}",
       "reset": "Сбросить",
       "to": "До",
-      "use_fewer_filters_html": "Используйте меньше фильтров или <a class=\"{{ class }}\" href=\"{{ link }}\">удалите фильтры<\/a>"
+      "use_fewer_filters_html": "Используйте меньше фильтров или <a class=\"{{ class }}\" href=\"{{ link }}\">удалите фильтры</a>",
+      "filters_selected": {
+        "one": "{{ count }} выбрано",
+        "other": "{{ count }} выбрано"
+      }
     }
   },
   "localization": {
-    "country_label": "Страна\/регион",
+    "country_label": "Страна/регион",
     "language_label": "Язык",
     "update_language": "Изменить язык",
-    "update_country": "Изменить данные о стране\/регионе"
+    "update_country": "Изменить данные о стране/регионе"
   },
   "customer": {
     "account": {
@@ -303,7 +382,7 @@
       "address1": "Адрес 1",
       "address2": "Адрес 2",
       "city": "Город",
-      "country": "Страна\/регион",
+      "country": "Страна/регион",
       "province": "Область",
       "zip": "Почтовый индекс",
       "phone": "Телефон",
@@ -396,5 +475,67 @@
       "copy_code_success": "Код скопирован",
       "print_gift_card": "Печать"
     }
+  },
+  "shopify": {
+    "checkout": {
+      "contact": {
+        "shipping_address_title": "Адрес доставки"
+      },
+      "payment": {
+        "apple": {
+          "email_connected": "Учетная запись подключена:"
+        }
+      },
+      "field_errors": {
+        "reduction_code_gift_card_unusable_with_subscriptions": "Вы не можете использовать подарочную карту для приобретения подписки",
+        "subscription_agreement_blank": "Чтобы продлить покупку, примите условия подписки"
+      },
+      "payment_errors": {
+        "fraud_payment_errors": {
+          "transaction_declined": "Эта транзакция отклонена",
+          "address_mismatch": "Почтовый адрес и почтовый индекс не совпадают.",
+          "cannot_process": "Эта транзакция не может быть обработана.",
+          "no_match": "Нет совпадения",
+          "card_declined": "Ваша карта отклонена"
+        }
+      },
+      "alternative_payment_method": {
+        "button_html": "Оформить заказ с помощью: {{ method }}",
+        "button_label": "Оформить заказ с помощью: {{ method }}"
+      },
+      "paypal": {
+        "button_html": "Оформить заказ с помощью {{ logo }}"
+      },
+      "apple_pay": {
+        "button_html": "Покупайте с помощью {{ logo }}"
+      },
+      "thank_you": {
+        "opt_in_message_html": "Ваша информация была успешно сохранена с помощью {{ shopify_pay }}",
+        "shopify_pay": {
+          "order_completed_html": "Заказ выполнен с помощью {{ shopify_pay }}",
+          "learn_more_label": "Узнайте больше о Shop Pay"
+        },
+        "qr_code": {
+          "subtitle": "Отсканируйте код с помощью камеры телефона."
+        }
+      },
+      "remember_me": {
+        "save": "Сохранить",
+        "title": "Запомнить меня",
+        "label": "Сохранить мою информацию для более быстрого оформления заказов",
+        "description_html": "В последующий момент вы хотите выполнить ее или на других магазинах, которые могут построить магазины, вы будете получать код сообщения по тексту сообщения для безопасных поисков с магазином.",
+        "mobile_phone_icon_alt": "Мобильный телефон",
+        "mobile_phone_number": "Номер мобильного телефона",
+        "terms_and_privacy_html": "Продолжая вы соглашаетесь с Shop Pay's {{ privacy_href }} и {{ terms_href }} .",
+        "privacy_policy": "Условия конфиденциальности",
+        "terms_of_service": "Условия предоставления услуг",
+        "errors": {
+          "optin": "Shop Pay isn't available"
+        }
+      }
+    }
+  },
+  "wishlist": {
+    "header_link": "Список желаний"
   }
 }

@@ -2,7 +2,7 @@
   .breadcrumbs {
     margin: 0 0 2em;
   }
-  
+
   .breadcrumbs__list {
     list-style-type: none;
     margin: 0;
@@ -30,7 +30,7 @@
     border-radius: 5px;
     color: var(--color-foreground-75);
   }
-  
+
   .breadcrumbs__item a:focus,
   .breadcrumbs__item a:hover{
     text-decoration: none;
@@ -47,7 +47,7 @@
   .breadcrumbs__link[aria-current="page"]:hover,
   .breadcrumbs__link[aria-current="page"]:focus {
     text-decoration: none;
-    
+
   }
   .page-width--breadcrumbs {
     max-width: 144rem;
@@ -57,7 +57,7 @@
   @media (max-width: 749px) {
     .page-width--breadcrumbs {
       padding: 3rem 0 1rem 0;
-    }    
+    }
   }
 </style>
 
@@ -67,15 +67,15 @@
 <nav class="breadcrumbs page-width--breadcrumbs" role="navigation" aria-label="breadcrumbs">
   <ol class="breadcrumbs__list">
     <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="/">{{ 'general.breadcrumbs.home' | t }}</a>
+      <a class="breadcrumbs__link" href="{{ routes.root_url }}{% if template contains 'outlet' %}pages/outlet{% endif %}">{{ 'general.breadcrumbs.home' | t }}</a>
     </li>
     {%- case t -%}
       {%- when 'page' -%}
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ page.title }}</p>
         </li>
       {%- when 'product' -%}
-    
+
         {%- if collection.url -%}
           {%- assign collection_title = collection.title -%}
           {%- assign collection_url = collection.url -%}
@@ -85,7 +85,7 @@
           {%- assign collection_title = collections[product.metafields.brand.handle].title -%}
           {%- assign collection_url = collections[product.metafields.brand.handle].url -%}
         {% endif %}
-    
+
         {%- if collection_url != blank -%}
         <li class="breadcrumbs__item">
           {{ collection_title | link_to: collection_url }}
@@ -93,7 +93,7 @@
         {%- endif -%}
 
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ product.title }}</p>
         </li>
       {%- when 'collection' and collection.handle -%}
         {%- if current_tags -%}
@@ -106,7 +106,7 @@
           </li>
         {%- else -%}
           <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+            <p class="breadcrumbs__link" aria-current="page">{{ collection.title }}</>
           </li>
         {%- endif -%}
       {%- when 'blog' -%}
@@ -128,11 +128,11 @@
           {{ blog.title | link_to: blog.url }}
         </li>
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ article.url }}" aria-current="page">{{ article.title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ article.title }}</p>
         </li>
       {%- else -%}
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="{{ request.path }}" aria-current="page">{{ page_title }}</a>
+          <p class="breadcrumbs__link" aria-current="page">{{ page_title }}</p>
         </li>
     {%- endcase -%}
   </ol>

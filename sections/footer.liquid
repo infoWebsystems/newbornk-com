@@ -16,66 +16,63 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- if section.settings.enable_language_selector -%}
+{%- if section.settings.enable_language_selector and shop.locale == 'ru' -%}
   {% capture lang_switcher %}
-<div class="footer__column footer__localization">
-  <noscript>
-    {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
-    <div class="localization-form__select">
-      <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">{{ 'localization.language_label' | t }}</h2>
-      <select class="localization-selector link" name="locale_code" aria-labelledby="FooterLanguageLabelNoScript">
-        {%- for language in localization.available_languages -%}
-        <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
-                        {{ language.endonym_name | capitalize }}
+    <div class="footer__column footer__localization">
+      <noscript>
+        {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
+          <div class="localization-form__select">
+            <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">{{ 'localization.language_label' | t }}</h2>
+            <select class="localization-selector link" name="locale_code" aria-labelledby="FooterLanguageLabelNoScript">
+              {%- for language in localization.available_languages -%}
+                <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
+                  {{ language.endonym_name | capitalize }}
                 </option>
-        {%- endfor -%}
-      </select>
-      {% render 'icon-caret' %}
-    </div>
-    <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
-    {%- endform -%}
-  </noscript>
-<style>
- 
-</style>
-  <localization-form>
-    {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-    {% if localization.language.iso_code == 'uk'%}
-    	{% assign localization_language_iso_code = 'uk' %}
-    {% else %}
-    	{% assign localization_language_iso_code = localization.language.iso_code %}
-    {% endif %}
-    <div class="no-js-hidden">
-      <!--h2 class="caption-large" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2-->
-      <div class="ok disclosure">
-        <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel">
-          <span>{{ localization_language_iso_code | upcase }}</span>
-          {% render 'icon-caret' %}
-        </button>
-        <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled" hidden>
-          {%- for language in localization.available_languages -%}
-          {% if language.iso_code == 'uk'%}
-          	{% assign language_iso_code = 'uk' %}
+              {%- endfor -%}
+            </select>
+            {% render 'icon-caret' %}
+          </div>
+          <button class="button button--tertiary">{{ 'localization.update_language' | t }}</button>
+        {%- endform -%}
+      </noscript>
+      <localization-form>
+        {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
+          {% if localization.language.iso_code == 'uk'%}
+            {% assign localization_language_iso_code = 'uk' %}
           {% else %}
-          	{% assign language_iso_code = language.iso_code %}
+            {% assign localization_language_iso_code = localization.language.iso_code %}
           {% endif %}
-          <li class="disclosure__item" tabindex="-1">
-            <a class="link link--text disclosure__link caption-large{% if language_iso_code == localization_language_iso_code %} disclosure__link--active{% endif %} 
-                      focus-inset" 
-               href="/{% unless language.primary %}{{ language.iso_code }}{% endunless %} " hreflang="{{ language.iso_code }}" 
-               lang="{{ language.iso_code }}"
-               {% if language_iso_code == localization_language_iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}">
-              {{ language.name | capitalize }}
-            </a>
-          </li>
-          {%- endfor -%}
-        </ul>
-      </div>
-      <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+          <div class="no-js-hidden">
+            <!--h2 class="caption-large" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2-->
+            <div class="ok disclosure">
+              <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel">
+                <span>{{ localization_language_iso_code | upcase }}</span>
+                {% render 'icon-caret' %}
+              </button>
+              <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled" hidden>
+                {%- for language in localization.available_languages -%}
+                  {% if language.iso_code == 'uk'%}
+                    {% assign language_iso_code = 'uk' %}
+                  {% else %}
+                    {% assign language_iso_code = language.iso_code %}
+                  {% endif %}
+                  <li class="disclosure__item" tabindex="-1">
+                    <a class="link link--text disclosure__link caption-large{% if language_iso_code == localization_language_iso_code %} disclosure__link--active{% endif %}
+                          focus-inset"
+                       href="/{% unless language.primary %}{{ language.iso_code }}{% endunless %} " hreflang="{{ language.iso_code }}"
+                       lang="{{ language.iso_code }}"
+                            {% if language_iso_code == localization_language_iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}">
+                      {{ language.name | capitalize }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+            <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+          </div>
+        {%- endform -%}
+      </localization-form>
     </div>
-    {%- endform -%}
-  </localization-form>
-</div>
   {% endcapture %}
 {%- endif -%}
 
@@ -104,7 +101,7 @@
                       {%- for link in block.settings.menu.links -%}
                         <li>
                           {% unless link.title == 'switcher' %}
-                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}" target="_blank">
+                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
                             {{ link.title }}
                           </a>
                          
@@ -136,7 +133,7 @@
                       
                         <li>
                           {% unless link.title == 'switcher' %}
-                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}" target="_blank">
+                          <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
                             {{ link.title }}
                           </a>
                           {% else %}
@@ -144,6 +141,11 @@
                           {% endunless %}
                         </li>
                       {%- endfor -%}
+                      {% if block.settings.show_lang_switcher %}
+                        <li>
+                          {{ lang_switcher }}
+                        </li>
+                      {% endif %}
                     </ul>
                   {%- endif -%}
               
@@ -168,51 +170,6 @@
 
   <div class="footer__content-bottom">
     <div class="footer__content-bottom-wrapper page-width">
-      {%- comment -%}
-      <div class="footer__column footer__localization">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <noscript>
-            {%- form 'localization', id: 'FooterCountryFormNoScript', class: 'localization-form' -%}
-              <div class="ok localization-form__select">
-                <h2 class="visually-hidden" id="FooterCountryLabelNoScript">{{ 'localization.country_label' | t }}</h2>
-                <select class="localization-selector link" name="country_code" aria-labelledby="FooterCountryLabelNoScript">
-                  {%- for country in localization.available_countries -%}
-                    <option value="{{ country.iso_code }}" {%- if country.iso_code == localization.country.iso_code %} selected{% endif %}>
-                      {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
-                    </option>
-                  {%- endfor -%}
-                </select>
-                {% render 'icon-caret' %}
-              </div>
-              <button class="button button--tertiary">{{ 'localization.update_country' | t }}</button>
-            {%- endform -%}
-          </noscript>
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-              <div class="no-js-hidden">
-                <h2 class="caption-large" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                <div class="disclosure">
-                  <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterCountryList" aria-describedby="FooterCountryLabel">
-                    {{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})
-                    {% render 'icon-caret' %}
-                  </button>
-                  <ul id="FooterCountryList" role="list" class="disclosure__list list-unstyled" hidden>
-                    {%- for country in localization.available_countries -%}
-                      <li class="disclosure__item" tabindex="-1">
-                        <a class="link link--text disclosure__link caption-large{% if country.iso_code == localization.country.iso_code %} disclosure__link--active{% endif %} focus-inset" href="#"{% if country.iso_code == localization.country.iso_code %} aria-current="true"{% endif %} data-value="{{ country.iso_code }}">
-                          {{ country.name }} <span class="localization-form__currency">({{ country.currency.iso_code }} {{ country.currency.symbol }})</span>
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-                </div>
-                <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      {%- endcomment -%}
       <div class="footer__column footer__column--info">
         <!--div class="footer__copyright">
           <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
@@ -306,6 +263,12 @@
           "default": "footer",
           "label": "t:sections.footer.blocks.link_list.settings.menu.label",
           "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_lang_switcher",
+          "label": "Show lang switcher?",
+          "default": false
         }
       ]
     },

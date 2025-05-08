@@ -49,6 +49,29 @@
                         {% if vendor_handle contains '-amp-' %}
                           {% assign vendor_handle = vendor_handle | replace: "amp-" %}
                         {%- endif -%}
+
+
+                            {% if vendor_handle == 'newbornk-pl' %}
+                              {% continue %}
+                            {% endif %}
+
+                            {% if collections[vendor_handle] == blank %}
+                              {% continue %}
+                            {% endif %}
+
+                            {% if collections[vendor_handle] != blank and collection.template_suffix contains 'outlet' %}
+                              {% assign vendor_handle = vendor_handle | append: '-outlet' %}
+                              {% assign isOutlet = false %}
+                              {% for item in collections[vendor_handle].products %}
+                                {% if item.template_suffix contains 'outlet' %}
+                                  {% assign isOutlet = true %}
+                                  {% break %}
+                                {% endif %}
+                              {% endfor %}
+                              {% if isOutlet == false %}
+                                {% continue %}
+                              {% endif %}
+                            {% endif %}
                             
                         {% unless alfabeta == alfabeta_next %}
                          {% assign brand_numer = brand_numer | plus: 1 %}
@@ -81,10 +104,10 @@
                           <div class="brand-block brand-{{brand_numer}}" style="order:{{order_num}}">
                             <h2 class="brand-letter">{{ alfabeta_next }}</h2>
                             <p class="brand-first-title">
-                              {%- if collections[vendor_handle]  -%}
-                                <a class="brand-title" href="{{ collections[vendor_handle].url }}">{{ collections[vendor_handle].title }}</a>
+                              {%- if collections[vendor_handle] != blank -%}
+                                <a class="brand-title" href="{{ collections[vendor_handle].url }}?filter-m-w=true&show-gender">{{ collections[vendor_handle].title }}</a>
                               {%- else -%}
-                                <a class="brand-title" href="{{vendor_handle}}">{{ vendor_handle }}</a>
+                                <a class="brand-title">{{ vendor_handle }}</a>
                               {%- endif -%}
                             </p>
                             </br>
@@ -92,9 +115,9 @@
                         {% else %}
                             <p class="brand-next-title {{ vendor_handle }}">
                               {%- if collections[vendor_handle]  -%}
-                                <a class="brand-title" href="{{ collections[vendor_handle].url }}">{{ collections[vendor_handle].title }}</a>
+                                <a class="brand-title" href="{{ collections[vendor_handle].url }}?filter-m-w=true&show-gender">{{ collections[vendor_handle].title }}</a>
                               {%- else -%}
-                                <a class="brand-title" href="{{vendor_handle}}">{{ vendor_handle }}</a>
+                                <a class="brand-title">{{ vendor_handle }}</a>
                               {%- endif -%}
                             </p>
                         {% endunless %}

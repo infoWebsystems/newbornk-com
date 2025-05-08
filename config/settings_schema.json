@@ -569,6 +569,34 @@
         "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
       }
     ]
+  },{
+    "name": "Outlet settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_move_outlet",
+        "label": "Show move-outlet",
+        "default": true
+      },{
+        "type": "url",
+        "id": "url_move_outlet",
+        "label": "Url move to outlet"
+      },{
+        "type": "text",
+        "id": "text_move_outlet",
+        "label": "Text move to outlet",
+        "default": "Перейти до Outlet"
+      },{
+        "type": "url",
+        "id": "url_move_main",
+        "label": "Url move to main"
+      },{
+        "type": "text",
+        "id": "text_move_main",
+        "label": "Text move to main",
+        "default": "Повернутись на основний сайт"
+      }
+    ]
   },
   {
     "name": "t:settings_schema.social-media.name",
@@ -864,6 +892,17 @@
         "type": "checkbox",
         "id": "show_wishlist",
         "label": "Show Wishlist"
+      }
+    ]
+  },
+  {
+    "name": "Product card",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_add_to_cart",
+        "label": "Show add to cart",
+        "default": true
       }
     ]
   }
