@@ -19,8 +19,8 @@
 
 {% if current_page > 1 %}
     {% if template == 'collection' or template == 'collection.default-outlet' %}
-        <title>{{ 'meta_tags.title_pagination' | t: title: page_title, number: current_page }}</title>
-        <meta name="description" content="{{ 'meta_tags.description_pagination' | t: description: page_description, number: current_page }}">
+        <title>{{ 'meta_tags.title_pagination' | t: title: page_title_custom, number: current_page }}</title>
+        <meta name="description" content="{{ 'meta_tags.description_pagination' | t: description: page_description_custom, number: current_page }}">
     {% endif %}
 {% else %}
     <title>{{ page_title_custom }}</title>
