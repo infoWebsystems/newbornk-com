@@ -4,6 +4,10 @@
 
     assign collection_vendor_size = collection.all_vendors | size
 
+    if page_title == collection.title
+        assign page_title_custom = ''
+    endif
+
     if page_title_custom == blank and template.name == 'collection' and collection_vendor_size > 1
         assign page_title_custom = 'general.SEO.collection_title' | t: title: collection.title
     elsif page_title_custom == blank and template.name == 'collection' and collection_vendor_size == 1
