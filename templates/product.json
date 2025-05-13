@@ -213,7 +213,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",
@@ -224,6 +223,7 @@
     },
     "recommendation_slider_YPywew": {
       "type": "recommendation-slider",
+      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products_display.value }}",
         "image_ratio": "adapt",
