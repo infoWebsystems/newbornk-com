@@ -177,6 +177,7 @@
     },
     "recommnded_products_9YHPDM": {
       "type": "recommnded-products",
+      "disabled": true,
       "settings": {
         "title": "Рекомендовані продукти",
         "collection": "",
@@ -194,7 +195,6 @@
     },
     "1627050417092b6041": {
       "type": "featured-collection-slider",
-      "disabled": true,
       "settings": {
         "title": "Вам може сподобатись",
         "show_text": false,
