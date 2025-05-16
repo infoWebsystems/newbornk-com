@@ -142,6 +142,7 @@
     },
     "16323088197825d104": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "show_text": true,
@@ -178,7 +179,6 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",
