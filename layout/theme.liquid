@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>{% render 'spdn' %}
-    
+
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
@@ -54,9 +54,11 @@
     </script>
 
     <script src="{{ 'custom_h1_script.js' | asset_url }}"></script>
+
     <meta charset="utf-8">
 
-    {% include 'pluginseo' %}
+    {% render 'custom-meta-tags' %}
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
@@ -400,7 +402,7 @@
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
     {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
-  
+
   <!-- KeyCRM online chat widget begin -->
 <script type="text/javascript">
 (function(w,d,t,u,c){
@@ -408,7 +410,7 @@
 })(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"bc3f252a-342f-42cb-a3a6-3219b681731b"});
 </script>
 <!-- KeyCRM online chat widget end -->
-  
+
   <!-- BADGE for google reviews -->
 <!-- <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
 <script>

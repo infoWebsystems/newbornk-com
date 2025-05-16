@@ -389,17 +389,17 @@ function replaceMetaTags() {
     var metaDescriptionElement = document.querySelector('meta[name="description"]');
     var canonicalElement = document.querySelector('link[rel="canonical"]');
 
-    if (h1Element) {
-      h1Element.innerText = metaTags.h1;
-    }
-
-    if (titleElement) {
-      titleElement.innerText = metaTags.title;
-    }
-
-    if (metaDescriptionElement) {
-      metaDescriptionElement.setAttribute("content", metaTags.description);
-    }
+    // if (h1Element) {
+    //   h1Element.innerText = metaTags.h1;
+    // }
+    //
+    // if (titleElement) {
+    //   titleElement.innerText = metaTags.title;
+    // }
+    //
+    // if (metaDescriptionElement) {
+    //   metaDescriptionElement.setAttribute("content", metaTags.description);
+    // }
 
     if (canonicalElement) {
       canonicalElement.setAttribute("href", metaTags.canonicalURL);

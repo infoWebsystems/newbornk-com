@@ -9,6 +9,12 @@
  */
 {
   "general": {
+    "SEO": {
+      "collection_title": "Брендовые {{title}} - купить в Киеве | NEWBORN K",
+      "collection_brand_title": "{{title}} купить в Киеве и Украине | NEWBORN K",
+      "collection_description": "Купить брендовые {{title}} в интернет-магазине【NEWBORN K】⏩ 100% оригинал и отличное качество от топовых производителей \uD83D\uDCE6 Быстрая доставка по Киеву и Украине \uD83D\uDCAB Заказывайте уже сейчас",
+      "collection_brand_description": "Купить аксессуары и одежду бренда {{title}} в интернет-магазине【NEWBORN K】⏩ Совершенное качество и 100% оригинал ⏩ Широкий ассортимент по доступной цене \uD83D\uDCE6 Быстрая доставка по Киеву и Украине, бесплатная от 5000 грн. \uD83D\uDCAB"
+    },
     "password_page": {
       "login_form_heading": "Вход в магазин с помощью пароля:",
       "login_password_button": "Войти с помощью пароля",
