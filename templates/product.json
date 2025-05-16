@@ -141,7 +141,6 @@
     },
     "recommnded_products_6nWBpp": {
       "type": "recommnded-products",
-      "disabled": true,
       "settings": {
         "title": "Рекомендовані товари",
         "collection": "",
