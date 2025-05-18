@@ -141,7 +141,6 @@
     },
     "recommnded_products_6nWBpp": {
       "type": "recommnded-products",
-      "disabled": true,
       "settings": {
         "title": "Рекомендовані товари",
         "collection": "",
@@ -213,6 +212,7 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "image_ratio": "adapt",
