@@ -199,6 +199,7 @@
   },
   "products": {
     "product": {
+      "title_sku": "Код товару: {{number}}",
       "photo": "Фото",
       "size_guide": "Розмірна сітка {{ vendor }}",
       "cart": "Перейти в кошик",

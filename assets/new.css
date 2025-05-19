@@ -657,3 +657,12 @@ span.cart-item-price{
   background: unset!important;
 }
 /*move-outlet*/
+/*PDP*/
+.product__info-container .product__title{
+  margin-bottom: 12px;
+}
+.product__info-container .sku{
+  display: block;
+  margin-bottom: 3rem;
+}
+/*PDP*/
