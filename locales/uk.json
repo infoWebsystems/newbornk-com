@@ -200,6 +200,7 @@
   "products": {
     "product": {
       "title_sku": "Код товару: {{number}}",
+      "outlet_pickup_text": "\uD83D\uDCCD Товар доступний для самовивозу на наступний день після замовлення",
       "photo": "Фото",
       "size_guide": "Розмірна сітка {{ vendor }}",
       "cart": "Перейти в кошик",

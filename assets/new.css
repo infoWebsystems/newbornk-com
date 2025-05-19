@@ -665,4 +665,14 @@ span.cart-item-price{
   display: block;
   margin-bottom: 3rem;
 }
+.outlet_pickup_text{
+  white-space: normal!important;
+  width: 81%;
+  min-width: 330px;
+}
+@media (max-width: 749px) {
+  .outlet_pickup_text{
+    min-width: 100%;
+  }
+}
 /*PDP*/
