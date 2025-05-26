@@ -188,6 +188,7 @@
     },
     "featured_collection_slider_XbArfi": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
         "title": "MID SEASON SALE",
