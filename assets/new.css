@@ -653,7 +653,7 @@ span.cart-item-price{
   border-radius: 5px;
 }
 .outlet-link .header__menu-item:hover{
-  color: unset!important;
+  color: initial!important;
   background: unset!important;
 }
 /*move-outlet*/
