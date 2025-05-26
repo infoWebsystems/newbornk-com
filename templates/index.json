@@ -15,9 +15,9 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner_big.png",
-            "image_phone": "shopify://shop_images/banner_small_a8a53f44-50e3-43a4-8b0c-a06cd50a4015.png",
-            "banner_link": "shopify://collections/mid-season-sale",
+            "image": "shopify://shop_images/banner_big_ua.png",
+            "image_phone": "shopify://shop_images/banner_small_ua.png",
+            "banner_link": "shopify://collections/sale",
             "language": ""
           }
         },
