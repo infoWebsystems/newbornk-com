@@ -41,6 +41,7 @@
     "text_move_outlet": "OUTLET",
     "url_move_main": "/",
     "text_move_main": "ГОЛОВНИЙ САЙТ",
+    "array_collection_handle_show_gender": "['novi-nadkhodzhennia', 'sale', 'sale-choloviche', 'sale-women', 'new-choloviche', 'new-women']",
     "show_wishlist": true,
     "sections": {
       "announcement-bar": {
