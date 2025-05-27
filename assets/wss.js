@@ -129,8 +129,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const currentPath = window.location.pathname;
         const currentSegments = currentPath.split('/').filter(Boolean);
-        const currentHandle = currentSegments[0] === 'collections' ? currentSegments[1] : null;
-        const isShowGender = currentUrl.includes('&show-gender');
+
+        const collectionsIndex = currentSegments.indexOf('collections');
+        const currentHandle = collectionsIndex !== -1 ? currentSegments[collectionsIndex + 1] : null;
+
+        const params = new URLSearchParams(window.location.search);
+        const isShowGender = params.has('show-gender');
+        console.log('currentHandle', currentHandle);
 
         if (isShowGender && currentHandle) {
             setCookie('gender_filter_collection', currentHandle, 1);

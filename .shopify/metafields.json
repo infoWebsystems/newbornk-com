@@ -2,7 +2,28 @@
   "article": [],
   "blog": [],
   "brand": [],
-  "collection": [],
+  "collection": [
+    {
+      "key": "collection_gender_women",
+      "namespace": "custom",
+      "name": "Collection gender - women",
+      "description": "",
+      "type": {
+        "name": "collection_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "collection_gender_men",
+      "namespace": "custom",
+      "name": "Collection gender - men",
+      "description": "",
+      "type": {
+        "name": "collection_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
   "company": [],
   "company_location": [],
   "location": [],
