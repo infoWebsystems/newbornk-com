@@ -68,8 +68,15 @@
 
       {% if section.settings.show_filter_w_m %}
         <div class="filter-w-m buttons-section hidden">
-          <a href="#" data-ident="men#@" class="button button--full-width button--primary">{{ section.settings.text_men }}</a>
-          <a href="#" data-ident="women#@" class=" button button--full-width button--primary">{{ section.settings.text_women }}</a>
+          {% assign collection_gender_men = collection.metafields.custom.collection_gender_men.value %}
+          {% assign collection_gender_women = collection.metafields.custom.collection_gender_women.value %}
+          {% if collection_gender_men != blank and collection_gender_women != blank %}
+            <a href="{% if collection_gender_men.url == collection.url %}javascript:;{% else %}{{ collection_gender_men.url }}{% endif %}" class="button button--full-width button--primary {% if collection_gender_іmen.url == collection.url %}active{% endif %}">{{ section.settings.text_men }}</a>
+            <a href="{% if collection_gender_women.url == collection.url %}javascript:;{% else %}{{ collection_gender_women.url }}{% endif %}" class="button button--full-width button--primary {% if collection_gender_women.url == collection.url %}active{% endif %}">{{ section.settings.text_women }}</a>
+          {% else %}
+            <a href="#" data-ident="men#@" class="button button--full-width button--primary default">{{ section.settings.text_men }}</a>
+            <a href="#" data-ident="women#@" class=" button button--full-width button--primary">{{ section.settings.text_women }}</a>
+          {% endif %}
         </div>
       {% endif %}
     </div>

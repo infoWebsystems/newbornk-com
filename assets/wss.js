@@ -120,7 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function initFiterImgsPlp(removeActive) {
         const filterW_MButtons = document.querySelectorAll('.filter-w-m .button');
         const filterWMBlock = document.querySelector('.filter-w-m');
-        const targetCollectionHandles = ['novi-nadkhodzhennia', 'sale'];
+        let targetCollectionHandles = window.arrayCollectionShowGender;
+        if(targetCollectionHandles == undefined){ targetCollectionHandles = ['novi-nadkhodzhennia', 'sale', 'sale-choloviche', 'sale-women', 'new-choloviche', 'new-women']};
+
         const currentUrl = window.location.href;
 
         if (!filterWMBlock) return;
@@ -130,7 +132,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentHandle = currentSegments[0] === 'collections' ? currentSegments[1] : null;
         const isShowGender = currentUrl.includes('&show-gender');
 
-        // якщо є параметр — зберігаємо handle в куку
         if (isShowGender && currentHandle) {
             setCookie('gender_filter_collection', currentHandle, 1);
             console.log(`[logic] Saved handle to cookie: ${currentHandle}`);
@@ -158,25 +159,27 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (typeof removeActive !== 'undefined' && removeActive) {
                         button.classList.remove('active');
                     }
+                    if (button.dataset.ident == undefined) return;
 
                     button.addEventListener('click', function (e) {
                         e.preventDefault();
-
+                        if (button.classList.contains('active')) return;
                         filterW_MButtons.forEach(btn => btn.classList.remove('active'));
                         button.classList.add('active');
 
                         const identificator = button.dataset.ident;
                         const blocksImgs = document.querySelectorAll("#main-collection-product-grid .grid__item");
 
-                        blocksImgs.forEach(item => {
-                            const mediaBlock = item.querySelector(".media");
-                            if (!mediaBlock) return;
-
-                            const images = mediaBlock.querySelectorAll("img");
-                            if (images.length < 2) return;
-
-                            mediaBlock.insertBefore(images[1], images[0]);
-                        });
+                        if ((identificator == 'women#@') || (identificator == 'men#@' && !button.classList.contains('default')) ) {
+                            blocksImgs.forEach(item => {
+                                const mediaBlock = item.querySelector(".media");
+                                if (!mediaBlock) return;
+                                const images = mediaBlock.querySelectorAll("img");
+                                if (images.length < 2) return;
+                                mediaBlock.insertBefore(images[1], images[0]);
+                            });
+                        }
+                        filterW_MButtons.forEach(btn => btn.classList.remove('default'));
                     });
                 });
             }
