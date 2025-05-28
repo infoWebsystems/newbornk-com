@@ -647,4 +647,32 @@ span.cart-item-price{
   margin: 0 5px;
   font-size: 10px;
 }
+.outlet-link .header__menu-item{
+  color: var(--color-foreground);
+  background: var(--color-base-accent-2);
+  border-radius: 5px;
+}
+.outlet-link .header__menu-item:hover{
+  color: initial!important;
+  background: unset!important;
+}
 /*move-outlet*/
+/*PDP*/
+.product__info-container .product__title{
+  margin-bottom: 12px;
+}
+.product__info-container .sku{
+  display: block;
+  margin-bottom: 3rem;
+}
+.outlet_pickup_text{
+  white-space: normal!important;
+  width: 81%;
+  min-width: 330px;
+}
+@media (max-width: 749px) {
+  .outlet_pickup_text{
+    min-width: 100%;
+  }
+}
+/*PDP*/

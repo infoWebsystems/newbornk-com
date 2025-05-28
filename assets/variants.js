@@ -102,9 +102,14 @@ class VariantSelects extends HTMLElement {
         const titleProduct = document.querySelector('.product__title');
         const fetchTitleProduct = html.querySelector('.product__title');
 
+        const skuProduct = document.querySelector('.sku');
+        const fetchSkuProduct = html.querySelector('.sku');
+
         if (source && destination) destination.innerHTML = source.innerHTML;
 
         if (titleProduct != null && fetchTitleProduct != null) titleProduct.innerHTML = fetchTitleProduct.innerHTML;
+
+        if (skuProduct != null && fetchSkuProduct != null) skuProduct.innerHTML = fetchSkuProduct.innerHTML;
 
         document.getElementById(`price-${this.dataset.section}`)?.classList.remove('visibility-hidden');
         this.toggleAddButton(!this.currentVariant.available, window.variantStrings.soldOut);

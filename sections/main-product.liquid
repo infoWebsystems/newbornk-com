@@ -247,6 +247,9 @@
             <h1 class="product__title">
               {{ product.title | escape }} {{ product.vendor }} {% if product.selected_or_first_available_variant.barcode != blank %}{{ product.selected_or_first_available_variant.barcode | prepend: '(' | append: ')' }}{% endif %}
             </h1>
+            <p class="sku">
+              {% if product.selected_or_first_available_variant.sku != blank %}{{ 'products.product.title_sku' | t: number: product.selected_or_first_available_variant.sku }}{% endif %}
+            </p>
           {%- when 'price' -%}
             <div class="no-js-hidden" id="price-{{ section.id }}">
               {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
@@ -502,6 +505,11 @@
                 </div>
               {%- endform -%}
             </product-form>
+            {% if template contains 'outlet' %}
+              <p class="accordion__title h4 outlet_pickup_text">
+                {{ 'products.product.outlet_pickup_text' | t }}
+              </p>
+            {% endif %}
             {% if product.metafields.info.size_model != blank and section.settings.enable_size_model == true %}
               {% assign ul = product.metafields.info.size_model.value %}
               <ul class="size_model">

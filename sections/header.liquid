@@ -459,7 +459,7 @@
                         {% assign url_move_outlet = settings.url_move_outlet %}
                       {% endif %}
                       {% if url_move_outlet != blank and text_move_outlet != blank %}
-                        <li>
+                        <li class="outlet-link">
                           <a href="{{ url_move_outlet }}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
                             {{ text_move_outlet | escape }}
                           </a>
@@ -715,7 +715,7 @@
               {% assign url_move_outlet = settings.url_move_outlet %}
             {% endif %}
             {% if url_move_outlet != blank and text_move_outlet != blank %}
-              <li>
+              <li class="outlet-link">
                 <a href="{{ url_move_outlet }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset">
                   <span>{{ text_move_outlet }}</span>
                 </a>
