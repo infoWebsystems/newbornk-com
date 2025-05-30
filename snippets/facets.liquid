@@ -51,13 +51,7 @@
                 <details class="js-filter" data-index="{{ forloop.index }}">
                   <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
                     <div>
-                      {% if filter.label == 'Brand' %}
-                        <span>Бренди</span>
-                      {% elsif filter.label == 'Size' %}
-                        <span>Розмір</span>
-                      {% else %}
-                        <span>{{ filter.label | escape }}</span>
-                      {% endif %}
+                      <span>{{ filter.label | escape }}</span>
                       {% render 'icon-caret' %}
                     </div>
                   </summary>
