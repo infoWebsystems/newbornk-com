@@ -31,7 +31,7 @@
                                 loading="lazy"
                                 width="576"
                                 height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                                alt="{{ media.preview_image.alt | escape }}"
+                                alt="{{ media.preview_image.alt | strip | escape | default: 'Newbornk' }}"
                         >
                     </div>
                 </a>
@@ -47,7 +47,7 @@
                             loading="lazy"
                             width="576"
                             height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                            alt="{{ media.preview_image.alt | escape }}"
+                            alt="{{ media.preview_image.alt | strip | escape | default: 'Newbornk' }}"
                     >
                 </div>
             {%- endif -%}
@@ -68,6 +68,10 @@
             </span>
 
             <div class="product__media media" style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;">
+                {% capture render_alt %}
+                    {% render 'render-alt-img', alt: media.preview_image.alt, object: product, i: media.position %}
+                  {% endcapture %}
+                  {% assign img_alt = render_alt | strip | escape %}
                 <img
                         srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
                         {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
@@ -78,7 +82,7 @@
                         loading="lazy"
                         width="576"
                         height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                        alt="{% render 'render-alt-img', alt: media.preview_image.alt, object: product, i: media.position %}"
+                        alt="{{ img_alt }}"
                 >
             </div>
             <button class="product__media-toggle" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
@@ -118,7 +122,7 @@
                         loading="lazy"
                         width="576"
                         height="{{ 576 | divided_by: media.preview_image.aspect_ratio }}"
-                        alt="{{ media.preview_image.alt | escape }}"
+                        alt="{{ media.preview_image.alt | strip | escape | default: 'Newbornk' }}"
                 >
             </button>
             <template>

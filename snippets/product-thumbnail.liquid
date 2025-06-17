@@ -35,7 +35,7 @@
                                 loading="lazy"
                                 width="576"
                                 height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                                alt="{{ media.preview_image.alt | escape }}"
+                                alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
                         >
                     </div>
                 </a>
@@ -51,7 +51,7 @@
                             loading="lazy"
                             width="576"
                             height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                            alt="{{ media.preview_image.alt | escape }}"
+                            alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
                     >
                 </div>
             {%- endif -%}
@@ -82,7 +82,7 @@
                         loading="lazy"
                         width="576"
                         height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                        alt="{{ media.preview_image.alt | escape }}"
+                        alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
                 >
             </div>
             <button class="product__media-toggle" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
@@ -122,7 +122,7 @@
                         loading="lazy"
                         width="576"
                         height="{{ 576 | divided_by: media.preview_image.aspect_ratio }}"
-                        alt="{{ media.preview_image.alt | escape }}"
+                        alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
                 >
             </button>
             <template>
@@ -179,7 +179,7 @@
                             loading="lazy"
                             width="576"
                             height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                            alt="{{ media.preview_image.alt | escape }}"
+                            alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
                     >
                 </div>
             </a>
@@ -195,7 +195,7 @@
                         loading="lazy"
                         width="576"
                         height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                        alt="{{ media.preview_image.alt | escape }}"
+                        alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
                 >
             </div>
         {%- endif -%}
@@ -226,7 +226,7 @@
                     loading="lazy"
                     width="576"
                     height="{{ 576 | divided_by: media.preview_image.aspect_ratio | ceil }}"
-                    alt="{{ media.preview_image.alt | escape }}"
+                    alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
             >
         </div>
         <button class="product__media-toggle" type="button" aria-haspopup="dialog" data-media-id="{{ media.id }}">
@@ -266,7 +266,7 @@
                     loading="lazy"
                     width="576"
                     height="{{ 576 | divided_by: media.preview_image.aspect_ratio }}"
-                    alt="{{ media.preview_image.alt | escape }}"
+                    alt="{{ media.preview_image.alt | escape | default: 'Newbornk' }}"
             >
         </button>
         <template>
