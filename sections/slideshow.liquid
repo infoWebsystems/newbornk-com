@@ -26,18 +26,19 @@
                   {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
                     {% assign spaced_image = true %}
                   {% endif %}
+                  {% assign alt = block.settings.image.alt | default: shop.name %}
                   <div class="slideshow-card__image-wrapper slideshow-card__image-wrapper--{{ section.settings.image_width }}-width {% if section.settings.image_width != 'full' or spaced_image %} slideshow-card-spacing{% endif %}">
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} small-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" loading="lazy">
+                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" loading="lazy">
                     </div>
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image_phone | img_url:'master' }}" width="360" height="411" loading="lazy">
+                      <img src="{{ block.settings.image_phone | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" loading="lazy">
                     </div>
                   </div>
                 {%- endif -%}
