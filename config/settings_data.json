@@ -235,6 +235,11 @@
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!"
         }
+      },
+      "5269207691391943459": {
+        "type": "shopify://apps/gtm-data-layer/blocks/gropulse-gtm/ec1066b4-8b00-4630-a216-c88f51204a28",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
