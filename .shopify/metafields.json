@@ -459,6 +459,66 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "shoe-fit",
+      "namespace": "shopify",
+      "name": "Shoe fit",
+      "description": "Defines the width of footwear, such as narrow or wide",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "sneaker-style",
+      "namespace": "shopify",
+      "name": "Sneaker style",
+      "description": "Identifies the design or type of sneakers, such as athletic or high-top",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "outerwear-clothing-features",
+      "namespace": "shopify",
+      "name": "Outerwear clothing features",
+      "description": "Identifies special characteristics of outerwear, like insulated or waterproof",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "nightgown-style",
+      "namespace": "shopify",
+      "name": "Nightgown style",
+      "description": "Specifies nightgown style, e.g babydoll, chemise",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "carry-options",
+      "namespace": "shopify",
+      "name": "Carry options",
+      "description": "Specifies the carrying methods available for items, such as a handle or shoulder strap",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bag-case-features",
+      "namespace": "shopify",
+      "name": "Bag/Case features",
+      "description": "Describes the unique characteristics of a bag or case, like waterproof or lightweight",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
