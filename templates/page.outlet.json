@@ -97,9 +97,9 @@
     "buttons_Aehtdg1": {
       "type": "buttons",
       "settings": {
-        "button_link": "shopify://collections/cholovikam",
+        "button_link": "shopify://collections/cholovikam-outlet",
         "button_title": "ЧОЛОВІКАМ",
-        "button_link_2": "shopify://collections/women",
+        "button_link_2": "shopify://collections/жіночий-аутлет",
         "button_title_2": "Жінкам"
       }
     },
@@ -154,19 +154,19 @@
         "1626416534da40dc371-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "helas"
+            "collection": "helas-outlet"
           }
         },
         "1626416534da40dc371-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "gramicci"
+            "collection": "gramicci-outlet"
           }
         },
         "1626416534da40dc371-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "pleasures"
+            "collection": "pleasures-outlet"
           }
         }
       },

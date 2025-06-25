@@ -41,6 +41,7 @@
     "text_move_outlet": "OUTLET",
     "url_move_main": "/",
     "text_move_main": "ГОЛОВНИЙ САЙТ",
+    "array_collection_handle_show_gender": "['novi-nadkhodzhennia', 'sale', 'sale-choloviche', 'sale-women', 'new-choloviche', 'new-women']",
     "show_wishlist": true,
     "sections": {
       "announcement-bar": {
@@ -49,7 +50,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Безкоштовна доставка від 5000 грн",
+              "text": "Безкоштовна доставка",
               "color_scheme": "accent-2",
               "text_color": "#000000",
               "link": ""
@@ -234,11 +235,6 @@
           "button_vertical_position": "lowest",
           "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!"
         }
-      },
-      "16936614187718193802": {
-        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
-        "disabled": false,
-        "settings": {}
       }
     }
   }

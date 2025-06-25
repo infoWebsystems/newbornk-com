@@ -51,6 +51,10 @@
           "disabled": true,
           "settings": {}
         },
+        "share": {
+          "type": "share",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -111,11 +115,6 @@
             "lines": 3,
             "icon": "none"
           }
-        },
-        "share": {
-          "type": "share",
-          "disabled": true,
-          "settings": {}
         }
       },
       "block_order": [
@@ -126,13 +125,13 @@
         "variant_picker",
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
+        "share",
         "buy_buttons",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
         "description",
         "70bbe489-815e-4f89-aaee-8f79b7917887",
-        "c1df5e55-1f87-4887-9282-ab39f4ff2c07",
-        "share"
+        "c1df5e55-1f87-4887-9282-ab39f4ff2c07"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -159,7 +158,6 @@
     },
     "16323088197825d104": {
       "type": "featured-collection-slider",
-      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "show_text": true,
@@ -225,8 +223,9 @@
     },
     "recommendation_slider_YPywew": {
       "type": "recommendation-slider",
+      "disabled": true,
       "settings": {
-        "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "title": "ВАМ МОЖЕ СПОДОБАТИСЬ{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products_display.value }}",
         "image_ratio": "adapt",
         "show_secondary_image": true,
         "add_image_padding": false,

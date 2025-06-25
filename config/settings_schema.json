@@ -597,6 +597,16 @@
         "default": "Повернутись на основний сайт"
       }
     ]
+  },{
+    "name": "Collection filter settings",
+    "settings": [
+      {
+        "type": "liquid",
+        "id": "array_collection_handle_show_gender",
+        "label": "Array with collection handles for show gender",
+        "info": "Example: ['novi-nadkhodzhennia', 'sale', 'sale-choloviche', 'sale-women', 'new-choloviche', 'new-women']"
+      }
+    ]
   },
   {
     "name": "t:settings_schema.social-media.name",

@@ -86,11 +86,11 @@
       href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-48x48.png"
       sizes="48x48"
     >
-    {% comment %}
+    
     <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}" >
     <link rel="alternate" hreflang="uk-UA" href="{{ canonical_url }}">
     <link rel="alternate" hreflang="ru-UA" href="{{ canonical_url }}ru" />
-    {% endcomment %}
+    
     {%- unless settings.type_header_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -280,7 +280,7 @@
       async
     ></script>
     {% endcomment %}
-  <script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async></script>
+  <script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async data-checkout-domain="https://checkout.newbornk.com"></script>
 </head>
 
   <body class="template-{{ request.page_type | handle }}">
@@ -376,6 +376,7 @@
         read_more: `{{ 'general.read_more' | t }}`,
         read_less: `{{ 'general.read_less' | t }}`,
       }
+      window.arrayCollectionShowGender = {{ settings.array_collection_handle_show_gender }};
     </script>
 
     <!-- script src="{{ 'swiper.js' | asset_url }}"></script -->

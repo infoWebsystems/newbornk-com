@@ -15,9 +15,9 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner_big.png",
-            "image_phone": "shopify://shop_images/banner_small_a8a53f44-50e3-43a4-8b0c-a06cd50a4015.png",
-            "banner_link": "shopify://collections/mid-season-sale",
+            "image": "shopify://shop_images/S_HOR_W_07e652b9-b608-476b-ade1-59ec49a98d58.png",
+            "image_phone": "shopify://shop_images/banner_v_b2f91471-521e-471a-97ee-609d643af1d6.png",
+            "banner_link": "shopify://collections/sale",
             "language": ""
           }
         },
@@ -143,7 +143,7 @@
         "1626416534da40dc37-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "published-by"
+            "collection": "umbro"
           }
         },
         "1626416534da40dc37-2": {
@@ -188,6 +188,7 @@
     },
     "featured_collection_slider_XbArfi": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
         "title": "MID SEASON SALE",
@@ -229,13 +230,13 @@
         "1626450162f5dda00b-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-amsterdam"
+            "collection": "han-kjobenhavn"
           }
         },
         "1626450162f5dda00b-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "rombaut"
+            "collection": "new-amsterdam"
           }
         }
       },
