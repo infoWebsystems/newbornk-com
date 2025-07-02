@@ -1,279 +1,110 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>{% render 'spdn' %}
+ <head>
+  {% render 'spdn' %}
+
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MXSVV32');</script>
-<!-- End Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MXSVV32');
+  </script>
+  <!-- End Google Tag Manager -->
 
-    <noscript
-      ><img
-        height="1"
-        width="1"
-        style="display:none"
-        src="https://www.facebook.com/tr?id=589054764123473&ev=PageView&noscript=1"
-    ></noscript>
+  <!-- Google tag (gtag.js) combined -->
+  <!-- Theme Check Warning: External URL, safe to ignore -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WKK4C3QWJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WKK4C3QWJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    // Google Analytics 4
+    gtag('config', 'G-6WKK4C3QWJ');
 
-      gtag('config', 'G-6WKK4C3QWJ');
-    </script>
+    // Universal Analytics (if needed)
+    gtag('config', 'G-X7BE6ZYNN9');
 
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7BE6ZYNN9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    </script>
+    // Google Ads
+    gtag('config', 'AW-11284981969');
+  </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11284981969"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+ <!-- Meta tags & fonts -->
+  <meta charset="utf-8">
+  {% render 'custom-meta-tags' %}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="">
+  <link rel="canonical" href="{{ canonical_url }}">
 
-      gtag('config', 'AW-11284981969');
-    </script>
+  <!-- Favicons -->
+  {% if 'favicon-16x16.png' | asset_url %}
+    <link rel="icon" type="image/png" href="{{ 'favicon-16x16.png' | asset_url }}" sizes="16x16">
+  {% endif %}
+  {% if 'favicon-32x32.png' | asset_url %}
+    <link rel="icon" type="image/png" href="{{ 'favicon-32x32.png' | asset_url }}" sizes="32x32">
+  {% endif %}
+  {% if 'favicon-48x48.png' | asset_url %}
+    <link rel="icon" type="image/png" href="{{ 'favicon-48x48.png' | asset_url }}" sizes="48x48">
+  {% endif %}
 
-    <script src="{{ 'custom_h1_script.js' | asset_url }}"></script>
+  <!-- Language alternates -->
+  <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="uk-UA" href="{{ canonical_url }}">
+  <link rel="alternate" hreflang="ru-UA" href="{{ canonical_url }}ru">
 
-    <meta charset="utf-8">
+  <!-- Fonts preload -->
+  {% unless settings.type_body_font.system? %}
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  {{ settings.type_body_font | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+  {% endunless %}
+  {% unless settings.type_header_font.system? %}
+  {{ settings.type_header_font | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+  {% endunless %}
 
-    {% render 'custom-meta-tags' %}
+  <!-- Theme styles & dynamic font CSS -->
+  {% render 'meta-tags' %}
+  <script src="{{ 'global.js' | asset_url }}" defer></script>
+  <script src="{{ 'wss.js' | asset_url }}" defer></script>
+  <script src="{{ 'custom_h1_script.js' | asset_url }}" defer></script>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
-    {% if current_page > 0 and false %}
-      <link rel="canonical" href="{{ shop.url }}{{ routes.root_url }}?page={{ current_page }}">
-    {% else %}
-      <link rel="canonical" href="{{ canonical_url }}">
-    {% endif %}
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-16x16.png"
-      sizes="16x16"
-    >
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-32x32.png"
-      sizes="32x32"
-    >
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-48x48.png"
-      sizes="48x48"
-    >
-    
-    <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}" >
-    <link rel="alternate" hreflang="uk-UA" href="{{ canonical_url }}">
-    <link rel="alternate" hreflang="ru-UA" href="{{ canonical_url }}ru" />
-    
-    {%- unless settings.type_header_font.system? -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+  {{ 'new.css' | asset_url | stylesheet_tag }}
+  {{ 'size-chart.css' | asset_url | stylesheet_tag }}
 
-    <!-- Avada Size Chart Script -->
-    {% include 'avada-sc-setting' %}
-    <!-- /Avada Size Chart Script -->
+  <!-- Conditional assets loading -->
+  {% if request.page_type == 'index' or request.page_type == 'product' or request.page_type == 'page' %}
+    <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
+    <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
+    <script src="{{ 'swiper.js' | asset_url }}" defer></script>
+  {% endif %}
 
-    {% render 'meta-tags' %}
+  {% if request.page_type == 'collection' %}
+    <script src="{{ 'slider.js' | asset_url }}" defer></script>
+  {% endif %}
 
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
-    {{ content_for_header }}
-
-    {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    %}
-
-    {% style %}
-      {{ settings.type_body_font | font_face: font_display: 'swap' }}
-      {{ body_font_bold | font_face: font_display: 'swap' }}
-      {{ body_font_italic | font_face: font_display: 'swap' }}
-      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-
-      :root {
-      --font-body-family: 'Formular', {{ settings.type_body_font.fallback_families }};
-      --font-body-style: {{ settings.type_body_font.style }};
-      --font-body-weight: {{ settings.type_body_font.weight }};
-
-      --font-heading-family: 'Formular', {{ settings.type_header_font.fallback_families }};
-      --font-heading-style: {{ settings.type_header_font.style }};
-      --font-heading-weight: {{ settings.type_header_font.weight }};
-
-      --color-base-text: {{ settings.colors_text }};
-      --color-base-text-rgb: {{ settings.colors_text | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-background-1: {{ settings.colors_background_1 }};
-      --color-base-background-1-rgb: {{ settings.colors_background_1 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-background-2: {{ settings.colors_background_2 }};
-      --color-base-background-2-rgb: {{ settings.colors_background_2 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-solid-button-labels: {{ settings.colors_solid_button_labels }};
-      --color-base-solid-button-labels-rgb: {{ settings.colors_solid_button_labels | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-outline-button-labels: {{ settings.colors_outline_button_labels }};
-      --color-base-outline-button-labels-rgb: {{ settings.colors_outline_button_labels | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-accent-1: {{ settings.colors_accent_1 }};
-      --color-base-accent-1-rgb: {{ settings.colors_accent_1 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-accent-2: {{ settings.colors_accent_2 }};
-      --color-base-accent-2-rgb: {{ settings.colors_accent_2 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-
-      --color-base-text-opacity-10-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 10 }};
-      --color-base-text-opacity-20-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 20 }};
-      --color-base-text-opacity-55-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 55 }};
-      --color-base-text-opacity-85-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 85 }};
-      --color-base-accent-1-opacity-10-percent: {{ settings.colors_accent_1 | color_mix: settings.colors_background_1, 10 }};
-      --color-base-accent-2-opacity-10-percent: {{ settings.colors_accent_2 | color_mix: settings.colors_background_1, 10 }};
-      }
-
-      *,
-      *::before,
-      *::after {
-      box-sizing: inherit;
-      }
-
-      html {
-      box-sizing: border-box;
-      font-size: 62.5%;
-      height: 100%;
-      }
-
-      body {
-      display: grid;
-      grid-template-rows: auto auto 1fr auto;
-      grid-template-columns: 100%;
-      min-height: 100%;
-      margin: 0;
-      font-size: 1.5rem;
-      letter-spacing: 0rem;
-      line-height: 1.8;
-      font-family: var(--font-body-family);
-      font-style: var(--font-body-style);
-      font-weight: var(--font-body-weight);
-      }
-      .disable-hover,
-      .disable-hover * {
-      pointer-events: none !important;
-      }
-      @media screen and (min-width: 750px) {
-      body {
-      font-size: 1.6rem;
-      }
-      }
-    {% endstyle %}
-
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'new.css' | asset_url | stylesheet_tag }}
-    {{ 'size-chart.css' | asset_url | stylesheet_tag }}
-    {% if request.page_type == 'index' or request.page_type == 'product' or request.page_type == 'page' %}
-        <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
-        <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
-    {% endif %}
-    {%- if settings.predictive_search_enabled -%}
-      <link
-        rel="stylesheet"
-        href="{{ 'component-predictive-search.css' | asset_url }}"
-        media="print"
-        onload="this.media='all'"
-      >
-    {%- endif -%}
-    <style>
-      .cart-item__image {
-        object-fit: contain !important;
-      }
-      @media screen and (min-width: 990px) {
-        .title, .title-wrapper-with-link {
-          margin: 5rem 0 3rem 0.6rem;
-        }
-      }
-    </style>
-    <style>
-            #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button {
-          background: #c7ec51 !important;
-      }
-            #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes {
-          background: #c7ec51 !important;
-      }
-            body #bingc-phone-button svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-             fill: #c7ec51 !important;
-            }
-            body #bingc-phone-button:hover svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-              fill: #c7ec51 !important;
-            }
-            body #bingc-phone-button div.bingc-phone-button-tooltip {
-              background: #c7ec51 !important;
-            }
-            body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
-              fill: #c7ec51 !important;
-            }
-    </style>
-      {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' or template.name == 'page' %}
-          <style>
-              a#icon-wishlist-header{
-                  opacity: 1;
-              }
-          </style>
-      {%- endif -%}
-    {%- unless settings.type_body_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
-    {%- endunless -%}
-    {%- unless settings.type_header_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
-    {%- endunless -%}
-
-    <script>
-      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-    </script>
-
-    {% if request.page_type contains 'index' or request.page_type contains 'product' or request.page_type contains 'page' %}
-    <script src="{{ 'swiper.js' | asset_url }}"></script>
-    {% endif %}
-
-    <script src="{{ 'app.js' | asset_url }}" defer></script>
+  {% if request.page_type == 'product' %}
+    <script src="{{ 'variants.js' | asset_url }}" defer></script>
     <script src="{{ 'size-chart.js' | asset_url }}" defer></script>
+  {% endif %}
 
-    {% render 'wishlisthero-styles.liquid' %}
+  {% if settings.predictive_search_enabled %}
+    <link rel="stylesheet" href="{{ 'component-predictive-search.css' | asset_url }}" media="print" onload="this.media='all'">
+    <script src="{{ 'predictive-search.js' | asset_url }}" defer></script>
+  {% endif %}
 
-    {% capture adoricsnippet %}{% include "adoric-apps-common" %}{% endcapture %}
-    {% unless adoricsnippet contains 'Liquid error' %}{{ adoricsnippet }}{% endunless %}
-    <meta name="google-site-verification" content="3lSZiF14Fa-u21OZGIXiMaguwBJgQnyzUqorK5vG9g0">
-    <meta name="google-site-verification" content="cIoKTzCKehHrd-DQjxMORaLir9ukPggviWKS8Czw-Ho">
-    <img
-      alt="icon"
-      id="svgicon"
-      width="1400"
-      height="1400"
-      style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;"
-      src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+"
-      loading="eager"
-    >
-    {% comment %}
-    <script
-      data-orderly-url="https://orderly-app.io"
-      data-orderly-theme="orderly"
-      data-orderly-script="GLOBAL"
-      src="{{ 'orderly-script.js' | asset_url }}"
-      async
-    ></script>
-    {% endcomment %}
-  <script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async data-checkout-domain="https://checkout.newbornk.com"></script>
+  {% render 'wishlisthero-styles' %}
+
+  <!-- Misc settings -->
+  <meta name="google-site-verification" content="3lSZiF14Fa-u21OZGIXiMaguwBJgQnyzUqorK5vG9g0">
+  <meta name="google-site-verification" content="cIoKTzCKehHrd-DQjxMORaLir9ukPggviWKS8Czw-Ho">
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+  </script>
+   {{ content_for_header }}
 </head>
 
   <body class="template-{{ request.page_type | handle }}">
