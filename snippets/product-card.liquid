@@ -38,7 +38,7 @@
                         -%}
                         {% assign unisexFilter = product_card_product.featured_media.alt | escape | split: "#@" %}
                         <div{% if add_image_padding %} class="card__media-full-spacer"{% endif %}>
-                            <div class="media media--transparent media--{{ media_size }} media--hover-effect" {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %}>
+                            <div class="media media--transparent media--{{ media_size }} media--hover-effect" {% if media_size == 'adapt' and product_card_product.featured_media %} style="padding-bottom: {{ 1 | divided_by: featured_media_aspect_ratio | times: 100 }}%;"{% endif %} data-tags="{{ product_card_product.tags | join: ', ' }}">
                                 {% render 'product-hover-images', product: product_card_product, show_secondary_image: show_secondary_image %}
                             </div>
                         </div>

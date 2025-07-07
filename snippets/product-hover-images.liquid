@@ -5,27 +5,40 @@
     {% assign gender_prefix = 'men' %}
 {% endif %}
 
+{% assign is_accessory = false %}
+{% if product.tags contains 'Аксесуари' %}
+    {% assign is_accessory = true %}
+{% endif %}
+
 {% assign first_image = '' %}
 {% assign second_image = '' %}
 
-{% for media in product.media %}
-    {% assign alt = media.alt | escape %}
-    {% assign prefix = alt | split: '#@' | first | strip %}
-
-    {% if gender_prefix != '' and prefix == gender_prefix %}
-        {% if first_image == '' %}
-            {% assign first_image = media %}
-        {% elsif second_image == '' %}
-            {% assign second_image = media %}
-        {% endif %}
-    {% endif %}
-{% endfor %}
-
-{% if first_image == '' and second_image == '' %}
+{% if is_accessory %}
     {% assign first_image = product.media[0] %}
-    {% assign second_image = product.media[1] %}
-{% elsif first_image != '' and second_image == '' %}
-    {% assign second_image = first_image %}
+    {% assign second_image = product.media[2] %}
+    {% if second_image == blank %}
+        {% assign second_image = first_image %}
+    {% endif %}
+{% else %}
+    {% for media in product.media %}
+        {% assign alt = media.alt | escape %}
+        {% assign prefix = alt | split: '#@' | first | strip %}
+
+        {% if gender_prefix != '' and prefix == gender_prefix %}
+            {% if first_image == '' %}
+                {% assign first_image = media %}
+            {% elsif second_image == '' %}
+                {% assign second_image = media %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {% if first_image == '' and second_image == '' %}
+        {% assign first_image = product.media[0] %}
+        {% assign second_image = product.media[1] %}
+    {% elsif first_image != '' and second_image == '' %}
+        {% assign second_image = first_image %}
+    {% endif %}
 {% endif %}
 
 {% if first_image != blank %}
