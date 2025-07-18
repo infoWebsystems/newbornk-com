@@ -1,0 +1,7 @@
+{% liquid
+  assign path = request.path
+  if path contains '/outlet' or path contains '-outlet'
+    echo '<meta name="robots" content="noindex, follow">'
+    break
+  endif
+%}

@@ -1358,8 +1358,8 @@
         "best_selling": "Бестселери",
         "az": "За алфавітом, А-Я",
         "za": "За алфавітом, Я-А",
-        "price_ascending": "Ціна, від низької до високої",
-        "price_descending": "Ціна, від високої до низької",
+        "price_ascending": "Від дешевих до дорогих",
+        "price_descending": "Від дорогих до дешевих",
         "date_ascending": "Дата, від старої до нової",
         "date_descending": "Дата, від нової до старої"
       }
@@ -1572,8 +1572,8 @@
       "best_selling": "Бестселери",
       "az": "За алфавітом, А-Я",
       "za": "За алфавітом, Я-А",
-      "price_ascending": "Ціна, від низької до високої",
-      "price_descending": "Ціна, від високої до низької",
+      "price_ascending": "Від дешевих до дорогих",
+      "price_descending": "Від дорогих до дешевих",
       "date_ascending": "Дата, від старої до нової",
       "date_descending": "Дата, від нової до старої"
     }
@@ -1582,8 +1582,8 @@
     "header_link": "Список бажань"
   },
   "meta_tags": {
-    "title_pagination": "{{title}} | Storinka {{number}}",
-    "description_pagination": "{{description}} | Storinka {{number}}",
-    "h1_pagination": "{{title}} | Storinka {{number}}"
+    "title_pagination": "{{title}} | {{number}}",
+    "description_pagination": "{{description}} | {{number}}",
+    "h1_pagination": "{{title}} | {{number}}"
   }
 }

@@ -12,9 +12,51 @@
 <noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
-
+<style>
+ .collection-filter-sidebar #FacetsWrapperDesktop{padding-top:10px;position:relative;}
+ .collection-filter-sidebar #FacetsWrapperDesktop::before{content:'';position:absolute;top: 0;left: 0;width: calc(100% - 25px); border-top: 1px solid #9f9f9f;}
+  @media (max-width: 749px){
+  .collection-filters .sidebar-menu .sidemenu-link{display:none;}
+  .collection-hero {margin-bottom: 0;}  
+  }
+ }
+</style> 
+{% liquid
+  assign show_collection_description = true
+  assign page_number = canonical_url | split: 'page=' | last | split: '&' | first | plus: 0
+  if canonical_url contains 'page=' and page_number > 1
+  assign show_collection_description = false
+  endif
+%}
 {{ 'component-collection-grid-trm.css' | asset_url | stylesheet_tag }}
 {{ 'component-sort-by.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.show_more_text %}
+  {% assign description_lines = section.settings.description_lines %}
+  {% assign description_lines_mob = section.settings.description_lines_mob %}
+  <style>
+    #CollectionProductGrid .collection-hero__description.less{
+      display: -webkit-box;
+      display: -moz-box;
+      overflow: hidden;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp: {{ description_lines }};
+      line-clamp: {{ description_lines }};
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+    @media screen and (max-width: 768px) {
+      #CollectionProductGrid .collection-hero__text-wrapper{
+        padding: 0 20px;
+      }
+      #CollectionProductGrid .collection-hero__description.less{
+        -webkit-line-clamp: {{ description_lines_mob }};
+        line-clamp: {{ description_lines_mob }};
+      }
+    }
+  </style>
+{% endif %}
 
 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
 
@@ -454,6 +496,7 @@
             show_vendor: section.settings.show_vendor,
             show_info: true,
             type: 'collection_grid'
+            loop_index: forloop.index
             %}
           </li>
         {% endif %}
@@ -469,6 +512,7 @@
                         show_vendor: section.settings.show_vendor,
                         show_info: true,
                         type: 'collection_grid'
+                        loop_index: forloop.index
                 %}
               </li>
             {% endunless %}
@@ -483,6 +527,16 @@
   </div>
   {%- endif -%}
   {%- endpaginate -%}
+
+      {% assign collection_description = collection.description %}
+      {%- if section.settings.show_collection_description and show_collection_description  and collection_description != blank -%} 
+      <div class="collection-hero__text-wrapper">      
+        <div class="collection-hero__title"></div>
+        <div class="collection-hero__description less rte" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
+          {{ collection_description }}
+        </div>
+      </div>
+      {%- endif -%}
 </div>
 
 {% if template contains 'collection' %}
@@ -701,6 +755,31 @@ sel_1.forEach(selectSingle_title => {
 "default": false,
 "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
 },
+{
+"type": "header",
+"content": "Description"
+},
+{
+  "type": "checkbox",
+      "id": "show_collection_description",
+      "default": false,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },{
+      "type": "checkbox",
+      "id": "show_more_text",
+      "default": true,
+      "label": "Enable more text?"
+    },{
+      "type": "number",
+      "id": "description_lines",
+      "default": 10,
+      "label": "Descriptions lines desktop"
+    },{
+      "type": "number",
+      "id": "description_lines_mob",
+      "default": 7,
+      "label": "Descriptions lines mobile"
+    },
 {
 "type": "header",
 "content": "t:sections.main-collection-product-grid.settings.header__1.content"

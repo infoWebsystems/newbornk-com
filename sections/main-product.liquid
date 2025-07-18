@@ -433,36 +433,64 @@
                         {%- endfor -%}
                       </fieldset>
                   {%- endfor -%}
+                  {% if product.options_with_values.size > 5 %}
+
+                  {% endif %}
                   <script type="application/json">
                     {{ product.variants | json }}
                   </script>
                 </variant-radios>
               {%- else -%}
                 <variant-selects class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                       {%- liquid
+                      assign variants_available_arr = product.variants | map: 'available'
+                      assign variants_option1_arr = product.variants | map: 'option1'
+                      assign variants_option2_arr = product.variants | map: 'option2'
+                      assign variants_option3_arr = product.variants | map: 'option3'
+                    -%}
                   {%- for option in product.options_with_values -%}
                     <div class="product-form__input product-form__input--dropdown">
-                      {% comment %}
                       <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+                       {%- if product.type == 'Gift Cards' -%}
+                              {{ 'products.product.select_giftcard_nominal' | t }}
+                       {%- elsif option.name == 'Size' -%}
+                              {{ 'products.product.select_size' | t }}
+                       {%- else -%}
                         {{ option.name }}
+                            {%- endif -%}
                       </label>
-                      {% endcomment %}
                       <div class="select">
                         <select id="Option-{{ section.id }}-{{ forloop.index0 }}"
                           class="select__select"
                           name="options[{{ option.name | escape }}]"
                           form="product-form-{{ section.id }}"
-                        >
-                          <option value="{{ value | escape }}" selected="selected">
-                            {%- if product.type == 'Gift Cards' -%}
-                              {{ 'products.product.select_giftcard_nominal' | t }}
-                            {%- else -%}
-                              {{ 'products.product.select_size' | t }}
-                            {%- endif -%}
-                          </option>
+                        >                          
                           {%- for value in option.values -%}
+                            {%- liquid
+                            assign option_disabled = true
+
+                            for option1_name in variants_option1_arr
+                              case option.position
+                                when 1
+                                  if variants_option1_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                                    assign option_disabled = false
+                                  endif
+                                when 2
+                                  if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                                    assign option_disabled = false
+                                  endif
+                                when 3
+                                  if option1_name == product.selected_or_first_available_variant.option1 and variants_option2_arr[forloop.index0] == product.selected_or_first_available_variant.option2 and variants_option3_arr[forloop.index0] == value and variants_available_arr[forloop.index0]
+                                    assign option_disabled = false
+                                  endif
+                              endcase
+                            endfor
+                          -%}
+                          {% if option_disabled == false %}
                             <option value="{{ value | escape }}" {% if option.selected_value == value %}{% endif %}>
                               {{ value }}
                             </option>
+                          {% endif %}
                           {%- endfor -%}
                         </select>
                         {% render 'icon-caret' %}
@@ -539,6 +567,7 @@
               </ul>
             {% endif %}
 
+           {%- if product.metafields.custom.size_chart.value != blank -%}
             <div data-modal="js-productSizeModal-modal" class="product__accordion accordion">
                 <summary>
                   <div class="summary__title">
@@ -551,6 +580,7 @@
                   </svg>
                 </summary>
             </div>
+         {%- endif -%}
           {%- endcase -%}
         {%- endfor -%}
       </div>

@@ -206,10 +206,10 @@
                 {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
                 <div name="sort_by" class="__select__content facet-filters__sort caption-large" id="SortBy" aria-describedby="a11y-refresh-page-message">
                   {%- for option in results.sort_options -%}
-                    {% if option.name == 'Ціна, від низької до високої' %}
+                    {% if option.name == 'Від дешевих до дорогих' %}
                       <input id="{{ option.value }}" class="__select__input" type="radio" value="{{ option.value | escape }}" name="sort_by" {% if sort_by == option.value %}selected="selected" {% endif %}/>
                       <label for="{{ option.value }}" class="__select__label"><span>{{ option.name | escape }}</span></label>
-                    {% elsif option.name == 'Ціна, від високої до низької' %}
+                    {% elsif option.name == 'Від дорогих до дешевих' %}
                       <input id="{{ option.value }}" class="__select__input" type="radio" value="{{ option.value | escape }}" name="sort_by" {% if sort_by == option.value %}selected="selected" {% endif %}/>
                       <label for="{{ option.value }}" class="__select__label"><span>{{ option.name | escape }}</span></label>
                     {% elsif option.name == 'Бестселери' %}

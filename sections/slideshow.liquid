@@ -2,97 +2,113 @@
 <link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
 
-  <div class="slideshow no-heading">
-      <div class="swiper-container swiper-container-herro">
-        <ul class="swiper-wrapper"  style="width: 100vw; padding:0;">
-          {%- liquid
-            assign highest_ratio = 0
-            for block in section.blocks
-              if block.settings.image.aspect_ratio > highest_ratio
-                assign highest_ratio = block.settings.image.aspect_ratio
-                assign highest_ratio_phone = block.settings.image_phone.aspect_ratio
-              endif
-            endfor
-          -%}
-          {%- for block in section.blocks -%}
-          	{%- if block.settings.language contains current_locale or block.settings.language == blank -%}
-            {%- else -%}
-              {%- continue -%}
-            {%- endif -%}
-            <li class="swiper-slide">
-              <a class="link-wrapper" href="{{block.settings.banner_link}}">
-              <div class="slideshow-card">
-                {%- if block.settings.image != blank -%}
-                  {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
-                    {% assign spaced_image = true %}
-                  {% endif %}
-                  {% assign alt = block.settings.image.alt | default: shop.name %}
-                  <div class="slideshow-card__image-wrapper slideshow-card__image-wrapper--{{ section.settings.image_width }}-width {% if section.settings.image_width != 'full' or spaced_image %} slideshow-card-spacing{% endif %}">
-                    <div class="media media--transparent media--{{ section.settings.image_ratio }} small-hide"
-                      {% if section.settings.image_ratio == 'adapt' %}
-                        style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
-                      {% endif %}>
-                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" loading="lazy">
-                    </div>
-                    <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
-                      {% if section.settings.image_ratio == 'adapt' %}
-                        style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
-                      {% endif %}>
-                      <img src="{{ block.settings.image_phone | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" loading="lazy">
-                    </div>
-                  </div>
-                {%- endif -%}
-
-              </div>
-              </a>
-            </li>
-          {%- endfor -%}
-        </ul>
-        <div class="swiper-pagination"></div>
-
-        {%- if section.settings.swipe_on_mobile -%}
-          <div class="slider-buttons no-js-hidden medium-hide{% if section.blocks.size < 2 %} small-hide{% endif %}">
-            <div class="slider-counter caption">
-              <span class="slider-counter--current">1</span>
-              <span aria-hidden="true"> / </span>
-              <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
-              <span class="slider-counter--total">{{ section.blocks.size }}</span>
-            </div>
-            <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
-            <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
-          </div>
+<div class="slideshow no-heading">
+  <div class="swiper-container swiper-container-herro">
+    <ul class="swiper-wrapper" style="width: 100vw; padding:0;">
+      {%- liquid
+        assign highest_ratio = 0
+        for block in section.blocks
+          if block.settings.image.aspect_ratio > highest_ratio
+            assign highest_ratio = block.settings.image.aspect_ratio
+            assign highest_ratio_phone = block.settings.image_phone.aspect_ratio
+          endif
+        endfor
+      -%}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.language contains current_locale or block.settings.language == blank -%}
+        {%- else -%}
+          {%- continue -%}
         {%- endif -%}
+        <li class="swiper-slide">
+          <a class="link-wrapper" href="{{block.settings.banner_link}}">
+            <div class="slideshow-card">
+              {%- if block.settings.image != blank -%}
+                {% if section.settings.image_ratio == 'adapt' or section.settings.image_ratio == 'circle' %}
+                  {% assign spaced_image = true %}
+                {% endif %}
+                {% assign alt = block.settings.image.alt | default: shop.name %}
+                <div class="slideshow-card__image-wrapper slideshow-card__image-wrapper--{{ section.settings.image_width }}-width {% if section.settings.image_width != 'full' or spaced_image %} slideshow-card-spacing{% endif %}">
+                  <div
+                    class="media media--transparent media--{{ section.settings.image_ratio }} small-hide"
+                    {% if section.settings.image_ratio == 'adapt' %}
+                      style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
+                    {% endif %}
+                  >
+                    <img
+                      src="{{ block.settings.image | img_url:'master' }}"
+                      width="360"
+                      height="411"
+                      alt="{{ alt | escape }}"
+                      {% if forloop.index > 1 %}
+                        loading="lazy"
+                      {% else %}
+                        loading="eager" fetchpriority="high"
+                      {% endif %}
+                    >
+                  </div>
+                  <div
+                    class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
+                    {% if section.settings.image_ratio == 'adapt' %}
+                      style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
+                    {% endif %}
+                  >
+                    <img
+                      src="{{ block.settings.image_phone | img_url:'master' }}"
+                      width="360"
+                      height="411"
+                      alt="{{ alt | escape }}"
+                      {% if forloop.index > 1 %}
+                        loading="lazy"
+                      {% else %}
+                        loading="eager" fetchpriority="high"
+                      {% endif %}
+                    >
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    <div class="swiper-pagination"></div>
+
+    {%- if section.settings.swipe_on_mobile -%}
+      <div class="slider-buttons no-js-hidden medium-hide{% if section.blocks.size < 2 %} small-hide{% endif %}">
+        <div class="slider-counter caption">
+          <span class="slider-counter--current">1</span>
+          <span aria-hidden="true">/</span>
+          <span class="visually-hidden">{{ 'accessibility.of' | t }}</span>
+          <span class="slider-counter--total">{{ section.blocks.size }}</span>
         </div>
-
-
-
-
+        <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+        <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-caret' %}</button>
+      </div>
+    {%- endif -%}
   </div>
+</div>
 
 <script>
-var menu = [];
+  var menu = [];
 
-const swiperherro = new Swiper('.swiper-container-herro', {
-      spaceBetween: 0,
-      slidesPerView: 1,
-      autoplay: {
-        delay: 6000,
+  const swiperherro = new Swiper('.swiper-container-herro', {
+    spaceBetween: 0,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 6000,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return `<div class="box ` + className + `"></div>`;
       },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        renderBullet: function(index, className) {
-          return `<div class="box ` + className + `"></div>`;
-        },
-      },
+    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
-    }
-
-
+    },
   });
-
 </script>
 
 {% schema %}
@@ -101,7 +117,7 @@ const swiperherro = new Swiper('.swiper-container-herro', {
   "class": "spaced-section spaced-section--full-width slideshow-herro-section",
   "tag": "section",
   "settings": [
-   {
+    {
       "type": "select",
       "id": "image_width",
       "options": [
@@ -162,7 +178,7 @@ const swiperherro = new Swiper('.swiper-container-herro', {
           "id": "image",
           "label": "t:sections.slideshow.blocks.column.settings.image.label"
         },
-		{
+        {
           "type": "image_picker",
           "id": "image_phone",
           "label": "Phone Image"

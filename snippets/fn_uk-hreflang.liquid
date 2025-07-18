@@ -1,0 +1,24 @@
+<script>
+  function addUkHreflang() {
+    const hreflangs = Array.from(document.querySelectorAll('link[rel="alternate"]'))
+      .filter((link) => link.getAttribute('hreflang'))
+      .map((link) => ({
+        lang: link.getAttribute('hreflang'),
+        url: link.getAttribute('href'),
+      }));
+
+    const xDefault = hreflangs.find((h) => h.lang === 'x-default');
+
+    if (xDefault) {
+      const hasUk = hreflangs.some((h) => h.lang === 'uk');
+      if (!hasUk) {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'alternate');
+        link.setAttribute('hreflang', 'uk');
+        link.setAttribute('href', xDefault.url);
+        document.head.appendChild(link);
+      }
+    }
+  }
+  addUkHreflang();
+</script>
