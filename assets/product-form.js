@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       product.querySelector('form [type="submit"]').setAttribute('data-product-added', '');
     });
   });
-
+  
   let timerId = setInterval(() => {
     if (document.querySelector('.shopify-payment-button__button')) {
       let bynowButton = document.querySelector('.shopify-payment-button__button');
@@ -21,16 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         bynowButton.style.color = '#fff';
         clearInterval(timerId);
       }
-    }
+    } 
   }, 50);
-  setTimeout(() => {
-    clearInterval(timerId);
-  }, 5000);
+  setTimeout(() => { clearInterval(timerId); }, 5000); 
 });
 
 class ProductForm extends HTMLElement {
   constructor() {
-    super();
+    super();   
 
     this.form = this.querySelector('form');
     this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
