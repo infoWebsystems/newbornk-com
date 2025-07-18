@@ -36,16 +36,16 @@ class ProductForm extends HTMLElement {
     this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
     this.cartNotification = document.querySelector('cart-notification');
   }
-
+  
   onSubmitHandler(evt) {
     evt.preventDefault();
     this.cartNotification.setActiveElement(document.activeElement);
-
+    
     const submitButton = this.querySelector('[type="submit"]');
-
+    
     const ADD_TO_CART = submitButton.getAttribute('data-add-to-cart');
     const VIEW_CART = submitButton.getAttribute('data-view-cart');
-
+    
     const HAS_PRODUCT_ADDED = submitButton.getAttribute('data-product-added');
     
     if (HAS_PRODUCT_ADDED) {
