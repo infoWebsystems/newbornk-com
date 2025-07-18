@@ -77,53 +77,18 @@
       },
       "footer": {
         "type": "footer",
-        "blocks": {
-          "footer-0": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-top",
-              "show_lang_switcher": false
-            }
-          },
-          "link_list_G8QRnK": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-social",
-              "show_lang_switcher": false
-            }
-          },
-          "logo_JU8grA": {
-            "type": "logo",
-            "settings": {
-              "logo": "shopify://shop_images/footer_logo.png"
-            }
-          },
-          "newsletter_HFV8XU": {
-            "type": "newsletter",
-            "settings": {}
-          },
-          "link_list_Y3piqn": {
-            "type": "link_list",
-            "settings": {
-              "heading": "",
-              "menu": "footer-policy",
-              "show_lang_switcher": false
-            }
-          }
-        },
-        "block_order": [
-          "footer-0",
-          "link_list_G8QRnK",
-          "logo_JU8grA",
-          "newsletter_HFV8XU",
-          "link_list_Y3piqn"
-        ],
         "settings": {
           "color_scheme": "accent-1",
           "newsletter_enable": true,
           "newsletter_heading": "Sign up to our emails",
+          "logo_svg": true,
+          "menu_left": "footer-top",
+          "menu_right": "footer-social",
+          "menu_bottom": "footer-policy",
+          "email": "info@newbornk.com",
+          "phone": "+380 97 044 3333",
+          "address_text": "м Київ, вул. Велика Житомирська, 20",
+          "address_url": "",
           "show_social": false,
           "enable_country_selector": true,
           "enable_language_selector": true,
