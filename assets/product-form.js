@@ -73,7 +73,7 @@ class ProductForm extends HTMLElement {
       .then((response) => response.json())
       .then((parsedState) => {
         this.cartNotification.renderContents(parsedState);
-        submitButton.setAttribute("data-product-added", "true");
+        submitButton.setAttribute('data-product-added', "true");
         submitButton.textContent = VIEW_CART;
         const lang = document.documentElement.getAttribute("lang");
         let toast_title = "Товар додано до кошика";
@@ -86,8 +86,8 @@ class ProductForm extends HTMLElement {
         console.error(e);
       })
       .finally(() => {
-        submitButton.classList.remove("loading");
-        submitButton.removeAttribute("disabled");
+        submitButton.classList.remove('loading');
+        submitButton.removeAttribute('disabled');
       });
   }
 }
