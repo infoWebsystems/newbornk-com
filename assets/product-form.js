@@ -98,3 +98,5 @@ customElements.define('product-form', ProductForm);
   document.querySelector('.shopify-payment-button__button').innerText = 'Швидка покупка';
   document.querySelector('.shopify-payment-button__button').style.color = '#fff';
 },3000);*/
+
+
