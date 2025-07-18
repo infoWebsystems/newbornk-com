@@ -47,7 +47,7 @@ class ProductForm extends HTMLElement {
     const VIEW_CART = submitButton.getAttribute('data-view-cart');
 
     const HAS_PRODUCT_ADDED = submitButton.getAttribute('data-product-added');
-
+    
     if (HAS_PRODUCT_ADDED) {
       location.href = location.origin + "/cart";
       return false;
@@ -55,7 +55,7 @@ class ProductForm extends HTMLElement {
 
     submitButton.setAttribute('disabled', true);
     submitButton.classList.add('loading');
-
+    
     const uniqueId = {
       properties: {
         "unique_id": Date.now() + "_" + getRandomNumber(0, Date.now())
@@ -66,7 +66,7 @@ class ProductForm extends HTMLElement {
       ...JSON.parse(serializeForm(this.form)),
       ...uniqueId,
       sections: this.cartNotification.getSectionsToRender().map((section) => section.id),
-      sections_url: window.location.pathname,
+      sections_url: window.location.pathname
     });
 
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
@@ -92,7 +92,8 @@ class ProductForm extends HTMLElement {
   }
 }
 
-customElements.define("product-form", ProductForm);
+customElements.define('product-form', ProductForm);
+
 
 /*setTimeout(function(){
   document.querySelector('.shopify-payment-button__button').innerText = 'Швидка покупка';
