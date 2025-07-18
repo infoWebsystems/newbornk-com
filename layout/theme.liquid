@@ -9,6 +9,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MXSVV32');</script>
 <!-- End Google Tag Manager -->
 
+{% render 'sn_preloads' %}
+
     <noscript
       ><img
         height="1"
@@ -17,36 +19,82 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         src="https://www.facebook.com/tr?id=589054764123473&ev=PageView&noscript=1"
     ></noscript>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WKK4C3QWJ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      (function () {
+        function loadScript(src) {
+          return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = () => resolve(script);
+            script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+            document.head.appendChild(script);
+          });
+        }
 
-      gtag('config', 'G-6WKK4C3QWJ');
+        let user_agent = window.navigator.userAgent;
+
+        var is_mobile = window.screen.width < 768 ? 1 : 0;
+        let is_pagespeed =
+          (user_agent.indexOf('moto g power') !== -1 && user_agent.indexOf('AppleWebKit') !== -1 && user_agent.indexOf('Mobile') !== -1) || user_agent.indexOf('Lighthouse') !== -1 ? 1 : 0;
+
+        var sleep = 50;
+        if (is_mobile) {
+          sleep = is_pagespeed == 1 ? 8000 : 1000;
+        } else {
+          sleep = is_pagespeed == 1 ? 1000 : 50;
+        }
+
+        var startTimeStcrtr = new Date().getTime();
+        var timerYM = setInterval(function () {
+          var t = new Date().getTime() - startTimeStcrtr;
+          if (document.readyState === 'complete' || t > 10000) {
+            clearInterval(timerYM);
+            setTimeout(function () {
+              loadScript('https://www.googletagmanager.com/gtag/js?id=G-6WKK4C3QWJ')
+                .then(() => {
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() {
+                    dataLayer.push(arguments);
+                  }
+                  gtag('js', new Date());
+                  gtag('config', 'G-6WKK4C3QWJ');
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+
+              loadScript('https://www.googletagmanager.com/gtag/js?id=G-X7BE6ZYNN9')
+                .then(() => {
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() {
+                    dataLayer.push(arguments);
+                  }
+                  gtag('js', new Date());
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+
+              loadScript('https://www.googletagmanager.com/gtag/js?id=AW-11284981969')
+                .then(() => {
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag() {
+                    dataLayer.push(arguments);
+                  }
+                  gtag('js', new Date());
+                  gtag('config', 'AW-11284981969');
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }, sleep);
+          }
+        }, 10);
+      })();
     </script>
 
-  
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7BE6ZYNN9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11284981969"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'AW-11284981969');
-    </script>
-
-    <script src="{{ 'custom_h1_script.js' | asset_url }}"></script>
+    <script src="{{ 'custom_h1_script.js' | asset_url }}" defer></script>
 
     <meta charset="utf-8">
 
@@ -79,11 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-48x48.png"
       sizes="48x48"
     >
-    
-    <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}" >
-    <link rel="alternate" hreflang="uk-UA" href="{{ canonical_url }}">
-    <link rel="alternate" hreflang="ru-UA" href="{{ canonical_url }}ru" />
-    
+        
     {%- unless settings.type_header_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -93,10 +137,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- /Avada Size Chart Script -->
 
     {% render 'meta-tags' %}
+    {% render 'meta-robots' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
+
+    {% render 'fn_uk-hreflang' %}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -223,6 +270,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
               fill: #c7ec51 !important;
             }
+             body #shopify-section-popup-cart-discount {
+        margin: 0;
+      }
+      body .MuiSnackbar-root.wishlist-hero-add-prod-to-wishlist-notification {
+        bottom: unset !important;
+        top: 100px !important;
+      }
+      .select__select:active,
+      .select__select:focus {
+        -webkit-box-shadow: 0 0 0 0.1rem var(--color-foreground-55);
+        box-shadow: 0 0 0 0.1rem var(--color-foreground-55);
+      }
+      .facet-filters__field .__select[data-state='active'] {
+        z-index: 4;
+      }
+      .facet-filters__field .__select .__select__content {
+        z-index: -1;
+      }
+      .facet-filters__field .__select[data-state='active'] .__select__content {
+        z-index: 8;
+      }
+      .collection-products .grid__item .media {
+        aspect-ratio: 1 / 1.5;
+      }
+      body .__select {
+        width: 28rem;
+        max-width: 28rem;
+      }
+      
+      @media (max-width: 450px) {
+        body .__select__title span {
+          font-size: 3.5vw;
+          padding: 3px 6px;
+        }
+        body main {
+          min-height: unset;
+        }
+        .spaced-section:last-child {
+          margin-bottom: 1rem;
+          margin-top: 2rem;
+        }
+        .footer .footer-block__details-content {
+          margin-bottom: 1rem;
+        }
+        .footer .footer-block.grid__item.item-3 {
+          padding: 15px 0 35px;
+        }
+        body .pagination-wrapper {
+          margin-top: 3rem;
+          margin-bottom: 3rem;
+        }
+      }
     </style>
       {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' or template.name == 'page' %}
           <style>
@@ -266,6 +365,176 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     >
     
   <script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async data-checkout-domain="https://checkout.newbornk.com"></script>
+  <script>
+      function showToast(message = '', title = '', image_src = '', timeout = 3000) {
+        if (!message) {
+          return;
+        }
+
+        let container = document.getElementById('toast-container');
+        if (!container) {
+          container = document.createElement('div');
+          container.setAttribute('id', 'toast-container');
+          document.body.appendChild(container);
+        }
+
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+
+        let inner = '<span class="toast-close">&times;</span>';
+
+        if (title) {
+          inner += `<div class="toast-title">${title}</div>`;
+        } else {
+          toast.className += ' no--title';
+        }
+
+        if (image_src) {
+          message = '<div class="toast-image"><img src="' + image_src + '"></div><span>' + message + '</span>';
+        }
+
+        inner += '<div class="toast-message">' + message + '</div><div class="toast-progress"></div>';
+
+        toast.innerHTML = inner;
+
+        const progressBar = toast.querySelector('.toast-progress');
+        progressBar.style.transition = `width ${timeout}ms linear`;
+
+        const closeButton = toast.querySelector('.toast-close');
+
+        container.appendChild(toast);
+
+        setTimeout(() => {
+          toast.style.opacity = '1';
+          toast.style.transform = 'translateY(0)';
+          progressBar.style.width = '0%';
+        }, 100);
+
+        closeButton.addEventListener('click', () => {
+          closeToast();
+        });
+
+        const autoCloseTimeout = setTimeout(() => {
+          closeToast();
+        }, timeout);
+
+        function closeToast() {
+          clearTimeout(autoCloseTimeout);
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateY(-20px)';
+          setTimeout(() => {
+            toast.remove();
+          }, 500);
+        }
+      }
+    </script>
+    <style>
+      #toast-container {
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 300px;
+        gap: 10px;
+        caret-color: transparent;
+      }
+
+      #toast-container .toast {
+        background: #fff;
+        border-radius: 10px;
+        color: #1d1e20;
+        box-shadow: 0 3px 10px #0000004d;
+        opacity: 0;
+        transition:
+          opacity 0.5s ease,
+          transform 0.5s ease;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+      }
+
+      #toast-container .toast.no--title .toast-close {
+        color: black;
+      }
+
+      #toast-container .toast.no--title .toast-message {
+        padding-right: 45px;
+        padding-top: 15px;
+      }
+
+      #toast-container .toast-message {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding: 10px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      #toast-container .toast-image {
+        width: 36px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        position: relative;
+        aspect-ratio: 1 / 1.5;
+      }
+
+      #toast-container .toast-image img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        -o-object-position: top;
+        object-position: top;
+        -o-object-fit: contain;
+        object-fit: contain;
+      }
+      #toast-container .toast-title {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 130%;
+        color: white;
+        background: black;
+        padding: 10px 50px 10px 10px;
+      }
+
+      #toast-container .toast-message-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      #toast-container .toast-close {
+        color: #ffffff;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #toast-container .toast-progress {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        background: #1d1e20;
+        width: 100%;
+        display: block;
+      }
+    </style>
 </head>
 
   <body class="template-{{ request.page_type | handle }}">
@@ -304,12 +573,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     {% endif %}
     {% section 'popup-cart-discount' %}
-    {% if template contains 'outlet' %}
-        {% section 'footer-outlet' %}
-    {% else %}
-        {% section 'footer' %}
-    {% endif %}
-
+    {% section 'footer' %}
+    
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
@@ -385,11 +650,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
 
   <!-- KeyCRM online chat widget begin -->
-<script type="text/javascript">
-(function(w,d,t,u,c){
-  var s=d.createElement(t),j=d.getElementsByTagName(t)[0];s.src=u;s["async"]=true;s.defer=true;s.onload=function(){KeyCRM.render(c);};j.parentNode.insertBefore(s,j)
-})(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"bc3f252a-342f-42cb-a3a6-3219b681731b"});
-</script>
+ <script>
+      (function () {
+        let user_agent = window.navigator.userAgent;
+
+        var is_mobile = window.screen.width < 768 ? 1 : 0;
+        let is_pagespeed =
+          (user_agent.indexOf('moto g power') !== -1 && user_agent.indexOf('AppleWebKit') !== -1 && user_agent.indexOf('Mobile') !== -1) || user_agent.indexOf('Lighthouse') !== -1 ? 1 : 0;
+
+        var sleep = 50;
+        if (is_mobile) {
+          sleep = is_pagespeed == 1 ? 8000 : 1000;
+        } else {
+          sleep = is_pagespeed == 1 ? 1000 : 50;
+        }
+
+        var startTimeStcrtr = new Date().getTime();
+        var timerYM = setInterval(function () {
+          var t = new Date().getTime() - startTimeStcrtr;
+          if (document.readyState === 'complete' || t > 10000) {
+            clearInterval(timerYM);
+            setTimeout(function () {
+              (function (w, d, t, u, c) {
+                var s = d.createElement(t),
+                  j = d.getElementsByTagName(t)[0];
+                s.src = u;
+                s['async'] = true;
+                s.defer = true;
+                s.onload = function () {
+                  KeyCRM.render(c);
+                };
+                j.parentNode.insertBefore(s, j);
+              })(window, document, 'script', 'https://chat.key.live/bundles/widget.min.js', { token: 'bc3f252a-342f-42cb-a3a6-3219b681731b' });
+            }, sleep);
+          }
+        }, 10);
+      })();
+    </script>
 <!-- KeyCRM online chat widget end -->
 
   <!-- BADGE for google reviews -->

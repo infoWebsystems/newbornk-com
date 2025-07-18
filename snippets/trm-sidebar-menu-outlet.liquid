@@ -14,9 +14,9 @@
                 <li class="sidemenu-link 2332">
                     {%- if link.links != blank -%}
                         <details-disclosure>
-                            <details>
+                            <details{% if link.current %} open{% endif %}>
                                 <summary class="header__menu-item list-menu__item link focus-inset">
-                                    <span {%- if link.child_active %} class="header__active-menu-item"{% endif %}>
+                                    <span {%- if link.child_active or link.current %} class="header__active-menu-item"{% endif %}>
                                         <a href="{{ link.url }}">{{ link.title | escape }}</a>
                                     </span>
                                 </summary>

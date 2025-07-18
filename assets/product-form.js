@@ -74,6 +74,12 @@ class ProductForm extends HTMLElement {
         this.cartNotification.renderContents(parsedState);
         submitButton.setAttribute('data-product-added', "true");
         submitButton.textContent = VIEW_CART;
+        const lang = document.documentElement.getAttribute("lang");
+        let toast_title = "Товар додано до кошика";
+        if (lang == "ru") {
+          toast_title = "Товар добавлен в корзину";
+        }
+        showToast(parsedState.title, toast_title, parsedState.image);
       })
       .catch((e) => {
         console.error(e);

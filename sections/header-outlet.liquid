@@ -363,7 +363,7 @@
                                         {%- for link in section.settings.menu_mobile.links -%}
                                             <li>
                                                 {%- if link.links != blank -%}
-                                                    <details>
+                                                    <details{% if link.child_active or link.current %} class="menu-opening" open{% endif %}>
                                                         <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
                                                             <a class="summary-link" href="{{ link.url }}"><span>
                                 {{ link.title | escape }}
@@ -1039,16 +1039,29 @@ customElements.define('localization-form-header', LocalizationFormHeader);
 {% endjavascript %}
 
 <script>
-    //move lang on mobile
-    const parent = document.querySelector('.menu-drawer__navigation');
-    const item = document.querySelector('.header__icon--localization');
-
-    window.addEventListener('load', function (event) {
-        const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-        if (viewport_width < 990) {
-            parent.insertBefore(item, parent.children[0]);
-        }
-    });
+     function moveLangMobile(){
+     //move lang on mobile
+     const parent = document.querySelector('.menu-drawer__navigation');
+     const item = document.querySelector('.header__icon--localization');
+     const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+       if (viewport_width < 990) {
+         parent.insertBefore(item, parent.children[0]);
+       }
+    }
+   
+     function setActiveMobileMenu(){
+      if (window.screen.width >= 992){
+       return;
+      }
+      const activeMenu = document.querySelector('.menu-drawer__menu .menu-drawer__menu-item--active');
+      if (activeMenu){
+       activeMenu.parentNode.setAttribute('open','')
+      }
+     }
+     document.addEventListener("DOMContentLoaded", () => {
+      moveLangMobile();
+      setActiveMobileMenu();
+     }); 
 </script>
 
 <script type="application/ld+json">
