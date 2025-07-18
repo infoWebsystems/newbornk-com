@@ -30,6 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const data = await response.json();
 
             updateCartCount(item);
+      const lang = document.documentElement.getAttribute("lang");
+      let toast_title = "Товар додано до кошика";
+      if (lang == "ru") {
+        toast_title = "Товар добавлен в корзину";
+      }
+      showToast(data.title, toast_title, data.image);
         } catch (error) {
             console.error('Error:', error);
         }
