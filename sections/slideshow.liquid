@@ -32,13 +32,13 @@
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" loading="lazy">
+                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" alt="{{ alt | escape }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
                     </div>
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image_phone | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" loading="lazy">
+                      <img src="{{ block.settings.image_phone | img_url:'master' }}" width="360" height="411" alt="{{ alt }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
                     </div>
                   </div>
                 {%- endif -%}
