@@ -62,48 +62,53 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error('Error:', error);
         }
     }
-    function initShowMoreText() {
-        const descriptionBlock = document.querySelector(".collection-hero__description");
-        if (!descriptionBlock) return;
+  function initShowMoreText() {
+    const descriptionBlock = document.querySelectorAll(".collection-hero__description");
+    if (!descriptionBlock.length) return;
 
-        const showMoreDesk = parseInt(descriptionBlock.dataset.lines, 10) || 0;
-        const showMoreMob = parseInt(descriptionBlock.dataset.linesMob, 10) || 0;
-        const lineHeight = parseFloat(window.getComputedStyle(descriptionBlock).lineHeight);
-        const contentHeight = descriptionBlock.scrollHeight;
-        const maxLines = window.innerWidth <= 768 ? showMoreMob : showMoreDesk;
-        const maxHeight = maxLines * lineHeight;
+    function show_more(selector = null) {
+      const showMoreDesk = parseInt(selector.dataset.lines, 10) || 0;
+      const showMoreMob = parseInt(selector.dataset.linesMob, 10) || 0;
+      const lineHeight = parseFloat(window.getComputedStyle(selector).lineHeight);
+      const contentHeight = selector.scrollHeight;
+      const maxLines = window.innerWidth <= 768 ? showMoreMob : showMoreDesk;
+      const maxHeight = maxLines * lineHeight;
 
-        if (contentHeight > maxHeight) {
-            descriptionBlock.classList.add("less");
-            descriptionBlock.style.maxHeight = maxHeight + "px";
-            descriptionBlock.style.overflow = "hidden";
+      if (contentHeight > maxHeight) {
+        selector.classList.add("less");
+        selector.style.maxHeight = maxHeight + "px";
+        selector.style.overflow = "hidden";
 
-            const toggleButton = document.createElement("a");
-            toggleButton.href = "#";
+        const toggleButton = document.createElement("a");
+        toggleButton.href = "#";
+        toggleButton.innerText = window.translation.read_more;
+        toggleButton.style.display = "block";
+        toggleButton.style.color = "black";
+        toggleButton.style.cursor = "pointer";
+
+        toggleButton.addEventListener("click", function (e) {
+          e.preventDefault();
+          if (selector.classList.contains("less")) {
+            selector.classList.remove("less");
+            selector.style.maxHeight = "none";
+            toggleButton.innerText = window.translation.read_less;
+          } else {
+            selector.classList.add("less");
+            selector.style.maxHeight = maxHeight + "px";
             toggleButton.innerText = window.translation.read_more;
-            toggleButton.style.display = "block";
-            toggleButton.style.color = "black";
-            toggleButton.style.cursor = "pointer";
+          }
+        });
 
-            toggleButton.addEventListener("click", function (e) {
-                e.preventDefault();
-                if (descriptionBlock.classList.contains("less")) {
-                    descriptionBlock.classList.remove("less");
-                    descriptionBlock.style.maxHeight = "none";
-                    toggleButton.innerText = window.translation.read_less;
-                } else {
-                    descriptionBlock.classList.add("less");
-                    descriptionBlock.style.maxHeight = maxHeight + "px";
-                    toggleButton.innerText = window.translation.read_more;
-                }
-            });
-
-            descriptionBlock.after(toggleButton);
-        } else {
-            descriptionBlock.classList.remove("less");
-        }
-
+        selector.after(toggleButton);
+      } else {
+        selector.classList.remove("less");
+      }
     }
+
+    descriptionBlock.forEach((el) => {
+      show_more(el);
+    });
+  }
 
     function initCardAddToCart(){
             const buttonsCardAddToCart = document.querySelectorAll('.card__add-to-cart');
