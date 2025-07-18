@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   selects.forEach((select, index) => {
     select.addEventListener('change', (evt) => {
       product.querySelector('form [type="submit"]').setAttribute('data-product-added', '');
-    });
+    });             
   });
   
   let timerId = setInterval(() => {
@@ -70,6 +70,7 @@ class ProductForm extends HTMLElement {
     fetch(`${routes.cart_add_url}`, { ...fetchConfig('javascript'), body })
       .then((response) => response.json())
       .then((parsedState) => {
+        console.log(parsedState);
         this.cartNotification.renderContents(parsedState);
         submitButton.setAttribute('data-product-added', "true");
         submitButton.textContent = VIEW_CART;
