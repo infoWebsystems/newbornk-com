@@ -45,7 +45,7 @@
     <img
             src="{{ first_image | img_url: '533x' }}"
             alt="{{ first_image.alt | escape }}"
-            loading="lazy"
+            {% if loop_index == blank or loop_index > 2 %} loading="lazy"{% else %} loading="eager" fetchpriority="high" {% endif %}
             width="{{ first_image.width }}"
             height="{{ first_image.height }}"
     >
