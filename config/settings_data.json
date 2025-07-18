@@ -80,7 +80,7 @@
         "settings": {
           "color_scheme": "accent-1",
           "newsletter_enable": true,
-          "newsletter_heading": "Sign up to our emails",
+          "newsletter_heading": "Підпишіться на нашу розсилку",
           "logo_svg": true,
           "menu_left": "footer-top",
           "menu_right": "footer-social",
