@@ -1582,8 +1582,8 @@
     "header_link": "Список бажань"
   },
   "meta_tags": {
-    "title_pagination": "{{title}} | {{number}}",
-    "description_pagination": "{{description}} | {{number}}",
-    "h1_pagination": "{{title}} | {{number}}"
+    "title_pagination": "{{title}} | Сторінка {{number}}",
+    "description_pagination": "{{description}} | Сторінка {{number}}",
+    "h1_pagination": "{{title}} | Сторінка {{number}}"
   }
 }

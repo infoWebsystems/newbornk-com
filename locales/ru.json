@@ -543,5 +543,10 @@
   },
   "wishlist": {
     "header_link": "Список желаний"
+  },
+  "meta_tags": {
+    "title_pagination": "{{title}} | Страница {{number}}",
+    "description_pagination": "{{description}} | Страница {{number}}",
+    "h1_pagination": "{{title}} | Страница {{number}}"
   }
 }

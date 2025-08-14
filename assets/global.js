@@ -299,10 +299,12 @@ console.log('1');
   closeMenuDrawer(event, elementToFocus = false) {
     if (event !== undefined) {
       this.mainDetailsToggle.classList.remove('menu-opening');
-      this.mainDetailsToggle.querySelectorAll('details').forEach(details =>  {
-        details.removeAttribute('open');
-        details.classList.remove('menu-opening');
-      });
+      if (window.innerWidth > 992){
+        this.mainDetailsToggle.querySelectorAll('details').forEach(details =>  {
+          details.removeAttribute('open');
+          details.classList.remove('menu-opening');
+        });
+      }
       this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', false);
       document.body.classList.remove('overflow-hidden-mobile');
       document.getElementsByTagName( 'html' )[0].setAttribute( 'class', '' );
