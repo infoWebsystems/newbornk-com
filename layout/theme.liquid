@@ -301,7 +301,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .collection-products .grid__item .media {
         padding-bottom: 150%;
       }
-      
+      .card__inner .wishlisthero-floating {
+        z-index: 1;
+      }
+      #wishlist-hero-shared-list-view .MuiButton-label{
+        color: white;
+      }
+      @media (max-width: 767px) {
+        .collection-products .grid__item{
+          z-index: 3;
+        }
+      }
+      @media (max-width: 749px) {
+        #shopify-section-header-outlet, #shopify-section-header {
+          z-index: 4;
+        }
+      }  
+      @media (min-width: 1280px) {
+        #FacetFiltersForm{
+          margin-top: 20px;
+          border-top: 1px solid #bbbbbb;
+          padding-top: 20px;
+        }
+      }
       @media (max-width: 450px) {
         body .__select__title span {
           font-size: 3.5vw;
@@ -584,6 +606,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const is_wishlist = document.querySelector('#wishlist-hero-shared-list-loader');
+        const main_tag = document.querySelector('main');
+        if (is_wishlist && main_tag){
+          main_tag.style.minHeight = 'unset'
+        }
         if (window.location.pathname !== "/") {
           const cleanPath = window.location.pathname.replace(/\/+$/, '');
           const cleanUrl = window.location.origin + cleanPath + window.location.search;

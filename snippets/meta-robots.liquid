@@ -1,6 +1,6 @@
 {% liquid
   assign path = request.path
-  if path contains '/outlet' or path contains '-outlet'
+  if path contains '/outlet' or path contains '-outlet' or path contains '%D0%BB%D0%B5%D1%82'
     echo '<meta name="robots" content="noindex, follow">'
     break
   endif
