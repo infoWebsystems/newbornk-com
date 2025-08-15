@@ -311,6 +311,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .collection-products .grid__item{
           z-index: 3;
         }
+        .menu-drawer__menu > li[is="brand"] > details{
+          padding-top: 10px;
+          margin-top: 10px;
+        }
+        .menu-drawer__menu > li[is="brand"] > details{
+          position: relative;
+        } 
+        .menu-drawer__menu > li[is="brand"] > details:before{
+          content: '';
+          border-top: 1px solid #bbbbbb;
+          width: calc(100% - 56px);
+          left: 32px;
+          top: -2px;
+          position: absolute;
+        }
       }
       @media (max-width: 749px) {
         #shopify-section-header-outlet, #shopify-section-header {
@@ -318,13 +333,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
       }  
       @media (min-width: 1280px) {
-        .header__icon--account:not(.header__icon--search){
+       html .header__icon--account:not(.header__icon--search){
           position: relative;
-          top: 1px;
+          top: 2px;
         }
-        #cart-icon-bubble{
+        html #cart-icon-bubble{
           position: relative;
-          top: 1px;
+          top: 2px;
         }
         #FacetFiltersForm{
           margin-top: 20px;
@@ -614,6 +629,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+    
+        var ua = navigator.userAgent.toLowerCase();
+        var html = document.documentElement;
+
+        if (ua.indexOf('chrome') > -1 && ua.indexOf('edge') === -1 && ua.indexOf('edg') === -1 && ua.indexOf('opr') === -1) {
+          html.classList.add('browser-chrome');
+        } else if (ua.indexOf('safari') > -1 && ua.indexOf('chrome') === -1) {
+          html.classList.add('browser-safari');
+        }
+
         const is_wishlist = document.querySelector('#wishlist-hero-shared-list-loader');
         const main_tag = document.querySelector('main');
         if (is_wishlist && main_tag){
