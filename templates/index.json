@@ -15,8 +15,8 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/S_HOR.png",
-            "image_phone": "shopify://shop_images/banner_k.png",
+            "image": "shopify://shop_images/bannerdesktop_ukr.png",
+            "image_phone": "shopify://shop_images/bannermobile_ukr.png",
             "banner_link": "shopify://collections/sale",
             "language": ""
           }
