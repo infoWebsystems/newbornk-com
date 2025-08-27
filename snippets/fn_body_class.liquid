@@ -1,0 +1,16 @@
+{% liquid
+  assign was = 'template-' | append: request.page_type | handle
+  assign page_type = request.page_type | replace: '/', '-'
+  assign page_template = template.suffix
+  assign class = ''
+  if page_type != blank and page_template != blank and page_type != page_template
+    assign class = page_type | prepend: 'template-' | append: '-' | append: page_template
+  else
+    assign class = page_type | prepend: 'template-'
+  endif
+
+  if class == was
+    assign class = ''
+  endif
+%}
+{{ class | strip }}

@@ -1,0 +1,125 @@
+{% liquid
+  assign show_block = false
+  assign limit = limit | plus: 0
+  if limit > 0 and current_url != blank
+    assign paged = paged | plus: 0
+
+    if paged == 0
+      assign paged = 1
+    endif
+
+    assign total_pages = total_pages | plus: 0
+    if total_pages == 0
+      assign total_pages = 1
+    endif
+
+    assign limit = limit | plus: 0
+
+    if paged <= total_pages and total_pages > 1
+      assign show_block = true
+      assign new_url = ''
+
+      assign parts = current_url | replace: request.path, '' | strip | split: '&'
+      for part in parts
+        assign replaced = 'page={paged}'
+        if part contains 'page='
+          if part contains '?'
+            assign replaced = '?page={paged}'
+          endif
+          assign new_url = request.origin | append: current_url | replace: part, replaced
+          break
+        endif
+      endfor
+    endif
+  endif
+%}
+
+{% if show_block %}
+  <link rel="stylesheet" href="{{ 'component-pagination.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'component-pagination.css' | asset_url | stylesheet_tag }}</noscript>
+
+  <div class="pagination-wrapper">
+    <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+      <ul class="pagination__list list-unstyled" role="list">
+        <li></li>
+        <li>
+          <ul class="inner-ul pagination__list list-unstyled">
+            {% if paged >= 2 %}
+              {% assign minus_paged = paged | minus: 1 %}
+              {% if minus_paged <= 1 %}
+                {% assign new_paged = '' %}
+              {% else %}
+                {% assign new_paged = 'page=' | append: minus_paged %}
+              {% endif %}
+
+              {% assign url = new_url | replace: 'page={paged}', new_paged | replace: '&&', '&' | replace: '?&', '?' | strip %}
+
+              {% assign last_char = url | slice: -1 %}
+              {% if last_char == '?' or last_char == '&' %}
+                {% assign temp_url = url %}
+                {% assign temp_url_size = temp_url.size | minus: 1 %}
+                {% assign url = temp_url | slice: 0, temp_url_size %}
+              {% endif %}
+            {% endif %}
+
+            {% assign start_index = paged | minus: 2 %}
+            {% if start_index <= 1 %}
+              {% assign start_index = 1 %}
+            {% endif %}
+
+            {% assign end_index = paged | plus: 2 %}
+            {% if end_index >= total_pages %}
+              {% assign end_index = total_pages %}
+            {% endif %}
+
+            {% if paged == 1 %}
+              {% assign end_index = end_index | plus: 2 %}
+            {% elsif paged == 2 %}
+              {% assign end_index = end_index | plus: 1 %}
+            {% endif %}
+
+            {% if end_index >= total_pages %}
+              {% assign end_index = total_pages %}
+            {% endif %}
+
+            {% assign diff = end_index | minus: start_index %}
+
+            {% if diff == 3 and total_pages > 5 %}
+              {% assign start_index = start_index | minus: 1 %}
+            {% endif %}
+
+            {% if diff == 2 and total_pages > 5 %}
+              {% assign start_index = start_index | minus: 2 %}
+            {% endif %}
+
+            {% for i in (start_index..end_index) %}
+              <li>
+                {% if paged == i %}
+                  <span class="pagination__item pagination__item--current" aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: i }}">{{ i }}</span>
+                {% else %}
+                  {% if i == 1 %}
+                    {% assign new_paged = '' %}
+                  {% else %}
+                    {% assign new_paged = 'page=' | append: i %}
+                  {% endif %}
+
+                  {% assign url = new_url | replace: 'page={paged}', new_paged | replace: '&&', '&' | replace: '?&', '?' | strip %}
+
+                  {% assign last_char = url | slice: -1 %}
+                  {% if last_char == '?' or last_char == '&' %}
+                    {% assign temp_url = url %}
+                    {% assign temp_url_size = temp_url.size | minus: 1 %}
+                    {% assign url = temp_url | slice: 0, temp_url_size %}
+                  {% endif %}
+
+                  <a href="{{- url -}}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: i }}">{{ i }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li></li>
+      </ul>
+    </nav>
+  </div>
+{% endif %}

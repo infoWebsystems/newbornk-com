@@ -1,62 +1,66 @@
 {% assign gender_prefix = '' %}
 {% if collection.handle contains 'zhin' or collection.handle contains 'жіноч' or collection.handle contains 'women' %}
-    {% assign gender_prefix = 'women' %}
+  {% assign gender_prefix = 'women' %}
 {% elsif collection.handle contains 'cholo' or collection.handle contains 'чолов' or collection.handle contains 'men' %}
-    {% assign gender_prefix = 'men' %}
+  {% assign gender_prefix = 'men' %}
 {% endif %}
 
 {% assign is_accessory = false %}
 {% if product.tags contains 'Аксесуари' %}
-    {% assign is_accessory = true %}
+  {% assign is_accessory = true %}
 {% endif %}
 
 {% assign first_image = '' %}
 {% assign second_image = '' %}
 
 {% if is_accessory %}
-    {% assign first_image = product.media[0] %}
-    {% assign second_image = product.media[2] %}
-    {% if second_image == blank %}
-        {% assign second_image = first_image %}
-    {% endif %}
+  {% assign first_image = product.media[0] %}
+  {% assign second_image = product.media[2] %}
+  {% if second_image == blank %}
+    {% assign second_image = first_image %}
+  {% endif %}
 {% else %}
-    {% for media in product.media %}
-        {% assign alt = media.alt | escape %}
-        {% assign prefix = alt | split: '#@' | first | strip %}
+  {% for media in product.media %}
+    {% assign alt = media.alt | escape %}
+    {% assign prefix = alt | split: '#@' | first | strip %}
 
-        {% if gender_prefix != '' and prefix == gender_prefix %}
-            {% if first_image == '' %}
-                {% assign first_image = media %}
-            {% elsif second_image == '' %}
-                {% assign second_image = media %}
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-
-    {% if first_image == '' and second_image == '' %}
-        {% assign first_image = product.media[0] %}
-        {% assign second_image = product.media[1] %}
-    {% elsif first_image != '' and second_image == '' %}
-        {% assign second_image = first_image %}
+    {% if gender_prefix != '' and prefix == gender_prefix %}
+      {% if first_image == '' %}
+        {% assign first_image = media %}
+      {% elsif second_image == '' %}
+        {% assign second_image = media %}
+      {% endif %}
     {% endif %}
+  {% endfor %}
+
+  {% if first_image == '' and second_image == '' %}
+    {% assign first_image = product.media[0] %}
+    {% assign second_image = product.media[1] %}
+  {% elsif first_image != '' and second_image == '' %}
+    {% assign second_image = first_image %}
+  {% endif %}
 {% endif %}
 
 {% if first_image != blank %}
-    <img
-            src="{{ first_image | img_url: '533x' }}"
-            alt="{{ first_image.alt | escape }}"
-            {% if loop_index == blank or loop_index > 2 %} loading="lazy"{% else %} loading="eager" fetchpriority="high" {% endif %}
-            width="{{ first_image.width }}"
-            height="{{ first_image.height }}"
-    >
+  <img
+    src="{{ first_image | img_url: '533x' }}"
+    alt="{{ first_image.alt | escape }}"
+    {% if loop_index == blank or loop_index > 2 %}
+      loading="lazy"
+    {% else %}
+      loading="eager" fetchpriority="high"
+    {% endif %}
+    width="{{ first_image.width }}"
+    height="{{ first_image.height }}"
+  >
 {% endif %}
 
 {% if second_image != blank and show_secondary_image %}
-    <img
-            src="{{ second_image | img_url: '533x' }}"
-            alt="{{ second_image.alt | escape }}"
-            loading="lazy"
-            width="{{ second_image.width }}"
-            height="{{ second_image.height }}"
-    >
+  <img
+    src="{{ second_image | img_url: '533x' }}"
+    alt="{{ second_image.alt | escape }}"
+    loading="lazy"
+    width="{{ second_image.width }}"
+    height="{{ second_image.height }}"
+  >
 {% endif %}
