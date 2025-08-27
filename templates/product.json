@@ -141,9 +141,11 @@
     },
     "recommnded_products_6nWBpp": {
       "type": "recommnded-products",
+      "disabled": true,
       "settings": {
         "title": "Рекомендовані товари",
         "collection": "",
+        "use_metafield": true,
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
         "show_view_all": true,
@@ -158,6 +160,7 @@
     },
     "16323088197825d104": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ",
         "show_text": true,
@@ -180,6 +183,7 @@
       "settings": {
         "title": "Рекомендовані продукти",
         "collection": "",
+        "use_metafield": true,
         "products_to_show": 6,
         "products_to_show_mobile": 1.5,
         "show_view_all": false,
@@ -212,9 +216,11 @@
     },
     "product-recommendations": {
       "type": "product-recommendations",
-      "disabled": true,
       "settings": {
         "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.5,
+        "swipe_on_mobile": false,
         "image_ratio": "adapt",
         "show_secondary_image": true,
         "add_image_padding": true,
