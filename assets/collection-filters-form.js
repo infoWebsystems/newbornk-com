@@ -1,3 +1,46 @@
+function getFilterValues(filterName) {
+  const params = new URLSearchParams(window.location.search);
+  return params.getAll(filterName);
+}
+
+function scrollTo(el = null, h = 0) {
+  if (!el) return;
+
+  const y = el.getBoundingClientRect().top + window.scrollY - h;
+
+  window.scroll({
+    top: y,
+    behavior: "smooth",
+  });
+}
+
+function hideProductsByFilter(selector) {
+  const sizes = getFilterValues("filter.v.option.size");
+
+  if (!sizes.length) return;
+
+  document.querySelectorAll(selector).forEach((el) => {
+    const variants = JSON.parse(el.getAttribute("data-variants") || "[]");
+
+    // Считаем, сколько вариантов соответствуют фильтрам
+    let real_count = 0;
+
+    variants.forEach((v) => {
+      // Проверяем: есть ли текущий вариант в выбранных фильтрах
+      const matchesFilter = sizes.some(size => v.title === size);
+
+      if (matchesFilter && v.available && v.inventory_quantity > 0) {
+        real_count += 1;
+      }
+    });
+
+    if (real_count === 0) {
+      el.style.display = "none";
+    }
+  });
+}
+this.hideProductsByFilter("#main-collection-product-grid .grid__item");
+
 class CollectionFiltersForm extends HTMLElement {
   constructor() {
     super();
@@ -8,15 +51,15 @@ class CollectionFiltersForm extends HTMLElement {
       this.onSubmitHandler(event);
     }, 500);
 
-    this.querySelector('form').addEventListener('input', this.debouncedOnSubmit.bind(this));
-    window.addEventListener('popstate', this.onHistoryChange.bind(this));
+    this.querySelector("form").addEventListener("input", this.debouncedOnSubmit.bind(this));
+    window.addEventListener("popstate", this.onHistoryChange.bind(this));
 
     this.bindActiveFacetButtonEvents();
   }
 
   onSubmitHandler(event) {
     event.preventDefault();
-    const formData = new FormData(event.target.closest('form'));
+    const formData = new FormData(event.target.closest("form"));
     const searchParams = new URLSearchParams(formData).toString();
     this.renderPage(searchParams, event);
   }
@@ -28,27 +71,27 @@ class CollectionFiltersForm extends HTMLElement {
   }
 
   onHistoryChange(event) {
-    const searchParams = event.state?.searchParams || '';
+    const searchParams = event.state?.searchParams || "";
     this.renderPage(searchParams, null, false);
   }
 
   toggleActiveFacets(disable = true) {
-    document.querySelectorAll('.js-facet-remove').forEach((element) => {
-      element.classList.toggle('disabled', disable);
+    document.querySelectorAll(".js-facet-remove").forEach((element) => {
+      element.classList.toggle("disabled", disable);
     });
   }
 
   renderPage(searchParams, event, updateURLHash = true) {
     const sections = this.getSections();
-    document.getElementById('CollectionProductGrid').querySelector('.collection').classList.add('loading');
+    const container = document.getElementById("CollectionProductGrid").querySelector(".collection");
+    container.classList.add("loading");
+    scrollTo(container,150);
 
     sections.forEach((section) => {
       const url = `${window.location.pathname}?section_id=${section.section}&${searchParams}`;
-      const filterDataUrl = element => element.url === url;
+      const filterDataUrl = (element) => element.url === url;
 
-      this.filterData.some(filterDataUrl) ?
-        this.renderSectionFromCache(filterDataUrl, section, event) :
-        this.renderSectionFromFetch(url, section, event);
+      this.filterData.some(filterDataUrl) ? this.renderSectionFromCache(filterDataUrl, section, event) : this.renderSectionFromFetch(url, section, event);
     });
 
     if (updateURLHash) this.updateURLHash(searchParams);
@@ -56,7 +99,7 @@ class CollectionFiltersForm extends HTMLElement {
 
   renderSectionFromFetch(url, section, event) {
     fetch(url)
-      .then(response => response.text())
+      .then((response) => response.text())
       .then((responseText) => {
         const html = responseText;
         this.filterData = [...this.filterData, { html, url }];
@@ -64,6 +107,7 @@ class CollectionFiltersForm extends HTMLElement {
         this.renderProductGrid(html);
         window.initCardAddToCart();
         window.initFiterImgsPlp(true);
+        hideProductsByFilter("#main-collection-product-grid .grid__item");
       });
   }
 
@@ -74,20 +118,17 @@ class CollectionFiltersForm extends HTMLElement {
   }
 
   renderProductGrid(html) {
-    const innerHTML = new DOMParser()
-      .parseFromString(html, 'text/html')
-      .getElementById('CollectionProductGrid').innerHTML;
+    const innerHTML = new DOMParser().parseFromString(html, "text/html").getElementById("CollectionProductGrid").innerHTML;
 
-    document.getElementById('CollectionProductGrid').innerHTML = innerHTML;
+    document.getElementById("CollectionProductGrid").innerHTML = innerHTML;
   }
 
   renderFilters(html, event) {
-    const parsedHTML = new DOMParser().parseFromString(html, 'text/html');
+    const parsedHTML = new DOMParser().parseFromString(html, "text/html");
 
-    const facetDetailsElements =
-      parsedHTML.querySelectorAll('#CollectionFiltersForm .js-filter, #CollectionFiltersFormMobile .js-filter');
-    const matchesIndex = (element) => element.dataset.index === event?.target.closest('.js-filter')?.dataset.index
-    const facetsToRender = Array.from(facetDetailsElements).filter(element => !matchesIndex(element));
+    const facetDetailsElements = parsedHTML.querySelectorAll("#CollectionFiltersForm .js-filter, #CollectionFiltersFormMobile .js-filter");
+    const matchesIndex = (element) => element.dataset.index === event?.target.closest(".js-filter")?.dataset.index;
+    const facetsToRender = Array.from(facetDetailsElements).filter((element) => !matchesIndex(element));
     const countsToRender = Array.from(facetDetailsElements).find(matchesIndex);
 
     facetsToRender.forEach((element) => {
@@ -97,34 +138,34 @@ class CollectionFiltersForm extends HTMLElement {
     this.renderActiveFacets(parsedHTML);
     this.renderMobileElements(parsedHTML);
 
-    if (countsToRender) this.renderCounts(countsToRender, event.target.closest('.js-filter'));
+    if (countsToRender) this.renderCounts(countsToRender, event.target.closest(".js-filter"));
   }
 
   renderActiveFacets(html) {
-    const activeFacetElementSelectors = ['.active-facets-mobile', '.active-facets-desktop'];
+    const activeFacetElementSelectors = [".active-facets-mobile", ".active-facets-desktop"];
 
     activeFacetElementSelectors.forEach((selector) => {
       const activeFacetsElement = html.querySelector(selector);
       if (!activeFacetsElement) return;
       document.querySelector(selector).innerHTML = activeFacetsElement.innerHTML;
-    })
+    });
 
     this.bindActiveFacetButtonEvents();
     this.toggleActiveFacets(false);
   }
 
   renderMobileElements(html) {
-    const mobileElementSelectors = ['.mobile-facets__open', '.mobile-facets__count'];
+    const mobileElementSelectors = [".mobile-facets__open", ".mobile-facets__count"];
 
     mobileElementSelectors.forEach((selector) => {
       document.querySelector(selector).innerHTML = html.querySelector(selector).innerHTML;
     });
 
-    document.getElementById('CollectionFiltersFormMobile').closest('menu-drawer').bindEvents();
+    document.getElementById("CollectionFiltersFormMobile").closest("menu-drawer").bindEvents();
   }
 
   renderCounts(source, target) {
-    const countElementSelectors = ['.count-bubble','.facets__selected'];
+    const countElementSelectors = [".count-bubble", ".facets__selected"];
     countElementSelectors.forEach((selector) => {
       const targetElement = target.querySelector(selector);
       const sourceElement = source.querySelector(selector);
@@ -136,32 +177,31 @@ class CollectionFiltersForm extends HTMLElement {
   }
 
   bindActiveFacetButtonEvents() {
-    document.querySelectorAll('.js-facet-remove').forEach((element) => {
-      element.addEventListener('click', this.onActiveFilterClick, { once: true });
+    document.querySelectorAll(".js-facet-remove").forEach((element) => {
+      element.addEventListener("click", this.onActiveFilterClick, { once: true });
     });
   }
 
   updateURLHash(searchParams) {
-    history.pushState({ searchParams }, '', `${window.location.pathname}${searchParams && '?'.concat(searchParams)}`);
+    history.pushState({ searchParams }, "", `${window.location.pathname}${searchParams && "?".concat(searchParams)}`);
   }
 
   getSections() {
     return [
       {
-        id: 'main-collection-product-grid',
-        section: document.getElementById('main-collection-product-grid').dataset.id,
-      }
-    ]
+        id: "main-collection-product-grid",
+        section: document.getElementById("main-collection-product-grid").dataset.id,
+      },
+    ];
   }
 }
 
-customElements.define('collection-filters-form', CollectionFiltersForm);
+customElements.define("collection-filters-form", CollectionFiltersForm);
 
 class PriceRange extends HTMLElement {
   constructor() {
     super();
-    this.querySelectorAll('input')
-      .forEach(element => element.addEventListener('change', this.onRangeChange.bind(this)));
+    this.querySelectorAll("input").forEach((element) => element.addEventListener("change", this.onRangeChange.bind(this)));
 
     this.setMinAndMaxValues();
   }
@@ -172,23 +212,23 @@ class PriceRange extends HTMLElement {
   }
 
   setMinAndMaxValues() {
-    const inputs = this.querySelectorAll('input');
+    const inputs = this.querySelectorAll("input");
     const minInput = inputs[0];
     const maxInput = inputs[1];
-    if (maxInput.value) minInput.setAttribute('max', maxInput.value);
-    if (minInput.value) maxInput.setAttribute('min', minInput.value);
-    if (minInput.value === '') maxInput.setAttribute('min', 0);
-    if (maxInput.value === '') minInput.setAttribute('max', maxInput.getAttribute('max'));
+    if (maxInput.value) minInput.setAttribute("max", maxInput.value);
+    if (minInput.value) maxInput.setAttribute("min", minInput.value);
+    if (minInput.value === "") maxInput.setAttribute("min", 0);
+    if (maxInput.value === "") minInput.setAttribute("max", maxInput.getAttribute("max"));
   }
 
   adjustToValidValues(input) {
     const value = Number(input.value);
-    const min = Number(input.getAttribute('min'));
-    const max = Number(input.getAttribute('max'));
+    const min = Number(input.getAttribute("min"));
+    const max = Number(input.getAttribute("max"));
 
     if (value < min) input.value = min;
     if (value > max) input.value = max;
   }
 }
 
-customElements.define('price-range', PriceRange);
+customElements.define("price-range", PriceRange);
