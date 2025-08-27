@@ -218,12 +218,12 @@
       "type": "product-recommendations",
       "settings": {
         "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
-        "products_to_show": 6.5,
+        "products_to_show": 6,
         "products_to_show_mobile": 1.5,
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "image_ratio": "adapt",
         "show_secondary_image": true,
-        "add_image_padding": true,
+        "add_image_padding": false,
         "show_vendor": true
       }
     },
