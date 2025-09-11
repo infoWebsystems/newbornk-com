@@ -30,7 +30,7 @@
 
   {%- assign show = true -%}
 
-  {% comment %} {%- if metafield.size_quide.value -%}
+  {%- if metafield.size_quide.value -%}
     <modal-opener class="size-modal-link product-popup-modal__opener no-js-hidden" data-modal="#PopupModal-sizeQuide">
       <button id="ProductPopup-sizeQuide" class="product-popup-modal__button link sizeGuide__button" type="button" aria-haspopup="dialog">
         {{ 'products.product.size_guide' | t: vendor: product.vendor }}
@@ -67,7 +67,7 @@
     {% unless DEBUG %}
       {%- assign show = false -%}
     {% endunless %}
-  {%- endif -%}  {% endcomment %}
+  {%- endif -%} 
 
   {%- if show -%}
 
@@ -75,11 +75,11 @@
       <div class="product__accordion accordion">
         <details>
           <summary>
-            <div class="summary__title">
+            {% comment %} <div class="summary__title">
               <h2 class="h4 accordion__title">
                 {{ 'products.product.size_guide' | t: vendor: product.vendor }}
               </h2>
-            </div>
+            </div> {% endcomment %}
             {% render 'icon-caret' %}
           </summary>
           <div class="accordion__content rte">
