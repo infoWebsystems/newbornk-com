@@ -30,7 +30,7 @@
 
   {%- assign show = true -%}
 
-  {%- if metafield.size_quide.value -%}
+  {% comment %} {%- if metafield.size_quide.value -%}
     <modal-opener class="size-modal-link product-popup-modal__opener no-js-hidden" data-modal="#PopupModal-sizeQuide">
       <button id="ProductPopup-sizeQuide" class="product-popup-modal__button link sizeGuide__button" type="button" aria-haspopup="dialog">
         {{ 'products.product.size_guide' | t: vendor: product.vendor }}
@@ -67,7 +67,7 @@
     {% unless DEBUG %}
       {%- assign show = false -%}
     {% endunless %}
-  {%- endif -%}
+  {%- endif -%} {% endcomment %}
 
   {%- if show -%}
 
