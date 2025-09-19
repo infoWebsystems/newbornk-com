@@ -15,8 +15,8 @@
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/bannerdesktop_ukr.png",
-            "image_phone": "shopify://shop_images/bannermobile_ukr.png",
+            "image": "shopify://shop_images/bannerdesktop_ukr_1.webp",
+            "image_phone": "shopify://shop_images/bannermobile_ukr_1.webp",
             "banner_link": "shopify://collections/sale",
             "language": ""
           }
@@ -24,8 +24,8 @@
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/K_H.png",
-            "image_phone": "shopify://shop_images/K_V.png",
+            "image": "shopify://shop_images/K_H_1.webp",
+            "image_phone": "shopify://shop_images/K_V_1.webp",
             "banner_link": "shopify://collections/sale-bestsellers",
             "language": "UK"
           }
