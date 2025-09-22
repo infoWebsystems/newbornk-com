@@ -106,7 +106,6 @@ class CollectionFiltersForm extends HTMLElement {
         this.renderFilters(html, event);
         this.renderProductGrid(html);
         window.initCardAddToCart();
-        window.initFiterImgsPlp(true);
         hideProductsByFilter("#main-collection-product-grid .grid__item");
       });
   }
