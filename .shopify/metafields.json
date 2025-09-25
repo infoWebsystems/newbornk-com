@@ -1,6 +1,7 @@
 {
   "article": [],
   "blog": [],
+  "brand": [],
   "collection": [
     {
       "key": "collection_gender_women",
@@ -645,6 +646,186 @@
       "namespace": "shopify",
       "name": "Intimate apparel features",
       "description": "Describes special characteristics of intimate apparel, like breathable design or comfort fit",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "genre",
+      "namespace": "shopify",
+      "name": "Genre",
+      "description": "Classifies the category or style of media, such as horror or fantasy",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "target-audience",
+      "namespace": "shopify",
+      "name": "Target audience",
+      "description": "Specifies who a product is suitable for, such as kids or all ages",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "book-cover-type",
+      "namespace": "shopify",
+      "name": "Book cover type",
+      "description": "Identifies the type of cover on a book, such as hardcover or paperback",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "earring-design",
+      "namespace": "shopify",
+      "name": "Earring design",
+      "description": "Describes the style or structure of earrings, such as hoop or stud",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "ring-size",
+      "namespace": "shopify",
+      "name": "Ring size",
+      "description": "Specifies the size of a ring, such as L or 6.5",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "ring-design",
+      "namespace": "shopify",
+      "name": "Ring design",
+      "description": "Describes the style of a ring, such as band or solitaire",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "shoe-size",
+      "namespace": "shopify",
+      "name": "Shoe size",
+      "description": "Used to define the size of footwear, e.g. Extra large (XL), 9.5",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "heel-height-type",
+      "namespace": "shopify",
+      "name": "Heel height type",
+      "description": "Defines the height of a shoe's heel, such as flat or high",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "occasion-style",
+      "namespace": "shopify",
+      "name": "Occasion style",
+      "description": "Helps categorize products based on occasion, e.g. casual, dress",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "lens-polarization",
+      "namespace": "shopify",
+      "name": "Lens polarization",
+      "description": "Indicates the type of lens polarization in eyewear, e.g. photo polarized",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "swimwear-features",
+      "namespace": "shopify",
+      "name": "Swimwear features",
+      "description": "Identifies special characteristics of swimwear, like quick drying or UPF sun protection",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "detailed-ingredients",
+      "namespace": "shopify",
+      "name": "Detailed ingredients",
+      "description": "Lists specific components used in health and beauty, e.g. Vitamin C, probiotics",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "handwear-features",
+      "namespace": "shopify",
+      "name": "Handwear features",
+      "description": "Describes special features of gloves or mittens, like adjustable closure or enhanced grip",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "handwear-type",
+      "namespace": "shopify",
+      "name": "Handwear type",
+      "description": "Classifies the type of handwear, e.g. fingerless gloves, snow gloves",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "shape",
+      "namespace": "shopify",
+      "name": "Shape",
+      "description": "Describes the geometric form or shape of a product, such as round or heart",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "language-version",
+      "namespace": "shopify",
+      "name": "Language version",
+      "description": "Specifies the language version of a media product, such as ENG-US or ARA- Arabic",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "cbd-ingredients",
+      "namespace": "shopify",
+      "name": "CBD ingredients",
+      "description": "Identifies the specific CBD-related components in a product, like full-spectrum CBD or sweeteners",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "one-piece-style",
+      "namespace": "shopify",
+      "name": "One-piece style",
+      "description": "Identifies the specific style of a one-piece garment, like a jumpsuit or romper",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
