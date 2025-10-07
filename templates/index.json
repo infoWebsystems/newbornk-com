@@ -293,7 +293,9 @@
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "color_scheme": "background-1",
-        "full_width": true
+        "full_width": true,
+        "max_width": 1020,
+        "alignment": "left"
       }
     }
   },
