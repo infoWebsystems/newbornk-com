@@ -3,17 +3,59 @@
 
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+{% liquid
+  assign align = ''
 
-<div class="rich-text{% if section.settings.full_width %} rich-text--full-width{% endif %} color-{{ section.settings.color_scheme }}">
+  if section.settings.alignment != 'center'
+    assign align = ' align--' | append: section.settings.alignment
+  endif
+%}
+
+<style>
+  {% if section.settings.max_width !=  blank %}
+  #{{ section.id }} .rich-text__blocks{max-width: {{ section.settings.max_width }}px!important;width:auto;}
+  {% endif %}
+  #{{ section.id }}.align--left{text-align:left;}
+  #{{ section.id }}.align--center{text-align:center;}
+  #{{ section.id }}.align--right{text-align:right;}
+  #{{ section.id }} .less{
+      display: -webkit-box;
+      display: -moz-box;
+      overflow: hidden;
+      -moz-box-orient: vertical;
+      -webkit-line-clamp: 10;
+      line-clamp: 10;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      box-orient: vertical;
+    }
+    @media screen and (max-width: 768px) {
+      #{{ section.id }} .less{
+        -webkit-line-clamp: 10;
+        line-clamp: 10;
+      }
+    }
+</style>
+
+<div id="{{ section.id }}" class="rich-text{% if section.settings.full_width %} rich-text--full-width{% endif %} color-{{ section.settings.color_scheme }}{{ align }}">
   <div class="rich-text__blocks">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'heading' -%}
           <h2 class="{% if block.settings.heading_size == 'small' %}h2{% else %}h1{% endif %}">{{ block.settings.heading | escape }}</h2>
         {%- when 'text' -%}
-          <div class="rich-text__text rte">{{ block.settings.text }}</div>
+          <div class="rich-text__text rte less" data-lines="10" data-lines-mob="10">{{ block.settings.text }}</div>
         {%- when 'button' -%}
-          <a{% if block.settings.button_link == blank %} aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label | escape }}</a>
+          <a
+            {% if block.settings.button_link == blank %}
+              aria-disabled="true"
+            {% else %}
+              href="{{ block.settings.button_link }}"
+            {% endif %}
+            class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+          >
+            {{ block.settings.button_label | escape }}
+          </a>
       {%- endcase -%}
     {%- endfor -%}
   </div>
@@ -58,6 +100,21 @@
       "id": "full_width",
       "default": true,
       "label": "t:sections.rich-text.settings.full_width.label"
+    },
+    {
+      "type": "range",
+      "label": "Max Width",
+      "id": "max_width",
+      "min": 800,
+      "max": 1440,
+      "default": 800,
+      "step": 20
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Text alignment",
+      "default": "center"
     }
   ],
   "blocks": [

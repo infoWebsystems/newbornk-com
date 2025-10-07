@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
   function initShowMoreText() {
-    const descriptionBlock = document.querySelectorAll(".collection-hero__description");
+    const descriptionBlock = document.querySelectorAll(".collection-hero__description, .less");
     if (!descriptionBlock.length) return;
 
     function show_more(selector = null) {
