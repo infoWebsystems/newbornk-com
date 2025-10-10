@@ -63,4 +63,16 @@
     width="{{ second_image.width }}"
     height="{{ second_image.height }}"
   >
+
+  {% for product_media in product.media %}
+    {% if forloop.index0 != 0 and forloop.index0 != 2 %}
+      <img
+        src="{{ product_media | img_url: '533x' }}"
+        alt="{{ product_media.alt | escape }}"
+        loading="lazy"
+        width="{{ product_media.width }}"
+        height="{{ product_media.height }}"
+      >
+    {% endif %}
+  {% endfor %}
 {% endif %}
