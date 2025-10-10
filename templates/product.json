@@ -105,7 +105,7 @@
         },
         "c1df5e55-1f87-4887-9282-ab39f4ff2c07": {
           "type": "collapsible_tab",
-          "disabled": true,
+          "disabled": false,
           "settings": {
             "heading": "РОЗМІРНА СІТКА",
             "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}</p>",
