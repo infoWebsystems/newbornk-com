@@ -18,10 +18,11 @@
 {% assign url_product = product_card_product.url | remove: routes.root_url %}
 {% assign url_collection = collection.url %}
 {% assign url = product_card_product.url | default: '#' %}
+{% assign collection_gender = collection.metafields.custom.gender %}
 
 <div class="card-wrapper">
   <a
-    href="{{ url }}{% if template == 'collection' or template == 'collection.default-outlet' %}{% if url contains '?' %}&{% else %}?{% endif %}url={{ url_collection }}&title={{ collection.title }}{% endif %}"
+    href="{{ url }}{% if template == 'collection' or template == 'collection.default-outlet' %}{% if url contains '?' %}&{% else %}?{% endif %}url={{ url_collection }}&title={{ collection.title }}{% if collection_gender != blank %}&gender={{ collection_gender }}{% endif %}{% endif %}"
     class="full-unstyled-link"
   >
     <span class="visually-hidden">{{ product_card_product.title | escape }}</span>

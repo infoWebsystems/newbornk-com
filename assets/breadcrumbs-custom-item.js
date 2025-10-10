@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const url = urlParams.get("url");
     const title = urlParams.get("title");
+    const gender = urlParams.get("gender");
 
     if (url && title) {
         const breadcrumbsList = document.querySelector(".breadcrumbs__list");
@@ -32,5 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 jsonLDElement.textContent = JSON.stringify(jsonData, null, 2);
             }
         }
+    }
+
+    if (gender) {
+        localStorage.setItem('visited_gender', gender);
     }
 });

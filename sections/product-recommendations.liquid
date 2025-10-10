@@ -99,6 +99,18 @@
         html.innerHTML = text;
 
         const recommendations = html.querySelector('product-recommendations');
+        const recommendationsImagesWrap = recommendations.querySelectorAll('.swiper-slide .card__inner .media');
+        const gender = localStorage.getItem('visited_gender');
+
+        recommendationsImagesWrap.forEach(wrapper => {
+          const images = wrapper.querySelectorAll('img');
+
+          images.forEach(img => {
+            if (img.alt.startsWith('women#@') && gender == 'women') {
+              wrapper.prepend(img);
+            }
+          });
+        })
 
         if (recommendations && recommendations.innerHTML.trim().length) {
           this.innerHTML = recommendations.innerHTML;
