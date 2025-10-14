@@ -910,6 +910,36 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
+    },
+    {
+      "key": "decoration-material",
+      "namespace": "shopify",
+      "name": "Decoration material",
+      "description": "Identifies the material used for decoration, such as sequins or feathers",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "scarf-shawl-style",
+      "namespace": "shopify",
+      "name": "Scarf/Shawl style",
+      "description": "Identifies the style of scarves and shawls, e.g. blanket, wrap",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "mount-stand-features",
+      "namespace": "shopify",
+      "name": "Mount/Stand features",
+      "description": "Details the specific characteristics of a product's mount or stand, like adjustable angle or foldable",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [

@@ -1,3 +1,9 @@
+{% assign is_recommendations_section = false %}
+
+{% if is_recommendations %}
+  {% assign is_recommendations_section = true %}
+{% endif %}
+
 {% assign gender_prefix = '' %}
 {% if collection.handle contains 'zhin' or collection.handle contains 'жіноч' or collection.handle contains 'women' %}
   {% assign gender_prefix = 'women' %}
@@ -64,15 +70,17 @@
     height="{{ second_image.height }}"
   >
 
-  {% for product_media in product.media %}
-    {% if forloop.index0 != 0 and forloop.index0 != 2 %}
-      <img
-        src="{{ product_media | img_url: '533x' }}"
-        alt="{{ product_media.alt | escape }}"
-        loading="lazy"
-        width="{{ product_media.width }}"
-        height="{{ product_media.height }}"
-      >
-    {% endif %}
-  {% endfor %}
+  {% if template.name == 'product' or is_recommendations_section %}
+    {% for product_media in product.media %}
+      {% if forloop.index0 > 2 %}
+        <img
+          src="{{ product_media | img_url: '533x' }}"
+          alt="{{ product_media.alt | escape }}"
+          loading="lazy"
+          width="{{ product_media.width }}"
+          height="{{ product_media.height }}"
+        >
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 {% endif %}
