@@ -196,19 +196,6 @@
         "brand_collection": true
       }
     },
-    "product-recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
-        "products_to_show": 6,
-        "products_to_show_mobile": 1.5,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true
-      }
-    },
     "1627050417092b6041": {
       "type": "featured-collection-slider",
       "settings": {
@@ -225,6 +212,19 @@
         "show_vendor": true,
         "show_arrow": true,
         "brand_collection": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "ВАМ МОЖЕ СПОДОБАТИСЬ",
+        "products_to_show": 6,
+        "products_to_show_mobile": 1.5,
+        "swipe_on_mobile": true,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true
       }
     },
     "recommendation_slider_YPywew": {

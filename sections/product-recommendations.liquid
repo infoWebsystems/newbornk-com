@@ -29,7 +29,8 @@
                 show_secondary_image: section.settings.show_secondary_image,
                 add_image_padding: section.settings.add_image_padding,
                 show_vendor: section.settings.show_vendor,
-                show_info: true
+                show_info: true,
+                is_recommendations: true
               %}
             </li>
           {%- endfor -%}
@@ -98,7 +99,40 @@
 
         html.innerHTML = text;
 
+        function swapImages (section) {
+          const imagesWrapper = section.querySelectorAll('.swiper-slide .card__inner .media');
+
+          imagesWrapper.forEach(wrapper => {
+            const images = [...wrapper.querySelectorAll('img')];
+
+            let resultImages;
+
+            if (gender) {
+              resultImages = images.sort((a, b) => {
+                const aIs = a.alt.startsWith(`${gender}#@`);
+                const bIs = b.alt.startsWith(`${gender}#@`);
+                if (aIs && !bIs) return -1;
+                if (!aIs && bIs) return 1;
+                return 0;
+              });
+            } else {
+              resultImages = images;
+            }
+
+            wrapper.innerHTML = '';
+            resultImages.slice(0, 2).forEach(img => {
+              wrapper.appendChild(img);
+            });
+          });
+        }
+
         const recommendations = html.querySelector('product-recommendations');
+        const featuredSection = document.querySelector('section.collection-slider:not([id*="product-recommendations"])');
+
+        const gender = localStorage.getItem('visited_gender');
+
+        swapImages(recommendations);
+        swapImages(featuredSection);
 
         if (recommendations && recommendations.innerHTML.trim().length) {
           this.innerHTML = recommendations.innerHTML;
