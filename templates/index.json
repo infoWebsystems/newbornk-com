@@ -12,6 +12,15 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "slide_7qGUkq": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/HELIOT_HORIZ.jpg",
+            "image_phone": "shopify://shop_images/HELIOT_VERT.jpg",
+            "banner_link": "shopify://collections/heliot-emil",
+            "language": ""
+          }
+        },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
           "settings": {
@@ -19,15 +28,6 @@
             "image_phone": "shopify://shop_images/ukr_mobile.webp",
             "banner_link": "shopify://collections/novi-nadkhodzhennia",
             "language": "UK"
-          }
-        },
-        "slide_7qGUkq": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/bannerdesktop_ukr_1.webp",
-            "image_phone": "shopify://shop_images/bannermobile_ukr_1.webp",
-            "banner_link": "shopify://collections/sale",
-            "language": ""
           }
         },
         "slide_wHpNAY": {
@@ -79,8 +79,8 @@
         }
       },
       "block_order": [
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "slide_7qGUkq",
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "slide_wHpNAY",
         "slide_TyEeBH",
         "slide_BHnyDT",
