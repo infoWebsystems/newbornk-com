@@ -210,6 +210,11 @@
         "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
         "disabled": true,
         "settings": {}
+      },
+      "8171638733228588981": {
+        "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
