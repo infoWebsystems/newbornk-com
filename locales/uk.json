@@ -89,8 +89,8 @@
     "SEO": {
       "collection_title": "Брендові {{title}} - купити в Києві | NEWBORN K",
       "collection_brand_title": "{{title}} купити в Києві та Україні | NEWBORN K",
-      "collection_description": "Купити брендові {{title}} в інтернет-магазині【NEWBORN K】⏩ 100% оригінал та відмінна якість від топових виробників \uD83D\uDCE6 Швидка доставка по Києву та Україні \uD83D\uDCAB Замовляйте вже зараз",
-      "collection_brand_description": "Купити одяг бренду {{title}} в інтернет-магазині 【NEWBORN K】⏩ Досконала якість і 100% оригінал ⏩ Широкий асортимент за доступною ціною \uD83D\uDCE6 Швидка доставка по Києву та Україні, безкоштовна від 5000 грн. \uD83D\uDCAB"
+      "collection_description": "Купити брендові {{title}} в інтернет-магазині【NEWBORN K】⏩ 100% оригінал та відмінна якість від топових виробників 📦 Швидка доставка по Києву та Україні 💫 Замовляйте вже зараз",
+      "collection_brand_description": "Купити одяг бренду {{title}} в інтернет-магазині 【NEWBORN K】⏩ Досконала якість і 100% оригінал ⏩ Широкий асортимент за доступною ціною 📦 Швидка доставка по Києву та Україні, безкоштовна від 5000 грн. 💫"
     },
     "read_more": "Читати більше",
     "read_less": "Згорнути",
@@ -115,15 +115,15 @@
         "share_on_pinterest": ""
       },
       "links": {
-        "twitter": "",
-        "facebook": "",
-        "pinterest": "",
-        "instagram": "",
-        "tumblr": "",
-        "snapchat": "",
-        "youtube": "",
-        "vimeo": "",
-        "tiktok": ""
+        "twitter": "Twitter",
+        "facebook": "Facebook",
+        "pinterest": "Pinterest",
+        "instagram": "Instagram",
+        "tumblr": "Tumblr",
+        "snapchat": "Snapchat",
+        "youtube": "Youtube",
+        "vimeo": "Vimeo",
+        "tiktok": "Tiktok"
       }
     },
     "continue_shopping": "Продовжити покупки",
@@ -148,7 +148,7 @@
     }
   },
   "date_formats": {
-    "month_year": ""
+    "month_year": "%B %Y"
   },
   "newsletter": {
     "label": "Електронна пошта",
@@ -200,7 +200,7 @@
   "products": {
     "product": {
       "title_sku": "Код товару: {{number}}",
-      "outlet_pickup_text": "\uD83D\uDCCD Товар доступний для самовивозу на наступний день після замовлення",
+      "outlet_pickup_text": "📍 Товар доступний для самовивозу на наступний день після замовлення",
       "photo": "Фото",
       "size_guide": "Розмірна сітка {{ vendor }}",
       "cart": "Перейти в кошик",
