@@ -12,6 +12,15 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "slide_mhh3dU": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/BF_K_HORIZ.png",
+            "image_phone": "shopify://shop_images/BF_K_VERT.png",
+            "banner_link": "shopify://collections/black-week-2025",
+            "language": "UK"
+          }
+        },
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
@@ -79,6 +88,7 @@
         }
       },
       "block_order": [
+        "slide_mhh3dU",
         "slide_7qGUkq",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "slide_wHpNAY",
