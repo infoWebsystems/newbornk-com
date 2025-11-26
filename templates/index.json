@@ -32,6 +32,7 @@
         },
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/ukr_desktop.webp",
             "image_phone": "shopify://shop_images/ukr_mobile.webp",
