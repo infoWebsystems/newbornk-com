@@ -301,6 +301,25 @@
         "show_arrow": true
       }
     },
+    "featured_collection_slider_eKMVrY": {
+      "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "settings": {
+        "title": "Джерсі",
+        "show_text": false,
+        "collection": "new-choloviche-polo",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "show_arrow": false,
+        "brand_collection": false
+      }
+    },
     "custom_liquid_tBx87F": {
       "type": "custom-liquid",
       "settings": {
@@ -341,6 +360,7 @@
     "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
+    "featured_collection_slider_eKMVrY",
     "custom_liquid_tBx87F",
     "rich_text_bYNzLt"
   ]
