@@ -142,6 +142,25 @@
         "brand_collection": false
       }
     },
+    "featured_collection_slider_tfqQpj": {
+      "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "settings": {
+        "title": "Верхній одяг",
+        "show_text": false,
+        "collection": "kurtky",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "show_arrow": false,
+        "brand_collection": false
+      }
+    },
     "1626416534da40dc37": {
       "type": "collection-list",
       "blocks": {
@@ -315,6 +334,7 @@
     "buttons_Aehtdg",
     "image_banner",
     "1626369903c393cced",
+    "featured_collection_slider_tfqQpj",
     "1626416534da40dc37",
     "1626416564a7b86704",
     "featured_collection_slider_XbArfi",
