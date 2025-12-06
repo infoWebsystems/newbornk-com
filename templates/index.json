@@ -14,11 +14,19 @@
       "blocks": {
         "slide_mhh3dU": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/BF_K_HORIZ.png",
-            "image_phone": "shopify://shop_images/BF_K_VERT.png",
-            "banner_link": "shopify://collections/sale",
+            "image": "shopify://shop_images/A-COLD_WALL_HORIZ.png",
+            "image_phone": "shopify://shop_images/A-COLD_WALL_VERT.png",
+            "banner_link": "shopify://collections/a-cold-wall",
+            "language": "UK"
+          }
+        },
+        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ukr_desktop.webp",
+            "image_phone": "shopify://shop_images/ukr_mobile.webp",
+            "banner_link": "shopify://collections/novi-nadkhodzhennia",
             "language": "UK"
           }
         },
@@ -29,15 +37,6 @@
             "image_phone": "shopify://shop_images/HELIOT_VERT.jpg",
             "banner_link": "shopify://collections/heliot-emil",
             "language": ""
-          }
-        },
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/ukr_desktop.webp",
-            "image_phone": "shopify://shop_images/ukr_mobile.webp",
-            "banner_link": "shopify://collections/novi-nadkhodzhennia",
-            "language": "UK"
           }
         },
         "slide_wHpNAY": {
@@ -90,8 +89,8 @@
       },
       "block_order": [
         "slide_mhh3dU",
-        "slide_7qGUkq",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
+        "slide_7qGUkq",
         "slide_wHpNAY",
         "slide_TyEeBH",
         "slide_BHnyDT",
