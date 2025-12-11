@@ -126,9 +126,9 @@
     "1626369903c393cced": {
       "type": "featured-collection-slider",
       "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
+        "title": "СВЯТКОВІ ЗНИЖКИ",
         "show_text": true,
-        "collection": "novi-nadkhodzhennia",
+        "collection": "christmas",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
