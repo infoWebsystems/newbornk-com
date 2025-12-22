@@ -265,7 +265,7 @@
             {%- endif -%} -->
           {%- when 'title' -%}
             <h1 class="product__title">
-              {{ product.title | escape }} {{ product.vendor }} {% if product.selected_or_first_available_variant.barcode != blank %}{{ product.selected_or_first_available_variant.barcode | prepend: '(' | append: ')' }}{% endif %}
+              {{ product.title | escape }}
             </h1>
             <p class="sku">
               {% if product.selected_or_first_available_variant.sku != blank %}{{ 'products.product.title_sku' | t: number: product.selected_or_first_available_variant.sku }}{% endif %}
