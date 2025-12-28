@@ -13,11 +13,14 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
+  .empty--collection .buttons-section{padding-top:0px;}
+  .empty--collection .facet-filters.sorting{display:none;}
   .collection-filter-sidebar #FacetsWrapperDesktop{padding-top:10px;position:relative;}
   .collection-filter-sidebar #FacetsWrapperDesktop::before{content:'';position:absolute;top: 0;left: 0;width: calc(100% - 25px); border-top: 1px solid #9f9f9f;}
    @media (max-width: 749px){
    .collection-filters .sidebar-menu .sidemenu-link{display:none;}
    .collection-hero {margin-bottom: 0;}
+   .empty--collection .facets-button__box{display:none;}
    }
   }
 </style>
@@ -570,11 +573,18 @@
 
       <div class="title-wrapper center">
         <h2 class="title title--primary">
+          {% if settings.collection_empty_text != blank %}
+            {{ settings.collection_empty_text }}
+          {% else %}
           {{ 'sections.collection_template.empty' | t }}
           <br>
           {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: 'underlined-link link' }}
+          {% endif %}
         </h2>
       </div>
+
+      {% render 'collection-empty-slider' %}
+
     </div>
   {%- else -%}
     <div class="collection page-width">
@@ -699,9 +709,8 @@
 
   {% assign collection_description = collection.description %}
   {%- if section.settings.show_collection_description and show_collection_description and collection_description != blank -%}
-    <div class="collection-hero__text-wrapper">
-      <div class="collection-hero__title"></div>
-      <div class="collection-hero__description less rte" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
+    <div class="collection-hero__text-wrapper" style="width:100%;padding: 0 2.5rem;margin-top: 3rem;">
+      <div class="collection-hero__description less rte" style="max-width: 100%;" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
         {{ collection_description }}
       </div>
     </div>

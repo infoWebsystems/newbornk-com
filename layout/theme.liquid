@@ -1,23 +1,33 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>{% render 'spdn' %}
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MXSVV32');</script>
-<!-- End Google Tag Manager -->
+  <head>
+    {% render 'spdn' %}
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MXSVV32');
+    </script>
+    <!-- End Google Tag Manager -->
 
-{% render 'sn_preloads' %}
+    {% render 'sn_preloads' %}
+    {% render 'redirects-302' %}
 
-    <noscript
-      ><img
+    <noscript>
+      <img
         height="1"
         width="1"
         style="display:none"
         src="https://www.facebook.com/tr?id=589054764123473&ev=PageView&noscript=1"
-    ></noscript>
+      >
+    </noscript>
 
     <script>
       (function () {
@@ -127,7 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-48x48.png"
       sizes="48x48"
     >
-        
+
     {%- unless settings.type_header_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -230,8 +240,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {{ 'new.css' | asset_url | stylesheet_tag }}
     {{ 'size-chart.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' or request.page_type == 'product' or request.page_type == 'page' %}
-        <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
-        <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
+      <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
     {% endif %}
     {%- if settings.predictive_search_enabled -%}
       <link
@@ -246,34 +256,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         object-fit: contain !important;
       }
       @media screen and (min-width: 990px) {
-        .title, .title-wrapper-with-link {
+        .title,
+        .title-wrapper-with-link {
           margin: 5rem 0 3rem 0.6rem;
         }
-        .grid--4-col-desktop .grid__item{
+        .grid--4-col-desktop .grid__item {
           flex-grow: 0;
         }
       }
     </style>
     <style>
-            #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button {
-          background: #c7ec51 !important;
+      #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button {
+        background: #c7ec51 !important;
       }
-            #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes {
-          background: #c7ec51 !important;
+      #bingc-passive
+        div.bingc-passive-overlay
+        div.bingc-passive-content
+        div.bingc-passive-get-phone-form
+        form.bingc-passive-get-phone-form
+        div.bingc-passive-get-phone-form-date-selection
+        div.bingc-passive-date-selection-select-hour,
+      #bingc-passive
+        div.bingc-passive-overlay
+        div.bingc-passive-content
+        div.bingc-passive-get-phone-form
+        form.bingc-passive-get-phone-form
+        div.bingc-passive-get-phone-form-date-selection
+        div.bingc-passive-date-selection-select-minutes {
+        background: #c7ec51 !important;
       }
-            body #bingc-phone-button svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-             fill: #c7ec51 !important;
-            }
-            body #bingc-phone-button:hover svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-              fill: #c7ec51 !important;
-            }
-            body #bingc-phone-button div.bingc-phone-button-tooltip {
-              background: #c7ec51 !important;
-            }
-            body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
-              fill: #c7ec51 !important;
-            }
-             body #shopify-section-popup-cart-discount {
+      body #bingc-phone-button svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
+        fill: #c7ec51 !important;
+      }
+      body #bingc-phone-button:hover svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
+        fill: #c7ec51 !important;
+      }
+      body #bingc-phone-button div.bingc-phone-button-tooltip {
+        background: #c7ec51 !important;
+      }
+      body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
+        fill: #c7ec51 !important;
+      }
+      body #shopify-section-popup-cart-discount {
         margin: 0;
       }
       body .MuiSnackbar-root.wishlist-hero-add-prod-to-wishlist-notification {
@@ -307,24 +331,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .card__inner .wishlisthero-floating {
         z-index: 1;
       }
-      #wishlist-hero-shared-list-view .MuiButton-label{
+      #wishlist-hero-shared-list-view .MuiButton-label {
         color: white;
       }
-      .js-filter.hide--filter-counters .facet-checkbox__number{
+      .js-filter.hide--filter-counters .facet-checkbox__number {
         display: none !important;
       }
       @media (max-width: 767px) {
-        .collection-products .grid__item{
+        .collection-products .grid__item {
           z-index: 3;
         }
-        .menu-drawer__menu > li[is="brand"] > details{
+        .menu-drawer__menu > li[is='brand'] > details {
           padding-top: 10px;
           margin-top: 10px;
         }
-        .menu-drawer__menu > li[is="brand"] > details{
+        .menu-drawer__menu > li[is='brand'] > details {
           position: relative;
-        } 
-        .menu-drawer__menu > li[is="brand"] > details:before{
+        }
+        .menu-drawer__menu > li[is='brand'] > details:before {
           content: '';
           border-top: 1px solid #bbbbbb;
           width: calc(100% - 56px);
@@ -334,20 +358,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
       }
       @media (max-width: 749px) {
-        #shopify-section-header-outlet, #shopify-section-header {
+        #shopify-section-header-outlet,
+        #shopify-section-header {
           z-index: 4;
         }
-      }  
+      }
       @media (min-width: 1280px) {
-       html .header__icon--account:not(.header__icon--search){
+        html .header__icon--account:not(.header__icon--search) {
           position: relative;
           top: 2px;
         }
-        html #cart-icon-bubble{
+        html #cart-icon-bubble {
           position: relative;
           top: 2px;
         }
-        #FacetFiltersForm{
+        #FacetFiltersForm {
           margin-top: 20px;
           border-top: 1px solid #bbbbbb;
           padding-top: 20px;
@@ -377,13 +402,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
       }
     </style>
-      {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' or template.name == 'page' %}
-          <style>
-              a#icon-wishlist-header{
-                  opacity: 1;
-              }
-          </style>
-      {%- endif -%}
+    {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' or template.name == 'page' %}
+      <style>
+        a#icon-wishlist-header {
+          opacity: 1;
+        }
+      </style>
+    {%- endif -%}
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -396,7 +421,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
 
     {% if request.page_type contains 'index' or request.page_type contains 'product' or request.page_type contains 'page' %}
-    <script src="{{ 'swiper.js' | asset_url }}"></script>
+      <script src="{{ 'swiper.js' | asset_url }}"></script>
     {% endif %}
 
     <script src="{{ 'app.js' | asset_url }}" defer></script>
@@ -417,23 +442,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+"
       loading="eager"
     >
-    
-  
+
     {% if customer %}
-        {% # CHEKLY-CUSTOMER-SCRIPT-START # %}
-        <script>
-            window.Shopify = window.Shopify || {};
-            Shopify.customer = {
-                firstName: "{{ customer.first_name }}",
-                lastName: "{{ customer.last_name }}",
-                email: "{{ customer.email }}",
-                phone: "{{ customer.phone }}"
-            };
-        </script>
-        {% # CHEKLY-CUSTOMER-SCRIPT-END # %}
+      {% # CHEKLY-CUSTOMER-SCRIPT-START # %}
+      <script>
+        window.Shopify = window.Shopify || {};
+        Shopify.customer = {
+          firstName: '{{ customer.first_name }}',
+          lastName: '{{ customer.last_name }}',
+          email: '{{ customer.email }}',
+          phone: '{{ customer.phone }}',
+        };
+      </script>
+      {% # CHEKLY-CUSTOMER-SCRIPT-END # %}
     {% endif %}
-    <script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async data-checkout-domain="https://checkout.newbornk.com"></script>
-  <script>
+    <script
+      data-chekly-url="https://chekly-app.com"
+      data-chekly-theme="chekly"
+      data-chekly-script="GLOBAL"
+      src="{{ 'chekly-script.js' | asset_url }}"
+      async
+      data-checkout-domain="https://checkout.newbornk.com"
+    ></script>
+    <script>
       function showToast(message = '', title = '', image_src = '', timeout = 3000) {
         if (!message) {
           return;
@@ -602,15 +633,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         width: 100%;
         display: block;
       }
+      .sidebar-menu .sidemenu-link.new--arrival summary.header__menu-item:after {
+        content: unset;
+        padding: 0;
+      }
     </style>
-</head>
+  </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXSVV32"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-   
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MXSVV32"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -618,14 +659,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% section 'announcement-bar' %}
 
     {% if template contains 'outlet' %}
-        {% section 'header-outlet' %}
+      {% section 'header-outlet' %}
     {% else %}
-        {% section 'header' %}
+      {% section 'header' %}
     {% endif %}
 
     <main
       id="MainContent"
-      class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %} {% if template.name == 'cart' %}cart-wrap{% endif %}"
+      class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %} {% if template.name == 'cart' %}cart-wrap{% endif %}{% if template.name == 'collection' and collection.products_count == 0 %} empty--collection{% endif %}"
       role="main"
       tabindex="-1"
     >
@@ -635,14 +676,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% if customer.tags contains 'admin' and template.name == 'product' %}
       {% assign store_permanent_domain = shop.permanent_domain | replace: '.myshopify.com' %}
       <div class="admin-products-link">
-        <a href="https://admin.shopify.com/store/{{ store_permanent_domain }}/products/{{ product.id }}" target="_blank"
-          >EDIT PRODUCT
-        </a>
+        <a href="https://admin.shopify.com/store/{{ store_permanent_domain }}/products/{{ product.id }}" target="_blank">EDIT PRODUCT</a>
       </div>
     {% endif %}
     {% section 'popup-cart-discount' %}
     {% section 'footer' %}
-    
+
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
@@ -712,28 +751,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
     <script>
       var body = document.body,
-          timer;
+        timer;
 
-      window.addEventListener('scroll', function() {
-        clearTimeout(timer);
-        if(!body.classList.contains('disable-hover')) {
-          body.classList.add('disable-hover')
-        }
+      window.addEventListener(
+        'scroll',
+        function () {
+          clearTimeout(timer);
+          if (!body.classList.contains('disable-hover')) {
+            body.classList.add('disable-hover');
+          }
 
-        timer = setTimeout(function(){
-          body.classList.remove('disable-hover')
-        },500);
-      }, false);
+          timer = setTimeout(function () {
+            body.classList.remove('disable-hover');
+          }, 500);
+        },
+        false,
+      );
     </script>
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
-    {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
+    {% unless notification contains 'Liquid error' %}{{ notification }}{% endunless %}
 
-  <!-- KeyCRM online chat widget begin -->
- <script>
+    <!-- KeyCRM online chat widget begin -->
+    <script>
       (function () {
         let user_agent = window.navigator.userAgent;
 
@@ -770,18 +813,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }, 10);
       })();
     </script>
-<!-- KeyCRM online chat widget end -->
+    <!-- KeyCRM online chat widget end -->
 
-  <!-- BADGE for google reviews -->
-<!-- <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
-<script>
-  window.renderBadge = function() {
-    var ratingBadgeContainer = document.createElement("div");
-    document.body.appendChild(ratingBadgeContainer);
-    window.gapi.load('ratingbadge', function() {
-      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 500810630});
-    });
-  }
-</script> -->
-      {% render 'spdn4' %}</body>
+    <!-- BADGE for google reviews -->
+    <!--
+      <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+      <script>
+        window.renderBadge = function() {
+          var ratingBadgeContainer = document.createElement("div");
+          document.body.appendChild(ratingBadgeContainer);
+          window.gapi.load('ratingbadge', function() {
+            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 500810630});
+          });
+        }
+      </script>
+    -->
+    {% render 'spdn4' %}
+  </body>
 </html>

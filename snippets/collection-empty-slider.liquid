@@ -1,0 +1,105 @@
+{% comment %} Создаем массив хэндлов товаров {% endcomment %}
+{% assign all_product_handles = '' %}
+{% for product in collections.all.products %}
+  {% assign all_product_handles = all_product_handles | append: product.handle | append: ',' %}
+{% endfor %}
+
+{% comment %} Преобразуем строку в массив {% endcomment %}
+{% assign handles_array = all_product_handles | split: ',' %}
+
+{% comment %} Получаем случайные 10 хэндлов {% endcomment %}
+{% assign random_handles = '' %}
+{% for i in (1..10) %}
+  {% assign random_index = 'now' | date: '%N' | modulo: handles_array.size %}
+  {% assign random_handles = random_handles | append: handles_array[random_index] | append: ',' %}
+  {% comment %} Удаляем выбранный хэндл, чтобы не было дублей {% endcomment %}
+  {% assign handles_array = handles_array | join: ',' | remove: handles_array[random_index] | remove: ',,,' | split: ',' %}
+{% endfor %}
+
+{% assign random_handles_array = random_handles | split: ',' %}
+
+<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-badge.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
+
+<noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+<script src="{{ 'swiper.js' | asset_url }}"></script>
+
+<div class="collection page-width page-width-full">
+  <div class="swiper-container swiper-container-collection" id="collection_empty_slider">
+    <ul class="swiper-wrapper" role="list">
+      {% for handle in random_handles_array %}
+        {% if handle != blank %}
+          {% assign product = all_products[handle] %}
+          {% if product %}
+            <li class="swiper-slide">
+              {% render 'product-card', product_card_product: product, media_size: 'adapt', show_secondary_image: true, add_image_padding: false, show_vendor: true, show_info: true %}
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<style>
+  .swiper-container-collection {
+    overflow: hidden;
+  }
+
+  ul.swiper-wrapper {
+    list-style: none;
+    padding: 0;
+    margin: 0px -40px;
+  }
+
+  .slider {
+    margin: 0;
+    padding: 0;
+    max-width: unset;
+  }
+</style>
+
+<script>
+  addEventListener('DOMContentLoaded', () => {
+    const swiper_collection_empty = new Swiper('#collection_empty_slider', {
+      slidesPerView: 6.5,
+      speed: 1200,
+      centeredSlides: false,
+      spaceBetween: 20,
+      slideToClickedSlide: false,
+      cssMode: false,
+      freeMode: true,
+      loop: true,
+      autoplay: {
+        delay: 2000,
+      },
+      slidesOffsetAfter: 0,
+      mousewheel: {
+        releaseOnEdges: true,
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.6,
+          spaceBetween: 20,
+        },
+        480: {
+          slidesPerView: 2.1,
+          spaceBetween: 30,
+        },
+        640: {
+          slidesPerView: 6.5,
+          spaceBetween: 15,
+        },
+      },
+    });
+  });
+</script>

@@ -16,6 +16,7 @@
 {% render 'breadcrumbs' %}
 </div>
 {% endunless%}
+
 {% if section.settings.show_more_text %}
   {% assign description_lines = section.settings.description_lines %}
   {% assign description_lines_mob = section.settings.description_lines_mob %}
@@ -76,8 +77,8 @@
         <div class="collection-hero__description less rte" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
           {{ collection_description }}
         </div>
-      {%- endif -%}
-
+      {%- endif -%}    
+        
       {% if section.settings.show_filter_w_m %}
         <div class="filter-w-m buttons-section">
           {% assign collection_gender_men = collection.metafields.custom.collection_gender_men.value %}

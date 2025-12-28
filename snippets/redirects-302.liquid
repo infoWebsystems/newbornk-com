@@ -1,0 +1,36 @@
+<script>
+  const redirects = [
+    { from: '/ru/collections/sale-aksesuary/Аксесуари', to: '/ru/collections/sale-aksesuary/aksesuari' },
+    { from: '/ru/collections/new-lifestyle/Lifestyle', to: '/ru/collections/new-lifestyle/lifestyle' },
+    { from: '/collections/sale-aksesuary/Аксесуари', to: '/collections/sale-aksesuary/aksesuari' },
+    { from: '/collections/new-lifestyle/Lifestyle', to: '/collections/new-lifestyle/lifestyle' },
+  ];
+
+  function do302Redirects(redirectList) {
+    const currentUrl = window.location.href;
+    const currentPath = decodeURIComponent(window.location.pathname + window.location.search);
+    const currentFullUrl = decodeURIComponent(window.location.href);
+
+    for (const redirect of redirectList) {
+      // Декодируем from для сравнения
+      const fromDecoded = decodeURIComponent(redirect.from);
+
+      // Проверяем разные варианты совпадения
+      if (redirect.from === currentUrl || fromDecoded === currentPath || fromDecoded === currentFullUrl || currentPath.includes(fromDecoded) || currentPath === fromDecoded) {
+        // Выполняем 302 редирект
+        window.location.replace(redirect.to);
+        return true;
+      }
+
+      // Дополнительная проверка: если текущий URL содержит кириллицу в encoded виде
+      const fromEncoded = encodeURI(redirect.from);
+      if (currentUrl.includes(fromEncoded) || currentPath.includes(fromEncoded)) {
+        window.location.replace(redirect.to);
+        return true;
+      }
+    }
+
+    return false;
+  }
+  do302Redirects(redirects);
+</script>

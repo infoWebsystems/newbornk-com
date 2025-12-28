@@ -12,5 +12,14 @@
   if class == was
     assign class = ''
   endif
+
+  assign class_id = ''
+  if page_type == 'collection'
+    assign class_id = 'collection-' | append: collection.id
+  elsif page_type == 'product'
+    assign class_id = 'product-' | append: product.id
+  endif
+
+  assign class = class | append: ' ' | append: class_id | strip
 %}
 {{ class | strip }}
