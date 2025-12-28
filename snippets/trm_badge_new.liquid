@@ -1,4 +1,5 @@
 {% comment %} {%- for tag in product_card_product.tags -%} {% endcomment %}
+ {% assign is_badge_new = false %}
   {%- if product_card_product.tags contains "NEW" and product_card_product.tags contains "last-size" -%}
     {%- comment -%}
     <svg class="product-bage-new"  width="40" height="20" viewBox="0 0 130 67" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,6 +19,7 @@
       <path class="st0" d="M82.1,30.6l-3.8,10h-0.5L75.6,24h-1.7l2.4,18.4h3L83,32.3h0.5l3.8,10.1h3L92.7,24H91l-2.1,16.6h-0.5l-3.8-10
         H82.1z"/>
     </svg>
+    {% assign is_badge_new = true %}
     {% break %}
   {%- endif -%}
 
@@ -32,15 +34,12 @@
       <path class="st0" d="M82.1,30.6l-3.8,10h-0.5L75.6,24h-1.7l2.4,18.4h3L83,32.3h0.5l3.8,10.1h3L92.7,24H91l-2.1,16.6h-0.5l-3.8-10
         H82.1z"/>
     </svg>
+    {% assign is_badge_new = true %}
     {% break %}
   {%- endif -%}
-
-  {%- if product_card_product.tags contains "last-size" -%}
-    <div class="product-bage-last-size">
-      Останній розмір
-    </div>
-    {% break %}
-  {%- endif -%}
+{% if is_badge_new == false %}
+  {%- render 'badge-last-size' with product_card_product: product_card_product -%}
+ {% endif %} 
 
   {% comment %} {%- if tag == 'last-size' -%}
     <div class="product-bage-last-size">

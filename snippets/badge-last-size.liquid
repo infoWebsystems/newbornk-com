@@ -1,0 +1,14 @@
+{%- liquid
+  assign qnt = 0
+  for variant in product_card_product.variants
+    if variant.available and variant.inventory_quantity == 1
+      assign qnt = qnt | plus: 1
+    endif
+    if qnt > 1
+      break
+    endif
+  endfor
+-%}
+{% if qnt == 1 %}
+  <div class="product-bage-last-size">{{ 'text_badge_last_size' | t }}</div>
+{% endif %}

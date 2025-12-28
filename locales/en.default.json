@@ -489,5 +489,6 @@
       "date_ascending": "Date, old to new",
       "date_descending": "Date, new to old"
     }
-  }
+  },
+  "text_badge_last_size": "Last size",
 }

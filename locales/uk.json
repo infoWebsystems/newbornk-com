@@ -1585,5 +1585,6 @@
     "title_pagination": "{{title}} | Сторінка {{number}}",
     "description_pagination": "{{description}} | Сторінка {{number}}",
     "h1_pagination": "{{title}} | Сторінка {{number}}"
-  }
+  },
+  "text_badge_last_size": "Останній розмір",
 }

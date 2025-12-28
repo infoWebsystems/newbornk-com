@@ -1,7 +1,8 @@
 .topmenu {
   display: none;
   flex-direction: column;
-  @media screen and (min-width: 1280px){
+
+  @media screen and (min-width: 1281px) {
     display: flex;
   }
 }
@@ -17,6 +18,10 @@
   flex-direction: column;
   position: relative;
   padding: .8rem 1.2rem;
+
+  @media screen and (max-width: 1480px) {
+    padding: .8rem .8rem;
+  }
 
   &.is--active,
   &:hover {
@@ -45,6 +50,10 @@
     line-height: 1.3;
     font-size: 1.5rem;
     text-transform: uppercase;
+
+    @media screen and (max-width: 1480px) {
+      font-size: 12px;
+    }
   }
 
   svg {

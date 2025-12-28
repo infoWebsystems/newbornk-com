@@ -151,6 +151,7 @@
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
+    <link rel="stylesheet" href="{{ 'topmenu.css' | asset_url }}" media="all">
     {{ content_for_header }}
 
     {% render 'fn_uk-hreflang' %}
@@ -262,6 +263,17 @@
         }
         .grid--4-col-desktop .grid__item {
           flex-grow: 0;
+        }
+      }
+      @media (min-width: 768px) {
+        .trm-header .header__icon--account.header__icon--search svg.icon-search {
+          display: flex;
+          height: 100%;
+          width: 20px;
+          display: block !important;
+        }
+        .header__icons {
+          gap: 1.5rem;
         }
       }
     </style>
