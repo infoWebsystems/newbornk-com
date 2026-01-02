@@ -122,25 +122,6 @@
         "adapt_height_first_image": false
       }
     },
-    "featured_collection_slider_XbArfi": {
-      "type": "featured-collection-slider",
-      "name": "t:sections.featured-collection-slider.presets.name",
-      "settings": {
-        "title": "MID SEASON SALE",
-        "show_text": true,
-        "collection": "mid-season-sale",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.6,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true,
-        "brand_collection": false
-      }
-    },
     "1626369903c393cced": {
       "type": "featured-collection-slider",
       "disabled": true,
@@ -215,6 +196,25 @@
         "swipe_on_mobile": false,
         "image_padding": false,
         "show_view_all": false
+      }
+    },
+    "featured_collection_slider_XbArfi": {
+      "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "settings": {
+        "title": "MID SEASON SALE",
+        "show_text": true,
+        "collection": "mid-season-sale",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.6,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": false
       }
     },
     "1626416564a7b86704": {
@@ -350,12 +350,12 @@
     "1630994380770cb550",
     "buttons_Aehtdg",
     "image_banner",
-    "featured_collection_slider_XbArfi",
+    "featured_collection_slider_zaYJcr",
     "1626369903c393cced",
     "featured_collection_slider_tfqQpj",
     "1626416534da40dc37",
+    "featured_collection_slider_XbArfi",
     "1626416564a7b86704",
-    "featured_collection_slider_zaYJcr",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
     "featured_collection_slider_eKMVrY",
