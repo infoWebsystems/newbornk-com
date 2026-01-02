@@ -124,6 +124,7 @@
     },
     "1626369903c393cced": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "settings": {
         "title": "СВЯТКОВІ ЗНИЖКИ",
         "show_text": true,
