@@ -122,6 +122,24 @@
         "adapt_height_first_image": false
       }
     },
+    "featured_collection_slider_zaYJcr": {
+      "type": "featured-collection-slider",
+      "settings": {
+        "title": "РОЗПРОДАЖ",
+        "show_text": true,
+        "collection": "sale",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.6,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true,
+        "brand_collection": false
+      }
+    },
     "1626369903c393cced": {
       "type": "featured-collection-slider",
       "disabled": true,
@@ -234,24 +252,6 @@
         "show_arrow": true
       }
     },
-    "featured_collection_slider_zaYJcr": {
-      "type": "featured-collection-slider",
-      "settings": {
-        "title": "РОЗПРОДАЖ",
-        "show_text": true,
-        "collection": "sale",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.6,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true,
-        "brand_collection": false
-      }
-    },
     "1626450162f5dda00b": {
       "type": "collection-list",
       "blocks": {
@@ -303,9 +303,9 @@
       "type": "featured-collection-slider",
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
-        "title": "Джерсі",
+        "title": "Останній розмір",
         "show_text": false,
-        "collection": "zhinochi-dzhersi-ta-polo",
+        "collection": "останній-розмір",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.5,
         "show_view_all": false,
