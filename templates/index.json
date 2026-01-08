@@ -34,9 +34,9 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/ukr_banner_desktop.png",
-            "image_phone": "shopify://shop_images/ukr_banner_mobile.png",
-            "banner_link": "shopify://collections/christmas",
+            "image": "shopify://shop_images/pl_banner_desktop.png",
+            "image_phone": "shopify://shop_images/square_ukr.png",
+            "banner_link": "shopify://collections/sale",
             "language": "UK"
           }
         },
