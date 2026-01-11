@@ -220,9 +220,9 @@
       "type": "featured-collection-slider",
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
-        "title": "MID SEASON SALE",
+        "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "mid-season-sale",
+        "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
