@@ -1,7 +1,6 @@
 {
   "article": [],
   "blog": [],
-  "brand": [],
   "collection": [
     {
       "key": "collection_gender_women",
@@ -910,8 +909,6 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
-<<<<<<< HEAD
-=======
     },
     {
       "key": "decoration-material",
@@ -942,7 +939,176 @@
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
->>>>>>> develop
+    },
+    {
+      "key": "theme",
+      "namespace": "shopify",
+      "name": "Theme",
+      "description": "Describes the product's primary theme or motif, such as sport, space, or holidays",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "watch-accessory-style",
+      "namespace": "shopify",
+      "name": "Watch accessory style",
+      "description": "Defines the style of watch accessories, e.g. sporty, modern",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "wallet-features",
+      "namespace": "shopify",
+      "name": "Wallet features",
+      "description": "Describes special characteristics of wallets, like RFID protection or compact design",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "cosmetic-finish",
+      "namespace": "shopify",
+      "name": "Cosmetic finish",
+      "description": "Defines the cosmetic finish of a product, e.g. matte, natural",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "calculator-features",
+      "namespace": "shopify",
+      "name": "Calculator features",
+      "description": "Describes the functions a calculator can perform, such as loan calculation or statistical analysis",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "candle-type",
+      "namespace": "shopify",
+      "name": "Candle type",
+      "description": "Specifies the design of candles, such as taper or tea light",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "baby-toddler-hat-style",
+      "namespace": "shopify",
+      "name": "Baby/Toddler hat style",
+      "description": "Describes the style of hats for babies or toddlers, such as bucket hat or sun hat",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bag-strap-type",
+      "namespace": "shopify",
+      "name": "Bag strap type",
+      "description": "Specifies the type of bag strap, for example, crossbody or shoulder",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "suitable-space",
+      "namespace": "shopify",
+      "name": "Suitable space",
+      "description": "Defines the ideal location for product use, e.g. indoors, above ground",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "finish",
+      "namespace": "shopify",
+      "name": "Finish",
+      "description": "Describes the surface quality of a product, like satin or matte",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "age-restrictions",
+      "namespace": "shopify",
+      "name": "Age restrictions",
+      "description": "Indicates the minimum age requirement for a product or event, like 18 years or older",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "event-type",
+      "namespace": "shopify",
+      "name": "Event type",
+      "description": "Classifies the nature of an event, such as a concert, seminar, or festival",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "ticket-type",
+      "namespace": "shopify",
+      "name": "Ticket type",
+      "description": "Identifies the category of event tickets, like general admission or reserved seating",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "country",
+      "namespace": "shopify",
+      "name": "Country",
+      "description": "Specifies the country associated with the product, such as Japan or Germany",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "best-uses",
+      "namespace": "shopify",
+      "name": "Best uses",
+      "description": "Highlights optimal activities for product use, like traveling, hiking, or diving",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "skirt-style",
+      "namespace": "shopify",
+      "name": "Skirt style",
+      "description": "Describes the design or cut of a skirt, such as pencil or pleated",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "boot-style",
+      "namespace": "shopify",
+      "name": "Boot style",
+      "description": "Specifies the style of boots, e.g. booties",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
     }
   ],
   "variant": [
@@ -1067,5 +1233,26 @@
       }
     }
   ],
-  "shop": []
+  "shop": [
+    {
+      "key": "show_store_widget_app_embed_block",
+      "namespace": "mm_google_shopping_extension",
+      "name": "Google: Show Store Widget App Embed Block",
+      "description": "Indicates if the store widget app embed block should be shown.",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    },
+    {
+      "key": "merchant_id",
+      "namespace": "mm_google_shopping_extension",
+      "name": "Google: Merchant ID",
+      "description": "Currently Linked Merchant Center ID",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    }
+  ]
 }
