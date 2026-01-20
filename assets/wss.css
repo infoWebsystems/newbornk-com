@@ -5,3 +5,21 @@
 .title-loyalty{
     margin: 32px 0 32px 0;
 }
+.title-loyalty {
+    font-family: Formular, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #000;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+/* Медіа-запит для телефонів */
+@media screen and (max-width: 749px) {
+    .title-loyalty {
+        font-size: 18px;
+    }
+}
