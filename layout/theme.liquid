@@ -141,6 +141,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
+    
+    {% if template.name == 'product' %}
+      <script src="{{ 'product-redesigned.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
     {{ content_for_header }}
 
     {% render 'fn_uk-hreflang' %}
