@@ -26,6 +26,7 @@
   }
   .product__info-container .product-form form .product-form__buttons [type="submit"] {
     margin-bottom: 0;
+    border-radius: 0;
   }
   #wishlisthero-product-page-button-container {
     padding-top: 0 !important;
@@ -153,7 +154,7 @@
     align-items: center;
     gap: 8px;
     padding: 12px 16px;
-    border: 1px solid rgba(0, 0, 0, 0.10);
+    border: 1px solid rgb(0, 0, 0);
     cursor: pointer;
     user-select: none;
   }

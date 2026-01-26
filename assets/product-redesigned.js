@@ -5,6 +5,8 @@ class ProductFormInputsWrapper extends HTMLElement {
     this.trigger = this.querySelector('.product-form__inputs-trigger');
     if (!this.trigger) return;
 
+    this.triggerLabel = this.trigger.querySelector('span');
+
     this.inputsList = this.querySelector('.product-form__inputs-inputs');
     if (!this.inputsList) return;
 
@@ -31,6 +33,7 @@ class ProductFormInputsWrapper extends HTMLElement {
 
   onInputChange () {
     this.inputsList.classList.remove('active');
+    console.log(this.triggerLabel);
   }
 }
 

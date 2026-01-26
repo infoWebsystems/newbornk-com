@@ -932,7 +932,6 @@ a.product__text {
 .disabled-label {
   text-decoration: line-through;
   pointer-events: none;
-  opacity: .5;
 }
 .label__swatch {
   width: 38px;
