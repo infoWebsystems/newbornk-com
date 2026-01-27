@@ -26,18 +26,64 @@
     {% assign second_image = first_image %}
   {% endif %}
 {% else %}
+
+  {% if gender_prefix contains 'men' or gender_prefix contains 'women'%} {% comment %} Check for collection? tht we are'nt on the home or product page {% endcomment %}
+    {% assign first_image = product.media[0] %}
+    {% assign packshot = false %}
+    {% assign first_image_alt = first_image.alt | escape | split: '#@' | first | strip %}
+
+    <h2>first_image_alt: {{ first_image_alt }}</h2>
+
+    {% unless first_image_alt contains 'men' or first_image_alt contains 'women' %}
+      {% assign packshot = true %}
+    {% endunless %}
+    {% if packshot == false %}
+      {% assign first_image = '' %}
+    {% endif %}
+  {% endif %}
+
+  <h2>packshot: {{ packshot }}</h2>
+
   {% for media in product.media %}
     {% assign alt = media.alt | escape %}
     {% assign prefix = alt | split: '#@' | first | strip %}
 
-    {% if gender_prefix != '' and prefix == gender_prefix %}
-      {% if first_image == '' %}
-        {% assign first_image = media %}
-      {% elsif second_image == '' %}
-        {% assign second_image = media %}
+    <h1>prefix alt img: {{ prefix }}</h1>
+
+    {% if packshot %} {% comment %} First PackShot {% endcomment %}
+      {% if gender_prefix != '' and prefix == gender_prefix %}
+        {% if second_image == '' %}
+          {% assign second_image = media %}
+        {% endif %}
       {% endif %}
+    {% else %} {% comment %} First men or women {% endcomment %}
+
+      {% if gender_prefix != '' and prefix == gender_prefix %}
+        {% if first_image == '' %}
+          {% assign first_image = media %}
+        {% elsif second_image == '' %}
+          {% assign second_image = media %}
+        {% endif %}
+      {% endif %}
+
     {% endif %}
+
   {% endfor %}
+
+  {% comment %} OLD Logick
+    {% for media in product.media %}
+      {% assign alt = media.alt | escape %}
+      {% assign prefix = alt | split: '#@' | first | strip %}
+
+      {% if gender_prefix != '' and prefix == gender_prefix %}
+        {% if first_image == '' %}
+          {% assign first_image = media %}
+        {% elsif second_image == '' %}
+          {% assign second_image = media %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endcomment %}
 
   {% if first_image == '' and second_image == '' %}
     {% assign first_image = product.media[0] %}
