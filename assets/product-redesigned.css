@@ -195,5 +195,19 @@
     visibility: visible;
     transform: translateY(0);
   }
+
+  .product__info-wrapper .accordion {
+    margin: 0 !important;
+  }
+  
+  .product__info-wrapper .accordion summary {
+    padding: 1rem 0;
+  }
+  section[id*="product-recommendations"].spaced-section {
+    margin-top: 3rem;
+  }
+  section[id*="product-recommendations"] .title-wrapper--self-padded-tablet-down {
+    padding-left: 0;
+  }
   /* Custom Size Selects END */
 }
