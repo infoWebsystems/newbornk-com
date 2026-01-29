@@ -141,11 +141,17 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 9999999999;
+    z-index: 2;
     padding: 16px 16px 32px 16px;
     background: #FFF;
     box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.10);
     margin-bottom: 0;
+  }
+  body.footer-is-visible .product__info-container .product-form {
+    display: none;
+  }
+  .css-1dztziv {
+    bottom: 105px !important;
   }
 
   /* Custom Size Selects START */

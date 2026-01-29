@@ -132,3 +132,24 @@ document.addEventListener("DOMContentLoaded", function () {
     initCardAddToCart();
     window.initCardAddToCart = initCardAddToCart;
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+        document.body.classList.toggle(
+            'footer-is-visible',
+            entry.isIntersecting
+        );
+        },
+        {
+        root: null,
+        threshold: 0.01
+        }
+    );
+
+    observer.observe(footer);
+});
