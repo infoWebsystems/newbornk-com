@@ -32,7 +32,7 @@
     {% assign packshot = false %}
     {% assign first_image_alt = first_image.alt | escape | split: '#@' | first | strip %}
 
-    <h2>first_image_alt: {{ first_image_alt }}</h2>
+    {% comment %} <h1>first_image_alt: {{ first_image_alt }}</h1> {% endcomment %}
 
     {% unless first_image_alt contains 'men' or first_image_alt contains 'women' %}
       {% assign packshot = true %}
@@ -42,18 +42,34 @@
     {% endif %}
   {% endif %}
 
-  <h2>packshot: {{ packshot }}</h2>
+  {% comment %} <h2>packshot: {{ packshot }}</h2> {% endcomment %}
+
+  {% assign product_has_gender = false %}
+  {% for media in product.media %}
+    {% assign alt = media.alt | escape %}
+    {% assign prefix = alt | split: '#@' | first | strip %}
+    {% if prefix contains 'women' or prefix contains 'men' %}
+      {% assign product_has_gender = true %}
+    {% endif %}
+  {% endfor %}
 
   {% for media in product.media %}
     {% assign alt = media.alt | escape %}
     {% assign prefix = alt | split: '#@' | first | strip %}
 
-    <h1>prefix alt img: {{ prefix }}</h1>
+    {% comment %} <h3>prefix alt img: {{ prefix }}</h3> {% endcomment %}
 
     {% if packshot %} {% comment %} First PackShot {% endcomment %}
-      {% if gender_prefix != '' and prefix == gender_prefix %}
-        {% if second_image == '' %}
-          {% assign second_image = media %}
+      <h4>packshot true</h4>
+      {% if forloop.first == false  %}
+        {% if gender_prefix != '' and prefix == gender_prefix %}
+          {% if second_image == '' %}
+            {% assign second_image = media %}
+          {% endif %}
+        {% elsif product_has_gender == false %}
+          {% if second_image == '' %}
+            {% assign second_image = media %}
+          {% endif %}
         {% endif %}
       {% endif %}
     {% else %} {% comment %} First men or women {% endcomment %}
@@ -96,7 +112,7 @@
 {% if first_image != blank %}
   <img
     src="{{ first_image | img_url: '533x' }}"
-    alt="{{ first_image.alt | escape }}"
+    alt="11111111111 {{ first_image.alt | escape }}"
     {% if loop_index == blank or loop_index > 2 %}
       loading="lazy"
     {% else %}
@@ -110,7 +126,7 @@
 {% if second_image != blank and show_secondary_image %}
   <img
     src="{{ second_image | img_url: '533x' }}"
-    alt="{{ second_image.alt | escape }}"
+    alt="2222222222 {{ second_image.alt | escape }}"
     loading="lazy"
     width="{{ second_image.width }}"
     height="{{ second_image.height }}"
@@ -121,7 +137,7 @@
       {% if forloop.index0 > 2 %}
         <img
           src="{{ product_media | img_url: '533x' }}"
-          alt="{{ product_media.alt | escape }}"
+          alt="333333333333 {{ product_media.alt | escape }}"
           loading="lazy"
           width="{{ product_media.width }}"
           height="{{ product_media.height }}"
