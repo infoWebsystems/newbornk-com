@@ -1345,6 +1345,9 @@
               "info": "Include a heading that explains the content.",
               "label": "Heading"
             },
+            "opened_by_default": {
+              "label": "Opened by Default"
+            },
             "content": {
               "label": "Tab content"
             },
@@ -1427,6 +1430,9 @@
               }
             }
           }
+        },
+        "collapsible_size_guide": {
+          "name": "Collapsible Size Guide"
         },
         "popup": {
           "name": "Pop-up",
