@@ -112,7 +112,7 @@
 {% if first_image != blank %}
   <img
     src="{{ first_image | img_url: '533x' }}"
-    alt="11111111111 {{ first_image.alt | escape }}"
+    alt="{{ first_image.alt | escape }}"
     {% if loop_index == blank or loop_index > 2 %}
       loading="lazy"
     {% else %}
@@ -126,7 +126,7 @@
 {% if second_image != blank and show_secondary_image %}
   <img
     src="{{ second_image | img_url: '533x' }}"
-    alt="2222222222 {{ second_image.alt | escape }}"
+    alt="{{ second_image.alt | escape }}"
     loading="lazy"
     width="{{ second_image.width }}"
     height="{{ second_image.height }}"
@@ -137,7 +137,7 @@
       {% if forloop.index0 > 2 %}
         <img
           src="{{ product_media | img_url: '533x' }}"
-          alt="333333333333 {{ product_media.alt | escape }}"
+          alt="{{ product_media.alt | escape }}"
           loading="lazy"
           width="{{ product_media.width }}"
           height="{{ product_media.height }}"
