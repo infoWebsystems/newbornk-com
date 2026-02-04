@@ -43,9 +43,9 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/GIFTS_HOR.png",
-            "image_phone": "shopify://shop_images/GIFTS_VERT.png",
-            "banner_link": "shopify://collections/gift_ideas",
+            "image": "shopify://shop_images/ukr_banner_desktop.webp",
+            "image_phone": "shopify://shop_images/ukr_banner_mobile.webp",
+            "banner_link": "shopify://collections/st-valentine",
             "language": "UK"
           }
         },
