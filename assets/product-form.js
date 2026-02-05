@@ -40,6 +40,20 @@ class ProductForm extends HTMLElement {
     this.cartNotification.setActiveElement(document.activeElement);
     
     const submitButton = this.querySelector('[type="submit"]');
+
+    if (submitButton && !submitButton.classList.contains('button--primary')) {
+      const variantSelectors = document.querySelector('product-form-inputs-wrapper');
+      const isMobile = window.matchMedia('(max-width: 749px)').matches;
+
+      if (variantSelectors && isMobile) {
+        variantSelectors.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+
+      return;
+    }
     
     const ADD_TO_CART = submitButton.getAttribute('data-add-to-cart');
     const VIEW_CART = submitButton.getAttribute('data-view-cart');

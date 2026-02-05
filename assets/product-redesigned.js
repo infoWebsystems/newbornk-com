@@ -31,9 +31,9 @@ class ProductFormInputsWrapper extends HTMLElement {
     this.inputsList.classList.toggle('active');
   }
 
-  onInputChange () {
+  onInputChange (e) {
     this.inputsList.classList.remove('active');
-    console.log(this.triggerLabel);
+    this.triggerLabel.textContent =  e.currentTarget.value;
   }
 }
 

@@ -7,7 +7,8 @@
     justify-content: space-between;
   }
   .badge.price__badge-sale {
-    font-size: 12px;
+    font-size: 14px;
+    text-transform: uppercase;
     border-radius: 0;
   }
   .price--on-sale .price__sale {
