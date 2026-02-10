@@ -144,6 +144,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
+    
+    {% if template.name == 'product' %}
+      <script src="{{ 'product-redesigned.js' | asset_url }}" defer="defer"></script>
+    {% endif %}
     {{ content_for_header }}
 
     {% render 'fn_uk-hreflang' %}
@@ -230,7 +234,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'wss.css' | asset_url | stylesheet_tag }}
     {{ 'new.css' | asset_url | stylesheet_tag }}
+    {{ 'product-redesigned.css' | asset_url | stylesheet_tag }}
     {{ 'size-chart.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' or request.page_type == 'product' or request.page_type == 'page' %}
         <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -366,7 +372,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .spaced-section:last-child {
           margin-bottom: 1rem;
-          margin-top: 2rem;
+          margin-top: 5rem;
         }
         .footer .footer-block__details-content {
           margin-bottom: 1rem;

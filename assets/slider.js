@@ -7,6 +7,7 @@ class SliderComponent extends HTMLElement {
     this.pageTotal = this.querySelector('.slider-counter--total');
     this.prevButton = this.querySelector('button[name="previous"]');
     this.nextButton = this.querySelector('button[name="next"]');
+    this.dotsContainer = this.querySelector('.slider-dots');
 
     if (!this.slider || !this.nextButton) return;
 
@@ -22,7 +23,9 @@ class SliderComponent extends HTMLElement {
     if (!this.sliderItems.length === 0) return;
     this.slidesPerPage = Math.floor(this.slider.clientWidth / this.sliderItems[0].clientWidth);
     this.totalPages = this.sliderItems.length - this.slidesPerPage + 1;
-    this.update();
+    
+    this.createDots();
+    this.update(); 
   }
 
   update() {
@@ -43,6 +46,8 @@ class SliderComponent extends HTMLElement {
 
     this.pageCount.textContent = this.currentPage;
     this.pageTotal.textContent = this.totalPages;
+
+    this.updateDots();
   }
 
   onButtonClick(event) {
@@ -50,6 +55,39 @@ class SliderComponent extends HTMLElement {
     const slideScrollPosition = event.currentTarget.name === 'next' ? this.slider.scrollLeft + this.sliderItems[0].clientWidth : this.slider.scrollLeft - this.sliderItems[0].clientWidth;
     this.slider.scrollTo({
       left: slideScrollPosition
+    });
+  }
+
+  createDots() {
+    if (!this.dotsContainer) return;
+
+    this.dotsContainer.innerHTML = '';
+
+    for (let i = 0; i < this.totalPages; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'slider-dot';
+      dot.dataset.index = i;
+
+      dot.addEventListener('click', () => {
+        this.slider.scrollTo({
+          left: i * this.sliderItems[0].clientWidth,
+          behavior: 'smooth'
+        });
+      });
+
+      this.dotsContainer.appendChild(dot);
+    }
+  }
+
+  updateDots() {
+    if (!this.dotsContainer) return;
+
+    const dots = this.dotsContainer.children;
+    const activeIndex = this.currentPage - 1;
+
+    [...dots].forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === activeIndex);
     });
   }
 }

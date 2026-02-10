@@ -61,10 +61,15 @@
             "show_dynamic_checkout": false
           }
         },
+        "collapsible_size_guide_Rg4Mhf": {
+          "type": "collapsible_size_guide",
+          "settings": {}
+        },
         "cf442759-f444-4b42-9fc6-00597fe88231": {
           "type": "collapsible_tab",
           "settings": {
             "heading": "Інформація",
+            "opened_by_default": true,
             "content": "",
             "page": "",
             "liquid": "{{ product.description }}",
@@ -77,6 +82,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Доставка, оплата, примірка",
+            "opened_by_default": false,
             "content": "<h5><strong>Оплата</strong></h5><ul><li>Онлайн-оплата кредитною або дебетовою карткою <strong>Visa, Mastercard</strong> через сервіс <strong>Plata by MONO</strong>:</li><li>Оплата в концепт-сторі за адресою: <strong>м. Київ, вул. Велика Житомирська, 20</strong></li></ul><h5><strong>Доставка</strong></h5><p><strong>Безкоштовна доставка на замовлення від 5000 грн (за умови повної передплати).</strong></p><ul><li>Доставка здійснюється кур'єрською службою <strong>«Нова Пошта»</strong> до дверей.</li></ul><p><strong>Термін відправлення:</strong> 0-1 робочий день.</p><p><strong>Термін доставки:</strong> 1-2 робочі дні.</p><ul><li>Самовивіз</li></ul><p>Ви можете забрати замовлення самостійно за адресою:</p><p><strong>м. Київ, вул. Велика Житомирська, 20</strong>.</p><ul><li>Доставка таксі по Києву</li></ul><p>Можлива доставка таксі по Києву <strong>за умови повної передплати</strong>.<br/><br/><strong>ПРИМІРКА</strong><br/>Ви маєте можливість примірки обраних вами товарів в нашому магазині за адресою <strong>м. Київ, вул. Велика Житомирська, 20</strong>.</p>",
             "page": "",
             "liquid": "{% render 'pickup' %}",
@@ -95,6 +101,7 @@
           "disabled": true,
           "settings": {
             "heading": "ІНФОРМАЦІЯ",
+            "opened_by_default": false,
             "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}</p>",
             "page": "",
             "liquid": "",
@@ -108,6 +115,7 @@
           "disabled": true,
           "settings": {
             "heading": "РОЗМІРНА СІТКА",
+            "opened_by_default": false,
             "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}</p>",
             "page": "",
             "liquid": "",
@@ -127,6 +135,7 @@
         "quantity_selector",
         "share",
         "buy_buttons",
+        "collapsible_size_guide_Rg4Mhf",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
         "description",
