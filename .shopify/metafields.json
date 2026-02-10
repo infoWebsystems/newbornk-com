@@ -1,6 +1,7 @@
 {
   "article": [],
   "blog": [],
+  "brand": [],
   "collection": [
     {
       "key": "collection_gender_women",
@@ -1108,6 +1109,16 @@
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "data",
+      "namespace": "air_reviews_product",
+      "name": "NEWBORN K",
+      "description": "Data for Air Reviews app",
+      "type": {
+        "name": "json",
+        "category": "JSON"
       }
     }
   ],

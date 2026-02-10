@@ -404,10 +404,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    {% if request.page_type contains 'index' or request.page_type contains 'product' or request.page_type contains 'page' %}
-    <script src="{{ 'swiper.js' | asset_url }}"></script>
-    {% endif %}
-
     <script src="{{ 'app.js' | asset_url }}" defer></script>
     <script src="{{ 'size-chart.js' | asset_url }}" defer></script>
 
@@ -716,7 +712,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       window.arrayCollectionShowGender = {{ settings.array_collection_handle_show_gender }};
     </script>
 
-    <script src="{{ 'swiper.js' | asset_url }}"></script>
+    {% comment %} <script src="{{ 'swiper.js' | asset_url }}" defer="defer"></script> {% endcomment %}
+    <script src="{{ 'swiper.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
     <script>
