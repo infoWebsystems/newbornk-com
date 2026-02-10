@@ -226,6 +226,11 @@
         "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
         "disabled": false,
         "settings": {}
+      },
+      "0220609880488367148": {
+        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
