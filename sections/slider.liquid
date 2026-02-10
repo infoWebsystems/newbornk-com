@@ -67,43 +67,48 @@
   <script src="{{ 'swiper.js' | asset_url }}"></script>
 
   <script type="text/javascript" defer>
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        const swiper = new Swiper('.swiper-container-collection.section-{{section.id}}', {
+    function initCollectionSwiper() {
+      if (typeof Swiper === 'undefined') {
+        // Swiper not loaded yet, check again shortly
+        setTimeout(initCollectionSwiper, 50);
+        return;
+      }
+
+      const swiper = new Swiper('.swiper-container-collection.section-{{section.id}}', {
+        slidesPerView: 7,
+        speed: 1200,
+        centeredSlides: false,
+        slideToClickedSlide: false,
+        cssMode: false,
+        freeMode: true,
+        loop: true,
+        autoplay: {
+          delay: 2000
+        },
+        slidesOffsetAfter: 0,
+        mousewheel: {
+          releaseOnEdges: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          },
+          480: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+          640: {
             slidesPerView: 7,
-            speed: 1200,
-            centeredSlides: false,
-            slideToClickedSlide: false,
-            cssMode: false,
-            freeMode: true,
-            loop: true,
-            autoplay: {
-              delay: 2000
-            },
-            slidesOffsetAfter: 0,
-            mousewheel: {
-                releaseOnEdges: true,
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                },
-                480: {
-                    slidesPerView: 3,
-                    spaceBetween: 30
-                },
-                640: {
-                    slidesPerView: 7,
-                    spaceBetween: 15
-                }
-            }
+            spaceBetween: 15
+          }
+        }
+      });
+    }
 
-        });
-    });
-    
+    // Start checking for Swiper
+    initCollectionSwiper();
   </script>
-
 
 {% schema %}
 {

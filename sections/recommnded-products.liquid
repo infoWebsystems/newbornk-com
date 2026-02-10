@@ -79,36 +79,47 @@
   {% assign product_show_mobile = section.settings.products_to_show_mobile | times: 1.0 %}
   {% assign slider_id = section.id | remove: '-' | remove: '_' %}
 
-  <script>
-    const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
+  <script type="text/javascript" defer>
+    function initProductSwiper() {
+      if (typeof Swiper === 'undefined') {
+        // Swiper not loaded yet, check again shortly
+        setTimeout(initProductSwiper, 50);
+        return;
+      }
+
+      const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
         slidesPerView: {{ product_show }},
-        speed:100,
-        centeredSlides : false,
+        speed: 100,
+        centeredSlides: false,
         touchRatio: 1,
         slideToClickedSlide: false,
         cssMode: false,
         freeMode: true,
         slidesOffsetAfter: 0,
         mousewheel: {
-            releaseOnEdges: true,
+          releaseOnEdges: true,
         },
         breakpoints: {
-            320: {
-                slidesPerView: {{ product_show_mobile }},
-                spaceBetween: 20
-            },
-            480: {
-                slidesPerView: {{ product_show_mobile }},
-                spaceBetween: 30
-            },
-            640: {
-                slidesPerView: {{ product_show }},
-                spaceBetween: 15
-            }
+          320: {
+            slidesPerView: {{ product_show_mobile }},
+            spaceBetween: 20
+          },
+          480: {
+            slidesPerView: {{ product_show_mobile }},
+            spaceBetween: 30
+          },
+          640: {
+            slidesPerView: {{ product_show }},
+            spaceBetween: 15
+          }
         }
+      });
+    }
 
-    });
+    // Start checking for Swiper
+    initProductSwiper();
   </script>
+
 {% endif %}
 
 {% schema %}

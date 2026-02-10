@@ -126,36 +126,45 @@
   {% assign product_show_mobile = section.settings.products_to_show_mobile | times:1.0 %}
   {% assign slider_id = section.id | remove: '-' | remove: '_' %}
 
-  <script>
-    const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
-      slidesPerView: {{ product_show }},
-      speed:100,
-      centeredSlides : false,
-      touchRatio: 1,
-      slideToClickedSlide: false,
-      cssMode: false,
-      freeMode: true,
-      slidesOffsetAfter: 0,
-      mousewheel: {
-        releaseOnEdges: true,
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: {{ product_show_mobile }},
-          spaceBetween: 20
-        },
-        480: {
-          slidesPerView: {{ product_show_mobile }},
-          spaceBetween: 30
-        },
-        640: {
-          slidesPerView: {{ product_show }},
-          spaceBetween: 15
-        }
+  <script type="text/javascript" defer>
+    (function waitForSwiper() {
+      if (typeof Swiper === 'undefined') {
+        // Check again in 50ms
+        setTimeout(waitForSwiper, 50);
+        return;
       }
 
-    });
+      // Swiper is loaded, initialize
+      const swiper{{slider_id}} = new Swiper('.swiper-container-collection.section-{{section.id}}', {
+        slidesPerView: {{ product_show }},
+        speed: 100,
+        centeredSlides: false,
+        touchRatio: 1,
+        slideToClickedSlide: false,
+        cssMode: false,
+        freeMode: true,
+        slidesOffsetAfter: 0,
+        mousewheel: {
+          releaseOnEdges: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: {{ product_show_mobile }},
+            spaceBetween: 20
+          },
+          480: {
+            slidesPerView: {{ product_show_mobile }},
+            spaceBetween: 30
+          },
+          640: {
+            slidesPerView: {{ product_show }},
+            spaceBetween: 15
+          }
+        }
+      });
+    })();
   </script>
+
 {% endif %}
 {% schema %}
 {
