@@ -42,6 +42,7 @@
         },
         "collapsible_size_guide_tdyqry": {
           "type": "collapsible_size_guide",
+          "disabled": true,
           "settings": {}
         },
         "58772005-ffce-40ba-8987-901c185f3569": {
@@ -99,13 +100,12 @@
         },
         "70bbe489-815e-4f89-aaee-8f79b7917887": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "heading": "ІНФОРМАЦІЯ",
             "opened_by_default": false,
-            "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}</p>",
+            "content": "",
             "page": "",
-            "liquid": "",
+            "liquid": "{{ product.metafields.my_fields.size_quide_text | strip_newlines }}",
             "enable_more_text": false,
             "lines": 3,
             "icon": "none"
