@@ -111,9 +111,9 @@
           "settings": {
             "heading": "РОЗМІРНА СІТКА",
             "opened_by_default": false,
-            "content": "<p>{{ product.metafields.my_fields.size_quide_text | metafield_tag }}</p>",
+            "content": "",
             "page": "",
-            "liquid": "",
+            "liquid": "{{ product.metafields.my_fields.size_quide_text | strip_newlines }}",
             "enable_more_text": false,
             "lines": 3,
             "icon": "none"
