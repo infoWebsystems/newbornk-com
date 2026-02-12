@@ -40,6 +40,10 @@
             "picker_type": "button"
           }
         },
+        "collapsible_size_guide_tdyqry": {
+          "type": "collapsible_size_guide",
+          "settings": {}
+        },
         "58772005-ffce-40ba-8987-901c185f3569": {
           "type": "size_guide",
           "disabled": true,
@@ -61,10 +65,6 @@
           "settings": {
             "show_dynamic_checkout": false
           }
-        },
-        "collapsible_size_guide_tdyqry": {
-          "type": "collapsible_size_guide",
-          "settings": {}
         },
         "cf442759-f444-4b42-9fc6-00597fe88231": {
           "type": "collapsible_tab",
@@ -118,11 +118,11 @@
         "subtitle",
         "price",
         "variant_picker",
+        "collapsible_size_guide_tdyqry",
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
         "share",
         "buy_buttons",
-        "collapsible_size_guide_tdyqry",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
         "description",
