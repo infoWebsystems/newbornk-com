@@ -108,7 +108,6 @@
         },
         "c1df5e55-1f87-4887-9282-ab39f4ff2c07": {
           "type": "collapsible_tab",
-          "disabled": true,
           "settings": {
             "heading": "РОЗМІРНА СІТКА",
             "opened_by_default": false,
