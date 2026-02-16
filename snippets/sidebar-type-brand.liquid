@@ -35,7 +35,7 @@
     endif
 
     if should_show_menu
-      echo '<ul class="list-menu list-menu--inline sidebar-menu sidebar-menu_2 type--brand" role="list">'
+      echo '<ul class="list-menu list-menu--inline sidebar-menu sidebar-menu_2 type--brand menu--oakley" role="list">'
       for link in settings.brand_type_oakley_menu.links
         # Проверяем активный пункт меню
         if request.path == link.url or request.full_url contains link.url
@@ -67,7 +67,7 @@
     endif
 
     if should_show_menu
-      echo '<ul class="list-menu list-menu--inline sidebar-menu sidebar-menu_2 type--brand" role="list">'
+      echo '<ul class="list-menu list-menu--inline sidebar-menu sidebar-menu_2 type--brand menu--carhartt-wip" role="list">'
       for link in settings.brand_type_carhartt_wip_menu.links
         # Проверяем активный пункт меню
         if request.path == link.url or request.full_url contains link.url
