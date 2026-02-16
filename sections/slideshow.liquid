@@ -70,9 +70,17 @@
   </div>
 
 <script>
-var menu = [];
+  function initHeroSwiper() {
+    if (typeof Swiper === 'undefined') {
+      // Swiper is not loaded yet, try again in 50ms
+      setTimeout(initHeroSwiper, 50);
+      return;
+    }
 
-const swiperherro = new Swiper('.swiper-container-herro', {
+    // Swiper is loaded, now initialize
+    var menu = [];
+
+    const swiperherro = new Swiper('.swiper-container-herro', {
       spaceBetween: 0,
       slidesPerView: 1,
       autoplay: {
@@ -85,15 +93,17 @@ const swiperherro = new Swiper('.swiper-container-herro', {
           return `<div class="box ` + className + `"></div>`;
         },
       },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    }
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }
+    });
+  }
 
-
-  });
-
+  // Start the initialization
+  initHeroSwiper();
 </script>
+
 
 {% schema %}
 {

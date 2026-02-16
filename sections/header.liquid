@@ -660,8 +660,75 @@
     {%- endif -%}
 
     {%- if section.settings.menu != blank -%}
-      {% render 'header-menu-dropdown' %}
-    {%- endif -%}    
+      {% comment %} {% render 'header-menu-dropdown' %}{% endcomment %}
+
+      <nav class="header__inline-menu" {%- if section.settings.menu_position == 'center' -%} style="margin: auto;"  {%- endif -%}>
+        <ul class="list-menu list-menu--inline" role="list">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              {%- if link.links != blank -%}
+                <details-disclosure>
+                  <details>
+                    <summary class="header__menu-item list-menu__item link focus-inset">
+                      <span {% if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                      {% render 'icon-caret' %}
+                    </summary>
+                    <ul class="header__submenu list-menu list-menu--disclosure caption-large motion-reduce" role="list" tabindex="-1">
+                      {%- for childlink in link.links -%}
+                        <li>
+                          {%- if childlink.links == blank -%}
+                            <a href="{{ childlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
+                              {{ childlink.title | escape }}
+                            </a>
+                          {%- else -%}
+                            <details>
+                              <summary class="header__menu-item link link--text list-menu__item focus-inset caption-large">
+                                {{ childlink.title | escape }}
+                                {% render 'icon-caret' %}
+                              </summary>
+                              <ul class="header__submenu list-menu motion-reduce">
+                                {%- for grandchildlink in childlink.links -%}
+                                  <li>
+                                    <a href="{{ grandchildlink.url }}" class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
+                                      {{ grandchildlink.title | escape }}
+                                    </a>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                            </details>
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </details>
+                </details-disclosure>
+              {%- else -%}
+                <a href="{{ link.url }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset {% if link.current %} header__active-menu-item {% endif %}" {% if link.current %} aria-current="page"{% endif %}>
+                  <span {% if link.current %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+          {% if settings.show_move_outlet == true %}
+            {% if template contains 'outlet' %}
+              {% assign url_move_outlet = settings.url_move_main %}
+              {% assign text_move_outlet = settings.text_move_main %}
+            {% else %}
+              {% assign text_move_outlet = settings.text_move_outlet %}
+              {% assign url_move_outlet = settings.url_move_outlet %}
+            {% endif %}
+            {% if url_move_outlet != blank and text_move_outlet != blank %}
+              <li class="outlet-link">
+                <a href="{{ url_move_outlet }}" class="header__menu-item header__menu-item list-menu__item link link--text focus-inset">
+                  <span>{{ text_move_outlet }}</span>
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
+        </ul>
+      </nav>
+    {%- endif -%}
+
     <div class="header__icons">
       <style>
         .trm-header .header__icon.header__icon--search .visually-hidden{
@@ -701,7 +768,7 @@
     {%- if section.settings.show_search -%}
       <details-modal class="header__search">
         <details>
-          <summary class="header__icon header__icon--search header__icon--account  link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+          <summary class="header__icon header__icon--search header__icon--account  link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">           
               <svg class="modal__toggle-open icon icon-search medium-hide large-up-hide" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-search"/>
               </svg>

@@ -23,7 +23,7 @@
 
   assign show_filter_size_counters = true
   if results.all_products_count > 50
-    assign show_filter_size_counters = false
+  assign show_filter_size_counters = false
   endif
 -%}
 
@@ -51,7 +51,7 @@
                   {% if filter.param_name == 'filter.p.m.my_fields.discounts' and coll_title != 'sale' %}
                     {% continue %}
                   {% else %}
-                    {% if filter.label != 'Category' and filter.presentation != 'swatch' %}
+                    {% if filter.label != 'Category' %}
                       <details class="js-filter{% if filter.label == 'Size' and show_filter_size_counters == false %} hide--filter-counters{% endif %}" data-index="{{ forloop.index }}">
                         <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
                           <div>
@@ -70,19 +70,15 @@
                           </div>
                           <ul class="facets__list list-unstyled header__submenu list-menu motion-reduce header-submenu__third--level" role="list">
                             {%- for value in filter.values -%}
-                              {% if filter.label == 'Size' and results.all_products_count <= 50 %}
-                                {% capture real_count %}
+                             {% if filter.label == 'Size' and results.all_products_count <= 50 %}
+                               {% capture real_count %}
                                 {% render 'fn_get_filter_value_count',filter_value_label: value.label %}
                               {% endcapture %}
-                              {% else %}
-                                {% assign real_count = value.count %}
-                              {% endif %}
+                            {% else %}
+                              {% assign real_count = value.count %}
+                            {% endif %}
                               {% assign real_count = real_count | plus: 0 %}
-                              <li
-                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if real_count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
-                                filter_value_label="{{ value.label }}"
-                                count="{{  value.count }}|{{ real_count }}"
-                              >
+                              <li class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if real_count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}" filter_value_label="{{ value.label }}" count="{{  value.count }}|{{ real_count }}">
                                 <label
                                   for="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
                                   class="facet-checkbox{% if real_count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
@@ -103,72 +99,6 @@
                                   {% if filter.label != 'Brand' %}
                                     <div class="facet-checkbox__title facet-checkbox__number">({{ real_count }})</div>
                                   {% endif %}
-                                  <div class="icon icon-checkmark icon-checkmark__plus"></div>
-                                  <div class="facet-checkbox__background"></div>
-                                </label>
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </div>
-                      </details>
-                    {% endif %}
-                    {% if filter.presentation == 'swatch' %}
-                      <details class="js-filter" data-index="{{ forloop.index }}">
-                        <summary class="header__menu-item list-menu__item link focus-inset filter-item__flex">
-                          <div>
-                            <span>{{ filter.label | escape }}</span>
-                            {% render 'icon-caret' %}
-                          </div>
-                        </summary>
-                        <div class="facets__display">
-                          <div class="facets__header">
-                            <span class="facets__selected no-js-hidden">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
-                            <facet-remove>
-                              <a href="{{ filter.url_to_remove }}" class="facets__reset link underlined-link">
-                                {{ 'products.facets.reset' | t }}
-                              </a>
-                            </facet-remove>
-                          </div>
-                          <ul class="facets__list list-unstyled header__submenu list-menu motion-reduce header-submenu__third--level" role="list">
-                            {%- for value in filter.values -%}
-                              {% assign real_count = value.count %}
-                              {% liquid
-                                assign is_filter_color = false
-                                if filter.param_name contains 'color-pattern'
-                                  assign is_filter_color = true
-                                endif
-                              %}
-                              {% assign real_count = real_count | plus: 0 %}
-                              <li
-                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if real_count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
-                                filter_value_label="{{ value.label }}"
-                                count="{{  value.count }}|{{ real_count }}"
-                              >
-                                <label
-                                  for="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                                  class="facet-checkbox{% if real_count == 0 and value.active == false %} facet-checkbox--disabled{% endif %}"
-                                >
-                                  <input
-                                    type="checkbox"
-                                    name="{{ value.param_name }}"
-                                    value="{{ value.value }}"
-                                    id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
-                                    {% if value.active %}
-                                      checked
-                                    {% endif %}
-                                    {% if real_count == 0 and value.active == false %}
-                                      disabled
-                                    {% endif %}
-                                  >
-                                  {% if is_filter_color %}
-                                    {% assign color_hex = value.swatch.color | default: '' %}
-                                  {% endif %}
-                                  {% if color_hex != blank %}
-                                    <div class="facet-checkbox__color" title="{{ value.label | escape }}" style="z-index: 1;width: 20px;height: 20px;margin: 0;background-color:{{ color_hex }}"></div>
-                                  {% else %}
-                                    <div class="facet-checkbox__title">{{ value.label | escape }}</div>
-                                  {% endif %}
-                                  <div class="facet-checkbox__title facet-checkbox__number">({{ real_count }})</div>
                                   <div class="icon icon-checkmark icon-checkmark__plus"></div>
                                   <div class="facet-checkbox__background"></div>
                                 </label>
