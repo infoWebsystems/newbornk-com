@@ -12,7 +12,7 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "show_collection_description": true,
+        "show_collection_description": false,
         "show_more_text": true,
         "description_lines": 8,
         "description_lines_mob": 6,
@@ -31,9 +31,13 @@
         "show_secondary_image": true,
         "add_image_padding": false,
         "show_vendor": true,
+        "show_collection_description": true,
+        "show_more_text": true,
+        "description_lines": 10,
+        "description_lines_mob": 7,
         "enable_filtering": true,
         "enable_menu": true,
-        "menu_sidebar": "sidebar-menu",
+        "menu_sidebar": "sidebar-menu-newest",
         "enable_sorting": true
       }
     }
