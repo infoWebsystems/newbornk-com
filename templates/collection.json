@@ -37,7 +37,7 @@
         "description_lines_mob": 7,
         "enable_filtering": true,
         "enable_menu": true,
-        "menu_sidebar": "sidebar-menu-newest",
+        "menu_sidebar": "sidebar-menu",
         "enable_sorting": true
       }
     }
