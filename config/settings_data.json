@@ -232,12 +232,12 @@
       },
       "8171638733228588981": {
         "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       },
       "7870687481494312845": {
         "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "customThemeName": "Dawn",
           "additionalWLButtonCssClasses": "",
