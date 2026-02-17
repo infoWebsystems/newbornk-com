@@ -1,5 +1,11 @@
+{% liquid
+  capture is_type_brand
+    render 'fn_is_type_brand'
+  endcapture
+  assign is_type_brand = is_type_brand | plus: 0
+%}
 <nav
-  class="header__inline-menu header__inline-menu--mobile"
+  class="header__inline-menu header__inline-menu--mobile{% if is_type_brand == 1 %} type--plus--brand{% endif %}"
   {%- if section.settings.menu_position == 'center' -%}
     style="margin: auto;"
   {%- endif -%}
