@@ -205,14 +205,34 @@
         "disabled": true,
         "settings": {}
       },
-      "8171638733228588981": {
-        "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
-        "disabled": false,
-        "settings": {}
-      },
       "15351435345818755577": {
         "type": "shopify://apps/pandectes-gdpr/blocks/banner/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
         "disabled": false,
+        "settings": {}
+      },
+      "16936614187718193802": {
+        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
+        "disabled": false,
+        "settings": {}
+      },
+      "0220609880488367148": {
+        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
+        "disabled": false,
+        "settings": {}
+      },
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "8171638733228588981": {
+        "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
+        "disabled": true,
         "settings": {}
       },
       "7870687481494312845": {
@@ -225,16 +245,6 @@
           "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>",
           "disableAutomaticButtonAddition": false
         }
-      },
-      "16936614187718193802": {
-        "type": "shopify://apps/multifeeds/blocks/app_embed/f3e7ca1d-2d5a-45a7-97dd-2fd45843acef",
-        "disabled": false,
-        "settings": {}
-      },
-      "0220609880488367148": {
-        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
-        "disabled": false,
-        "settings": {}
       }
     }
   }
