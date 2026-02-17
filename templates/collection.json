@@ -13,7 +13,7 @@
       "type": "main-collection-banner",
       "settings": {
         "show_collection_description": false,
-        "show_more_text": true,
+        "show_more_text": false,
         "description_lines": 8,
         "description_lines_mob": 6,
         "show_collection_image": false,
