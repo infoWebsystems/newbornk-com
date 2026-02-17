@@ -40,8 +40,14 @@
             "picker_type": "button"
           }
         },
+        "collapsible_size_guide_tdyqry": {
+          "type": "collapsible_size_guide",
+          "disabled": true,
+          "settings": {}
+        },
         "58772005-ffce-40ba-8987-901c185f3569": {
           "type": "size_guide",
+          "disabled": true,
           "settings": {
             "show_size_popup": true
           }
@@ -94,20 +100,6 @@
         },
         "70bbe489-815e-4f89-aaee-8f79b7917887": {
           "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "ІНФОРМАЦІЯ",
-            "opened_by_default": false,
-            "content": "<p>{{ product.metafields.product_fields.information | metafield_tag }}</p>",
-            "page": "",
-            "liquid": "",
-            "enable_more_text": false,
-            "lines": 3,
-            "icon": "none"
-          }
-        },
-        "c1df5e55-1f87-4887-9282-ab39f4ff2c07": {
-          "type": "collapsible_tab",
           "settings": {
             "heading": "РОЗМІРНА СІТКА",
             "opened_by_default": false,
@@ -126,6 +118,7 @@
         "subtitle",
         "price",
         "variant_picker",
+        "collapsible_size_guide_tdyqry",
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
         "share",
@@ -133,8 +126,7 @@
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
         "description",
-        "70bbe489-815e-4f89-aaee-8f79b7917887",
-        "c1df5e55-1f87-4887-9282-ab39f4ff2c07"
+        "70bbe489-815e-4f89-aaee-8f79b7917887"
       ],
       "settings": {
         "enable_sticky_info": true,
