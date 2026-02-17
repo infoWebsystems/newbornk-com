@@ -1,0 +1,22 @@
+{%- liquid
+  assign available_count = 0
+  assign last_size_detected = false
+
+  for variant in product_card_product.variants
+    if variant.available
+      assign available_count = available_count | plus: 1
+
+      # Проверка на последний размер
+      # continue продается без ограничений - не считаем последним
+      if variant.inventory_management != blank and variant.inventory_policy == 'deny' and variant.inventory_quantity == 1
+        assign last_size_detected = true
+      elsif variant.inventory_management != blank and variant.inventory_quantity == 1
+        assign last_size_detected = true
+      endif
+    endif
+  endfor
+-%}
+
+{% if available_count == 1 and last_size_detected %}
+  <div class="product-bage-last-size">{{ 'text_badge_last_size' | t }}</div>
+{% endif %}

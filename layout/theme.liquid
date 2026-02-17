@@ -144,7 +144,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
-    
+    {% comment %}<link rel="stylesheet" href="{{ 'topmenu.css' | asset_url }}" media="all">{% endcomment %}
+
     {% if template.name == 'product' %}
       <script src="{{ 'product-redesigned.js' | asset_url }}" defer="defer"></script>
     {% endif %}
@@ -260,6 +261,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .grid--4-col-desktop .grid__item{
           flex-grow: 0;
+        }
+      }
+      @media (min-width: 768px) {
+        .trm-header .header__icon--account.header__icon--search svg.icon-search {
+          display: flex;
+          height: 100%;
+          width: 20px;
+          display: block !important;
+        }
+        .header__icons {
+          gap: 1.5rem;
         }
       }
     </style>

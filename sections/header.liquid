@@ -26,6 +26,26 @@
   </symbol>
 </svg>
 <style>
+  @media screen and (min-width: 1024px) and (max-width: 1300px) {
+    .trm-header .header__menu-item{
+      font-size: 1vw;
+    }
+  }
+  @media screen and (min-width: 990px) and (max-width: 1023px) {
+    .trm-header .header__menu-item{
+      font-size: 0.9vw;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    a#icon-wishlist-header {
+      position: relative;
+      top: 4px;
+    }
+    .modal__toggle-open.icon-search{
+      position: relative;
+      top: 2px;
+    }
+  }
   details[open]>.header__icon--menu .icon-hamburger {
     visibility: visible;
     opacity: 1;
@@ -660,6 +680,7 @@
     {%- endif -%}
 
     {%- if section.settings.menu != blank -%}
+      {% comment %}{% render 'header-menu-dropdown' %}{% endcomment %}
       <nav class="header__inline-menu" {%- if section.settings.menu_position == 'center' -%} style="margin: auto;"  {%- endif -%}>
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
@@ -767,7 +788,7 @@
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--account  link link--text focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
-            <span class="visually-hidden small-hide">{{ 'general.search.search' | t }}</span>
+            
               <svg class="modal__toggle-open icon icon-search medium-hide large-up-hide" aria-hidden="true" focusable="false" role="presentation">
                 <use href="#icon-search"/>
               </svg>
@@ -877,16 +898,7 @@
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset">
-         {% render 'icon-account' %}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
+         {% render 'icon-account' %}          
         </a>
       {%- endif -%}
 

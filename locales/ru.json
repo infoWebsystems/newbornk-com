@@ -548,5 +548,8 @@
     "title_pagination": "{{title}} | Страница {{number}}",
     "description_pagination": "{{description}} | Страница {{number}}",
     "h1_pagination": "{{title}} | Страница {{number}}"
-  }
+  },
+  "text_badge_last_size": "Последний размер",
+  "text_btn_loadmore": "Показать еще",
+  "text_loading": "Загрузка...",
 }

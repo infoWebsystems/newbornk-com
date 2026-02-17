@@ -1,0 +1,146 @@
+<nav
+  class="topmenu"
+  {%- if section.settings.menu_position == 'center' -%}
+    style="margin: auto;"
+  {%- endif -%}
+>  
+  <div class="topmenu__list" role="list">
+    {%- for link in section.settings.menu.links -%}
+      <div class="topmenu__list-item{% if link.current %} is--active{% endif %}">        
+        <a
+          href="{{ link.url }}"
+          class="topmenu__list-item-link"
+          {% if link.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          <span>{{ link.title | escape }}</span>
+          {%- if link.links != blank -%}
+            {% render 'icon-caret' %}
+          {% endif %}
+        </a>
+        {%- if link.links != blank -%}
+          <div class="topmenu__dropdown">
+            {%- assign total_items = link.links.size -%}
+            {%- assign items_per_column = 6 -%}
+            {% if link.title == 'Бренди' or link.title == 'Бренды' %}
+              {%- assign items_per_column = 10 -%}
+            {% endif %}
+            {%- assign columns_count = total_items | divided_by: items_per_column | ceil -%}
+
+            <div class="topmenu__dropdown-columns">
+              {% if columns_count > 1 %}
+                {%- for i in (1..columns_count) -%}
+                  {%- assign start_index = forloop.index0 | times: items_per_column -%}
+                  <div class="topmenu__dropdown-column">
+                    {%- for childlink in link.links limit: items_per_column offset: start_index -%}
+                      <a href="{{ childlink.url }}" class="topmenu__dropdown-item">
+                        <span>{{ childlink.title | escape }}</span>
+                      </a>
+                    {%- endfor -%}
+                  </div>
+                {%- endfor -%}
+              {% else %}
+                <div class="topmenu__dropdown-column">
+                  {%- for childlink in link.links -%}
+                    <a href="{{ childlink.url }}" class="topmenu__dropdown-item">
+                      <span>{{ childlink.title | escape }}</span>
+                    </a>
+                  {%- endfor -%}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</nav>
+<script>
+  function initTopMenu() {
+    const menuItems = document.querySelectorAll('.topmenu__list-item');
+
+    menuItems.forEach((item) => {
+      const dropdown = item.querySelector('.topmenu__dropdown');
+
+      if (!dropdown) return;
+
+      // Ховер на элемент меню
+      item.addEventListener('mouseenter', () => {
+        // Закрываем другие открытые меню
+        menuItems.forEach((otherItem) => {
+          if (otherItem !== item && otherItem.classList.contains('is--open')) {
+            otherItem.classList.remove('is--open');
+          }
+        });
+
+        // Открываем текущее
+        item.classList.add('is--open');
+        centerDropdown(item, dropdown);
+      });
+
+      // Уход с элемента меню
+      item.addEventListener('mouseleave', (e) => {
+        // Проверяем, ушел ли курсор полностью из элемента и dropdown
+        if (!item.contains(e.relatedTarget) && !dropdown.contains(e.relatedTarget)) {
+          item.classList.remove('is--open');
+        }
+      });
+
+      // Уход с dropdown
+      dropdown.addEventListener('mouseleave', (e) => {
+        if (!item.contains(e.relatedTarget) && !dropdown.contains(e.relatedTarget)) {
+          item.classList.remove('is--open');
+        }
+      });
+    });
+
+    // Центрируем dropdown при ресайзе
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.topmenu__list-item.is--open').forEach((item) => {
+        const dropdown = item.querySelector('.topmenu__dropdown');
+        if (dropdown) {
+          centerDropdown(item, dropdown);
+        }
+      });
+    });
+  }
+
+  function centerDropdown(item, dropdown) {
+    // Сбрасываем стили
+    dropdown.style.left = '';
+    dropdown.style.right = '';
+    dropdown.style.transform = '';
+
+    // Получаем размеры
+    const itemRect = item.getBoundingClientRect();
+    const dropdownRect = dropdown.getBoundingClientRect();
+
+    // Рассчитываем центр
+    const itemCenter = itemRect.left + itemRect.width / 2;
+    const dropdownHalfWidth = dropdownRect.width / 2;
+
+    // Позиция слева
+    let leftPosition = itemCenter - dropdownHalfWidth;
+
+    // Проверка границ экрана
+    const viewportWidth = window.innerWidth;
+    const padding = 20;
+
+    // Если выходит за левый край
+    if (leftPosition < padding) {
+      leftPosition = padding;
+    }
+
+    // Если выходит за правый край
+    if (leftPosition + dropdownRect.width > viewportWidth - padding) {
+      leftPosition = viewportWidth - dropdownRect.width - padding;
+    }
+
+    // Устанавливаем позицию
+    dropdown.style.left = `${leftPosition}px`;
+  }
+
+  // Инициализация
+  document.addEventListener('DOMContentLoaded', initTopMenu);
+</script>

@@ -1,0 +1,83 @@
+<style>
+  @media (max-width: 749px) {
+    .collection-filters .sidebar-menu.type--brand .sidemenu-link {
+      display: block;
+    }
+  }
+</style>
+
+{%- liquid
+  assign current_url = request.host | append: request.path
+  assign current_path = request.path
+  assign active_filters = ''
+
+  for filter in collection.filters
+    for value in filter.active_values
+      assign active_filters = active_filters | append: value.label | append: ', '
+    endfor
+  endfor
+
+  if settings.brand_type_oakley_menu != blank and settings.brand_type_oakley_list != blank
+    assign should_show_menu = false
+
+    for link in settings.brand_type_oakley_list.links
+      assign link_url = link.url | strip
+
+      # Проверяем несколько вариантов совпадения
+      if link_url == current_url or link_url == current_path or current_url contains link_url or current_path contains link_url or request.path contains link_url or request.full_url contains link_url
+        assign should_show_menu = true
+        break
+      endif
+    endfor
+
+    if should_show_menu == false and active_filters contains 'OAKLEY'
+      assign should_show_menu = true
+    endif
+
+    if should_show_menu
+      echo '<ul class="list-menu list-menu--inline sidebar-menu sidebar-menu_2 type--brand menu--oakley" role="list">'
+      for link in settings.brand_type_oakley_menu.links
+        # Проверяем активный пункт меню
+        if request.path == link.url or request.full_url contains link.url
+          continue
+        endif
+        echo '<li class="sidemenu-link 2332">'
+        echo '<div class="header__menu-item list-menu__item link focus-inset" ><span><a href="' | append: link.url | append: '" style="text-transform: uppercase">' | append: link.title | append: '</a></span></div>'
+        echo '</li>'
+      endfor
+      echo '</ul>'
+    endif
+  endif
+
+  if settings.brand_type_carhartt_wip_menu != blank and settings.brand_type_carhartt_wip_list != blank
+    assign should_show_menu = false
+
+    for link in settings.brand_type_carhartt_wip_list.links
+      assign link_url = link.url | strip
+
+      # Проверяем несколько вариантов совпадения
+      if link_url == current_url or link_url == current_path or current_url contains link_url or current_path contains link_url or request.path contains link_url or request.full_url contains link_url
+        assign should_show_menu = true
+        break
+      endif
+    endfor
+
+    if should_show_menu == false and active_filters contains 'CARHARTT WIP'
+      assign should_show_menu = true
+    endif
+
+    if should_show_menu
+      echo '<ul class="list-menu list-menu--inline sidebar-menu sidebar-menu_2 type--brand menu--carhartt-wip" role="list">'
+      for link in settings.brand_type_carhartt_wip_menu.links
+        # Проверяем активный пункт меню
+        if request.path == link.url or request.full_url contains link.url
+          continue
+        endif
+        echo '<li class="sidemenu-link 2332">'
+        echo '<div class="header__menu-item list-menu__item link focus-inset" ><span><a href="' | append: link.url | append: '" style="text-transform: uppercase">' | append: link.title | append: '</a></span></div>'
+        echo '</li>'
+      endfor
+      echo '</ul>'
+    endif
+  endif
+-%}
