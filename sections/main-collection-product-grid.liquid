@@ -13,11 +13,14 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 
 <style>
+  .empty--collection .buttons-section{padding-top:0px;}
+  .empty--collection .facet-filters.sorting{display:none;}
   .collection-filter-sidebar #FacetsWrapperDesktop{padding-top:10px;position:relative;}
   .collection-filter-sidebar #FacetsWrapperDesktop::before{content:'';position:absolute;top: 0;left: 0;width: calc(100% - 25px); border-top: 1px solid #9f9f9f;}
    @media (max-width: 749px){
    .collection-filters .sidebar-menu .sidemenu-link{display:none;}
    .collection-hero {margin-bottom: 0;}
+   .empty--collection .facets-button__box{display:none;}
    }
   }
 </style>
@@ -99,7 +102,13 @@
       -webkit-box-orient: vertical;
       box-orient: vertical;
     }
+    .collection-filters.no--products .facet-filters.sorting{
+      display: none;
+    }
     @media screen and (max-width: 768px) {
+      .collection-filters.no--products{
+        display: none;
+      }
       #CollectionProductGrid .collection-hero__text-wrapper{
         padding: 0 20px;
       }
@@ -113,7 +122,7 @@
 
 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
 
-<div class="page-width collection-sorting" id="main-collection-filters" data-id="{{ section.id }}">
+<div class="page-width collection-sorting{% if total_products == 0 %} no--products{% endif %}" id="main-collection-filters" data-id="{{ section.id }}">
   {%- if section.settings.enable_sorting -%}
     {%- assign total_active_values = 0 -%}
 
@@ -199,7 +208,7 @@
   {%- endif -%}
 </div>
 
-<div class="collection-filters filters-sidebar collection-filters__mobile page-width" id="main-collection-filters" data-id="{{ section.id }}">
+<div class="collection-filters filters-sidebar collection-filters__mobile page-width{% if total_products == 0 %} no--products{% endif %}" id="main-collection-filters" data-id="{{ section.id }}">
   {%- if section.settings.enable_menu -%}
     {% if template contains 'outlet' %}
       {% render 'trm-sidebar-menu-outlet' %}
@@ -570,11 +579,15 @@
 
       <div class="title-wrapper center">
         <h2 class="title title--primary">
-          {{ 'sections.collection_template.empty' | t }}
-          <br>
-          {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: 'underlined-link link' }}
+          {% if settings.collection_empty_text != blank %}
+            {{ settings.collection_empty_text }}
+          {% else %}
+            <br>
+            {{ 'sections.collection_template.use_fewer_filters_html' | t: link: collection.url, class: 'underlined-link link' }}
+          {% endif %}
         </h2>
       </div>
+      {% render 'collection-empty-slider' %}
     </div>
   {%- else -%}
     <div class="collection page-width">
@@ -642,6 +655,18 @@
               {%- endif -%}
             {%- endfor -%}
           </ul>
+
+          {% if paginate.next %}
+            <div
+              class="load-more-container"
+              data-page="{{ paginate.current_page }}"
+              data-next-url="{{ paginate.next.url }}"
+              data-section="{{ section.id }}"
+            >
+              <button class="load-more-btn">{{ 'text_btn_loadmore' | t }}</button>
+              <div class="loading-spinner" style="display: none;">{{ 'text_loading' | t }}</div>
+            </div>
+          {% endif %}
           {%- if paginate.pages > 1 -%}
             {% render 'pagination', paginate: paginate, anchor: '', class: '' %}
           {%- endif -%}
@@ -699,9 +724,8 @@
 
   {% assign collection_description = collection.description %}
   {%- if section.settings.show_collection_description and show_collection_description and collection_description != blank -%}
-    <div class="collection-hero__text-wrapper">
-      <div class="collection-hero__title"></div>
-      <div class="collection-hero__description less rte" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
+    <div class="collection-hero__text-wrapper" style="width:100%;padding: 0 2.5rem;margin-top: 3rem;">
+      <div class="collection-hero__description less rte" style="max-width: 100%;" data-lines="{{ description_lines }}" data-lines-mob="{{ description_lines_mob }}">
         {{ collection_description }}
       </div>
     </div>
@@ -719,6 +743,33 @@
 
     .collection-filters__breadcrumbs {
       margin-left: calc(20% + 2rem);
+    }
+
+    .load-more-container {
+      margin: 40px auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .load-more-btn, .loading-spinner {
+      background: #000000;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .load-more-btn:hover {
+      background: #555;
+    }
+
+    .loader {
+      text-align: center;
+      padding: 20px;
+      color: #000;
     }
 
     #main-collection-product-grid {
@@ -790,7 +841,146 @@
     }
   </style>
 {% endif %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const loadMoreContainers = document.querySelectorAll('.load-more-container');
 
+    loadMoreContainers.forEach((container) => {
+      const button = container.querySelector('.load-more-btn');
+      const spinner = container.querySelector('.loading-spinner');
+      let nextUrl = container.dataset.nextUrl || '';
+      let page = container.dataset.page || 0;
+      const sectionId = container.dataset.section;
+      const productsGrid = document.getElementById('main-collection-product-grid');
+
+      if (!nextUrl || !page) {
+        button.style.display = 'none';
+        spinner.style.display = 'none';
+        return;
+      }
+
+      // Функция для извлечения параметров из URL
+      function getUrlParams(url) {
+        const params = {};
+        const urlObj = new URL(url, window.location.origin);
+        urlObj.searchParams.forEach((value, key) => {
+          params[key] = value;
+        });
+        return params;
+      }
+
+      // Функция для построения URL с фильтрами
+      function buildSectionUrl(basePath, pageNum, sectionId, currentParams) {
+        const url = new URL(basePath, window.location.origin);
+        
+        // Добавляем параметры из текущего URL (фильтры)
+        Object.keys(currentParams).forEach(key => {
+          if (key !== 'page') { // Не добавляем page, так как ставим свою
+            url.searchParams.set(key, currentParams[key]);
+          }
+        });
+        
+        // Добавляем параметры для пагинации и секции
+        url.searchParams.set('page', pageNum);
+        url.searchParams.set('section_id', sectionId);
+        
+        return url.toString();
+      }
+
+      // Функция обновления пагинации
+      function updatePaginationAfterLoad(newPage) {
+        const paginationList = document.querySelector('.pagination__list');
+        if (!paginationList) return;
+
+        const items = paginationList.querySelectorAll('li');
+
+        items.forEach((item) => {
+          const link = item.querySelector('.pagination__item.link');
+          if (!link) return;
+
+          // Извлекаем номер страницы из href
+          const match = link.href.match(/[?&]page=(\d+)/);
+          if (!match) return;
+
+          const pageNum = parseInt(match[1]);
+
+          if (pageNum === newPage) {
+            // Заменяем ссылку на span для текущей страницы
+            const span = document.createElement('span');
+            span.className = 'pagination__item pagination__item--current';
+            span.setAttribute('aria-current', 'page');
+            span.setAttribute('aria-label', `Сторінка ${pageNum}`);
+            span.textContent = pageNum;
+
+            link.parentNode.replaceChild(span, link);
+          }
+        });
+      }
+
+      button.addEventListener('click', async function () {
+        try {
+          button.style.display = 'none';
+          spinner.style.display = 'block';
+
+          const currentPage = parseInt(button.parentNode.dataset.page || 0);
+          let nextUrl = button.parentNode.dataset.nextUrl || '';
+
+          if (!nextUrl || !currentPage) {
+            button.style.display = 'none';
+            spinner.style.display = 'none';
+            return;
+          }
+
+          // Получаем все параметры из текущего URL (включая фильтры)
+          const currentParams = getUrlParams(window.location.href);
+          const nextPageNum = currentPage + 1;
+
+          // Строим URL с учетом всех фильтров
+          const sectionUrl = buildSectionUrl(
+            window.location.pathname,
+            nextPageNum,
+            sectionId,
+            currentParams
+          );
+          
+          const response = await fetch(sectionUrl);
+          const html = await response.text();
+
+          const temp = document.createElement('div');
+          temp.innerHTML = html;
+
+          // Получаем товары из загруженной секции
+          const newProducts = temp.querySelector('#main-collection-product-grid')?.innerHTML;
+
+          if (!newProducts) {
+            throw new Error('Товары не найдены');
+          }
+
+          // Добавляем товары
+          productsGrid.insertAdjacentHTML('beforeend', newProducts);
+
+          // Обновляем пагинацию
+          updatePaginationAfterLoad(nextPageNum);
+
+          // Проверяем, есть ли следующая страница
+          const newContainer = temp.querySelector('.load-more-container');
+          if (newContainer && newContainer.dataset.nextUrl) {
+            container.dataset.page = newContainer.dataset.page;
+            container.dataset.nextUrl = newContainer.dataset.nextUrl;
+            button.style.display = 'block';
+            spinner.style.display = 'none';
+          } else {
+            // Больше нет страниц
+            container.remove();
+          }
+        } catch (error) {
+          button.style.display = 'none';
+          spinner.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
 <script>
   const selectSingle = document.querySelector('.__select');
   const selectSingle_title = selectSingle.querySelector('.__select__title_content');

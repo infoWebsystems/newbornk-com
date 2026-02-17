@@ -353,6 +353,45 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
+    "name": "Collections",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "collection_empty_text",
+        "label": "Text on empty collections",
+        "default": "Товари цієї категорії відсутні.<br>Очікується нове постачання найближчим часом"
+      },
+      {
+        "type": "header",
+        "content": "Type+Brand Oakley"
+      },
+      {
+        "type": "link_list",
+        "id": "brand_type_oakley_menu",
+        "label": "Oakley menu list"
+      },
+      {
+        "type": "link_list",
+        "id": "brand_type_oakley_list",
+        "label": "Show on pages"
+      },
+      {
+        "type": "header",
+        "content": "Type+Brand CARHARTT WIP"
+      },
+      {
+        "type": "link_list",
+        "id": "brand_type_carhartt_wip_menu",
+        "label": "CARHARTT WIP menu list"
+      },
+      {
+        "type": "link_list",
+        "id": "brand_type_carhartt_wip_list",
+        "label": "Show on pages"
+      },
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
@@ -468,7 +507,8 @@
         ],
         "default": "accent-2",
         "label": "t:settings_schema.styles.settings.sale_badge_color_scheme.label"
-      },{
+      },
+      {
         "type": "select",
         "id": "online_only_badge_color_scheme",
         "options": [
@@ -483,7 +523,8 @@
           {
             "value": "background-2",
             "label": "t:settings_schema.styles.settings.sale_badge_color_scheme.options__1.label"
-          },{
+          },
+          {
             "value": "background-3",
             "label": "Schema 1 (black/white)"
           },
@@ -569,7 +610,8 @@
         "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
       }
     ]
-  },{
+  },
+  {
     "name": "Outlet settings",
     "settings": [
       {
@@ -577,27 +619,32 @@
         "id": "show_move_outlet",
         "label": "Show move-outlet",
         "default": true
-      },{
+      },
+      {
         "type": "url",
         "id": "url_move_outlet",
         "label": "Url move to outlet"
-      },{
+      },
+      {
         "type": "text",
         "id": "text_move_outlet",
         "label": "Text move to outlet",
         "default": "Перейти до Outlet"
-      },{
+      },
+      {
         "type": "url",
         "id": "url_move_main",
         "label": "Url move to main"
-      },{
+      },
+      {
         "type": "text",
         "id": "text_move_main",
         "label": "Text move to main",
         "default": "Повернутись на основний сайт"
       }
     ]
-  },{
+  },
+  {
     "name": "Collection filter settings",
     "settings": [
       {
