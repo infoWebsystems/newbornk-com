@@ -159,9 +159,15 @@
                                   {% if is_filter_color %}
                                     {% assign color_hex = value.swatch.color | default: '' %}
                                   {% endif %}
+                                  {% assign color_multi = '' %}
+                                  {% if color_hex == blank and value.label == 'Multicolor' %}
+                                    {% assign color_multi = 'radial-gradient(circle at center, #ff0000 0%,#ff7f00 15%, #ffff00 30%, #00ff00 45%, #0000ff 60%,  #4b0082 75%, #9400d3 90% );' %}
+                                  {% endif %}
                                   {% if color_hex != blank %}
                                     <div class="facet-checkbox__color" title="{{ value.label | escape }}" style="z-index: 1;width: 20px;height: 20px;margin: 0;background-color:{{ color_hex }}"></div>
-                                  {% else %}
+                                   {% elsif color_multi != blank %}
+                                    <div class="facet-checkbox__color" title="{{ value.label | escape }}" style="z-index: 1;width: 20px;height: 20px;margin: 0;background:{{ color_multi }}"></div>
+                                   {% else %}
                                     <div class="facet-checkbox__title">{{ value.label | escape }}</div>
                                   {% endif %}
                                   <div class="facet-checkbox__title facet-checkbox__number">({{ real_count }})</div>
