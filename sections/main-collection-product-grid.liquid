@@ -15,7 +15,10 @@
 <style>
   .empty--collection .buttons-section{padding-top:0px;}
   .empty--collection .facet-filters.sorting{display:none;}
+  {% comment %}Hide other menus if page is Type+Brand{% endcomment %}
+  {% comment %} 
   .header__inline-menu.type--plus--brand .sidebar-menu:not(.type--brand) .sidemenu-link:not(.new--arrival){display:none;}
+  {% endcomment %}
   .header__inline-menu.type--plus--brand .sidebar-menu:not(.type--brand) .sidemenu-link.new--arrival .header__submenu .header__menu-item:after{display:none;}
   .collection-filter-sidebar #FacetsWrapperDesktop{padding-top:10px;position:relative;}
   .collection-filter-sidebar #FacetsWrapperDesktop::before{content:'';position:absolute;top: 0;left: 0;width: calc(100% - 25px); border-top: 1px solid #9f9f9f;}
