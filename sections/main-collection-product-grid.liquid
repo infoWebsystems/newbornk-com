@@ -16,7 +16,7 @@
   .empty--collection .buttons-section{padding-top:0px;}
   .empty--collection .facet-filters.sorting{display:none;}
   {% comment %}Hide other menus if page is Type+Brand{% endcomment %}
-  {% comment %} 
+  {% comment %}
   .header__inline-menu.type--plus--brand .sidebar-menu:not(.type--brand) .sidemenu-link:not(.new--arrival){display:none;}
   {% endcomment %}
   .header__inline-menu.type--plus--brand .sidebar-menu:not(.type--brand) .sidemenu-link.new--arrival .header__submenu .header__menu-item:after{display:none;}
@@ -756,7 +756,8 @@
       justify-content: center;
     }
 
-    .load-more-btn, .loading-spinner {
+    .load-more-btn,
+    .loading-spinner {
       background: #000000;
       color: white;
       border: none;
@@ -877,18 +878,19 @@
       // Функция для построения URL с фильтрами
       function buildSectionUrl(basePath, pageNum, sectionId, currentParams) {
         const url = new URL(basePath, window.location.origin);
-        
+
         // Добавляем параметры из текущего URL (фильтры)
-        Object.keys(currentParams).forEach(key => {
-          if (key !== 'page') { // Не добавляем page, так как ставим свою
+        Object.keys(currentParams).forEach((key) => {
+          if (key !== 'page') {
+            // Не добавляем page, так как ставим свою
             url.searchParams.set(key, currentParams[key]);
           }
         });
-        
+
         // Добавляем параметры для пагинации и секции
         url.searchParams.set('page', pageNum);
         url.searchParams.set('section_id', sectionId);
-        
+
         return url.toString();
       }
 
@@ -941,13 +943,8 @@
           const nextPageNum = currentPage + 1;
 
           // Строим URL с учетом всех фильтров
-          const sectionUrl = buildSectionUrl(
-            window.location.pathname,
-            nextPageNum,
-            sectionId,
-            currentParams
-          );
-          
+          const sectionUrl = buildSectionUrl(window.location.pathname, nextPageNum, sectionId, currentParams);
+
           const response = await fetch(sectionUrl);
           const html = await response.text();
 
@@ -961,8 +958,41 @@
             throw new Error('Товары не найдены');
           }
 
+          const idsSet = new Set();
+          productsGrid.querySelectorAll('li.grid__item').forEach((el) => {
+            const id = el.getAttribute('data-product_id');
+            if (id) {
+              idsSet.add(id.toString()); // Преобразуем в строку для надежности
+            }
+          });
+          const existingIds = Array.from(idsSet);
+          console.log('Существующие ID:', existingIds);
+
+          // Создаем временный контейнер для новых товаров
+          const tempContainer = document.createElement('div');
+          tempContainer.innerHTML = newProducts;
+
+          // Фильтруем новые товары, удаляя дубликаты
+          const uniqueNewProducts = [];
+          tempContainer.querySelectorAll('li.grid__item').forEach((el) => {
+            const id = el.getAttribute('data-product_id');
+
+            if (id && !existingIds.includes(id.toString())) {
+              uniqueNewProducts.push(el.outerHTML);
+              console.log('✓ Добавляем товар с ID:', id);
+            } else {
+              console.log('✗ Пропускаем дубликат с ID:', id);
+            }
+          });
+
+          // Добавляем только уникальные товары
+          if (uniqueNewProducts.length > 0) {
+            productsGrid.insertAdjacentHTML('beforeend', uniqueNewProducts.join(''));
+            console.log(`Добавлено ${uniqueNewProducts.length} новых товаров`);
+          }
+
           // Добавляем товары
-          productsGrid.insertAdjacentHTML('beforeend', newProducts);
+          //productsGrid.insertAdjacentHTML('beforeend', newProducts);
 
           // Обновляем пагинацию
           updatePaginationAfterLoad(nextPageNum);
