@@ -161,6 +161,7 @@
     },
     "featured_collection_slider_tfqQpj": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
         "title": "Верхній одяг",
@@ -301,6 +302,7 @@
     },
     "featured_collection_slider_eKMVrY": {
       "type": "featured-collection-slider",
+      "disabled": true,
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
         "title": "Останній розмір",
@@ -350,11 +352,11 @@
     "1630994380770cb550",
     "buttons_Aehtdg",
     "image_banner",
+    "featured_collection_slider_XbArfi",
     "featured_collection_slider_zaYJcr",
     "1626369903c393cced",
     "featured_collection_slider_tfqQpj",
     "1626416534da40dc37",
-    "featured_collection_slider_XbArfi",
     "1626416564a7b86704",
     "1626450162f5dda00b",
     "16264502060c7e1d80",
