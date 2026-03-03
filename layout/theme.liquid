@@ -1,7 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>{% render 'spdn' %}
-    <link rel="manifest" href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/manifest.json?v=1772546608">
+   <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
+<meta name="theme-color" content="#c7ec51">
 	<!-- Added by AVADA SEO Suite -->
 	{% include 'avada-seo' %}
 	<!-- /Added by AVADA SEO Suite -->
