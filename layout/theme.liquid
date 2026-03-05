@@ -638,21 +638,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	es("pushOn");
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-   if (window.es) {
-      es("appInbox.init");
-   }
-});
-</script>
+window.addEventListener("load", function() {
 {% if customer %}
-<script>
-es("setCustomer", {
-   email: "{{ customer.email }}",
-   firstName: "{{ customer.first_name }}",
-   lastName: "{{ customer.last_name }}"
+   es("setCustomer", {
+      email: "test1.leiber@gmail.com",
+      firstName: "Itforce",
+      lastName: "Test"
+   });
+{% endif %}
+ if (window.es) {
+   es("appInbox.init");
+   es("appInbox.checkMessages");
+ }
 });
 </script>
-{% endif %}
 </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
