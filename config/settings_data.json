@@ -230,11 +230,6 @@
         "disabled": false,
         "settings": {}
       },
-      "8171638733228588981": {
-        "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
-        "disabled": false,
-        "settings": {}
-      },
       "7870687481494312845": {
         "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
         "disabled": false,
@@ -245,6 +240,11 @@
           "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>",
           "disableAutomaticButtonAddition": false
         }
+      },
+      "8171638733228588981": {
+        "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
+        "disabled": true,
+        "settings": {}
       }
     }
   }
