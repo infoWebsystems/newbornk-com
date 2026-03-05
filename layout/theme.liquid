@@ -637,7 +637,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	) (window, document, "script", "https://esputnik.com/scripts/v1/public/scripts?apiKey=eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI0NTI0ZWZhYTJkYzI2MGRmYTM4YTE1NDBlMWEyYWY0ODk3YmUzMTA5M2Y0MWM4OWQwNWIzNDk2OTg1ZGIxZjU1NzNmM2IxNzQwZWIzYTQzNjJhMTQ3N2ZmZGYwMWQwNDY1ZGJmYjUwMzU2MzU2YWFhZjY3MzE1ZDMxOTA5YWQ0YWEwY2FhNzMyM2U3MTdhNDJlMTM4ZWQ3M2EwOGI0MjE3MDE4OGUxOTM5OTE4NjU1ZmY3MGFhOGQ4In0.EenKQ3BPIoIdMWxnQPjedLRLc4wlvvk54i1fuStBXXr1K0kHdMaTBIaI1IMnW9hyZIrzOYCvjPq7FRljCj-D3Q&domain=0834B186-0AF6-48F0-800E-05E1A76DD5B8", "es");
 	es("pushOn");
 </script>
-
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+   if (window.es) {
+      es("appInbox.init");
+   }
+});
+</script>
+{% if customer %}
+<script>
+es("setCustomer", {
+   email: "{{ customer.email }}",
+   firstName: "{{ customer.first_name }}",
+   lastName: "{{ customer.last_name }}"
+});
+</script>
+{% endif %}
 </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
