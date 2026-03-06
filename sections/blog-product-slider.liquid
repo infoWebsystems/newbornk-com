@@ -24,23 +24,23 @@
             <div class="swiper-slide">
               <article class="nbk-product-card">
                 <a class="nbk-product-card__image-link" href="{{ product.url }}">
-                 {% if product.featured_image %}
-  <img
-    src="{{ product.featured_image | image_url: width: 900 }}"
-    srcset="
-      {{ product.featured_image | image_url: width: 320 }} 320w,
-      {{ product.featured_image | image_url: width: 480 }} 480w,
-      {{ product.featured_image | image_url: width: 640 }} 640w,
-      {{ product.featured_image | image_url: width: 900 }} 900w
-    "
-    sizes="(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 70vw"
-    alt="{{ product.title | escape }}"
-    loading="lazy"
-    class="nbk-product-card__image"
-    width="900"
-    height="1200"
-  >
-{% endif %}
+                  {% if product.featured_image %}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 900 }}"
+                      srcset="
+                        {{ product.featured_image | image_url: width: 320 }} 320w,
+                        {{ product.featured_image | image_url: width: 480 }} 480w,
+                        {{ product.featured_image | image_url: width: 640 }} 640w,
+                        {{ product.featured_image | image_url: width: 900 }} 900w
+                      "
+                      sizes="(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 70vw"
+                      alt="{{ product.title | escape }}"
+                      loading="lazy"
+                      class="nbk-product-card__image"
+                      width="900"
+                      height="1200"
+                    >
+                  {% endif %}
                 </a>
 
                 <div class="nbk-product-card__content">
@@ -66,10 +66,10 @@
           {% endfor %}
         </div>
 
-        <button class="nbk-blog-products__nav nbk-blog-products__nav--prev" aria-label="Попередні товари">
+        <button class="nbk-blog-products__nav nbk-blog-products__nav--prev" aria-label="Попередні товари" type="button">
           <span>←</span>
         </button>
-        <button class="nbk-blog-products__nav nbk-blog-products__nav--next" aria-label="Наступні товари">
+        <button class="nbk-blog-products__nav nbk-blog-products__nav--next" aria-label="Наступні товари" type="button">
           <span>→</span>
         </button>
       </div>
