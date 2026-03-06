@@ -40,6 +40,19 @@
             "picker_type": "button"
           }
         },
+        "70bbe489-815e-4f89-aaee-8f79b7917887": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "РОЗМІРНА СІТКА",
+            "opened_by_default": false,
+            "content": "",
+            "page": "",
+            "liquid": "{{ product.metafields.my_fields.size_quide_text | strip_newlines }}",
+            "enable_more_text": false,
+            "lines": 3,
+            "icon": "none"
+          }
+        },
         "collapsible_size_guide_tdyqry": {
           "type": "collapsible_size_guide",
           "disabled": true,
@@ -97,19 +110,6 @@
           "type": "description",
           "disabled": true,
           "settings": {}
-        },
-        "70bbe489-815e-4f89-aaee-8f79b7917887": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "РОЗМІРНА СІТКА",
-            "opened_by_default": false,
-            "content": "",
-            "page": "",
-            "liquid": "{{ product.metafields.my_fields.size_quide_text | strip_newlines }}",
-            "enable_more_text": false,
-            "lines": 3,
-            "icon": "none"
-          }
         }
       },
       "block_order": [
@@ -118,6 +118,7 @@
         "subtitle",
         "price",
         "variant_picker",
+        "70bbe489-815e-4f89-aaee-8f79b7917887",
         "collapsible_size_guide_tdyqry",
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
@@ -125,13 +126,12 @@
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
         "share",
-        "description",
-        "70bbe489-815e-4f89-aaee-8f79b7917887"
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,
         "enable_video_looping": false,
-        "enable_size_model": true
+        "enable_size_model": false
       }
     },
     "recommnded_products_6nWBpp": {
