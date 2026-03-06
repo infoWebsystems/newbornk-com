@@ -525,7 +525,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
 https://developers.google.com/search/docs/data-types/sitename
 https://developers.google.com/search/docs/data-types/sitelinks-searchbox
 {%- endcomment -%}
-<script data-desc="seo-website" type="application/ld+json">
+{% comment %} <script data-desc="seo-website" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -537,7 +537,7 @@ https://developers.google.com/search/docs/data-types/sitelinks-searchbox
       "query-input": "required name=search_term_string"
     }
   }
-</script>
+</script> {% endcomment %}
 {%- if settings.pluginseo_structuredDataDisplayLocalBusiness and settings.pluginseo_structuredDataDisplayLogo -%}
   {%- assign localBusinessName = settings.pluginseo_structuredDataBusinessName -%}
   {%- assign localBusinessUrl = settings.pluginseo_structuredDataShopUrl -%}

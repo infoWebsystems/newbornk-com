@@ -1120,7 +1120,7 @@ twq('config','opld2');
 </script>
 
 
-{%- if request.page_type == 'index' -%}
+{% comment %} {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}&type=product" %}
   <script type="application/ld+json">
     {
@@ -1135,7 +1135,7 @@ twq('config','opld2');
       "url": {{ shop.url | append: page.url | json }}
     }
   </script>
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
