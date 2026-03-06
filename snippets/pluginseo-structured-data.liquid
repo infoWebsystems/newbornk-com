@@ -32,7 +32,7 @@
 
   <script data-desc="seo-news" type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "NewsArticle",
       "mainEntityOfPage": {
         "@type": "WebPage",
@@ -71,7 +71,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
 
 <script data-desc="seo-breadcrumb-list" type="application/ld+json">
 {
-  "@context": "http://schema.org",
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
     {
@@ -198,7 +198,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
 {%- comment -%}
 <script data-desc="seo-organization" type="application/ld+json">
   {
-    "@context": "http://schema.org",
+    "@context": "https://schema.org",
     "@type": "Organization",
     "@id": "{{ organizationId }}",
     "name": "{{- shopName -}}",
@@ -235,7 +235,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
 
   <script data-desc="seo-product" type="application/ld+json">
     {
-      "@context": "http://schema.org/",
+      "@context": "https://schema.org/",
       "@type": "Product",
       "@id": "{{- canonical_url | append: '#product' -}}",
       "name": "{{- productTitle | escape -}}",
@@ -527,7 +527,7 @@ https://developers.google.com/search/docs/data-types/sitelinks-searchbox
 {%- endcomment -%}
 <script data-desc="seo-website" type="application/ld+json">
   {
-    "@context": "http://schema.org",
+    "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "{{- shopName -}}",
     "url": "{{- shop.url -}}",
@@ -551,7 +551,7 @@ https://developers.google.com/search/docs/data-types/sitelinks-searchbox
 
   <script data-desc="seo-local-business" type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "image": "{{- logoUrl -}}",
       {%- if localBusinessName != blank -%}"name": "{{- localBusinessName -}}",{%- endif -%}

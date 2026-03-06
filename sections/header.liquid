@@ -1085,7 +1085,7 @@ twq('config','opld2');
 
 <script type="application/ld+json">
   {
-    "@context": "http://schema.org",
+    "@context": "https://schema.org",
     "@type": "Organization",
     "name": "{{ shop.name }}",
     "url": "{{ shop.url }}",
@@ -1124,7 +1124,7 @@ twq('config','opld2');
   {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}&type=product" %}
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "WebSite",
       "name": {{ shop.name | json }},
       "potentialAction": {
