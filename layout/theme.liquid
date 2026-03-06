@@ -646,18 +646,58 @@ window.addEventListener("load", function() {
 {% comment %} SCHEMA MAIN {% endcomment %}
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "WebSite",
- "name": "NEWBORN K",
- "alternateName": "Newborn K",
- "url": "https://newbornk.com/",
- "logo": "https://newbornk.com/cdn/shop/files/logo.png",
- "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
- "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://newbornk.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ shop.url }}#website",
+      "name": "{{ shop.name }}",
+      "alternateName": "Newborn K",
+      "url": "{{ shop.url }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "{{ shop.url }}#organization",
+      "name": "{{ shop.name }}",
+      "url": "{{ shop.url }}",
+      {% if shop.brand.logo != blank %}
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ shop.brand.logo | image_url: 'master' }}"
+      },
+      {% endif %}
+      "sameAs": [
+        {% assign socials = "" %}
+        {% if settings.social_twitter_link != blank %}"{{ settings.social_twitter_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_facebook_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_facebook_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_pinterest_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_pinterest_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_instagram_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_instagram_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_tumblr_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_tumblr_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_snapchat_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_snapchat_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_youtube_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_youtube_link }}"{% assign socials = "x" %}{% endif %}
+        {% if settings.social_vimeo_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_vimeo_link }}"{% endif %}
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ shop.phone }}",
+        "contactType": "customer service",
+        "email": "{{ shop.email }}"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ shop.address.street }}",
+        "addressLocality": "{{ shop.address.city }}",
+        "addressRegion": "{{ shop.address.province }}",
+        "postalCode": "{{ shop.address.zip }}",
+        "addressCountry": "{{ shop.address.country_code }}"
+      }
+    }
+  ]
 }
 </script>
 </head>

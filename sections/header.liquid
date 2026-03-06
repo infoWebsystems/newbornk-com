@@ -1083,7 +1083,8 @@ twq('config','opld2');
   }); 
 </script>
 
-<script type="application/ld+json">
+{% comment %} OLD ORGANISATION MOVED TO MAIN THEME 
+ <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -1117,7 +1118,7 @@ twq('config','opld2');
         "addressCountry": "{{ shop.address.country_code }}"
       }
   }
-</script>
+</script> {% endcomment %}
 
 
 {% comment %} {%- if request.page_type == 'index' -%}
