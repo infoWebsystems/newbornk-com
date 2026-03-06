@@ -14,7 +14,6 @@
       "blocks": {
         "featured_image": {
           "type": "featured_image",
-          "disabled": true,
           "settings": {
             "image_height": "medium"
           }
@@ -51,13 +50,13 @@
         "view_all_label": "Переглянути все"
       }
     },
-    "blog_product_slider_yrdRax": {
+    "blog_product_slider_HjmnxN": {
       "type": "blog-product-slider",
       "name": "Blog product slider",
       "settings": {
-        "heading": "Переглянути A-COLD-WALL*",
+        "heading": "Речі бренду A-COLD-WALL*",
         "collection": "a-cold-wall",
-        "products_limit": 8,
+        "products_limit": 10,
         "show_vendor": true,
         "show_view_all": false,
         "view_all_label": "Переглянути все",
@@ -68,6 +67,6 @@
   },
   "order": [
     "main",
-    "blog_product_slider_yrdRax"
+    "blog_product_slider_HjmnxN"
   ]
 }
