@@ -71,7 +71,7 @@
           "type": "collapsible_tab",
           "settings": {
             "heading": "Інформація",
-            "opened_by_default": false,
+            "opened_by_default": true,
             "content": "",
             "page": "",
             "liquid": "{{ product.description }}",
