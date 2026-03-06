@@ -651,9 +651,16 @@ window.addEventListener("load", function() {
     {
       "@type": "WebSite",
       "@id": "{{ shop.url }}#website",
-      "name": "{{ shop.name }}",
+      "name": "NEWBORN K",
       "alternateName": "Newborn K",
       "url": "{{ shop.url }}",
+      "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
+      {% if shop.brand.logo != blank %}
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+      },
+      {% endif %}
       "potentialAction": {
         "@type": "SearchAction",
         "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
@@ -663,37 +670,67 @@ window.addEventListener("load", function() {
     {
       "@type": "Organization",
       "@id": "{{ shop.url }}#organization",
-      "name": "{{ shop.name }}",
+      "name": "NEWBORN K",
       "url": "{{ shop.url }}",
       {% if shop.brand.logo != blank %}
       "logo": {
         "@type": "ImageObject",
-        "url": "{{ shop.brand.logo | image_url: 'master' }}"
+        "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
       },
       {% endif %}
       "sameAs": [
-        {% assign socials = "" %}
-        {% if settings.social_twitter_link != blank %}"{{ settings.social_twitter_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_facebook_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_facebook_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_pinterest_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_pinterest_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_instagram_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_instagram_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_tumblr_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_tumblr_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_snapchat_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_snapchat_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_youtube_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_youtube_link }}"{% assign socials = "x" %}{% endif %}
-        {% if settings.social_vimeo_link != blank %}{% if socials != blank %},{% endif %}"{{ settings.social_vimeo_link }}"{% endif %}
+        {%- assign has_prev = false -%}
+        {%- if settings.social_twitter_link != blank -%}
+          "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_facebook_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_pinterest_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_instagram_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_tumblr_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_snapchat_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_youtube_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
+        {%- endif -%}
+        {%- if settings.social_vimeo_link != blank -%}
+          {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
+        {%- endif -%}
       ],
+      {% if shop.phone != blank or shop.email != blank %}
       "contactPoint": {
         "@type": "ContactPoint",
+        {% if shop.phone != blank %}
         "telephone": "{{ shop.phone }}",
-        "contactType": "customer service",
+        {% endif %}
+        "contactType": "customer service"
+        {% if shop.email != blank %},
         "email": "{{ shop.email }}"
+        {% endif %}
       },
+      {% endif %}
       "address": {
         "@type": "PostalAddress",
+        {% if shop.address.street != blank %}
         "streetAddress": "{{ shop.address.street }}",
+        {% endif %}
+        {% if shop.address.city != blank %}
         "addressLocality": "{{ shop.address.city }}",
+        {% endif %}
+        {% if shop.address.province != blank %}
         "addressRegion": "{{ shop.address.province }}",
+        {% endif %}
+        {% if shop.address.zip != blank %}
         "postalCode": "{{ shop.address.zip }}",
+        {% endif %}
         "addressCountry": "{{ shop.address.country_code }}"
       }
     }
