@@ -235,6 +235,11 @@
         "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
         "disabled": false,
         "settings": {}
+      },
+      "9664103760669878543": {
+        "type": "shopify://apps/seo-on-blog/blocks/avada-seoon-setting/a45c3e67-be9f-4255-a194-b255a24f37c9",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
