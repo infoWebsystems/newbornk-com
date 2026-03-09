@@ -130,8 +130,8 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "enable_video_looping": false,
-        "enable_size_model": false
+        "enable_video_looping": true,
+        "enable_size_model": true
       }
     },
     "recommnded_products_6nWBpp": {
