@@ -121,13 +121,11 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
-    {% if request.page_type == 'collection' and current_page > 1 %}
-      <link rel="canonical" href="{{ shop.url }}{{ collection.url }}?page={{ current_page }}">
-    {% else %}
-      <link rel="canonical" href="{{ canonical_url }}">
-    {% endif %}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
     <link
       rel="icon"
       type="image/png"
