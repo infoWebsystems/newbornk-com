@@ -1,21 +1,29 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>{% render 'spdn' %}
-  <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
-<meta name="theme-color" content="#c7ec51">
-<link rel="apple-touch-icon" href="{{ 'icon-192.png' | file_url }}">
-	<!-- Added by AVADA SEO Suite -->
-	{% include 'avada-seo' %}
-	<!-- /Added by AVADA SEO Suite -->
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MXSVV32');</script>
-<!-- End Google Tag Manager -->
+  <head>
+    {% render 'spdn' %}
+    <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
+    <meta name="theme-color" content="#c7ec51">
+    <link rel="apple-touch-icon" href="{{ 'icon-192.png' | file_url }}">
+    <!-- Added by AVADA SEO Suite -->
+    {% include 'avada-seo' %}
+    <!-- /Added by AVADA SEO Suite -->
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-MXSVV32');
+    </script>
+    <!-- End Google Tag Manager -->
 
-{% render 'sn_preloads' %}
+    {% render 'sn_preloads' %}
 
     <noscript
       ><img
@@ -42,7 +50,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         var is_mobile = window.screen.width < 768 ? 1 : 0;
         let is_pagespeed =
-          (user_agent.indexOf('moto g power') !== -1 && user_agent.indexOf('AppleWebKit') !== -1 && user_agent.indexOf('Mobile') !== -1) || user_agent.indexOf('Lighthouse') !== -1 ? 1 : 0;
+          (user_agent.indexOf('moto g power') !== -1 &&
+            user_agent.indexOf('AppleWebKit') !== -1 &&
+            user_agent.indexOf('Mobile') !== -1) ||
+          user_agent.indexOf('Lighthouse') !== -1
+            ? 1
+            : 0;
 
         var sleep = 50;
         if (is_mobile) {
@@ -109,8 +122,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
-    {% if current_page > 0 and false %}
-      <link rel="canonical" href="{{ shop.url }}{{ routes.root_url }}?page={{ current_page }}">
+    {% if request.page_type == 'collection' and current_page > 1 %}
+      <link rel="canonical" href="{{ shop.url }}{{ collection.url }}?page={{ current_page }}">
     {% else %}
       <link rel="canonical" href="{{ canonical_url }}">
     {% endif %}
@@ -133,7 +146,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-48x48.png"
       sizes="48x48"
     >
-        
+
     {%- unless settings.type_header_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
@@ -243,8 +256,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {{ 'product-redesigned.css' | asset_url | stylesheet_tag }}
     {{ 'size-chart.css' | asset_url | stylesheet_tag }}
     {% if request.page_type == 'index' or request.page_type == 'product' or request.page_type == 'page' %}
-        <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
-        <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
+      <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
+      <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
     {% endif %}
     {%- if settings.predictive_search_enabled -%}
       <link
@@ -347,7 +360,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .menu-drawer__menu > li[is="brand"] > details{
           position: relative;
-        } 
+        }
         .menu-drawer__menu > li[is="brand"] > details:before{
           content: '';
           border-top: 1px solid #bbbbbb;
@@ -361,7 +374,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         #shopify-section-header-outlet, #shopify-section-header {
           z-index: 4;
         }
-      }  
+      }
       @media (min-width: 1280px) {
        html .header__icon--account:not(.header__icon--search){
           position: relative;
@@ -401,13 +414,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
       }
     </style>
-      {% if request.page_type == 'index' or template.name == 'product' or template.name == 'collection' or template.name == 'page' %}
-          <style>
-              a#icon-wishlist-header{
-                  opacity: 1;
-              }
-          </style>
-      {%- endif -%}
+    {% if request.page_type == 'index'
+      or template.name == 'product'
+      or template.name == 'collection'
+      or template.name == 'page'
+    %}
+      <style>
+        a#icon-wishlist-header{
+            opacity: 1;
+        }
+      </style>
+    {%- endif -%}
     {%- unless settings.type_body_font.system? -%}
       <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endunless -%}
@@ -419,8 +436,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
     </script>
 
-    {% if request.page_type contains 'index' or request.page_type contains 'product' or request.page_type contains 'page' %}
-    <script src="{{ 'swiper.js' | asset_url }}"></script>
+    {% if request.page_type contains 'index'
+      or request.page_type contains 'product'
+      or request.page_type contains 'page'
+    %}
+      <script src="{{ 'swiper.js' | asset_url }}"></script>
     {% endif %}
 
     <script src="{{ 'app.js' | asset_url }}" defer></script>
@@ -441,23 +461,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+"
       loading="eager"
     >
-    
-  
+
     {% if customer %}
-        {% # CHEKLY-CUSTOMER-SCRIPT-START # %}
-        <script>
-            window.Shopify = window.Shopify || {};
-            Shopify.customer = {
-                firstName: "{{ customer.first_name }}",
-                lastName: "{{ customer.last_name }}",
-                email: "{{ customer.email }}",
-                phone: "{{ customer.phone }}"
-            };
-        </script>
-        {% # CHEKLY-CUSTOMER-SCRIPT-END # %}
+      {% # CHEKLY-CUSTOMER-SCRIPT-START # %}
+      <script>
+        window.Shopify = window.Shopify || {};
+        Shopify.customer = {
+          firstName: '{{ customer.first_name }}',
+          lastName: '{{ customer.last_name }}',
+          email: '{{ customer.email }}',
+          phone: '{{ customer.phone }}',
+        };
+      </script>
+      {% # CHEKLY-CUSTOMER-SCRIPT-END # %}
     {% endif %}
-    <script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script.js' | asset_url }}" async data-checkout-domain="https://checkout.newbornk.com"></script>
-  <script>
+    <script
+      data-chekly-url="https://chekly-app.com"
+      data-chekly-theme="chekly"
+      data-chekly-script="GLOBAL"
+      src="{{ 'chekly-script.js' | asset_url }}"
+      async
+      data-checkout-domain="https://checkout.newbornk.com"
+    ></script>
+    <script>
       function showToast(message = '', title = '', image_src = '', timeout = 3000) {
         if (!message) {
           return;
@@ -627,125 +653,131 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         display: block;
       }
     </style>
-    
-<script>
-window.addEventListener("load", function() {
-{% if customer %}
-   es("setCustomer", {
-      email: "test1.leiber@gmail.com",
-      firstName: "Itforce",
-      lastName: "Test"
-   });
-{% endif %}
- if (window.es) {
-   es("appInbox.init");
-   es("appInbox.checkMessages");
- }
-});
-</script>
-{% comment %} SCHEMA MAIN {% endcomment %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "{{ shop.url }}#website",
-      "name": "NEWBORN K",
-      "alternateName": "NEWBORN K",
-      "url": "{{ shop.url }}",
-      "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
-      {% if shop.brand.logo != blank %}
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
-      },
+
+    <script>
+      window.addEventListener("load", function() {
+      {% if customer %}
+         es("setCustomer", {
+            email: "test1.leiber@gmail.com",
+            firstName: "Itforce",
+            lastName: "Test"
+         });
       {% endif %}
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
-        "query-input": "required name=search_term_string"
+       if (window.es) {
+         es("appInbox.init");
+         es("appInbox.checkMessages");
+       }
+      });
+    </script>
+    {% comment %} SCHEMA MAIN {% endcomment %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "{{ shop.url }}#website",
+            "name": "NEWBORN K",
+            "alternateName": "NEWBORN K",
+            "url": "{{ shop.url }}",
+            "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
+            {% if shop.brand.logo != blank %}
+            "logo": {
+              "@type": "ImageObject",
+              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+            },
+            {% endif %}
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "{{ shop.url }}#organization",
+            "name": "NEWBORN K",
+            "url": "{{ shop.url }}",
+            {% if shop.brand.logo != blank %}
+            "logo": {
+              "@type": "ImageObject",
+              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+            },
+            {% endif %}
+            "sameAs": [
+              {%- assign has_prev = false -%}
+              {%- if settings.social_twitter_link != blank -%}
+                "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_facebook_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_pinterest_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_instagram_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_tumblr_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_snapchat_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_youtube_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_vimeo_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
+              {%- endif -%}
+            ],
+            {% if shop.phone != blank or shop.email != blank %}
+            "contactPoint": {
+              "@type": "ContactPoint",
+              {% if shop.phone != blank %}
+              "telephone": "{{ shop.phone }}",
+              {% endif %}
+              "contactType": "customer service"
+              {% if shop.email != blank %},
+              "email": "{{ shop.email }}"
+              {% endif %}
+            },
+            {% endif %}
+            "address": {
+              "@type": "PostalAddress",
+              {% if shop.address.street != blank %}
+              "streetAddress": "{{ shop.address.street }}",
+              {% endif %}
+              {% if shop.address.city != blank %}
+              "addressLocality": "{{ shop.address.city }}",
+              {% endif %}
+              {% if shop.address.province != blank %}
+              "addressRegion": "{{ shop.address.province }}",
+              {% endif %}
+              {% if shop.address.zip != blank %}
+              "postalCode": "{{ shop.address.zip }}",
+              {% endif %}
+              "addressCountry": "{{ shop.address.country_code }}"
+            }
+          }
+        ]
       }
-    },
-    {
-      "@type": "Organization",
-      "@id": "{{ shop.url }}#organization",
-      "name": "NEWBORN K",
-      "url": "{{ shop.url }}",
-      {% if shop.brand.logo != blank %}
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
-      },
-      {% endif %}
-      "sameAs": [
-        {%- assign has_prev = false -%}
-        {%- if settings.social_twitter_link != blank -%}
-          "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_facebook_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_pinterest_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_instagram_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_tumblr_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_snapchat_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_youtube_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
-        {%- endif -%}
-        {%- if settings.social_vimeo_link != blank -%}
-          {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
-        {%- endif -%}
-      ],
-      {% if shop.phone != blank or shop.email != blank %}
-      "contactPoint": {
-        "@type": "ContactPoint",
-        {% if shop.phone != blank %}
-        "telephone": "{{ shop.phone }}",
-        {% endif %}
-        "contactType": "customer service"
-        {% if shop.email != blank %},
-        "email": "{{ shop.email }}"
-        {% endif %}
-      },
-      {% endif %}
-      "address": {
-        "@type": "PostalAddress",
-        {% if shop.address.street != blank %}
-        "streetAddress": "{{ shop.address.street }}",
-        {% endif %}
-        {% if shop.address.city != blank %}
-        "addressLocality": "{{ shop.address.city }}",
-        {% endif %}
-        {% if shop.address.province != blank %}
-        "addressRegion": "{{ shop.address.province }}",
-        {% endif %}
-        {% if shop.address.zip != blank %}
-        "postalCode": "{{ shop.address.zip }}",
-        {% endif %}
-        "addressCountry": "{{ shop.address.country_code }}"
-      }
-    }
-  ]
-}
-</script>
-<meta property="og:site_name" content="NEWBORN K">
-</head>
+    </script>
+    <meta property="og:site_name" content="NEWBORN K">
+  </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXSVV32"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-   
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MXSVV32"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -753,12 +785,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% section 'announcement-bar' %}
 
     {% if template contains 'outlet' %}
-        {% section 'header-outlet' %}
+      {% section 'header-outlet' %}
     {% else %}
-        {% section 'header' %}
+      {% section 'header' %}
     {% endif %}
 
-	<div id="app_inbox"></div>
+    <div id="app_inbox"></div>
 
     <main
       id="MainContent"
@@ -779,7 +811,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% endif %}
     {% section 'popup-cart-discount' %}
     {% section 'footer' %}
-    
+
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
@@ -849,34 +881,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
     <script>
       var body = document.body,
-          timer;
+        timer;
 
-      window.addEventListener('scroll', function() {
-        clearTimeout(timer);
-        if(!body.classList.contains('disable-hover')) {
-          body.classList.add('disable-hover')
-        }
+      window.addEventListener(
+        'scroll',
+        function () {
+          clearTimeout(timer);
+          if (!body.classList.contains('disable-hover')) {
+            body.classList.add('disable-hover');
+          }
 
-        timer = setTimeout(function(){
-          body.classList.remove('disable-hover')
-        },500);
-      }, false);
+          timer = setTimeout(function () {
+            body.classList.remove('disable-hover');
+          }, 500);
+        },
+        false
+      );
     </script>
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
     {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
-    {% unless notification contains "Liquid error" %}{{ notification }}{% endunless %}
+    {% unless notification contains 'Liquid error' %}{{ notification }}{% endunless %}
 
-  <!-- KeyCRM online chat widget begin -->
- <script>
+    <!-- KeyCRM online chat widget begin -->
+    <script>
       (function () {
         let user_agent = window.navigator.userAgent;
 
         var is_mobile = window.screen.width < 768 ? 1 : 0;
         let is_pagespeed =
-          (user_agent.indexOf('moto g power') !== -1 && user_agent.indexOf('AppleWebKit') !== -1 && user_agent.indexOf('Mobile') !== -1) || user_agent.indexOf('Lighthouse') !== -1 ? 1 : 0;
+          (user_agent.indexOf('moto g power') !== -1 &&
+            user_agent.indexOf('AppleWebKit') !== -1 &&
+            user_agent.indexOf('Mobile') !== -1) ||
+          user_agent.indexOf('Lighthouse') !== -1
+            ? 1
+            : 0;
 
         var sleep = 50;
         if (is_mobile) {
@@ -901,24 +942,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   KeyCRM.render(c);
                 };
                 j.parentNode.insertBefore(s, j);
-              })(window, document, 'script', 'https://chat.key.live/bundles/widget.min.js', { token: 'bc3f252a-342f-42cb-a3a6-3219b681731b' });
+              })(window, document, 'script', 'https://chat.key.live/bundles/widget.min.js', {
+                token: 'bc3f252a-342f-42cb-a3a6-3219b681731b',
+              });
             }, sleep);
           }
         }, 10);
       })();
     </script>
-<!-- KeyCRM online chat widget end -->
+    <!-- KeyCRM online chat widget end -->
 
-  <!-- BADGE for google reviews -->
-<!-- <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
-<script>
-  window.renderBadge = function() {
-    var ratingBadgeContainer = document.createElement("div");
-    document.body.appendChild(ratingBadgeContainer);
-    window.gapi.load('ratingbadge', function() {
-      window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 500810630});
-    });
-  }
-</script> -->
-      {% render 'spdn4' %}</body>
+    <!-- BADGE for google reviews -->
+    <!--
+      <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+      <script>
+        window.renderBadge = function() {
+          var ratingBadgeContainer = document.createElement("div");
+          document.body.appendChild(ratingBadgeContainer);
+          window.gapi.load('ratingbadge', function() {
+            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 500810630});
+          });
+        }
+      </script>
+    -->
+    {% render 'spdn4' %}
+  </body>
 </html>
