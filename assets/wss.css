@@ -133,6 +133,14 @@
     text-transform: uppercase;
 }
 
+/* UPD 12/03 сірий колір розмірів які відсутні по наявності */
+.product-form__inputs-inputs .disabled-label {
+  text-decoration: line-through;
+  pointer-events: none;
+  color: #c5c5c5 !important;
+  border-color: #c5c5c5 !important;
+}
+
 
 @media screen and (max-width: 749px) {
     .title-loyalty {
