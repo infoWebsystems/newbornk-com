@@ -287,7 +287,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "LIFESTYLE",
-        "collection": "lifestyle",
+        "collection": "lifestyle-decor",
         "full_width": true,
         "products_to_show": 4,
         "show_view_all": false,
