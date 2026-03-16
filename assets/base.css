@@ -2845,12 +2845,6 @@ a.__ADORIC__1.__ADORIC__[target="_blank"] {
   color: transparent;
 }
 
-/* Тільки для ES Recommendations слайдера */
-.es-productsSlider .swiper-slide {
-  margin-right: 2px !important;
-}
 
-/* Тільки для власних слайдерів теми */
-.swiper-container-collection:not(.es-productsSlider) .swiper-slide {
-  margin-right: 2px !important;
-}
+
+
