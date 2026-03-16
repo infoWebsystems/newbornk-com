@@ -22,10 +22,10 @@
 
 /* Тільки для ES Recommendations слайдера */
 .es-productsSlider .swiper-slide {
-  margin-right: 8px !important;
+  margin-right: 4px !important;
 }
 
 /* Тільки для власних слайдерів теми */
 .swiper-container-collection:not(.es-productsSlider) .swiper-slide {
-  margin-right: 8px !important;
+  margin-right: 4px !important;
 }
