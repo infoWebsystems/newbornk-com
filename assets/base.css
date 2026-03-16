@@ -2844,3 +2844,8 @@ a.__ADORIC__1.__ADORIC__[target="_blank"] {
 .shopify-payment-button__button {
   color: transparent;
 }
+
+/* Зменшити відстань між слайдами */
+.section-template--16407115628704__featured_collection_slider_XbArfi .swiper-slide {
+  margin-right: 8px !important;
+}
