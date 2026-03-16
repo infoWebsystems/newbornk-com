@@ -8,7 +8,7 @@
   font-size: 1.3rem;
 }
 .swiper-container-collection {
-  overflow: visible;
+  overflow: hidden;
 }
 .collection-slider .title .icon-caret {
   width: 18px;
