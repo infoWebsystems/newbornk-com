@@ -55,3 +55,9 @@
 .swiper-container-collection:not(.es-productsSlider) .swiper-slide {
   margin-right: 8px !important;
 }
+
+@media screen and (max-width: 749px) {
+  .collection-slider .collection .title {
+    margin-top: 3rem;
+  }
+}
