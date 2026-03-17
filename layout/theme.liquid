@@ -702,6 +702,27 @@
           "@type": "ImageObject",
           "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "50.4557",  
+          "longitude": "30.5123"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "10:00",
+            "closes": "20:00"
+          }
+        ],
         "image": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}",
         {% endif %}
         "sameAs": [
