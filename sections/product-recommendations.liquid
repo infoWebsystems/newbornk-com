@@ -16,7 +16,7 @@
 
     <div class="collection page-width{% if section.settings.swipe_on_mobile == true and recommendations.products_count > 2 and section.settings.products_to_show > 2 and false %} page-width-desktop{% endif %} page-width-full">
       <div class="{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if recommendations.products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
-        <h2 class="title{% if title == blank %} title--no-heading{% endif %}">{{ title }}</h2>
+        <h3 class="title{% if title == blank %} title--no-heading{% endif %}">{{ title }}</h3>
       </div>
 
       <div class="swiper-container swiper-container-collection section-{{section.id}}">
