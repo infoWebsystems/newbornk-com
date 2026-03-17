@@ -33,8 +33,8 @@
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/pl_banner_desktop.png",
-            "image_phone": "shopify://shop_images/square_ukr.png",
+            "image": "shopify://shop_images/pl_banner_desktop_1.webp",
+            "image_phone": "shopify://shop_images/ukr_banner_mobile_3b41b1c7-07ed-45d9-aa89-b7218ea2d940.webp",
             "banner_link": "shopify://collections/sale",
             "language": "UK"
           }
