@@ -1,7 +1,8 @@
 {% liquid
-  assign path = request.path
-  if path contains '/outlet' or path contains '-outlet' or path contains '%D0%BB%D0%B5%D1%82'
+  assign path = request.path | downcase
+  if path contains '/outlet' or path contains '-outlet' or path contains 'autlet'
     echo '<meta name="robots" content="noindex, follow">'
-    break
+  else
+    echo '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">'
   endif
 %}
