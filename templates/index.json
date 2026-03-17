@@ -22,7 +22,9 @@
       "block_order": [
         "text_UUD4rg"
       ],
-      "custom_css": [],
+      "custom_css": [
+        ".rich-text {display: none !important;}"
+      ],
       "name": "rich text meta h1",
       "settings": {
         "color_scheme": "background-1",
