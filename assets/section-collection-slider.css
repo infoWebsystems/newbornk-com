@@ -21,6 +21,21 @@
 .swiper-container-collection {
   overflow: hidden;
 }
+
+/* Keep h3.title same visual size as h2 */
+.collection-slider h3.title {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 750px) {
+  .collection-slider h3.title {
+    font-size: 2.4rem;
+  }
+}
+.collection-slider h3.title a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .collection-slider .title .icon-caret {
   width: 18px;
   height: 11px;
