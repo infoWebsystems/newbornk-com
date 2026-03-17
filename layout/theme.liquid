@@ -667,100 +667,102 @@
       });
     </script>
     {% comment %} SCHEMA MAIN {% endcomment %}
-    <script type="application/ld+json">
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "{{ shop.url }}#website",
-            "name": "NEWBORN K",
-            "alternateName": "NEWBORN K",
-            "url": "{{ shop.url }}",
-            "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
-            {% if shop.brand.logo != blank %}
-            "logo": {
-              "@type": "ImageObject",
-              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
-            },
-            {% endif %}
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
-              "query-input": "required name=search_term_string"
-            }
-          },
-          {
-            "@type": "Organization",
-            "@id": "{{ shop.url }}#organization",
-            "name": "NEWBORN K",
-            "url": "{{ shop.url }}",
-            {% if shop.brand.logo != blank %}
-            "logo": {
-              "@type": "ImageObject",
-              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
-            },
-            {% endif %}
-            "sameAs": [
-              {%- assign has_prev = false -%}
-              {%- if settings.social_twitter_link != blank -%}
-                "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_facebook_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_pinterest_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_instagram_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_tumblr_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_snapchat_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_youtube_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_vimeo_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
-              {%- endif -%}
-            ],
-            {% if shop.phone != blank or shop.email != blank %}
-            "contactPoint": {
-              "@type": "ContactPoint",
-              {% if shop.phone != blank %}
-              "telephone": "{{ shop.phone }}",
-              {% endif %}
-              "contactType": "customer service"
-              {% if shop.email != blank %},
-              "email": "{{ shop.email }}"
-              {% endif %}
-            },
-            {% endif %}
-            "address": {
-              "@type": "PostalAddress",
-              {% if shop.address.street != blank %}
-              "streetAddress": "{{ shop.address.street }}",
-              {% endif %}
-              {% if shop.address.city != blank %}
-              "addressLocality": "{{ shop.address.city }}",
-              {% endif %}
-              {% if shop.address.province != blank %}
-              "addressRegion": "{{ shop.address.province }}",
-              {% endif %}
-              {% if shop.address.zip != blank %}
-              "postalCode": "{{ shop.address.zip }}",
-              {% endif %}
-              "addressCountry": "{{ shop.address.country_code }}"
-            }
-          }
-        ]
+        "@type": "WebSite",
+        "@id": "{{ shop.url }}#website",
+        "name": "NEWBORN K",
+        "alternateName": "newbornk.com",
+        "url": "{{ shop.url }}",
+        "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
+        {% if shop.brand.logo != blank %}
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+        },
+        {% endif %}
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ClothingStore",
+        "@id": "{{ shop.url }}#organization",
+        "name": "NEWBORN K",
+        "url": "{{ shop.url }}",
+        "priceRange": "$$",
+        {% if shop.brand.logo != blank %}
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+        },
+        "image": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}",
+        {% endif %}
+        "sameAs": [
+          {%- assign has_prev = false -%}
+          {%- if settings.social_twitter_link != blank -%}
+            "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_facebook_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_pinterest_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_instagram_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_tumblr_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_snapchat_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_youtube_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
+          {%- endif -%}
+          {%- if settings.social_vimeo_link != blank -%}
+            {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
+          {%- endif -%}
+        ],
+        {% if shop.phone != blank or shop.email != blank %}
+        "contactPoint": {
+          "@type": "ContactPoint",
+          {% if shop.phone != blank %}
+          "telephone": "{{ shop.phone }}",
+          {% endif %}
+          "contactType": "customer service"
+          {% if shop.email != blank %},
+          "email": "{{ shop.email }}"
+          {% endif %}
+        },
+        {% endif %}
+        "address": {
+          "@type": "PostalAddress",
+          {% if shop.address.street != blank %}
+          "streetAddress": "{{ shop.address.street }}",
+          {% endif %}
+          {% if shop.address.city != blank %}
+          "addressLocality": "{{ shop.address.city }}",
+          {% endif %}
+          {% if shop.address.province != blank %}
+          "addressRegion": "{{ shop.address.province }}",
+          {% endif %}
+          {% if shop.address.zip != blank %}
+          "postalCode": "{{ shop.address.zip }}",
+          {% endif %}
+          "addressCountry": "{{ shop.address.country_code }}"
+        }
       }
-    </script>
-    <meta property="og:site_name" content="NEWBORN K">
+    ]
+  }
+</script>
   </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
