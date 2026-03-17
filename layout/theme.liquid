@@ -780,7 +780,50 @@
           {% endif %}
           "addressCountry": "{{ shop.address.country_code }}"
         }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "{{ shop.url }}#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Головна",
+            "item": "{{ shop.url }}"
+          }
+          {% if template contains 'collection' and collection %}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{{ collection.title }}",
+            "item": "{{ shop.url }}{{ collection.url }}"
+          }
+          {% elsif template contains 'product' and product %}
+          ,{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "{{ product.collections.first.title | default: 'Каталог' }}",
+            "item": "{{ shop.url }}{{ product.collections.first.url | default: '/collections/all' }}"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{ product.title }}",
+            "item": "{{ shop.url }}{{ product.url }}"
+          }
+          {% endif %}
+        ]
       }
+      {% if template contains 'product' and product %}
+      ,{
+        "@type": "ImageObject",
+        "@id": "{{ shop.url }}{{ product.url }}#primaryimage",
+        "url": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
+        "contentUrl": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
+        "width": 1200,
+        "height": 1200
+      }
+      {% endif %}
     ]
   }
 </script>
