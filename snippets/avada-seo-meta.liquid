@@ -62,6 +62,46 @@
 {%- endif -%}
 {%- endif -%}
 
+<!-- meta basic type product -->
+{%- if request.page_type == 'product' -%}
+{%- unless avada_seo_ovr_product_ids contains product.id -%}
+{%- capture avada_seo_meta_title -%}
+{%- case shop.locale -%}
+{%- when "uk" -%} 
+Купити {{product_title}} за найкращою ціною | NEWBORN K
+{%- else -%}
+{%- endcase -%}
+{%- endcapture -%}
+{%- capture avada_seo_meta_description -%}
+{%- case shop.locale -%}
+{%- when "en" -%} 
+
+{%- when "pt-BR" -%} 
+
+{%- when "da" -%} 
+
+{%- when "nl" -%} 
+
+{%- when "fr" -%} 
+
+{%- when "de" -%} 
+
+{%- when "zh-CN" -%} 
+
+{%- when "es" -%} 
+
+{%- when "sv" -%} 
+
+{%- when "vi" -%} 
+
+{%- when "uk" -%} 
+Купуй {{product_title}} у концепт-сторі NEWBORN K. ✨ Тільки преміальні бренди. ✓ 100% Оригінал ✓ Швидка відправка ✓ Безкоштовна доставка від 5000 грн. 💚
+{%- else -%}
+{%- endcase -%}
+{%- endcapture -%}
+{%- endunless -%}
+{%- endif -%}
+
 {%- if avada_seo_meta_title != blank -%}
 {%- assign seo_title = avada_seo_meta_title | strip_html | strip -%}
 {%- assign page_title = seo_title -%}
