@@ -141,6 +141,10 @@
   border-color: #c5c5c5 !important;
 }
 
+.spaced-section:last-child {
+        margin-bottom: 4rem !important;
+    }
+
 
 @media screen and (max-width: 749px) {
     .title-loyalty {
