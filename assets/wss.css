@@ -145,7 +145,7 @@
 .spaced-section {
     margin-top: 4rem !important;
 }
-
+/* UPD 20/03 відступ секції */
 .spaced-section:last-child {
         margin-bottom: 4rem !important;
     }
@@ -176,6 +176,11 @@
         padding-right: 62px !important;
         white-space: normal !important;
     }
+/* UPD 20/03 відступ секції мобайл */
+    .spaced-section:last-child {
+    margin-bottom: 1rem !important;
+}
+
 }
 
 
