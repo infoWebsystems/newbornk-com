@@ -145,13 +145,29 @@
         "adapt_height_first_image": false
       }
     },
-    "featured_collection_slider_XbArfi": {
-      "type": "featured-collection-slider",
-      "name": "t:sections.featured-collection-slider.presets.name",
+    "17740063773c82825f": {
+      "type": "apps",
+      "blocks": {
+        "gsc_instagram_feed_instafeed_f8mkqQ": {
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "settings": {
+            "widget_id": "GSC-kwUogsNgjcBVumq"
+          }
+        }
+      },
+      "block_order": [
+        "gsc_instagram_feed_instafeed_f8mkqQ"
+      ],
       "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
+        "include_margins": true
+      }
+    },
+    "featured_collection_slider_zaYJcr": {
+      "type": "featured-collection-slider",
+      "settings": {
+        "title": "РОЗПРОДАЖ",
         "show_text": true,
-        "collection": "novi-nadkhodzhennia",
+        "collection": "sale",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
@@ -164,12 +180,13 @@
         "brand_collection": false
       }
     },
-    "featured_collection_slider_zaYJcr": {
+    "featured_collection_slider_XbArfi": {
       "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
-        "title": "РОЗПРОДАЖ",
+        "title": "НОВІ НАДХОДЖЕННЯ",
         "show_text": true,
-        "collection": "sale",
+        "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
@@ -354,8 +371,9 @@
     "1630994380770cb550",
     "buttons_Aehtdg",
     "image_banner",
-    "featured_collection_slider_XbArfi",
+    "17740063773c82825f",
     "featured_collection_slider_zaYJcr",
+    "featured_collection_slider_XbArfi",
     "1626369903c393cced",
     "featured_collection_slider_tfqQpj",
     "1626416534da40dc37",
