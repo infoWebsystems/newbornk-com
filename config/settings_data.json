@@ -64,6 +64,7 @@
           },
           "announcement-bar-0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Безкоштовна доставка*",
               "color_scheme": "accent-2",
