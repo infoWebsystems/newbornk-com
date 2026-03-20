@@ -326,6 +326,22 @@
         "show_view_all": false
       }
     },
+    "16264502060c7e1d80": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "LIFESTYLE",
+        "collection": "lifestyle-decor",
+        "full_width": true,
+        "products_to_show": 4,
+        "show_view_all": false,
+        "swipe_on_mobile": true,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": true,
+        "show_arrow": true
+      }
+    },
     "17740063773c82825f": {
       "type": "apps",
       "blocks": {
@@ -341,22 +357,6 @@
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "16264502060c7e1d80": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "LIFESTYLE",
-        "collection": "lifestyle-decor",
-        "full_width": true,
-        "products_to_show": 4,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
       }
     },
     "custom_liquid_tBx87F": {
@@ -380,8 +380,8 @@
     "1626416564a7b86704",
     "featured_collection_slider_eKMVrY",
     "1626450162f5dda00b",
-    "17740063773c82825f",
     "16264502060c7e1d80",
+    "17740063773c82825f",
     "custom_liquid_tBx87F"
   ]
 }
