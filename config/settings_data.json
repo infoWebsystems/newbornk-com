@@ -53,6 +53,15 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_mCNCxN": {
+            "type": "announcement",
+            "settings": {
+              "text": "Новинки весна-літо 2026",
+              "color_scheme": "accent-2",
+              "text_color": "#000000",
+              "link": "https://newbornk.com/collections/novi-nadkhodzhennia"
+            }
+          },
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
@@ -64,6 +73,7 @@
           }
         },
         "block_order": [
+          "announcement_mCNCxN",
           "announcement-bar-0"
         ],
         "settings": {}
