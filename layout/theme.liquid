@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
   <head>{% render 'spdn' %}
+    <script src="{{ 'pandectes-rules.js' | file_url }}"></script>
     <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
     <meta name="theme-color" content="#c7ec51">
     <link rel="apple-touch-icon" href="{{ 'icon-192.png' | file_url }}">
@@ -827,7 +828,6 @@
     ]
   }
 </script>
-<script async src="{{ 'pandectes-rules.js' | file_url }}"></script>
   </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
