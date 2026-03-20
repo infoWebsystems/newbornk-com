@@ -141,6 +141,11 @@
   border-color: #c5c5c5 !important;
 }
 
+/* UPD 20/03 відступ секції */
+.spaced-section {
+    margin-top: 4rem !important;
+}
+
 .spaced-section:last-child {
         margin-bottom: 4rem !important;
     }
