@@ -145,23 +145,6 @@
         "adapt_height_first_image": false
       }
     },
-    "17740063773c82825f": {
-      "type": "apps",
-      "blocks": {
-        "gsc_instagram_feed_instafeed_f8mkqQ": {
-          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
-          "settings": {
-            "widget_id": "GSC-kwUogsNgjcBVumq"
-          }
-        }
-      },
-      "block_order": [
-        "gsc_instagram_feed_instafeed_f8mkqQ"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "featured_collection_slider_XbArfi": {
       "type": "featured-collection-slider",
       "name": "t:sections.featured-collection-slider.presets.name",
@@ -293,6 +276,25 @@
         "show_arrow": true
       }
     },
+    "featured_collection_slider_eKMVrY": {
+      "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "settings": {
+        "title": "Худі",
+        "show_text": false,
+        "collection": "new-cholovichi-chudi",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.5,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "show_arrow": false,
+        "brand_collection": false
+      }
+    },
     "1626450162f5dda00b": {
       "type": "collection-list",
       "blocks": {
@@ -324,6 +326,23 @@
         "show_view_all": false
       }
     },
+    "17740063773c82825f": {
+      "type": "apps",
+      "blocks": {
+        "gsc_instagram_feed_instafeed_f8mkqQ": {
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "settings": {
+            "widget_id": "GSC-kwUogsNgjcBVumq"
+          }
+        }
+      },
+      "block_order": [
+        "gsc_instagram_feed_instafeed_f8mkqQ"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "16264502060c7e1d80": {
       "type": "featured-collection",
       "settings": {
@@ -340,27 +359,9 @@
         "show_arrow": true
       }
     },
-    "featured_collection_slider_eKMVrY": {
-      "type": "featured-collection-slider",
-      "name": "t:sections.featured-collection-slider.presets.name",
-      "settings": {
-        "title": "Худі",
-        "show_text": false,
-        "collection": "new-cholovichi-chudi",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.5,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": false,
-        "show_arrow": false,
-        "brand_collection": false
-      }
-    },
     "custom_liquid_tBx87F": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
       }
@@ -371,16 +372,16 @@
     "1630994380770cb550",
     "buttons_Aehtdg",
     "image_banner",
-    "17740063773c82825f",
     "featured_collection_slider_XbArfi",
     "featured_collection_slider_zaYJcr",
     "1626369903c393cced",
     "featured_collection_slider_tfqQpj",
     "1626416534da40dc37",
     "1626416564a7b86704",
-    "1626450162f5dda00b",
-    "16264502060c7e1d80",
     "featured_collection_slider_eKMVrY",
+    "1626450162f5dda00b",
+    "17740063773c82825f",
+    "16264502060c7e1d80",
     "custom_liquid_tBx87F"
   ]
 }
