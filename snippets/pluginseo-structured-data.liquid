@@ -30,7 +30,7 @@
   {%- assign articleContent = langify_description  -%}
  {%- endif -%}
 
-  <script data-desc="seo-news" type="application/ld+json">
+  {% comment %} <script data-desc="seo-news" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
@@ -59,7 +59,7 @@
       },
       "description": "{{- articleContent | newline_to_br | replace: '<br />', ' ' | strip_html | strip_newlines | strip | escape | truncate: 163 -}}"
     }
-  </script>
+  </script> {% endcomment %}
 {%- endif -%}
 
 {%- comment -%}
@@ -69,7 +69,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
 
 {%- unless rootTemplate == 'index' or rootTemplate == 'cart' or rootTemplate == 'list-collections' -%}
 
-<script data-desc="seo-breadcrumb-list" type="application/ld+json">
+{% comment %} <script data-desc="seo-breadcrumb-list" type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -184,7 +184,7 @@ https://help.shopify.com/themes/customization/navigation/add-breadcrumbs
     {%- endif -%}
   ]
 }
-</script>
+</script> {% endcomment %}
 
 {%- endunless -%}
 

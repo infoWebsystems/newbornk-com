@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
-  <head>{% render 'spdn' %}
+  <head>
+    {% render 'spdn' %}
     <script src="{{ 'pandectes-rules.js' | file_url }}"></script>
     <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
     <meta name="theme-color" content="#c7ec51">
@@ -126,7 +127,7 @@
     {% endif %}
 
     {% comment %}
-    {% render 'custom-meta-tags' %}
+      {% render 'custom-meta-tags' %}
     {% endcomment %}
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -679,165 +680,200 @@
     </script>
     {% comment %} SCHEMA MAIN {% endcomment %}
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
+    <script type="application/ld+json">
       {
-        "@type": "WebSite",
-        "@id": "{{ shop.url }}#website",
-        "name": "NEWBORN K",
-        "alternateName": "newbornk.com",
-        "url": "{{ shop.url }}",
-        "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
-        {% if shop.brand.logo != blank %}
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
-        },
-        {% endif %}
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "ClothingStore",
-        "@id": "{{ shop.url }}#organization",
-        "name": "NEWBORN K",
-        "url": "{{ shop.url }}",
-        "priceRange": "$$",
-        {% if shop.brand.logo != blank %}
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "50.4557",  
-          "longitude": "30.5123"
-        },
-        "openingHoursSpecification": [
+        "@context": "https://schema.org",
+        "@graph": [
           {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-              "Sunday"
-            ],
-            "opens": "10:00",
-            "closes": "20:00"
-          }
-        ],
-        "image": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}",
-        {% endif %}
-        "sameAs": [
-          {%- assign has_prev = false -%}
-          {%- if settings.social_twitter_link != blank -%}
-            "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_facebook_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_pinterest_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_instagram_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_tumblr_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_snapchat_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_youtube_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
-          {%- endif -%}
-          {%- if settings.social_vimeo_link != blank -%}
-            {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
-          {%- endif -%}
-        ],
-        {% if shop.phone != blank or shop.email != blank %}
-        "contactPoint": {
-          "@type": "ContactPoint",
-          {% if shop.phone != blank %}
-          "telephone": "{{ shop.phone }}",
-          {% endif %}
-          "contactType": "customer service"
-          {% if shop.email != blank %},
-          "email": "{{ shop.email }}"
-          {% endif %}
-        },
-        {% endif %}
-        "address": {
-          "@type": "PostalAddress",
-          {% if shop.address.street != blank %}
-          "streetAddress": "{{ shop.address.street }}",
-          {% endif %}
-          {% if shop.address.city != blank %}
-          "addressLocality": "{{ shop.address.city }}",
-          {% endif %}
-          {% if shop.address.province != blank %}
-          "addressRegion": "{{ shop.address.province }}",
-          {% endif %}
-          {% if shop.address.zip != blank %}
-          "postalCode": "{{ shop.address.zip }}",
-          {% endif %}
-          "addressCountry": "{{ shop.address.country_code }}"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "{{ shop.url }}#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Головна",
-            "item": "{{ shop.url }}"
-          }
-          {% if template contains 'collection' and collection %}
-          ,{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ collection.title }}",
-            "item": "{{ shop.url }}{{ collection.url }}"
-          }
-          {% elsif template contains 'product' and product %}
-          ,{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "{{ product.collections.first.title | default: 'Каталог' }}",
-            "item": "{{ shop.url }}{{ product.collections.first.url | default: '/collections/all' }}"
+            "@type": "WebSite",
+            "@id": "{{ shop.url }}#website",
+            "name": "NEWBORN K",
+            "alternateName": "newbornk.com",
+            "url": "{{ shop.url }}",
+            "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
+            {% if shop.brand.logo != blank %}
+            "logo": {
+              "@type": "ImageObject",
+              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+            },
+            {% endif %}
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
+              "query-input": "required name=search_term_string"
+            }
           },
           {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "{{ product.title }}",
-            "item": "{{ shop.url }}{{ product.url }}"
+            "@type": "ClothingStore",
+            "@id": "{{ shop.url }}#organization",
+            "name": "NEWBORN K",
+            "url": "{{ shop.url }}",
+            "priceRange": "$$",
+            {% if shop.brand.logo != blank %}
+            "logo": {
+              "@type": "ImageObject",
+              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "50.4557",
+              "longitude": "30.5123"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "opens": "10:00",
+                "closes": "20:00"
+              }
+            ],
+            "image": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}",
+            {% endif %}
+            "sameAs": [
+              {%- assign has_prev = false -%}
+              {%- if settings.social_twitter_link != blank -%}
+                "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_facebook_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_pinterest_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_instagram_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_tumblr_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_snapchat_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_youtube_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
+              {%- endif -%}
+              {%- if settings.social_vimeo_link != blank -%}
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
+              {%- endif -%}
+            ],
+            {% if shop.phone != blank or shop.email != blank %}
+            "contactPoint": {
+              "@type": "ContactPoint",
+              {% if shop.phone != blank %}
+              "telephone": "{{ shop.phone }}",
+              {% endif %}
+              "contactType": "customer service"
+              {% if shop.email != blank %},
+              "email": "{{ shop.email }}"
+              {% endif %}
+            },
+            {% endif %}
+            "address": {
+              "@type": "PostalAddress",
+              {% if shop.address.street != blank %}
+              "streetAddress": "{{ shop.address.street }}",
+              {% endif %}
+              {% if shop.address.city != blank %}
+              "addressLocality": "{{ shop.address.city }}",
+              {% endif %}
+              {% if shop.address.province != blank %}
+              "addressRegion": "{{ shop.address.province }}",
+              {% endif %}
+              {% if shop.address.zip != blank %}
+              "postalCode": "{{ shop.address.zip }}",
+              {% endif %}
+              "addressCountry": "{{ shop.address.country_code }}"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "{{ shop.url }}#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Головна",
+                "item": "{{ shop.url }}"
+              }
+              {% if template contains 'collection' and collection %}
+              ,{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ collection.title }}",
+                "item": "{{ shop.url }}{{ collection.url }}"
+              }
+              {% elsif template contains 'product' and product %}
+              ,{
+                "@type": "ListItem",
+                "position": 2,
+                "name": "{{ product.collections.first.title | default: 'Каталог' }}",
+                "item": "{{ shop.url }}{{ product.collections.first.url | default: '/collections/all' }}"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{ product.title }}",
+                "item": "{{ shop.url }}{{ product.url }}"
+              }
+              {% endif %}
+            ]
+          }
+          {% if template contains 'product' and product %}
+          ,{
+            "@type": "ImageObject",
+            "@id": "{{ shop.url }}{{ product.url }}#primaryimage",
+            "url": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
+            "contentUrl": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
+            "width": 1200,
+            "height": 1200
+          }
+          ,{
+            "@type": "Product",
+            "@id": "{{ shop.url }}{{ product.url }}#product",
+            "name": "{{ product.title | escape }}",
+            "description": "{{ product.description | strip_html | truncate: 300 | escape }}",
+            "brand": {
+              "@type": "Brand",
+              "name": "{{ product.vendor | escape }}"
+            },
+            "image": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
+            "url": "{{ shop.url }}{{ product.url }}",
+            "offers": {
+              "@type": "Offer",
+              "url": "{{ shop.url }}{{ product.url }}",
+              "priceCurrency": "UAH",
+              "price": "{{ product.price | money_without_currency | remove: ',' }}",
+              "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+              "seller": {
+                "@type": "Organization",
+                "name": "NEWBORN K"
+              },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "UA",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": 14,
+                "returnMethod": "https://schema.org/ReturnByMail",
+                "returnFees": "https://schema.org/FreeReturn"
+              },
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": {
+                  "@type": "MonetaryAmount",
+                  "value": "0",
+                  "currency": "UAH"
+                },
+                "shippingDestination": {
+                  "@type": "DefinedRegion",
+                  "addressCountry": "UA"
+                }
+              }
+            }
           }
           {% endif %}
         ]
       }
-      {% if template contains 'product' and product %}
-      ,{
-        "@type": "ImageObject",
-        "@id": "{{ shop.url }}{{ product.url }}#primaryimage",
-        "url": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
-        "contentUrl": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
-        "width": 1200,
-        "height": 1200
-      }
-      {% endif %}
-    ]
-  }
-</script>
+    </script>
   </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
@@ -1039,6 +1075,7 @@
         }
       </script>
     -->
-    
-  {% render 'spdn4' %}</body>
+
+    {% render 'spdn4' %}
+  </body>
 </html>
