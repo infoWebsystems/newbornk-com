@@ -229,6 +229,23 @@
         "show_arrow": true,
         "brand_collection": true
       }
+    },
+    "17741238576637f8ce": {
+      "type": "apps",
+      "blocks": {
+        "gsc_instagram_feed_instafeed_C4WUCt": {
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "settings": {
+            "widget_id": "GSC-kwUogsNgjcBVumq"
+          }
+        }
+      },
+      "block_order": [
+        "gsc_instagram_feed_instafeed_C4WUCt"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
@@ -238,6 +255,7 @@
     "recommnded_products_9YHPDM",
     "product-recommendations",
     "1627050417092b6041",
-    "recommendation_slider_YPywew"
+    "recommendation_slider_YPywew",
+    "17741238576637f8ce"
   ]
 }
