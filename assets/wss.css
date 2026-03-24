@@ -142,11 +142,8 @@
 }
 
 /* UPD 20/03 відступ секції */
-.spaced-section:first-child {
-    margin-top: 0rem !important;
-}
 .spaced-section {
-    margin-top: 2rem !important;
+    margin-top: 3rem !important;
 }
 /* UPD 20/03 відступ секції */
 .spaced-section:last-child {
