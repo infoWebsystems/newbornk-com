@@ -146,7 +146,7 @@
         margin-top: 0 !important;
     }
 .spaced-section {
-  margin-top: 3rem;
+  margin-top: 3rem !important;
 }
 /* UPD 20/03 відступ секції */
 .spaced-section:last-child {
@@ -188,7 +188,7 @@
         margin-top: 0 !important;
     }
     .spaced-section {
-        margin-top: 2rem;
+        margin-top: 2rem !important;
     }
     /* UPD 20/03 відступ секції мобайл */
     .spaced-section:last-child {
