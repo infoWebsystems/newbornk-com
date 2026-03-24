@@ -143,15 +143,15 @@
 
 /* UPD 20/03 відступ секції */
 .spaced-section {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 /* UPD 20/03 відступ секції */
 .spaced-section:last-child {
-        margin-bottom: 4rem !important;
+  margin-bottom: 3rem !important;
     }
 /* UPD 20/03 відступ title */
 .collection-slider .collection .title {
-        margin-top: 2rem !important;
+  margin-top: 2rem !important;
     }
 
 
