@@ -181,7 +181,7 @@
         white-space: normal !important;
     }
     /* UPD 20/03 відступ секції */
-    #MainContent > *:first-child .spaced-section {
+    .spaced-section--full-width:first-child {
         margin-top: 0 !important;
     }
     .spaced-section {
