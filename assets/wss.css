@@ -185,7 +185,7 @@
         margin-top: 0 !important;
     }
     .spaced-section {
-        margin-top: 2rem !important;
+        margin-top: 2rem;
     }
     /* UPD 20/03 відступ секції мобайл */
     .spaced-section:last-child {
