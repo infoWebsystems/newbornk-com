@@ -141,21 +141,21 @@
   border-color: #c5c5c5 !important;
 }
 
-/* UPD 20/03 відступ секції
+/* UPD 20/03 відступ секції */
 .spaced-section--full-width:first-child {
         margin-top: 0 !important;
     }
 .spaced-section {
   margin-top: 3rem !important;
 }
-/* UPD 20/03 відступ секції 
+/* UPD 20/03 відступ секції */
 .spaced-section:last-child {
   margin-bottom: 3rem !important;
     }
-/* UPD 20/03 відступ title 
+/* UPD 20/03 відступ title */
 .collection-slider .collection .title {
   margin-top: 2rem !important;
-    }*/
+    }
 
 
 @media screen and (max-width: 749px) {
@@ -183,17 +183,17 @@
         padding-right: 62px !important;
         white-space: normal !important;
     }
-    /* UPD 20/03 відступ секції
+    /* UPD 20/03 відступ секції */
     .spaced-section--full-width:first-child {
         margin-top: 0 !important;
     }
     .spaced-section {
         margin-top: 2rem !important;
     }
-    /* UPD 20/03 відступ секції мобайл 
+    /* UPD 20/03 відступ секції мобайл */
     .spaced-section:last-child {
         margin-bottom: 1rem !important;
-    }*/
+    }
 
 }
 
