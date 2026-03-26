@@ -358,12 +358,6 @@
         "show_vendor": true,
         "show_arrow": true
       }
-    },
-    "custom_liquid_tBx87F": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
-      }
     }
   },
   "order": [
@@ -380,7 +374,6 @@
     "featured_collection_slider_eKMVrY",
     "1626450162f5dda00b",
     "17740063773c82825f",
-    "16264502060c7e1d80",
-    "custom_liquid_tBx87F"
+    "16264502060c7e1d80"
   ]
 }

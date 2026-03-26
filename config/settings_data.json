@@ -46,8 +46,11 @@
     "url_move_main": "/",
     "text_move_main": "ГОЛОВНИЙ САЙТ",
     "array_collection_handle_show_gender": "['novi-nadkhodzhennia', 'sale', 'sale-choloviche', 'sale-women', 'new-choloviche', 'new-women']",
+    "share_twitter": false,
+    "share_pinterest": false,
     "social_facebook_link": "https://www.facebook.com/newbornk.kyiv",
     "social_instagram_link": "https://www.instagram.com/newborn.kyiv/",
+    "social_youtube_link": "https://www.youtube.com/@NEWBORNKYIV",
     "show_wishlist": true,
     "sections": {
       "announcement-bar": {
@@ -228,17 +231,6 @@
         "disabled": false,
         "settings": {}
       },
-      "7870687481494312845": {
-        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
-        "disabled": false,
-        "settings": {
-          "customThemeName": "Dawn",
-          "additionalWLButtonCssClasses": "",
-          "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
-          "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>",
-          "disableAutomaticButtonAddition": false
-        }
-      },
       "8171638733228588981": {
         "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
         "disabled": false,
@@ -273,6 +265,28 @@
         "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
         "disabled": false,
         "settings": {}
+      },
+      "7870687481494312845": {
+        "type": "shopify://apps/wishlist-hero/blocks/app-embed/a9a5079b-59e8-47cb-b659-ecf1c60b9b72",
+        "disabled": false,
+        "settings": {
+          "customThemeName": "Dawn",
+          "additionalWLButtonCssClasses": "",
+          "additionalWLCartBubbleCssClasses": "header-icon-wishlist",
+          "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>",
+          "disableAutomaticButtonAddition": false
+        }
+      },
+      "6159598353363395418": {
+        "type": "shopify://apps/google-youtube/blocks/store_widget/14ec7bd0-ac77-49a9-9417-90752398bdff",
+        "disabled": true,
+        "settings": {
+          "widget_position": "LEFT_BOTTOM",
+          "side_margin": 36,
+          "bottom_margin": 36,
+          "mobile_side_margin": 16,
+          "mobile_bottom_margin": 46
+        }
       }
     }
   },
