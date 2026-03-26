@@ -102,10 +102,6 @@
             "icon": "none"
           }
         },
-        "avada_seo_suite_avada_faqs_HziCiU": {
-          "type": "shopify://apps/avada-seo-suite/blocks/avada-faqs/15507c6e-1aa3-45d3-b698-7e175e033440",
-          "settings": {}
-        },
         "share": {
           "type": "share",
           "settings": {}
@@ -124,7 +120,6 @@
         "70bbe489-815e-4f89-aaee-8f79b7917887",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
-        "avada_seo_suite_avada_faqs_HziCiU",
         "share"
       ],
       "settings": {

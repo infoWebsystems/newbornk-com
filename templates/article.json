@@ -28,18 +28,12 @@
         "content": {
           "type": "content",
           "settings": {}
-        },
-        "social_sharing": {
-          "type": "social_sharing",
-          "disabled": true,
-          "settings": {}
         }
       },
       "block_order": [
         "featured_image",
         "title",
-        "content",
-        "social_sharing"
+        "content"
       ],
       "settings": {
         "product_collection": "",
