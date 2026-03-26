@@ -40,10 +40,26 @@
         "menu_sidebar": "sidebar-menu",
         "enable_sorting": true
       }
+    },
+    "17745102198d106801": {
+      "type": "apps",
+      "blocks": {
+        "avada_seo_suite_avada_after_collection_block_7qcUGa": {
+          "type": "shopify://apps/avada-seo-suite/blocks/avada-after-collection-block/15507c6e-1aa3-45d3-b698-7e175e033440",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "avada_seo_suite_avada_after_collection_block_7qcUGa"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "17745102198d106801"
   ]
 }
