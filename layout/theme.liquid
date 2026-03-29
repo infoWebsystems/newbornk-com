@@ -449,7 +449,15 @@
       or request.page_type contains 'product'
       or request.page_type contains 'page'
     %}
-      <script src="{{ 'swiper.js' | asset_url }}"></script>
+      <script>
+        (function() {
+          var s = document.createElement('script');
+          s.src = "{{ 'swiper.js' | asset_url }}";
+          s.defer = true;
+          s.onload = function() { document.dispatchEvent(new Event('swiper:ready')); };
+          document.head.appendChild(s);
+        })();
+      </script>
     {% endif %}
 
     <script src="{{ 'app.js' | asset_url }}" defer></script>

@@ -1,1 +1,18 @@
 <link href="{{ 'Formular.woff2' | asset_url | split: '?' | first }}" as="font" rel="preload" crossorigin>
+
+{%- comment -%} Preload first visible hero slide to reduce LCP resource load delay {%- endcomment -%}
+{%- if request.page_type == 'index' -%}
+  {%- assign hero_section = sections['1630994380770cb550'] -%}
+  {%- assign locale_upper = request.locale.iso_code | upcase -%}
+  {%- for block in hero_section.blocks -%}
+    {%- if block.settings.language contains locale_upper or block.settings.language == blank -%}
+      {%- if block.settings.image_phone != blank -%}
+        <link rel="preload" as="image" href="{{ block.settings.image_phone | image_url: width: 750 }}" media="(max-width: 749px)" fetchpriority="high">
+      {%- endif -%}
+      {%- if block.settings.image != blank -%}
+        <link rel="preload" as="image" href="{{ block.settings.image | image_url: width: 1440 }}" media="(min-width: 750px)" fetchpriority="high">
+      {%- endif -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

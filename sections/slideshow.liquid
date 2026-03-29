@@ -32,7 +32,7 @@
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" alt="{{ alt | escape }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
+                      <img src="{{ block.settings.image | image_url: width: 1440 }}" width="360" height="411" alt="{{ alt | escape }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
                     </div>
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
@@ -71,16 +71,7 @@
 
 <script>
   function initHeroSwiper() {
-    if (typeof Swiper === 'undefined') {
-      // Swiper is not loaded yet, try again in 50ms
-      setTimeout(initHeroSwiper, 50);
-      return;
-    }
-
-    // Swiper is loaded, now initialize
-    var menu = [];
-
-    const swiperherro = new Swiper('.swiper-container-herro', {
+    new Swiper('.swiper-container-herro', {
       spaceBetween: 0,
       slidesPerView: 1,
       autoplay: {
@@ -90,7 +81,7 @@
         el: '.swiper-pagination',
         clickable: true,
         renderBullet: function(index, className) {
-          return `<div class="box ` + className + `"></div>`;
+          return '<div class="box ' + className + '"></div>';
         },
       },
       navigation: {
@@ -100,8 +91,11 @@
     });
   }
 
-  // Start the initialization
-  initHeroSwiper();
+  if (typeof Swiper !== 'undefined') {
+    initHeroSwiper();
+  } else {
+    document.addEventListener('swiper:ready', initHeroSwiper);
+  }
 </script>
 
 
