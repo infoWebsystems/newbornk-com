@@ -287,6 +287,11 @@
           "mobile_side_margin": 16,
           "mobile_bottom_margin": 46
         }
+      },
+      "8783062483770502377": {
+        "type": "shopify://apps/air-reviews-1/blocks/app-embed/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+        "disabled": false,
+        "settings": {}
       }
     }
   },
