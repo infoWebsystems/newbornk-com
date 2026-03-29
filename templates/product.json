@@ -246,6 +246,27 @@
       "settings": {
         "include_margins": false
       }
+    },
+    "17747948889de82dbf": {
+      "type": "apps",
+      "blocks": {
+        "air_product_reviews_app_block_review_list_Vj8MNL": {
+          "type": "shopify://apps/air-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+          "settings": {
+            "air_blockreviews_summaryHeading": "Reviews",
+            "air_blockreviews_layout": "list",
+            "air_blockreviews_singleStarColor": "#16A086",
+            "air_blockreviews_primaryColor": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "air_product_reviews_app_block_review_list_Vj8MNL"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
@@ -256,6 +277,7 @@
     "product-recommendations",
     "1627050417092b6041",
     "recommendation_slider_YPywew",
-    "17741238576637f8ce"
+    "17741238576637f8ce",
+    "17747948889de82dbf"
   ]
 }
