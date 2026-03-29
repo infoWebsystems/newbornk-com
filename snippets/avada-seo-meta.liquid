@@ -3,7 +3,7 @@
 {%- assign avada_seo_ovr_article_ids = ",,,565436809376,565430747296,563181289632,565463646368,565009121440,,565503230112,,565512306848," -%}
   
 {%- if request.page_type == 'product' -%}
-{%- if avada_seo_ovr_product_ids contains product.id  -%}
+{%-  if avada_seo_ovr_product_ids contains product.id  -%}
 {%- if product.metafields.multilingual_meta_tag.description_tag.value[shop.locale] -%}
 {%- capture avada_seo_meta_description -%}
 {{ product.metafields.multilingual_meta_tag.description_tag.value[shop.locale] }}
@@ -15,46 +15,6 @@
 {%- endcapture -%}
 {%- endif -%}
 {%- endif -%}
-{%- endif -%}
-
-<!-- meta basic type product -->
-{%- if request.page_type == 'product' -%}
-{%- unless avada_seo_ovr_product_ids contains product.id -%}
-{%- capture avada_seo_meta_title -%}
-{%- case shop.locale -%}
-{%- when "uk" -%} 
-Купити  {{product.vendor}} {{product.title}} за найкращою ціною | NEWBORN K 
-{%- else -%}
-{%- endcase -%}
-{%- endcapture -%}
-{%- capture avada_seo_meta_description -%}
-{%- case shop.locale -%}
-{%- when "en" -%} 
-
-{%- when "pt-BR" -%} 
-
-{%- when "da" -%} 
-
-{%- when "nl" -%} 
-
-{%- when "fr" -%} 
-
-{%- when "de" -%} 
-
-{%- when "zh-CN" -%} 
-
-{%- when "es" -%} 
-
-{%- when "sv" -%} 
-
-{%- when "vi" -%} 
-
-{%- when "uk" -%} 
-Купуй {{product.vendor}} {{product.title}} у концепт-сторі NEWBORN K. ✨ Тільки преміальні бренди. ✓ 100% Оригінал ✓ Швидка відправка ✓ Безкоштовна доставка  від 5000 грн. 💚
-{%- else -%}
-{%- endcase -%}
-{%- endcapture -%}
-{%- endunless -%}
 {%- endif -%}
   
 {%- if request.page_type == 'collection' -%}
