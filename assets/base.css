@@ -599,7 +599,7 @@ table:not([class]) th {
 a:empty,
 ul:empty,
 dl:empty,
-div:empty:not(.js-pull-notification-host-element),
+div:empty,
 section:empty,
 article:empty,
 p:empty,
@@ -610,15 +610,6 @@ h4:empty,
 h5:empty,
 h6:empty {
   display: none;
-}
-
-#app-inbox {
-  z-index: 4;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: auto;
-  height: auto;
 }
 
 .link,
