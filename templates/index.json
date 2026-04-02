@@ -201,26 +201,6 @@
         "brand_collection": false
       }
     },
-    "featured_collection_slider_tfqQpj": {
-      "type": "featured-collection-slider",
-      "disabled": true,
-      "name": "t:sections.featured-collection-slider.presets.name",
-      "settings": {
-        "title": "Верхній одяг",
-        "show_text": false,
-        "collection": "kurtky",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.8,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": false,
-        "show_arrow": false,
-        "brand_collection": false
-      }
-    },
     "1626416534da40dc37": {
       "type": "collection-list",
       "blocks": {
@@ -257,6 +237,25 @@
         "swipe_on_mobile": false,
         "image_padding": false,
         "show_view_all": false
+      }
+    },
+    "featured_collection_slider_tfqQpj": {
+      "type": "featured-collection-slider",
+      "name": "t:sections.featured-collection-slider.presets.name",
+      "settings": {
+        "title": "Худі",
+        "show_text": false,
+        "collection": "cholovichi-khudi",
+        "products_to_show": 6.5,
+        "products_to_show_mobile": 1.8,
+        "show_view_all": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_vendor": false,
+        "show_arrow": false,
+        "brand_collection": false
       }
     },
     "1626416564a7b86704": {
@@ -371,8 +370,8 @@
             "themeId": "light",
             "ratingType": "stars",
             "emojiType": "0",
-            "cardColor": "#F3F6F9",
-            "starsColor": "#FBB000",
+            "cardColor": "#f3f6f9",
+            "starsColor": "#fbb000",
             "textColor": "#404040",
             "transparent": 1,
             "solidShadow": false,
@@ -397,8 +396,8 @@
     "featured_collection_slider_XbArfi",
     "featured_collection_slider_zaYJcr",
     "1626369903c393cced",
-    "featured_collection_slider_tfqQpj",
     "1626416534da40dc37",
+    "featured_collection_slider_tfqQpj",
     "1626416564a7b86704",
     "featured_collection_slider_eKMVrY",
     "1626450162f5dda00b",
