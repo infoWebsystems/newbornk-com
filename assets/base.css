@@ -2850,6 +2850,8 @@ a.__ADORIC__1.__ADORIC__[target="_blank"] {
 .announcement-bar__announcements {
   position: relative;
   overflow: hidden;
+  height: 100%;
+  min-height: 2em;
 }
 
 .announcement-bar__message {
@@ -2863,15 +2865,24 @@ a.__ADORIC__1.__ADORIC__[target="_blank"] {
   justify-content: center;
   opacity: 0;
   animation: announce-cycle 12s infinite;
+  /* hide all initially before animation starts */
+  visibility: hidden;
 }
 
-.announcement-bar__message:nth-child(1) { animation-delay: 0s; }
-.announcement-bar__message:nth-child(2) { animation-delay: 4s; }
-.announcement-bar__message:nth-child(3) { animation-delay: 8s; }
+.announcement-bar__message:nth-child(1) { 
+  animation-delay: 0s; 
+  visibility: visible;
+}
+.announcement-bar__message:nth-child(2) { 
+  animation-delay: 4s; 
+}
+.announcement-bar__message:nth-child(3) { 
+  animation-delay: 8s; 
+}
 
 @keyframes announce-cycle {
-  0%        { opacity: 0; transform: translateY(8px); }
-  5%, 28%   { opacity: 1; transform: translateY(0); }
-  33%, 100% { opacity: 0; transform: translateY(-8px); }
+  0%        { opacity: 0; transform: translateY(8px); visibility: visible; }
+  5%, 28%   { opacity: 1; transform: translateY(0); visibility: visible; }
+  33%       { opacity: 0; transform: translateY(-8px); visibility: visible; }
+  34%, 100% { opacity: 0; visibility: hidden; }
 }
-
