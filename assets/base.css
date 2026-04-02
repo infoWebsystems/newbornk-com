@@ -612,6 +612,10 @@ h6:empty {
   display: none;
 }
 
+#app_inbox {
+  z-index: 4;
+}
+
 .link,
 .customer a {
   cursor: pointer;
