@@ -358,6 +358,35 @@
         "show_vendor": true,
         "show_arrow": true
       }
+    },
+    "17751417849b35a3ee": {
+      "type": "apps",
+      "blocks": {
+        "google_reviews_locations_widget_block_AyQ343": {
+          "type": "shopify://apps/google-reviews/blocks/locations-widget-block/8b378e9e-c56d-47ce-a754-feca5e0caf59",
+          "settings": {
+            "contentIndex": "all",
+            "customContentIndex": 31,
+            "font": "default",
+            "themeId": "light",
+            "ratingType": "stars",
+            "emojiType": "0",
+            "cardColor": "#F3F6F9",
+            "starsColor": "#FBB000",
+            "textColor": "#404040",
+            "transparent": 1,
+            "solidShadow": false,
+            "photoType": "large",
+            "showMap": true
+          }
+        }
+      },
+      "block_order": [
+        "google_reviews_locations_widget_block_AyQ343"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
@@ -374,6 +403,7 @@
     "featured_collection_slider_eKMVrY",
     "1626450162f5dda00b",
     "17740063773c82825f",
-    "16264502060c7e1d80"
+    "16264502060c7e1d80",
+    "17751417849b35a3ee"
   ]
 }
