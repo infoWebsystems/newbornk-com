@@ -364,16 +364,16 @@
         "google_reviews_locations_widget_block_AyQ343": {
           "type": "shopify://apps/google-reviews/blocks/locations-widget-block/8b378e9e-c56d-47ce-a754-feca5e0caf59",
           "settings": {
-            "contentIndex": "all",
+            "contentIndex": "1",
             "customContentIndex": 31,
-            "font": "default",
+            "font": "theme",
             "themeId": "light",
             "ratingType": "stars",
             "emojiType": "0",
             "cardColor": "#f3f6f9",
             "starsColor": "#fbb000",
             "textColor": "#404040",
-            "transparent": 1,
+            "transparent": 0,
             "solidShadow": false,
             "photoType": "large",
             "showMap": true
