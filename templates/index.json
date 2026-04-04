@@ -386,6 +386,13 @@
       "settings": {
         "include_margins": false
       }
+    },
+    "custom_liquid_cjahPB": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<div id=\"find-us\"></div>"
+      }
     }
   },
   "order": [
@@ -403,6 +410,7 @@
     "1626450162f5dda00b",
     "17740063773c82825f",
     "16264502060c7e1d80",
-    "17751417849b35a3ee"
+    "17751417849b35a3ee",
+    "custom_liquid_cjahPB"
   ]
 }
