@@ -251,11 +251,6 @@
         "disabled": false,
         "settings": {}
       },
-      "12108174171315376258": {
-        "type": "shopify://apps/aov-ai-cart-drawer/blocks/avada-embed/938869e1-3feb-48fa-ab79-27fdfe609836",
-        "disabled": false,
-        "settings": {}
-      },
       "0220609880488367148": {
         "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
         "disabled": false,
@@ -285,6 +280,11 @@
       },
       "5269207691391943459": {
         "type": "shopify://apps/gtm-data-layer/blocks/gropulse-gtm/ec1066b4-8b00-4630-a216-c88f51204a28",
+        "disabled": true,
+        "settings": {}
+      },
+      "12108174171315376258": {
+        "type": "shopify://apps/aov-ai-cart-drawer/blocks/avada-embed/938869e1-3feb-48fa-ab79-27fdfe609836",
         "disabled": true,
         "settings": {}
       }
