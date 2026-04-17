@@ -495,10 +495,11 @@
       data-chekly-url="https://chekly-app.com"
       data-chekly-theme="chekly"
       data-chekly-script="GLOBAL"
-      src="{{ 'chekly-script.js' | asset_url }}"
-      async
+      src="{{ 'chekly-script-custom.js' | asset_url }}"
+      defer
       data-checkout-domain="https://checkout.newbornk.com"
     ></script>
+    <script src="{{ 'cekly_gb.aov-cartdrawer-checkout-extension.js' | asset_url }}" defer></script>
     <script>
       function showToast(message = '', title = '', image_src = '', timeout = 3000) {
         if (!message) {
