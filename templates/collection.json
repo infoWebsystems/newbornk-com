@@ -41,6 +41,13 @@
         "enable_sorting": true
       }
     },
+    "custom_liquid_JBTpBy": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<br>"
+      }
+    },
     "1776766275f3c0956b": {
       "type": "apps",
       "blocks": {
@@ -61,13 +68,6 @@
       ],
       "settings": {
         "include_margins": false
-      }
-    },
-    "custom_liquid_JBTpBy": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "custom_liquid": ""
       }
     }
   },
