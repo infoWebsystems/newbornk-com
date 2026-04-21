@@ -249,21 +249,29 @@
     },
     "17747948889de82dbf": {
       "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "177676567162c92def": {
+      "type": "apps",
       "blocks": {
-        "air_product_reviews_app_block_review_list_Vj8MNL": {
-          "type": "shopify://apps/air-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+        "ultimate_recently_viewed_recently_viewed_AaGpgc": {
+          "type": "shopify://apps/ultimate-recently-viewed/blocks/recently-viewed/b33bd8dd-4a93-43a7-b989-694e289aa9e8",
           "settings": {
-            "air_blockreviews_summaryHeading": "Reviews",
-            "air_blockreviews_layout": "list",
-            "air_blockreviews_singleStarColor": "#16A086",
-            "air_blockreviews_primaryColor": "#121212"
+            "headline": "Нещодавно переглянуті товари",
+            "product_title_enabled": true,
+            "product_price_enabled": true,
+            "product_type_enabled": false,
+            "product_vendor_enabled": false,
+            "quick_add_button_enabled": false
           }
         }
       },
       "block_order": [
-        "air_product_reviews_app_block_review_list_Vj8MNL"
+        "ultimate_recently_viewed_recently_viewed_AaGpgc"
       ],
-      "disabled": true,
       "settings": {
         "include_margins": false
       }
@@ -278,6 +286,7 @@
     "1627050417092b6041",
     "recommendation_slider_YPywew",
     "17741238576637f8ce",
-    "17747948889de82dbf"
+    "17747948889de82dbf",
+    "177676567162c92def"
   ]
 }
