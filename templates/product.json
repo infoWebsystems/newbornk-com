@@ -247,13 +247,6 @@
         "include_margins": false
       }
     },
-    "17747948889de82dbf": {
-      "type": "apps",
-      "disabled": true,
-      "settings": {
-        "include_margins": false
-      }
-    },
     "177676567162c92def": {
       "type": "apps",
       "blocks": {
@@ -286,7 +279,6 @@
     "1627050417092b6041",
     "recommendation_slider_YPywew",
     "17741238576637f8ce",
-    "17747948889de82dbf",
     "177676567162c92def"
   ]
 }
