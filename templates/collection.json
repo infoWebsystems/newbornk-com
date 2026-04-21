@@ -40,10 +40,33 @@
         "menu_sidebar": "sidebar-menu",
         "enable_sorting": true
       }
+    },
+    "1776766275f3c0956b": {
+      "type": "apps",
+      "blocks": {
+        "ultimate_recently_viewed_recently_viewed_zzUeQD": {
+          "type": "shopify://apps/ultimate-recently-viewed/blocks/recently-viewed/b33bd8dd-4a93-43a7-b989-694e289aa9e8",
+          "settings": {
+            "headline": "Нещодавно переглянуті товари",
+            "product_title_enabled": true,
+            "product_price_enabled": true,
+            "product_type_enabled": false,
+            "product_vendor_enabled": false,
+            "quick_add_button_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "ultimate_recently_viewed_recently_viewed_zzUeQD"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "1776766275f3c0956b"
   ]
 }
