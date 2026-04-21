@@ -60,13 +60,21 @@
         "ultimate_recently_viewed_recently_viewed_zzUeQD"
       ],
       "settings": {
-        "include_margins": true
+        "include_margins": false
+      }
+    },
+    "custom_liquid_JBTpBy": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": ""
       }
     }
   },
   "order": [
     "banner",
     "product-grid",
+    "custom_liquid_JBTpBy",
     "1776766275f3c0956b"
   ]
 }
