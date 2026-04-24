@@ -293,7 +293,9 @@
   "platform_customizations": {
     "custom_css": [
       ".product-form__inputs-inputs .disabled-label {text-decoration: line-through; pointer-events: none; color: #c5c5c5 !important; border-color: #c5c5c5 !important;}",
-      ".shopify-block-ultimate-recently-viewed {padding: 0 2.5rem;}"
+      ".shopify-block-ultimate-recently-viewed {padding: 0 2.5rem;}",
+      ".shopify-block-ultimate-recently-viewed {padding: 0 2.5rem;}",
+      "@media only screen and (max-width: 749px) {.price {font-size: 16px; } .price--on-sale .price__sale {font-size: 16px; }}"
     ]
   }
 }
