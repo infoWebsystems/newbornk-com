@@ -105,6 +105,10 @@
         "share": {
           "type": "share",
           "settings": {}
+        },
+        "judge_me_reviews_preview_badge_AkpLKg": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
       "block_order": [
@@ -120,7 +124,8 @@
         "70bbe489-815e-4f89-aaee-8f79b7917887",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
-        "share"
+        "share",
+        "judge_me_reviews_preview_badge_AkpLKg"
       ],
       "settings": {
         "enable_sticky_info": true,
