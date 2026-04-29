@@ -12,8 +12,8 @@
     "SEO": {
       "collection_title": "Брендовые {{title}} - купить в Киеве | NEWBORN K",
       "collection_brand_title": "{{title}} купить в Киеве и Украине | NEWBORN K",
-      "collection_description": "Купить брендовые {{title}} в интернет-магазине【NEWBORN K】⏩ 100% оригинал и отличное качество от топовых производителей \uD83D\uDCE6 Быстрая доставка по Киеву и Украине \uD83D\uDCAB Заказывайте уже сейчас",
-      "collection_brand_description": "Купить аксессуары и одежду бренда {{title}} в интернет-магазине【NEWBORN K】⏩ Совершенное качество и 100% оригинал ⏩ Широкий ассортимент по доступной цене \uD83D\uDCE6 Быстрая доставка по Киеву и Украине, бесплатная от 5000 грн. \uD83D\uDCAB"
+      "collection_description": "Купить брендовые {{title}} в интернет-магазине【NEWBORN K】⏩ 100% оригинал и отличное качество от топовых производителей 📦 Быстрая доставка по Киеву и Украине 💫 Заказывайте уже сейчас",
+      "collection_brand_description": "Купить аксессуары и одежду бренда {{title}} в интернет-магазине【NEWBORN K】⏩ Совершенное качество и 100% оригинал ⏩ Широкий ассортимент по доступной цене 📦 Быстрая доставка по Киеву и Украине, бесплатная от 5000 грн. 💫"
     },
     "password_page": {
       "login_form_heading": "Вход в магазин с помощью пароля:",
@@ -167,7 +167,9 @@
         "play_model": "Воспроизвести в 3D Viewer",
         "play_video": "Воспроизвести видео"
       },
-      "online_only": "Только ONLINE"
+      "online_only": "Только ONLINE",
+      "title_sku": "Код товара: {{number}}",
+      "outlet_pickup_text": "📍 Товар доступен для самовывоза на следующий день после заказа"
     },
     "modal": {
       "label": "Галерея мультимедиа",
@@ -538,7 +540,17 @@
         "errors": {
           "optin": "Shop Pay isn't available"
         }
+      },
+      "order_summary": {
+        "expand_order_summary": "Показать мой заказ",
+        "collapse_order_summary": "Скрыть мой заказ"
+      },
+      "shipping": {
+        "please_enter_your_shipping_information_notice": "Введите свою информацию о доставке."
       }
+    },
+    "errors": {
+      "email_domain_invalid": "поставщик не поддерживается"
     }
   },
   "wishlist": {
@@ -551,5 +563,5 @@
   },
   "text_badge_last_size": "Последний размер",
   "text_btn_loadmore": "Показать еще",
-  "text_loading": "Загрузка...",
+  "text_loading": "Загрузка..."
 }
