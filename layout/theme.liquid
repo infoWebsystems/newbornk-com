@@ -449,11 +449,13 @@
       or request.page_type contains 'page'
     %}
       <script>
-        (function() {
+        (function () {
           var s = document.createElement('script');
           s.src = "{{ 'swiper.js' | asset_url }}";
           s.defer = true;
-          s.onload = function() { document.dispatchEvent(new Event('swiper:ready')); };
+          s.onload = function () {
+            document.dispatchEvent(new Event('swiper:ready'));
+          };
           document.head.appendChild(s);
         })();
       </script>
@@ -882,6 +884,7 @@
         ]
       }
     </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="yEb09riFW9kGssXJWXQh1Q" async></script>
   </head>
 
   <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
@@ -894,6 +897,14 @@
         style="display:none;visibility:hidden"
       ></iframe
     ></noscript>
+    <!-- Google Tag Manager (ahref) -->
+    <script>
+      var ahrefs_analytics_script = document.createElement('script');
+      ahrefs_analytics_script.async = true;
+      ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
+      ahrefs_analytics_script.setAttribute('data-key', 'yEb09riFW9kGssXJWXQh1Q');
+      document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
+    </script>
     <!-- End Google Tag Manager (noscript) -->
 
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -917,9 +928,6 @@
       tabindex="-1"
     >
       {{ content_for_layout }}
-      
-    
-
     </main>
 
     {% if customer.tags contains 'admin' and template.name == 'product' %}
@@ -1040,7 +1048,7 @@
             ? 1
             : 0;
 
-        var sleep = 50;
+        var sleep = 100;
         if (is_mobile) {
           sleep = is_pagespeed == 1 ? 8000 : 1000;
         } else {
@@ -1086,8 +1094,5 @@
         }
       </script>
     -->
-
-    
-
-</body>
+  </body>
 </html>
