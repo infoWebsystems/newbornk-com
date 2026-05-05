@@ -184,11 +184,10 @@
     },
     "1626369903c393cced": {
       "type": "featured-collection-slider",
-      "disabled": true,
       "settings": {
-        "title": "СВЯТКОВІ ЗНИЖКИ",
+        "title": "Футболки",
         "show_text": true,
-        "collection": "christmas",
+        "collection": "new-cholovichi-futbolky",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
         "show_view_all": false,
