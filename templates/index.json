@@ -260,9 +260,9 @@
       "type": "featured-collection-slider",
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
-        "title": "Худі",
+        "title": "Шорти",
         "show_text": false,
-        "collection": "new-cholovichi-chudi",
+        "collection": "new-cholovichi-shorty",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.5,
         "show_view_all": false,
