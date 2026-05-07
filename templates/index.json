@@ -206,19 +206,19 @@
         "1626416534da40dc37-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "bareen"
+            "collection": "a-cold-wall"
           }
         },
         "1626416534da40dc37-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "heliot-emil"
+            "collection": "bareen"
           }
         },
         "1626416534da40dc37-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": "new-amsterdam"
+            "collection": "carne-bollente"
           }
         }
       },
@@ -280,13 +280,13 @@
         "1626450162f5dda00b-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": "carhartt-wip"
+            "collection": "pleasures"
           }
         },
         "1626450162f5dda00b-0": {
           "type": "featured_collection",
           "settings": {
-            "collection": "pas-normal-studios"
+            "collection": "carhartt-wip"
           }
         }
       },
