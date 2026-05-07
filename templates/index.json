@@ -21,15 +21,6 @@
             "language": "UK"
           }
         },
-        "1630994380b1b22eeb-0": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/UKR_BAN.webp",
-            "image_phone": "shopify://shop_images/UKR_banner_mobile_783cd4ab-2193-4fcc-bc5c-dd876d7986cd.webp",
-            "banner_link": "shopify://collections/novi-nadkhodzhennia",
-            "language": "UK"
-          }
-        },
         "slide_wHpNAY": {
           "type": "slide",
           "settings": {
@@ -96,7 +87,6 @@
       },
       "block_order": [
         "slide_PziDkQ",
-        "1630994380b1b22eeb-0",
         "slide_wHpNAY",
         "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
         "slide_mhh3dU",
