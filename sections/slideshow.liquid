@@ -14,11 +14,13 @@
               endif
             endfor
           -%}
+          {%- assign visible_index = 0 -%}
           {%- for block in section.blocks -%}
           	{%- if block.settings.language contains current_locale or block.settings.language == blank -%}
             {%- else -%}
               {%- continue -%}
             {%- endif -%}
+            {%- assign visible_index = visible_index | plus: 1 -%}
             <li class="swiper-slide">
               <a class="link-wrapper" href="{{block.settings.banner_link}}">
               <div class="slideshow-card">
@@ -27,18 +29,28 @@
                     {% assign spaced_image = true %}
                   {% endif %}
                   {% assign alt = block.settings.image.alt | default: shop.name %}
+                  {%- assign img_desktop = block.settings.image | image_url: width: 1440 -%}
+                  {%- assign img_phone = block.settings.image_phone | image_url: width: 750 -%}
                   <div class="slideshow-card__image-wrapper slideshow-card__image-wrapper--{{ section.settings.image_width }}-width {% if section.settings.image_width != 'full' or spaced_image %} slideshow-card-spacing{% endif %}">
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} small-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image | image_url: width: 1440 }}" width="360" height="411" alt="{{ alt | escape }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
+                      {%- if visible_index == 1 -%}
+                        <img src="{{ img_desktop }}" width="360" height="411" alt="{{ alt | escape }}" loading="eager" fetchpriority="high" decoding="async">
+                      {%- else -%}
+                        <img data-src="{{ img_desktop }}" width="360" height="411" alt="{{ alt | escape }}" loading="lazy" decoding="async" class="hero-lazy">
+                      {%- endif -%}
                     </div>
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
-                      {% endif %}>                      
-                      <img src="{{ block.settings.image_phone | image_url: width: 750 }}" width="360" height="411" alt="{{ alt }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>                      
+                      {% endif %}>
+                      {%- if visible_index == 1 -%}
+                        <img src="{{ img_phone }}" width="360" height="411" alt="{{ alt }}" loading="eager" fetchpriority="high" decoding="async">
+                      {%- else -%}
+                        <img data-src="{{ img_phone }}" width="360" height="411" alt="{{ alt }}" loading="lazy" decoding="async" class="hero-lazy">
+                      {%- endif -%}
                     </div>
                   </div>
                 {%- endif -%}
@@ -70,8 +82,19 @@
   </div>
 
 <script>
+  function loadHeroLazy(slideEl) {
+    if (!slideEl) return;
+    var imgs = slideEl.querySelectorAll('img.hero-lazy[data-src]');
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      img.classList.remove('hero-lazy');
+    }
+  }
+
   function initHeroSwiper() {
-    new Swiper('.swiper-container-herro', {
+    var swiper = new Swiper('.swiper-container-herro', {
       spaceBetween: 0,
       slidesPerView: 1,
       autoplay: {
@@ -87,7 +110,18 @@
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      }
+      },
+      on: {
+        init: function () {
+          var next = this.slides[this.activeIndex + 1];
+          if (next) loadHeroLazy(next);
+        },
+        slideChange: function () {
+          loadHeroLazy(this.slides[this.activeIndex]);
+          var next = this.slides[this.activeIndex + 1];
+          if (next) loadHeroLazy(next);
+        },
+      },
     });
   }
 

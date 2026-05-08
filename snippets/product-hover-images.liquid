@@ -113,11 +113,12 @@
   <img
     src="{{ first_image | img_url: '533x' }}"
     alt="{{ first_image.alt | escape }}"
-    {% if loop_index == blank or loop_index > 2 %}
-      loading="lazy"
-    {% else %}
+    {% if loop_index != blank and loop_index > 0 and loop_index <= 2 %}
       loading="eager" fetchpriority="high"
+    {% else %}
+      loading="lazy"
     {% endif %}
+    decoding="async"
     width="{{ first_image.width }}"
     height="{{ first_image.height }}"
   >
