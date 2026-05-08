@@ -1,7 +1,18 @@
 {%- assign current_locale = request.locale.iso_code | upcase -%}
+{%- liquid
+  assign highest_ratio = 0
+  for block in section.blocks
+    if block.settings.image.aspect_ratio > highest_ratio
+      assign highest_ratio = block.settings.image.aspect_ratio
+      assign highest_ratio_phone = block.settings.image_phone.aspect_ratio
+    endif
+  endfor
+-%}
 <link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
 <style>
+  .swiper-container-herro { aspect-ratio: {{ highest_ratio }}; overflow: hidden; }
+  @media (max-width: 749px) { .swiper-container-herro { aspect-ratio: {{ highest_ratio_phone }}; } }
   .swiper-container-herro:not(.swiper-container-initialized) .swiper-wrapper { display: block; }
   .swiper-container-herro:not(.swiper-container-initialized) .swiper-slide:nth-child(n+2) { display: none; }
 </style>
@@ -9,15 +20,6 @@
   <div class="slideshow no-heading">
       <div class="swiper-container swiper-container-herro">
         <ul class="swiper-wrapper"  style="width: 100vw; padding:0;">
-          {%- liquid
-            assign highest_ratio = 0
-            for block in section.blocks
-              if block.settings.image.aspect_ratio > highest_ratio
-                assign highest_ratio = block.settings.image.aspect_ratio
-                assign highest_ratio_phone = block.settings.image_phone.aspect_ratio
-              endif
-            endfor
-          -%}
           {%- assign visible_index = 0 -%}
           {%- for block in section.blocks -%}
           	{%- if block.settings.language contains current_locale or block.settings.language == blank -%}
