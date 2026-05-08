@@ -1,6 +1,10 @@
 {%- assign current_locale = request.locale.iso_code | upcase -%}
 <link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
 <noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
+<style>
+  .swiper-container-herro:not(.swiper-container-initialized) .swiper-wrapper { display: block; }
+  .swiper-container-herro:not(.swiper-container-initialized) .swiper-slide:nth-child(n+2) { display: none; }
+</style>
 
   <div class="slideshow no-heading">
       <div class="swiper-container swiper-container-herro">
