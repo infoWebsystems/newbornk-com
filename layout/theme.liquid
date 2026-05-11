@@ -133,6 +133,7 @@
 
     {% if template.name == 'product' %}
       {%- render 'jsonld-product', product: product -%}
+      <!-- air-reviews-debug: data={{ product.metafields.air_reviews_product.data | json | escape }} -->
     {% endif %}
 
     {% render 'fn_uk-hreflang' %}
