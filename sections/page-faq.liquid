@@ -1,7 +1,9 @@
 {{ 'component-faq.css' | asset_url | stylesheet_tag }}
-<!--fa icons-->  
+<!--fa icons-->
 <script src="https://use.fontawesome.com/bf812bc641.js"></script>
 <!--//fa icons-->
+
+{%- render 'jsonld-faq', section: section -%}
 
 
 <div class="page-width page-width_wide" style="margin:auto;">
