@@ -46,23 +46,8 @@
           });
         }
 
-        let user_agent = window.navigator.userAgent;
-
         var is_mobile = window.screen.width < 768 ? 1 : 0;
-        let is_pagespeed =
-          (user_agent.indexOf('moto g power') !== -1 &&
-            user_agent.indexOf('AppleWebKit') !== -1 &&
-            user_agent.indexOf('Mobile') !== -1) ||
-          user_agent.indexOf('Lighthouse') !== -1
-            ? 1
-            : 0;
-
-        var sleep = 50;
-        if (is_mobile) {
-          sleep = is_pagespeed == 1 ? 8000 : 1000;
-        } else {
-          sleep = is_pagespeed == 1 ? 1000 : 50;
-        }
+        var sleep = is_mobile ? 1000 : 50;
 
         var startTimeStcrtr = new Date().getTime();
         var timerYM = setInterval(function () {
@@ -70,43 +55,14 @@
           if (document.readyState === 'complete' || t > 10000) {
             clearInterval(timerYM);
             setTimeout(function () {
-              loadScript('https://www.googletagmanager.com/gtag/js?id=G-6WKK4C3QWJ')
-                .then(() => {
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag() {
-                    dataLayer.push(arguments);
-                  }
-                  gtag('js', new Date());
-                  gtag('config', 'G-6WKK4C3QWJ');
-                })
-                .catch((err) => {
-                  console.error(err);
-                });
-
               loadScript('https://www.googletagmanager.com/gtag/js?id=G-X7BE6ZYNN9')
                 .then(() => {
                   window.dataLayer = window.dataLayer || [];
-                  function gtag() {
-                    dataLayer.push(arguments);
-                  }
+                  function gtag() { dataLayer.push(arguments); }
                   gtag('js', new Date());
+                  gtag('config', 'G-X7BE6ZYNN9');
                 })
-                .catch((err) => {
-                  console.error(err);
-                });
-
-              loadScript('https://www.googletagmanager.com/gtag/js?id=AW-11284981969')
-                .then(() => {
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag() {
-                    dataLayer.push(arguments);
-                  }
-                  gtag('js', new Date());
-                  gtag('config', 'AW-11284981969');
-                })
-                .catch((err) => {
-                  console.error(err);
-                });
+                .catch((err) => { console.error(err); });
             }, sleep);
           }
         }, 10);
