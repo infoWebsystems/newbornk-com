@@ -12,7 +12,7 @@
     - isVariantOf -> ProductGroup with variants array
     - priceValidUntil
 {%- endcomment -%}
-{%- if product != blank and template contains 'product' -%}
+{%- if product != blank -%}
   {%- assign product_id = canonical_url | split: '?' | first | append: '#product' -%}
   {%- assign group_id = canonical_url | split: '?' | first | append: '#product-group' -%}
   {%- assign brand_name = product.vendor | default: shop.name -%}
