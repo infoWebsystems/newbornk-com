@@ -133,7 +133,6 @@
 
     {% if template.name == 'product' %}
       {%- render 'jsonld-product', product: product -%}
-      <!-- air-reviews-debug: data={{ product.metafields.air_reviews_product.data | json | escape }} -->
     {% endif %}
 
     {% render 'fn_uk-hreflang' %}
@@ -724,8 +723,10 @@
                 {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
               {%- endif -%}
               {%- if settings.social_vimeo_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"
+                {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"{%- assign has_prev = true -%}
               {%- endif -%}
+              {%- if has_prev -%},{%- endif -%}"https://www.tiktok.com/@newborn_kyiv",
+              "https://t.me/newbornkrew"
             ],
             {% if shop.phone != blank or shop.email != blank %}
             "contactPoint": {
@@ -809,6 +810,31 @@
             },
             "image": "{{ product.featured_image | image_url: width: 1200 | prepend: 'https:' }}",
             "url": "{{ shop.url }}{{ product.url }}",
+            {%- assign ar_data = product.metafields.air_reviews_product.data.value -%}
+            {%- assign rating_value = '' -%}
+            {%- assign rating_count = 0 -%}
+            {%- if ar_data and ar_data.rating_average and ar_data.review_count -%}
+              {%- assign rating_value = ar_data.rating_average -%}
+              {%- assign rating_count = ar_data.review_count | plus: 0 -%}
+            {%- elsif ar_data and ar_data.rating_avg and ar_data.count -%}
+              {%- assign rating_value = ar_data.rating_avg -%}
+              {%- assign rating_count = ar_data.count | plus: 0 -%}
+            {%- elsif product.metafields.loox.avg_rating and product.metafields.loox.num_reviews -%}
+              {%- assign rating_value = product.metafields.loox.avg_rating -%}
+              {%- assign rating_count = product.metafields.loox.num_reviews | plus: 0 -%}
+            {%- elsif product.metafields.judgeme.badge and product.metafields.judgeme.num_reviews -%}
+              {%- assign rating_value = product.metafields.judgeme.avg_rating -%}
+              {%- assign rating_count = product.metafields.judgeme.num_reviews | plus: 0 -%}
+            {%- endif -%}
+            {%- if rating_value != '' and rating_count > 0 -%}
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "{{ rating_value }}",
+              "reviewCount": {{ rating_count }},
+              "bestRating": 5,
+              "worstRating": 1
+            },
+            {%- endif -%}
             "offers": {
               "@type": "Offer",
               "url": "{{ shop.url }}{{ product.url }}",
