@@ -1,7 +1,9 @@
 {{ 'component-faq.css' | asset_url | stylesheet_tag }}
-<!--fa icons-->  
+<!--fa icons-->
 <script src="https://use.fontawesome.com/bf812bc641.js"></script>
 <!--//fa icons-->
+
+{%- render 'jsonld-faq', section: section -%}
 
 
 <div class="page-width page-width_wide" style="margin:auto;">
@@ -60,6 +62,9 @@ for (i = 0; i < faq.length; i++) {
   {
     "name": "FAQ",
     "class": "hopify-section spaced-section section--full-width",
+    "enabled_on": {
+      "templates": ["*"]
+    },
     "settings": [
       {
         "type": "text",

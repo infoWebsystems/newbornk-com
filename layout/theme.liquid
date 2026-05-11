@@ -131,6 +131,10 @@
     {% endif %}
     {{ content_for_header }}
 
+    {% if template.name == 'product' %}
+      {%- render 'jsonld-product', product: product -%}
+    {% endif %}
+
     {% render 'fn_uk-hreflang' %}
 
     {%- liquid

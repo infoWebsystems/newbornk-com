@@ -1,0 +1,33 @@
+{%- comment -%}
+  Emits FAQPage schema for sections that have FAQ blocks (question/answer).
+  Iterates blocks of the calling section. Skip if no valid Q&A pairs found.
+{%- endcomment -%}
+{%- assign faq_count = 0 -%}
+{%- capture faq_items -%}
+  {%- for block in section.blocks -%}
+    {%- assign q = block.settings.question | default: '' | strip -%}
+    {%- assign a = block.settings.answer | default: '' -%}
+    {%- if q != '' and a != '' -%}
+      {%- assign faq_count = faq_count | plus: 1 -%}
+      {%- unless forloop.first -%},{%- endunless -%}
+      {
+        "@type": "Question",
+        "name": {{ q | escape | json }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ a | strip_html | strip_newlines | strip | escape | json }}
+        }
+      }
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- if faq_count > 0 -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": {{ canonical_url | append: '#faq-' | append: section.id | json }},
+  "mainEntity": [{{ faq_items }}]
+}
+</script>
+{%- endif -%}
