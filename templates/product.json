@@ -105,10 +105,6 @@
         "share": {
           "type": "share",
           "settings": {}
-        },
-        "judge_me_reviews_preview_badge_AkpLKg": {
-          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {}
         }
       },
       "block_order": [
@@ -124,8 +120,7 @@
         "70bbe489-815e-4f89-aaee-8f79b7917887",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
-        "share",
-        "judge_me_reviews_preview_badge_AkpLKg"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -135,20 +130,6 @@
     },
     "177729883021f6e748": {
       "type": "apps",
-      "blocks": {
-        "judge_me_reviews_review_widget_H3bqge": {
-          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "review_data": "sample_data",
-            "max_width": 1200,
-            "show_shop_reviews": true,
-            "empty_state": "other_products_reviews"
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_review_widget_H3bqge"
-      ],
       "settings": {
         "include_margins": false
       }
@@ -293,6 +274,26 @@
       "settings": {
         "include_margins": false
       }
+    },
+    "1778520910735a8154": {
+      "type": "apps",
+      "blocks": {
+        "ag_product_reviews_app_block_review_list_ejQVmi": {
+          "type": "shopify://apps/ag-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+          "settings": {
+            "air_blockreviews_summaryHeading": "Відгуки",
+            "air_blockreviews_layout": "list",
+            "air_blockreviews_singleStarColor": "#ccf951",
+            "air_blockreviews_primaryColor": "#121212"
+          }
+        }
+      },
+      "block_order": [
+        "ag_product_reviews_app_block_review_list_ejQVmi"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
@@ -305,6 +306,7 @@
     "1627050417092b6041",
     "recommendation_slider_YPywew",
     "17741238576637f8ce",
-    "177676567162c92def"
+    "177676567162c92def",
+    "1778520910735a8154"
   ]
 }
