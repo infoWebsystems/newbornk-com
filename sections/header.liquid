@@ -1108,42 +1108,6 @@ twq('config','opld2');
   }); 
 </script> {% endcomment %}
 
-{% comment %} OLD ORGANISATION MOVED TO MAIN THEME 
- <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "{{ shop.name }}",
-    "url": "{{ shop.url }}",
-    {% if shop.brand.logo != blank %}
-      "logo": "{{ shop.brand.logo | img_url: "master" }}",
-    {% endif %}
-    "sameAs": [
-      "{{ settings.social_twitter_link }}",
-      "{{ settings.social_facebook_link }}",
-      "{{ settings.social_pinterest_link }}",
-      "{{ settings.social_instagram_link }}",
-      "{{ settings.social_tumblr_link }}",
-      "{{ settings.social_snapchat_link }}",
-      "{{ settings.social_youtube_link }}",
-      "{{ settings.social_vimeo_link }}"
-    ],
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "{{ shop.phone }}",
-        "contactType": "customer service",
-        "email": "{{ shop.email }}"
-      },
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "{{ shop.address.street }}",
-        "addressLocality": "{{ shop.address.city }}",
-        "addressRegion": "{{ shop.address.province }}",
-        "postalCode": "{{ shop.address.zip }}",
-        "addressCountry": "{{ shop.address.country_code }}"
-      }
-  }
-</script> {% endcomment %}
 
 
 {% comment %} {%- if request.page_type == 'index' -%}

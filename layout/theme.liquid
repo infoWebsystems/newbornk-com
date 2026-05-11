@@ -854,10 +854,6 @@
               "priceCurrency": "UAH",
               "price": "{{ product.price | money_without_currency | remove: ',' }}",
               "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
-              "seller": {
-                "@type": "Organization",
-                "name": "NEWBORN K"
-              },
               "hasMerchantReturnPolicy": {
                 "@type": "MerchantReturnPolicy",
                 "applicableCountry": "UA",

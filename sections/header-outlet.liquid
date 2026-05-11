@@ -1064,7 +1064,7 @@ customElements.define('localization-form-header', LocalizationFormHeader);
      }); 
 </script>
 
-<script type="application/ld+json">
+{% comment %} <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -1085,7 +1085,7 @@ customElements.define('localization-form-header', LocalizationFormHeader);
     ],
     "url": {{ shop.url | append: page.url | json }}
   }
-</script>
+</script> {% endcomment %}
 
 {% comment %} {%- if request.page_type == 'index' -%}
     {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
