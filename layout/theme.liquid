@@ -131,8 +131,11 @@
     {% endif %}
     {{ content_for_header }}
 
+    <!-- jsonld-product-debug template={{ template.name }} has_product={% if product %}yes{% else %}no{% endif %} -->
     {% if template.name == 'product' %}
+      <!-- jsonld-product-rendering -->
       {%- render 'jsonld-product', product: product -%}
+      <!-- jsonld-product-end -->
     {% endif %}
 
     {% render 'fn_uk-hreflang' %}
