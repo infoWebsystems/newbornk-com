@@ -105,9 +105,13 @@
         "name": {{ brand_name | json }}
       },
       "sku": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
-      "mpn": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
+      {%- if variant.barcode != blank -%}
+      "mpn": {{ variant.barcode | json }},
+      {%- endif -%}
       "productID": {{ product.id | json }},
-      {%- if product.type != blank -%}
+      {%- if product.category != blank -%}
+      "category": {{ product.category.name | json }},
+      {%- elsif product.type != blank -%}
       "category": {{ product.type | json }},
       {%- endif -%}
       {%- if color_value != '' -%}
