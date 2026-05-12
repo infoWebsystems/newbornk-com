@@ -98,9 +98,15 @@
         "name": {{ brand_name | json }}
       },
       "sku": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
-      {%- if variant.barcode != blank -%}
-      "mpn": {{ variant.barcode | json }},
-      {%- endif -%}
+      
+
+{%- assign first_variant = product.selected_or_first_available_variant -%}
+{%- if first_variant.barcode != blank -%}
+"mpn": {{ first_variant.barcode | json }},
+{%- endif -%}
+
+
+
       "productID": {{ product.id | json }},
       {%- if product.category != blank -%}
       "category": {{ product.category.name | json }},
@@ -185,6 +191,14 @@
           {
             "@type": "Product",
             "sku": {{ variant.sku | default: variant.id | json }},
+
+            {%- if product.category != blank -%}
+            "category": {{ product.category.name | json }},
+            {%- elsif product.type != blank -%}
+            "category": {{ product.type | json }},
+            {%- endif -%}
+
+
             "name": {{ variant.title | json }},
             "description": {{ product.description | strip_html | strip_newlines | strip | truncate: 5000 | json }},
             "image": {{ variant.image | default: product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }},
