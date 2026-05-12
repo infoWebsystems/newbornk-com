@@ -735,9 +735,7 @@
             {% if shop.phone != blank or shop.email != blank %}
             "contactPoint": {
               "@type": "ContactPoint",
-              {% if shop.phone != blank %}
-              "telephone": "{{ shop.phone }}",
-              {% endif %}
+              "telephone": "+380970443333",
               "contactType": "customer service"
               {% if shop.email != blank %},
               "email": "{{ shop.email }}"
