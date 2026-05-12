@@ -63,6 +63,10 @@
             "show_dynamic_checkout": false
           }
         },
+        "judge_me_reviews_preview_badge_MHj9Rt": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "70bbe489-815e-4f89-aaee-8f79b7917887": {
           "type": "collapsible_tab",
           "settings": {
@@ -117,6 +121,7 @@
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
         "buy_buttons",
+        "judge_me_reviews_preview_badge_MHj9Rt",
         "70bbe489-815e-4f89-aaee-8f79b7917887",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
