@@ -38,14 +38,8 @@
   {%- endfor -%}
 
   {%- comment -%} Detect rating from Judge.me {%- endcomment -%}
-  {%- assign rating_value = '' -%}
-  {%- assign rating_count = 0 -%}
-  {%- assign jdgm_raw = product.metafields.judgeme.review_widget_data -%}
-  {%- if jdgm_raw != blank -%}
-    {%- assign jdgm_json = jdgm_raw | parse_json -%}
-    {%- assign rating_value = jdgm_json.average_rating -%}
-    {%- assign rating_count = jdgm_json.number_of_reviews | plus: 0 -%}
-  {%- endif -%}
+  {%- assign rating_value = product.metafields.reviews.rating.value -%}
+  {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
 
   {%- comment -%} Shared shipping + return policy JSON fragment {%- endcomment -%}
   {%- capture shipping_return_json -%}
