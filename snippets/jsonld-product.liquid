@@ -78,6 +78,10 @@
 }
 {%- endcapture -%}
 
+{{ product.metafields.reviews.rating }}
+{{ product.metafields.reviews.rating.value }}
+{{ product.metafields.reviews.rating_count }}
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -178,9 +182,13 @@
         "url": {{ canonical_url | split: '?' | first | json }},
         "brand": { "@type": "Brand", "name": {{ brand_name | json }} },
         "productGroupID": {{ product.id | json }},
+
+
         {%- if product.type != blank -%}
         "category": {{ product.type | json }},
         {%- endif -%}
+
+
         "variesBy": [
           {%- for opt in product.options_with_values -%}
             {{ opt.name | json }}{%- unless forloop.last -%},{%- endunless -%}
