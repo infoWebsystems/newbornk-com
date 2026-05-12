@@ -732,16 +732,12 @@
               {%- if has_prev -%},{%- endif -%}"https://www.tiktok.com/@newborn_kyiv",
               "https://t.me/newbornkrew"
             ],
-            {% if shop.phone != blank or shop.email != blank %}
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+380970443333",
               "contactType": "customer service"
-              {% if shop.email != blank %},
               "email": "{{ shop.email }}"
-              {% endif %}
             },
-            {% endif %}
             "address": {
               "@type": "PostalAddress",
               {% if shop.address.street != blank %}
