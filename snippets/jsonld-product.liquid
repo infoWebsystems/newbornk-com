@@ -37,20 +37,13 @@
     {%- endif -%}
   {%- endfor -%}
 
-  {%- comment -%} Detect rating from common review apps {%- endcomment -%}
+  {%- comment -%} Detect rating from Judge.me (reviews namespace) {%- endcomment -%}
   {%- assign rating_value = '' -%}
   {%- assign rating_count = 0 -%}
-  {%- if product.metafields.loox.avg_rating and product.metafields.loox.num_reviews -%}
-    {%- assign rating_value = product.metafields.loox.avg_rating -%}
-    {%- assign rating_count = product.metafields.loox.num_reviews | plus: 0 -%}
-  {%- elsif product.metafields.air_reviews_product.review_avg
-    and product.metafields.air_reviews_product.review_count
-  -%}
-    {%- assign rating_value = product.metafields.air_reviews_product.review_avg -%}
-    {%- assign rating_count = product.metafields.air_reviews_product.review_count | plus: 0 -%}
-  {%- elsif product.metafields.reviews.rating_value and product.metafields.reviews.rating_count -%}
-    {%- assign rating_value = product.metafields.reviews.rating_value -%}
-    {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
+  {%- assign jdgm_count = product.metafields.reviews.rating_count | plus: 0 -%}
+  {%- if product.metafields.reviews.rating != blank and jdgm_count > 0 -%}
+    {%- assign rating_value = product.metafields.reviews.rating.value -%}
+    {%- assign rating_count = jdgm_count -%}
   {%- endif -%}
 
   {%- comment -%} Shared shipping + return policy JSON fragment {%- endcomment -%}
