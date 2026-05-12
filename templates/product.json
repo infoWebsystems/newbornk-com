@@ -277,19 +277,25 @@
     },
     "1778520910735a8154": {
       "type": "apps",
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "1778581397ce2b2a7d": {
+      "type": "apps",
       "blocks": {
-        "ag_product_reviews_app_block_review_list_ejQVmi": {
-          "type": "shopify://apps/ag-product-reviews/blocks/app-block-review-list/c4e1e9ca-4d46-4e76-bc39-7e42417cb327",
+        "judge_me_reviews_review_widget_KqDfHF": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
-            "air_blockreviews_summaryHeading": "Відгуки",
-            "air_blockreviews_layout": "list",
-            "air_blockreviews_singleStarColor": "#ccf951",
-            "air_blockreviews_primaryColor": "#121212"
+            "review_data": "no_reviews",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
           }
         }
       },
       "block_order": [
-        "ag_product_reviews_app_block_review_list_ejQVmi"
+        "judge_me_reviews_review_widget_KqDfHF"
       ],
       "settings": {
         "include_margins": false
@@ -307,6 +313,7 @@
     "recommendation_slider_YPywew",
     "17741238576637f8ce",
     "177676567162c92def",
-    "1778520910735a8154"
+    "1778520910735a8154",
+    "1778581397ce2b2a7d"
   ]
 }
