@@ -58,11 +58,15 @@
               loadScript('https://www.googletagmanager.com/gtag/js?id=G-X7BE6ZYNN9')
                 .then(() => {
                   window.dataLayer = window.dataLayer || [];
-                  function gtag() { dataLayer.push(arguments); }
+                  function gtag() {
+                    dataLayer.push(arguments);
+                  }
                   gtag('js', new Date());
                   gtag('config', 'G-X7BE6ZYNN9');
                 })
-                .catch((err) => { console.error(err); });
+                .catch((err) => {
+                  console.error(err);
+                });
             }, sleep);
           }
         }, 10);
@@ -656,28 +660,26 @@
         "@graph": [
           {
             "@type": "WebSite",
-            "@id": "{{ shop.url }}#website",
+            "@id": "https://newbornk.com#website",
             "name": "NEWBORN K",
             "alternateName": "newbornk.com",
-            "url": "{{ shop.url }}",
+            "url": "https://newbornk.com",
             "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
-            {% if shop.brand.logo != blank %}
             "logo": {
               "@type": "ImageObject",
-              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+              "url": "https://newbornk.com/cdn/shop/files/Group_52.png?v=1778098458&width=1200"
             },
-            {% endif %}
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "{{ shop.url }}{{ routes.search_url }}?q={search_term_string}&type=product",
+              "target": "https://newbornk.com/search?q={search_term_string}&type=product",
               "query-input": "required name=search_term_string"
             }
           },
           {
             "@type": "ClothingStore",
-            "@id": "{{ shop.url }}#organization",
+            "@id": "https://newbornk.com#organization",
             "name": "NEWBORN K",
-            "url": "{{ shop.url }}",
+            "url": "https://newbornk.com",
             "priceRange": "$$",
             "numberOfEmployees": {
               "@type": "QuantitativeValue",
@@ -685,7 +687,7 @@
             },
             "logo": {
               "@type": "ImageObject",
-              "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
+              "url": "https://newbornk.com/cdn/shop/files/Group_52.png?v=1778098458&width=1200"
             },
             "geo": {
               "@type": "GeoCoordinates",
@@ -695,95 +697,55 @@
             "openingHoursSpecification": [
               {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
                 "opens": "11:00",
                 "closes": "21:00"
               }
             ],
-            "image": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}",
+            "image": "https://newbornk.com/cdn/shop/files/Group_52.png?v=1778098458&width=1200",
             "sameAs": [
-              {%- assign has_prev = false -%}
-              {%- if settings.social_twitter_link != blank -%}
-                "{{ settings.social_twitter_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_facebook_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_facebook_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_pinterest_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_pinterest_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_instagram_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_instagram_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_tumblr_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_tumblr_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_snapchat_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_snapchat_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_youtube_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_youtube_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if settings.social_vimeo_link != blank -%}
-                {%- if has_prev -%},{%- endif -%}"{{ settings.social_vimeo_link }}"{%- assign has_prev = true -%}
-              {%- endif -%}
-              {%- if has_prev -%},{%- endif -%}"https://www.tiktok.com/@newborn_kyiv",
+              "https://www.facebook.com/newbornk.kyiv",
+              "https://www.instagram.com/newborn.kyiv/",
+              "https://www.youtube.com/@NEWBORNKYIV",
+              "https://www.tiktok.com/@newborn_kyiv",
               "https://t.me/newbornkrew"
             ],
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+380970443333",
-              "contactType": "customer service"
-              "email": "{{ shop.email }}"
+              "contactType": "customer service",
+              "email": "info@newbornk.com"
             },
             "address": {
               "@type": "PostalAddress",
-              {% if shop.address.street != blank %}
-              "streetAddress": "{{ shop.address.street }}",
-              {% endif %}
-              {% if shop.address.city != blank %}
-              "addressLocality": "{{ shop.address.city }}",
-              {% endif %}
-              {% if shop.address.province != blank %}
-              "addressRegion": "{{ shop.address.province }}",
-              {% endif %}
-              {% if shop.address.zip != blank %}
-              "postalCode": "{{ shop.address.zip }}",
-              {% endif %}
-              "addressCountry": "{{ shop.address.country_code }}"
+              "streetAddress": "вулиця Велика Житомирська, 20",
+              "addressLocality": "Kyiv",
+              "postalCode": "01001",
+              "addressCountry": "UA"
             }
           },
           {
             "@type": "BreadcrumbList",
-            "@id": "{{ shop.url }}#breadcrumb",
+            "@id": "https://newbornk.com#breadcrumb",
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Головна",
-                "item": "{{ shop.url }}"
-              }
-              {% if template contains 'collection' and collection %}
-              ,{
+                "item": "https://newbornk.com"
+              },
+              {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "{{ collection.title }}",
-                "item": "{{ shop.url }}{{ collection.url }}"
-              }
-              {% elsif template contains 'product' and product %}
-              ,{
-                "@type": "ListItem",
-                "position": 2,
-                "name": "{{ product.collections.first.title | default: 'Каталог' }}",
-                "item": "{{ shop.url }}{{ product.collections.first.url | default: '/collections/all' }}"
+                "name": "active finished",
+                "item": "https://newbornk.com/collections/active-finished"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "{{ product.title }}",
-                "item": "{{ shop.url }}{{ product.url }}"
+                "name": "Шорти NYLON CLIFF бежеві",
+                "item": "https://newbornk.com/products/shorti-nylon-cliff-bezhevi"
               }
-              {% endif %}
             ]
           }
         ]
