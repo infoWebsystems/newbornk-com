@@ -683,7 +683,6 @@
               "@type": "QuantitativeValue",
               "value": 5
             },
-            {% if shop.brand.logo != blank %}
             "logo": {
               "@type": "ImageObject",
               "url": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}"
@@ -702,7 +701,6 @@
               }
             ],
             "image": "{{ shop.brand.logo | image_url: width: 1200 | prepend: 'https:' }}",
-            {% endif %}
             "sameAs": [
               {%- assign has_prev = false -%}
               {%- if settings.social_twitter_link != blank -%}
