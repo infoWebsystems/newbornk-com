@@ -37,8 +37,11 @@
     {%- endif -%}
   {%- endfor -%}
 
-  {%- comment -%} Detect rating from Judge.me {%- endcomment -%}
-  {%- assign rating_value = product.metafields.reviews.rating.value -%}
+  {%- comment -%}
+    Detect rating from Judge.me. The metafield is type `rating`, so .value
+    returns a Rating object whose own .value is the numeric score.
+  {%- endcomment -%}
+  {%- assign rating_value = product.metafields.reviews.rating.value.value -%}
   {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
 
   {%- comment -%} Shared shipping + return policy JSON fragment {%- endcomment -%}
@@ -107,10 +110,10 @@
   {%- if material_value != '' -%}
   "material": {{ material_value | json }},
   {%- endif -%}
-  {%- if rating_value != '' and rating_count > 0 -%}
+  {%- if rating_value and rating_count > 0 -%}
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": {{ rating_value | json }},
+    "ratingValue": "{{ rating_value }}",
     "reviewCount": {{ rating_count }},
     "bestRating": 5,
     "worstRating": 1
