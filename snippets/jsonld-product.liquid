@@ -169,6 +169,15 @@
   {%- if product.type != blank -%}
   "category": {{ product.type | json }},
   {%- endif -%}
+  {%- if rating_value and rating_count > 0 -%}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ rating_value }}",
+    "reviewCount": {{ rating_count }},
+    "bestRating": 5,
+    "worstRating": 1
+  },
+  {%- endif -%}
   "variesBy": [
     {%- for opt in product.options_with_values -%}
       {{ opt.name | json }}{%- unless forloop.last -%},{%- endunless -%}
