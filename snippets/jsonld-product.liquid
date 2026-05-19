@@ -43,6 +43,7 @@
   {%- endcomment -%}
   {%- assign rating_value = product.metafields.reviews.rating.value.value -%}
   {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
+<!-- jsonld-rating-debug rating-raw="{{ product.metafields.reviews.rating }}" value="{{ product.metafields.reviews.rating.value }}" value-value="{{ product.metafields.reviews.rating.value.value }}" type="{{ product.metafields.reviews.rating.type }}" count="{{ product.metafields.reviews.rating_count }}" -->
 
   {%- comment -%} Shared shipping + return policy JSON fragment {%- endcomment -%}
   {%- capture shipping_return_json -%}
