@@ -38,12 +38,11 @@
   {%- endfor -%}
 
   {%- comment -%}
-    Detect rating from Judge.me. The metafield is type `rating`, so .value
-    returns a Rating object whose own .value is the numeric score.
+    Detect rating from Judge.me. The metafield is type `rating`; in Liquid,
+    `.value` returns the numeric score directly (e.g. "5.0"), not a Rating object.
   {%- endcomment -%}
-  {%- assign rating_value = product.metafields.reviews.rating.value.value -%}
+  {%- assign rating_value = product.metafields.reviews.rating.value -%}
   {%- assign rating_count = product.metafields.reviews.rating_count | plus: 0 -%}
-<!-- jsonld-rating-debug rating-raw="{{ product.metafields.reviews.rating }}" value="{{ product.metafields.reviews.rating.value }}" value-value="{{ product.metafields.reviews.rating.value.value }}" type="{{ product.metafields.reviews.rating.type }}" count="{{ product.metafields.reviews.rating_count }}" -->
 
   {%- comment -%} Shared shipping + return policy JSON fragment {%- endcomment -%}
   {%- capture shipping_return_json -%}
