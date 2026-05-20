@@ -231,11 +231,6 @@
         "disabled": false,
         "settings": {}
       },
-      "2200952712151285029": {
-        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
-        "disabled": true,
-        "settings": {}
-      },
       "13305437469741356523": {
         "type": "shopify://apps/gsc-instagram-feed/blocks/embed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
         "disabled": false,
@@ -295,6 +290,11 @@
       },
       "7800736727063894098": {
         "type": "shopify://apps/rez-preorder-notify-me/blocks/rez/0da60196-81b6-4270-afac-c9294e1641ba",
+        "disabled": false,
+        "settings": {}
+      },
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
         "disabled": false,
         "settings": {}
       }
