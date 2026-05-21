@@ -123,6 +123,9 @@
     <!-- /Avada Size Chart Script -->
 
     {% render 'meta-tags' %}
+    {% if request.page_type == 'index' %}
+      <meta property="og:image" content="https://newbornk.com/cdn/shop/files/Frame_567194.jpg?v=1774554422">
+    {% endif %}
     {% render 'meta-robots' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
