@@ -1,8 +1,24 @@
 {% liquid
   assign path = request.path
+
+  assign noindex_handles = "riotdivision,jeu-de-lab,aphex-kit,vitaminy,asics,hediraiser,sneakermate,descapizm,bzr,ofourfour,bodi,magazines,white-sprut,thelocation,helas-full,sale-holovni-ubory,sale-kaptsi,recommended-products-seguno,without-discount,full-price,pleasures-full,new-cholovicha-bilyzna,new-cholovichyi-denim,new-cholovichi-doshchovyky,new-cholovichi-zhylety,new-cholovichi-kurtky,new-cholovichi-longslivi,new-choloviche-polo,new-men-svetri,new-cholovichi-svitshoty,new-cholovichi-futbolky,new-cholovichi-sorochky-1,new-cholovichi-chudi,new-cholovichi-shtani,new-cholovichi-shorty,new-zhinocha-bilyzna,new-zhinochyi-denim,new-zhinochi-doshchovyky,new-zhinochi-zhylety,new-zhinochi-kurtky,new-zhinochi-lehinsy,act-1,keep,waone,eastpak,alexey-kondakov,integralist,liquix,gift-cards,without-discount,full-price,pre-sale-30"
+
+  assign is_noindex = false
+
+  if request.page_type == 'collection'
+    assign col_handle = collection.handle
+    if noindex_handles contains col_handle
+      assign is_noindex = true
+    endif
+  endif
+
   if path contains '/outlet' or path contains '-outlet' or path contains '%D0%BB%D0%B5%D1%82'
+    assign is_noindex = true
+  endif
+
+  if is_noindex
     echo '<meta name="robots" content="noindex, follow">'
-    else
+  else
     echo '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">'
   endif
 %}
