@@ -77,9 +77,7 @@
 
     <meta charset="utf-8">
 
-    <title>
-      {{ page_title }}
-    </title>
+    <title>{{ page_title }}{% if shop.name %} | {{ shop.name }}{% endif %}</title>
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
