@@ -1,21 +1,42 @@
 {% liquid
+  # ==========================================================================
+  # meta-robots.liquid
+  # Outputs <meta name="robots" content="noindex,follow"> when applicable.
+  # 
+  # Logic (in order of precedence):
+  #   1. Collection metafield custom.noindex (boolean) — primary, managed via Shopify Admin or GraphQL
+  #   2. Legacy hardcoded handle list — for collections that don't yet have the metafield set
+  #   3. URL pattern match for /outlet pages
+  # ==========================================================================
+
   assign path = request.path
-
-  assign noindex_handles = "act-1,alexey-kondakov,all,aphex-kit,asics,bodi,bzr,descapizm,eastpak,g,hediraiser,influencers,jeu-de-lab,keep,liquix,new-balaklavy,new-cholovicha-bilyzna,new-choloviche-polo,new-cholovichi-chudi,new-cholovichi-doshchovyky,new-cholovichi-futbolky,new-cholovichi-kurtky,new-cholovichi-longslivi,new-cholovichi-shorty,new-cholovichi-shtani,new-cholovichi-sorochky-1,new-cholovichi-svitshoty,new-cholovichi-zhylety,new-cholovichyi-denim,new-cholovichyi-verkhnii-odiah,new-gamantsi,new-men-svetri,new-prykrasy,new-sharfi,new-zhinocha-bilyzna,new-zhinochi-doshchovyky,new-zhinochi-kurtky,new-zhinochi-lehinsy,new-zhinochi-zhylety,new-zhinochyi-denim,new-zhinochyi-verkhnii-odiah,new-жіночі-комбінезони,ofourfour,pidnogamy,product-for-vip,riotdivision,sale-balaklavy,sale-bodi,sale-dlia-devaisiv,sale-kaptsi,sale-new-with-tag,sale-zhinochi-kombinezony,sneakermate,thelocation,vitaminy,waone,white-sprut,with-sale,without-discount,zhinochi-kombinezony,аксесуари-bf,без-знижки,без-накладеного-платежа,ж,жіночий-денім-bw,жіночі-жилети-bw,жіночі-лонгсліви-bw,жіночі-светри-bw,жіночі-світшоти-bw,жіночі-спідниці-bw,жіночі-топи-bw,жіночі-футболки-bw,жіночі-шорти-bw,жіночі-штани-bw,зимові-аксесуари-bw,карабіни-bw,кепки-bw,кросівки-bw,о,п,прикраси-bw,ремені-bw,рюкзаки-bw,сумки-bw,чоловікам-bf-copy,чоловікам-bw,чоловіча-білизна-bw,чоловіче-alpha-industries,чоловіче-худі,чоловічий-денім,чоловічі-джерсі-bw,чоловічі-жилети-bw,чоловічі-куртки-bw,чоловічі-лонгсліви,чоловічі-светри-bw,чоловічі-світшоти-bw,чоловічі-сорочки-bw,чоловічі-футболки-bw,чоловічі-шорти-bw,чоловічі-штани-bw,шапки-bw,шарфи,шкарпетки-bw"
-
   assign is_noindex = false
 
+  # --- 1) Primary: read metafield custom.noindex on collection page -----------
   if request.page_type == 'collection'
-    assign col_handle = collection.handle
-    if noindex_handles contains col_handle
+    if collection.metafields.custom.noindex == true
       assign is_noindex = true
     endif
   endif
 
+  # --- 2) Legacy fallback: hardcoded handle list ------------------------------
+  # Note: Use comma-padded format with leading/trailing commas to ensure exact handle match
+  # via "contains ',handle,'" pattern (avoids substring false positives).
+  assign noindex_handles = ",act-1,alexey-kondakov,all,aphex-kit,asics,bodi,bzr,descapizm,eastpak,g,hediraiser,influencers,jeu-de-lab,keep,liquix,new-balaklavy,new-cholovicha-bilyzna,new-choloviche-polo,new-cholovichi-chudi,new-cholovichi-doshchovyky,new-cholovichi-futbolky,new-cholovichi-kurtky,new-cholovichi-longslivi,new-cholovichi-shorty,new-cholovichi-shtani,new-cholovichi-sorochky-1,new-cholovichi-svitshoty,new-cholovichi-zhylety,new-cholovichyi-denim,new-cholovichyi-verkhnii-odiah,new-gamantsi,new-men-svetri,new-prykrasy,new-sharfi,new-zhinocha-bilyzna,new-zhinochi-doshchovyky,new-zhinochi-kurtky,new-zhinochi-lehinsy,new-zhinochi-zhylety,new-zhinochyi-denim,new-zhinochyi-verkhnii-odiah,new-жіночі-комбінезони,ofourfour,pidnogamy,product-for-vip,riotdivision,sale-new-with-tag,sneakermate,thelocation,vitaminy,waone,white-sprut,with-sale,without-discount,zhinochi-kombinezony,аксесуари-bf,без-знижки,без-накладеного-платежа,ж,жіночий-денім-bw,жіночі-жилети-bw,жіночі-лонгсліви-bw,жіночі-светри-bw,жіночі-світшоти-bw,жіночі-спідниці-bw,жіночі-топи-bw,жіночі-футболки-bw,жіночі-шорти-bw,жіночі-штани-bw,зимові-аксесуари-bw,карабіни-bw,кепки-bw,кросівки-bw,о,п,прикраси-bw,ремені-bw,рюкзаки-bw,сумки-bw,чоловікам-bf-copy,чоловікам-bw,чоловіча-білизна-bw,чоловіче-alpha-industries,чоловіче-худі,чоловічий-денім,чоловічі-джерсі-bw,чоловічі-жилети-bw,чоловічі-куртки-bw,чоловічі-лонгсліви,чоловічі-светри-bw,чоловічі-світшоти-bw,чоловічі-сорочки-bw,чоловічі-футболки-bw,чоловічі-шорти-bw,чоловічі-штани-bw,шапки-bw,шарфи,шкарпетки-bw,"
+
+  if is_noindex == false and request.page_type == 'collection'
+    assign col_handle_padded = collection.handle | prepend: ',' | append: ','
+    if noindex_handles contains col_handle_padded
+      assign is_noindex = true
+    endif
+  endif
+
+  # --- 3) URL pattern match (legacy /outlet pages) ----------------------------
   if path contains '/outlet' or path contains '-outlet' or path contains '%D0%BB%D0%B5%D1%82'
     assign is_noindex = true
   endif
 
+  # --- Output -----------------------------------------------------------------
   if is_noindex
     echo '<meta name="robots" content="noindex, follow">'
   else
