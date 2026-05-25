@@ -19,6 +19,14 @@
     endif
   endif
 
+  # --- 1b) Size chart pages (templateSuffix 'page') ---------------------------
+  # All 438 size-chart pages share templateSuffix='page'. They load via AJAX
+  # popup on product pages, are not internally linked, and create thin-content
+  # duplicates competing with canonical /products/* in search.
+  if request.page_type == 'page' and page.template_suffix == 'page'
+    assign is_noindex = true
+  endif
+
   # --- 2) Legacy fallback: hardcoded handle list ------------------------------
   # Note: Use comma-padded format with leading/trailing commas to ensure exact handle match
   # via "contains ',handle,'" pattern (avoids substring false positives).
