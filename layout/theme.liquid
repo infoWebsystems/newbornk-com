@@ -77,7 +77,7 @@
 
     <meta charset="utf-8">
 
-    <title>{{ page_title }}{% if shop.name %} | {{ shop.name }}{% endif %}</title>
+    <title>{{ page_title }}</title>
 
 
     {% if page_description %}
@@ -136,10 +136,6 @@
       <script src="{{ 'product-redesigned.js' | asset_url }}" defer="defer"></script>
     {% endif %}
     {{ content_for_header }}
-
-    {% if template.name == 'product' %}
-      {%- render 'jsonld-product', product: product -%}
-    {% endif %}
 
     {% render 'fn_uk-hreflang' %}
 
@@ -659,107 +655,10 @@
        }
       });
     </script>
-    {% comment %} SCHEMA MAIN {% endcomment %}
+   
+    {% comment %} JSON-LD consolidated graph — single source of truth {% endcomment %}
+    {% render 'jsonld-graph' %}
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "https://newbornk.com#website",
-            "name": "NEWBORN K",
-            "alternateName": "newbornk.com",
-            "url": "https://newbornk.com",
-            "description": "Концепт-стор з унікальною селекцією одягу, взуття та аксесуарів.",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://newbornk.com/cdn/shop/files/Group_52.png?v=1778098458&width=1200"
-            },
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://newbornk.com/search?q={search_term_string}&type=product",
-              "query-input": "required name=search_term_string"
-            }
-          },
-          {
-            "@type": "ClothingStore",
-            "@id": "https://newbornk.com#organization",
-            "name": "NEWBORN K",
-            "url": "https://newbornk.com",
-            "priceRange": "$$",
-            "numberOfEmployees": {
-              "@type": "QuantitativeValue",
-              "value": 5
-            },
-            "telephone": "+380970443333",
-            "email": "info@newbornk.com",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://newbornk.com/cdn/shop/files/Group_52.png?v=1778098458&width=1200"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": "50.4557",
-              "longitude": "30.5123"
-            },
-            "openingHoursSpecification": [
-              {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                "opens": "11:00",
-                "closes": "21:00"
-              }
-            ],
-            "image": "https://newbornk.com/cdn/shop/files/Group_52.png?v=1778098458&width=1200",
-            "sameAs": [
-              "https://www.facebook.com/newbornk.kyiv",
-              "https://www.instagram.com/newborn.kyiv/",
-              "https://www.youtube.com/@NEWBORNKYIV",
-              "https://www.tiktok.com/@newborn_kyiv",
-              "https://t.me/newbornkrew"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+380970443333",
-              "contactType": "customer service",
-              "email": "info@newbornk.com"
-            },
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "вулиця Велика Житомирська, 20",
-              "addressLocality": "Kyiv",
-              "postalCode": "01001",
-              "addressCountry": "UA"
-            }
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://newbornk.com#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Головна",
-                "item": "https://newbornk.com"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "active finished",
-                "item": "https://newbornk.com/collections/active-finished"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Шорти NYLON CLIFF бежеві",
-                "item": "https://newbornk.com/products/shorti-nylon-cliff-bezhevi"
-              }
-            ]
-          }
-        ]
-      }
-    </script>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="yEb09riFW9kGssXJWXQh1Q" async></script>
   </head>
 
