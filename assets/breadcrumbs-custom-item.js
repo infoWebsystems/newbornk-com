@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window.location.hash.slice(1));
     const url = urlParams.get("url");
     const title = urlParams.get("title");
     const gender = urlParams.get("gender");
