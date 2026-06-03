@@ -23,7 +23,7 @@
     {% break %}
   {%- endif -%}
 
-  {%- if product_card_product.tags contains "NEW" -%}
+  {%- if product_card_product.tags contains "NEW" and is_badge_new == false -%}
     <svg class="product-bage-new"  width="40" height="20" viewBox="0 0 130 67" style="enable-background:new 0 0 130 67;" >
       <style type="text/css">
         .st0{fill:#FFFFFF;}

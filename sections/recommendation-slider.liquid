@@ -53,7 +53,7 @@
   {% endfor %}
 
   <div>
-    <product-recommendations
+    <recommendation-slider
       class="recommendations"
       data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=10"
     >
@@ -73,7 +73,7 @@
           {%- endfor -%}
         </ul>
       </div>
-    </product-recommendations>
+    </recommendation-slider>
   </div>
 </div>
 <style>
@@ -106,7 +106,7 @@
 
         html.innerHTML = text;
 
-        const recommendations = html.querySelector('product-recommendations');
+        const recommendations = html.querySelector('recommendation-slider');
 
         if (recommendations && recommendations.innerHTML.trim().length) {
           this.innerHTML = recommendations.innerHTML;
@@ -136,7 +136,7 @@
     }
   }
 
-  customElements.define('product-recommendations', ProductRecommendations);
+  customElements.define('recommendation-slider', ProductRecommendations);
 
   function initializeSlider() {
     const swiper = new Swiper(`.swiper-container-collection.section-slider-recommendation`, {
