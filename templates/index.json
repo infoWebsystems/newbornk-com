@@ -150,7 +150,7 @@
       "name": "t:sections.featured-collection-slider.presets.name",
       "settings": {
         "title": "НОВІ НАДХОДЖЕННЯ",
-        "show_text": true,
+        "show_text": false,
         "collection": "novi-nadkhodzhennia",
         "products_to_show": 6.5,
         "products_to_show_mobile": 1.6,
