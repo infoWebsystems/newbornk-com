@@ -23,8 +23,7 @@
     - Article / BlogPosting — only on article pages
   
   Cross-references via @id:
-    - Product → isPartOf → WebSite
-    - Product → brand → vendor (string only; brand isn't its own node)
+    - Product → isVariantOf → ProductGroup (variants); brand → vendor (string only)
     - Product → seller → Organization
     - BreadcrumbList → isPartOf → WebPage (current)
 {%- endcomment -%}
@@ -285,8 +284,7 @@
       "@id": {{ product_id | json }},
       "name": {{ product.title | json }},
       "description": {{ product.description | strip_html | strip_newlines | strip | truncate: 5000 | json }},
-      "url": {{ canonical_clean | json }},
-      "isPartOf": { "@id": {{ website_id | json }} }
+      "url": {{ canonical_clean | json }}
       {%- if product.featured_image -%}
       ,"image": [
         {%- for media in product.media limit: 6 -%}
