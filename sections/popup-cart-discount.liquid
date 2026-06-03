@@ -1,11 +1,11 @@
-{% assign show_popup-discount = section.settings.show_popup-discount %}
+{% assign show_popup_discount = section.settings.show_popup_discount %}
 {% assign title = section.settings.title %}
 {% assign text = section.settings.text %}
 {% assign logo = section.settings.logo %}
 
 {{ 'popup-cart-discount.css' | asset_url | stylesheet_tag }}
 
-{% if show_popup-discount %}
+{% if show_popup_discount %}
     <div class="popup-discount" id="popup-discount">
         <div class="popup-discount__container">
             <div class="popup-discount__body">
@@ -38,7 +38,7 @@
   "settings": [
     {
       "type": "checkbox",
-      "id": "show_popup-discount",
+      "id": "show_popup_discount",
       "label": "Show popup discount",
       "default": true
     },{
