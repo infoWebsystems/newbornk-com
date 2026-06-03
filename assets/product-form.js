@@ -4,8 +4,10 @@ const getRandomNumber = (min, max) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const product = document.querySelector('.product');
+  if (!product) return;
   const selects = product.querySelectorAll('select');
-  const buttoLabel = product.querySelector('form.form').getAttribute('data-button-label');
+  const formEl = product.querySelector('form.form');
+  const buttoLabel = formEl ? formEl.getAttribute('data-button-label') : null;
 
   selects.forEach((select, index) => {
     select.addEventListener('change', (evt) => {
