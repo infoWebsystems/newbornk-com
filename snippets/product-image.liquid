@@ -21,7 +21,7 @@
 {% if  collection.handle == "women" or collection.handle == "men" %}
     {% if collection.handle == unisexFilter[0] or unisexFilter[0] == blank or unisexFilter[0].size <= 0 %}
 
-        <modal-opener class="okkkk product__modal-opener product__modal-opener--{{ media.media_type }} no-js-hidden" data-modal="#ProductModal-{{ modal_id }}">
+        <modal-opener class="product__modal-opener product__modal-opener--{{ media.media_type }} no-js-hidden" data-modal="#ProductModal-{{ modal_id }}">
             <span class="product__media-icon motion-reduce" aria-hidden="true">
               {%- liquid
                   case media.media_type

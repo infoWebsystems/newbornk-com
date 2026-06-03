@@ -1,7 +1,7 @@
 const DEBUG = false;
 
 const ANNOUNCEMENT = document.querySelector('.announcement-bar');
-const HEADER = document.querySelector('.announcement-bar');
+const HEADER = document.querySelector('.header-wrapper');
 
 const createElement = (tag) => {
     const element = document.createElement(tag);
@@ -86,7 +86,7 @@ const iframeShopifyChat = (delay = 500) => {
 
 }
 
-const getHeight = (el) => el.offsetHeight;
+const getHeight = (el) => (el ? el.offsetHeight : 0);
 
 const product = {
     sticky() {

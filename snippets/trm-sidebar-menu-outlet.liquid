@@ -11,7 +11,7 @@
 
         {%- for link in section.settings.menu_sidebar.links -%}
             {% if link.title != 'Бренди'  %}
-                <li class="sidemenu-link 2332">
+                <li class="sidemenu-link">
                     {%- if link.links != blank -%}
                         <details-disclosure>
                             <details{% if link.current %} open{% endif %}>

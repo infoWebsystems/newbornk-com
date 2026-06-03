@@ -609,26 +609,28 @@
 </div>
 <script>
 
-const selectSingle = document.querySelector('.__select');
-const selectSingle_title = selectSingle.querySelector('.__select__title_content');
-const selectSingle_labels = selectSingle.querySelectorAll('.__select__label');
+document.querySelectorAll('.__select').forEach((selectSingle) => {
+  const selectSingle_title = selectSingle.querySelector('.__select__title_content');
+  const selectSingle_labels = selectSingle.querySelectorAll('.__select__label');
+  if (!selectSingle_title) return;
 
-// Toggle menu
-selectSingle_title.addEventListener('click', () => {
-  if ('active' === selectSingle.getAttribute('data-state')) {
-    selectSingle.setAttribute('data-state', '');
-  } else {
-    selectSingle.setAttribute('data-state', 'active');
+  // Toggle menu
+  selectSingle_title.addEventListener('click', () => {
+    if ('active' === selectSingle.getAttribute('data-state')) {
+      selectSingle.setAttribute('data-state', '');
+    } else {
+      selectSingle.setAttribute('data-state', 'active');
+    }
+  });
+
+  // Close when click to option
+  for (let i = 0; i < selectSingle_labels.length; i++) {
+    selectSingle_labels[i].addEventListener('click', (evt) => {
+      selectSingle_title.textContent = evt.target.textContent;
+      selectSingle.setAttribute('data-state', '');
+    });
   }
 });
-
-// Close when click to option
-for (let i = 0; i < selectSingle_labels.length; i++) {
-  selectSingle_labels[i].addEventListener('click', (evt) => {
-    selectSingle_title.textContent = evt.target.textContent;
-    selectSingle.setAttribute('data-state', '');
-  });
-}
 </script>
 {% schema %}
 {
