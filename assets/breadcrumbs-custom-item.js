@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let jsonLDElement = document.querySelector('script[type="application/ld+json"][data-desc="seo-breadcrumb-list"]');
         if (jsonLDElement) {
-            console.log('1')
             let jsonData = JSON.parse(jsonLDElement.textContent);
             if (jsonData["@type"] === "BreadcrumbList" && Array.isArray(jsonData.itemListElement)) {
                 let collectionItem = {
@@ -28,7 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         "name": title
                     }
                 };
-                jsonData.itemListElement[1].position = 3;
+                if (jsonData.itemListElement[1]) {
+                    jsonData.itemListElement[1].position = 3;
+                }
                 jsonData.itemListElement.splice(1, 0, collectionItem);
                 jsonLDElement.textContent = JSON.stringify(jsonData, null, 2);
             }

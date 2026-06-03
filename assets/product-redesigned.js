@@ -18,11 +18,13 @@ class ProductFormInputsWrapper extends HTMLElement {
   }
 
   connectedCallback () {
+    if (!this.trigger || !this.inputs) return;
     this.trigger.addEventListener('click', this.onClick);
     this.inputs.forEach(input => input.addEventListener('change', this.onInputChange));
   }
 
   disconnectedCallback () {
+    if (!this.trigger || !this.inputs) return;
     this.trigger.removeEventListener('click', this.onClick);
     this.inputs.forEach(input => input.removeEventListener('change', this.onInputChange));
   }
