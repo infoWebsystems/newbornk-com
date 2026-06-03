@@ -9,6 +9,7 @@ function modalToggle() {
     btn.addEventListener("click", function () {
       let currentModalData = btn.getAttribute("data-modal");
       let currentModal = document.querySelector(`.${currentModalData}`);
+      if (!currentModal) return;
       if (currentModal.classList.contains("show")) {
         bodyEl.classList.remove("show-modal");
         bodyEl.classList.remove("show-modal-overlay");
