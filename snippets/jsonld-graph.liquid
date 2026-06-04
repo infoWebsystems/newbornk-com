@@ -138,16 +138,27 @@
         {%- case template.name -%}
 
           {%- when 'product' -%}
+            {%- comment -%} Deterministic primary collection, identical to breadcrumbs.liquid, so the structured-data breadcrumb is consistent on the canonical URL (brand metafield -> brand-by-vendor -> first collection). {%- endcomment -%}
             {%- liquid
               assign bc_collection_title = ''
               assign bc_collection_url = ''
-              if collection.url
-                assign bc_collection_title = collection.title
-                assign bc_collection_url = collection.url
-              endif
-              if product.metafields.brand.handle != blank
+              # 1. explicit brand-collection metafield
+              if product.metafields.brand.handle != blank and collections[product.metafields.brand.handle].url != blank
                 assign bc_collection_title = collections[product.metafields.brand.handle].title
                 assign bc_collection_url = collections[product.metafields.brand.handle].url
+              endif
+              # 2. brand collection by vendor handle (e.g. ARIES -> /collections/aries)
+              if bc_collection_url == blank and product.vendor != blank
+                assign vendor_handle = product.vendor | handle
+                if collections[vendor_handle].url != blank
+                  assign bc_collection_title = collections[vendor_handle].title
+                  assign bc_collection_url = collections[vendor_handle].url
+                endif
+              endif
+              # 3. fallback: first collection the product belongs to
+              if bc_collection_url == blank and product.collections.size > 0
+                assign bc_collection_title = product.collections.first.title
+                assign bc_collection_url = product.collections.first.url
               endif
             -%}
             {%- if bc_collection_url != blank -%}

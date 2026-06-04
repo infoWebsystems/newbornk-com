@@ -76,15 +76,29 @@
         </li>
       {%- when 'product' -%}
 
-        {%- if collection.url -%}
-          {%- assign collection_title = collection.title -%}
-          {%- assign collection_url = collection.url -%}
-        {%- endif -%}
-
-        {%- if product.metafields.brand.handle != blank -%}
-          {%- assign collection_title = collections[product.metafields.brand.handle].title -%}
-          {%- assign collection_url = collections[product.metafields.brand.handle].url -%}
-        {% endif %}
+        {%- comment -%} Deterministic primary collection for a consistent, server-rendered breadcrumb on the canonical product URL (brand metafield -> brand-by-vendor -> first collection). {%- endcomment -%}
+        {%- liquid
+          assign collection_title = ''
+          assign collection_url = ''
+          # 1. explicit brand-collection metafield
+          if product.metafields.brand.handle != blank and collections[product.metafields.brand.handle].url != blank
+            assign collection_title = collections[product.metafields.brand.handle].title
+            assign collection_url = collections[product.metafields.brand.handle].url
+          endif
+          # 2. brand collection by vendor handle (e.g. ARIES -> /collections/aries)
+          if collection_url == blank and product.vendor != blank
+            assign vendor_handle = product.vendor | handle
+            if collections[vendor_handle].url != blank
+              assign collection_title = collections[vendor_handle].title
+              assign collection_url = collections[vendor_handle].url
+            endif
+          endif
+          # 3. fallback: first collection the product belongs to
+          if collection_url == blank and product.collections.size > 0
+            assign collection_title = product.collections.first.title
+            assign collection_url = product.collections.first.url
+          endif
+        -%}
 
         {%- if collection_url != blank -%}
         <li class="breadcrumbs__item">
