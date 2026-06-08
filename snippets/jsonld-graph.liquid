@@ -362,15 +362,12 @@
       {%- if product.type != blank -%}
       ,"category": {{ product.type | json }}
       {%- endif -%}
-      {%- if rating_value and rating_count > 0 -%}
-      ,"aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "{{ rating_value }}",
-        "reviewCount": {{ rating_count }},
-        "bestRating": 5,
-        "worstRating": 1
-      }
-      {%- endif -%}
+      {%- comment -%}
+        aggregateRating intentionally lives ONLY on the main Product entity
+        (#product) above — not here. Emitting it on both the Product and the
+        ProductGroup makes Google Search Console flag "Review has multiple
+        aggregate ratings" (invalid for rich results). Do not re-add it here.
+      {%- endcomment -%}
       ,"variesBy": [
         {%- for opt in product.options_with_values -%}
           {{ opt.name | json }}{%- unless forloop.last -%},{%- endunless -%}
