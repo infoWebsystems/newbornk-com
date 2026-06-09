@@ -63,12 +63,12 @@
         {% endif %}
       {% endcapture %}
 
-      <h1 style="display: none">{{ title }}</h1>
-
       {%- if section.settings.show_collection_title -%}
-      <h2 class="collection-hero__title h1">
+      <h1 class="collection-hero__title h1">
         {{ title}}
-      </h2>
+      </h1>
+      {%- else -%}
+      <h1 style="display: none">{{ title }}</h1>
       {%- endif -%}
 
       {%- if section.settings.show_collection_description and show_collection_description and collection.description != blank -%}
