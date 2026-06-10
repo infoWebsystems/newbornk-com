@@ -26,19 +26,16 @@
 # open /cart, /checkout, /search etc. to these bots.
 {%- endcomment -%}
 {%- assign ai_bots = 'GPTBot,Google-Extended,bingbot,ClaudeBot,CCBot,PerplexityBot' | split: ',' -%}
-{%- capture ai_rules -%}
-{%- for group in robots.default_groups -%}
-{%- if group.user_agent.value == '*' -%}
-{%- for rule in group.rules %}
-{{ rule | strip }}
-{%- endfor %}
-Disallow: */vendors?q=*
-Disallow: /*.p.vendor=*
-{%- endif -%}
-{%- endfor -%}
-{%- endcapture %}
 {% for bot in ai_bots %}
 User-agent: {{ bot }}
 Allow: /
-{{- ai_rules }}
+{% for group in robots.default_groups -%}
+  {%- if group.user_agent.value == '*' -%}
+    {%- for rule in group.rules -%}
+      {{- rule -}}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{{- 'Disallow: */vendors?q=*' }}
+{{ 'Disallow: /*.p.vendor=*' }}
 {% endfor %}
