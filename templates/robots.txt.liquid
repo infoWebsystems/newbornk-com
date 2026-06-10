@@ -29,13 +29,9 @@
 {% for bot in ai_bots %}
 User-agent: {{ bot }}
 Allow: /
-{% for group in robots.default_groups -%}
-  {%- if group.user_agent.value == '*' -%}
-    {%- for rule in group.rules -%}
-      {{- rule -}}
-    {%- endfor -%}
-  {%- endif -%}
-{%- endfor -%}
-{{- 'Disallow: */vendors?q=*' }}
+{% for group in robots.default_groups %}{% if group.user_agent.value == '*' %}{% for rule in group.rules %}
+    {{- rule -}}
+  {% endfor %}{% endif %}{% endfor %}
+{{ 'Disallow: */vendors?q=*' }}
 {{ 'Disallow: /*.p.vendor=*' }}
 {% endfor %}
