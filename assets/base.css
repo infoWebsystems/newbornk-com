@@ -2794,3 +2794,43 @@ a.__ADORIC__1.__ADORIC__[target="_blank"] {
 .shopify-payment-button__button {
   color: transparent;
 }
+
+/* Global section-spacing and table overrides (moved from wss.css, which loaded site-wide) */
+.spaced-section--full-width:first-child {
+  margin-top: 0 !important;
+}
+
+.spaced-section {
+  margin-top: 3rem !important;
+}
+
+.spaced-section:last-child {
+  margin-bottom: 3rem !important;
+}
+
+.collection-slider .collection .title {
+  margin-top: 2rem !important;
+}
+
+.rte table td {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+@media screen and (max-width: 749px) {
+  table {
+    width: 100% !important;
+  }
+
+  .spaced-section--full-width:first-child {
+    margin-top: 0 !important;
+  }
+
+  .spaced-section {
+    margin-top: 2rem !important;
+  }
+
+  .spaced-section:last-child {
+    margin-bottom: 1rem !important;
+  }
+}
