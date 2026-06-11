@@ -689,7 +689,6 @@
     {%- endif -%}
 
     {%- if section.settings.menu != blank -%}
-      {% comment %}{% render 'header-menu-dropdown' %}{% endcomment %}
       <nav class="header__inline-menu" {%- if section.settings.menu_position == 'center' -%} style="margin: auto;"  {%- endif -%}>
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
