@@ -102,9 +102,12 @@ Elsewhere (e.g. product pages) the section is below the fold and deferred loadin
     %}
 
     <div class="swiper-container swiper-container-collection section-{{section.id}}" >
-      <ul class="swiper-wrapper" role="list" >
+      {%- comment -%} div, not ul[role=list]: Swiper's a11y module sets role="group" on
+      slides at init, which violates the required children of a list (axe:
+      aria-required-children) {%- endcomment -%}
+      <div class="swiper-wrapper">
         {%- for product in new_products -%}
-          <li class="swiper-slide">
+          <div class="swiper-slide">
                 {% render 'product-card',
                     product_card_product: product,
                     media_size: section.settings.image_ratio,
@@ -113,15 +116,15 @@ Elsewhere (e.g. product pages) the section is below the fold and deferred loadin
                     show_vendor: section.settings.show_vendor,
                     show_info: true
             %}
-          </li>
+          </div>
         {%- else -%}
           {%- for i in (1..4) -%}
-            <li class="grid__item">
+            <div class="grid__item">
               {% render 'product-card-placeholder' %}
-            </li>
+            </div>
           {%- endfor -%}
         {%- endfor -%}
-      </ul>
+      </div>
     </div>
 
     {%- if section.settings.show_view_all and section.settings.collection.all_products_count > section.settings.products_to_show -%}
