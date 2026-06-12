@@ -8,8 +8,15 @@
     endif
   endfor
 -%}
-<link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
+{% comment %} The hero is the first thing painted on the homepage: its CSS must be
+render-blocking there or the slide geometry applies late and shifts everything below
+(CLS). Deferred loading is kept for any other page using this section. {% endcomment %}
+{%- if request.page_type == 'index' -%}
+  {{ 'section-slideshow.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+  <link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}
 <style>
   .swiper-container-herro { aspect-ratio: {{ highest_ratio }}; overflow: hidden; }
   @media (max-width: 749px) { .swiper-container-herro { aspect-ratio: {{ highest_ratio_phone }}; } }
