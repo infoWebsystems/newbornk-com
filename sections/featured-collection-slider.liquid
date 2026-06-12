@@ -1,19 +1,32 @@
-<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'component-badge.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'" />
+{% comment %} On the homepage this section is above the fold: its CSS must apply at first
+paint or the cards/title take their final geometry late and shift the layout (CLS).
+Elsewhere (e.g. product pages) the section is below the fold and deferred loading wins. {% endcomment %}
+{%- if request.page_type == 'index' -%}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-badge.css' | asset_url | stylesheet_tag }}
+  {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'component-badge.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'" />
+{%- endif -%}
 <style>
   .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-wrapper { display: flex; overflow: hidden; }
   .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / {{ section.settings.products_to_show | default: 7 }}); }
   @media (max-width: 639px) { .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / {{ section.settings.products_to_show_mobile | default: 2 }}); } }
 </style>
 
-<noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
+{%- unless request.page_type == 'index' -%}
+  <noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endunless -%}
 
 {%- assign products = section.settings.collection.products -%}
 {%- assign title = section.settings.title | escape -%}
