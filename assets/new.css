@@ -676,3 +676,35 @@ span.cart-item-price{
   }
 }
 /*PDP*/
+/* Global mobile rules (moved from product-redesigned.css, which now loads only on product pages) */
+@media only screen and (max-width: 749px) {
+  .badge.price__badge-sale {
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 0;
+  }
+  .price--on-sale .price__sale {
+    font-size: 18px;
+  }
+  .price--on-sale .price__sale .price__compare,
+  .price--on-sale .price__sale .price__compare .price-item--regular {
+    color: #666;
+  }
+  .grid--peek .grid__item:last-of-type {
+    padding-right: 0 !important;
+  }
+  .slider-mobile-gutter .slider-buttons {
+    display: none;
+  }
+  .css-1dztziv {
+    bottom: 105px !important;
+  }
+  .accordion__title {
+    font-size: 16px;
+  }
+  .accordion summary .icon-caret {
+    height: auto !important;
+    right: unset !important;
+    top: unset !important;
+  }
+}

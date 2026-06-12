@@ -1,3 +1,5 @@
+/* Loyalty program page styles (page.loyalty-program template only) — split out of wss.css */
+
 .template-page-loyalty-program .main-page-title {
     display: none;
 }
@@ -86,10 +88,6 @@
     border: none !important;
     font-weight: 400;
 }
-.rte table td{
-    padding-right: 0px!important;
-    padding-left: 0px!important;
-}
 
 .loyalty-table thead tr {
     border-bottom: 1px solid #6A6A6A;
@@ -113,6 +111,7 @@
     text-align: left;
     width: 15%;
 }
+
 /* Відступи блоків */
 .loyalty-section-info {
     margin-top: 60px;
@@ -123,7 +122,6 @@
     margin-bottom: 60px;
 }
 
-
 .table-title {
     font-family: Formular, sans-serif;
     font-size: 14px;
@@ -133,39 +131,10 @@
     text-transform: uppercase;
 }
 
-/* UPD 12/03 сірий колір розмірів які відсутні по наявності */
-.product-form__inputs-inputs .disabled-label {
-  text-decoration: line-through;
-  pointer-events: none;
-  color: #c5c5c5 !important;
-  border-color: #c5c5c5 !important;
-}
-
-/* UPD 20/03 відступ секції */
-.spaced-section--full-width:first-child {
-        margin-top: 0 !important;
-    }
-.spaced-section {
-  margin-top: 3rem !important;
-}
-/* UPD 20/03 відступ секції */
-.spaced-section:last-child {
-  margin-bottom: 3rem !important;
-    }
-/* UPD 20/03 відступ title */
-.collection-slider .collection .title {
-  margin-top: 2rem !important;
-    }
-
-
 @media screen and (max-width: 749px) {
     .title-loyalty {
         font-size: 18px;
         font-weight: 400;
-    }
-
-    table {
-        width: 100% !important;
     }
 
     .table-title {
@@ -183,18 +152,4 @@
         padding-right: 62px !important;
         white-space: normal !important;
     }
-    /* UPD 20/03 відступ секції */
-    .spaced-section--full-width:first-child {
-        margin-top: 0 !important;
-    }
-    .spaced-section {
-        margin-top: 2rem !important;
-    }
-    /* UPD 20/03 відступ секції мобайл */
-    .spaced-section:last-child {
-        margin-bottom: 1rem !important;
-    }
-
 }
-
-
