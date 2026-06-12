@@ -1,5 +1,8 @@
 <link href="{{ 'Formular.woff2' | asset_url | split: '?' | first }}" as="font" rel="preload" crossorigin>
 <link href="{{ 'Formular-Light.woff2' | asset_url | split: '?' | first }}" as="font" rel="preload" crossorigin>
+{%- comment -%} Bold renders the collection h1 titles above the fold; without the preload
+the swap shrinks the title block (~50px) and shifts the product grid (CLS) {%- endcomment -%}
+<link href="{{ 'Formular-Bold.woff2' | asset_url | split: '?' | first }}" as="font" rel="preload" crossorigin>
 
 {%- comment -%} Preload first visible hero slide to reduce LCP resource load delay {%- endcomment -%}
 {%- if request.page_type == 'index' -%}
