@@ -43,9 +43,9 @@
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                       {% endif %}>
                       {%- if visible_index == 1 -%}
-                        <img src="{{ img_desktop }}" width="360" height="411" alt="{{ alt | escape }}" loading="eager" fetchpriority="high" decoding="async">
+                        <img src="{{ img_desktop }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" alt="{{ alt | escape }}" loading="eager" fetchpriority="high" decoding="async">
                       {%- else -%}
-                        <img data-src="{{ img_desktop }}" width="360" height="411" alt="{{ alt | escape }}" loading="lazy" decoding="async" class="hero-lazy">
+                        <img data-src="{{ img_desktop }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" alt="{{ alt | escape }}" loading="lazy" decoding="async" class="hero-lazy">
                       {%- endif -%}
                     </div>
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
@@ -53,9 +53,9 @@
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
                       {% endif %}>
                       {%- if visible_index == 1 -%}
-                        <img src="{{ img_phone }}" width="360" height="411" alt="{{ alt }}" loading="eager" fetchpriority="high" decoding="async">
+                        <img src="{{ img_phone }}" width="{{ block.settings.image_phone.width | default: block.settings.image.width }}" height="{{ block.settings.image_phone.height | default: block.settings.image.height }}" alt="{{ alt }}" loading="eager" fetchpriority="high" decoding="async">
                       {%- else -%}
-                        <img data-src="{{ img_phone }}" width="360" height="411" alt="{{ alt }}" loading="lazy" decoding="async" class="hero-lazy">
+                        <img data-src="{{ img_phone }}" width="{{ block.settings.image_phone.width | default: block.settings.image.width }}" height="{{ block.settings.image_phone.height | default: block.settings.image.height }}" alt="{{ alt }}" loading="lazy" decoding="async" class="hero-lazy">
                       {%- endif -%}
                     </div>
                   </div>
