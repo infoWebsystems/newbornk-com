@@ -667,7 +667,7 @@
     {%- if request.page_type == 'index' -%}
     <div class="header__heading"> <span style="display: none">{{ shop.name }}</span>
     {%- endif -%}
-        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="{{ shop.name | escape }}">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
             <!--img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
@@ -786,7 +786,9 @@
 
       {% if settings.show_wishlist == true %}
         {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
-        <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset">
+        {%- comment -%} aria-label on the link itself: the Wishlist Hero app replaces this
+        link's innerHTML at runtime, dropping the visually-hidden span {%- endcomment -%}
+        <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset" aria-label="{{ 'wishlist.header_link' | t }}">
           <span class="visually-hidden">{{ 'wishlist.header_link' | t }}</span>
           {% render 'icon-wishlist' %}
         </a>
@@ -905,8 +907,8 @@
      {%- endif -%}
 
       {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset">
-         {% render 'icon-account' %}          
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset" aria-label="{{ 'customer.account_fallback' | t }}">
+         {% render 'icon-account' %}
         </a>
       {%- endif -%}
 
