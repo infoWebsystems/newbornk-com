@@ -5,8 +5,8 @@
 <link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'" />
 <style>
   .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-wrapper { display: flex; overflow: hidden; }
-  .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / 7); }
-  @media (max-width: 749px) { .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 50%; } }
+  .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / {{ section.settings.products_to_show | default: 7 }}); }
+  @media (max-width: 639px) { .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / {{ section.settings.products_to_show_mobile | default: 2 }}); } }
 </style>
 
 <noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
