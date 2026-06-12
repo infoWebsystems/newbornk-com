@@ -22,6 +22,10 @@ render-blocking there or the slide geometry applies late and shifts everything b
   @media (max-width: 749px) { .swiper-container-herro { aspect-ratio: {{ highest_ratio_phone }}; } }
   .swiper-container-herro:not(.swiper-container-initialized) .swiper-wrapper { display: block; }
   .swiper-container-herro:not(.swiper-container-initialized) .swiper-slide:nth-child(n+2) { display: none; }
+  /* position: absolute normally comes from deferred component-swiper.css; if Swiper
+     initializes first, the injected dots flow in-document and shift the page (CLS).
+     Low-specificity fallback so the dots never participate in layout. */
+  .swiper-container-herro .swiper-pagination { position: absolute; bottom: 10px; left: 0; right: 0; z-index: 10; }
 </style>
 
   <div class="slideshow no-heading">
