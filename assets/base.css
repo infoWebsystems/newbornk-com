@@ -612,15 +612,21 @@ h6:empty {
   display: none;
 }
 
-/* eSputnik App Inbox: keep the host elements visible even while empty (they are
-   populated client-side after the user authenticates), overriding the :empty
-   rule above, and lift them in the stacking order per eSputnik's spec. */
-#app-inbox,
-.js-pull-notification-host-element {
-  display: block !important;
+/* eSputnik App Inbox — host lives in the header icon row.
+   While empty (anonymous user / before injection) it stays subject to the :empty
+   rule above and collapses, so it adds no gap between the header icons. Once
+   eSputnik injects the bell it becomes non-empty and shows, vertically aligned
+   with the sibling icons. The widget's own host renders via shadow DOM, so it
+   also matches :empty and must be forced visible. z-index: 4 per eSputnik's spec. */
+#app-inbox:not(:empty) {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 4;
 }
 
-#app-inbox {
+.js-pull-notification-host-element {
+  display: block !important;
   position: relative;
   z-index: 4;
 }
