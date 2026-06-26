@@ -613,11 +613,18 @@ h6:empty {
 }
 
 /* eSputnik App Inbox — host lives in the header icon row.
-   While empty (anonymous user / before injection) it stays subject to the :empty
-   rule above and collapses, so it adds no gap between the header icons. Once
-   eSputnik injects the bell it becomes non-empty and shows, vertically aligned
-   with the sibling icons. The widget's own host renders via shadow DOM, so it
-   also matches :empty and must be forced visible. z-index: 4 per eSputnik's spec. */
+   While empty (no bell injected yet) collapse it completely so it adds no gap
+   between the header icons. The generic div:empty rule above is NOT enough here:
+   the theme's .header__icon styling keeps the host as a 0-width flex item, and
+   the .header__icons flex `gap` then still reserves space around it. Force
+   display:none while empty; once eSputnik injects the bell it becomes non-empty
+   and shows, vertically aligned with the sibling icons. The widget's own host
+   renders via shadow DOM, so it also matches :empty and must be forced visible.
+   z-index: 4 per eSputnik's spec. */
+#app-inbox:empty {
+  display: none !important;
+}
+
 #app-inbox:not(:empty) {
   display: flex;
   align-items: center;
