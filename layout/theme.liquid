@@ -638,9 +638,9 @@
       window.addEventListener("load", function() {
       {% if customer %}
          es("setCustomer", {
-            email: "test1.leiber@gmail.com",
-            firstName: "Itforce",
-            lastName: "Test"
+            email: {{ customer.email | json }},
+            firstName: {{ customer.first_name | json }},
+            lastName: {{ customer.last_name | json }}
          });
       {% endif %}
        if (window.es) {
@@ -686,9 +686,6 @@
     {% else %}
       {% section 'header' %}
     {% endif %}
-
-    <!-- eSputnik App Inbox host element (widget is injected here client-side; selector #app-inbox) -->
-    <div id="app-inbox"></div>
 
     <main
       id="MainContent"
