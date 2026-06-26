@@ -612,6 +612,19 @@ h6:empty {
   display: none;
 }
 
+/* eSputnik App Inbox: keep the host elements visible even while empty (they are
+   populated client-side after the user authenticates), overriding the :empty
+   rule above, and lift them in the stacking order per eSputnik's spec. */
+#app-inbox,
+.js-pull-notification-host-element {
+  display: block !important;
+}
+
+#app-inbox {
+  position: relative;
+  z-index: 4;
+}
+
 .link,
 .customer a {
   cursor: pointer;
