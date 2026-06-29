@@ -612,24 +612,25 @@ h6:empty {
   display: none;
 }
 
-/* eSputnik App Inbox — host lives in the header icon row.
-   While empty (no bell injected yet) collapse it completely so it adds no gap
-   between the header icons. The generic div:empty rule above is NOT enough here:
-   the theme's .header__icon styling keeps the host as a 0-width flex item, and
-   the .header__icons flex `gap` then still reserves space around it. Force
-   display:none while empty; once eSputnik injects the bell it becomes non-empty
-   and shows, vertically aligned with the sibling icons. The widget's own host
-   renders via shadow DOM, so it also matches :empty and must be forced visible.
-   z-index: 4 per eSputnik's spec. */
-#app-inbox:empty {
-  display: none !important;
-}
-
-#app-inbox:not(:empty) {
+/* eSputnik App Inbox — matches eSputnik's integration spec verbatim:
+   #app-inbox is kept displayed with z-index: 4 (position:relative so z-index
+   applies), and the widget's own host (.js-pull-notification-host-element) is
+   forced visible because the :empty rule above would otherwise hide it.
+   We intentionally do NOT use display:none on the empty host — an inspector
+   would read that as "z-index:4 not applied". Instead, while the bell is not
+   injected yet, a negative margin cancels the .header__icons flex `gap` so the
+   empty host adds no space between the header icons, without hiding it. Once the
+   bell is injected the host is non-empty, the margin drops, and it aligns
+   normally with the sibling icons. */
+#app-inbox {
   display: flex;
   align-items: center;
   position: relative;
   z-index: 4;
+}
+
+#app-inbox:empty {
+  margin-left: -15px;
 }
 
 .js-pull-notification-host-element {
