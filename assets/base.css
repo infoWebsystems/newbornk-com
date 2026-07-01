@@ -625,6 +625,8 @@ h6:empty {
 #app-inbox {
   display: flex;
   align-items: center;
+  justify-content: center;
+  align-self: center;
   position: relative;
   z-index: 4;
 }
@@ -633,10 +635,31 @@ h6:empty {
   margin-left: -15px;
 }
 
+/* Normalise the injected bell button to the same 4.4rem-tall, centred box as the
+   sibling header icons (.header__icon), so it sits on the same vertical line and
+   can't appear higher/lower than them. eSputnik's call-button host renders ~34px
+   tall by default, which misaligned it against the theme's 4.4rem icon boxes. */
+#app-inbox .js-pull-notification-call-button-host-element {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 4.4rem !important;
+}
+
 .js-pull-notification-host-element {
   display: block !important;
   position: relative;
   z-index: 4;
+}
+
+/* Mobile header (<= 749px) has no flex gap and hand-positions each icon with
+   per-icon left offsets, so the injected bell lands at its flow position and
+   overlaps the account icon. Shift it left into the free gap between the
+   wishlist and account icons so it no longer overlaps. */
+@media (max-width: 749px) {
+  #app-inbox {
+    left: -38px;
+  }
 }
 
 .link,
