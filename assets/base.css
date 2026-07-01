@@ -625,12 +625,25 @@ h6:empty {
 #app-inbox {
   display: flex;
   align-items: center;
+  justify-content: center;
+  align-self: center;
   position: relative;
   z-index: 4;
 }
 
 #app-inbox:empty {
   margin-left: -15px;
+}
+
+/* Normalise the injected bell button to the same 4.4rem-tall, centred box as the
+   sibling header icons (.header__icon), so it sits on the same vertical line and
+   can't appear higher/lower than them. eSputnik's call-button host renders ~34px
+   tall by default, which misaligned it against the theme's 4.4rem icon boxes. */
+#app-inbox .js-pull-notification-call-button-host-element {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 4.4rem !important;
 }
 
 .js-pull-notification-host-element {
