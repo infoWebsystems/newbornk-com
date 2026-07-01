@@ -652,6 +652,16 @@ h6:empty {
   z-index: 4;
 }
 
+/* Mobile header (<= 749px) has no flex gap and hand-positions each icon with
+   per-icon left offsets, so the injected bell lands at its flow position and
+   overlaps the account icon. Shift it left into the free gap between the
+   wishlist and account icons so it no longer overlaps. */
+@media (max-width: 749px) {
+  #app-inbox {
+    left: -38px;
+  }
+}
+
 .link,
 .customer a {
   cursor: pointer;
