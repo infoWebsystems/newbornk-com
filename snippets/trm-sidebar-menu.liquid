@@ -46,7 +46,7 @@
             assign is_new_arrival = true
           endif
         %}
-        <li class="sidemenu-link 2332{% if is_new_arrival %} new--arrival{% endif %}">
+        <li class="sidemenu-link{% if is_new_arrival %} new--arrival{% endif %}">
           {%- if link.links != blank -%}
             <details-disclosure>
               <details

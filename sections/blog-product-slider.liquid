@@ -1,0 +1,363 @@
+{% if section.settings.collection != blank %}
+  {% liquid
+    assign blog_collection = section.settings.collection
+    assign products_limit = section.settings.products_limit | default: 8
+  %}
+
+  <section class="nbk-blog-products" id="nbk-blog-products-{{ section.id }}">
+    <div class="nbk-blog-products__inner">
+      {% if section.settings.heading != blank %}
+        <div class="nbk-blog-products__header">
+          <h2 class="nbk-blog-products__title">{{ section.settings.heading | escape }}</h2>
+
+          {% if section.settings.show_view_all and blog_collection.url != blank %}
+            <a class="nbk-blog-products__view-all" href="{{ blog_collection.url }}">
+              {{ section.settings.view_all_label | default: 'Переглянути все' }}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="nbk-blog-products__slider swiper">
+        <div class="swiper-wrapper">
+          {% for product in blog_collection.products limit: products_limit %}
+            <div class="swiper-slide">
+              <article class="nbk-product-card">
+                <a class="nbk-product-card__image-link" href="{{ product.url }}">
+                  {% if product.featured_image %}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 900 }}"
+                      srcset="
+                        {{ product.featured_image | image_url: width: 320 }} 320w,
+                        {{ product.featured_image | image_url: width: 480 }} 480w,
+                        {{ product.featured_image | image_url: width: 640 }} 640w,
+                        {{ product.featured_image | image_url: width: 900 }} 900w
+                      "
+                      sizes="(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 70vw"
+                      alt="{{ product.title | escape }}"
+                      loading="lazy"
+                      class="nbk-product-card__image"
+                      width="900"
+                      height="1200"
+                    >
+                  {% endif %}
+                </a>
+
+                <div class="nbk-product-card__content">
+                  {% if product.vendor != blank and section.settings.show_vendor %}
+                    <div class="nbk-product-card__vendor">{{ product.vendor }}</div>
+                  {% endif %}
+
+                  <a class="nbk-product-card__title" href="{{ product.url }}">
+                    {{ product.title }}
+                  </a>
+
+                  <div class="nbk-product-card__price">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="nbk-product-card__price-current">{{ product.price | money }}</span>
+                      <span class="nbk-product-card__price-compare">{{ product.compare_at_price | money }}</span>
+                    {% else %}
+                      <span class="nbk-product-card__price-current">{{ product.price | money }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+
+        <button class="nbk-blog-products__nav nbk-blog-products__nav--prev" aria-label="Попередні товари" type="button">
+          <span>←</span>
+        </button>
+        <button class="nbk-blog-products__nav nbk-blog-products__nav--next" aria-label="Наступні товари" type="button">
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    #nbk-blog-products-{{ section.id }} {
+      margin: {{ section.settings.margin_top }}px 0 {{ section.settings.margin_bottom }}px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__title {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__view-all {
+      text-decoration: none;
+      color: inherit;
+      font-size: 14px;
+      line-height: 1.2;
+      border-bottom: 1px solid currentColor;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__slider {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #nbk-blog-products-{{ section.id }} .swiper-slide {
+      height: auto;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__image-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: #f7f7f7;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__image {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__content {
+      padding-top: 12px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__vendor {
+      font-size: 12px;
+      line-height: 1.2;
+      opacity: 0.65;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__title {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__price {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-product-card__price-compare {
+      opacity: 0.45;
+      text-decoration: line-through;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__nav {
+      position: absolute;
+      top: 38%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(255,255,255,0.92);
+      color: #111;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__nav--prev {
+      left: 8px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__nav--next {
+      right: 8px;
+    }
+
+    #nbk-blog-products-{{ section.id }} .nbk-blog-products__nav.swiper-button-disabled {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    @media screen and (max-width: 767px) {
+      #nbk-blog-products-{{ section.id }} .nbk-blog-products__inner {
+        padding: 0 16px;
+      }
+
+      #nbk-blog-products-{{ section.id }} .nbk-blog-products__title {
+        font-size: 22px;
+      }
+
+      #nbk-blog-products-{{ section.id }} .nbk-blog-products__nav {
+        display: none;
+      }
+    }
+  </style>
+
+  <script>
+    (() => {
+      const initSlider = () => {
+        const root = document.querySelector('#nbk-blog-products-{{ section.id }} .swiper');
+        if (!root || typeof Swiper === 'undefined') return;
+
+        if (root.swiper) {
+          root.swiper.destroy(true, true);
+        }
+
+        new Swiper(root, {
+          slidesPerView: 1.25,
+          spaceBetween: 12,
+          watchOverflow: true,
+          navigation: {
+            nextEl: '#nbk-blog-products-{{ section.id }} .nbk-blog-products__nav--next',
+            prevEl: '#nbk-blog-products-{{ section.id }} .nbk-blog-products__nav--prev'
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 2.2,
+              spaceBetween: 16
+            },
+            990: {
+              slidesPerView: 3.2,
+              spaceBetween: 18
+            },
+            1200: {
+              slidesPerView: 4,
+              spaceBetween: 20
+            }
+          }
+        });
+      };
+
+      const loadSwiperAssets = () => {
+        if (typeof Swiper !== 'undefined') {
+          initSlider();
+          return;
+        }
+
+        if (!document.querySelector('link[data-nbk-swiper]')) {
+          const css = document.createElement('link');
+          css.rel = 'stylesheet';
+          css.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+          css.setAttribute('data-nbk-swiper', 'true');
+          document.head.appendChild(css);
+        }
+
+        if (!document.querySelector('script[data-nbk-swiper]')) {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+          script.defer = true;
+          script.setAttribute('data-nbk-swiper', 'true');
+          script.onload = initSlider;
+          document.head.appendChild(script);
+        } else {
+          document.querySelector('script[data-nbk-swiper]').addEventListener('load', initSlider, { once: true });
+        }
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadSwiperAssets);
+      } else {
+        loadSwiperAssets();
+      }
+    })();
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Blog product slider",
+  "tag": "section",
+  "class": "section section-blog-product-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Заголовок",
+      "default": "Речі бренду в NEWBORN K"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Колекція"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Кількість товарів",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Показувати бренд",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Показувати посилання Переглянути все",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "Текст посилання",
+      "default": "Переглянути все"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Верхній відступ",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Нижній відступ",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog product slider"
+    }
+  ]
+}
+{% endschema %}

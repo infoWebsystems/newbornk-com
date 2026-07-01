@@ -14,6 +14,35 @@
       "disabled": true,
       "settings": {}
     },
+    "1775141838ecb8939c": {
+      "type": "apps",
+      "blocks": {
+        "google_reviews_locations_widget_block_7w9yy6": {
+          "type": "shopify://apps/google-reviews/blocks/locations-widget-block/8b378e9e-c56d-47ce-a754-feca5e0caf59",
+          "settings": {
+            "contentIndex": "all",
+            "customContentIndex": 31,
+            "font": "default",
+            "themeId": "light",
+            "ratingType": "stars",
+            "emojiType": "0",
+            "cardColor": "#F3F6F9",
+            "starsColor": "#FBB000",
+            "textColor": "#404040",
+            "transparent": 1,
+            "solidShadow": false,
+            "photoType": "large",
+            "showMap": true
+          }
+        }
+      },
+      "block_order": [
+        "google_reviews_locations_widget_block_7w9yy6"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
     "info": {
       "type": "contact-info",
       "blocks": {
@@ -54,14 +83,14 @@
         "1fd21b55-8335-430b-8128-5a3e7c7fa39d": {
           "type": "address",
           "settings": {
-            "street": "ФОП Моргуліс Максим Костянтинович",
+            "street": "ФОП Амеган Аннет Мауанам",
             "url": ""
           }
         },
         "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f": {
           "type": "address",
           "settings": {
-            "street": "ІПН\t3770013516‬",
+            "street": "ІПН\t3368316041",
             "url": ""
           }
         }
@@ -126,6 +155,7 @@
   },
   "order": [
     "main",
+    "1775141838ecb8939c",
     "info",
     "form"
   ]

@@ -40,10 +40,57 @@
         "menu_sidebar": "sidebar-menu",
         "enable_sorting": true
       }
+    },
+    "custom_liquid_JBTpBy": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<br>"
+      }
+    },
+    "1776766275f3c0956b": {
+      "type": "apps",
+      "blocks": {
+        "ultimate_recently_viewed_recently_viewed_zzUeQD": {
+          "type": "shopify://apps/ultimate-recently-viewed/blocks/recently-viewed/b33bd8dd-4a93-43a7-b989-694e289aa9e8",
+          "settings": {
+            "headline": "Нещодавно переглянуті товари",
+            "product_title_enabled": true,
+            "product_price_enabled": true,
+            "product_type_enabled": false,
+            "product_vendor_enabled": false,
+            "quick_add_button_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "ultimate_recently_viewed_recently_viewed_zzUeQD"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "1779445157994ff732": {
+      "type": "apps",
+      "blocks": {
+        "avada_seo_suite_avada_after_collection_block_hL69LK": {
+          "type": "shopify://apps/avada-seo-suite/blocks/avada-after-collection-block/15507c6e-1aa3-45d3-b698-7e175e033440",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "avada_seo_suite_avada_after_collection_block_hL69LK"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "custom_liquid_JBTpBy",
+    "1776766275f3c0956b",
+    "1779445157994ff732"
   ]
 }

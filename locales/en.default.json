@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin language editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -17,7 +17,7 @@
       "login_form_error": "Wrong password!",
       "login_form_submit": "Enter",
       "modal": "Password modal",
-      "admin_link_html": "Are you the store owner? <a href=\"\/admin\" class=\"link underlined-link\">Log in here<\/a>",
+      "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link underlined-link\">Log in here</a>",
       "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
     },
     "breadcrumbs": {
@@ -60,7 +60,15 @@
       "share": "Share",
       "share_url": "Link",
       "success_message": "Link copied to clipboard!"
-    }
+    },
+    "SEO": {
+      "collection_title": "Designer {{title}} - Buy in Kyiv | NEWBORN K",
+      "collection_brand_title": "{{title}} Buy in Kyiv and Ukraine | NEWBORN K",
+      "collection_description": "Buy branded {{title}} in the online store【NEWBORN K】⏩ 100% original and excellent quality from top manufacturers 📦 Fast delivery in Kyiv and Ukraine 💫 Order now",
+      "collection_brand_description": "Buy {{title}} brand clothing in the online store 【NEWBORN K】⏩ Perfect quality and 100% original ⏩ Wide assortment at an affordable price 📦 Fast delivery in Kyiv and Ukraine, free for orders over UAH 5000. 💫"
+    },
+    "read_more": "Read more",
+    "read_less": "Collapse"
   },
   "date_formats": {
     "month_year": "%B %Y"
@@ -139,8 +147,8 @@
         "view_store_info": "View store information",
         "check_other_stores": "Check availability at other stores",
         "pick_up_available": "Pickup available",
-        "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}<\/span>",
-        "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}<\/span>",
+        "pick_up_available_at_html": "Pickup available at <span class=\"color-foreground\">{{ location_name }}</span>",
+        "pick_up_unavailable_at_html": "Pickup currently unavailable at <span class=\"color-foreground\">{{ location_name }}</span>",
         "unavailable": "Couldn't load pickup availability",
         "refresh": "Refresh"
       },
@@ -157,7 +165,10 @@
       "vendor": "Vendor",
       "video_exit_message": "{{ title }} opens full screen video in same window.",
       "xr_button": "View in your space",
-      "xr_button_label": "View in your space, loads item in augmented reality window"
+      "xr_button_label": "View in your space, loads item in augmented reality window",
+      "title_sku": "Product code: {{number}}",
+      "outlet_pickup_text": "📍 The product is available for pickup the day after ordering",
+      "photo": "Photo"
     },
     "modal": {
       "label": "Media gallery",
@@ -190,6 +201,11 @@
       "sort_by_label": "Sort by:",
       "to": "To",
       "clear_filter": "Clear filter"
+    },
+    "info_labels": {
+      "size_guide_title": "Size chart",
+      "size_guide": "size chart",
+      "size_guide_note": "All dimensions are given in centimeters"
     }
   },
   "templates": {
@@ -272,9 +288,9 @@
       "calculate": "Calculated at Checkout",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add [quantity] of this item to your cart.",
-      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout",
+      "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping</a> calculated at checkout",
       "taxes_included_but_shipping_at_checkout": "Tax included and shipping calculated at checkout",
-      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping<\/a> calculated at checkout.",
+      "taxes_included_and_shipping_policy_html": "Tax included. <a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
       "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
       "headings": {
         "product": "Product",
@@ -324,14 +340,14 @@
       "sort_by_label": "Sort by",
       "title": "Collection",
       "to": "To",
-      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">clear all<\/a>"
+      "use_fewer_filters_html": "Use fewer filters or <a class=\"{{ class }}\" href=\"{{ link }}\">clear all</a>"
     }
   },
   "localization": {
-    "country_label": "Country\/region",
+    "country_label": "Country/region",
     "language_label": "Language",
     "update_language": "Update language",
-    "update_country": "Update country\/region"
+    "update_country": "Update country/region"
   },
   "customer": {
     "account": {
@@ -360,9 +376,9 @@
       "address1": "Address 1",
       "address2": "Address 2",
       "city": "City",
-      "country": "Country\/region",
+      "country": "Country/region",
       "province": "Province",
-      "zip": "Postal\/ZIP code",
+      "zip": "Postal/ZIP code",
       "phone": "Phone",
       "set_default": "Set as default address",
       "add": "Add address",
@@ -475,7 +491,68 @@
     "checkout": {
       "customer_payment_methods": {
         "update_card_button_label": "Update cart"
+      },
+      "contact": {
+        "shipping_address_title": "Delivery address"
+      },
+      "order_summary": {
+        "expand_order_summary": "Show my order",
+        "collapse_order_summary": "Hide my order"
+      },
+      "shipping": {
+        "please_enter_your_shipping_information_notice": "Enter your shipping information."
+      },
+      "payment": {
+        "apple": {
+          "email_connected": "Account connected:"
+        }
+      },
+      "field_errors": {
+        "reduction_code_gift_card_unusable_with_subscriptions": "You cannot use a gift card to purchase a subscription",
+        "subscription_agreement_blank": "To continue your purchase, please accept the subscription terms"
+      },
+      "payment_errors": {
+        "fraud_payment_errors": {
+          "transaction_declined": "This transaction was rejected",
+          "address_mismatch": "The street address and postal code do not match.",
+          "cannot_process": "This transaction cannot be processed.",
+          "no_match": "No match",
+          "card_declined": "Your card was declined"
+        }
+      },
+      "alternative_payment_method": {
+        "button_html": "Place an order with: {{ method }}",
+        "button_label": "Order with: {{ method }}"
+      },
+      "paypal": {
+        "button_html": "Place an order with {{ logo }}"
+      },
+      "apple_pay": {
+        "button_html": "Shop with {{ logo }}"
+      },
+      "thank_you": {
+        "opt_in_message_html": "Your information was successfully saved using {{ shopify_pay }}",
+        "shopify_pay": {
+          "order_completed_html": "Order completed using {{ shopify_pay }}",
+          "learn_more_label": "Learn more about Shop Pay"
+        },
+        "qr_code": {
+          "subtitle": "Scan the code using your phone's camera."
+        }
+      },
+      "remember_me": {
+        "save": "Save",
+        "title": "Remember me",
+        "label": "Save my information for faster checkout",
+        "mobile_phone_icon_alt": "Mobile phone",
+        "mobile_phone_number": "Mobile phone number",
+        "terms_and_privacy_html": "By continuing, you agree to Shop Pay’s {{ privacy_href }} and {{ terms_href }}.",
+        "privacy_policy": "Privacy Policy",
+        "terms_of_service": "Terms of Service"
       }
+    },
+    "errors": {
+      "email_domain_invalid": "supplier not supported"
     }
   },
   "collections": {
@@ -493,4 +570,7 @@
   "text_badge_last_size": "Last size",
   "text_btn_loadmore": "Show more",
   "text_loading": "Loading...",
+  "wishlist": {
+    "header_link": "Wishlist"
+  }
 }

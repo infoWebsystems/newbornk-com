@@ -43,12 +43,12 @@
   %}
   {% if current_page > 1 %}
     {% if template == 'collection' or template == 'collection.default-outlet' %}
-      <meta property="og:title" content="{{ 'meta_tags.title_pagination' | t: title: page_title_custom, number: current_page }}">
-      <meta property="og:description" content="{{ 'meta_tags.description_pagination' | t: description: page_description_custom, number: current_page }}">
+      <meta property="og:title" content="{{ 'meta_tags.title_pagination' | t: title: page_title_custom, number: current_page | escape }}">
+      <meta property="og:description" content="{{ 'meta_tags.description_pagination' | t: description: page_description_custom, number: current_page | escape }}">
     {% endif %}
   {% else %}
-    <meta property="og:title" content="{{ page_title_custom }}">
-    <meta property="og:description" content="{{ page_description_custom }}">
+    <meta property="og:title" content="{{ page_title_custom | escape }}">
+    <meta property="og:description" content="{{ page_description_custom | escape }}">
   {% endif %}
 {% else %}
   <meta property="og:title" content="{{ og_title | escape }}">
@@ -56,7 +56,7 @@
 {% endif %}
 
 {%- if page_image -%}
-  <meta property="og:image" content="http:{{ page_image | img_url: 'master' }}">
+  <meta property="og:image" content="https:{{ page_image | img_url: 'master' }}">
   <meta property="og:image:secure_url" content="https:{{ page_image | img_url: 'master' }}">
   <meta property="og:image:width" content="{{ page_image.width }}">
   <meta property="og:image:height" content="{{ page_image.height }}">

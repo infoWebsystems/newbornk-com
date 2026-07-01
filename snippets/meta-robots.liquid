@@ -1,7 +1,62 @@
 {% liquid
-  assign path = request.path
-  if path contains '/outlet' or path contains '-outlet' or path contains '%D0%BB%D0%B5%D1%82'
-    echo '<meta name="robots" content="noindex, follow">'
-    break
-  endif
-%}
+  # ==========================================================================
+    # meta-robots.liquid
+      # Outputs <meta name="robots" content="noindex,follow"> when applicable.
+        # 
+          # Logic (in order of precedence):
+            #   1. Collection metafield custom.noindex (boolean) — primary, managed via Shopify Admin
+              #   2. Size chart pages (templateSuffix='page')
+                #   3. Auto-noindex for EMPTY collections (added 25.05.2026)
+                  #   4. Legacy hardcoded handle list — fallback for collections without metafield
+                    #   5. URL pattern match for /outlet pages
+                      # ==========================================================================
+                      
+                        assign path = request.path
+                          assign is_noindex = false
+                          
+                            # --- 1) Primary: read metafield custom.noindex on collection page -----------
+                              if request.page_type == 'collection'
+                                  if collection.metafields.custom.noindex == true
+                                        assign is_noindex = true
+                                            endif
+                                              endif
+                                              
+                                                # --- 2) Size chart pages (templateSuffix 'page') ---------------------------
+                                                  if request.page_type == 'page' and page.template_suffix == 'page'
+                                                      assign is_noindex = true
+                                                        endif
+                                                        
+                                                          # --- 3) Auto-noindex for empty collections (NEW) ---------------------------
+                                                            # Захищає від ситуації коли товари закінчуються — Google перестає відправляти
+                                                              # bounce-трафік на порожню сторінку. Коли товари знову з'являються —
+                                                                # автоматично відкривається для індексації.
+                                                                  if is_noindex == false and request.page_type == 'collection'
+                                                                      if collection.products_count == 0
+                                                                            assign is_noindex = true
+                                                                                endif
+                                                                                  endif
+                                                                                  
+                                                                                    # --- 4) Legacy fallback: hardcoded handle list ------------------------------
+                                                                                      # Note: Use comma-padded format with leading/trailing commas to ensure exact handle match
+                                                                                        # via "contains ',handle,'" pattern (avoids substring false positives).
+                                                                                          assign noindex_handles = ",all,descapizm,jeu-de-lab,new-balaklavy,new-cholovicha-bilyzna,new-choloviche-polo,new-cholovichi-chudi,new-cholovichi-doshchovyky,new-cholovichi-futbolky,new-cholovichi-kurtky,new-cholovichi-longslivi,new-cholovichi-shorty,new-cholovichi-shtani,new-cholovichi-sorochky-1,new-cholovichi-svitshoty,new-cholovichi-zhylety,new-cholovichyi-denim,new-gamantsi,new-men-svetri,new-prykrasy,new-sharfi,new-zhinocha-bilyzna,new-zhinochi-doshchovyky,new-zhinochi-kurtky,new-zhinochi-lehinsy,new-zhinochi-zhylety,new-zhinochyi-denim,ofourfour,product-for-vip,sneakermate,white-sprut,without-discount,без-знижки,без-накладеного-платежа,"
+                                                                                            
+                                                                                              if is_noindex == false and request.page_type == 'collection'
+                                                                                                  assign col_handle_padded = collection.handle | prepend: ',' | append: ','
+                                                                                                      if noindex_handles contains col_handle_padded
+                                                                                                            assign is_noindex = true
+                                                                                                                endif
+                                                                                                                  endif
+                                                                                                                  
+                                                                                                                    # --- 5) URL pattern match (legacy /outlet pages) ----------------------------
+                                                                                                                      if path contains '/outlet' or path contains '-outlet' or path contains '%D0%BB%D0%B5%D1%82'
+                                                                                                                          assign is_noindex = true
+                                                                                                                            endif
+                                                                                                                            
+                                                                                                                              # --- Output -----------------------------------------------------------------
+                                                                                                                                if is_noindex
+                                                                                                                                    echo '<meta name="robots" content="noindex, follow">'
+                                                                                                                                      else
+                                                                                                                                          echo '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">'
+                                                                                                                                            endif
+                                                                                                                                            %}

@@ -1,25 +1,47 @@
 {%- assign current_locale = request.locale.iso_code | upcase -%}
-<link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
-<noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
+{%- liquid
+  assign highest_ratio = 0
+  for block in section.blocks
+    if block.settings.image.aspect_ratio > highest_ratio
+      assign highest_ratio = block.settings.image.aspect_ratio
+      assign highest_ratio_phone = block.settings.image_phone.aspect_ratio
+    endif
+  endfor
+-%}
+{% comment %} The hero is the first thing painted on the homepage: its CSS must be
+render-blocking there or the slide geometry applies late and shifts everything below
+(CLS). Deferred loading is kept for any other page using this section. {% endcomment %}
+{%- if request.page_type == 'index' -%}
+  {{ 'section-slideshow.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+  <link rel="stylesheet" href="{{ 'section-slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'section-slideshow.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}
+<style>
+  .swiper-container-herro { aspect-ratio: {{ highest_ratio }}; overflow: hidden; }
+  @media (max-width: 749px) { .swiper-container-herro { aspect-ratio: {{ highest_ratio_phone }}; } }
+  .swiper-container-herro:not(.swiper-container-initialized) .swiper-wrapper { display: block; }
+  .swiper-container-herro:not(.swiper-container-initialized) .swiper-slide:nth-child(n+2) { display: none; }
+  /* position: absolute normally comes from deferred component-swiper.css; if Swiper
+     initializes first, the injected dots flow in-document and shift the page (CLS).
+     Low-specificity fallback so the dots never participate in layout. */
+  .swiper-container-herro .swiper-pagination { position: absolute; bottom: 10px; left: 0; right: 0; z-index: 10; }
+</style>
 
   <div class="slideshow no-heading">
       <div class="swiper-container swiper-container-herro">
-        <ul class="swiper-wrapper"  style="width: 100vw; padding:0;">
-          {%- liquid
-            assign highest_ratio = 0
-            for block in section.blocks
-              if block.settings.image.aspect_ratio > highest_ratio
-                assign highest_ratio = block.settings.image.aspect_ratio
-                assign highest_ratio_phone = block.settings.image_phone.aspect_ratio
-              endif
-            endfor
-          -%}
+        {%- comment -%} div, not ul: Swiper's a11y module sets role="group" on slides at
+        init, which violates the required children of a list element (axe: list /
+        aria-required-children) {%- endcomment -%}
+        <div class="swiper-wrapper" style="width: 100vw; padding:0;">
+          {%- assign visible_index = 0 -%}
           {%- for block in section.blocks -%}
           	{%- if block.settings.language contains current_locale or block.settings.language == blank -%}
             {%- else -%}
               {%- continue -%}
             {%- endif -%}
-            <li class="swiper-slide">
+            {%- assign visible_index = visible_index | plus: 1 -%}
+            <div class="swiper-slide">
               <a class="link-wrapper" href="{{block.settings.banner_link}}">
               <div class="slideshow-card">
                 {%- if block.settings.image != blank -%}
@@ -27,27 +49,37 @@
                     {% assign spaced_image = true %}
                   {% endif %}
                   {% assign alt = block.settings.image.alt | default: shop.name %}
+                  {%- assign img_desktop = block.settings.image | image_url: width: 1440 -%}
+                  {%- assign img_phone = block.settings.image_phone | image_url: width: 750 -%}
                   <div class="slideshow-card__image-wrapper slideshow-card__image-wrapper--{{ section.settings.image_width }}-width {% if section.settings.image_width != 'full' or spaced_image %} slideshow-card-spacing{% endif %}">
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} small-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
                       {% endif %}>
-                      <img src="{{ block.settings.image | img_url:'master' }}" width="360" height="411" alt="{{ alt | escape }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
+                      {%- if visible_index == 1 -%}
+                        <img src="{{ img_desktop }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" alt="{{ alt | escape }}" loading="eager" fetchpriority="high" decoding="async">
+                      {%- else -%}
+                        <img data-src="{{ img_desktop }}" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}" alt="{{ alt | escape }}" loading="lazy" decoding="async" class="hero-lazy">
+                      {%- endif -%}
                     </div>
                     <div class="media media--transparent media--{{ section.settings.image_ratio }} large-up-hide medium-hide"
                       {% if section.settings.image_ratio == 'adapt' %}
                         style="padding-bottom: {{ 1 | divided_by: highest_ratio_phone | times: 100 }}%;"
-                      {% endif %}>                      
-                      <img src="{{ block.settings.image_phone | image_url: width: 750 }}" width="360" height="411" alt="{{ alt }}" {% if forloop.index > 1 %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>                      
+                      {% endif %}>
+                      {%- if visible_index == 1 -%}
+                        <img src="{{ img_phone }}" width="{{ block.settings.image_phone.width | default: block.settings.image.width }}" height="{{ block.settings.image_phone.height | default: block.settings.image.height }}" alt="{{ alt }}" loading="eager" fetchpriority="high" decoding="async">
+                      {%- else -%}
+                        <img data-src="{{ img_phone }}" width="{{ block.settings.image_phone.width | default: block.settings.image.width }}" height="{{ block.settings.image_phone.height | default: block.settings.image.height }}" alt="{{ alt }}" loading="lazy" decoding="async" class="hero-lazy">
+                      {%- endif -%}
                     </div>
                   </div>
                 {%- endif -%}
 
               </div>
               </a>
-            </li>
+            </div>
           {%- endfor -%}
-        </ul>
+        </div>
         <div class="swiper-pagination"></div>
 
         {%- if section.settings.swipe_on_mobile -%}
@@ -70,17 +102,19 @@
   </div>
 
 <script>
-  function initHeroSwiper() {
-    if (typeof Swiper === 'undefined') {
-      // Swiper is not loaded yet, try again in 50ms
-      setTimeout(initHeroSwiper, 50);
-      return;
+  function loadHeroLazy(slideEl) {
+    if (!slideEl) return;
+    var imgs = slideEl.querySelectorAll('img.hero-lazy[data-src]');
+    for (var i = 0; i < imgs.length; i++) {
+      var img = imgs[i];
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      img.classList.remove('hero-lazy');
     }
+  }
 
-    // Swiper is loaded, now initialize
-    var menu = [];
-
-    const swiperherro = new Swiper('.swiper-container-herro', {
+  function initHeroSwiper() {
+    var swiper = new Swiper('.swiper-container-herro', {
       spaceBetween: 0,
       slidesPerView: 1,
       autoplay: {
@@ -90,18 +124,32 @@
         el: '.swiper-pagination',
         clickable: true,
         renderBullet: function(index, className) {
-          return `<div class="box ` + className + `"></div>`;
+          return '<div class="box ' + className + '"></div>';
         },
       },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-      }
+      },
+      on: {
+        init: function () {
+          var next = this.slides[this.activeIndex + 1];
+          if (next) loadHeroLazy(next);
+        },
+        slideChange: function () {
+          loadHeroLazy(this.slides[this.activeIndex]);
+          var next = this.slides[this.activeIndex + 1];
+          if (next) loadHeroLazy(next);
+        },
+      },
     });
   }
 
-  // Start the initialization
-  initHeroSwiper();
+  if (typeof Swiper !== 'undefined') {
+    initHeroSwiper();
+  } else {
+    document.addEventListener('swiper:ready', initHeroSwiper);
+  }
 </script>
 
 

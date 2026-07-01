@@ -57,45 +57,14 @@
           "disabled": true,
           "settings": {}
         },
-        "share": {
-          "type": "share",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false
           }
         },
-        "cf442759-f444-4b42-9fc6-00597fe88231": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Інформація",
-            "opened_by_default": false,
-            "content": "",
-            "page": "",
-            "liquid": "{{ product.description }}",
-            "enable_more_text": false,
-            "lines": 3,
-            "icon": "none"
-          }
-        },
-        "fb04cf8f-a9cf-4800-9185-a5394e71424e": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Доставка, оплата, примірка",
-            "opened_by_default": false,
-            "content": "<h5><strong>Оплата</strong></h5><ul><li>Онлайн-оплата кредитною або дебетовою карткою <strong>Visa, Mastercard</strong> через сервіс <strong>Plata by MONO</strong>:</li><li>Оплата в концепт-сторі за адресою: <strong>м. Київ, вул. Велика Житомирська, 20</strong></li></ul><h5><strong>Доставка</strong></h5><p><strong>Безкоштовна доставка на замовлення від 5000 грн (за умови повної передплати).</strong></p><ul><li>Доставка здійснюється кур'єрською службою <strong>«Нова Пошта»</strong> до дверей.</li></ul><p><strong>Термін відправлення:</strong> 0-1 робочий день.</p><p><strong>Термін доставки:</strong> 1-2 робочі дні.</p><ul><li>Самовивіз</li></ul><p>Ви можете забрати замовлення самостійно за адресою:</p><p><strong>м. Київ, вул. Велика Житомирська, 20</strong>.</p><ul><li>Доставка таксі по Києву</li></ul><p>Можлива доставка таксі по Києву <strong>за умови повної передплати</strong>.<br/><br/><strong>ПРИМІРКА</strong><br/>Ви маєте можливість примірки обраних вами товарів в нашому магазині за адресою <strong>м. Київ, вул. Велика Житомирська, 20</strong>.</p>",
-            "page": "",
-            "liquid": "{% render 'pickup' %}",
-            "enable_more_text": false,
-            "lines": 3,
-            "icon": "none"
-          }
-        },
-        "description": {
-          "type": "description",
-          "disabled": true,
+        "judge_me_reviews_preview_badge_MHj9Rt": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {}
         },
         "70bbe489-815e-4f89-aaee-8f79b7917887": {
@@ -110,6 +79,36 @@
             "lines": 3,
             "icon": "none"
           }
+        },
+        "cf442759-f444-4b42-9fc6-00597fe88231": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Інформація",
+            "opened_by_default": true,
+            "content": "",
+            "page": "",
+            "liquid": "{{ product.description }}",
+            "enable_more_text": false,
+            "lines": 3,
+            "icon": "none"
+          }
+        },
+        "fb04cf8f-a9cf-4800-9185-a5394e71424e": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Доставка, оплата, примірка",
+            "opened_by_default": false,
+            "content": "<h5><strong>Оплата</strong></h5><ul><li>Visa</li><li>Mastercard</li><li>LiqPay</li><li>Plata by MONO</li><li>Оплата частинами від ПриватБанку</li><li>Оплата частинами від Monobank</li><li>Післяплата  </li></ul><h5><strong>Доставка</strong></h5><ul><li>Безкоштовна доставка на замовлення від 5000 грн (за умови повної передплати).</li><li>Нова Пошта</li><li>Укр Пошта</li><li>Термін відправлення: 0-1 робочий день.</li><li>Термін доставки: 1-2 робочі дні.</li><li>Самовивіз - ви можете забрати замовлення самостійно за адресою:м. Київ, вул. Велика Житомирська, 20.</li><li>Доставка таксі по Києву за умови повної передплати.</li></ul><h5><strong>ПРИМІРКА</strong></h5><p>Ви маєте можливість примірки обраних вами товарів в нашому магазині за адресою м. Київ, вул. Велика Житомирська, 20. або у поштовому відділені.</p>",
+            "page": "",
+            "liquid": "{% render 'pickup' %}",
+            "enable_more_text": false,
+            "lines": 3,
+            "icon": "none"
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
         }
       },
       "block_order": [
@@ -121,17 +120,23 @@
         "collapsible_size_guide_tdyqry",
         "58772005-ffce-40ba-8987-901c185f3569",
         "quantity_selector",
-        "share",
         "buy_buttons",
+        "judge_me_reviews_preview_badge_MHj9Rt",
+        "70bbe489-815e-4f89-aaee-8f79b7917887",
         "cf442759-f444-4b42-9fc6-00597fe88231",
         "fb04cf8f-a9cf-4800-9185-a5394e71424e",
-        "description",
-        "70bbe489-815e-4f89-aaee-8f79b7917887"
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
         "enable_video_looping": false,
         "enable_size_model": true
+      }
+    },
+    "177729883021f6e748": {
+      "type": "apps",
+      "settings": {
+        "include_margins": false
       }
     },
     "recommnded_products_6nWBpp": {
@@ -225,6 +230,7 @@
     },
     "recommendation_slider_YPywew": {
       "type": "recommendation-slider",
+      "disabled": true,
       "settings": {
         "title": "ВАМ МОЖЕ СПОДОБАТИСЬ{{ product.metafields[\"shopify--discovery--product_recommendation\"].related_products_display.value }}",
         "image_ratio": "adapt",
@@ -234,15 +240,78 @@
         "show_arrow": true,
         "brand_collection": true
       }
+    },
+    "17741238576637f8ce": {
+      "type": "apps",
+      "blocks": {
+        "gsc_instagram_feed_instafeed_C4WUCt": {
+          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
+          "settings": {
+            "widget_id": "GSC-kwUogsNgjcBVumq"
+          }
+        }
+      },
+      "block_order": [
+        "gsc_instagram_feed_instafeed_C4WUCt"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "177676567162c92def": {
+      "type": "apps",
+      "blocks": {
+        "ultimate_recently_viewed_recently_viewed_AaGpgc": {
+          "type": "shopify://apps/ultimate-recently-viewed/blocks/recently-viewed/b33bd8dd-4a93-43a7-b989-694e289aa9e8",
+          "settings": {
+            "headline": "Нещодавно переглянуті товари",
+            "product_title_enabled": true,
+            "product_price_enabled": true,
+            "product_type_enabled": false,
+            "product_vendor_enabled": true,
+            "quick_add_button_enabled": false
+          }
+        }
+      },
+      "block_order": [
+        "ultimate_recently_viewed_recently_viewed_AaGpgc"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "1779438322e4599193": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_tXtDKE": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "real_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_tXtDKE"
+      ],
+      "settings": {
+        "include_margins": false
+      }
     }
   },
   "order": [
     "main",
+    "177729883021f6e748",
     "recommnded_products_6nWBpp",
     "16323088197825d104",
     "recommnded_products_9YHPDM",
     "product-recommendations",
     "1627050417092b6041",
-    "recommendation_slider_YPywew"
+    "recommendation_slider_YPywew",
+    "17741238576637f8ce",
+    "177676567162c92def",
+    "1779438322e4599193"
   ]
 }

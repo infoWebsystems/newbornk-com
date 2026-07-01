@@ -1,14 +1,32 @@
-<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'component-badge.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'" />
-<link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'" />
+{% comment %} On the homepage this section is above the fold: its CSS must apply at first
+paint or the cards/title take their final geometry late and shift the layout (CLS).
+Elsewhere (e.g. product pages) the section is below the fold and deferred loading wins. {% endcomment %}
+{%- if request.page_type == 'index' -%}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+  {{ 'component-badge.css' | asset_url | stylesheet_tag }}
+  {{ 'template-collection.css' | asset_url | stylesheet_tag }}
+  {{ 'component-card.css' | asset_url | stylesheet_tag }}
+  {{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'component-badge.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'" />
+{%- endif -%}
+<style>
+  .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-wrapper { display: flex; overflow: hidden; }
+  .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / {{ section.settings.products_to_show | default: 7 }}); }
+  @media (max-width: 639px) { .swiper-container-collection.section-{{section.id}}:not(.swiper-container-initialized) .swiper-slide { flex: 0 0 calc(100% / {{ section.settings.products_to_show_mobile | default: 2 }}); } }
+</style>
 
-<noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
+{%- unless request.page_type == 'index' -%}
+  <noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'component-card.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'section-collection-slider.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endunless -%}
 
 {%- assign products = section.settings.collection.products -%}
 {%- assign title = section.settings.title | escape -%}
@@ -65,7 +83,7 @@
   <div class="collection handle-{{handle}} page-width{% if section.settings.swipe_on_mobile == true and section.settings.collection.all_products_count > 2 and section.settings.products_to_show > 2 and false %} page-width-desktop{% endif %} page-width-full">
     <div class="{% if section.settings.show_view_all and section.settings.swipe_on_mobile %}title-wrapper-with-link{% endif %}{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if section.settings.collection.all_products_count > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %}">
       <h2 class="title{% if title == blank %} title--no-heading{% endif %}">
-        <a href="{{ url }}">{% if section.settings.show_text == 'true' %} {{ 'templates.collection.slider.title' | t }}{% endif %}  {{ title }}
+        <a href="{{ url }}">{% if section.settings.show_text %} {{ 'templates.collection.slider.title' | t }}{% endif %}  {{ title }}
           {%- if section.settings.show_arrow %}{% render 'icon-caret' %} {% endif %}
         </a>
       </h2>
@@ -84,9 +102,12 @@
     %}
 
     <div class="swiper-container swiper-container-collection section-{{section.id}}" >
-      <ul class="swiper-wrapper" role="list" >
+      {%- comment -%} div, not ul[role=list]: Swiper's a11y module sets role="group" on
+      slides at init, which violates the required children of a list (axe:
+      aria-required-children) {%- endcomment -%}
+      <div class="swiper-wrapper">
         {%- for product in new_products -%}
-          <li class="swiper-slide">
+          <div class="swiper-slide">
                 {% render 'product-card',
                     product_card_product: product,
                     media_size: section.settings.image_ratio,
@@ -95,15 +116,15 @@
                     show_vendor: section.settings.show_vendor,
                     show_info: true
             %}
-          </li>
+          </div>
         {%- else -%}
           {%- for i in (1..4) -%}
-            <li class="grid__item">
+            <div class="grid__item">
               {% render 'product-card-placeholder' %}
-            </li>
+            </div>
           {%- endfor -%}
         {%- endfor -%}
-      </ul>
+      </div>
     </div>
 
     {%- if section.settings.show_view_all and section.settings.collection.all_products_count > section.settings.products_to_show -%}
@@ -149,16 +170,13 @@
         },
         breakpoints: {
           320: {
-            slidesPerView: {{ product_show_mobile }},
-            spaceBetween: 20
+            slidesPerView: {{ product_show_mobile }}
           },
           480: {
-            slidesPerView: {{ product_show_mobile }},
-            spaceBetween: 30
+            slidesPerView: {{ product_show_mobile }}
           },
           640: {
-            slidesPerView: {{ product_show }},
-            spaceBetween: 15
+            slidesPerView: {{ product_show }}
           }
         }
       });

@@ -1,3 +1,14 @@
+.collection-slider {
+  overflow-x: hidden;
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .collection-slider {
+    margin-top: 5rem;
+  }
+}
+
 .collection-slider .collection.page-width {
   /*padding-right: 0;  */
 }
@@ -8,8 +19,23 @@
   font-size: 1.3rem;
 }
 .swiper-container-collection {
-  overflow: visible;
+  overflow: hidden;
 }
+
+/* Keep h3.title same visual size as h2 */
+.collection-slider h3.title {
+  font-size: 2rem;
+}
+@media only screen and (min-width: 750px) {
+  .collection-slider h3.title {
+    font-size: 2.4rem;
+  }
+}
+.collection-slider h3.title a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .collection-slider .title .icon-caret {
   width: 18px;
   height: 11px;
@@ -18,4 +44,20 @@
           transform: rotate(270deg);
 /*   margin-left: -3px; */
   margin-bottom: 3px;
+}
+
+/* Тільки для ES Recommendations слайдера */
+.es-productsSlider .swiper-slide {
+  margin-right: 8px !important;
+}
+
+/* Тільки для власних слайдерів теми */
+.swiper-container-collection:not(.es-productsSlider) .swiper-slide {
+  margin-right: 8px !important;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-slider .collection .title {
+    margin-top: 3rem;
+  }
 }

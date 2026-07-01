@@ -20,12 +20,12 @@
     "pluginseo_pageTitleCollectionTemplate": "%% current_tags || join: ', ' || append_not_empty: ' ' %% %% collection.title || escape %% купити в Україні",
     "pluginseo_pageTitleCatalogTemplate": "%% current_tags || join: ', ' || append_not_empty: ' ' %% %% collection.title || escape %% купити в Україні",
     "pluginseo_pageTitle404Template": "404: Сторінку не знайдено - %% shop.name %%",
-    "pluginseo_metaDescriptionTemplateApplyToAll": true,
-    "pluginseo_metaDescriptionTruncateEnableForCollections": true,
-    "pluginseo_metaDescriptionTruncateEnableForProducts": true,
-    "pluginseo_metaDescriptionTruncateEnableForPages": true,
-    "pluginseo_metaDescriptionTruncateEnableForArticles": true,
-    "pluginseo_metaDescriptionTruncateEnableForBlogs": true,
+    "pluginseo_metaDescriptionTemplateApplyToAll": false,
+    "pluginseo_metaDescriptionTruncateEnableForCollections": false,
+    "pluginseo_metaDescriptionTruncateEnableForProducts": false,
+    "pluginseo_metaDescriptionTruncateEnableForPages": false,
+    "pluginseo_metaDescriptionTruncateEnableForArticles": false,
+    "pluginseo_metaDescriptionTruncateEnableForBlogs": false,
     "pluginseo_metaDescriptionProductTemplate": "%% product.title %%%% product.selected_variant.title || prepend_not_empty: ' ' %%. ❰❰NEWBORN K❱❱ Краща ціна. Тільки орігінал! Досконала якість! 📦 Доставка по Україні 💫Даруйте собі впевненість з нашими речами!",
     "pluginseo_metaDescriptionCollectionTemplate": "Купити %% current_tags || join: ', ' || append_not_empty: ' ' %%%% collection.title || escape %%. ❰❰NEWBORN K❱❱. Видатні дизайнери світу та України. Досконала якість! 📦 Доставка по Україні 💫Даруйте собі впевненість з нашими речами!",
     "pluginseo_metaDescription404Template": "Сторінку, яку ви запитували, неможливо знайти, відвідайте %% shop.domain %% замість цього",
@@ -46,13 +46,28 @@
     "url_move_main": "/",
     "text_move_main": "ГОЛОВНИЙ САЙТ",
     "array_collection_handle_show_gender": "['novi-nadkhodzhennia', 'sale', 'sale-choloviche', 'sale-women', 'new-choloviche', 'new-women']",
+    "share_twitter": false,
+    "share_pinterest": false,
+    "social_facebook_link": "https://www.facebook.com/newbornk.kyiv",
+    "social_instagram_link": "https://www.instagram.com/newborn.kyiv/",
+    "social_youtube_link": "https://www.youtube.com/@NEWBORNKYIV",
     "show_wishlist": true,
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
         "blocks": {
+          "announcement_mCNCxN": {
+            "type": "announcement",
+            "settings": {
+              "text": "НОВІ НАДХОДЖЕННЯ",
+              "color_scheme": "accent-2",
+              "text_color": "#000000",
+              "link": "https://newbornk.com/collections/novi-nadkhodzhennia"
+            }
+          },
           "announcement-bar-0": {
             "type": "announcement",
+            "disabled": true,
             "settings": {
               "text": "Безкоштовна доставка*",
               "color_scheme": "accent-2",
@@ -62,6 +77,7 @@
           }
         },
         "block_order": [
+          "announcement_mCNCxN",
           "announcement-bar-0"
         ],
         "settings": {}
@@ -167,7 +183,7 @@
       "popup-cart-discount": {
         "type": "popup-cart-discount",
         "settings": {
-          "show_popup-discount": true,
+          "show_popup_discount": true,
           "title": "Дякуємо що скористалися промо-кодом!",
           "text": "Ваша знижка буде автоматично додана в кошику при оформленні замовлення.",
           "logo": "shopify://shop_images/newborn_logo_8fba7af7-24f9-4e70-9254-ba4ccc505c99.png"
@@ -195,11 +211,6 @@
           "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!"
         }
       },
-      "5269207691391943459": {
-        "type": "shopify://apps/gtm-data-layer/blocks/gropulse-gtm/ec1066b4-8b00-4630-a216-c88f51204a28",
-        "disabled": false,
-        "settings": {}
-      },
       "11560147490181472608": {
         "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
         "disabled": true,
@@ -215,23 +226,13 @@
         "disabled": false,
         "settings": {}
       },
-      "0220609880488367148": {
-        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
-        "disabled": false,
-        "settings": {}
-      },
-      "2200952712151285029": {
-        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
-        "disabled": false,
-        "settings": {}
-      },
-      "2567389343055140935": {
-        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
-        "disabled": false,
-        "settings": {}
-      },
       "8171638733228588981": {
         "type": "shopify://apps/yespo-email-push-pop-ups/blocks/yespo-script/f213aede-9d49-4b7f-9581-dda8da00952a",
+        "disabled": false,
+        "settings": {}
+      },
+      "13305437469741356523": {
+        "type": "shopify://apps/gsc-instagram-feed/blocks/embed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
         "disabled": false,
         "settings": {}
       },
@@ -245,7 +246,66 @@
           "extraHTMLToAppend": "<style>\n\n.product-recommendations .wishlisthero-floating {\n    right: 20px !important;\n    top: 20px !important;\n}\n\n</style>\n\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/arrive/2.4.1/arrive.min.js\"></script>\n<script type=\"text/javascript\">\n document.arrive(\".wishlist-hero-custom-button\", function (wishlistButton) {\n    var ev = new CustomEvent(\"wishlist-hero-add-to-custom-element\", {\n      detail: wishlistButton,\n    });\n    document.dispatchEvent(ev);\n  });\n</script>",
           "disableAutomaticButtonAddition": false
         }
+      },
+      "6159598353363395418": {
+        "type": "shopify://apps/google-youtube/blocks/store_widget/14ec7bd0-ac77-49a9-9417-90752398bdff",
+        "disabled": true,
+        "settings": {
+          "widget_position": "LEFT_BOTTOM",
+          "side_margin": 36,
+          "bottom_margin": 36,
+          "mobile_side_margin": 16,
+          "mobile_bottom_margin": 46
+        }
+      },
+      "5269207691391943459": {
+        "type": "shopify://apps/gtm-data-layer/blocks/gropulse-gtm/ec1066b4-8b00-4630-a216-c88f51204a28",
+        "disabled": true,
+        "settings": {}
+      },
+      "12108174171315376258": {
+        "type": "shopify://apps/aov-ai-cart-drawer/blocks/avada-embed/938869e1-3feb-48fa-ab79-27fdfe609836",
+        "disabled": false,
+        "settings": {}
+      },
+      "7800736727063894098": {
+        "type": "shopify://apps/rez-preorder-notify-me/blocks/rez/0da60196-81b6-4270-afac-c9294e1641ba",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": true,
+        "settings": {}
+      },
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": true,
+        "settings": {}
+      },
+      "14060646107696862457": {
+        "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": true,
+        "settings": {}
+      },
+      "9664103760669878543": {
+        "type": "shopify://apps/avada-seo-ai-blog/blocks/avada-seoon-setting/a45c3e67-be9f-4255-a194-b255a24f37c9",
+        "disabled": true,
+        "settings": {}
+      },
+      "0220609880488367148": {
+        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
+        "disabled": true,
+        "settings": {}
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".product-form__inputs-inputs .disabled-label {text-decoration: line-through; pointer-events: none; color: #c5c5c5 !important; border-color: #c5c5c5 !important;}",
+      ".shopify-block-ultimate-recently-viewed {padding: 0 2.5rem;}",
+      ".shopify-block-ultimate-recently-viewed {padding: 0 2.5rem;}",
+      "@media only screen and (max-width: 749px) {.price {font-size: 16px; } .price--on-sale .price__sale {font-size: 16px; }}"
+    ]
   }
 }

@@ -1,8 +1,14 @@
-<link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
-
-<noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
-<noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+{% comment %} Above the fold on the homepage: load render-blocking there so text takes its
+final geometry at first paint (CLS); keep deferred loading on other pages. {% endcomment %}
+{%- if request.page_type == 'index' -%}
+  {{ 'component-rte.css' | asset_url | stylesheet_tag }}
+  {{ 'section-rich-text.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+  <link rel="stylesheet" href="{{ 'component-rte.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'section-rich-text.css' | asset_url }}" media="print" onload="this.media='all'">
+  <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
+  <noscript>{{ 'section-rich-text.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}
 {% liquid
   assign align = ''
 

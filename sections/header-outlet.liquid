@@ -637,7 +637,7 @@
     {%- if request.page_type == 'index' -%}
         <h1 class="header__heading"> <span style="display: none">{{ shop.name }}</span>
             {%- endif -%}
-            <a href="{{ routes.shop_url }}/pages/outlet" class="header__heading-link link link--text focus-inset">
+            <a href="{{ routes.shop_url }}/pages/outlet" class="header__heading-link link link--text focus-inset" aria-label="{{ shop.name | escape }} Outlet">
                 {%- if section.settings.logo != blank -%}
                     {%- assign image_size = section.settings.logo_width | append: 'x' -%}
                     <!--img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
@@ -755,7 +755,7 @@
             </style>
             {% if settings.show_wishlist == true %}
                 {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
-                <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset">
+                <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset" aria-label="{{ 'wishlist.header_link' | t }}">
                     <span class="visually-hidden">{{ 'wishlist.header_link' | t }}</span>
                     {% render 'icon-wishlist' %}
                 </a>
@@ -872,6 +872,9 @@
       </details-modal-->
 
             {%- endif -%}
+
+            {%- comment -%} eSputnik App Inbox host — widget (bell) is injected here client-side; selector #app-inbox {%- endcomment -%}
+            <div id="app-inbox" class="header__icon header__icon--app-inbox"></div>
 
             {%- if shop.customer_accounts_enabled -%}
                 <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset">
@@ -1064,9 +1067,9 @@ customElements.define('localization-form-header', LocalizationFormHeader);
      }); 
 </script>
 
-<script type="application/ld+json">
+{% comment %} <script type="application/ld+json">
   {
-    "@context": "http://schema.org",
+    "@context": "https://schema.org",
     "@type": "Organization",
     "name": {{ shop.name | json }},
     {% if section.settings.logo %}
@@ -1085,13 +1088,13 @@ customElements.define('localization-form-header', LocalizationFormHeader);
     ],
     "url": {{ shop.url | append: page.url | json }}
   }
-</script>
+</script> {% endcomment %}
 
-{%- if request.page_type == 'index' -%}
+{% comment %} {%- if request.page_type == 'index' -%}
     {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
     <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "WebSite",
       "name": {{ shop.name | json }},
       "potentialAction": {
@@ -1102,7 +1105,7 @@ customElements.define('localization-form-header', LocalizationFormHeader);
       "url": {{ shop.url | append: page.url | json }}
     }
   </script>
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 

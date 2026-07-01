@@ -28,22 +28,39 @@
         "content": {
           "type": "content",
           "settings": {}
-        },
-        "social_sharing": {
-          "type": "social_sharing",
-          "settings": {}
         }
       },
       "block_order": [
         "featured_image",
         "title",
-        "content",
-        "social_sharing"
+        "content"
       ],
-      "settings": {}
+      "settings": {
+        "product_collection": "",
+        "products_heading": "Доступно в NEWBORN K",
+        "products_limit": 8,
+        "show_vendor": true,
+        "show_view_all": true,
+        "view_all_label": "Переглянути все"
+      }
+    },
+    "blog_product_slider_HjmnxN": {
+      "type": "blog-product-slider",
+      "name": "Blog product slider",
+      "settings": {
+        "heading": "Речі бренду A-COLD-WALL*",
+        "collection": "a-cold-wall",
+        "products_limit": 10,
+        "show_vendor": true,
+        "show_view_all": false,
+        "view_all_label": "Переглянути все",
+        "margin_top": 48,
+        "margin_bottom": 48
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "blog_product_slider_HjmnxN"
   ]
 }

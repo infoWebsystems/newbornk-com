@@ -612,6 +612,56 @@ h6:empty {
   display: none;
 }
 
+/* eSputnik App Inbox — matches eSputnik's integration spec verbatim:
+   #app-inbox is kept displayed with z-index: 4 (position:relative so z-index
+   applies), and the widget's own host (.js-pull-notification-host-element) is
+   forced visible because the :empty rule above would otherwise hide it.
+   We intentionally do NOT use display:none on the empty host — an inspector
+   would read that as "z-index:4 not applied". Instead, while the bell is not
+   injected yet, a negative margin cancels the .header__icons flex `gap` so the
+   empty host adds no space between the header icons, without hiding it. Once the
+   bell is injected the host is non-empty, the margin drops, and it aligns
+   normally with the sibling icons. */
+#app-inbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  position: relative;
+  z-index: 4;
+}
+
+#app-inbox:empty {
+  margin-left: -15px;
+}
+
+/* Normalise the injected bell button to the same 4.4rem-tall, centred box as the
+   sibling header icons (.header__icon), so it sits on the same vertical line and
+   can't appear higher/lower than them. eSputnik's call-button host renders ~34px
+   tall by default, which misaligned it against the theme's 4.4rem icon boxes. */
+#app-inbox .js-pull-notification-call-button-host-element {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 4.4rem !important;
+}
+
+.js-pull-notification-host-element {
+  display: block !important;
+  position: relative;
+  z-index: 4;
+}
+
+/* Mobile header (<= 749px) has no flex gap and hand-positions each icon with
+   per-icon left offsets, so the injected bell lands at its flow position and
+   overlaps the account icon. Shift it left into the free gap between the
+   wishlist and account icons so it no longer overlaps. */
+@media (max-width: 749px) {
+  #app-inbox {
+    left: -38px;
+  }
+}
+
 .link,
 .customer a {
   cursor: pointer;
@@ -2551,25 +2601,9 @@ details-disclosure > details {
 }
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-BlackItalic.eot');
-  src: local('Formular Black Italic'), local('Formular-BlackItalic'),
-      url('Formular-BlackItalic.eot?#iefix') format('embedded-opentype'),
-      url('Formular-BlackItalic.woff2') format('woff2'),
-      url('Formular-BlackItalic.woff') format('woff'),
-      url('Formular-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Formular';
-  src: url('Formular-MediumItalic.eot');
   src: local('Formular Medium Italic'), local('Formular-MediumItalic'),
-      url('Formular-MediumItalic.eot?#iefix') format('embedded-opentype'),
       url('Formular-MediumItalic.woff2') format('woff2'),
-      url('Formular-MediumItalic.woff') format('woff'),
-      url('Formular-MediumItalic.ttf') format('truetype');
+      url('Formular-MediumItalic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -2577,12 +2611,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-Italic.eot');
   src: local('Formular Italic'), local('Formular-Italic'),
-      url('Formular-Italic.eot?#iefix') format('embedded-opentype'),
       url('Formular-Italic.woff2') format('woff2'),
-      url('Formular-Italic.woff') format('woff'),
-      url('Formular-Italic.ttf') format('truetype');
+      url('Formular-Italic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -2590,12 +2621,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-LightItalic.eot');
   src: local('Formular Light Italic'), local('Formular-LightItalic'),
-      url('Formular-LightItalic.eot?#iefix') format('embedded-opentype'),
       url('Formular-LightItalic.woff2') format('woff2'),
-      url('Formular-LightItalic.woff') format('woff'),
-      url('Formular-LightItalic.ttf') format('truetype');
+      url('Formular-LightItalic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -2603,25 +2631,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-Black.eot');
-  src: local('Formular Black'), local('Formular-Black'),
-      url('Formular-Black.eot?#iefix') format('embedded-opentype'),
-      url('Formular-Black.woff2') format('woff2'),
-      url('Formular-Black.woff') format('woff'),
-      url('Formular-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Formular';
-  src: url('Formular-Light.eot');
   src: local('Formular Light'), local('Formular-Light'),
-      url('Formular-Light.eot?#iefix') format('embedded-opentype'),
       url('Formular-Light.woff2') format('woff2'),
-      url('Formular-Light.woff') format('woff'),
-      url('Formular-Light.ttf') format('truetype');
+      url('Formular-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -2629,12 +2641,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular.eot');
   src: local('Formular'),
-      url('Formular.eot?#iefix') format('embedded-opentype'),
       url('Formular.woff2') format('woff2'),
-      url('Formular.woff') format('woff'),
-      url('Formular.ttf') format('truetype');
+      url('Formular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -2642,12 +2651,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-Medium.eot');
   src: local('Formular Medium'), local('Formular-Medium'),
-      url('Formular-Medium.eot?#iefix') format('embedded-opentype'),
       url('Formular-Medium.woff2') format('woff2'),
-      url('Formular-Medium.woff') format('woff'),
-      url('Formular-Medium.ttf') format('truetype');
+      url('Formular-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -2655,12 +2661,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-BoldItalic.eot');
   src: local('Formular Bold Italic'), local('Formular-BoldItalic'),
-      url('Formular-BoldItalic.eot?#iefix') format('embedded-opentype'),
       url('Formular-BoldItalic.woff2') format('woff2'),
-      url('Formular-BoldItalic.woff') format('woff'),
-      url('Formular-BoldItalic.ttf') format('truetype');
+      url('Formular-BoldItalic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -2668,12 +2671,9 @@ details-disclosure > details {
 
 @font-face {
   font-family: 'Formular';
-  src: url('Formular-Bold.eot');
   src: local('Formular Bold'), local('Formular-Bold'),
-      url('Formular-Bold.eot?#iefix') format('embedded-opentype'),
       url('Formular-Bold.woff2') format('woff2'),
-      url('Formular-Bold.woff') format('woff'),
-      url('Formular-Bold.ttf') format('truetype');
+      url('Formular-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -2779,7 +2779,7 @@ div.product-bage-last-size {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    height: 36px;
+    height: 20px;
     width: auto;
     z-index: 1;
 }
@@ -2843,4 +2843,44 @@ a.__ADORIC__1.__ADORIC__[target="_blank"] {
 }
 .shopify-payment-button__button {
   color: transparent;
+}
+
+/* Global section-spacing and table overrides (moved from wss.css, which loaded site-wide) */
+.spaced-section--full-width:first-child {
+  margin-top: 0 !important;
+}
+
+.spaced-section {
+  margin-top: 3rem !important;
+}
+
+.spaced-section:last-child {
+  margin-bottom: 3rem !important;
+}
+
+.collection-slider .collection .title {
+  margin-top: 2rem !important;
+}
+
+.rte table td {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+@media screen and (max-width: 749px) {
+  table {
+    width: 100% !important;
+  }
+
+  .spaced-section--full-width:first-child {
+    margin-top: 0 !important;
+  }
+
+  .spaced-section {
+    margin-top: 2rem !important;
+  }
+
+  .spaced-section:last-child {
+    margin-bottom: 1rem !important;
+  }
 }

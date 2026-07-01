@@ -1,0 +1,7 @@
+# Lighthouse run artifacts
+lh-*.json
+lighthouse-*.json
+report.html
+
+# OS
+.DS_Store

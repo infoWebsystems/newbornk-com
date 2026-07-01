@@ -4,11 +4,8 @@
 <link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'section-collection-slider.css' | asset_url }}" media="print" onload="this.media='all'">
 
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-  media="print" onload="this.media='all'"
-/>
+<link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
 
 <noscript>{{ 'component-price.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'component-badge.css' | asset_url | stylesheet_tag }}</noscript>
@@ -64,17 +61,9 @@
   
 </style>
 
-  <script src="{{ 'swiper.js' | asset_url }}"></script>
-
-  <script type="text/javascript" defer>
+  <script>
     function initCollectionSwiper() {
-      if (typeof Swiper === 'undefined') {
-        // Swiper not loaded yet, check again shortly
-        setTimeout(initCollectionSwiper, 50);
-        return;
-      }
-
-      const swiper = new Swiper('.swiper-container-collection.section-{{section.id}}', {
+      new Swiper('.swiper-container-collection.section-{{section.id}}', {
         slidesPerView: 7,
         speed: 1200,
         centeredSlides: false,
@@ -106,8 +95,11 @@
       });
     }
 
-    // Start checking for Swiper
-    initCollectionSwiper();
+    if (typeof Swiper !== 'undefined') {
+      initCollectionSwiper();
+    } else {
+      document.addEventListener('swiper:ready', initCollectionSwiper);
+    }
   </script>
 
 {% schema %}

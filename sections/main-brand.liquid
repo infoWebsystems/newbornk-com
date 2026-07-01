@@ -3,6 +3,13 @@
 {{ 'component-collection-grid-trm.css' | asset_url | stylesheet_tag }}
 {{ 'section-brand.css' | asset_url | stylesheet_tag }}
 
+<div class="collection-hero">
+  <div class="collection-hero__inner page-width">
+    <div class="collection-hero__text-wrapper">
+      <h1 class="collection-hero__title h1">{{ collection.title }}</h1>
+    </div>
+  </div>
+</div>
 
 <div class="collection-filters page-width collection-brands-list" >
   {%- if section.settings.enable_filtering -%}
@@ -110,7 +117,6 @@
                                 <a class="brand-title">{{ vendor_handle }}</a>
                               {%- endif -%}
                             </p>
-                            </br>
                             {% assign alfabeta = alfabeta_next %}
                         {% else %}
                             <p class="brand-next-title {{ vendor_handle }}">

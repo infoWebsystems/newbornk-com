@@ -665,9 +665,9 @@
     {%- endif -%}
 
     {%- if request.page_type == 'index' -%}
-    <h1 class="header__heading"> <span style="display: none">{{ shop.name }}</span>
+    <div class="header__heading"> <span style="display: none">{{ shop.name }}</span>
     {%- endif -%}
-        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="{{ shop.name | escape }}">
           {%- if section.settings.logo != blank -%}
             {%- assign image_size = section.settings.logo_width | append: 'x' -%}
             <!--img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
@@ -685,11 +685,10 @@
           {%- endif -%}
         </a>
     {%- if request.page_type == 'index' -%}
-      </h1>
+    </div>
     {%- endif -%}
 
     {%- if section.settings.menu != blank -%}
-      {% comment %}{% render 'header-menu-dropdown' %}{% endcomment %}
       <nav class="header__inline-menu" {%- if section.settings.menu_position == 'center' -%} style="margin: auto;"  {%- endif -%}>
         <ul class="list-menu list-menu--inline" role="list">
           {%- for link in section.settings.menu.links -%}
@@ -787,7 +786,9 @@
 
       {% if settings.show_wishlist == true %}
         {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
-        <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset">
+        {%- comment -%} aria-label on the link itself: the Wishlist Hero app replaces this
+        link's innerHTML at runtime, dropping the visually-hidden span {%- endcomment -%}
+        <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset" aria-label="{{ 'wishlist.header_link' | t }}">
           <span class="visually-hidden">{{ 'wishlist.header_link' | t }}</span>
           {% render 'icon-wishlist' %}
         </a>
@@ -905,9 +906,12 @@
 
      {%- endif -%}
 
+      {%- comment -%} eSputnik App Inbox host — widget (bell) is injected here client-side; selector #app-inbox {%- endcomment -%}
+      <div id="app-inbox" class="header__icon header__icon--app-inbox"></div>
+
       {%- if shop.customer_accounts_enabled -%}
-        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset">
-         {% render 'icon-account' %}          
+        <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset" aria-label="{{ 'customer.account_fallback' | t }}">
+         {% render 'icon-account' %}
         </a>
       {%- endif -%}
 
@@ -1058,6 +1062,31 @@ twq('config','opld2');
 {% endjavascript %}
 
 <script>
+  function moveLangMobile() {
+    const parent = document.querySelector('.menu-drawer__navigation');
+    const item = document.querySelector('.header__icon--localization');
+    const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+    if (viewport_width < 990 && parent && item) {
+      parent.insertBefore(item, parent.children[0]);
+    }
+  }
+
+  function setActiveMobileMenu() {
+    if (window.screen.width >= 992) return;
+    const activeMenu = document.querySelector('.menu-drawer__menu .menu-drawer__menu-item--active');
+    if (activeMenu) {
+      activeMenu.parentNode.setAttribute('open', '');
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    moveLangMobile();
+    setActiveMobileMenu();
+  });
+</script>
+
+{% comment %} <script>
  function moveLangMobile(){
   //move lang on mobile
   const parent = document.querySelector('.menu-drawer__navigation');
@@ -1081,50 +1110,15 @@ twq('config','opld2');
    moveLangMobile();
    setActiveMobileMenu();
   }); 
-</script>
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": "{{ shop.name }}",
-    "url": "{{ shop.url }}",
-    {% if shop.brand.logo != blank %}
-      "logo": "{{ shop.brand.logo | img_url: "master" }}",
-    {% endif %}
-    "sameAs": [
-      "{{ settings.social_twitter_link }}",
-      "{{ settings.social_facebook_link }}",
-      "{{ settings.social_pinterest_link }}",
-      "{{ settings.social_instagram_link }}",
-      "{{ settings.social_tumblr_link }}",
-      "{{ settings.social_snapchat_link }}",
-      "{{ settings.social_youtube_link }}",
-      "{{ settings.social_vimeo_link }}"
-    ],
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "{{ shop.phone }}",
-        "contactType": "customer service",
-        "email": "{{ shop.email }}"
-      },
-    "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "{{ shop.address.street }}",
-        "addressLocality": "{{ shop.address.city }}",
-        "addressRegion": "{{ shop.address.province }}",
-        "postalCode": "{{ shop.address.zip }}",
-        "addressCountry": "{{ shop.address.country }}"
-      }
-  }
-</script>
+</script> {% endcomment %}
 
 
-{%- if request.page_type == 'index' -%}
+
+{% comment %} {%- if request.page_type == 'index' -%}
   {% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}&type=product" %}
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "WebSite",
       "name": {{ shop.name | json }},
       "potentialAction": {
@@ -1135,7 +1129,7 @@ twq('config','opld2');
       "url": {{ shop.url | append: page.url | json }}
     }
   </script>
-{%- endif -%}
+{%- endif -%} {% endcomment %}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
