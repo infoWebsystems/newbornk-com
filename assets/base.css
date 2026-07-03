@@ -653,15 +653,13 @@ h6:empty {
 }
 
 /* On the cramped mobile header (<= 749px: no flex gap, icons hand-positioned with
-   per-icon `left` offsets), the injected bell sits ~1px from the wishlist icon and
-   is overlapped by its "32" count badge. Nudge #app-inbox left so it sits balanced
-   (~3px each side) between the wishlist badge and the account icon. The theme's
-   offsets are fixed px, so this spacing stays constant across mobile widths.
-   Above 749px the header switches to a normal flex gap and the bell already sits
-   cleanly (verified at 820px), so no rule is needed there. */
+   per-icon `left` offsets), the bell now sits first (left of the wishlist icon).
+   Nudge #app-inbox left so it clears the wishlist by a few px. The theme's offsets
+   are fixed px, so this spacing stays constant across mobile widths. Above 749px
+   the header switches to a normal flex gap and the bell already sits cleanly. */
 @media (max-width: 749px) {
   #app-inbox {
-    left: -31px;
+    left: -42px;
   }
 }
 
