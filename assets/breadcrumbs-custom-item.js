@@ -63,11 +63,19 @@
         breadcrumbsList.insertBefore(newItem, breadcrumbsList.children[1]);
       }
 
-      var jsonLDElement = document.querySelector('script[type="application/ld+json"][data-desc="seo-breadcrumb-list"]');
+      var jsonLDElement = document.querySelector('script[type="application/ld+json"][data-desc="jsonld-graph"]');
       if (jsonLDElement) {
         try {
           var jsonData = JSON.parse(jsonLDElement.textContent);
-          if (jsonData['@type'] === 'BreadcrumbList' && Array.isArray(jsonData.itemListElement)) {
+          var breadcrumb = null;
+          if (jsonData['@type'] === 'BreadcrumbList') {
+            breadcrumb = jsonData;
+          } else if (Array.isArray(jsonData['@graph'])) {
+            breadcrumb = jsonData['@graph'].find(function (node) {
+              return node && node['@type'] === 'BreadcrumbList';
+            });
+          }
+          if (breadcrumb && Array.isArray(breadcrumb.itemListElement)) {
             var collectionItem = {
               '@type': 'ListItem',
               position: 2,
@@ -76,10 +84,10 @@
                 name: title,
               },
             };
-            if (jsonData.itemListElement[1]) {
-              jsonData.itemListElement[1].position = 3;
+            breadcrumb.itemListElement.splice(1, 0, collectionItem);
+            for (var i = 2; i < breadcrumb.itemListElement.length; i++) {
+              breadcrumb.itemListElement[i].position = i + 1;
             }
-            jsonData.itemListElement.splice(1, 0, collectionItem);
             jsonLDElement.textContent = JSON.stringify(jsonData, null, 2);
           }
         } catch (e) {}
