@@ -37,7 +37,7 @@
   assign price_until = 'now' | date: '%Y' | plus: 1 | append: '-12-31'
 -%}
 
-<script type="application/ld+json">
+<script type="application/ld+json" data-desc="jsonld-graph">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -293,9 +293,9 @@
       ]
       {%- endif -%}
       ,"brand": { "@type": "Brand", "name": {{ brand_name | json }} },
-      "sku": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
-      "mpn": {{ product.selected_or_first_available_variant.sku | default: product.id | json }},
-      "productID": {{ product.id | json }}
+      "sku": {{ product.selected_or_first_available_variant.sku | default: product.id | append: '' | json }},
+      "mpn": {{ product.selected_or_first_available_variant.sku | default: product.id | append: '' | json }},
+      "productID": {{ product.id | append: '' | json }}
       {%- if product.type != blank -%}
       ,"category": {{ product.type | json }}
       {%- endif -%}
@@ -336,7 +336,7 @@
         {
           "@type": "Offer",
           "url": {{ shop.url | append: variant.url | json }},
-          "sku": {{ variant.sku | default: variant.id | json }},
+          "sku": {{ variant.sku | default: variant.id | append: '' | json }},
           "priceCurrency": {{ cart.currency.iso_code | json }},
           "price": {{ variant.price | divided_by: 100.0 | json }},
           "availability": "{%- if variant.available -%}https://schema.org/InStock{%- else -%}https://schema.org/OutOfStock{%- endif -%}",
@@ -358,7 +358,7 @@
       "description": {{ product.description | strip_html | strip_newlines | strip | truncate: 5000 | json }},
       "url": {{ canonical_clean | json }},
       "brand": { "@type": "Brand", "name": {{ brand_name | json }} },
-      "productGroupID": {{ product.id | json }}
+      "productGroupID": {{ product.id | append: '' | json }}
       {%- if product.type != blank -%}
       ,"category": {{ product.type | json }}
       {%- endif -%}
@@ -377,7 +377,7 @@
         {%- for variant in product.variants -%}
         {
           "@type": "Product",
-          "sku": {{ variant.sku | default: variant.id | json }},
+          "sku": {{ variant.sku | default: variant.id | append: '' | json }},
           "name": {{ variant.title | json }},
           "description": {{ product.description | strip_html | strip_newlines | strip | truncate: 5000 | json }},
           "image": {{ variant.image | default: product.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}
