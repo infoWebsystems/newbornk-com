@@ -5,9 +5,6 @@
     <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
     <meta name="theme-color" content="#c7ec51">
     <link rel="apple-touch-icon" href="{{ 'icon-192.png' | file_url }}">
-    <!-- Added by AVADA SEO Suite -->
-    {% include 'avada-seo' %}
-    <!-- /Added by AVADA SEO Suite -->
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -108,10 +105,6 @@
     {%- unless settings.type_header_font.system? -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
-
-    <!-- Avada Size Chart Script -->
-    {% include 'avada-sc-setting' %}
-    <!-- /Avada Size Chart Script -->
 
     {% render 'meta-tags' %}
     {% if request.page_type == 'index' %}
