@@ -23,7 +23,14 @@
 
 <div class="card-wrapper">
   <a
-    href="{{ url }}{% if template == 'collection' or template == 'collection.default-outlet' %}{% if url contains '?' %}&{% else %}?{% endif %}url={{ url_collection | url_encode }}&title={{ collection.title | url_encode }}{% if collection_gender != blank %}&gender={{ collection_gender | url_encode }}{% endif %}{% endif %}"
+    href="{{ url }}"
+    {%- if template == 'collection' or template == 'collection.default-outlet' %}
+    data-bc-url="{{ url_collection }}"
+    data-bc-title="{{ collection.title | escape }}"
+    {%- if collection_gender != blank %}
+    data-bc-gender="{{ collection_gender | escape }}"
+    {%- endif %}
+    {%- endif %}
     class="full-unstyled-link"
   >
     <span class="visually-hidden">{{ product_card_product.title | escape }}</span>
