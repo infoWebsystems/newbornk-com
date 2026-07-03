@@ -161,10 +161,12 @@ class CollectionFiltersForm extends HTMLElement {
     const mobileElementSelectors = [".mobile-facets__open", ".mobile-facets__count"];
 
     mobileElementSelectors.forEach((selector) => {
-      document.querySelector(selector).innerHTML = html.querySelector(selector).innerHTML;
+      const target = document.querySelector(selector);
+      const source = html.querySelector(selector);
+      if (target && source) target.innerHTML = source.innerHTML;
     });
 
-    document.getElementById("CollectionFiltersFormMobile").closest("menu-drawer").bindEvents();
+    document.getElementById("CollectionFiltersFormMobile")?.closest("menu-drawer")?.bindEvents();
   }
 
   renderCounts(source, target) {
