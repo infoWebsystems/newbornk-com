@@ -784,6 +784,9 @@
         }
       </style>
 
+      {%- comment -%} eSputnik App Inbox host — widget (bell) is injected here client-side; selector #app-inbox {%- endcomment -%}
+      <div id="app-inbox" class="header__icon header__icon--app-inbox"></div>
+
       {% if settings.show_wishlist == true %}
         {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
         {%- comment -%} aria-label on the link itself: the Wishlist Hero app replaces this
@@ -905,9 +908,6 @@
       </details-modal-->
 
      {%- endif -%}
-
-      {%- comment -%} eSputnik App Inbox host — widget (bell) is injected here client-side; selector #app-inbox {%- endcomment -%}
-      <div id="app-inbox" class="header__icon header__icon--app-inbox"></div>
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset" aria-label="{{ 'customer.account_fallback' | t }}">

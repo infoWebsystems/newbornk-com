@@ -652,14 +652,14 @@ h6:empty {
   z-index: 4;
 }
 
-/* The mobile/hamburger header (< 990px) hand-positions each icon with overlapping
-   boxes (the logo box and the icon offsets intentionally overlap), leaving no
-   clean slot for the injected bell — at various widths it collides with either the
-   account icon or the logo. Hide the App Inbox bell on mobile until the mobile
-   header is reworked to make room for it; it stays available on desktop. */
-@media (max-width: 989px) {
+/* On the cramped mobile header (<= 749px: no flex gap, icons hand-positioned with
+   per-icon `left` offsets), the bell now sits first (left of the wishlist icon).
+   Nudge #app-inbox left so it clears the wishlist by a few px. The theme's offsets
+   are fixed px, so this spacing stays constant across mobile widths. Above 749px
+   the header switches to a normal flex gap and the bell already sits cleanly. */
+@media (max-width: 749px) {
   #app-inbox {
-    display: none;
+    left: -42px;
   }
 }
 
