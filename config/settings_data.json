@@ -99,7 +99,7 @@
         "type": "footer",
         "settings": {
           "color_scheme": "accent-1",
-          "newsletter_enable": true,
+          "newsletter_enable": false,
           "newsletter_heading": "Підпишіться на нашу розсилку",
           "logo_svg": true,
           "menu_left": "footer-top",
@@ -201,14 +201,14 @@
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": true,
         "settings": {
+          "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!",
           "button_color": "#ccf951",
           "secondary_color": "#000000",
           "ternary_color": "#6a6a6a",
           "button_icon": "team",
           "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!"
+          "button_vertical_position": "lowest"
         }
       },
       "11560147490181472608": {
@@ -290,11 +290,6 @@
       },
       "9664103760669878543": {
         "type": "shopify://apps/avada-seo-ai-blog/blocks/avada-seoon-setting/a45c3e67-be9f-4255-a194-b255a24f37c9",
-        "disabled": true,
-        "settings": {}
-      },
-      "0220609880488367148": {
-        "type": "shopify://apps/avada-seo-suite/blocks/avada-seo/15507c6e-1aa3-45d3-b698-7e175e033440",
         "disabled": true,
         "settings": {}
       }
