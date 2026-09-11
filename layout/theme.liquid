@@ -457,6 +457,9 @@
       data-checkout-domain="https://checkout.newbornk.com"
     ></script>
     <script src="{{ 'cekly_gb.aov-cartdrawer-checkout-extension.js' | asset_url }}" defer></script>
+    {% unless request.page_type == 'cart' %}
+      {% render 'aov-cart-analytics' %}
+    {% endunless %}
     <script>
       function showToast(message = '', title = '', image_src = '', timeout = 3000) {
         if (!message) {
