@@ -55,68 +55,96 @@ class CartItems extends HTMLElement {
     ];
   }
 
-  updateQuantity(line, quantity, name) {
+  async updateQuantity(line, quantity, name) {
+    if (this.updating) return;
+    this.updating = true;
     this.enableLoading(line);
+    this.showError('');
 
-    const body = JSON.stringify({
-      line,
-      quantity,
-      sections: this.getSectionsToRender().map((section) => section.section),
-      sections_url: window.location.pathname
-    });
-    
-  
-    fetch(`${routes.cart_change_url}`, {...fetchConfig(), ...{ body }})
-      .then((response) => {
-        return response.text();
-      
-      })
-      .then((state) => {
-        const parsedState = JSON.parse(state);
-      
-        this.classList.toggle('is-empty', parsedState.item_count === 0);
-      
-        document.getElementById('main-cart-footer')?.classList.toggle('is-empty', parsedState.item_count === 0);
-        document.getElementById('main-cart-footer')?.parentNode.classList.toggle('is-empty', parsedState.item_count === 0);
-
-        this.getSectionsToRender().forEach((section => {
-       
-          const elementToReplace =
-            document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-        
-          elementToReplace.innerHTML =
-            this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
-        }));
-
-        this.updateLiveRegions(line, parsedState.item_count);
-        document.getElementById(`CartItem-${line}`)?.querySelector(`[name="${name}"]`)?.focus();
-        this.disableLoading();
-      }).catch(() => {
-        this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
-        document.getElementById('cart-errors').textContent = window.cartStrings.error;
-        this.disableLoading();
+    try {
+      const body = JSON.stringify({
+        line,
+        quantity,
+        sections: this.getSectionsToRender().map((section) => section.section),
+        sections_url: window.location.pathname
       });
+      const response = await fetch(routes.cart_change_url, {...fetchConfig(), body});
+      const state = await response.json();
+      if (!response.ok || state.errors) {
+        const message = [state.description, state.errors, state.message]
+          .find((value) => typeof value === 'string' && value.trim());
+        const availability = message?.match(/^Only (\d+) items were added to your cart due to availability\.$/);
+        const failure = new Error(availability
+          ? window.cartStrings.quantityError.replace('[quantity]', availability[1])
+          : message || window.cartStrings.error);
+        failure.cartMessage = true;
+        throw failure;
+      }
+
+      this.renderSections(state.sections);
+      this.setEmpty(state.item_count === 0);
+      const actualQuantity = state.items?.[Number(line) - 1]?.quantity;
+      const error = Number(quantity) > 0 && actualQuantity !== undefined && actualQuantity !== Number(quantity)
+        ? window.cartStrings.quantityError.replace('[quantity]', actualQuantity)
+        : '';
+      this.showError(error);
+      this.updateLiveRegions(state.item_count);
+    } catch (error) {
+      try {
+        const sections = this.getSectionsToRender().map((section) => section.section);
+        const response = await fetch(`${window.location.pathname}?sections=${encodeURIComponent(sections.join(','))}`, {
+          credentials: 'same-origin', cache: 'no-store'
+        });
+        if (!response.ok) throw new Error();
+        this.renderSections(await response.json());
+        this.setEmpty(!this.querySelector('[name="updates[]"]'));
+      } catch {
+        this.querySelectorAll('[name="updates[]"]').forEach((input) => {
+          input.value = input.defaultValue;
+        });
+      }
+      this.showError(error.cartMessage ? error.message : window.cartStrings.error);
+    } finally {
+      this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
+      this.lineItemStatusElement?.setAttribute('aria-hidden', true);
+      this.disableLoading();
+      this.updating = false;
+      if (name) document.getElementById(`CartItem-${line}`)?.querySelector(`[name="${name}"]`)?.focus();
+    }
   }
 
-  updateLiveRegions(line, itemCount) {
-    if (this.currentItemCount === itemCount) {
-      document.getElementById(`Line-item-error-${line}`)
-        .querySelector('.cart-item__error-text')
-        .innerHTML = window.cartStrings.quantityError.replace(
-          '[quantity]',
-          document.getElementById(`Quantity-${line}`).value
-        );
+  renderSections(sections) {
+    const replacements = this.getSectionsToRender().map((section) => {
+      const root = document.getElementById(section.id);
+      return {
+        element: root.querySelector(section.selector) || root,
+        html: this.getSectionInnerHTML(sections[section.section], section.selector)
+      };
+    });
+    replacements.forEach(({element, html}) => { element.innerHTML = html; });
+  }
+
+  setEmpty(empty) {
+    this.classList.toggle('is-empty', empty);
+    const footer = document.getElementById('main-cart-footer');
+    footer?.classList.toggle('is-empty', empty);
+    footer?.parentNode.classList.toggle('is-empty', empty);
+  }
+
+  showError(message) {
+    const element = document.getElementById('cart-errors');
+    if (element) {
+      element.setAttribute('role', 'alert');
+      element.textContent = message;
     }
+  }
 
+  updateLiveRegions(itemCount) {
     this.currentItemCount = itemCount;
-    this.lineItemStatusElement.setAttribute('aria-hidden', true);
-
+    this.lineItemStatusElement?.setAttribute('aria-hidden', true);
     const cartStatus = document.getElementById('cart-live-region-text');
     cartStatus.setAttribute('aria-hidden', false);
-
-    setTimeout(() => {
-      cartStatus.setAttribute('aria-hidden', true);
-    }, 1000);
+    setTimeout(() => { cartStatus.setAttribute('aria-hidden', true); }, 1000);
   }
 
   getSectionInnerHTML(html, selector) {
