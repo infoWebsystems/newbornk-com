@@ -1,0 +1,74 @@
+{% doc %}
+  Adds GA4 selection metadata to a collection product link.
+  @param {product} product - The card product
+  @param {collection} list - The collection displaying the card
+  @example
+  <a href="{{ product.url }}" {% render 'product-selection-analytics', product: product, list: collection %}>{{ product.title }}</a>
+{% enddoc %}
+
+{%- assign selection_variant = product.selected_or_first_available_variant -%}
+{%- if product.id != blank and selection_variant.id != blank and list.id != blank -%}
+  {%- assign selection_id = 'shopify_UA_' | append: product.id | append: '_' | append: selection_variant.id -%}
+  {%- assign selection_list_id = list.id | append: '' -%}
+  {%- capture selection_json -%}
+    {
+      "item_list_id": {{ selection_list_id | json }},
+      "item_list_name": {{ list.title | json }},
+      "items": [{
+        "item_id": {{ selection_id | json }},
+        "item_name": {{ product.title | json }},
+        "item_brand": {{ product.vendor | json }},
+        "item_category": {{ product.type | json }},
+        "item_variant": {{ selection_variant.title | json }},
+        "price": {{ selection_variant.price | divided_by: 100.0 | json }},
+        "quantity": 1
+      }]
+    }
+  {%- endcapture -%}
+  data-nbk-selection="{{ selection_json | strip_newlines | escape }}"
+{%- endif -%}
+
+{% javascript %}
+  (() => {
+    if (window.newbornkProductSelectionAnalytics) return;
+    window.newbornkProductSelectionAnalytics = true;
+
+    function trackSelection(event) {
+      if (event.defaultPrevented) return;
+      if (event.type === 'click' && event.button !== 0) return;
+      if (event.type === 'auxclick' && event.button !== 1) return;
+      if (window.Shopify?.customerPrivacy?.analyticsProcessingAllowed?.() !== true) return;
+
+      const target = event.target;
+      if (!target?.closest) return;
+      if (target.closest('button, [role="button"], input, select, textarea, .card__add-to-cart, [data-wlh-id], .wishlist-hero-custom-button')) return;
+      const link = target.closest('a[data-nbk-selection]');
+      if (!link || link.hasAttribute('download')) return;
+
+      try {
+        const payload = JSON.parse(link.getAttribute('data-nbk-selection'));
+        if (!payload.item_list_id || !payload.item_list_name || payload.items?.length !== 1) return;
+        if (!/^shopify_UA_\d+_\d+$/.test(payload.items[0].item_id)) return;
+        window.dataLayer = window.dataLayer || [];
+        function send() { window.dataLayer.push(arguments); }
+        send('event', 'select_item', {
+          send_to: 'G-6WKK4C3QWJ',
+          item_list_id: payload.item_list_id,
+          item_list_name: payload.item_list_name,
+          items: payload.items,
+        });
+      } catch {
+      }
+    }
+
+    document.addEventListener('click', trackSelection, true);
+    document.addEventListener('auxclick', trackSelection, true);
+    function loadPrivacy() {
+      if (!window.Shopify?.customerPrivacy) {
+        window.Shopify?.loadFeatures?.([{ name: 'consent-tracking-api', version: '0.1' }], () => {});
+      }
+    }
+    loadPrivacy();
+    window.addEventListener('load', loadPrivacy, { once: true });
+  })();
+{% endjavascript %}
