@@ -12,10 +12,8 @@
   Usage:
   {% render 'product-card', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
-{% assign tags = product_card_product.tags | join: ', ' %}
 {% comment %}{{ template }}-{% if tags contains 'Outlet' %}OUTLET{% endif %}{% endcomment %}
 
-{% assign url_product = product_card_product.url | remove: routes.root_url %}
 {% assign url_collection = collection.url %}
 {% assign url = product_card_product.url | default: '#' %}
 {% assign collection_gender = collection.metafields.custom.gender %}
@@ -24,6 +22,9 @@
 <div class="card-wrapper">
   <a
     href="{{ url }}"
+    {% if type == 'collection_grid' %}
+      {% render 'product-selection-analytics', product: product_card_product, list: collection %}
+    {% endif %}
     {%- if template == 'collection' or template == 'collection.default-outlet' %}
     data-bc-url="{{ url_collection }}"
     data-bc-title="{{ collection.title | escape }}"
@@ -38,7 +39,7 @@
     <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}" tabindex="-1">
       <div class="card__inner">
         {% if settings.show_wishlist == true %}
-          {% render 'wishlisthero-collection-product' with product: product_card_product %}
+          {% render 'wishlisthero-collection-product', product: product_card_product %}
         {% endif %}
         {%- if product_card_product.featured_media -%}
           {%- liquid
@@ -47,7 +48,6 @@
               assign featured_media_aspect_ratio = 1
             endif
           -%}
-          {% assign unisexFilter = product_card_product.featured_media.alt | escape | split: '#@' %}
           <div
             {% if add_image_padding %}
               class="card__media-full-spacer"
@@ -72,7 +72,7 @@
           </div>
         {%- endif -%}
 
-        {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
+        {%- render 'trm_badge_new', product_card_product: product_card_product -%}
 
         <div class="card__badge">
           {% if product_card_product.tags contains 'onlineonly' %}
