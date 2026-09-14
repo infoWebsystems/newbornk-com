@@ -77,7 +77,7 @@
     <div class="image34 grid__item product__media-wrapper" style="position: relative;">
 
       <slider-component class="swiper-container slider-mobile-gutter main-gallery">
-        {%- render 'trm_badge_new' with product_card_product: product -%}
+        {%- render 'trm_badge_new' with product_card_product, product_card_product: product -%}
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
           {{ "accessibility.skip_to_product_info" | t }}
         </a>
@@ -1345,3 +1345,14 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'trm_badge_new' with product_card_product: product -%}"
+  to: "{%- render 'trm_badge_new' with product_card_product, product_card_product:
+    product -%}"
+  position: 3500..3587
+{% endcomment %}

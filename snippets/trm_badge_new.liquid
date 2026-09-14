@@ -39,7 +39,7 @@
   {%- endif -%}
 
   {% if is_badge_new == false %}
-    {%- render 'badge-last-size' with product_card_product: product_card_product -%}
+    {%- render 'badge-last-size' with product_card_product, product_card_product: product_card_product -%}
   {% endif %} 
 
   {%- if product_card_product.tags contains "last-size" -%}
@@ -55,3 +55,15 @@
     </div>
   {%- endif -%} {% endcomment %}
 {% comment %} {%- endfor -%} {% endcomment %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'badge-last-size' with product_card_product: product_card_product
+    -%}"
+  to: "{%- render 'badge-last-size' with product_card_product, product_card_product:
+    product_card_product -%}"
+  position: 2553..2655
+{% endcomment %}
