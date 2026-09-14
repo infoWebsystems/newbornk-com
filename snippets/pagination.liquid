@@ -26,7 +26,7 @@
                 <li>
                   {%- if part.is_link -%}
                     {%- capture fixed_url -%}
-                      {% render 'fn_fix-paginate-url', url: part.url | append: anchor %}
+                      {% render 'fn_fix-paginate-url', url: part.url, append: anchor %}
                     {%- endcapture -%}
                     <a href="{{- fixed_url -}}" class="pagination__item link" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
                   {%- else -%}
@@ -45,3 +45,13 @@
     </nav>
   </div>
 {%- endif -%}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'fn_fix-paginate-url', url: part.url | append: anchor %}"
+  to: "{% render 'fn_fix-paginate-url', url: part.url, append: anchor %}"
+  position: 1234..1299
+{% endcomment %}
