@@ -23,7 +23,7 @@
             <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}" tabindex="-1">
                 <div class="card__inner">
                     {% if settings.show_wishlist == true %}
-                        {% render 'wishlisthero-collection-product' with product: product_card_product %}
+                        {% render 'wishlisthero-collection-product' with product, product: product_card_product %}
                     {% endif %}
                     {%- if product_card_product.featured_media -%}
                         {%- liquid
@@ -83,7 +83,7 @@
                         <div class="card__content"><h2 class="card__text h2">{{ product_card_product.title }}</h2></div>
                     {%- endif -%}
 
-                    {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
+                    {%- render 'trm_badge_new' with product_card_product, product_card_product: product_card_product -%}
 
                     <div class="card__badge">
                       {% if product_card_product.tags contains 'onlineonly' %}
@@ -109,7 +109,7 @@
             <div class="card card--product{% if product_card_product.featured_media == nil %} card--text-only card--soft{% endif %}" tabindex="-1">
                 <div class="card__inner">
                     {% if settings.show_wishlist == true %}
-                        {% render 'wishlisthero-collection-product' with product: product_card_product %}
+                        {% render 'wishlisthero-collection-product' with product, product: product_card_product %}
 
                     {% endif %}
                     {%- if product_card_product.featured_media -%}
@@ -162,7 +162,7 @@
                         <div class="card__content"><h2 class="card__text h2">{{ product_card_product.title }}</h2></div>
                     {%- endif -%}
 
-                    {%- render 'trm_badge_new' with product_card_product: product_card_product -%}
+                    {%- render 'trm_badge_new' with product_card_product, product_card_product: product_card_product -%}
 
                     <div class="card__badge">
                       {% if product_card_product.tags contains 'onlineonly' %}
@@ -211,3 +211,30 @@
         {% endif %}
     </a>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'wishlisthero-collection-product' with product: product_card_product
+    %}"
+  to: "{% render 'wishlisthero-collection-product' with product, product: product_card_product
+    %}"
+  position: 1522..1612
+- from: "{%- render 'trm_badge_new' with product_card_product: product_card_product
+    -%}"
+  to: "{%- render 'trm_badge_new' with product_card_product, product_card_product:
+    product_card_product -%}"
+  position: 7039..7139
+- from: "{% render 'wishlisthero-collection-product' with product: product_card_product
+    %}"
+  to: "{% render 'wishlisthero-collection-product' with product, product: product_card_product
+    %}"
+  position: 8769..8859
+- from: "{%- render 'trm_badge_new' with product_card_product: product_card_product
+    -%}"
+  to: "{%- render 'trm_badge_new' with product_card_product, product_card_product:
+    product_card_product -%}"
+  position: 13420..13520
+{% endcomment %}

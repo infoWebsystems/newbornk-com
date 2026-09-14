@@ -92,7 +92,7 @@
   <div class="product grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper" style="position: relative;">
 
-      {%- render 'trm_badge_new' with product_card_product: product -%}
+      {%- render 'trm_badge_new' with product_card_product, product_card_product: product -%}
 
       <slider-component class="slider-mobile-gutter">
         <a class="skip-to-content-link button visually-hidden" href="#ProductInfo-{{ section.id }}">
@@ -1093,3 +1093,14 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'trm_badge_new' with product_card_product: product -%}"
+  to: "{%- render 'trm_badge_new' with product_card_product, product_card_product:
+    product -%}"
+  position: 3487..3574
+{% endcomment %}
