@@ -930,6 +930,9 @@
     }
   },
   "nbk": {
+    "recommendations": {
+      "heading": "Вам може сподобатися"
+    },
     "home": {
       "about": "Про NEWBORN K"
     }

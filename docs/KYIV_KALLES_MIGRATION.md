@@ -32,6 +32,14 @@ Legacy `product.default-outlet` and `product.gift-card-template` assignments hav
 
 The existing JSON-LD graph, robots and hreflang logic, Pandectes bootstrap, GTM, Yespo inbox/customer initialization and Ahrefs analytics are retained. Consent-gated GA4 product selection is connected to Kalles links, and cart-view tracking observes the Kalles drawer. No customer or catalog records are edited by this migration.
 
+### Yespo product recommendations
+
+Yespo's existing recommendation widget uses Dawn markup. A product-page-only adapter supplies responsive Kalles-compatible styling and native horizontal scrolling with arrow controls. It retains the original recommendation cards, order and tracked links, translates the heading, and places the widget in the related-products position. The native Kalles related section is hidden only while Yespo has cards, so it remains a fallback when the widget is absent or empty.
+
+Legacy Hero and direct-add controls are removed from these cards. Native Kalles wishlist buttons sit outside the product link and resolve the actual product ID with Shopify's locale-aware Ajax Product API as cards approach the viewport (cached, at most three simultaneous requests). The legacy feed's `data-wlh-id` can be a variant ID and is not used for the wishlist. Failed lookups leave product navigation available without an invalid wishlist button. Global Yespo configuration and the Dawn theme are unaffected.
+
+Browser verification on `shtani-brandon-pant-siri`: five desktop/two mobile cards, no page overflow at 390px, regular/sale prices, arrow scrolling, and native wishlist add/remove including Space-key removal. The test wishlist addition was removed; cart contents were unchanged.
+
 ## Validation
 
 Run the portable regression suite with:
@@ -40,7 +48,7 @@ Run the portable regression suite with:
 node --test tests/*.cjs tests/*.mjs
 ```
 
-17 tests pass, covering Chekly click-ID tracking, consent-gated cart/selection analytics, selected-variant updates in sticky add-to-cart, and empty carousel handling. Removed AOV/Dawn-only tests are explained in `tests/README.md`.
+23 tests pass, covering Chekly click-ID tracking, consent-gated cart/selection analytics, selected-variant updates in sticky add-to-cart, empty carousel handling, and the Yespo wishlist adapter's ID resolution, lazy requests, preserved links, insertion, concurrency and failure paths. Removed AOV/Dawn-only tests are explained in `tests/README.md`.
 
 Shopify accepted the complete draft upload without errors. New/custom integration files and corrected templates have been checked with Shopify's Liquid validator. Inherited theme-check findings include unused vendor variables, naming/documentation warnings, and the intentionally retained external Ahrefs loader / synchronous consent bootstrap. This is not a claim that the full vendor theme is warning-free.
 

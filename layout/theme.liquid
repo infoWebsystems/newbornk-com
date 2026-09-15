@@ -94,6 +94,9 @@
     -%}
 
     {{ content_for_header }}
+    {%- if request.page_type == 'product' -%}
+      {{ 'nbk-yespo-recommendations.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     {% render 'fn_uk-hreflang' %}
     {%- endunless -%}
     </head>
@@ -134,6 +137,9 @@
    {%- endunless -%}
   {%- capture ecom_footer_content -%}{%- render 'ecom_footer' -%}{%- endcapture -%}{%- unless ecom_footer_content contains 'Liquid error' -%}{{ ecom_footer_content }}{%- endunless -%}  {% render 'nbk-kyiv-checkout' %}
     {% render 'nbk-kyiv-integrations' %}
+    {%- if request.page_type == 'product' -%}
+      {% render 'nbk-yespo-recommendations' %}
+    {%- endif -%}
     {% render 'nbk-cart-analytics' %}
   </body>
 </html>

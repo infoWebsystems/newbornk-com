@@ -1,0 +1,15 @@
+{% doc %}
+  Adapts existing Yespo product recommendations to Kyiv Kalles and its native wishlist.
+{% enddoc %}
+<template id="nbk-yespo-wishlist-template">
+  {%- render 'btn-wishlist', class: 'nbk-yespo-wishlist hdt-pr_btn', placement: 'none' -%}
+</template>
+<script id="nbk-yespo-recommendations-config" type="application/json">
+  {
+    "heading": {{ 'nbk.recommendations.heading' | t | json }},
+    "previous": {{ 'general.pagination.previous' | t | json }},
+    "next": {{ 'general.pagination.next' | t | json }},
+    "root": {{ routes.root_url | json }}
+  }
+</script>
+<script src="{{ 'nbk-yespo-recommendations.js' | asset_url }}" defer></script>
