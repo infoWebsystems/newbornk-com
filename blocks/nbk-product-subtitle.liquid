@@ -1,0 +1,18 @@
+{% doc %}
+  Renders the existing Kyiv product subtitle when it is populated.
+{% enddoc %}
+{%- liquid
+  assign subtitle_product = closest.product | default: product | default: section.settings.product
+  assign subtitle = subtitle_product.metafields.descriptors.subtitle.value
+-%}
+{% if subtitle != blank %}
+  <p class="nbk-product-subtitle hdt-text-base" {{ block.shopify_attributes }}>{{ subtitle | escape }}</p>
+{% endif %}
+{% schema %}
+{
+  "name": "Kyiv product subtitle",
+  "tag": null,
+  "settings": [],
+  "presets": [{ "name": "Kyiv product subtitle" }]
+}
+{% endschema %}

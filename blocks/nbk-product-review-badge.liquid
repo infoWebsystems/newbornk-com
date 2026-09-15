@@ -1,0 +1,15 @@
+{% doc %}
+  Keeps the Kyiv review app badge in the product information column.
+{% enddoc %}
+<div class="nbk-product-review-badge" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+{% schema %}
+{
+  "name": "Kyiv product review badge",
+  "tag": null,
+  "blocks": [{ "type": "@app" }],
+  "settings": [],
+  "presets": [{ "name": "Kyiv product review badge" }]
+}
+{% endschema %}

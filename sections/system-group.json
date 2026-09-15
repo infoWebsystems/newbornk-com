@@ -1,0 +1,134 @@
+{
+  "name": "t:sections.name_group.system",
+  "type": "custom.system",
+  "sections": {
+    "back_top_yyTyYT": {
+      "type": "back_top",
+      "name": "t:sections.back_to_top.name",
+      "settings": {
+        "enable_hidden_mobile": false,
+        "enable_progress_bar": true,
+        "border_cl": "#f5f5f5",
+        "border_cl_active": "#000000"
+      }
+    },
+    "cart-drawer": {
+      "type": "cart-drawer",
+      "blocks": {
+        "subtotal_hPmjgN": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "tax_rkEdFK": {
+          "type": "tax",
+          "settings": {
+            "url": "shopify://pages/order-and-delivery"
+          }
+        },
+        "btn_cart_74AGUK": {
+          "type": "btn_cart",
+          "settings": {
+            "style_class": "",
+            "icon": "none",
+            "icon_position": "before",
+            "icon_height": 16,
+            "icon_spacing": 5
+          }
+        },
+        "btn_checkout_bcnmpT": {
+          "type": "btn_checkout",
+          "settings": {
+            "style_class": "hdt-btn-accent",
+            "icon": "none",
+            "icon_position": "before",
+            "icon_height": 16,
+            "icon_spacing": 5
+          }
+        },
+        "img_trust_zatTgB": {
+          "type": "img_trust",
+          "settings": {
+            "wimg": 350,
+            "svg": "visa,master",
+            "height": 20
+          }
+        }
+      },
+      "block_order": [
+        "subtotal_hPmjgN",
+        "tax_rkEdFK",
+        "btn_cart_74AGUK",
+        "btn_checkout_bcnmpT",
+        "img_trust_zatTgB"
+      ],
+      "settings": {
+        "colors_by_section": true,
+        "color_scheme": "scheme-e0b73555-c767-4eda-aa6d-4e44e10aefce",
+        "show_free_shipping_bar": false,
+        "show_cart_note": false,
+        "show_gift_wrap": false,
+        "show_shipping_estimator": false,
+        "show_cart_discount": false,
+        "discount_error_message": "Введіть дійсний промокод",
+        "show_cart_complementary": true,
+        "heading": "ВАМ МОЖЕ СПОДОБАТИСЯ",
+        "product_list": [],
+        "replaces_products_selected": true,
+        "limit": 5
+      }
+    },
+    "toolbar-mobile": {
+      "type": "toolbar-mobile",
+      "blocks": {
+        "search_wxK4Le": {
+          "type": "search",
+          "settings": {
+            "title": "ПОШУК"
+          }
+        },
+        "shop_jQccrN": {
+          "type": "shop",
+          "settings": {
+            "title": "КАТАЛОГ",
+            "link": "novi-nadkhodzhennia"
+          }
+        },
+        "cart_qEaYLM": {
+          "type": "cart",
+          "settings": {
+            "title": "КОШИК"
+          }
+        },
+        "wishlist_FLDXnV": {
+          "type": "wishlist",
+          "settings": {
+            "title": "ОБРАНЕ"
+          }
+        },
+        "account_KBmadz": {
+          "type": "account",
+          "settings": {
+            "title": "АКАУНТ"
+          }
+        }
+      },
+      "block_order": [
+        "search_wxK4Le",
+        "shop_jQccrN",
+        "cart_qEaYLM",
+        "wishlist_FLDXnV",
+        "account_KBmadz"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "background_opacity": 1,
+        "show_txt": true
+      }
+    }
+  },
+  "order": [
+    "back_top_yyTyYT",
+    "cart-drawer",
+    "toolbar-mobile"
+  ]
+}

@@ -1,0 +1,878 @@
+{% liquid
+  assign alphabet = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ','
+  assign vendors = shop.vendors | sort_natural
+%}
+
+<section
+  id="NBKBrands-{{ section.id }}"
+  class="nbk-brands-section"
+  style="
+    --nbk-bg: {{ section.settings.background }};
+    --nbk-text: {{ section.settings.text_color }};
+    --nbk-muted: {{ section.settings.muted_color }};
+    --nbk-border: {{ section.settings.border_color }};
+    --nbk-accent: {{ section.settings.accent_color }};
+    --nbk-columns: {{ section.settings.columns_desktop }};
+    --nbk-padding-top: {{ section.settings.padding_top }}px;
+    --nbk-padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="nbk-brands-container">
+
+    {% if section.settings.title != blank or section.settings.subtitle != blank %}
+      <header class="nbk-brands-header">
+
+        {% if section.settings.title != blank %}
+          <{{ section.settings.heading_tag }} class="nbk-brands-title">
+            {{ section.settings.title }}
+          </{{ section.settings.heading_tag }}>
+        {% endif %}
+
+        {% if section.settings.subtitle != blank %}
+          <div class="nbk-brands-subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+        {% endif %}
+
+      </header>
+    {% endif %}
+
+    {% if section.settings.show_search %}
+      <div class="nbk-brands-search">
+        <label
+          class="nbk-brands-search-label"
+          for="NBKBrandsSearch-{{ section.id }}"
+        >
+          {{ section.settings.search_label }}
+        </label>
+
+        <div class="nbk-brands-search-field">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+          >
+            <circle
+              cx="11"
+              cy="11"
+              r="7"
+              stroke="currentColor"
+              stroke-width="1.6"
+            ></circle>
+
+            <path
+              d="M16.5 16.5L21 21"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            ></path>
+          </svg>
+
+          <input
+            id="NBKBrandsSearch-{{ section.id }}"
+            class="nbk-brands-search-input"
+            type="search"
+            autocomplete="off"
+            placeholder="{{ section.settings.search_placeholder | escape }}"
+          >
+
+          <button
+            class="nbk-brands-search-clear"
+            type="button"
+            aria-label="Wyczyść wyszukiwanie"
+            hidden
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if section.settings.show_alphabet %}
+      <nav
+        class="nbk-brands-alphabet"
+        aria-label="Katalog marek A–Z"
+      >
+        {% for letter in alphabet %}
+          {% assign has_brands = false %}
+
+          {% for vendor in vendors %}
+            {% assign first_letter = vendor | strip | slice: 0 | upcase %}
+
+            {% if first_letter == letter %}
+              {% assign has_brands = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+
+          {% if has_brands %}
+            <a
+              class="nbk-alphabet-item"
+              href="#NBKLetter-{{ section.id }}-{{ letter | downcase }}"
+              data-letter="{{ letter }}"
+            >
+              {{ letter }}
+            </a>
+          {% else %}
+            <span
+              class="nbk-alphabet-item is-disabled"
+              aria-disabled="true"
+            >
+              {{ letter }}
+            </span>
+          {% endif %}
+        {% endfor %}
+      </nav>
+    {% endif %}
+
+    <div class="nbk-brands-grid">
+
+      {% for letter in alphabet %}
+        {% assign has_brands = false %}
+
+        {% for vendor in vendors %}
+          {% assign first_letter = vendor | strip | slice: 0 | upcase %}
+
+          {% if first_letter == letter %}
+            {% assign has_brands = true %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        {% if has_brands %}
+          <div
+            id="NBKLetter-{{ section.id }}-{{ letter | downcase }}"
+            class="nbk-brand-group"
+            data-brand-group="{{ letter }}"
+          >
+            <div class="nbk-brand-letter">
+              {{ letter }}
+            </div>
+
+            <div class="nbk-brand-list">
+
+              {% for vendor in vendors %}
+                {% assign first_letter = vendor | strip | slice: 0 | upcase %}
+
+                {% if first_letter == letter %}
+
+                  {% if section.settings.link_mode == 'brand_collection' %}
+                    {% capture brand_url %}
+                      {{ routes.collections_url }}/{{ vendor | handleize }}?sort_by={{ section.settings.default_sort }}
+                    {% endcapture %}
+                  {% else %}
+                    {% capture brand_url %}
+                      {{ routes.all_products_collection_url }}?filter.p.vendor={{ vendor | url_encode }}&sort_by={{ section.settings.default_sort }}
+                    {% endcapture %}
+                  {% endif %}
+
+                  <a
+                    class="nbk-brand-link"
+                    href="{{ brand_url | strip }}"
+                    data-brand-name="{{ vendor | escape | downcase }}"
+                  >
+                    <span>{{ vendor }}</span>
+
+                    {% if section.settings.show_arrow %}
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 20 20"
+                        width="15"
+                        height="15"
+                        fill="none"
+                      >
+                        <path
+                          d="M4 10H16M11.5 5.5L16 10L11.5 14.5"
+                          stroke="currentColor"
+                          stroke-width="1.4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    {% endif %}
+                  </a>
+
+                {% endif %}
+              {% endfor %}
+
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <div class="nbk-brands-empty" hidden>
+      {{ section.settings.empty_text }}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} .nbk-brands-section {
+    color: var(--nbk-text);
+    background: var(--nbk-bg);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-container {
+    width: min(100%, {{ section.settings.container_width }}px);
+    margin-inline: auto;
+    padding:
+      var(--nbk-padding-top)
+      30px
+      var(--nbk-padding-bottom);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-title {
+    margin: 0;
+    color: var(--nbk-text);
+    font-size: clamp(34px, 4vw, 64px);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-subtitle {
+    color: var(--nbk-muted);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-subtitle p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search {
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--nbk-muted);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 520px;
+    border-bottom: 1px solid var(--nbk-border);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-field > svg {
+    flex: 0 0 auto;
+    color: var(--nbk-muted);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-input {
+    width: 100%;
+    height: 52px;
+    padding: 0 42px 0 13px;
+    color: var(--nbk-text);
+    font: inherit;
+    font-size: 15px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-input::placeholder {
+    color: var(--nbk-muted);
+    opacity: 0.75;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-field:focus-within {
+    border-color: var(--nbk-text);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-search-clear {
+    position: absolute;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    color: var(--nbk-text);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-alphabet {
+    display: grid;
+    grid-template-columns: repeat(26, minmax(29px, 1fr));
+    margin-bottom: 64px;
+    border-top: 1px solid var(--nbk-border);
+    border-bottom: 1px solid var(--nbk-border);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-alphabet::-webkit-scrollbar {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-alphabet-item {
+    display: grid;
+    place-items: center;
+    min-width: 40px;
+    height: 52px;
+    color: var(--nbk-text);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    border-right: 1px solid var(--nbk-border);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-alphabet-item:first-child {
+    border-left: 1px solid var(--nbk-border);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-alphabet-item:not(.is-disabled):hover {
+    color: var(--nbk-bg);
+    background: var(--nbk-text);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-alphabet-item.is-disabled {
+    color: var(--nbk-muted);
+    background: color-mix(in srgb, var(--nbk-border) 25%, transparent);
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--nbk-columns), minmax(0, 1fr));
+    column-gap: clamp(50px, 7vw, 130px);
+    row-gap: 76px;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-group {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 20px;
+    align-content: start;
+    scroll-margin-top: 130px;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-group[hidden] {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-letter {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+    color: var(--nbk-text);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--nbk-border);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    min-height: 46px;
+    padding: 10px 0;
+    color: var(--nbk-text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--nbk-border);
+    transition:
+      color 0.2s ease,
+      padding 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-link svg {
+    flex: 0 0 auto;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-link:hover {
+    color: var(--nbk-accent);
+    padding-left: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-link:hover svg {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brand-link[hidden] {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .nbk-brands-empty {
+    padding: 70px 20px;
+    color: var(--nbk-muted);
+    font-size: 15px;
+    text-align: center;
+    border-top: 1px solid var(--nbk-border);
+    border-bottom: 1px solid var(--nbk-border);
+  }
+
+  @media (max-width: 1149px) {
+    #shopify-section-{{ section.id }} .nbk-brands-container {
+      padding-inline: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-header {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 70px;
+      row-gap: 60px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .nbk-brands-container {
+      padding:
+        calc(var(--nbk-padding-top) * 0.65)
+        18px
+        calc(var(--nbk-padding-bottom) * 0.65);
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-header {
+      display: block;
+      margin-bottom: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-title {
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-subtitle {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-search {
+      margin-bottom: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-search-field {
+      max-width: none;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-alphabet {
+      display: flex;
+      margin-inline: -18px;
+      margin-bottom: 42px;
+      padding-inline: 18px;
+      border-inline: 0;
+      scroll-snap-type: x proximity;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-alphabet-item {
+      flex: 0 0 42px;
+      min-width: 42px;
+      scroll-snap-align: start;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brands-grid {
+      grid-template-columns: 1fr;
+      row-gap: 46px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brand-group {
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brand-letter {
+      position: static;
+      font-size: 25px;
+    }
+
+    #shopify-section-{{ section.id }} .nbk-brand-link {
+      min-height: 43px;
+      font-size: 13px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} *,
+    #shopify-section-{{ section.id }} *::before,
+    #shopify-section-{{ section.id }} *::after {
+      scroll-behavior: auto !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const section = document.getElementById('NBKBrands-{{ section.id }}');
+
+    if (!section || section.dataset.initialized === 'true') return;
+
+    section.dataset.initialized = 'true';
+
+    const searchInput = section.querySelector('.nbk-brands-search-input');
+    const clearButton = section.querySelector('.nbk-brands-search-clear');
+    const emptyState = section.querySelector('.nbk-brands-empty');
+    const groups = [...section.querySelectorAll('[data-brand-group]')];
+    const alphabetItems = [
+      ...section.querySelectorAll('.nbk-alphabet-item[data-letter]')
+    ];
+
+    const normalizeText = (value) => {
+      return value
+        .toLocaleLowerCase('pl')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    };
+
+    const filterBrands = () => {
+      if (!searchInput) return;
+
+      const query = normalizeText(searchInput.value);
+      let visibleBrands = 0;
+
+      groups.forEach((group) => {
+        const links = [...group.querySelectorAll('.nbk-brand-link')];
+        let visibleInGroup = 0;
+
+        links.forEach((link) => {
+          const brandName = normalizeText(
+            link.dataset.brandName || link.textContent
+          );
+
+          const isVisible = !query || brandName.includes(query);
+
+          link.hidden = !isVisible;
+
+          if (isVisible) {
+            visibleInGroup += 1;
+            visibleBrands += 1;
+          }
+        });
+
+        group.hidden = visibleInGroup === 0;
+      });
+
+      alphabetItems.forEach((item) => {
+        const letter = item.dataset.letter;
+        const group = section.querySelector(
+          `[data-brand-group="${letter}"]`
+        );
+
+        item.classList.toggle(
+          'is-search-hidden',
+          Boolean(query) && (!group || group.hidden)
+        );
+      });
+
+      if (clearButton) {
+        clearButton.hidden = searchInput.value.length === 0;
+      }
+
+      if (emptyState) {
+        emptyState.hidden = visibleBrands !== 0;
+      }
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterBrands);
+    }
+
+    if (clearButton && searchInput) {
+      clearButton.addEventListener('click', () => {
+        searchInput.value = '';
+        filterBrands();
+        searchInput.focus();
+      });
+    }
+
+    section
+      .querySelectorAll('.nbk-alphabet-item[href^="#"]')
+      .forEach((link) => {
+        link.addEventListener('click', (event) => {
+          const target = section.querySelector(
+            link.getAttribute('href')
+          );
+
+          if (!target) return;
+
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: window.matchMedia(
+              '(prefers-reduced-motion: reduce)'
+            ).matches
+              ? 'auto'
+              : 'smooth',
+            block: 'start'
+          });
+        });
+      });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "NBK — katalog marek A–Z",
+  "tag": "section",
+  "class": "section-nbk-brands",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Nagłówek"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Tytuł",
+      "default": "MARKI"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Znacznik nagłówka",
+      "default": "h1",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "div",
+          "label": "Bez znacznika nagłówka"
+        }
+      ]
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Opis",
+      "default": "<p>Odkryj wyselekcjonowane marki dostępne w NEWBORN K.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Wyszukiwanie i nawigacja"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Pokaż wyszukiwarkę marek",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_label",
+      "label": "Etykieta wyszukiwarki",
+      "default": "Znajdź markę"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Tekst w wyszukiwarce",
+      "default": "Wpisz nazwę marki"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Brak wyników",
+      "default": "Nie znaleziono marki."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_alphabet",
+      "label": "Pokaż nawigację A–Z",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Pokaż strzałkę przy najechaniu",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Linki marek"
+    },
+    {
+      "type": "select",
+      "id": "link_mode",
+      "label": "Dokąd prowadzi marka",
+      "default": "brand_collection",
+      "options": [
+        {
+          "value": "brand_collection",
+          "label": "Do kolekcji o tej samej nazwie"
+        },
+        {
+          "value": "all_vendor_filter",
+          "label": "Do wszystkich produktów z filtrem marki"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "default_sort",
+      "label": "Domyślne sortowanie produktów",
+      "default": "created-descending",
+      "options": [
+        {
+          "value": "created-descending",
+          "label": "Najpierw najnowsze"
+        },
+        {
+          "value": "best-selling",
+          "label": "Najlepiej sprzedające się"
+        },
+        {
+          "value": "price-ascending",
+          "label": "Cena: rosnąco"
+        },
+        {
+          "value": "price-descending",
+          "label": "Cena: malejąco"
+        },
+        {
+          "value": "title-ascending",
+          "label": "Alfabetycznie A–Z"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Układ"
+    },
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 1000,
+      "max": 1800,
+      "step": 20,
+      "unit": "px",
+      "label": "Maksymalna szerokość",
+      "default": 1560
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Kolumny na komputerze",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Kolory"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Tło",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Tekst",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Tekst pomocniczy",
+      "default": "#777777"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Linie",
+      "default": "#E2E2E2"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Kolor po najechaniu",
+      "default": "#111111"
+    },
+    {
+      "type": "header",
+      "content": "Odstępy"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 180,
+      "step": 5,
+      "unit": "px",
+      "label": "Odstęp od góry",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Odstęp od dołu",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "NBK — katalog marek A–Z"
+    }
+  ]
+}
+{% endschema %}

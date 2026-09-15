@@ -1,6 +1,6 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { readFileSync } = require('node:fs');
+const { readFileSync, readdirSync } = require('node:fs');
 const { join } = require('node:path');
 const vm = require('node:vm');
 const liquid = readFileSync(join(__dirname, '../snippets/product-selection-analytics.liquid'), 'utf8');
@@ -56,4 +56,22 @@ test('malformed or incomplete metadata is ignored without breaking navigation', 
   for (const raw of ['<bad>', '{}', 'null', JSON.stringify({ ...sample(), items: [] }),
     JSON.stringify({ ...sample(), items: [{ item_id: 'wrong' }] }), JSON.stringify({ ...sample(), item_list_name: '' })]) app.click({ raw });
   assert.equal(app.events().length, 0);
+});
+
+test('Kalles product image and title links carry collection selection metadata', () => {
+  const directory = join(__dirname, '../snippets');
+  const files = readdirSync(directory).filter(name => /^card-product.*\.liquid$/.test(name) && name !== 'card-product-placeholder.liquid');
+  let mediaLinks = 0;
+  let titleLinks = 0;
+  for (const filename of files) {
+    const source = readFileSync(join(directory, filename), 'utf8');
+    const links = source.match(/<a\b[^>]*\bclass="[^"]*\bhdt-card-product__(?:title|media-wrapp)\b[^"]*"[^>]*>/g) || [];
+    for (const link of links) {
+      assert.match(link, /render 'product-selection-analytics', product: card_product, list: collection/, `${filename}: product link must retain the displayed collection context`);
+      assert.match(link, /href="\{\{ product_url \}\}"/, `${filename}: analytics must preserve the product destination`);
+      if (link.includes('hdt-card-product__media-wrapp')) mediaLinks += 1;
+      else titleLinks += 1;
+    }
+  }
+  assert(mediaLinks > 0 && titleLinks > 0, 'Both Kalles image and title link integrations must be exercised');
 });

@@ -1,0 +1,159 @@
+{%- liquid
+  assign featured_media = card_product.featured_media | default: settings.placeholder_img
+
+  assign img_alt_fallback = card_product.title
+  unless card_product.vendor == blank or card_product.title contains card_product.vendor
+    assign img_alt_fallback = card_product.title | append: ' ' | append: card_product.vendor
+  endunless
+-%}
+
+{%- comment -%}
+  Gender-aware image selection:
+  Default = meskie. If a "damskie" filter value is active in the collection → switch to damskie.
+  Images are tagged in alt text as: "meskie#@..." or "damskie#@..."
+{%- endcomment -%}
+{%- assign gender_prefix = 'meskie' -%}
+{%- if collection -%}
+  {%- for filter in collection.filters -%}
+    {%- if filter.param_name contains 'gender' -%}
+      {%- for filter_value in filter.active_values -%}
+        {%- assign fv_label = filter_value.label | downcase -%}
+        {%- if fv_label == 'female' or fv_label contains 'dam' or fv_label contains 'woman' or fv_label contains 'kob' -%}
+          {%- assign gender_prefix = 'damskie' -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign is_accessory = false -%}
+{%- if card_product.tags contains 'AKCESORIA' -%}
+  {%- assign is_accessory = true -%}
+{%- endif -%}
+
+{%- assign first_image = '' -%}
+{%- assign second_image = '' -%}
+
+{%- if is_accessory -%}
+  {%- assign first_image = card_product.media[0] -%}
+  {%- assign second_image = card_product.media[2] -%}
+  {%- if second_image == blank -%}
+    {%- assign second_image = first_image -%}
+  {%- endif -%}
+{%- else -%}
+  {%- comment -%} Check if media[0] is a neutral packshot (no gender prefix in alt) {%- endcomment -%}
+  {%- assign packshot = false -%}
+  {%- assign first_candidate = card_product.media[0] -%}
+  {%- if first_candidate != blank -%}
+    {%- assign first_candidate_prefix = first_candidate.alt | escape | split: '#@' | first | strip -%}
+    {%- unless first_candidate_prefix contains 'meskie' or first_candidate_prefix contains 'damskie' -%}
+      {%- assign packshot = true -%}
+      {%- assign first_image = first_candidate -%}
+    {%- endunless -%}
+  {%- endif -%}
+
+  {%- assign product_has_gender = false -%}
+  {%- for media in card_product.media -%}
+    {%- assign chk = media.alt | escape | split: '#@' | first | strip -%}
+    {%- if chk contains 'meskie' or chk contains 'damskie' -%}
+      {%- assign product_has_gender = true -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- for media in card_product.media -%}
+    {%- assign prefix = media.alt | escape | split: '#@' | first | strip -%}
+    {%- if packshot -%}
+      {%- unless forloop.first -%}
+        {%- if prefix == gender_prefix -%}
+          {%- if second_image == '' -%}{%- assign second_image = media -%}{%- endif -%}
+        {%- elsif product_has_gender == false -%}
+          {%- if second_image == '' -%}{%- assign second_image = media -%}{%- endif -%}
+        {%- endif -%}
+      {%- endunless -%}
+    {%- else -%}
+      {%- if prefix == gender_prefix -%}
+        {%- if first_image == '' -%}
+          {%- assign first_image = media -%}
+        {%- elsif second_image == '' -%}
+          {%- assign second_image = media -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if first_image == '' and second_image == '' -%}
+    {%- assign first_image = card_product.featured_media -%}
+    {%- assign second_image = card_product.media[1] -%}
+  {%- elsif first_image != '' and second_image == '' -%}
+    {%- assign second_image = first_image -%}
+  {%- endif -%}
+{%- endif -%}
+
+<hdt-product-card-media class="hdt-contents">
+  <a data-pr-url {% render 'product-selection-analytics', product: card_product, list: collection %} href="{{ product_url }}" data-instant calc-nav class="hdt-card-product__media-wrapp hdt-ratio"{% if image_ratio == 'adapt_image' %} style="--aspect-ratioapt: {{ first_image.aspect_ratio | default: featured_media.aspect_ratio | default: 1 }}"{% endif %}>
+    {%- if featured_media -%}
+      {%- if featured_media.media_type == 'video' -%}
+        <hdt-video-player autoplay id="media-{{ section.id }}-{{ card_product.id }}" main-media>
+          {{- card_product.featured_media | video_tag: image_size: '1500x', playsinline: true, muted: true, loop: true, controls: false, preload: 'metadata' -}}
+        </hdt-video-player>
+      {%- elsif featured_media.media_type == 'external_video' -%}
+        <hdt-video-player type="external_video" host="{{ featured_media.host }}" autoplay id="media-{{ section.id }}-{{ card_product.id }}" main-media>
+          <template>
+            {%- liquid
+              if featured_media.host == 'youtube'
+                echo featured_media | external_video_url: autoplay: autoplay, loop: loop, mute: mute, controls: false , playlist: featured_media.external_id | external_video_tag
+              else
+                echo featured_media | external_video_url: autoplay: autoplay, loop: loop, mute: mute, controls: false | external_video_tag
+              endif
+            -%}
+          </template>
+        </hdt-video-player>
+      {%- elsif first_image != blank -%}
+        {{ first_image | image_url: width: first_image.width | image_tag: loading: 'lazy', fetchpriority: "low", sizes: sizes, widths: '165, 360, 533, 668, 720, 940', data-widths: '[165, 360, 533, 668, 720, 940]', class: 'hdt-card-product__media--main', alt: first_image.alt | default: img_alt_fallback | escape }}
+      {%- else -%}
+        {{ featured_media | image_url: width: featured_media.width | image_tag: loading: 'lazy', fetchpriority: "low", sizes: sizes, widths: '165, 360, 533, 668, 720, 940', data-widths: '[165, 360, 533, 668, 720, 940]', class: 'hdt-card-product__media--main' }}
+      {%- endif -%}
+
+      {%- if settings.show_secondary_image -%}
+        {%- if second_image != blank -%}
+          {{- second_image | image_url: width: second_image.width | image_tag: loading: 'lazy', fetchpriority: "low", sizes: sizes, widths: '165, 360, 533, 668, 720, 940', class: 'hdt-card-product__media--hover', alt: second_image.alt | default: img_alt_fallback | escape -}}
+        {%- elsif card_product.media[1] != null -%}
+          {%- assign next_media = card_product.media[featured_media.position] | default: card_product.media[1] -%}
+          {%- if next_media.media_type == 'video' -%}
+            <hdt-video-player id="media-{{ section.id }}-{{ card_product.id }}-second" second-media>
+              {{- next_media | video_tag: image_size: '1500x', playsinline: true, muted: true, loop: true, controls: false, preload: 'metadata', class: 'hdt-card-product__media--hover' -}}
+            </hdt-video-player>
+          {%- elsif next_media.media_type == 'external_video' -%}
+            <hdt-video-player type="external_video" host="{{ next_media.host }}" autoplay id="media-{{ section.id }}-{{ card_product.id }}" second-media>
+              <template>
+                {%- liquid
+                  if next_media.host == 'youtube'
+                    echo next_media | external_video_url: autoplay: autoplay, loop: loop, mute: mute, controls: false , playlist: next_media.external_id | external_video_tag: class: 'hdt-card-product__media--hover'
+                  else
+                    echo next_media | external_video_url: autoplay: autoplay, loop: loop, mute: mute, controls: false | external_video_tag: class: 'hdt-card-product__media--hover'
+                  endif
+                -%}
+              </template>
+            </hdt-video-player>
+          {%- else -%}
+            {{- next_media | image_url: width: next_media.width | image_tag: loading: 'lazy', fetchpriority: "low", sizes: sizes, widths: '165, 360, 533, 668, 720, 940', class: 'hdt-card-product__media--hover' -}}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endif -%}
+
+    {%- elsif card_product.title == nil -%}
+      {%- liquid
+        if settings.placeholder_img
+          echo settings.placeholder_img | placeholder_svg_tag: 'hdt-placeholder-svg'
+        else
+          assign block_index = section.blocks | find_index: "id", block.id | split: '' | last | minus: 4 | abs | at_most: 4 | at_least: 1
+          unless block.id
+            assign block_index = 1
+          endunless
+          assign placeholder_image = 'product-apparel-' | append: block_index
+          echo placeholder_image | placeholder_svg_tag: 'hdt-placeholder-svg'
+        endif
+      -%}
+    {%- endif -%}
+  </a>
+</hdt-product-card-media>

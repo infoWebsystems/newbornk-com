@@ -1,0 +1,25 @@
+{% doc %}
+  Preserves the Kyiv product's list of model measurements and worn size.
+{% enddoc %}
+{%- liquid
+  assign model_product = closest.product | default: product | default: section.settings.product
+  assign model_details = model_product.metafields.info.size_model.value
+-%}
+{% if model_details != blank %}
+  <ul class="nbk-product-model hdt-text-sm" {{ block.shopify_attributes }}>
+    {% for detail in model_details %}
+      <li>{{ detail | escape }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% stylesheet %}
+.nbk-product-model {margin-block: 15px; padding-inline-start: 1.25em; list-style: disc;}
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Kyiv model details",
+  "tag": null,
+  "settings": [],
+  "presets": [{ "name": "Kyiv model details" }]
+}
+{% endschema %}

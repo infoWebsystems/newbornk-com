@@ -1,0 +1,30 @@
+{% doc %}
+  Renders the Kyiv product's text, referenced page, or legacy image size guide.
+{% enddoc %}
+{%- liquid
+  assign chart_product = product | default: section.settings.product
+  assign chart_text = chart_product.metafields.my_fields.size_quide_text.value
+  assign chart_page = chart_product.metafields.custom.size_chart.value.table.value
+  assign chart_image = chart_product.metafields.my_fields.size_quide.value
+-%}
+{% if chart_text != blank or chart_page.content != blank or chart_image != blank %}
+  <hdt-accordion class="hdt-content" {{ block.shopify_attributes }}>
+    <details class="hdt-accordion-item">
+      <summary class="hdt-flex hdt-text-base hdt-font-medium hdt-justify-between">
+        <span>{{ 'products.product.size_chart_button' | t }}</span><span aria-hidden="true">+</span>
+      </summary>
+      <div class="hdt-accordion-content hdt-rte" style="overflow-x:auto">
+        {% if chart_text != blank %}
+          {{ chart_text }}
+        {% elsif chart_page.content != blank %}
+          {{ chart_page.content }}
+        {% else %}
+          <img src="{{ chart_image | remove: 'files/' | file_img_url: '1200x' }}" alt="{{ 'products.product.size_chart_button' | t | escape }}" width="1200" height="1200" loading="lazy" style="max-width:100%;height:auto">
+        {% endif %}
+      </div>
+    </details>
+  </hdt-accordion>
+{% endif %}
+{% schema %}
+{"name":"Kyiv size guide","tag":null,"settings":[],"presets":[{"name":"Kyiv size guide"}]}
+{% endschema %}

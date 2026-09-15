@@ -1,821 +1,139 @@
 <!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}">
+{%- liquid
+  assign iso_code  = request.locale.iso_code
+  assign config_rtl  = settings.right_to_left | default: 'enable-with-list'
+  assign is_rtl = false
+  assign dir = 'ltr'
+  if config_rtl == 'enable-with-list'
+    assign iso_code_ck = iso_code | split: '-' | first | append: ';' | prepend: ';'
+    assign lis_rtl = ';ae;ar;arc;bqi;ckb;dv;fa;glk;ha;he;kwh;ks;ku;mzn;nqo;pnb;ps;sd;ug;ur;yi;'
+    if lis_rtl contains iso_code_ck
+      assign is_rtl = true
+      assign dir = 'rtl'
+    endif
+  elsif config_rtl == 'enable'
+    assign is_rtl = true
+    assign dir = 'rtl'
+  endif
+-%}
+
+<html class="no-js hdt-pr-img__effect-{{ settings.effect_secondary_image }} hdt-badge__shape-{{ settings.badge_shape }} dir--{{ dir }}{% if request.design_mode %} shopify-design-mode{% endif %} {% if settings.minimal_products %} hdt-minimal-products{% endif %}{% if settings.hidden_badges %} hdt-hidden-pr-badges{% endif %}{% if settings.hidden_quickview %} hdt-hidden-pr-quickview{% endif %}{% if settings.hidden_wishlist %} hdt-hidden-pr-wishlist{% endif %}{% if settings.hidden_compare %} hdt-hidden-pr-compare{% endif %}{% if settings.uppercase_title %} hdt-pr-uppercase_title{% endif %} {% if settings.layout_boxed %} hdt-layout-boxed{% endif %}" lang="{{ request.locale.iso_code }}" dir="{{ dir }}">
   <head>
-    <script src="{{ 'pandectes-rules.js' | file_url }}"></script>
-    <link rel="manifest" href="{{ 'manifest.json' | file_url }}">
-    <meta name="theme-color" content="#c7ec51">
-    <link rel="apple-touch-icon" href="{{ 'icon-192.png' | file_url }}">
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-MXSVV32');
-    </script>
-    <!-- End Google Tag Manager -->
-
-    {% render 'sn_preloads' %}
-
-    <script src="{{ 'custom_h1_script.js' | asset_url }}" defer></script>
-
+    {% render 'nbk-kyiv-head' %}
+ {%- capture ecom_header_content -%}{%- render 'ecom_header' -%}{%- endcapture -%}{%- unless ecom_header_content contains 'Liquid error' -%}{{ ecom_header_content }}{%- endunless -%}
+    {%- unless template == 'product.only_config' and request.design_mode == false -%}
     <meta charset="utf-8">
-
-    <title>{{ page_title }}</title>
-
-
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
-
-    {% comment %}
-      {% render 'custom-meta-tags' %}
-    {% endcomment %}
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    <style>
+        @font-face {
+            font-family: 'Formular';
+            src: url('{{ "Formular-Light.woff2" | asset_url }}') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+        @font-face {
+            font-family: 'Formular';
+            src: url('{{ "Formular.woff2" | asset_url }}') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-16x16.png"
-      sizes="16x16"
-    >
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-32x32.png"
-      sizes="32x32"
-    >
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://cdn.shopify.com/s/files/1/0578/7202/3712/files/favicon-48x48.png"
-      sizes="48x48"
-    >
+        @font-face {
+            font-family: 'Formular';
+            src: url('{{ "Formular-Medium.woff2" | asset_url }}') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
 
-    {%- unless settings.type_header_font.system? -%}
+        @font-face {
+            font-family: 'Formular';
+            src: url('{{ "Formular-Bold.woff2" | asset_url }}') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        </style>
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 48, height: 48 }}">
+    {%- endif -%}
+
+    {%- if settings.library_font == "shopify" -%}
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
+    {%- endif -%}
+    {%- if settings.library_font == 'google' -%}{{ settings.embed_google_font }}{%- endif -%}
+    <title>
+      {%- if request.page_type == 'search' and template.suffix == 'wishlist' -%}
+        {{ 'general.wishlist.wishlist_page' | t }}
+      {%- else -%}
+        {{ page_title }}
+      {%- endif -%}
+      {%- if current_tags %} &ndash; {{ 'general.meta.tag' | t }} "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t }} {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
 
-    {% render 'meta-tags' %}
-    {% if request.page_type == 'index' %}
-      <meta property="og:image" content="https://newbornk.com/cdn/shop/files/Frame_567194.jpg?v=1774554422">
-    {% endif %}
-    {% render 'meta-robots' %}
-
-    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'breadcrumbs-custom-item.js' | asset_url }}" defer="defer"></script>
-
-    {% if template.name == 'product' %}
-      <script src="{{ 'product-redesigned.js' | asset_url }}" defer="defer"></script>
-    {% endif %}
-    {{ content_for_header }}
-
-    {% render 'fn_uk-hreflang' %}
+    {%- if page_description and current_page == 1 %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
 
     {%- liquid
-      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
-      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
-      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-    %}
+      render 'social-meta-tags'
+      render 'css-variables', is_rtl: is_rtl
+      render 'js-variables'
+      render 'scripts'
+      if settings.custom_html_head != blank
+        echo settings.custom_html_head
+      endif
+    -%}
 
-    {% style %}
-      {{ settings.type_body_font | font_face: font_display: 'swap' }}
-      {{ body_font_bold | font_face: font_display: 'swap' }}
-      {{ body_font_italic | font_face: font_display: 'swap' }}
-      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-
-      :root {
-      --font-body-family: 'Formular', {{ settings.type_body_font.fallback_families }};
-      --font-body-style: {{ settings.type_body_font.style }};
-      --font-body-weight: {{ settings.type_body_font.weight }};
-
-      --font-heading-family: 'Formular', {{ settings.type_header_font.fallback_families }};
-      --font-heading-style: {{ settings.type_header_font.style }};
-      --font-heading-weight: {{ settings.type_header_font.weight }};
-
-      --color-base-text: {{ settings.colors_text }};
-      --color-base-text-rgb: {{ settings.colors_text | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-background-1: {{ settings.colors_background_1 }};
-      --color-base-background-1-rgb: {{ settings.colors_background_1 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-background-2: {{ settings.colors_background_2 }};
-      --color-base-background-2-rgb: {{ settings.colors_background_2 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-solid-button-labels: {{ settings.colors_solid_button_labels }};
-      --color-base-solid-button-labels-rgb: {{ settings.colors_solid_button_labels | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-outline-button-labels: {{ settings.colors_outline_button_labels }};
-      --color-base-outline-button-labels-rgb: {{ settings.colors_outline_button_labels | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-accent-1: {{ settings.colors_accent_1 }};
-      --color-base-accent-1-rgb: {{ settings.colors_accent_1 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-      --color-base-accent-2: {{ settings.colors_accent_2 }};
-      --color-base-accent-2-rgb: {{ settings.colors_accent_2 | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-
-      --color-base-text-opacity-10-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 10 }};
-      --color-base-text-opacity-20-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 20 }};
-      --color-base-text-opacity-55-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 55 }};
-      --color-base-text-opacity-85-percent: {{ settings.colors_text | color_mix: settings.colors_background_1, 85 }};
-      --color-base-accent-1-opacity-10-percent: {{ settings.colors_accent_1 | color_mix: settings.colors_background_1, 10 }};
-      --color-base-accent-2-opacity-10-percent: {{ settings.colors_accent_2 | color_mix: settings.colors_background_1, 10 }};
-      }
-
-      *,
-      *::before,
-      *::after {
-      box-sizing: inherit;
-      }
-
-      html {
-      box-sizing: border-box;
-      font-size: 62.5%;
-      height: 100%;
-      }
-
-      body {
-      display: grid;
-      grid-template-rows: auto auto 1fr auto;
-      grid-template-columns: 100%;
-      min-height: 100%;
-      margin: 0;
-      font-size: 1.5rem;
-      letter-spacing: 0rem;
-      line-height: 1.8;
-      font-family: var(--font-body-family);
-      font-style: var(--font-body-style);
-      font-weight: var(--font-body-weight);
-      }
-      .disable-hover,
-      .disable-hover * {
-      pointer-events: none !important;
-      }
-      @media screen and (min-width: 750px) {
-      body {
-      font-size: 1.6rem;
-      }
-      }
-    {% endstyle %}
-
-    {{ 'base.css' | asset_url | stylesheet_tag }}
-    {{ 'new.css' | asset_url | stylesheet_tag }}
-    {% if template.name == 'product' %}
-      {{ 'product-redesigned.css' | asset_url | stylesheet_tag }}
-      {{ 'size-chart.css' | asset_url | stylesheet_tag }}
-    {% endif %}
-    {% if template.suffix == 'loyalty-program' %}
-      {{ 'page-loyalty.css' | asset_url | stylesheet_tag }}
-    {% endif %}
-    {% if request.page_type == 'index' or request.page_type == 'product' or request.page_type == 'page' %}
-      <link rel="stylesheet" href="{{ 'component-swiper.css' | asset_url }}" media="print" onload="this.media='all'">
-      <noscript>{{ 'component-swiper.css' | asset_url | stylesheet_tag }}</noscript>
-    {% endif %}
-    {%- if settings.predictive_search_enabled -%}
-      <link
-        rel="stylesheet"
-        href="{{ 'component-predictive-search.css' | asset_url }}"
-        media="print"
-        onload="this.media='all'"
-      >
-    {%- endif -%}
-    <style>
-      .cart-item__image {
-        object-fit: contain !important;
-      }
-      @media screen and (min-width: 990px) {
-        .title, .title-wrapper-with-link {
-          margin: 5rem 0 3rem 0.6rem;
-        }
-        .grid--4-col-desktop .grid__item{
-          flex-grow: 0;
-        }
-      }
-      @media (min-width: 768px) {
-        .trm-header .header__icon--account.header__icon--search svg.icon-search {
-          display: flex;
-          height: 100%;
-          width: 20px;
-          display: block !important;
-        }
-        .header__icons {
-          gap: 1.5rem;
-        }
-      }
-    </style>
-    <style>
-            #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form a.bingc-passive-phone-form-button {
-          background: #c7ec51 !important;
-      }
-            #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-hour, #bingc-passive div.bingc-passive-overlay div.bingc-passive-content div.bingc-passive-get-phone-form form.bingc-passive-get-phone-form div.bingc-passive-get-phone-form-date-selection div.bingc-passive-date-selection-select-minutes {
-          background: #c7ec51 !important;
-      }
-            body #bingc-phone-button svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-             fill: #c7ec51 !important;
-            }
-            body #bingc-phone-button:hover svg.bingc-phone-button-circle circle.bingc-phone-button-circle-inside {
-              fill: #c7ec51 !important;
-            }
-            body #bingc-phone-button div.bingc-phone-button-tooltip {
-              background: #c7ec51 !important;
-            }
-            body #bingc-phone-button div.bingc-phone-button-tooltip svg.bingc-phone-button-arrow polyline {
-              fill: #c7ec51 !important;
-            }
-             body #shopify-section-popup-cart-discount {
-        margin: 0;
-      }
-      body .MuiSnackbar-root.wishlist-hero-add-prod-to-wishlist-notification {
-        bottom: unset !important;
-        top: 100px !important;
-      }
-      .select__select:active,
-      .select__select:focus {
-        -webkit-box-shadow: 0 0 0 0.1rem var(--color-foreground-55);
-        box-shadow: 0 0 0 0.1rem var(--color-foreground-55);
-      }
-      .facet-filters__field .__select[data-state='active'] {
-        z-index: 4;
-      }
-      .facet-filters__field .__select .__select__content {
-        z-index: -1;
-      }
-      .facet-filters__field .__select[data-state='active'] .__select__content {
-        z-index: 8;
-      }
-      .collection-products .grid__item .media {
-        aspect-ratio: 1 / 1.5;
-      }
-      body .__select {
-        width: 28rem;
-        max-width: 28rem;
-      }
-      .collection-products .grid__item .media {
-        padding-bottom: 150%;
-      }
-      .card__inner .wishlisthero-floating {
-        z-index: 1;
-      }
-      #wishlist-hero-shared-list-view .MuiButton-label{
-        color: white;
-      }
-      .js-filter.hide--filter-counters .facet-checkbox__number{
-        display: none !important;
-      }
-      @media (max-width: 767px) {
-        .collection-products .grid__item{
-          z-index: 3;
-        }
-        .menu-drawer__menu > li[is="brand"] > details{
-          padding-top: 10px;
-          margin-top: 10px;
-        }
-        .menu-drawer__menu > li[is="brand"] > details{
-          position: relative;
-        }
-        .menu-drawer__menu > li[is="brand"] > details:before{
-          content: '';
-          border-top: 1px solid #bbbbbb;
-          width: calc(100% - 56px);
-          left: 32px;
-          top: -2px;
-          position: absolute;
-        }
-      }
-      @media (max-width: 749px) {
-        #shopify-section-header-outlet, #shopify-section-header {
-          z-index: 4;
-        }
-      }
-      @media (min-width: 1280px) {
-       html .header__icon--account:not(.header__icon--search){
-          position: relative;
-          top: 2px;
-        }
-        html #cart-icon-bubble{
-          position: relative;
-          top: 2px;
-        }
-        #FacetFiltersForm{
-          margin-top: 20px;
-          border-top: 1px solid #bbbbbb;
-          padding-top: 20px;
-        }
-      }
-      @media (max-width: 450px) {
-        body .__select__title span {
-          font-size: 3.5vw;
-          padding: 3px 6px;
-        }
-        body main {
-          min-height: unset;
-        }
-        .spaced-section:last-child {
-          margin-bottom: 1rem;
-          margin-top: 5rem;
-        }
-        .footer .footer-block__details-content {
-          margin-bottom: 1rem;
-        }
-        .footer .footer-block.grid__item.item-3 {
-          padding: 15px 0 35px;
-        }
-        body .pagination-wrapper {
-          margin-top: 3rem;
-          margin-bottom: 3rem;
-        }
-      }
-    </style>
-    {% if request.page_type == 'index'
-      or template.name == 'product'
-      or template.name == 'collection'
-      or template.name == 'page'
-    %}
-      <style>
-        a#icon-wishlist-header{
-            opacity: 1;
-        }
-      </style>
-    {%- endif -%}
-    {%- unless settings.type_body_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_body_font | font_url }}" type="font/woff2" crossorigin>
+    {{ content_for_header }}
+    {% render 'fn_uk-hreflang' %}
     {%- endunless -%}
-    {%- unless settings.type_header_font.system? -%}
-      <link rel="preload" as="font" href="{{ settings.type_header_font | font_url }}" type="font/woff2" crossorigin>
+    </head>
+
+  <body class="hdt-page-type-{{ request.page_type }}">
+    {% comment %} {%- section 'product-card-configs' -%} {% endcomment %}
+    {%- unless template == 'product.only_config' and request.design_mode == false -%}
+    {%- if request.page_type == "index" or request.page_type == "policy" -%}
+    <h1 class="hdt-hidden">{{ page_title | default: shop.name }}</h1>
+    {%- endif -%}
+    {%- render 's-dom-temp' -%}
+    <a class="skip-to-content-link button sr-only " href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>
+    {%- sections 'header-group' -%}
     {%- endunless -%}
 
-    <script>
-      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-    </script>
-
-    {% if request.page_type contains 'index'
-      or request.page_type contains 'product'
-      or request.page_type contains 'page'
-    %}
-      <script>
-        (function () {
-          var s = document.createElement('script');
-          s.src = "{{ 'swiper.js' | asset_url }}";
-          s.defer = true;
-          s.onload = function () {
-            document.dispatchEvent(new Event('swiper:ready'));
-          };
-          document.head.appendChild(s);
-        })();
-      </script>
-    {% endif %}
-
-    <script src="{{ 'app.js' | asset_url }}" defer></script>
-    <script src="{{ 'size-chart.js' | asset_url }}" defer></script>
-
-    {% render 'wishlisthero-styles.liquid' %}
-
-    {% capture adoricsnippet %}{% include "adoric-apps-common" %}{% endcapture %}
-    {% unless adoricsnippet contains 'Liquid error' %}{{ adoricsnippet }}{% endunless %}
-    {% comment %} DimitryRr {% endcomment %}
-    <meta name="google-site-verification" content="kpcspgYtCS52POuCkohOcJFqBeKEOhfSQimyPUpo754">
-
-    {% comment %} maybe itforce {% endcomment %}
-    {% comment %} <meta name="google-site-verification" content="3lSZiF14Fa-u21OZGIXiMaguwBJgQnyzUqorK5vG9g0"> {% endcomment %}
-    {% comment %} <meta name="google-site-verification" content="cIoKTzCKehHrd-DQjxMORaLir9ukPggviWKS8Czw-Ho">  {% endcomment %}
-    
-    <img
-      alt="icon"
-      id="svgicon"
-      width="1400"
-      height="1400"
-      style="pointer-events: none; position: absolute; top: 0; left: 0; width: 99vw; height: 99vh; max-width: 99vw; max-height: 99vh;"
-      src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHdpZHRoPSI5OTk5OXB4IiBoZWlnaHQ9Ijk5OTk5cHgiIHZpZXdCb3g9IjAgMCA5OTk5OSA5OTk5OSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48ZyBzdHJva2U9Im5vbmUiIGZpbGw9Im5vbmUiIGZpbGwtb3BhY2l0eT0iMCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk5OTk5IiBoZWlnaHQ9Ijk5OTk5Ij48L3JlY3Q+IDwvZz4gPC9zdmc+"
-      loading="eager"
-    >
-
-    {% if customer %}
-      {% # CHEKLY-CUSTOMER-SCRIPT-START # %}
-      <script>
-        window.Shopify = window.Shopify || {};
-        Shopify.customer = {
-          firstName: '{{ customer.first_name }}',
-          lastName: '{{ customer.last_name }}',
-          email: '{{ customer.email }}',
-          phone: '{{ customer.phone }}',
-        };
-      </script>
-      {% # CHEKLY-CUSTOMER-SCRIPT-END # %}
-    {% endif %}
-    <script
-      data-chekly-url="https://chekly-app.com"
-      data-chekly-theme="chekly"
-      data-chekly-script="GLOBAL"
-      src="{{ 'chekly-script-custom.js' | asset_url }}"
-      defer
-      data-checkout-domain="https://checkout.newbornk.com"
-    ></script>
-    <script src="{{ 'cekly_gb.aov-cartdrawer-checkout-extension.js' | asset_url }}" defer></script>
-    {% unless request.page_type == 'cart' %}
-      {% render 'aov-cart-analytics' %}
-    {% endunless %}
-    <script>
-      function showToast(message = '', title = '', image_src = '', timeout = 3000) {
-        if (!message) {
-          return;
-        }
-
-        let container = document.getElementById('toast-container');
-        if (!container) {
-          container = document.createElement('div');
-          container.setAttribute('id', 'toast-container');
-          document.body.appendChild(container);
-        }
-
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-
-        let inner = '<span class="toast-close">&times;</span>';
-
-        if (title) {
-          inner += `<div class="toast-title">${title}</div>`;
-        } else {
-          toast.className += ' no--title';
-        }
-
-        if (image_src) {
-          message = '<div class="toast-image"><img src="' + image_src + '"></div><span>' + message + '</span>';
-        }
-
-        inner += '<div class="toast-message">' + message + '</div><div class="toast-progress"></div>';
-
-        toast.innerHTML = inner;
-
-        const progressBar = toast.querySelector('.toast-progress');
-        progressBar.style.transition = `width ${timeout}ms linear`;
-
-        const closeButton = toast.querySelector('.toast-close');
-
-        container.appendChild(toast);
-
-        setTimeout(() => {
-          toast.style.opacity = '1';
-          toast.style.transform = 'translateY(0)';
-          progressBar.style.width = '0%';
-        }, 100);
-
-        closeButton.addEventListener('click', () => {
-          closeToast();
-        });
-
-        const autoCloseTimeout = setTimeout(() => {
-          closeToast();
-        }, timeout);
-
-        function closeToast() {
-          clearTimeout(autoCloseTimeout);
-          toast.style.opacity = '0';
-          toast.style.transform = 'translateY(-20px)';
-          setTimeout(() => {
-            toast.remove();
-          }, 500);
-        }
-      }
-    </script>
-    <style>
-      #toast-container {
-        position: fixed;
-        top: 100px;
-        right: 10px;
-        z-index: 10000;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        width: 300px;
-        gap: 10px;
-        caret-color: transparent;
-      }
-
-      #toast-container .toast {
-        background: #fff;
-        border-radius: 10px;
-        color: #1d1e20;
-        box-shadow: 0 3px 10px #0000004d;
-        opacity: 0;
-        transition:
-          opacity 0.5s ease,
-          transform 0.5s ease;
-        overflow: hidden;
-        position: relative;
-        width: 100%;
-      }
-
-      #toast-container .toast.no--title .toast-close {
-        color: black;
-      }
-
-      #toast-container .toast.no--title .toast-message {
-        padding-right: 45px;
-        padding-top: 15px;
-      }
-
-      #toast-container .toast-message {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        padding: 10px;
-        font-size: 14px;
-        line-height: 1.4;
-      }
-      #toast-container .toast-image {
-        width: 36px;
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        position: relative;
-        aspect-ratio: 1 / 1.5;
-      }
-
-      #toast-container .toast-image img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        -o-object-position: top;
-        object-position: top;
-        -o-object-fit: contain;
-        object-fit: contain;
-      }
-      #toast-container .toast-title {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 130%;
-        color: white;
-        background: black;
-        padding: 10px 50px 10px 10px;
-      }
-
-      #toast-container .toast-message-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      #toast-container .toast-close {
-        color: #ffffff;
-        font-size: 20px;
-        cursor: pointer;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      #toast-container .toast-progress {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 3px;
-        background: #1d1e20;
-        width: 100%;
-        display: block;
-      }
-    </style>
-
-    <script>
-      window.addEventListener("load", function() {
-      {% if customer %}
-         es("setCustomer", {
-            email: {{ customer.email | json }},
-            firstName: {{ customer.first_name | json }},
-            lastName: {{ customer.last_name | json }}
-         });
-      {% endif %}
-       if (window.es) {
-         es("appInbox.init");
-         es("appInbox.checkMessages");
-       }
-      });
-    </script>
-   
-    {% comment %} JSON-LD consolidated graph — single source of truth {% endcomment %}
-    {% render 'jsonld-graph' %}
-
-  </head>
-
-  <body class="template-{{ request.page_type | handle }} {% capture class %}{% render 'fn_body_class' %}{% endcapture -%}{{ class | strip }}">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-MXSVV32"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe
-    ></noscript>
-    <!-- Google Tag Manager (ahref) -->
-    <script>
-      var ahrefs_analytics_script = document.createElement('script');
-      ahrefs_analytics_script.async = true;
-      ahrefs_analytics_script.src = 'https://analytics.ahrefs.com/analytics.js';
-      ahrefs_analytics_script.setAttribute('data-key', 'yEb09riFW9kGssXJWXQh1Q');
-      document.getElementsByTagName('head')[0].appendChild(ahrefs_analytics_script);
-    </script>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      {{ 'accessibility.skip_to_text' | t }}
-    </a>
-
-    {% section 'announcement-bar' %}
-
-    {% if template contains 'outlet' %}
-      {% section 'header-outlet' %}
-    {% else %}
-      {% section 'header' %}
-    {% endif %}
-
-    <main
-      id="MainContent"
-      class="content-for-layout focus-none{% if template.name == 'collection' %} content-for-layout-collection-mobile{% endif %} {% if template.name == 'cart' %}cart-wrap{% endif %}"
-      role="main"
-      tabindex="-1"
-    >
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
+      {%- if template.suffix == 'only_config' -%}
+        {%- section 'color-swatch' -%}
+      {%- endif -%}
     </main>
 
-    {% if customer.tags contains 'admin' and template.name == 'product' %}
-      {% assign store_permanent_domain = shop.permanent_domain | replace: '.myshopify.com' %}
-      <div class="admin-products-link">
-        <a href="https://admin.shopify.com/store/{{ store_permanent_domain }}/products/{{ product.id }}" target="_blank"
-          >EDIT PRODUCT
-        </a>
-      </div>
-    {% endif %}
-    {% section 'popup-cart-discount' %}
-    {% section 'footer' %}
-
-    <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
-    </ul>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-    
-        var ua = navigator.userAgent.toLowerCase();
-        var html = document.documentElement;
-
-        if (ua.indexOf('chrome') > -1 && ua.indexOf('edge') === -1 && ua.indexOf('edg') === -1 && ua.indexOf('opr') === -1) {
-          html.classList.add('browser-chrome');
-        } else if (ua.indexOf('safari') > -1 && ua.indexOf('chrome') === -1) {
-          html.classList.add('browser-safari');
-        }
-
-        const is_wishlist = document.querySelector('#wishlist-hero-shared-list-loader');
-        const main_tag = document.querySelector('main');
-        if (is_wishlist && main_tag){
-          main_tag.style.minHeight = 'unset'
-        }
-        if (window.location.pathname !== "/") {
-          const cleanPath = window.location.pathname.replace(/\/+$/, '');
-          const cleanUrl = window.location.origin + cleanPath + window.location.search;
-
-          if (window.location.href !== cleanUrl) {
-            window.location.replace(cleanUrl);
-          }
-        }
-
-          let url = new URL(window.location.href);
-          let pageParam = url.searchParams.get("page");
-
-          if (pageParam === "1") {
-            url.searchParams.delete("page");
-            window.location.replace(url.href);
-          }
-
-      });
-      window.routes = {
-        cart_add_url: '{{ routes.cart_add_url }}',
-        cart_change_url: '{{ routes.cart_change_url }}',
-        cart_update_url: '{{ routes.cart_update_url }}',
-        predictive_search_url: `{{ routes.predictive_search_url }}`
-      };
-
-      window.cartStrings = {
-        error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t }}`
-      }
-
-      window.variantStrings = {
-        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
-        soldOut: `{{ 'products.product.sold_out' | t }}`,
-        unavailable: `{{ 'products.product.unavailable' | t }}`,
-      }
-      window.translation = {
-        cart: `{{ 'templates.cart.cart' | t }}`,
-        read_more: `{{ 'general.read_more' | t }}`,
-        read_less: `{{ 'general.read_less' | t }}`,
-      }
-      window.arrayCollectionShowGender = {{ settings.array_collection_handle_show_gender }};
-    </script>
-
-    {% comment %} <script src="{{ 'swiper.js' | asset_url }}"></script> {% endcomment %}
-    <script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
-    <script>
-      var body = document.body,
-        timer;
-
-      window.addEventListener(
-        'scroll',
-        function () {
-          clearTimeout(timer);
-          if (!body.classList.contains('disable-hover')) {
-            body.classList.add('disable-hover');
-          }
-
-          timer = setTimeout(function () {
-            body.classList.remove('disable-hover');
-          }, 500);
-        },
-        false
-      );
-    </script>
-    {%- if settings.predictive_search_enabled -%}
-      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
-
-    {% capture notification %}{% render 'translation-lab-theme-editor-notification' %}{% endcapture %}
-    {% unless notification contains 'Liquid error' %}{{ notification }}{% endunless %}
-
-    <!-- KeyCRM online chat widget begin -->
-    <script>
-      (function () {
-        let user_agent = window.navigator.userAgent;
-
-        var is_mobile = window.screen.width < 768 ? 1 : 0;
-        let is_pagespeed =
-          (user_agent.indexOf('moto g power') !== -1 &&
-            user_agent.indexOf('AppleWebKit') !== -1 &&
-            user_agent.indexOf('Mobile') !== -1) ||
-          user_agent.indexOf('Lighthouse') !== -1
-            ? 1
-            : 0;
-
-        var sleep = 100;
-        if (is_mobile) {
-          sleep = is_pagespeed == 1 ? 8000 : 1000;
-        } else {
-          sleep = is_pagespeed == 1 ? 1000 : 50;
-        }
-
-        var startTimeStcrtr = new Date().getTime();
-        var timerYM = setInterval(function () {
-          var t = new Date().getTime() - startTimeStcrtr;
-          if (document.readyState === 'complete' || t > 10000) {
-            clearInterval(timerYM);
-            setTimeout(function () {
-              (function (w, d, t, u, c) {
-                var s = d.createElement(t),
-                  j = d.getElementsByTagName(t)[0];
-                s.src = u;
-                s['async'] = true;
-                s.defer = true;
-                s.onload = function () {
-                  KeyCRM.render(c);
-                };
-                j.parentNode.insertBefore(s, j);
-              })(window, document, 'script', 'https://chat.key.live/bundles/widget.min.js', {
-                token: 'bc3f252a-342f-42cb-a3a6-3219b681731b',
-              });
-            }, sleep);
-          }
-        }, 10);
-      })();
-    </script>
-    <!-- KeyCRM online chat widget end -->
-
-    <!-- BADGE for google reviews -->
-    <!--
-      <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
-      <script>
-        window.renderBadge = function() {
-          var ratingBadgeContainer = document.createElement("div");
-          document.body.appendChild(ratingBadgeContainer);
-          window.gapi.load('ratingbadge', function() {
-            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": 500810630});
-          });
-        }
-      </script>
-    -->
+    {%- unless template == 'product.only_config' and request.design_mode == false -%}
+    <footer>
+      {%- sections 'footer-group' -%}
+    </footer>
+    {%- liquid
+      sections 'system-group'
+      if settings.enable_compare_popup
+        render 'compare-offcanvas'
+      endif
+      render 'system-bottom'
+      if settings.custom_html_footer != blank
+        echo settings.custom_html_footer
+      endif
+      render 'jsonld-graph'
+    -%}
+   {%- endunless -%}
+  {%- capture ecom_footer_content -%}{%- render 'ecom_footer' -%}{%- endcapture -%}{%- unless ecom_footer_content contains 'Liquid error' -%}{{ ecom_footer_content }}{%- endunless -%}  {% render 'nbk-kyiv-checkout' %}
+    {% render 'nbk-kyiv-integrations' %}
+    {% render 'nbk-cart-analytics' %}
   </body>
 </html>

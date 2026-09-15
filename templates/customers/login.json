@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "heading": {
+      "type": "main-heading",
+      "blocks": {
+        "heading_liquid_iMVrac": {
+          "type": "_heading_liquid",
+          "settings": {
+            "text": "Login",
+            "line_height": "",
+            "font_family": "hdt-font-1",
+            "text_size": "2xl",
+            "text_color": "hdt-s-text",
+            "italic": false,
+            "uppercase": true,
+            "font_size_text_lg": 16,
+            "font_size_text": 14,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "heading_brc_zQLbgG": {
+          "type": "_heading_brc",
+          "name": "t:sections.heading-page.blocks.breadcrumb.label",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_liquid_iMVrac",
+        "heading_brc_zQLbgG"
+      ],
+      "settings": {
+        "use_dynamic_source": false,
+        "color_scheme": "scheme-1",
+        "bg_overlay": 0,
+        "space_item": 0,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "20px,,20px,",
+        "pd_mb": "15px,,15px,"
+      }
+    },
+    "main": {
+      "type": "main-login",
+      "settings": {
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "80px,,80px,",
+        "pd_mb": "40px,,40px,"
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "main"
+  ]
+}

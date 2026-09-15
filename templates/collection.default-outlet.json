@@ -1,45 +1,122 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
+    "main_heading_PHNGje": {
+      "type": "main-heading",
+      "blocks": {
+        "heading_liquid_wcaa7G": {
+          "type": "_heading_liquid",
+          "settings": {
+            "text": "{{ collection.title }}",
+            "line_height": "",
+            "font_family": "hdt-font-1",
+            "text_size": "2xl",
+            "text_color": "hdt-s-text",
+            "italic": false,
+            "uppercase": false,
+            "font_size_text_lg": 16,
+            "font_size_text": 14,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "heading_brc_pYUK78": {
+          "type": "_heading_brc",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_liquid_wcaa7G",
+        "heading_brc_pYUK78"
+      ],
+      "custom_css": [],
       "settings": {
-        "show_collection_description": true,
-        "show_more_text": true,
-        "description_lines": 10,
-        "description_lines_mob": 7,
-        "show_collection_image": false,
-        "show_collection_title": true,
-        "show_filter_w_m": true,
-        "text_women": "Жінкам",
-        "text_men": "Чоловікам"
+        "use_dynamic_source": false,
+        "color_scheme": "scheme-1",
+        "bg_overlay": 0,
+        "space_item": 0,
+        "mg": "0px,0px,0px,0px",
+        "mg_mb": "",
+        "pd": "10px,,10px,",
+        "pd_mb": "15px,,15px,"
       }
     },
-    "product-grid": {
-      "type": "main-collection-product-grid",
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "categories_FD6ixP": {
+          "type": "categories",
+          "settings": {
+            "widget_heading": "MENU",
+            "cat_source": "2",
+            "cat_link_list": "sidebar-menu",
+            "count": false
+          }
+        },
+        "filter_KX6bJW": {
+          "type": "filter",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "categories_FD6ixP",
+        "filter_KX6bJW"
+      ],
+      "custom_css": [
+        ".hdt-sidebar-btn {display: none;}",
+        "@media (max-width: 767px) {.hdt-main-collection-description-wrap .wrapper[wrap-content] {--max-height: 150px !important; }}"
+      ],
       "settings": {
-        "products_per_page": 20,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
+        "show_description": true,
+        "use_read_more": false,
+        "read_more_height": 300,
+        "description_position": "before",
+        "product_des": "8",
+        "image_ratio": "adapt_image",
+        "image_size": false,
         "show_vendor": true,
+        "pr_border": "none",
+        "products_count": 16,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "space_items": "x",
+        "pagination_type": "links",
+        "enable_progressbar": true,
+        "paginate_pos": "center",
+        "dis_pagination": 40,
+        "btn_label": "Załaduj więcej produktów",
+        "btn_style": "hdt-btn-outline",
+        "size": "xl",
+        "btn_fw": "medium",
+        "enable_sorting": true,
         "enable_filtering": true,
-        "enable_menu": true,
-        "menu_sidebar": "sidebar-menu-outlet",
-        "enable_sorting": true
+        "enable_num_cols_selector": false,
+        "enable_list_default": false,
+        "widget_heading": "Product categories",
+        "cat_source": "2",
+        "cat_link_list": "sidebar-menu",
+        "count": false,
+        "colors_by_section": true,
+        "color_scheme": "scheme-1",
+        "background_opacity": 0,
+        "section_layout": "wrapper_container",
+        "hdt_background_parallax": false,
+        "mg": "",
+        "mg_mb": "",
+        "pd": ",,30px,",
+        "pd_mb": ",,22px,",
+        "sidebar_drawer": false,
+        "sidebar_position": "left",
+        "sidebar_size": "small",
+        "colors_by_section_sb": true,
+        "color_scheme_sb": "scheme-3ca89d46-7215-42b2-a86d-a5bd0e60fe97",
+        "background_opacity_sb": 1
       }
     }
   },
   "order": [
-    "banner",
-    "product-grid"
+    "main_heading_PHNGje",
+    "main-collection"
   ]
 }

@@ -1,0 +1,15 @@
+{% doc %}
+  Connects the native Kalles cart to Kyiv's existing Chekly checkout.
+{% enddoc %}
+{% if customer %}
+  <script>
+    window.Shopify = window.Shopify || {};
+    window.Shopify.customer = {
+      firstName: {{ customer.first_name | json }},
+      lastName: {{ customer.last_name | json }},
+      email: {{ customer.email | json }},
+      phone: {{ customer.phone | json }}
+    };
+  </script>
+{% endif %}
+<script data-chekly-url="https://chekly-app.com" data-chekly-theme="chekly" data-chekly-script="GLOBAL" src="{{ 'chekly-script-custom.js' | asset_url }}" defer data-checkout-domain="https://checkout.newbornk.com"></script>

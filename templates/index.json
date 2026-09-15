@@ -1,320 +1,1627 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "1630994380770cb550": {
+    "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
-        "slide_mhh3dU": {
-          "type": "slide",
+        "kyiv_slide_0": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/DESK.jpg",
-            "image_phone": "shopify://shop_images/MOB.jpg",
-            "banner_link": "shopify://collections/bareen",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/MOB.jpg",
+            "url": "shopify://collections/bareen",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_PziDkQ": {
-          "type": "slide",
+        "kyiv_slide_1": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/DESK_c.webp",
-            "image_phone": "shopify://shop_images/MOB_c.webp",
-            "banner_link": "shopify://collections/carhartt-wip",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/MOB_c.webp",
+            "url": "shopify://collections/carhartt-wip",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_wHpNAY": {
-          "type": "slide",
+        "kyiv_slide_2": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/ukr_banner_desktop_59115a67-aa0f-43f6-a61e-4e191bc170c1.webp",
-            "image_phone": "shopify://shop_images/ukr_banner_mobile_1082354c-6d70-41e3-9487-1c2acbba9f90.webp",
-            "banner_link": "shopify://collections/pas-normal-studios",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/ukr_banner_mobile_1082354c-6d70-41e3-9487-1c2acbba9f90.webp",
+            "url": "shopify://collections/pas-normal-studios",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "1630994380b1b22eeb-1": {
-          "type": "slide",
+        "kyiv_slide_3": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/NASA_HOR.jpg",
-            "image_phone": "shopify://shop_images/NASA_VERT.jpg",
-            "banner_link": "shopify://collections/new-amsterdam",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/NASA_VERT.jpg",
+            "url": "shopify://collections/new-amsterdam",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
-          "type": "slide",
+        "kyiv_slide_4": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/pl_banner_desktop_1.webp",
-            "image_phone": "shopify://shop_images/ukr_banner_mobile_3b41b1c7-07ed-45d9-aa89-b7218ea2d940.webp",
-            "banner_link": "shopify://collections/sale",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/ukr_banner_mobile_3b41b1c7-07ed-45d9-aa89-b7218ea2d940.webp",
+            "url": "shopify://collections/sale",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_BHnyDT": {
-          "type": "slide",
+        "kyiv_slide_5": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/UA_Desktop_1_2.jpg",
-            "image_phone": "shopify://shop_images/UA_Mobile_2.jpg",
-            "banner_link": "shopify://collections/gift-cards",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/UA_Mobile_2.jpg",
+            "url": "shopify://collections/gift-cards",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_7qGUkq": {
-          "type": "slide",
+        "kyiv_slide_6": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/HELIOT_HORIZ.jpg",
-            "image_phone": "shopify://shop_images/HELIOT_VERT.jpg",
-            "banner_link": "shopify://collections/heliot-emil",
-            "language": ""
-          }
+            "image_mb": "shopify://shop_images/HELIOT_VERT.jpg",
+            "url": "shopify://collections/heliot-emil",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_TyEeBH": {
-          "type": "slide",
+        "kyiv_slide_7": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/HH_HOR.jpg",
-            "image_phone": "shopify://shop_images/HH_VERT.jpg",
-            "banner_link": "shopify://collections/han-kjobenhavn",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/HH_VERT.jpg",
+            "url": "shopify://collections/han-kjobenhavn",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         }
       },
       "block_order": [
-        "slide_mhh3dU",
-        "slide_PziDkQ",
-        "slide_wHpNAY",
-        "1630994380b1b22eeb-1",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
-        "slide_BHnyDT",
-        "slide_7qGUkq",
-        "slide_TyEeBH"
+        "kyiv_slide_0",
+        "kyiv_slide_1",
+        "kyiv_slide_2",
+        "kyiv_slide_3",
+        "kyiv_slide_4",
+        "kyiv_slide_5",
+        "kyiv_slide_6",
+        "kyiv_slide_7"
       ],
+      "custom_css": [],
       "settings": {
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "swipe_on_mobile": false
+        "image_height": "adapt_image",
+        "fixed_height": 600,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 450,
+        "is_fade": false,
+        "loop": true,
+        "autoplay": 7,
+        "pauseOnHover": true,
+        "navUI": false,
+        "nav_visible": "always",
+        "nav_style": "default",
+        "nav_shape": "default",
+        "nav_size": "small",
+        "nav_hide_mobile": false,
+        "dotUI": true,
+        "pag_style": "elessi",
+        "pag_position": "center",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 20,
+        "pag_hide_mobile": false,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "full_width": true,
+        "mg": "",
+        "mg_mb": "",
+        "pd": ",,30px,",
+        "pd_mb": ",,22px,"
       }
     },
-    "rich_text_bYNzLt": {
-      "type": "rich-text",
+    "custom_section_YCFtPf": {
+      "type": "custom-section",
       "blocks": {
-        "text_UUD4rg": {
-          "type": "text",
+        "multi_column_z4ptHH": {
+          "type": "_multi_column",
           "settings": {
-            "text": "<h1>NEWBORN K — концепт-стор брендового одягу, взуття та аксесуарів</h1><p>Вітаємо в <strong>NEWBORN K</strong> — концепт-сторі з унікальною селекцією одягу та lifestyle-продукції від світових і нішевих брендів. Тут ти знайдеш усе, щоб підкреслити свою індивідуальність, і станеш частиною стильного, прогресивного ком’юніті.</p><p>Ми не черговий класичний фешн-рітейл, а концептуальний простір, що народився з бажання переосмислити звичні правила. Більшість нашої команди виросла у Києві, і саме це місто з його креативними людьми стало для нас натхненням. Назва <strong>NEWBORN K</strong> — це втілення мрії створити щось нове, що відображає дух часу та поєднує глобальні культурні коди з нашою локальною естетикою.</p><h2>Що робить NEWBORN K особливим?</h2><p>Сьогодні купити брендовий одяг можна в багатьох магазинах. Знайти ж місце, де кожна річ підібрана зі смаком, а атмосфера викликає бажання залишитись — справжня рідкість. Для багатьох <strong>NEWBORN KYIV</strong> став саме таким простором, адже тут:</p><ul><li><strong>Свіжа селекція:</strong> Ми не женемося за гучними трендами. Нам важливий одяг з ідеєю, історією та характером.</li><li><strong>Неймовірне ком’юніті:</strong> NEWBORN K — це більше, ніж магазин. Це люди, які цінують стиль та свободу бути собою.</li><li><strong>Гарантія оригінальності:</strong> Ми працюємо лише з офіційними постачальниками. Уся продукція в нашому інтернет-магазині — це 100% оригінальний брендовий одяг, взуття та аксесуари.</li><li><strong>Індивідуальний підхід:</strong> Ми допомагаємо знайти річ, яка справді стане улюбленою, без нав’язливих порад — ніби радить друг.</li></ul><p>Зазирайте до нашого офлайн-магазину в Києві, щоб приміряти новинки, або підписуйтесь на наші соцмережі, щоб стати частиною нашої спільноти.</p><h2>Унікальні бренди з усього світу</h2><p>Добірка брендів у NEWBORN K — це мікс культур та естетик. У нас ви знайдете фірмовий одяг, кросівки та аксесуари від світових лідерів: <strong>C.P. Company, Carhartt WIP, Edwin, Gramicci, Oakley, Salomon</strong>.</p><p>Також ми представляємо нішеві імена: <em>New Amsterdam Surf Association, Arte Antwerp, A-Cold-Wall, Heliot Emil, Han Kjøbenhavn, Published By, Rombaut, Babylon LA, Carne Bollente</em>* та багато інших. Ми регулярно оновлюємо асортимент, щоб кожна сторінка нашого інтернет-магазину надихала на сміливі експерименти.</p><h2>Онлайн-шопінг, який хочеться повторити</h2><p>Ми подбали про те, щоб ваш досвід покупки був максимально комфортним: проста навігація, зручні фільтри та готові образи для натхнення. Наша команда завжди поруч, щоб допомогти з вибором розміру чи моделі.</p><p>Шопінг має бути простим, а стиль — унікальним. Усе це ти знайдеш в <strong>інтернет-магазині брендового одягу NEWBORN K</strong>. Приєднуйся та обирай те, що підходить саме тобі.</p>"
-          }
+            "column_dk": "6",
+            "column_tb": "6",
+            "column_mb": "12",
+            "column_dk_10": "5",
+            "column_tb_10": "5",
+            "column_mb_10": "10",
+            "spacing_h_dk": 0,
+            "spacing_v_dk": 0,
+            "spacing_h_tb": 0,
+            "spacing_v_tb": 0,
+            "spacing_h_mb": 0,
+            "spacing_v_mb": 0,
+            "content_position": "auto",
+            "align_content": false,
+            "content_position_mb": "auto",
+            "alignment": "center",
+            "alignment_mb": "center",
+            "background_color": "rgba(0,0,0,0)",
+            "rounded": "none"
+          },
+          "blocks": {
+            "button_ea8H8r": {
+              "type": "button",
+              "settings": {
+                "label": "ЧОЛОВІКАМ",
+                "link": "shopify://collections/cholovikam",
+                "open_in_new_tab": false,
+                "full_width": true,
+                "btn_style": "",
+                "color_btn": "#fff",
+                "color_hover_btn": "#020000",
+                "background_btn": "#000000",
+                "background_hover_btn": "#ccf952",
+                "border_w_btn": "",
+                "border_btn": "#222",
+                "border_hover_btn": "#333",
+                "size": "xl",
+                "text_size": "hdt-text-4xl",
+                "font_weight": "light",
+                "font_size_btn": 14,
+                "padding_btn": 30,
+                "min_width_btn": 100,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "rounded": "",
+                "icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_ea8H8r"
+          ]
+        },
+        "multi_column_w8Fth6": {
+          "type": "_multi_column",
+          "settings": {
+            "column_dk": "6",
+            "column_tb": "6",
+            "column_mb": "12",
+            "column_dk_10": "5",
+            "column_tb_10": "5",
+            "column_mb_10": "10",
+            "spacing_h_dk": 0,
+            "spacing_v_dk": 0,
+            "spacing_h_tb": 0,
+            "spacing_v_tb": 0,
+            "spacing_h_mb": 0,
+            "spacing_v_mb": 0,
+            "content_position": "auto",
+            "align_content": false,
+            "content_position_mb": "auto",
+            "alignment": "center",
+            "alignment_mb": "center",
+            "background_color": "rgba(0,0,0,0)",
+            "rounded": "none"
+          },
+          "blocks": {
+            "button_fTfpEP": {
+              "type": "button",
+              "settings": {
+                "label": "ЖІНКАМ",
+                "link": "shopify://collections/women",
+                "open_in_new_tab": false,
+                "full_width": true,
+                "btn_style": "",
+                "color_btn": "#fff",
+                "color_hover_btn": "#ccf952",
+                "background_btn": "#000000",
+                "background_hover_btn": "#2a2a2a",
+                "border_w_btn": "",
+                "border_btn": "#222",
+                "border_hover_btn": "#333",
+                "size": "xl",
+                "text_size": "hdt-text-4xl",
+                "font_weight": "light",
+                "font_size_btn": 14,
+                "padding_btn": 30,
+                "min_width_btn": 100,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "rounded": "",
+                "icon": "none",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "button_fTfpEP"
+          ]
         }
       },
       "block_order": [
-        "text_UUD4rg"
+        "multi_column_z4ptHH",
+        "multi_column_w8Fth6"
       ],
       "custom_css": [
-        ".rich-text {display: none !important;}"
+        ".hdt-container {padding: 0;}"
       ],
-      "name": "rich text meta h1",
+      "name": "t:sections.custom_section.name",
       "settings": {
-        "color_scheme": "background-1",
-        "full_width": true,
-        "max_width": 1020,
-        "alignment": "center"
+        "layout": "12",
+        "item_spacing": 20,
+        "item_spacing_tb": 15,
+        "item_spacing_mb": 15,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "container",
+        "hdt_background_parallax": false,
+        "mg": ",,50px,",
+        "mg_mb": ",10px,30px,10px",
+        "pd": "",
+        "pd_mb": ""
       }
     },
-    "buttons_Aehtdg": {
-      "type": "buttons",
-      "settings": {
-        "button_link": "shopify://collections/cholovikam",
-        "button_title": "ЧОЛОВІКАМ",
-        "button_link_2": "shopify://collections/women",
-        "button_title_2": "Жінкам"
-      }
-    },
-    "image_banner": {
-      "type": "image-banner",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/banner.png",
-        "desktop_text_box_position": "flex-end",
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "adapt_height_first_image": false
-      }
-    },
-    "featured_collection_slider_XbArfi": {
-      "type": "featured-collection-slider",
-      "name": "t:sections.featured-collection-slider.presets.name",
-      "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
-        "show_text": false,
-        "collection": "novi-nadkhodzhennia",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.6,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true,
-        "brand_collection": false
-      }
-    },
-    "1626416534da40dc37": {
-      "type": "collection-list",
-      "blocks": {
-        "1626416534da40dc37-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "carne-bollente"
-          }
-        },
-        "1626416534da40dc37-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "bareen"
-          }
-        },
-        "1626416534da40dc37-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "a-cold-wall"
-          }
-        }
-      },
-      "block_order": [
-        "1626416534da40dc37-2",
-        "1626416534da40dc37-1",
-        "1626416534da40dc37-0"
-      ],
-      "settings": {
-        "title": "",
-        "image_ratio": "adapt",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "button_overlay": true,
-        "swipe_on_mobile": false,
-        "image_padding": false,
-        "show_view_all": false
-      }
-    },
-    "1626416564a7b86704": {
+    "featured_collection_aGXxdT": {
       "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "РОЗПРОДАЖ",
-        "collection": "aries",
-        "full_width": true,
-        "products_to_show": 4,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
-      }
-    },
-    "featured_collection_slider_eKMVrY": {
-      "type": "featured-collection-slider",
-      "name": "t:sections.featured-collection-slider.presets.name",
-      "settings": {
-        "title": "Шорти",
-        "show_text": false,
-        "collection": "new-cholovichi-shorty",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.5,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": false,
-        "show_arrow": false,
-        "brand_collection": false
-      }
-    },
-    "1626450162f5dda00b": {
-      "type": "collection-list",
       "blocks": {
-        "1626450162f5dda00b-1": {
-          "type": "featured_collection",
+        "product_carousel_pMDV87": {
+          "type": "_product-carousel",
+          "name": "t:blocks.product_carousel.name",
           "settings": {
-            "collection": "pleasures"
-          }
+            "collection": "novi-nadkhodzhennia",
+            "products_count": 18,
+            "product_list": [],
+            "pr_border": "none",
+            "product_des": "8",
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "show_vendor": true,
+            "hdt_slide_center": false,
+            "hdt_opacity_out_container": false,
+            "col_dk": "6",
+            "col_tb": "3",
+            "col_mb": "2",
+            "space_items": "20",
+            "pagination": false,
+            "paginate_pos": "center",
+            "dis_pagination": 10,
+            "btn_label": "",
+            "btn_style": "",
+            "icon": "none",
+            "size": "m",
+            "btn_fw": "medium",
+            "font_size_btn": 14,
+            "padding_btn": 30,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "min_height_btn": 40,
+            "loop": true,
+            "autoplay": 0,
+            "pauseOnHover": true,
+            "navUI": false,
+            "nav_position": "on_border",
+            "nav_visible": "always",
+            "nav_style": "default",
+            "nav_shape": "default",
+            "nav_size": "small",
+            "nav_hide_mobile": false,
+            "dotUI": true,
+            "pag_style": "elessi",
+            "pag_rounded": true,
+            "pag_space": 10,
+            "pag_mgt": 30,
+            "only_show_mobile": false,
+            "pag_hide_mobile": false
+          },
+          "blocks": {}
         },
-        "1626450162f5dda00b-0": {
-          "type": "featured_collection",
+        "pr-heading": {
+          "type": "section-heading",
+          "static": true,
           "settings": {
-            "collection": "carhartt-wip"
-          }
+            "design_heading": "1",
+            "horizontal": true,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 30
+          },
+          "blocks": {
+            "heading_section_9kWrBa": {
+              "type": "_heading_section",
+              "settings": {
+                "heading": "НОВІ НАДХОДЖЕННЯ",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 26,
+                "font_size_heading": 26,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "button_WxhmtM": {
+              "type": "button",
+              "name": "t:blocks.button.name",
+              "settings": {
+                "label": "ПЕРЕГЛЯНУТИ",
+                "link": "shopify://collections/novi-nadkhodzhennia",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "btn_style": "",
+                "color_btn": "#ffffff",
+                "color_hover_btn": "#ccf952",
+                "background_btn": "#000000",
+                "background_hover_btn": "#2a2a2a",
+                "border_w_btn": "",
+                "border_btn": "#222222",
+                "border_hover_btn": "#333333",
+                "size": "xs",
+                "text_size": "hdt-text-sm",
+                "font_weight": "normal",
+                "font_size_btn": 13,
+                "padding_btn": 5,
+                "min_width_btn": 100,
+                "min_width_dt_btn": 120,
+                "min_height_btn": 20,
+                "rounded": "",
+                "icon": "arrow_right",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_section_9kWrBa",
+            "button_WxhmtM"
+          ]
         }
       },
       "block_order": [
-        "1626450162f5dda00b-1",
-        "1626450162f5dda00b-0"
+        "product_carousel_pMDV87"
       ],
+      "custom_css": [],
+      "name": "t:sections.collection_products.name",
       "settings": {
-        "title": "",
-        "image_ratio": "square",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "button_overlay": false,
-        "swipe_on_mobile": false,
-        "image_padding": false,
-        "show_view_all": false
+        "colors_by_section": true,
+        "color_scheme": "scheme-1",
+        "background_opacity": 0,
+        "section_layout": "wrapper_container",
+        "hdt_background_parallax": false,
+        "mg": "60px,,50px,",
+        "mg_mb": "60px,,50px,",
+        "pd": "",
+        "pd_mb": ""
       }
     },
-    "17740063773c82825f": {
-      "type": "apps",
-      "blocks": {
-        "gsc_instagram_feed_instafeed_f8mkqQ": {
-          "type": "shopify://apps/gsc-instagram-feed/blocks/instafeed/96970b1b-b770-454f-b16b-51f47e1aa4ed",
-          "settings": {
-            "widget_id": "GSC-kwUogsNgjcBVumq"
-          }
-        }
-      },
-      "block_order": [
-        "gsc_instagram_feed_instafeed_f8mkqQ"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": false
-      }
-    },
-    "16264502060c7e1d80": {
+    "featured_collection_4QkiaX": {
       "type": "featured-collection",
+      "blocks": {
+        "product_carousel_rLQGB9": {
+          "type": "_product-carousel",
+          "name": "t:blocks.product_carousel.name",
+          "settings": {
+            "collection": "sale",
+            "products_count": 18,
+            "product_list": [],
+            "pr_border": "none",
+            "product_des": "8",
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "show_vendor": true,
+            "hdt_slide_center": true,
+            "hdt_opacity_out_container": false,
+            "col_dk": "6",
+            "col_tb": "3",
+            "col_mb": "2",
+            "space_items": "20",
+            "pagination": false,
+            "paginate_pos": "center",
+            "dis_pagination": 30,
+            "btn_label": "",
+            "btn_style": "",
+            "icon": "none",
+            "size": "m",
+            "btn_fw": "medium",
+            "font_size_btn": 14,
+            "padding_btn": 30,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "min_height_btn": 40,
+            "loop": false,
+            "autoplay": 0,
+            "pauseOnHover": false,
+            "navUI": false,
+            "nav_position": "default",
+            "nav_visible": "always",
+            "nav_style": "default",
+            "nav_shape": "default",
+            "nav_size": "small",
+            "nav_hide_mobile": false,
+            "dotUI": true,
+            "pag_style": "elessi",
+            "pag_rounded": true,
+            "pag_space": 10,
+            "pag_mgt": 30,
+            "only_show_mobile": false,
+            "pag_hide_mobile": false
+          },
+          "blocks": {}
+        },
+        "pr-heading": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": true,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 30
+          },
+          "blocks": {
+            "heading_section_xd3ik7": {
+              "type": "_heading_section",
+              "settings": {
+                "heading": "<a href=\"/collections/sale\">SALE</a>",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 26,
+                "font_size_heading": 26,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "button_pqyxcm": {
+              "type": "button",
+              "name": "t:blocks.button.name",
+              "settings": {
+                "label": "ПЕРЕГЛЯНУТИ",
+                "link": "shopify://collections/sale",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "btn_style": "",
+                "color_btn": "#ffffff",
+                "color_hover_btn": "#ccf952",
+                "background_btn": "#000000",
+                "background_hover_btn": "#2a2a2a",
+                "border_w_btn": "",
+                "border_btn": "#222222",
+                "border_hover_btn": "#333333",
+                "size": "xs",
+                "text_size": "hdt-text-sm",
+                "font_weight": "normal",
+                "font_size_btn": 13,
+                "padding_btn": 5,
+                "min_width_btn": 100,
+                "min_width_dt_btn": 120,
+                "min_height_btn": 20,
+                "rounded": "",
+                "icon": "arrow_right",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_section_xd3ik7",
+            "button_pqyxcm"
+          ]
+        }
+      },
+      "block_order": [
+        "product_carousel_rLQGB9"
+      ],
+      "custom_css": [],
+      "name": "t:sections.collection_products.name",
       "settings": {
-        "title": "LIFESTYLE",
-        "collection": "lifestyle-decor",
-        "full_width": true,
-        "products_to_show": 4,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
+        "colors_by_section": true,
+        "color_scheme": "scheme-1",
+        "background_opacity": 0,
+        "section_layout": "wrapper_container",
+        "hdt_background_parallax": false,
+        "mg": "60px,,60px,",
+        "mg_mb": "60px,,50px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "collections_list_aqecLw": {
+      "type": "collections-list",
+      "blocks": {
+        "collection_item_3WafzN": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "cholovichi-futbolky",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Футболки",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_GPJ3Ai": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "cholovichi-shorty",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Шорти",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_xnNLwy": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "cholovichi-khudi",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Худі",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_9nGww4": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "cholovichi-shtani",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Штани",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_NwjChk": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "holovni-ubory",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Головні убори",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_h4eRxP": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "sumky",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Сумки",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_3CbpU7": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "krosivky",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Кросівки",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_LUKUhR": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "cholovichi-kurtky",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Куртки",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_KK3HGE": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "cholovichi-longslivy",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Лонгсліви",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "collection_item_3VdhBh": {
+          "type": "_collection_item",
+          "name": "t:sections.collections-list.blocks.collection_item",
+          "settings": {
+            "collection": "shkarpetky",
+            "hdt_collection_list_svg": "",
+            "svg_width": 60,
+            "svg_width_mb": 40,
+            "title": "Шкарпетки",
+            "collection_link": "",
+            "col_dk": "6",
+            "col_tb": "6",
+            "col_mb": "6"
+          },
+          "blocks": {}
+        },
+        "section-heading-collections-list": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": true,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 20
+          },
+          "blocks": {
+            "heading_section_66YfkQ": {
+              "type": "_heading_section",
+              "name": "t:blocks.section_heading.name",
+              "settings": {
+                "heading": "КАТЕГОРІЇ",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 26,
+                "font_size_heading": 26,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_section_66YfkQ"
+          ]
+        }
+      },
+      "block_order": [
+        "collection_item_3WafzN",
+        "collection_item_GPJ3Ai",
+        "collection_item_xnNLwy",
+        "collection_item_9nGww4",
+        "collection_item_NwjChk",
+        "collection_item_h4eRxP",
+        "collection_item_3CbpU7",
+        "collection_item_LUKUhR",
+        "collection_item_KK3HGE",
+        "collection_item_3VdhBh"
+      ],
+      "custom_css": [
+        "@media (width >= 1350px) {.hdt-collection-wrapper {padding: 5px; text-align: left; }}",
+        ".hdt-heading-block {font-weight: 300;}",
+        "@media (width < 768px) {.hdt-heading-block {text-align: left; }}"
+      ],
+      "name": "t:sections.collections-list.name",
+      "settings": {
+        "collection_list": [],
+        "collection_des": "12",
+        "content_size": "xl",
+        "content_weight": "normal",
+        "content_position": "center",
+        "content_space": 15,
+        "show_count": false,
+        "count_label": "Products",
+        "image_rounded": false,
+        "enable_border": false,
+        "image_padding": 20,
+        "image_ratio": "adapt_image",
+        "image_size": false,
+        "img_effect": "translateToTop",
+        "b_effect": "none",
+        "col_dk": "6",
+        "col_tb": "3",
+        "col_mb": "2",
+        "space_items": "20",
+        "layout_mode": "carousel",
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": false,
+        "navUI": false,
+        "nav_position": "default",
+        "nav_visible": "always",
+        "nav_style": "outline",
+        "nav_shape": "rounded",
+        "nav_size": "medium",
+        "nav_hide_mobile": false,
+        "dotUI": true,
+        "pag_style": "elessi",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 30,
+        "pag_hide_mobile": false,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "container",
+        "hdt_background_parallax": false,
+        "mg": "60px,,60px,",
+        "mg_mb": "60px,,50px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "featured_collection_QM7jFX": {
+      "type": "featured-collection",
+      "blocks": {
+        "product_carousel_RBNxE7": {
+          "type": "_product-carousel",
+          "name": "t:blocks.product_carousel.name",
+          "settings": {
+            "collection": "lifestyle",
+            "products_count": 18,
+            "product_list": [],
+            "pr_border": "none",
+            "product_des": "8",
+            "image_ratio": "adapt_image",
+            "image_size": true,
+            "show_vendor": true,
+            "hdt_slide_center": true,
+            "hdt_opacity_out_container": false,
+            "col_dk": "6",
+            "col_tb": "3",
+            "col_mb": "2",
+            "space_items": "20",
+            "pagination": false,
+            "paginate_pos": "center",
+            "dis_pagination": 30,
+            "btn_label": "",
+            "btn_style": "",
+            "icon": "none",
+            "size": "m",
+            "btn_fw": "medium",
+            "font_size_btn": 14,
+            "padding_btn": 30,
+            "min_width_btn": 100,
+            "min_width_dt_btn": 100,
+            "min_height_btn": 40,
+            "loop": false,
+            "autoplay": 0,
+            "pauseOnHover": false,
+            "navUI": false,
+            "nav_position": "default",
+            "nav_visible": "always",
+            "nav_style": "default",
+            "nav_shape": "default",
+            "nav_size": "small",
+            "nav_hide_mobile": false,
+            "dotUI": true,
+            "pag_style": "elessi",
+            "pag_rounded": true,
+            "pag_space": 10,
+            "pag_mgt": 30,
+            "only_show_mobile": false,
+            "pag_hide_mobile": false
+          },
+          "blocks": {}
+        },
+        "pr-heading": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": true,
+            "alignment": "left",
+            "heading_gap": 0,
+            "margin_bottom": 20
+          },
+          "blocks": {
+            "heading_section_Yjd8bD": {
+              "type": "_heading_section",
+              "settings": {
+                "heading": "<a href=\"/collections/lifestyle\">LIFESTYLE</a>",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 26,
+                "font_size_heading": 26,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "button_PzcCDr": {
+              "type": "button",
+              "name": "t:blocks.button.name",
+              "settings": {
+                "label": "ПЕРЕГЛЯНУТИ",
+                "link": "shopify://collections/lifestyle",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "btn_style": "",
+                "color_btn": "#ffffff",
+                "color_hover_btn": "#ccf952",
+                "background_btn": "#000000",
+                "background_hover_btn": "#2a2a2a",
+                "border_w_btn": "",
+                "border_btn": "#222222",
+                "border_hover_btn": "#333333",
+                "size": "xs",
+                "text_size": "hdt-text-sm",
+                "font_weight": "normal",
+                "font_size_btn": 13,
+                "padding_btn": 5,
+                "min_width_btn": 150,
+                "min_width_dt_btn": 170,
+                "min_height_btn": 20,
+                "rounded": "",
+                "icon": "arrow_right",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_section_Yjd8bD",
+            "button_PzcCDr"
+          ]
+        }
+      },
+      "block_order": [
+        "product_carousel_RBNxE7"
+      ],
+      "custom_css": [
+        "@media (width < 1350px) {.hdt-button-block {justify-self: center; width: 110px; }}",
+        ".hdt-mini-cart__title:hover {color: rgb(var(--hdt-btn-bg));}",
+        "@media (min-width: 1150px) {.hdt-product-carousel .hdt-slider.lg\\:hdt-slides-6 {--slide-size: calc((100% - 5 * 20px) / 6) !important; } .hdt-product-carousel .hdt-slider__viewport {overflow: hidden !important; }}",
+        "@media (max-width: 767px) {.hdt-product-carousel .hdt-slider {--slide-size: 64% !important; }}"
+      ],
+      "name": "t:sections.collection_products.name",
+      "settings": {
+        "colors_by_section": true,
+        "color_scheme": "scheme-1",
+        "background_opacity": 0,
+        "section_layout": "wrapper_container",
+        "hdt_background_parallax": false,
+        "mg": "60px,,60px,",
+        "mg_mb": "60px,,50px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "blog_post_fGK7dC": {
+      "type": "blog-post",
+      "blocks": {
+        "article_carousel_7y7pgJ": {
+          "type": "_article-carousel",
+          "settings": {
+            "blog": "blog",
+            "limit": 4,
+            "col_dk": "4",
+            "col_tb": "3",
+            "col_mb": "1",
+            "loop": false,
+            "autoplay": 0,
+            "pauseOnHover": false,
+            "navUI": true,
+            "nav_position": "default",
+            "nav_visible": "always",
+            "nav_style": "default",
+            "nav_shape": "rounded",
+            "nav_size": "small",
+            "nav_hide_mobile": false,
+            "dotUI": false,
+            "pag_style": "default",
+            "pag_rounded": false,
+            "pag_space": 10,
+            "pag_mgt": 10,
+            "pag_hide_mobile": false
+          },
+          "blocks": {
+            "article-carousel": {
+              "type": "_article-card",
+              "static": true,
+              "settings": {
+                "article_des": "1",
+                "show_cate": true,
+                "show_content": false,
+                "show_tags": false,
+                "show_author": false,
+                "show_comment": false,
+                "show_readmore": false,
+                "show_date": false,
+                "date": "%b %d",
+                "content_align": "start",
+                "image_ratio": "-landscape",
+                "image_size": true,
+                "img_effect": "none",
+                "b_effect": "none"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": []
+        },
+        "feature-blog-heading": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": true,
+            "alignment": "center",
+            "heading_gap": 15,
+            "margin_bottom": 30
+          },
+          "blocks": {
+            "heading_section_QkWBE7": {
+              "type": "_heading_section",
+              "name": "t:blocks.section_heading.name",
+              "settings": {
+                "heading": "НАШ БЛОГ",
+                "line_height": "",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 26,
+                "font_size_heading": 24,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "button_TY7dDB": {
+              "type": "button",
+              "name": "t:blocks.button.name",
+              "settings": {
+                "label": "ПЕРЕГЛЯНУТИ",
+                "link": "shopify://blogs/blog",
+                "open_in_new_tab": false,
+                "full_width": false,
+                "btn_style": "hdt-btn-custom",
+                "color_btn": "#ffffff",
+                "color_hover_btn": "#ccf952",
+                "background_btn": "#000000",
+                "background_hover_btn": "#2a2a2a",
+                "border_w_btn": "",
+                "border_btn": "#222222",
+                "border_hover_btn": "#333333",
+                "size": "xs",
+                "text_size": "hdt-text-sm",
+                "font_weight": "normal",
+                "font_size_btn": 14,
+                "padding_btn": 30,
+                "min_width_btn": 100,
+                "min_width_dt_btn": 100,
+                "min_height_btn": 40,
+                "rounded": "",
+                "icon": "arrow_right",
+                "icon_position": "after",
+                "icon_height": 14,
+                "icon_spacing": 10
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_section_QkWBE7",
+            "button_TY7dDB"
+          ]
+        }
+      },
+      "block_order": [
+        "article_carousel_7y7pgJ"
+      ],
+      "custom_css": [
+        "@media (width < 1350px) {.hdt-button-block {justify-self: center; width: 110px; }}",
+        ".hdt-article-content {color: rgb(var(--color-foreground));}"
+      ],
+      "name": "t:sections.feature-blog.name",
+      "settings": {
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "container",
+        "hdt_background_parallax": false,
+        "mg": ",,65px,",
+        "mg_mb": ",,30px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "shipping_UNVL6y": {
+      "type": "shipping",
+      "blocks": {
+        "shipping_Y3ymfA": {
+          "type": "_shipping",
+          "settings": {
+            "icon_themes": "none",
+            "icon": ""
+          },
+          "blocks": {
+            "heading_4MeWYA": {
+              "type": "heading",
+              "settings": {
+                "heading": "<p>АДРЕСА МАГАЗИНУ</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "hdt-lh-1-2",
+                "font_weight": "medium",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 16,
+                "font_size_heading": 16,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "spacer_b4hxjB": {
+              "type": "spacer",
+              "settings": {
+                "direction": false,
+                "space_lg": 4,
+                "space_md": 4,
+                "space": 4
+              },
+              "blocks": {}
+            },
+            "text_LLkyBD": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\" target=\"_blank\">м Київ, вул. Велика Житомирська, 20</a></p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-s-text",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 13,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_4MeWYA",
+            "spacer_b4hxjB",
+            "text_LLkyBD"
+          ]
+        },
+        "shipping_Wbwfbp": {
+          "type": "_shipping",
+          "settings": {
+            "icon_themes": "none",
+            "icon": ""
+          },
+          "blocks": {
+            "heading_k9zMmx": {
+              "type": "heading",
+              "settings": {
+                "heading": "<p>ТЕЛЕФОН</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "hdt-lh-1-2",
+                "font_weight": "medium",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 16,
+                "font_size_heading": 16,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "spacer_pE64Uf": {
+              "type": "spacer",
+              "settings": {
+                "direction": false,
+                "space_lg": 4,
+                "space_md": 4,
+                "space": 4
+              },
+              "blocks": {}
+            },
+            "text_AE7YgW": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 13,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_k9zMmx",
+            "spacer_pE64Uf",
+            "text_AE7YgW"
+          ]
+        },
+        "shipping_Pi9aef": {
+          "type": "_shipping",
+          "settings": {
+            "icon_themes": "none",
+            "icon": ""
+          },
+          "blocks": {
+            "heading_fGfpc7": {
+              "type": "heading",
+              "settings": {
+                "heading": "<p>НАПИШІТЬ НАМ</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "hdt-lh-1-2",
+                "font_weight": "medium",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 16,
+                "font_size_heading": 16,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "spacer_dp36TD": {
+              "type": "spacer",
+              "settings": {
+                "direction": false,
+                "space_lg": 4,
+                "space_md": 4,
+                "space": 4
+              },
+              "blocks": {}
+            },
+            "text_wyFVEA": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 13,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_fGfpc7",
+            "spacer_dp36TD",
+            "text_wyFVEA"
+          ]
+        },
+        "shipping_ggtTGD": {
+          "type": "_shipping",
+          "settings": {
+            "icon_themes": "none",
+            "icon": ""
+          },
+          "blocks": {
+            "heading_k3kkYM": {
+              "type": "heading",
+              "settings": {
+                "heading": "<p>ГОДИНИ РОБОТИ</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "line_height": "hdt-lh-1-2",
+                "font_weight": "medium",
+                "heading_size": "h_custom",
+                "text_color": "hdt-s-text",
+                "font_size_heading_lg": 16,
+                "font_size_heading": 16,
+                "letter_spacing_heading": 0
+              },
+              "blocks": {}
+            },
+            "spacer_8Pdq6J": {
+              "type": "spacer",
+              "settings": {
+                "direction": false,
+                "space_lg": 4,
+                "space_md": 4,
+                "space": 4
+              },
+              "blocks": {}
+            },
+            "text_X7JbYP": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Щодня: 11:00–21:00</p>",
+                "hidden_br_mobile": false,
+                "hidden_on_mobile": false,
+                "ffamily": "",
+                "text_size": "custom",
+                "line_height": "",
+                "font_weight": "normal",
+                "text_color": "hdt-text-secondary",
+                "countdown": "2025-12-30 15:00:00",
+                "txt_day": "days",
+                "font_size_text_lg": 13,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading_k3kkYM",
+            "spacer_8Pdq6J",
+            "text_X7JbYP"
+          ]
+        },
+        "section-heading-shipping": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "design_heading": "1",
+            "horizontal": false,
+            "alignment": "left",
+            "heading_gap": 15,
+            "margin_bottom": 30
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "shipping_Y3ymfA",
+        "shipping_Wbwfbp",
+        "shipping_Pi9aef",
+        "shipping_ggtTGD"
+      ],
+      "custom_css": [
+        ".hdt-icon {height: var(--icon-width, auto);}"
+      ],
+      "name": "t:sections.shipping.name",
+      "settings": {
+        "content_align": "center",
+        "align_center": true,
+        "icon_design": "default",
+        "use_border": false,
+        "space_padding": false,
+        "icon_size": "medium",
+        "icon_color": "hdt-icon-secondary",
+        "col_dk": "4",
+        "col_tb": "2",
+        "col_mb": "1",
+        "carousel_mobile": true,
+        "dot_color": "",
+        "dot_rounded": true,
+        "colors_by_section": true,
+        "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
+        "background_opacity": 1,
+        "section_layout": "wrapper_container",
+        "hdt_background_parallax": false,
+        "mg": "",
+        "mg_mb": ",,30px,",
+        "pd": "50px,,50px,",
+        "pd_mb": "50px,,30px,"
+      }
+    },
+    "nbk_store_intro": {
+      "type": "nbk-store-intro",
+      "settings": {
+        "content": "<h1>NEWBORN K — концепт-стор брендового одягу, взуття та аксесуарів</h1><p>Вітаємо в <strong>NEWBORN K</strong> — концепт-сторі з унікальною селекцією одягу та lifestyle-продукції від світових і нішевих брендів. Тут ти знайдеш усе, щоб підкреслити свою індивідуальність, і станеш частиною стильного, прогресивного ком’юніті.</p><p>Ми не черговий класичний фешн-рітейл, а концептуальний простір, що народився з бажання переосмислити звичні правила. Більшість нашої команди виросла у Києві, і саме це місто з його креативними людьми стало для нас натхненням. Назва <strong>NEWBORN K</strong> — це втілення мрії створити щось нове, що відображає дух часу та поєднує глобальні культурні коди з нашою локальною естетикою.</p><h2>Що робить NEWBORN K особливим?</h2><p>Сьогодні купити брендовий одяг можна в багатьох магазинах. Знайти ж місце, де кожна річ підібрана зі смаком, а атмосфера викликає бажання залишитись — справжня рідкість. Для багатьох <strong>NEWBORN KYIV</strong> став саме таким простором, адже тут:</p><ul><li><strong>Свіжа селекція:</strong> Ми не женемося за гучними трендами. Нам важливий одяг з ідеєю, історією та характером.</li><li><strong>Неймовірне ком’юніті:</strong> NEWBORN K — це більше, ніж магазин. Це люди, які цінують стиль та свободу бути собою.</li><li><strong>Гарантія оригінальності:</strong> Ми працюємо лише з офіційними постачальниками. Уся продукція в нашому інтернет-магазині — це 100% оригінальний брендовий одяг, взуття та аксесуари.</li><li><strong>Індивідуальний підхід:</strong> Ми допомагаємо знайти річ, яка справді стане улюбленою, без нав’язливих порад — ніби радить друг.</li></ul><p>Зазирайте до нашого офлайн-магазину в Києві, щоб приміряти новинки, або підписуйтесь на наші соцмережі, щоб стати частиною нашої спільноти.</p><h2>Унікальні бренди з усього світу</h2><p>Добірка брендів у NEWBORN K — це мікс культур та естетик. У нас ви знайдете фірмовий одяг, кросівки та аксесуари від світових лідерів: <strong>C.P. Company, Carhartt WIP, Edwin, Gramicci, Oakley, Salomon</strong>.</p><p>Також ми представляємо нішеві імена: <em>New Amsterdam Surf Association, Arte Antwerp, A-Cold-Wall, Heliot Emil, Han Kjøbenhavn, Published By, Rombaut, Babylon LA, Carne Bollente</em>* та багато інших. Ми регулярно оновлюємо асортимент, щоб кожна сторінка нашого інтернет-магазину надихала на сміливі експерименти.</p><h2>Онлайн-шопінг, який хочеться повторити</h2><p>Ми подбали про те, щоб ваш досвід покупки був максимально комфортним: проста навігація, зручні фільтри та готові образи для натхнення. Наша команда завжди поруч, щоб допомогти з вибором розміру чи моделі.</p><p>Шопінг має бути простим, а стиль — унікальним. Усе це ти знайдеш в <strong>інтернет-магазині брендового одягу NEWBORN K</strong>. Приєднуйся та обирай те, що підходить саме тобі.</p>"
       }
     }
   },
   "order": [
-    "1630994380770cb550",
-    "rich_text_bYNzLt",
-    "buttons_Aehtdg",
-    "image_banner",
-    "featured_collection_slider_XbArfi",
-    "1626416534da40dc37",
-    "1626416564a7b86704",
-    "featured_collection_slider_eKMVrY",
-    "1626450162f5dda00b",
-    "17740063773c82825f",
-    "16264502060c7e1d80"
+    "slideshow_EVrUzi",
+    "custom_section_YCFtPf",
+    "featured_collection_aGXxdT",
+    "featured_collection_4QkiaX",
+    "collections_list_aqecLw",
+    "featured_collection_QM7jFX",
+    "blog_post_fGK7dC",
+    "shipping_UNVL6y",
+    "nbk_store_intro"
   ]
 }

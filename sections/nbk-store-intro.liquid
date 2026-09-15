@@ -1,0 +1,14 @@
+{% if section.settings.content != blank %}
+  <details class="hdt-container nbk-store-intro">
+    <summary>{{ 'nbk.home.about' | t }}</summary>
+    <div class="hdt-rte">{{ section.settings.content }}</div>
+  </details>
+{% endif %}
+{% stylesheet %}
+.nbk-store-intro {margin-block: 32px;}
+.nbk-store-intro summary {cursor: pointer; font-weight: 500; padding-block: 16px;}
+.nbk-store-intro .hdt-rte {padding-block: 8px 24px;}
+{% endstylesheet %}
+{% schema %}
+{"name":"Kyiv store introduction","settings":[{"type":"richtext","id":"content","label":"Introduction"}],"presets":[{"name":"Kyiv store introduction"}]}
+{% endschema %}

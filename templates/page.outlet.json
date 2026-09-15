@@ -1,274 +1,210 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "1630994380770cb5501": {
+    "slideshow_EVrUzi": {
       "type": "slideshow",
       "blocks": {
-        "slide_7qGUkq1": {
-          "type": "slide",
+        "outlet_0": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/SALE_horiz.png",
-            "image_phone": "shopify://shop_images/SALE_vert.png",
-            "banner_link": "shopify://collections/sale",
-            "language": ""
-          }
+            "image_mb": "shopify://shop_images/SALE_vert.png",
+            "url": "shopify://collections/sale",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_wHpNAY1": {
-          "type": "slide",
+        "outlet_1": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/ARIES_HOR.jpg",
-            "image_phone": "shopify://shop_images/ARIES_VERT.jpg",
-            "banner_link": "shopify://collections/aries",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/ARIES_VERT.jpg",
+            "url": "shopify://collections/aries",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_TyEeBH1": {
-          "type": "slide",
+        "outlet_2": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/HH_HOR.jpg",
-            "image_phone": "shopify://shop_images/HH_VERT.jpg",
-            "banner_link": "shopify://collections/han-kjobenhavn",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/HH_VERT.jpg",
+            "url": "shopify://collections/han-kjobenhavn",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         },
-        "slide_BHnyDT1": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/UA_Desktop_1_2.jpg",
-            "image_phone": "shopify://shop_images/UA_Mobile_2.jpg",
-            "banner_link": "shopify://collections/gift-cards",
-            "language": "UK"
-          }
-        },
-        "1630994380b1b22eeb-11": {
-          "type": "slide",
+        "outlet_4": {
+          "type": "_slide-item",
+          "name": "t:sections.slideshow.blocks.slide.name",
           "settings": {
             "image": "shopify://shop_images/NASA_HOR.jpg",
-            "image_phone": "shopify://shop_images/NASA_VERT.jpg",
-            "banner_link": "shopify://collections/new-amsterdam",
-            "language": "UK"
-          }
-        },
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b0211": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/Desktop_2.jpg",
-            "image_phone": "shopify://shop_images/Mobile_2.jpg",
-            "banner_link": "shopify://collections/gift_ideas",
-            "language": "UK"
-          }
-        },
-        "1630994380b1b22eeb-01": {
-          "type": "slide",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/image_2024-02-13_12-59-27.png",
-            "image_phone": "shopify://shop_images/Mask_group.jpg",
-            "banner_link": "shopify://collections/sale",
-            "language": "UK"
-          }
+            "image_mb": "shopify://shop_images/NASA_VERT.jpg",
+            "url": "shopify://collections/new-amsterdam",
+            "banner_target": false,
+            "color_scheme": "",
+            "content_position_type": "container",
+            "position_x": 50,
+            "position_y": 50,
+            "content_position": "end-start",
+            "alignment": "left",
+            "position_x_mb": 50,
+            "position_y_mb": 50,
+            "content_position_mb": "end-center",
+            "alignment_mb": "center",
+            "overlay_content": false,
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background_content": false,
+            "background_content_color": "#fff",
+            "bg_opacity": 0,
+            "box_square": false,
+            "content_rounded": false,
+            "use_border_content": false,
+            "border_color": "#fff",
+            "background_border": "#fff",
+            "border_opacity": 0,
+            "border_style": "none",
+            "border_pd_dk": 0,
+            "padding_vertical": 30,
+            "padding_horizontal": 30,
+            "min_width_content": 350,
+            "border_pd": 0
+          },
+          "blocks": {},
+          "block_order": []
         }
       },
       "block_order": [
-        "slide_7qGUkq1",
-        "slide_wHpNAY1",
-        "slide_TyEeBH1",
-        "slide_BHnyDT1",
-        "1630994380b1b22eeb-11",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b0211",
-        "1630994380b1b22eeb-01"
+        "outlet_0",
+        "outlet_1",
+        "outlet_2",
+        "outlet_4"
       ],
+      "custom_css": [],
       "settings": {
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "swipe_on_mobile": false
-      }
-    },
-    "buttons_Aehtdg1": {
-      "type": "buttons",
-      "settings": {
-        "button_link": "shopify://collections/cholovikam-outlet",
-        "button_title": "ЧОЛОВІКАМ",
-        "button_link_2": "shopify://collections/zhinochii-autliet",
-        "button_title_2": "Жінкам"
-      }
-    },
-    "image_banner": {
-      "type": "image-banner",
-      "disabled": true,
-      "settings": {
-        "image": "shopify://shop_images/banner.png",
-        "desktop_text_box_position": "flex-end",
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "adapt_height_first_image": false
-      }
-    },
-    "1626369903c393cced1": {
-      "type": "featured-collection-slider",
-      "settings": {
-        "title": "РОЗПРОДАЖ",
-        "show_text": true,
-        "collection": "sale",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.6,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true,
-        "brand_collection": false
-      }
-    },
-    "16264502060c7e1d801": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "АУТЛЕТ",
-        "collection": "cholovikam-outlet",
+        "image_height": "adapt_image",
+        "fixed_height": 600,
+        "image_height_mb": "fixed",
+        "fixed_height_mb": 450,
+        "is_fade": false,
+        "loop": true,
+        "autoplay": 7,
+        "pauseOnHover": true,
+        "navUI": false,
+        "nav_visible": "always",
+        "nav_style": "default",
+        "nav_shape": "default",
+        "nav_size": "small",
+        "nav_hide_mobile": false,
+        "dotUI": true,
+        "pag_style": "elessi",
+        "pag_position": "center",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 20,
+        "pag_hide_mobile": false,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
         "full_width": true,
-        "products_to_show": 12,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
-      }
-    },
-    "1626416534da40dc371": {
-      "type": "collection-list",
-      "blocks": {
-        "1626416534da40dc371-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "helas-outlet"
-          }
-        },
-        "1626416534da40dc371-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "gramicci-outlet"
-          }
-        },
-        "1626416534da40dc371-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "pleasures-outlet"
-          }
-        }
-      },
-      "block_order": [
-        "1626416534da40dc371-0",
-        "1626416534da40dc371-1",
-        "1626416534da40dc371-2"
-      ],
-      "settings": {
-        "title": "",
-        "image_ratio": "adapt",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "button_overlay": true,
-        "swipe_on_mobile": false,
-        "image_padding": false,
-        "show_view_all": false
-      }
-    },
-    "1626416564a7b867044": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "РОЗПРОДАЖ",
-        "collection": "aries",
-        "full_width": true,
-        "products_to_show": 4,
-        "show_view_all": false,
-        "swipe_on_mobile": true,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true
-      }
-    },
-    "featured_collection_slider_zaYJcr1": {
-      "type": "featured-collection-slider",
-      "settings": {
-        "title": "НОВІ НАДХОДЖЕННЯ",
-        "show_text": true,
-        "collection": "novi-nadkhodzhennia",
-        "products_to_show": 6.5,
-        "products_to_show_mobile": 1.6,
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "add_image_padding": false,
-        "show_vendor": true,
-        "show_arrow": true,
-        "brand_collection": false
-      }
-    },
-    "1626450162f5dda00b1": {
-      "type": "collection-list",
-      "blocks": {
-        "1626450162f5dda00b1-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "carne-bollente"
-          }
-        },
-        "1626450162f5dda00b1-0": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "aries"
-          }
-        }
-      },
-      "block_order": [
-        "1626450162f5dda00b1-1",
-        "1626450162f5dda00b1-0"
-      ],
-      "settings": {
-        "title": "",
-        "image_ratio": "square",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "button_overlay": false,
-        "swipe_on_mobile": false,
-        "image_padding": false,
-        "show_view_all": false
-      }
-    },
-    "custom_liquid_tBx87F1": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div class=\"elfsight-sapp-e54509ea-f41c-48fe-8710-8a1a409dc648\"></div>"
+        "mg": "",
+        "mg_mb": "",
+        "pd": ",,30px,",
+        "pd_mb": ",,22px,"
       }
     }
   },
   "order": [
-    "1630994380770cb5501",
-    "buttons_Aehtdg1",
-    "image_banner",
-    "1626369903c393cced1",
-    "16264502060c7e1d801",
-    "1626416534da40dc371",
-    "1626416564a7b867044",
-    "featured_collection_slider_zaYJcr1",
-    "1626450162f5dda00b1",
-    "custom_liquid_tBx87F1"
+    "slideshow_EVrUzi"
   ]
 }

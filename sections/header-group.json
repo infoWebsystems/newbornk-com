@@ -1,0 +1,137 @@
+{
+  "name": "t:sections.name_group.header",
+  "type": "header",
+  "sections": {
+    "top_bar_3qfcq8": {
+      "type": "top-bar",
+      "blocks": {
+        "text_rtCGAr": {
+          "type": "text",
+          "settings": {
+            "text1": "<a href=\"/collections/novi-nadkhodzhennia\">НОВІ НАДХОДЖЕННЯ →</a>",
+            "text2": "",
+            "text3": "",
+            "adding_border": false,
+            "countdown": "2024-12-30 15:00:00",
+            "txt_day": "days",
+            "effect": "fade",
+            "au_time": 3,
+            "pause_when_hover": false,
+            "hide": true
+          }
+        },
+        "text_nnAPhR": {
+          "type": "text",
+          "settings": {
+            "text1": "<a href=\"/collections/novi-nadkhodzhennia\">НОВІ НАДХОДЖЕННЯ →</a>",
+            "text2": "",
+            "text3": "",
+            "adding_border": false,
+            "countdown": "2024-12-30 15:00:00",
+            "txt_day": "days",
+            "effect": "fade",
+            "au_time": 3,
+            "pause_when_hover": true,
+            "hide": false
+          }
+        },
+        "cur_4KAVdD": {
+          "type": "cur",
+          "settings": {
+            "show_currency": false,
+            "show_language": true,
+            "use_location": false,
+            "txt_location": "Адреса магазину",
+            "url_location": "shopify://pages/contact",
+            "open_link": "_self",
+            "hide": true
+          }
+        }
+      },
+      "block_order": [
+        "text_rtCGAr",
+        "text_nnAPhR",
+        "cur_4KAVdD"
+      ],
+      "custom_css": [],
+      "settings": {
+        "height": 40,
+        "fontsize": 13,
+        "show_line_separator": false,
+        "full_width": true,
+        "colors_by_section": true,
+        "color_scheme": "scheme-6707cc8e-6558-49d9-8759-f7d934d9fe4f",
+        "background_opacity": 1
+      }
+    },
+    "header_inline_blocks_xePFbC": {
+      "type": "header-inline-blocks",
+      "blocks": {
+        "menu_mobile": {
+          "type": "_menu_mobile",
+          "static": true,
+          "settings": {
+            "main_menu_mobile": "mobile-menu",
+            "menu_categories": "sidebar-menu",
+            "only_click_icon": false,
+            "header_mobile_colors": "",
+            "note_mobile": "<p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p><p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p><p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">м Київ, вул. Велика Житомирська, 20</a></p>"
+          }
+        }
+      },
+      "block_order": [],
+      "custom_css": [
+        ".hdt-mini-cart__header-title {text-transform: uppercase;}",
+        "@media (width >= 1350px) {.hdt-search_inner {width: 250px; }}",
+        "#hdt-nav-ul > li:nth-child(4) > hdt-header-menu > details > summary > span > span.hdt-block.hdt-line-clamp {color: red;}",
+        "input::placeholder {color: rgb(var(--color-foreground));}",
+        ".hdt-collection-wrapper {display: none;}"
+      ],
+      "settings": {
+        "header_layout": "logo_left",
+        "header_fullwidth": true,
+        "header_height": 70,
+        "logo": "shopify://shop_images/newborn_logo.png",
+        "logo_width": 160,
+        "header_colors": "scheme-1",
+        "main_menu": "top-menu",
+        "lazy_mn": false,
+        "menu_position": "center",
+        "menu_size": "base",
+        "menu_weight": "normal",
+        "text_transform": true,
+        "dropdown_arrow": false,
+        "spacing_nav": 30,
+        "open_event": "hover",
+        "menu_type": "default",
+        "header_menu_colors": "",
+        "h_icon": "line",
+        "hover_icon": "1",
+        "search_type": "icon",
+        "show_currency": false,
+        "show_language": true,
+        "enabled_user": true,
+        "enabled_wishlist": true,
+        "enabled_cart": true,
+        "cart_des": "1",
+        "header_socials": false,
+        "header_height_mb": 60,
+        "logo_mobile": "shopify://shop_images/newborn_logo.png",
+        "logo_width_mb": 120,
+        "header_transparent": false,
+        "header_transparent_colors": "",
+        "background_opacity_transparent": 0,
+        "header_space_top": 0,
+        "header_space_top_mobile": 0,
+        "sticky_type": "on_scroll_up",
+        "header_sticky_colors": "scheme-1",
+        "background_opacity_sticky": 0.8,
+        "sticky_glass": true
+      }
+    }
+  },
+  "order": [
+    "top_bar_3qfcq8",
+    "header_inline_blocks_xePFbC"
+  ]
+}

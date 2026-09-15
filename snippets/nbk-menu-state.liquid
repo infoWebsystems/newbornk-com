@@ -1,0 +1,36 @@
+{% doc %}
+  Returns the visible child count and destination visibility, separated by a pipe.
+  @param {link} item - Navigation item to inspect.
+  @param {boolean} [collections_only] - Limit navigation to collection and catalog links.
+{% enddoc %}
+{%- liquid
+  assign visible_children = 0
+  assign destination_visible = 0
+  assign supported = true
+  if collections_only and item.type != 'collection_link' and item.type != 'catalog_link'
+    assign supported = false
+  endif
+  if supported
+    if item.type == 'collection_link'
+      assign product_count = item.object.all_products_count | default: 0
+      if product_count > 0
+        assign destination_visible = 1
+      endif
+    elsif item.url != blank and item.url != '#'
+      assign destination_visible = 1
+    endif
+    for child in item.links
+      capture child_state
+        render 'nbk-menu-state', item: child, collections_only: collections_only
+      endcapture
+      assign child_state = child_state | strip | split: '|'
+      assign child_count = child_state[0] | plus: 0
+      if child_count > 0 or child_state[1] == '1'
+        assign visible_children = visible_children | plus: 1
+      endif
+    endfor
+  endif
+  echo visible_children
+  echo '|'
+  echo destination_visible
+-%}

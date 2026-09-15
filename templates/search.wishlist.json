@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "main_heading_YqnRTk": {
+      "type": "main-heading",
+      "blocks": {
+        "heading_liquid_VcQWkJ": {
+          "type": "_heading_liquid",
+          "settings": {
+            "text": "",
+            "line_height": "hdt-lh-1",
+            "font_family": "hdt-font-1",
+            "text_size": "2xl",
+            "text_color": "hdt-s-text",
+            "italic": false,
+            "uppercase": false,
+            "font_size_text_lg": 16,
+            "font_size_text": 14,
+            "letter_spacing_text": 0
+          },
+          "blocks": {}
+        },
+        "heading_brc_CXLxMY": {
+          "type": "_heading_brc",
+          "name": "t:sections.heading-page.blocks.breadcrumb.label",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "heading_liquid_VcQWkJ",
+        "heading_brc_CXLxMY"
+      ],
+      "settings": {
+        "use_dynamic_source": false,
+        "color_scheme": "scheme-1",
+        "bg_overlay": 0,
+        "space_item": 10,
+        "mg": "",
+        "mg_mb": "",
+        "pd": "20px,,20px,",
+        "pd_mb": "15px,,15px,"
+      }
+    },
+    "main": {
+      "type": "main-wishlist",
+      "blocks": {
+        "a87a8e46-14c7-424f-9903-f7c75cdb6a7b": {
+          "type": "btn",
+          "settings": {
+            "title": "",
+            "url": "shopify://collections/novi-nadkhodzhennia",
+            "btn_style": "solid",
+            "btn_fw": "semibold"
+          }
+        }
+      },
+      "block_order": [
+        "a87a8e46-14c7-424f-9903-f7c75cdb6a7b"
+      ],
+      "settings": {
+        "product_list": [],
+        "enable_num_cols_selector": true,
+        "product_des": "1",
+        "image_ratio": "asos",
+        "image_size": true,
+        "show_vendor": false,
+        "pr_border": "none",
+        "products_count": 12,
+        "col_dk": "4",
+        "col_tb": "3",
+        "col_mb": "2",
+        "space_items": "x",
+        "pagination_type": "links",
+        "paginate_pos": "center",
+        "dis_pagination": 60,
+        "full_width": false,
+        "color_scheme": "scheme-2",
+        "mg": "",
+        "mg_mb": "",
+        "pd": "10px,,50px,",
+        "pd_mb": "8px,,40px,"
+      }
+    }
+  },
+  "order": [
+    "main_heading_YqnRTk",
+    "main"
+  ]
+}

@@ -1,0 +1,46 @@
+<div class="hdt-container hdt-rte nbk-kyiv-content">
+  <h1>{{ page.title | escape }}</h1>
+  {% if section.settings.show_page_body %}{{ page.content }}{% endif %}
+  {% for block in section.blocks %}
+    <div {{ block.shopify_attributes }} class="nbk-kyiv-content__block">
+      {% case block.type %}
+        {% when '@app' %}{% render block %}
+        {% when 'content' %}
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '400,700,1000,1400' }}
+          {% endif %}
+          {% if block.settings.heading != blank %}<h2>{{ block.settings.heading | escape }}</h2>{% endif %}
+          {{ block.settings.body }}
+        {% when 'contact_form' %}
+          {% form 'contact' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}<p role="status">{{ 'templates.contact.form.post_success' | t }}</p>{% endif %}
+            <label for="ContactRequest">{{ 'templates.contact.form.request_type' | t }}</label>
+            <select id="ContactRequest" name="contact[request_type]" required>
+              <option value="return">{{ 'templates.contact.form.request_return' | t }}</option>
+              <option value="order_status">{{ 'templates.contact.form.request_status' | t }}</option>
+            </select>
+            <label for="ContactName">{{ 'templates.contact.form.name' | t }}</label>
+            <input id="ContactName" name="contact[name]" autocomplete="name" required>
+            <label for="ContactEmail">{{ 'templates.contact.form.email' | t }}</label>
+            <input id="ContactEmail" type="email" name="contact[email]" autocomplete="email" required>
+            <label for="ContactPhone">{{ 'templates.contact.form.phone' | t }}</label>
+            <input id="ContactPhone" type="tel" name="contact[phone]" autocomplete="tel" required>
+            <label for="ContactMessage">{{ 'templates.contact.form.comment' | t }}</label>
+            <textarea id="ContactMessage" name="contact[body]" required></textarea>
+            <button class="hdt-btn" type="submit">{{ 'templates.contact.form.send' | t }}</button>
+          {% endform %}
+      {% endcase %}
+    </div>
+  {% endfor %}
+</div>
+{% stylesheet %}
+.nbk-kyiv-content {max-width: 1000px; padding-block: 40px;}
+.nbk-kyiv-content__block {margin-block: 32px;}
+.nbk-kyiv-content img {max-width: 100%; height: auto;}
+.nbk-kyiv-content label, .nbk-kyiv-content input, .nbk-kyiv-content textarea, .nbk-kyiv-content select {display: block; width: 100%; margin-block: 12px;}
+.nbk-kyiv-content input, .nbk-kyiv-content textarea, .nbk-kyiv-content select {border: 1px solid #aaa; padding: 12px;}
+{% endstylesheet %}
+{% schema %}
+{"name":"Kyiv page content","settings":[{"type":"checkbox","id":"show_page_body","label":"Show page body","default":true}],"blocks":[{"type":"@app"},{"type":"content","name":"Content","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"heading","label":"Heading"},{"type":"richtext","id":"body","label":"Text"}]},{"type":"contact_form","name":"Contact form","settings":[]}],"presets":[{"name":"Kyiv page content"}]}
+{% endschema %}
