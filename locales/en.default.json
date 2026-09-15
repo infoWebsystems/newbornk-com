@@ -930,6 +930,9 @@
     }
   },
   "nbk": {
+    "recommendations": {
+      "heading": "You may also like"
+    },
     "home": {
       "about": "About NEWBORN K"
     }
