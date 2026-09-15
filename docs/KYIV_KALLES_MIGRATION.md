@@ -18,6 +18,8 @@ Native **local Kalles wishlist** is selected, as requested. Wishlist Hero's embe
 
 Kyiv product descriptions, size charts, subtitle/model data, pickup availability, Judge.me ratings/reviews, and the existing Instagram widget are retained. The active Avada collection SEO block remains on the default collection template, matching the prior assignments.
 
+Legacy `product.default-outlet` and `product.gift-card-template` assignments have Kalles-compatible templates. Outlet products retain the existing next-day pickup notice. The Kyiv `robots.txt.liquid` template is retained byte-for-byte.
+
 The existing JSON-LD graph, robots and hreflang logic, Pandectes bootstrap, GTM, Yespo inbox/customer initialization and Ahrefs analytics are retained. Consent-gated GA4 product selection is connected to Kalles links, and cart-view tracking observes the Kalles drawer. No customer or catalog records are edited by this migration.
 
 ## Validation

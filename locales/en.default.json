@@ -261,6 +261,7 @@
     },
     "product": {
       "label": "Product",
+      "outlet_pickup_text": "📍 The product is available for pickup the day after ordering",
       "lightbox_icon_label": "Click to enlarge",
       "quick_add": "Quick add",
       "quick_view": "Quick view",
