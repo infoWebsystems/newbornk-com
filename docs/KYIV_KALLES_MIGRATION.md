@@ -1,12 +1,22 @@
 # Kyiv Kalles migration
 
-This branch replaces Kyiv's Dawn theme with the Warsaw `kalles-main` implementation, adapted to the existing Kyiv catalog, navigation, content and integrations.
+Kyiv's Kalles theme is maintained separately from Dawn, using the Warsaw `kalles-main` implementation adapted to Kyiv's catalog, navigation, content and integrations.
 
 - Source: `infoWebsystems/pl-newbornk-com`, `ddfb4953a553d9e5f85212db68b8f748fbf304d3` (includes empty-collection navigation filtering).
 - Target baseline: `infoWebsystems/newbornk-com`, master `9230a0f`.
 - Draft theme: `199582843040`, **Kyiv Kalles - migration preview - 15 Sep 2026**.
 - Preview: https://newbornk.com/?preview_theme_id=199582843040
 - Existing live theme: `133779652768`, **newbornk-com/master**.
+
+## Branch workflow
+
+- `master`: existing Dawn theme. Do not target Kalles pull requests here.
+- `kalles-main`: baseline for Kyiv Kalles, initialized from the validated migration commit `d47f663e5ebfd9e95d53f54042296f39452aef7c`.
+- `kalles-dev`: ongoing Kalles changes and additions, initialized from `kalles-main`.
+
+Open future Kalles pull requests with head `kalles-dev` and base `kalles-main`. Keep changes in `kalles-dev` until reviewed. PR #68 targeting `master` is superseded by this separate branch setup and is closed without merging.
+
+The draft theme above remains the existing Kalles preview. Creating these branches does not connect them to Shopify GitHub synchronization or publish a theme. Any future Shopify connection must use a separate Kalles theme, preserving the existing Dawn/master connection. The repository default branch remains unchanged; select `kalles-main` explicitly as the PR base.
 
 ## Store behavior
 
@@ -44,4 +54,4 @@ Review the draft on representative devices and complete the store's normal check
 
 The existing `carhartt-wip` collection has the malformed template suffix `Default collection`; Shopify falls back to the default collection template. This migration does not mutate that collection assignment.
 
-Publish/merge is a separate approval step. Keep the live Dawn theme available for rollback.
+Merging future changes from `kalles-dev` into `kalles-main` and publishing the Kalles theme are separate review steps. Keep the live Dawn theme available for rollback.
