@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -44,7 +35,7 @@
       }
     },
     "info": {
-      "type": "contact-info",
+      "type": "nbk-contact-info",
       "blocks": {
         "12eef3a6-d223-4ef0-83b5-ba82b6c6e215": {
           "type": "email",
@@ -106,7 +97,7 @@
       "settings": {}
     },
     "form": {
-      "type": "contact-form",
+      "type": "nbk-contact-form",
       "blocks": {
         "50cc8939-78bc-470d-9de2-2bb4c3fdf2c4": {
           "type": "request",
@@ -130,7 +121,7 @@
         "4625a754-5e73-46d3-ac66-f7be0d9e5fb0": {
           "type": "phone",
           "settings": {
-            "required": true
+            "required": false
           }
         },
         "18dda8e4-0a7f-4e90-80f7-a5e973ef0c04": {
@@ -138,6 +129,10 @@
           "settings": {
             "required": true
           }
+        },
+        "order_number": {
+          "type": "order_number",
+          "settings": {}
         }
       },
       "block_order": [
@@ -145,18 +140,39 @@
         "0848c785-83d8-43d2-abea-ab4945801fdf",
         "5d53a39d-5b05-4d25-b420-cd6942634159",
         "4625a754-5e73-46d3-ac66-f7be0d9e5fb0",
+        "order_number",
         "18dda8e4-0a7f-4e90-80f7-a5e973ef0c04"
       ],
       "settings": {
         "heading": "Contact form",
         "margin_bottom": 71
       }
+    },
+    "seo_page_heading": {
+      "type": "seo-page-heading",
+      "settings": {}
+    },
+    "conceptstore": {
+      "type": "nbk-contact-intro",
+      "settings": {
+        "exterior": "shopify://shop_images/newbornk-store-entrance.jpg",
+        "interior": "shopify://shop_images/newbornk-store-interior.jpg"
+      }
+    },
+    "legal": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width nbk-contact-width\"><h2>{{ 'nbk_contact.legal' | t }}</h2><p>ФОП Амеган Аннет Мауанам</p><p>ІПН\t3368316041</p></div>"
+      }
     }
   },
   "order": [
+    "seo_page_heading",
+    "conceptstore",
     "main",
     "1775141838ecb8939c",
     "info",
-    "form"
+    "form",
+    "legal"
   ]
 }
