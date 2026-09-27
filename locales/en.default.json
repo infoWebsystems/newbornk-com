@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin language editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "general": {
     "password_page": {
@@ -572,5 +563,37 @@
   "text_loading": "Loading...",
   "wishlist": {
     "header_link": "Wishlist"
+  },
+  "nbk_contact": {
+    "intro_title": "NEWBORN K — a concept store in central Kyiv",
+    "intro": "Menswear, womenswear, footwear and lifestyle pieces from global and independent brands. Visit us to try on your favourites and find your own combinations — our team will help with fit and selection.",
+    "visit": "Visit the store",
+    "address": "20 Velyka Zhytomyrska Street, Kyiv",
+    "daily": "Daily 11:00–21:00",
+    "holidays": "Check Google Maps for holiday opening hours.",
+    "route": "Get directions",
+    "call": "Call us",
+    "parking_title": "Free private parking",
+    "parking": "Enter the archway from Velyka Zhytomyrska Street towards Landscape Alley. Two parking spaces for store visitors are located between the columns.",
+    "pickup_title": "Try on and collect",
+    "pickup": "Order online and collect in store. Contact us before your visit to confirm the model and size are available.",
+    "brands": "Explore all brands",
+    "contacts": "Get in touch",
+    "support_hours": "Customer support daily 11:00–21:00",
+    "legal": "Seller details",
+    "form_intro": "Ask us about availability, sizing or your order. Choose a topic and send us a message.",
+    "delivery": "Payment and delivery",
+    "returns": "Returns and exchanges",
+    "order_number": "Order number (optional)",
+    "order_placeholder": "For questions about a purchase",
+    "phone_optional": "Phone number (optional)",
+    "request_options": "Product availability, Sizing advice, Order status, Returns and exchanges, Other question",
+    "exterior_alt": "Entrance to NEWBORN K at 20 Velyka Zhytomyrska Street",
+    "interior_alt": "Inside the NEWBORN K concept store in Kyiv"
+  },
+  "meta_tags": {
+    "title_pagination": "{{title}} | Page {{number}}",
+    "description_pagination": "{{description}} | Page {{number}}",
+    "h1_pagination": "{{title}} | Page {{number}}"
   }
 }

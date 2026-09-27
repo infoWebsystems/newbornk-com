@@ -1,0 +1,220 @@
+<div class="contact page-width page-width--narrow section-{{ section.id }}-padding" style="margin-bottom: {{ section.settings.margin_bottom }}px">
+  <header class='contact-header'>
+    <h2 class='contact-header__title'>{{ 'templates.contact.header.title' | t }}</h2>
+    <p class='contact-header__content'>{{ 'nbk_contact.form_intro' | t }}</p>
+    <nav class="nbk-help-links">
+      <a href="/pages/order-and-delivery">{{ 'nbk_contact.delivery' | t }}</a>
+      <a href="/pages/return">{{ 'nbk_contact.returns' | t }}</a>
+    </nav>
+  </header>
+
+  {%- form 'contact', id: 'ContactForm', class: 'isolate' -%}
+    {% if form.posted_successfully? %}
+      <p role="status" tabindex="-1" autofocus>{{ 'templates.contact.form.post_success' | t }}</p>
+    {% elsif form.errors %}
+      <div role="alert" tabindex="-1" autofocus>{{ form.errors | default_errors }}</div>
+    {% endif %}
+    <div class="contact__fields">
+
+      {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+              {%- when "@app" -%}
+                  {%- render block -%}
+
+              {%- when "email" -%}
+                <div class="form-input {% if block.settings.required %} form-input--required{% endif %}">
+                  <label class="form__label hide" for="ContactForm-email">{{ 'templates.contact.form.email' | t }}</label>
+                  <input class="form__input"
+                         {% if block.settings.required %}required{% endif %} 
+                         autocomplete="email"
+                         type="email"
+                         id="ContactForm-email"
+                         name="contact[email]"
+                         spellcheck="false"
+                         autocapitalize="off"
+                         value="{% if form.email %}{{ form.email | escape }}{% elsif customer %}{{ customer.email | escape }}{% endif %}"
+                         aria-required="true"
+                         {% if form.errors contains 'email' %}
+                         aria-invalid="true"
+                         aria-describedby="ContactForm-email-error"
+                         {% endif %}
+                         placeholder="{{ 'templates.contact.form.email' | t }}"
+                         >
+                </div>
+
+              {%- when "name" -%}
+                <div class="form-input {% if block.settings.required %} form-input--required{% endif %}"> 
+                  <label class="form__label hide" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+                  <input class="form__input"
+                         autocomplete="name"
+                         type="text"
+                         {% if block.settings.required %}required{% endif %} 
+                         id="ContactForm-name"
+                         name="contact[{{ 'templates.contact.form.name' | t }}]"
+                         value="{% if form.name %}{{ form.name | escape }}{% elsif customer %}{{ customer.name | escape }}{% endif %}"
+                         placeholder="{{ 'templates.contact.form.name' | t }}">
+                </div>
+
+              {%- when "phone" -%}
+                <div class="form-input {% if block.settings.required %} form-input--required{% endif %}">
+                  <label class="form__label hide" for="ContactForm-phone">{{ 'nbk_contact.phone_optional' | t }}</label>
+                  <input type="tel"
+                         {% if block.settings.required %}required{% endif %} 
+                         id="ContactForm-phone"
+                         class="form__input"
+                         autocomplete="tel"
+                         name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                         
+                         value="{% if form.phone %}{{ form.phone | escape }}{% elsif customer %}{{ customer.phone | escape }}{% endif %}"
+                         placeholder="{{ 'templates.contact.form.phone' | t }}">
+                </div>
+
+              {%- when "request" -%}
+                {%- assign options = 'nbk_contact.request_options' | t | split: ',' -%}
+
+                <div class="form-select {%if block.settings.required %}form-input--required{% endif %}">
+                  <label class="form__label hide" for="request-type">{{ 'templates.contact.form.request_type' | t }}</label>
+                  <select {% if block.settings.required %}required{% endif %} class="form__select form__input" id="request-type" name="contact[{{ 'templates.contact.form.request_type' | t }}]">
+                      {%- for option in options -%}
+                        <option value='{{ option | strip }}'>{{ option | strip }}</option>
+                      {%- endfor -%}
+                  </select>
+                </div>
+
+              {%- when "order_number" -%}
+                <div class="form-input nbk-order-field">
+                  <label class="form__label" for="ContactForm-order">{{ 'nbk_contact.order_number' | t }}</label>
+                  <input type="text" class="form__input" id="ContactForm-order" name="contact[order_number]" placeholder="{{ 'nbk_contact.order_placeholder' | t }}">
+                </div>
+              {%- when "body" -%}
+                <div class="form-input {% if block.settings.required %}form-input--required{% endif %} form-text">
+                  <label class="form__label hide" for="ContactForm-body">{{ 'templates.contact.form.comment' | t }}</label>
+                  <textarea rows="6"
+                            {% if block.settings.required %}required{% endif %}
+                            id="ContactForm-body"
+                            class="text-area form__input form__text"
+                            name="contact[body]"
+                            placeholder="{{ 'templates.contact.form.comment' | t }}"
+                            >
+                    {{- form.body | escape -}}
+                  </textarea>
+                </div>
+
+          {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="contact__button">
+      <button type="submit" class="button">
+        {{ 'templates.contact.form.send' | t }}
+      </button>
+    </div>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "NEWBORN K contact form",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Основные настройки"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Contact form",
+      "label": "Heading"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "default": 70,
+      "info": "in px",
+      "label": "Margin bottom"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "email",
+      "limit": 1,
+      "name": "Поле - Электронная почта",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Обязательное поле"
+        }
+      ]
+    },
+    {
+      "type": "phone",
+      "limit": 1,
+      "name": "Поле - Телефон",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Обязательное поле"
+        }
+      ]
+    },
+    {
+      "type": "name",
+      "limit": 1,
+      "name": "Поле - Имя",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Обязательное поле"
+        }
+      ]
+    },
+    {
+      "type": "body",
+      "limit": 1,
+      "name": "Текстовое поле",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Обязательное поле"
+        }
+      ]
+    },
+    {
+      "type": "request",
+      "limit": 1,
+      "name": "Список - Тип обращения",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "required",
+          "default": true,
+          "label": "Обязательное поле"
+        },
+        {
+          "type": "text",
+          "id": "options",
+          "label": "Опции",
+          "info": "Необходимо указывать каждую опцию через запятую"
+        }
+      ]
+    },
+    {
+      "type": "order_number",
+      "limit": 1,
+      "name": "Order number",
+      "settings": []
+    }
+  ]
+}
+{% endschema %}
