@@ -10,6 +10,10 @@
 {
   "wrapper": "section#about-page.is--about",
   "sections": {
+    "seo_page_heading": {
+      "type": "seo-page-heading",
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -121,6 +125,7 @@
     }
   },
   "order": [
+    "seo_page_heading",
     "main",
     "1644333406ba1c490d",
     "16443297349827cfa2",
