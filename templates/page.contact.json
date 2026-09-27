@@ -156,7 +156,7 @@
       "type": "nbk-contact-intro",
       "settings": {
         "exterior": "shopify://shop_images/newbornk-store-entrance.jpg",
-        "interior": "shopify://shop_images/newbornk-store-interior.jpg"
+        "interior": "shopify://shop_images/newbornk-store-interior-wide.webp"
       }
     },
     "legal": {
