@@ -135,8 +135,9 @@
 #MainContent .nbk-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
 #MainContent .nbk-actions .button { background: #000; color: #fff; text-decoration: none; min-height: 48px; padding: 14px 24px; }
 #MainContent .nbk-actions .button:hover { background: #CCF951; color: #000; }
-#MainContent .nbk-contact-photos { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin: 0 0 40px; }
+#MainContent .nbk-contact-photos { display: grid; grid-template-columns: minmax(0,9fr) minmax(0,16fr); gap: 24px; margin: 0 0 40px; }
 #MainContent .nbk-contact-photos img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 60%; }
+#MainContent .nbk-contact-photos .nbk-contact-interior { aspect-ratio: 4 / 3; object-fit: contain; }
 #MainContent .nbk-contact-width a:not(.button), #MainContent [id$="__info"] a, #MainContent [id$="__form"] a { color: #000; text-underline-offset: 4px; }
 #MainContent .nbk-actions .button, #MainContent [id$="__form"] .contact__button .button { text-transform: uppercase; }
 #MainContent [id$="__info"] .nbk-support-hours { grid-column: 1 / -1; margin: 0; font-size: 14px; }
@@ -177,11 +178,11 @@
     <div class="nbk-contact-photos">
       {% if section.settings.exterior != blank %}
         {% assign exterior_alt = 'nbk_contact.exterior_alt' | t %}
-        {{ section.settings.exterior | image_url: width: 1200 | image_tag: widths: '360, 600, 900, 1200', sizes: '(min-width: 750px) 438px, calc(100vw - 30px)', loading: 'lazy', alt: exterior_alt }}
+        {{ section.settings.exterior | image_url: width: 1200 | image_tag: widths: '360, 600, 900, 1200', sizes: '(min-width: 950px) 315px, (min-width: 750px) calc(36vw - 27px), calc(100vw - 30px)', loading: 'lazy', alt: exterior_alt }}
       {% endif %}
       {% if section.settings.interior != blank %}
         {% assign interior_alt = 'nbk_contact.interior_alt' | t %}
-        {{ section.settings.interior | image_url: width: 1200 | image_tag: widths: '360, 600, 900, 1200', sizes: '(min-width: 750px) 438px, calc(100vw - 30px)', loading: 'lazy', alt: interior_alt }}
+        {{ section.settings.interior | image_url: width: 1200 | image_tag: widths: '360, 600, 900, 1200', sizes: '(min-width: 950px) 561px, (min-width: 750px) calc(64vw - 47px), calc(100vw - 30px)', loading: 'lazy', class: 'nbk-contact-interior', alt: interior_alt }}
       {% endif %}
     </div>
   {% endif %}
