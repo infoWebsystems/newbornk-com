@@ -17,14 +17,14 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- if section.settings.enable_language_selector and shop.locale == 'ru' -%}
+{%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
   {% capture lang_switcher %}
     <div class="footer__column footer__localization">
       <noscript>
         {%- form 'localization', id: 'FooterLanguageFormNoScript', class: 'localization-form' -%}
           <div class="localization-form__select">
             <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">{{ 'localization.language_label' | t }}</h2>
-            <select class="localization-selector link" name="locale_code" aria-labelledby="FooterLanguageLabelNoScript">
+            <select class="localization-selector link" name="language_code" aria-labelledby="FooterLanguageLabelNoScript">
               {%- for language in localization.available_languages -%}
                 <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
                   {{ language.endonym_name | capitalize }}
@@ -38,38 +38,28 @@
       </noscript>
       <localization-form>
         {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-          {% if localization.language.iso_code == 'uk'%}
-            {% assign localization_language_iso_code = 'uk' %}
-          {% else %}
-            {% assign localization_language_iso_code = localization.language.iso_code %}
-          {% endif %}
           <div class="no-js-hidden">
-            <!--h2 class="caption-large" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</h2-->
+            <span class="visually-hidden" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</span>
             <div class="ok disclosure">
               <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel">
-                <span>{{ localization_language_iso_code | upcase }}</span>
+                <span lang="{{ localization.language.iso_code }}">{{ localization.language.endonym_name | capitalize }}</span>
                 {% render 'icon-caret' %}
               </button>
               <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled" hidden>
                 {%- for language in localization.available_languages -%}
-                  {% if language.iso_code == 'uk'%}
-                    {% assign language_iso_code = 'uk' %}
-                  {% else %}
-                    {% assign language_iso_code = language.iso_code %}
-                  {% endif %}
                   <li class="disclosure__item" tabindex="-1">
-                    <a class="link link--text disclosure__link caption-large{% if language_iso_code == localization_language_iso_code %} disclosure__link--active{% endif %}
+                    <a class="link link--text disclosure__link caption-large{% if language.iso_code == localization.language.iso_code %} disclosure__link--active{% endif %}
                           focus-inset"
-                       href="/{% unless language.primary %}{{ language.iso_code }}{% endunless %} " hreflang="{{ language.iso_code }}"
+                       href="#" hreflang="{{ language.iso_code }}"
                        lang="{{ language.iso_code }}"
-                            {% if language_iso_code == localization_language_iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}">
-                      {{ language.name | capitalize }}
+                            {% if language.iso_code == localization.language.iso_code %} aria-current="true"{% endif %} data-value="{{ language.iso_code }}">
+                      {{ language.endonym_name | capitalize }}
                     </a>
                   </li>
                 {%- endfor -%}
               </ul>
             </div>
-            <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+            <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
           </div>
         {%- endform -%}
       </localization-form>
@@ -86,7 +76,7 @@
             <div class="footer__logo">
               <figure{% if section.settings.logo_svg %} class="as--svg"{% endif %}>
                 {% if section.settings.logo != blank %}
-                  <img src="{{ section.settings.logo | img_url: '240x' }}" width="240" height="33" alt="Newbornk" loading="lazy">
+                  <img src="{{ section.settings.logo | image_url: width: 240 }}" width="240" height="33" alt="Newbornk" loading="lazy">
                 {% else %}
                   {% render 'icon-logo' %}
                 {% endif %}
@@ -106,19 +96,13 @@
           {% if section.settings.menu_left %}
             <ul class="footer__menu vertical--menu">
               {%- for link in section.settings.menu_left.links -%}
-                {% if link.title == 'switcher' %}
-                  {% if section.settings.enable_language_selector %}
-                    <li>
-                      {{ lang_switcher }}
-                    </li>
-                  {% endif %}
-                {% else %}
+                {% unless link.title == 'switcher' %}
                   <li>
                     <a href="{{ link.url }}" class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}">
                       {{ link.title }}
                     </a>
                   </li>
-                {% endif %}
+                {% endunless %}
               {%- endfor -%}
             </ul>
           {% endif %}
@@ -147,6 +131,7 @@
             {%- endfor -%}
           </ul>
         {% endif %}
+        {{ lang_switcher }}
         <div class="footer__contact">
           {% if section.settings.phone != blank %}
             {%- assign phone = section.settings.phone | replace: '(', '' | replace: ')', '' | replace: ' ', '' -%}
@@ -175,12 +160,28 @@
   </div>
 </footer>
 
+{% stylesheet %}
+  .footer .footer__localization {
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .footer .footer__localization .disclosure__list {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    top: auto;
+    bottom: 100%;
+    left: 0;
+    transform: none;
+  }
+{% endstylesheet %}
+
 {% javascript %}
   class LocalizationForm extends HTMLElement {
     constructor() {
       super();
       this.elements = {
-        input: this.querySelector('input[name="locale_code"], input[name="country_code"]'),
+        input: this.querySelector('input[name="language_code"], input[name="country_code"]'),
         button: this.querySelector('button'),
         panel: this.querySelector('ul'),
       };
