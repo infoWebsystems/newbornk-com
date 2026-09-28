@@ -17,7 +17,13 @@
 <noscript>{{ 'component-rte.css' | asset_url | stylesheet_tag }}</noscript>
 <noscript>{{ 'disclosure.css' | asset_url | stylesheet_tag }}</noscript>
 
-{%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+{%- liquid
+  assign ukrainian_languages = localization.available_languages | where: 'iso_code', 'uk'
+  assign english_languages = localization.available_languages | where: 'iso_code', 'en'
+  assign switcher_languages = ukrainian_languages | concat: english_languages
+-%}
+
+{%- if section.settings.enable_language_selector and switcher_languages.size > 1 -%}
   {% capture lang_switcher %}
     <div class="footer__column footer__localization">
       <noscript>
@@ -25,7 +31,7 @@
           <div class="localization-form__select">
             <h2 class="visually-hidden" id="FooterLanguageLabelNoScript">{{ 'localization.language_label' | t }}</h2>
             <select class="localization-selector link" name="language_code" aria-labelledby="FooterLanguageLabelNoScript">
-              {%- for language in localization.available_languages -%}
+              {%- for language in switcher_languages -%}
                 <option value="{{ language.iso_code }}" lang="{{ language.iso_code }}" {%- if language.iso_code == localization.language.iso_code %} selected{% endif %}>
                   {{ language.endonym_name | capitalize }}
                 </option>
@@ -41,12 +47,16 @@
           <div class="no-js-hidden">
             <span class="visually-hidden" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</span>
             <div class="ok disclosure">
-              <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel">
-                <span lang="{{ localization.language.iso_code }}">{{ localization.language.endonym_name | capitalize }}</span>
-                {% render 'icon-caret' %}
+              <button type="button" class="disclosure__button localization-form__select localization-selector language-selector-globe link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-labelledby="FooterLanguageLabel FooterLanguageCurrent">
+                <svg class="icon icon-globe" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="9" />
+                  <ellipse cx="12" cy="12" rx="4" ry="9" />
+                  <path d="M3 12h18" />
+                </svg>
+                <span class="visually-hidden" id="FooterLanguageCurrent" lang="{{ localization.language.iso_code }}">{{ localization.language.endonym_name | capitalize }}</span>
               </button>
               <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled" hidden>
-                {%- for language in localization.available_languages -%}
+                {%- for language in switcher_languages -%}
                   <li class="disclosure__item" tabindex="-1">
                     <a class="link link--text disclosure__link caption-large{% if language.iso_code == localization.language.iso_code %} disclosure__link--active{% endif %}
                           focus-inset"
@@ -91,9 +101,9 @@
           <div class="footer__copy">&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url }}</div>
         </div>
       {% endif %}
-      {% if section.settings.menu_left or section.settings.menu_bottom %}
+      {% if section.settings.menu_left or section.settings.menu_bottom or lang_switcher != blank %}
         <div class="footer__block ">
-          {% if section.settings.menu_left %}
+          {% if section.settings.menu_left or lang_switcher != blank %}
             <ul class="footer__menu vertical--menu">
               {%- for link in section.settings.menu_left.links -%}
                 {% unless link.title == 'switcher' %}
@@ -104,6 +114,9 @@
                   </li>
                 {% endunless %}
               {%- endfor -%}
+              {% if lang_switcher != blank %}
+                <li>{{ lang_switcher }}</li>
+              {% endif %}
             </ul>
           {% endif %}
           {% if section.settings.menu_bottom %}
@@ -131,7 +144,6 @@
             {%- endfor -%}
           </ul>
         {% endif %}
-        {{ lang_switcher }}
         <div class="footer__contact">
           {% if section.settings.phone != blank %}
             {%- assign phone = section.settings.phone | replace: '(', '' | replace: ')', '' | replace: ' ', '' -%}
@@ -162,8 +174,12 @@
 
 {% stylesheet %}
   .footer .footer__localization {
-    justify-content: flex-start;
+    justify-content: center;
     padding: 0;
+  }
+
+  .footer .footer__localization .localization-form {
+    margin: 0;
   }
 
   .footer .footer__localization .disclosure__list {
@@ -173,6 +189,21 @@
     bottom: 100%;
     left: 0;
     transform: none;
+  }
+
+  .footer #FooterLanguageForm .language-selector-globe {
+    width: 4.4rem;
+    height: 4.4rem;
+    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer .language-selector-globe .icon-globe {
+    width: 2.4rem;
+    height: 2.4rem;
+    flex-shrink: 0;
   }
 {% endstylesheet %}
 

@@ -105,6 +105,11 @@ summary.list-menu__item {
 .trm-header .header__menu-item {
     padding: 0.8rem 0.8rem;
 }
+
+.trm-header .header__inline-menu > .list-menu > li > .header__menu-item,
+.trm-header .header__inline-menu > .list-menu > li > details-disclosure > details > .header__menu-item {
+  text-transform: uppercase;
+}
 @media (min-width: 1200px) {
   .trm-header .header__menu-item {
       padding: 0.8rem 1.2rem;
