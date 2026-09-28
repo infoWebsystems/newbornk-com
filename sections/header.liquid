@@ -26,14 +26,18 @@
   </symbol>
 </svg>
 <style>
-  @media screen and (min-width: 1024px) and (max-width: 1300px) {
-    .trm-header .header__menu-item{
-      font-size: 1vw;
+  @media screen and (min-width: 990px) and (max-width: 1300px) {
+    .trm-header .header__menu-item {
+      font-size: 1.5rem;
     }
-  }
-  @media screen and (min-width: 990px) and (max-width: 1023px) {
-    .trm-header .header__menu-item{
-      font-size: 0.9vw;
+
+    .trm-header .header--middle-left {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+
+    .trm-header .header--middle-left .header__inline-menu {
+      min-width: 0;
+      width: 100%;
     }
   }
   @media screen and (min-width: 1280px) {
