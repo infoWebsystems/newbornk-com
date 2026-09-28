@@ -12,6 +12,15 @@
     "1630994380770cb550": {
       "type": "slideshow",
       "blocks": {
+        "slide_qcmhbj": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/DESK_8b1d353b-06c7-407b-9f72-551e12f26966.jpg",
+            "image_phone": "shopify://shop_images/MOB_a7b5da48-6656-4ad9-b8cb-ea9a4365d122.jpg",
+            "banner_link": "",
+            "language": "UK"
+          }
+        },
         "slide_mhh3dU": {
           "type": "slide",
           "settings": {
@@ -86,6 +95,7 @@
         }
       },
       "block_order": [
+        "slide_qcmhbj",
         "slide_mhh3dU",
         "slide_PziDkQ",
         "slide_wHpNAY",
