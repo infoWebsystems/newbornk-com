@@ -47,9 +47,13 @@
           <div class="no-js-hidden">
             <span class="visually-hidden" id="FooterLanguageLabel">{{ 'localization.language_label' | t }}</span>
             <div class="ok disclosure">
-              <button type="button" class="disclosure__button localization-form__select localization-selector link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-describedby="FooterLanguageLabel">
-                <span lang="{{ localization.language.iso_code }}">{{ localization.language.endonym_name | capitalize }}</span>
-                {% render 'icon-caret' %}
+              <button type="button" class="disclosure__button localization-form__select localization-selector language-selector-globe link link--text caption-large" aria-expanded="false" aria-controls="FooterLanguageList" aria-labelledby="FooterLanguageLabel FooterLanguageCurrent">
+                <svg class="icon icon-globe" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="9" />
+                  <ellipse cx="12" cy="12" rx="4" ry="9" />
+                  <path d="M3 12h18" />
+                </svg>
+                <span class="visually-hidden" id="FooterLanguageCurrent" lang="{{ localization.language.iso_code }}">{{ localization.language.endonym_name | capitalize }}</span>
               </button>
               <ul id="FooterLanguageList" role="list" class="disclosure__list list-unstyled" hidden>
                 {%- for language in switcher_languages -%}
@@ -179,6 +183,21 @@
     bottom: 100%;
     left: 0;
     transform: none;
+  }
+
+  .footer #FooterLanguageForm .language-selector-globe {
+    width: 4.4rem;
+    height: 4.4rem;
+    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer .language-selector-globe .icon-globe {
+    width: 2.4rem;
+    height: 2.4rem;
+    flex-shrink: 0;
   }
 {% endstylesheet %}
 
