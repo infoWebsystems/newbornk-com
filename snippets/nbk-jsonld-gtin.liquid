@@ -1,0 +1,29 @@
+{% doc %}
+  Renders a comma-prefixed GTIN property only for a numeric GS1 check-digit-valid barcode.
+  @param {string} barcode - The product variant barcode.
+{% enddoc %}
+{%- liquid
+  assign gtin = barcode | strip
+  assign gtin_size = gtin.size
+  assign non_digits = gtin | remove: '0' | remove: '1' | remove: '2' | remove: '3' | remove: '4' | remove: '5' | remove: '6' | remove: '7' | remove: '8' | remove: '9'
+  assign gtin_valid = false
+  if non_digits == ''
+    if gtin_size == 8 or gtin_size == 12 or gtin_size == 13 or gtin_size == 14
+      assign gtin_digits = gtin | split: '' | reverse
+      assign gtin_sum = 0
+      for digit in gtin_digits
+        assign weight_position = forloop.index0 | modulo: 2
+        assign weighted_digit = digit | plus: 0
+        if weight_position == 1
+          assign weighted_digit = weighted_digit | times: 3
+        endif
+        assign gtin_sum = gtin_sum | plus: weighted_digit
+      endfor
+      assign remainder = gtin_sum | modulo: 10
+      if remainder == 0 and gtin_sum > 0
+        assign gtin_valid = true
+      endif
+    endif
+  endif
+-%}
+{%- if gtin_valid -%},"gtin{{ gtin_size }}": {{ gtin | json }}{%- endif -%}

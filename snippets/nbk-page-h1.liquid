@@ -1,0 +1,25 @@
+{% doc %}
+  Renders the current resource title for the page H1, with the wishlist translation.
+{% enddoc %}
+{%- liquid
+  assign heading = ''
+  case request.page_type
+    when 'collection'
+      assign heading = collection.title
+    when 'product'
+      assign heading = product.title
+    when 'article'
+      assign heading = article.title
+    when 'blog'
+      assign heading = blog.title
+    when 'page'
+      assign heading = page.title
+    when 'index'
+      assign heading = shop.name
+    when 'search'
+      if template.suffix == 'wishlist'
+        assign heading = 'general.wishlist.wishlist_page' | t
+      endif
+  endcase
+  echo heading | default: page_title | default: shop.name | escape
+-%}

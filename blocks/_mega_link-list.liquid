@@ -1,12 +1,19 @@
 {% liquid
   assign link = block.settings.linklist
-  if block.settings.title != blank and block.settings.linklist == blank
+  if block.settings.menu_collection != blank
+    for parent_link in section.settings.main_menu.links
+      assign parent_collection_handle = parent_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+      if parent_link.object.handle == block.settings.menu_collection.handle or parent_collection_handle == block.settings.menu_collection.handle
+        assign link = parent_link
+        break
+      endif
+    endfor
+  elsif block.settings.title != blank and block.settings.linklist == blank
     assign map_title_lv1 = section.settings.main_menu.links | map: 'title'
     for title in map_title_lv1
       assign title_trim = title | split: '['
       if title_trim[0] == block.settings.title
         assign link = section.settings.main_menu.links | where: 'title', title | first
-        assign index = section.settings.main_menu.links | find_index: 'title', title
         break
       endif
     endfor
@@ -14,6 +21,81 @@
     assign arr_label = arr_title[1] | split: ','
   endif
 %}
+{%- if block.settings.menu_collection != blank -%}
+  {%- liquid
+    assign category_key = 'nbk_menu.categories_' | append: block.settings.category_label
+    assign brand_links = block.settings.brands_menu.links
+    for main_link in section.settings.main_menu.links
+      assign main_collection_handle = main_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+      if main_link.object.handle == 'brands' or main_collection_handle == 'brands'
+        if main_link.links != blank
+          assign brand_links = main_link.links
+        endif
+        break
+      endif
+    endfor
+    capture vendor_handles
+      for vendor_page in (0..4)
+        assign vendor_offset = vendor_page | times: 50
+        for vendor in block.settings.menu_collection.all_vendors limit: 50 offset: vendor_offset
+          echo '|'
+          echo vendor | handleize
+          echo '|'
+        endfor
+      endfor
+    endcapture
+  -%}
+  {%- capture category_items -%}
+    {%- for category_link in link.links -%}
+      {%- render 'nbk-mega-menu-item', item: category_link -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- capture brand_items -%}
+    {%- if block.settings.category_label != 'accessories' -%}
+      {%- for brand_page in (0..4) -%}
+        {%- assign brand_offset = brand_page | times: 50 -%}
+        {%- for brand_link in brand_links limit: 50 offset: brand_offset -%}
+          {%- liquid
+            assign brand_title = brand_link.title | split: '[' | first | handleize | prepend: '|' | append: '|'
+            assign brand_collection = blank
+            if brand_link.type == 'collection_link'
+              assign brand_collection = brand_link.object
+            elsif brand_link.url contains '/collections/'
+              assign brand_handle = brand_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+              assign brand_collection = collections[brand_handle]
+            endif
+            assign brand_handle_key = brand_collection.handle | handleize | prepend: '|' | append: '|'
+            assign vendor_matches = false
+            if vendor_handles contains brand_title or vendor_handles contains brand_handle_key
+              assign vendor_matches = true
+            endif
+          -%}
+          {%- if vendor_matches and brand_collection.all_products_count > 0 -%}
+            {%- render 'nbk-mega-menu-item', item: brand_link -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endcapture -%}
+  {%- assign category_items = category_items | strip -%}
+  {%- assign brand_items = brand_items | strip -%}
+  {%- if category_items != blank or brand_items != blank -%}
+    <div class="hdt-row-grid hdt-text-start nbk-menu-groups{% if category_items != blank and brand_items != blank %} nbk-menu-groups--two{% endif %}">
+      {%- if category_items != blank -%}
+        <div class="hdt-mega-item hdt-text-start">
+          <h3 class="hdt-mega-heading">{{ category_key | t }}</h3>
+          <ul class="hdt-mega-menu-list" role="list">{{ category_items }}</ul>
+        </div>
+      {%- endif -%}
+      {%- if brand_items != blank -%}
+        <div class="hdt-mega-item hdt-text-start">
+          <h3 class="hdt-mega-heading">{{ 'nbk_menu.brands' | t }}</h3>
+          <ul class="hdt-mega-menu-list" role="list">{{ brand_items }}</ul>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{%- else -%}
 {%- assign nbk_columns = 0 -%}
 {%- for nbk_column in link.links -%}
   {%- capture nbk_column_state -%}{%- render 'nbk-menu-state', item: nbk_column -%}{%- endcapture -%}
@@ -139,11 +221,42 @@
   {%- endfor -%}
 </div>
 {%- endif -%}
+{%- endif -%}
+{% stylesheet %}
+.nbk-menu-groups {grid-template-columns:minmax(0,1fr);gap:30px;}
+.nbk-menu-groups--two {grid-template-columns:repeat(2,minmax(0,1fr));}
+.nbk-menu-groups .hdt-menu-link {overflow-wrap:anywhere;text-transform:uppercase;}
+.nbk-menu-groups .nbk-mega-menu-children {display:flex;flex-direction:column;gap:20px;margin:20px 0 0;padding-inline-start:16px;list-style:none;}
+.nbk-menu-groups .nbk-mega-menu-item {padding:0;}
+{% endstylesheet %}
 {% schema %}
   {
     "name": "Mega Link List",
     "tag": null,
     "settings": [
+      {
+        "type": "collection",
+        "id": "menu_collection",
+        "label": "Use this main-menu collection’s links",
+        "info": "Preserves the store navigation and its translations. Leave blank to use the title or linklist below."
+      },
+      {
+        "type": "select",
+        "id": "category_label",
+        "label": "Category heading",
+        "default": "men",
+        "options": [
+          {"value":"men","label":"Men"},
+          {"value":"women","label":"Women"},
+          {"value":"accessories","label":"Accessories"}
+        ]
+      },
+      {
+        "type": "link_list",
+        "id": "brands_menu",
+        "label": "Fallback brands menu",
+        "info": "Uses the main navigation’s Brands links when available, filtered to vendors in this collection."
+      },
       {
         "type": "text",
         "id": "title",

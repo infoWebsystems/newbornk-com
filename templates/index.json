@@ -1363,6 +1363,286 @@
       "settings": {
         "content": "<h1>NEWBORN K — концепт-стор брендового одягу, взуття та аксесуарів</h1><p>Вітаємо в <strong>NEWBORN K</strong> — концепт-сторі з унікальною селекцією одягу та lifestyle-продукції від світових і нішевих брендів. Тут ти знайдеш усе, щоб підкреслити свою індивідуальність, і станеш частиною стильного, прогресивного ком’юніті.</p><p>Ми не черговий класичний фешн-рітейл, а концептуальний простір, що народився з бажання переосмислити звичні правила. Більшість нашої команди виросла у Києві, і саме це місто з його креативними людьми стало для нас натхненням. Назва <strong>NEWBORN K</strong> — це втілення мрії створити щось нове, що відображає дух часу та поєднує глобальні культурні коди з нашою локальною естетикою.</p><h2>Що робить NEWBORN K особливим?</h2><p>Сьогодні купити брендовий одяг можна в багатьох магазинах. Знайти ж місце, де кожна річ підібрана зі смаком, а атмосфера викликає бажання залишитись — справжня рідкість. Для багатьох <strong>NEWBORN KYIV</strong> став саме таким простором, адже тут:</p><ul><li><strong>Свіжа селекція:</strong> Ми не женемося за гучними трендами. Нам важливий одяг з ідеєю, історією та характером.</li><li><strong>Неймовірне ком’юніті:</strong> NEWBORN K — це більше, ніж магазин. Це люди, які цінують стиль та свободу бути собою.</li><li><strong>Гарантія оригінальності:</strong> Ми працюємо лише з офіційними постачальниками. Уся продукція в нашому інтернет-магазині — це 100% оригінальний брендовий одяг, взуття та аксесуари.</li><li><strong>Індивідуальний підхід:</strong> Ми допомагаємо знайти річ, яка справді стане улюбленою, без нав’язливих порад — ніби радить друг.</li></ul><p>Зазирайте до нашого офлайн-магазину в Києві, щоб приміряти новинки, або підписуйтесь на наші соцмережі, щоб стати частиною нашої спільноти.</p><h2>Унікальні бренди з усього світу</h2><p>Добірка брендів у NEWBORN K — це мікс культур та естетик. У нас ви знайдете фірмовий одяг, кросівки та аксесуари від світових лідерів: <strong>C.P. Company, Carhartt WIP, Edwin, Gramicci, Oakley</strong>.</p><p>Також ми представляємо нішеві імена: <em>New Amsterdam Surf Association, Arte Antwerp, A-Cold-Wall, Heliot Emil, Han Kjøbenhavn, Published By, Rombaut, Babylon LA, Carne Bollente</em>* та багато інших. Ми регулярно оновлюємо асортимент, щоб кожна сторінка нашого інтернет-магазину надихала на сміливі експерименти.</p><h2>Онлайн-шопінг, який хочеться повторити</h2><p>Ми подбали про те, щоб ваш досвід покупки був максимально комфортним: проста навігація, зручні фільтри та готові образи для натхнення. Наша команда завжди поруч, щоб допомогти з вибором розміру чи моделі.</p><p>Шопінг має бути простим, а стиль — унікальним. Усе це ти знайдеш в <strong>інтернет-магазині брендового одягу NEWBORN K</strong>. Приєднуйся та обирай те, що підходить саме тобі.</p>"
       }
+    },
+    "nbk_brand_editorial_one": {
+      "type": "collections-list",
+      "blocks": {
+        "brand_carne_bollente": {
+          "type": "_collection_item",
+          "settings": {
+            "collection": "carne-bollente",
+            "title": "",
+            "collection_link": ""
+          },
+          "blocks": {}
+        },
+        "brand_gramicci": {
+          "type": "_collection_item",
+          "settings": {
+            "collection": "gramicci",
+            "title": "",
+            "collection_link": ""
+          },
+          "blocks": {}
+        },
+        "brand_a_cold_wall": {
+          "type": "_collection_item",
+          "settings": {
+            "collection": "a-cold-wall",
+            "title": "",
+            "collection_link": ""
+          },
+          "blocks": {}
+        },
+        "section-heading-collections-list": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "margin_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "brand_carne_bollente",
+        "brand_gramicci",
+        "brand_a_cold_wall"
+      ],
+      "custom_css": [
+        ".hdt-collections-list {--color-title: #000; --color-bg-title: #ccf951; --color-hv-title: #000; --color-hv-bg-title: #c4ec54;}",
+        ".hdt-collection-wrapper {padding: 8px 16px; min-height: 44px;}"
+      ],
+      "name": "t:sections.collections-list.name",
+      "settings": {
+        "collection_list": [],
+        "collection_des": "1",
+        "content_size": "base",
+        "content_weight": "normal",
+        "content_position": "end-center",
+        "content_space": 24,
+        "show_count": false,
+        "count_label": "Products",
+        "image_rounded": false,
+        "enable_border": false,
+        "image_padding": 0,
+        "image_ratio": "adapt_image",
+        "image_size": false,
+        "img_effect": "none",
+        "b_effect": "none",
+        "col_dk": "3",
+        "col_tb": "2",
+        "col_mb": "1",
+        "space_items": "30",
+        "layout_mode": "carousel",
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": false,
+        "navUI": false,
+        "nav_position": "default",
+        "nav_visible": "always",
+        "nav_style": "outline",
+        "nav_shape": "rounded",
+        "nav_size": "medium",
+        "nav_hide_mobile": false,
+        "dotUI": true,
+        "pag_style": "elessi",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 20,
+        "pag_hide_mobile": false,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "container",
+        "hdt_background_parallax": false,
+        "mg": ",,30px,",
+        "mg_mb": ",,30px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "nbk_brand_editorial_two": {
+      "type": "collections-list",
+      "blocks": {
+        "brand_carhartt_wip": {
+          "type": "_collection_item",
+          "settings": {
+            "collection": "carhartt-wip",
+            "title": "",
+            "collection_link": ""
+          },
+          "blocks": {}
+        },
+        "brand_new_amsterdam": {
+          "type": "_collection_item",
+          "settings": {
+            "collection": "new-amsterdam",
+            "title": "",
+            "collection_link": ""
+          },
+          "blocks": {}
+        },
+        "section-heading-collections-list": {
+          "type": "section-heading",
+          "static": true,
+          "settings": {
+            "margin_bottom": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "brand_carhartt_wip",
+        "brand_new_amsterdam"
+      ],
+      "custom_css": [
+        ".hdt-collections-list {--color-title: #000; --color-bg-title: #ccf951; --color-hv-title: #000; --color-hv-bg-title: #c4ec54;}",
+        ".hdt-collection-wrapper {padding: 8px 16px; min-height: 44px;}"
+      ],
+      "name": "t:sections.collections-list.name",
+      "settings": {
+        "collection_list": [],
+        "collection_des": "1",
+        "content_size": "base",
+        "content_weight": "normal",
+        "content_position": "end-center",
+        "content_space": 24,
+        "show_count": false,
+        "count_label": "Products",
+        "image_rounded": false,
+        "enable_border": false,
+        "image_padding": 0,
+        "image_ratio": "adapt_image",
+        "image_size": false,
+        "img_effect": "none",
+        "b_effect": "none",
+        "col_dk": "2",
+        "col_tb": "2",
+        "col_mb": "1",
+        "space_items": "30",
+        "layout_mode": "carousel",
+        "loop": false,
+        "autoplay": 0,
+        "pauseOnHover": false,
+        "navUI": false,
+        "nav_position": "default",
+        "nav_visible": "always",
+        "nav_style": "outline",
+        "nav_shape": "rounded",
+        "nav_size": "medium",
+        "nav_hide_mobile": false,
+        "dotUI": true,
+        "pag_style": "elessi",
+        "pag_rounded": true,
+        "pag_space": 10,
+        "pag_mgt": 20,
+        "pag_hide_mobile": false,
+        "colors_by_section": false,
+        "color_scheme": "",
+        "background_opacity": 0,
+        "section_layout": "container",
+        "hdt_background_parallax": false,
+        "mg": ",,30px,",
+        "mg_mb": ",,30px,",
+        "pd": "",
+        "pd_mb": ""
+      }
+    },
+    "nbk_brand_directory": {
+      "type": "nbk-brand-directory",
+      "settings": {},
+      "blocks": {
+        "carhartt_wip": {
+          "type": "brand",
+          "settings": {
+            "collection": "carhartt-wip",
+            "logo": "shopify://shop_images/nbk-brand-carhartt-wip.png"
+          }
+        },
+        "new_amsterdam": {
+          "type": "brand",
+          "settings": {
+            "collection": "new-amsterdam",
+            "logo": "shopify://shop_images/nbk-brand-new-amsterdam.png"
+          }
+        },
+        "bareen": {
+          "type": "brand",
+          "settings": {
+            "collection": "bareen",
+            "logo": "shopify://shop_images/nbk-brand-bareen.png"
+          }
+        },
+        "carne_bollente": {
+          "type": "brand",
+          "settings": {
+            "collection": "carne-bollente",
+            "logo": "shopify://shop_images/nbk-brand-carne-bollente.png"
+          }
+        },
+        "gramicci": {
+          "type": "brand",
+          "settings": {
+            "collection": "gramicci",
+            "logo": "shopify://shop_images/nbk-brand-gramicci.png"
+          }
+        },
+        "han_kjobenhavn": {
+          "type": "brand",
+          "settings": {
+            "collection": "han-kjobenhavn",
+            "logo": "shopify://shop_images/nbk-brand-han-kjobenhavn.png"
+          }
+        },
+        "a_cold_wall": {
+          "type": "brand",
+          "settings": {
+            "collection": "a-cold-wall",
+            "logo": "shopify://shop_images/nbk-brand-a-cold-wall.png"
+          }
+        },
+        "cote_ciel": {
+          "type": "brand",
+          "settings": {
+            "collection": "cote-ciel",
+            "logo": "shopify://shop_images/nbk-brand-cote-ciel.png"
+          }
+        },
+        "pas_normal_studios": {
+          "type": "brand",
+          "settings": {
+            "collection": "pas-normal-studios",
+            "logo": "shopify://shop_images/nbk-brand-pas-normal-studios.png"
+          }
+        },
+        "rombaut": {
+          "type": "brand",
+          "settings": {
+            "collection": "rombaut",
+            "logo": "shopify://shop_images/nbk-brand-rombaut.png"
+          }
+        },
+        "xlarge": {
+          "type": "brand",
+          "settings": {
+            "collection": "xlarge",
+            "logo": "shopify://shop_images/nbk-brand-xlarge.png"
+          }
+        }
+      },
+      "block_order": [
+        "carhartt_wip",
+        "new_amsterdam",
+        "bareen",
+        "carne_bollente",
+        "gramicci",
+        "han_kjobenhavn",
+        "a_cold_wall",
+        "cote_ciel",
+        "pas_normal_studios",
+        "rombaut",
+        "xlarge"
+      ]
     }
   },
   "order": [
@@ -1370,8 +1650,11 @@
     "custom_section_YCFtPf",
     "featured_collection_aGXxdT",
     "featured_collection_4QkiaX",
+    "nbk_brand_editorial_one",
+    "nbk_brand_editorial_two",
     "collections_list_aqecLw",
     "featured_collection_QM7jFX",
+    "nbk_brand_directory",
     "blog_post_fGK7dC",
     "nbk_store_intro"
   ]

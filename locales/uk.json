@@ -990,5 +990,19 @@
       "many": "{{ count }} відгуків Google",
       "other": "{{ count }} відгуку Google"
     }
+  },
+  "nbk_home": {
+    "brands": "БРЕНДИ",
+    "previous_brands": "Попередні бренди",
+    "next_brands": "Наступні бренди"
+  },
+  "nbk_menu": {
+    "shop_men": "Новинки для чоловіків",
+    "shop_women": "Новинки для жінок",
+    "shop_accessories": "Аксесуари",
+    "categories_men": "Чоловічі категорії",
+    "categories_women": "Жіночі категорії",
+    "categories_accessories": "Категорії аксесуарів",
+    "brands": "Бренди"
   }
 }

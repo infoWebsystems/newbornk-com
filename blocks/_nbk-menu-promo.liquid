@@ -1,0 +1,46 @@
+{% doc %}
+  Displays a localized collection promotion inside a native Kalles mega-menu.
+{% enddoc %}
+{%- liquid
+  assign promo_collection = block.settings.collection
+  assign promo_image = block.settings.image | default: promo_collection.image | default: promo_collection.products.first.featured_image
+  assign label_key = 'nbk_menu.shop_' | append: block.settings.label
+  assign promo_url = promo_collection.url
+  if block.settings.label != 'accessories'
+    assign promo_url = promo_url | append: '?sort_by=created-descending'
+  endif
+-%}
+{%- if promo_collection != blank and promo_collection.all_products_count > 0 -%}
+  <div class="hdt-column hdt-g-col hdt-g-col-3 nbk-menu-promo" {{ block.shopify_attributes }}>
+    <a class="nbk-menu-promo__link" href="{{ promo_url }}">
+      {%- if promo_image != blank -%}
+        {{ promo_image | image_url: width: 640 | image_tag: loading: 'lazy', fetchpriority: 'low', class: 'nbk-menu-promo__image', sizes: '(min-width: 1150px) 22vw, 280px', widths: '200,320,480,640', alt: '' }}
+      {%- endif -%}
+      <span class="nbk-menu-promo__label">{{ label_key | t }}<span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+{%- endif -%}
+{% stylesheet %}
+.nbk-menu-promo {--column-padding-dk:30px;padding:30px;align-self:start;}
+.nbk-menu-promo__link {display:block;color:inherit;text-align:center;}
+.nbk-menu-promo__image {display:block;width:100%;height:auto;object-fit:contain;}
+.nbk-menu-promo__label {display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:44px;margin-top:20px;padding-block:8px;border-bottom:2px solid currentColor;font-size:14px;font-weight:var(--font-normal);line-height:1.5;text-transform:uppercase;text-align:center;}
+.nbk-menu-promo__link:hover .nbk-menu-promo__label {opacity:.7;}
+.nbk-menu-promo__link:focus-visible {outline:2px solid currentColor;outline-offset:4px;}
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Kyiv menu promotion",
+  "tag": null,
+  "settings": [
+    {"type":"collection","id":"collection","label":"Collection"},
+    {"type":"image_picker","id":"image","label":"Image","info":"Uses the collection or first product image when blank."},
+    {"type":"select","id":"label","label":"Link label","default":"men","options":[
+      {"value":"men","label":"Men"},
+      {"value":"women","label":"Women"},
+      {"value":"accessories","label":"Accessories"}
+    ]}
+  ],
+  "presets":[{"name":"Kyiv menu promotion"}]
+}
+{% endschema %}

@@ -114,3 +114,50 @@ Added the legacy `#app-inbox` mount to the Kalles header once, with space for th
 The footer newsletter remains Shopify's native subscription form. Receipt/sync in Yespo is not verified. No subscriber or message was created during this work.
 
 Validation: all new/changed logo, footer, locale and Inbox host files passed Shopify Liquid validation using cached schemas. The reduced analytics snippet reports only the existing external Ahrefs CDN performance diagnostic; its loader is unchanged. Shopify accepted uploads to unpublished theme `199582843040`. Browser checks confirmed the SVG loads at 160px desktop and 120px mobile (including sticky state), one Inbox mount, UA/EN review text and profile link, and no horizontal overflow at 1280px and 390px. The live theme is unchanged.
+
+## Warsaw feature parity — September 30
+
+Adapted the active Warsaw feature set at `pl-newbornk-com/kalles-main` `915a99d3f6d8bfbef4db42c985b02be34a19f3a9` to Kyiv after PR #77. The additions remain on `kalles-dev` for review into `kalles-main` and unpublished theme `199582843040`.
+
+### Navigation and homepage
+
+- Three desktop mega-menus use Warsaw's column layout: men/women have separate vertical category and brand lists, followed by a portrait promotion and native four-product carousel; accessories have one category list with the Warsaw spacer. Group headings have a single divider and links use uppercase Formular typography. Men, women and accessories match the destination collection, so translating menu titles does not disconnect their content. The mobile menu is unchanged.
+- Categories retain Kyiv's current navigation, nested links and empty-collection guards. Brands prefer the current main-menu branch, retain its real destinations, and are filtered by the selected collection's vendors and nonempty brand collections. Preview currently renders 34 men's brands and 35 women's brands.
+- Promotions use existing Kyiv portrait images with lazy loading, natural image ratios, 30px column padding and translated UA/EN/RU underlined links. Men/women promotions open the corresponding collection sorted by newest products.
+- Added two native collection-card rows: CARNE BOLLENTE / GRAMICCI / A-COLD-WALL, then CARHARTT WIP / NEW AMSTERDAM. Existing homepage sections, their settings and relative order are preserved.
+- Added a native brand carousel, subsequently populated with eleven real Warsaw logos copied into Kyiv's Shopify Files. All linked Kyiv collections were confirmed to contain products. The logo image pickers remain editable, with collection-title fallback if cleared. No additional JavaScript is needed. Empty collections are hidden.
+
+### SEO
+
+H1 uses the resource title rather than the search-engine title, retaining the wishlist translation. Removed duplicate Organization emission from all four header variants. The existing connected Kyiv JSON-LD graph now conditionally emits valid GTINs, taxonomy material/audience, and variant-specific color/material. Missing or ambiguous data is omitted. Existing review and Kyiv offer-policy values are preserved.
+
+CollectionPage remains on every collection page. ItemList is emitted only on page one and its count matches the rendered subset, preventing first-page products from being described again on later pages.
+
+### Yespo acceptance status
+
+The installed Yespo Shopify app shows **App Inbox Enabled**, **Web Tracking Enabled** and **Data Sync Enabled**. Its historical synchronization reports 7,201 customers synchronized / 33 failed, and 5,062 orders synchronized / 24 failed. No resync or configuration change was performed.
+
+Authenticated Chrome testing confirmed the header bell mounts in the existing `#app-inbox`, opens an existing Ukrainian message and closes normally. This resolves the authenticated desktop Inbox check left open after PR #77. No message was created or sent during this verification.
+
+The footer continues to use Shopify's native customer newsletter form, including marketing consent and the `newsletter` tag. The installed app supports Shopify-to-Yespo synchronization, but **a new signup's receipt and consent in both systems still need an end-to-end test using a merchant-provided test email**. Historical sync failures are not evidence that this new form failed. No subscriber was created during this work.
+
+### Verification and remaining acceptance
+
+- All 19 changed/new theme files pass Shopify Liquid/schema validation (cached Shopify schemas); the final brand-indicator contrast adjustment passes again.
+- Existing Node regression suite: 29 passing tests. New actual Liquid-render suite: 6 passing tests covering JSON validity, escaping, reviews/policies, GTINs, missing/variant taxonomy data, collection pagination and H1 selection. See `tests/liquid/README.md` for the command.
+- Shopify accepted selective uploads only to the unpublished theme.
+- Desktop Chrome: all three mega-menus open in UA/EN, promotion images load, nested URLs retain the locale, four product cards are present, Space/Enter open and Escape closes; tall menus retain native vertical scrolling.
+- Desktop carousel advances with native previous/next controls. At 390px, the mobile menu expands categories, the brand carousel advances, and the document has no horizontal overflow. Editorial images use `object-fit: contain`.
+- Live-rendered collection and product JSON-LD parses correctly, contains one Organization and one resource H1. Page two retains CollectionPage without ItemList; product offers retain UAH.
+
+Before launch, finish the test newsletter signup, existing English resource/theme translation review (including “To men” / “To women” and Ukrainian homepage campaign text), and the separate Chekly/payment/analytics acceptance checks. Publishing remains a separate merchant decision. No Warsaw discount, Klaviyo account, AI chat, currency setup or campaign was copied.
+
+The mega-menu layout correction additionally passed validation for all seven affected theme files and five focused actual Liquid-render tests. Desktop checks covered three Ukrainian menus, English group labels, locale-preserving URLs, loaded portrait images, 30px padding and no horizontal overflow at 1440px. The existing mobile drawer and nested links open at 390px without horizontal overflow. When uploading new block setting definitions, upload the section-group settings again after the block schema is registered: Shopify can otherwise discard the new setting values during the same batch upload.
+
+### Brand-logo transfer
+
+The homepage carousel uses real logo artwork transferred from Warsaw's `logo_list_NNyq4Q` to Kyiv's Shopify Files as `nbk-brand-<collection-handle>.png`: CARHARTT WIP, NEW AMSTERDAM, BAREEN, CARNE BOLLENTE, GRAMICCI, HAN KJØBENHAVN, A-COLD-WALL, CÔTE&CIEL, PAS NORMAL STUDIOS, ROMBAUT and XLARGE. The theme references Kyiv's own files through image pickers and serves responsive, lazy-loaded images with brand-name alt text and uncropped proportions. PAS NORMAL STUDIOS uses Kyiv's plural collection handle `pas-normal-studios`.
+
+Goldwin has no matching Kyiv collection and RIOTDIVISION currently has zero products, so neither is included. The previous text-only entries for Heliot Emil, Edwin and Arte Antwerp are omitted from this logo strip because no corresponding Warsaw logo artwork was found; their collections and other navigation remain available. No substitute artwork was invented.
+
+Validation: the homepage JSON passed Shopify schema validation and was selectively uploaded to unpublished theme `199582843040`. All eleven logo images load from Kyiv's CDN and link to Kyiv collections. Native previous/next controls work at 1440px and 390px, images retain `object-fit: contain`, and neither viewport has document overflow.

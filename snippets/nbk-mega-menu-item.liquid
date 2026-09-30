@@ -1,0 +1,26 @@
+{% doc %}
+  Displays an existing navigation item and its visible children in a vertical mega-menu list.
+  @param {link} item - Existing navigation item.
+{% enddoc %}
+{%- capture item_state -%}{%- render 'nbk-menu-state', item: item -%}{%- endcapture -%}
+{%- liquid
+  assign item_state = item_state | strip | split: '|'
+  assign visible_children = item_state[0] | plus: 0
+  assign title_parts = item.title | split: '['
+-%}
+{%- if visible_children > 0 or item_state[1] == '1' -%}
+  <li class="hdt-menu-item nbk-mega-menu-item">
+    {%- if item_state[1] == '1' -%}
+      <a href="{{ item.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-text-base hdt-font-normal"{% if item.current %} aria-current="page"{% endif %}>{{ title_parts[0] | escape }}</a>
+    {%- else -%}
+      <span class="hdt-menu-link hdt-flex hdt-align-center hdt-text-base hdt-font-normal">{{ title_parts[0] | escape }}</span>
+    {%- endif -%}
+    {%- if visible_children > 0 -%}
+      <ul class="nbk-mega-menu-children" role="list">
+        {%- for child in item.links -%}
+          {%- render 'nbk-mega-menu-item', item: child -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </li>
+{%- endif -%}
