@@ -1,0 +1,42 @@
+<div class="nbk-contact-strip">
+  <div class="hdt-container nbk-contact-strip__grid">
+    <div>
+      <h2>{{ 'nbk_footer.store_address' | t }}</h2>
+      <a href="{{ section.settings.map_url }}">{{ 'nbk_contact.address' | t }}</a>
+    </div>
+    <div>
+      <h2>{{ 'nbk_footer.call_us' | t }}</h2>
+      <a href="tel:{{ section.settings.phone | remove: ' ' }}">{{ section.settings.phone | escape }}</a>
+    </div>
+    <div>
+      <h2>{{ 'nbk_footer.write_us' | t }}</h2>
+      <a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a>
+    </div>
+    <div>
+      <h2>{{ 'nbk_footer.opening_hours' | t }}</h2>
+      <p>{{ 'nbk_contact.daily' | t }}</p>
+    </div>
+  </div>
+</div>
+{% stylesheet %}
+.nbk-contact-strip {background:#f6f6f8;color:#111;padding:44px 0;}
+.nbk-contact-strip__grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;text-align:center;}
+.nbk-contact-strip h2 {font-family:inherit;font-size:16px;font-weight:500;line-height:1.4;text-transform:uppercase;margin:0 0 8px;color:inherit;}
+.nbk-contact-strip a,.nbk-contact-strip p {font-size:14px;line-height:1.5;color:inherit;margin:0;overflow-wrap:anywhere;}
+.nbk-contact-strip a {text-decoration:underline;text-underline-offset:3px;}
+.nbk-contact-strip a:focus-visible {outline:2px solid currentColor;outline-offset:4px;}
+@media(max-width:1149px) {.nbk-contact-strip__grid {grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:599px) {.nbk-contact-strip {padding:32px 0;}.nbk-contact-strip__grid {grid-template-columns:1fr;gap:24px;}}
+{% endstylesheet %}
+{% schema %}
+{
+  "name":"Kyiv contact strip",
+  "enabled_on":{"groups":["footer"]},
+  "settings":[
+    {"type":"url","id":"map_url","label":"Map link"},
+    {"type":"text","id":"phone","label":"Phone","default":"+380 97 044 3333"},
+    {"type":"text","id":"email","label":"Email","default":"info@newbornk.com"}
+  ],
+  "presets":[{"name":"Kyiv contact strip"}]
+}
+{% endschema %}

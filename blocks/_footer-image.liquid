@@ -26,7 +26,11 @@
       }
     {%- endif -%}
   {%- endstyle -%}
-  {%- if block.settings.img != blank -%}
+  {%- if block.settings.use_wordmark -%}
+    <div class="hdt-image-wrap hdt-oh">
+      <img src="{{ 'nbk-wordmark-white.svg' | asset_url }}" alt="NEWBORN K" width="250" height="31" loading="lazy">
+    </div>
+  {%- elsif block.settings.img != blank -%}
     <div class="hdt-image-wrap hdt-oh"> 
       {{ block.settings.img | image_url: width: block.settings.img.width | image_tag: loading: "lazy", width: block.settings.img.width, height: block.settings.img.height, class: "hdt-object-cover" }}
     </div>
@@ -37,6 +41,12 @@
   "name": "t:blocks.footer_image.name",
   "tag": null,
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "use_wordmark",
+      "label": "Use white NEWBORN K wordmark",
+      "default": false
+    },
     {
       "type": "image_picker",
       "id": "img",
@@ -98,4 +108,4 @@
     }
   ]
 }
-{% endschema %} 
+{% endschema %}

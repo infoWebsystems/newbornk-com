@@ -17,7 +17,7 @@
             "font_size_text": 14,
             "font_weight_text": "medium",
             "letter_spacing_text": 0,
-            "space": 15,
+            "space": 24,
             "alignment": "center",
             "alignment_mb": "center",
             "colors_by_section": false,
@@ -27,7 +27,7 @@
             "width_md": 100,
             "width": 100,
             "mg": "",
-            "mg_mb": ",,30px,",
+            "mg_mb": "",
             "pd": "",
             "pd_mb": ""
           },
@@ -39,25 +39,14 @@
                 "custom_width": "custom",
                 "image_w": 250,
                 "image_w_tb": 200,
-                "image_w_mb": 190
-              },
-              "blocks": {}
-            },
-            "spacer_N8W3pN": {
-              "type": "spacer",
-              "name": "t:blocks.spacer.name",
-              "settings": {
-                "direction": false,
-                "space_lg": 50,
-                "space_md": 50,
-                "space": 50
+                "image_w_mb": 190,
+                "use_wordmark": true
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "footer_image_d8wFnT",
-            "spacer_N8W3pN"
+            "footer_image_d8wFnT"
           ]
         },
         "footer_column_dYTFqa": {
@@ -72,9 +61,9 @@
             "font_size_text": 14,
             "font_weight_text": "medium",
             "letter_spacing_text": 0,
-            "space": 30,
-            "alignment": "left",
-            "alignment_mb": "left",
+            "space": 24,
+            "alignment": "center",
+            "alignment_mb": "center",
             "colors_by_section": false,
             "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
             "background_opacity": 0,
@@ -82,12 +71,20 @@
             "width_md": 50,
             "width": 100,
             "mg": "",
-            "mg_mb": ",,30px,",
+            "mg_mb": "",
             "pd": "",
             "pd_mb": ""
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {
+            "kyiv_newsletter": {
+              "type": "_nbk-newsletter",
+              "settings": {},
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "kyiv_newsletter"
+          ]
         },
         "footer_column_pjjGgF": {
           "type": "_footer-column",
@@ -101,7 +98,7 @@
             "font_size_text": 14,
             "font_weight_text": "normal",
             "letter_spacing_text": 0,
-            "space": 15,
+            "space": 24,
             "alignment": "center",
             "alignment_mb": "center",
             "colors_by_section": false,
@@ -111,38 +108,27 @@
             "width_md": 50,
             "width": 100,
             "mg": "",
-            "mg_mb": ",,30px,",
+            "mg_mb": "",
             "pd": "",
             "pd_mb": ""
           },
           "blocks": {
             "text_b8jdAV": {
-              "type": "text",
+              "type": "_liquid",
               "name": "t:blocks.text.name",
               "settings": {
-                "text": "<p>NEWBORN K</p><p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">м Київ, вул. Велика Житомирська, 20</a></p><p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p><p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p>",
+                "text": "<div class=\"nbk-footer-details\"><p>NEWBORN K</p><p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">{{ 'nbk_contact.address' | t }}</a></p><p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p><p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p></div>",
                 "hidden_br_mobile": false,
                 "hidden_on_mobile": false,
                 "ffamily": "",
                 "text_size": "lg",
-                "line_height": "",
                 "font_weight": "normal",
                 "text_color": "hdt-s-text",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
                 "font_size_text_lg": 16,
                 "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_cHpq7h": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 20,
-                "space_md": 20,
-                "space": 20
+                "letter_spacing_text": 0,
+                "option_type": "liquid",
+                "page": ""
               },
               "blocks": {}
             },
@@ -168,7 +154,6 @@
           },
           "block_order": [
             "text_b8jdAV",
-            "spacer_cHpq7h",
             "socials_FDUdtc"
           ]
         },
@@ -184,7 +169,7 @@
             "font_size_text": 14,
             "font_weight_text": "medium",
             "letter_spacing_text": 0,
-            "space": 30,
+            "space": 24,
             "alignment": "center",
             "alignment_mb": "center",
             "colors_by_section": false,
@@ -194,7 +179,7 @@
             "width_md": 50,
             "width": 100,
             "mg": "",
-            "mg_mb": ",,30px,",
+            "mg_mb": "",
             "pd": "",
             "pd_mb": ""
           },
@@ -210,17 +195,6 @@
                 "font_size_text_lg": 16,
                 "font_size_text": 14,
                 "letter_spacing_text": 0
-              },
-              "blocks": {}
-            },
-            "spacer_GEWRbh": {
-              "type": "spacer",
-              "name": "t:blocks.spacer.name",
-              "settings": {
-                "direction": false,
-                "space_lg": 20,
-                "space_md": 20,
-                "space": 20
               },
               "blocks": {}
             },
@@ -251,7 +225,6 @@
           "block_order": [
             "linklist_BDr677",
             "linklist_policy",
-            "spacer_GEWRbh",
             "payment_icons_JAGXTj"
           ]
         }
@@ -264,18 +237,19 @@
       ],
       "custom_css": [
         ".hdt-menu-list {text-transform: uppercase;}",
-        ".nbk-footer-language {display: flex; justify-content: center; margin-top: 8px;}"
+        ".nbk-footer-language {display: flex; justify-content: center;}"
       ],
       "settings": {
-        "collapse": true,
+        "collapse": false,
         "full_width": false,
         "mg": "",
         "mg_mb": "",
-        "pd": "75px,,35px,",
-        "pd_mb": "56px,,56px,",
+        "pd": "64px,,48px,",
+        "pd_mb": "40px,,40px,",
         "colors_by_section": true,
         "color_scheme": "scheme-77e4ef58-56a9-4631-876a-12098ba7d57d",
-        "background_opacity": 1
+        "background_opacity": 1,
+        "balanced_layout": true
       }
     },
     "footer_ziwVXA": {
@@ -349,9 +323,18 @@
         "color_scheme": "scheme-77e4ef58-56a9-4631-876a-12098ba7d57d",
         "background_opacity": 1
       }
+    },
+    "kyiv_contact_strip": {
+      "type": "nbk-contact-strip",
+      "settings": {
+        "map_url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6",
+        "phone": "+380 97 044 3333",
+        "email": "info@newbornk.com"
+      }
     }
   },
   "order": [
+    "kyiv_contact_strip",
     "footer_KwXhWr",
     "footer_ziwVXA"
   ]

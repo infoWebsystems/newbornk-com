@@ -87,8 +87,18 @@ Reconciled Dawn/master through `f424f6a` with Kalles after PR #69. This is an ad
 
 ### Remaining launch blockers / acceptance
 
-1. Translate & Adapt review must include Kalles `top-menu`, `mobile-menu` and theme settings. English still shows “To men” / “To women”, Ukrainian announcement/homepage and mobile toolbar labels, and the footer address. Ukrainian collection sorting also shows “Date, new to old”. These are existing resource/theme translations, not fixed by changing the font or switcher.
+1. Translate & Adapt review must include Kalles `top-menu`, `mobile-menu` and theme settings. English still shows “To men” / “To women”, Ukrainian announcement/homepage and mobile toolbar labels. Ukrainian collection sorting also shows “Date, new to old”. These are existing resource/theme translations, not fixed by changing the font or switcher.
 2. Investigate a legacy extra wishlist button injected on the product page despite the Hero embed being disabled; keep only native Kalles controls.
 3. Resolve or confirm the Judge.me `jdgmSettings is not defined` error in the preview. Shopify Shop JS also logs unsupported locale `uk`; confirm affected features before launch.
 4. Run the final Chekly checkout/payment, consent and analytics acceptance checks, then review mobile/product layouts with the merchant.
 5. Merge the reviewed Kalles PR and connect the separate Kalles theme to `kalles-main` if desired. Publishing the theme remains a separate merchant decision.
+
+## Warsaw-style footer adaptation — September 30
+
+After PR #75, adapted the Warsaw footer structure to Kyiv: a white wordmark above three balanced columns for newsletter signup, Kyiv contacts/social links, and existing footer navigation. The native globe stays below About us and above policy links. Tablet layout places signup above two columns; mobile stacks all content without collapsible menus.
+
+Moved the homepage-only contact information into a translated footer-group section so the address, phone, email and opening hours appear directly above the footer across the store. The obsolete homepage carousel instance was removed. The white wordmark reuses Kyiv's existing vector logo.
+
+The newsletter uses Shopify's native customer form and `newsletter` tag, with translated labels, consent copy, error/success states and a locale-aware privacy link. Warsaw's Klaviyo account and first-order discount were not copied. Forwarding Shopify subscribers into Kyiv's Yespo workflows remains unverified and requires separate integration acceptance before a newsletter campaign relies on it.
+
+Validation: all 11 changed/new theme files passed the Liquid validator with cached Shopify schemas; the final footer style adjustment passed again. Changes uploaded to draft theme `199582843040` only. Browser checks confirmed Ukrainian and English footer content, translated address/hours and privacy links, native language switching, and no horizontal overflow at 1280px desktop, 820px tablet and 390px mobile. No newsletter form was submitted and no subscriber was created during these checks.
