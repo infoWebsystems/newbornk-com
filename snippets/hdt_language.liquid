@@ -1,12 +1,14 @@
-{%- liquid
-  assign current_locale = request.locale
-  assign current_locale_iso_code = current_locale.iso_code 
--%}
-<div data-locale-wrap class="hdt-languages hdt-inline-block">
-  <button aria-controls="popover-languages" {%- if mobile %} data-popover-active-min-width="10000"{% endif %}>
-    <span class="hdt-inline-block">
-      <span data-flagshdt="{{ sz }}" data-current class="hdt-inline-block lazyloadhdt flagshdt-{{ current_locale_iso_code }}">{% if settings.show_short_label %}{{ current_locale_iso_code | upcase }}{% else %}{{ current_locale.endonym_name }}{% endif %}</span>
-    </span>
-    <svg class="hdt-icon-select-arrow hdt-inline-block" role="presentation" viewBox="0 0 19 12" width="8"><polyline fill="none" stroke="currentColor" points="17 2 9.5 10 2 2" fill-rule="evenodd" stroke-width="2" stroke-linecap="square"></polyline></svg>
+{% doc %}
+  Displays the Kyiv globe control for the native Kalles language popover.
+  @param {boolean} [mobile] - Use the mobile popover presentation.
+{% enddoc %}
+<div data-locale-wrap class="hdt-languages nbk-language-globe hdt-inline-block">
+  <button type="button" aria-controls="popover-languages" aria-label="{{ 'nbk.language_label' | t | escape }}: {{ request.locale.endonym_name | escape }}"{% if mobile %} data-popover-active-min-width="10000"{% endif %}>
+    <svg class="nbk-globe" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>
   </button>
 </div>
+{% stylesheet %}
+.nbk-language-globe > button {width:44px; height:44px; justify-content:center; padding:10px;}
+.nbk-language-globe > button .nbk-globe {width:24px; height:24px; margin:0; flex-shrink:0;}
+.nbk-language-globe > button:focus-visible {outline:2px solid currentColor; outline-offset:2px;}
+{% endstylesheet %}

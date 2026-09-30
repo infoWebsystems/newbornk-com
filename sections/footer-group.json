@@ -232,10 +232,25 @@
                 "height": 20
               },
               "blocks": {}
+            },
+            "linklist_policy": {
+              "type": "_linklist",
+              "settings": {
+                "menu_inline": false,
+                "align": "left",
+                "align_mb": "left",
+                "menu": "footer-policy",
+                "text_size": "lg",
+                "font_size_text_lg": 16,
+                "font_size_text": 14,
+                "letter_spacing_text": 0
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "linklist_BDr677",
+            "linklist_policy",
             "spacer_GEWRbh",
             "payment_icons_JAGXTj"
           ]
@@ -248,7 +263,8 @@
         "footer_column_3Dap6p"
       ],
       "custom_css": [
-        ".hdt-menu-list {text-transform: uppercase;}"
+        ".hdt-menu-list {text-transform: uppercase;}",
+        ".nbk-footer-language {display: flex; justify-content: center; margin-top: 8px;}"
       ],
       "settings": {
         "collapse": true,

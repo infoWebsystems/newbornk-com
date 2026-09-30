@@ -10,6 +10,7 @@
     search_url: "{{ routes.search_url }}",
     predictive_search_url: '{{ routes.predictive_search_url }}'
   };
+  document.dispatchEvent(new Event('nbk:routes-ready'));
   window.themeHDN.extras = {
     addToCart: `{{ 'products.product.add_to_cart' | t }}`,
     soldOut: `{{ 'products.product.sold_out' | t }}`,
@@ -119,6 +120,9 @@
   {%- liquid
     assign current_locale = request.locale
     assign current_locale_iso_code = current_locale.iso_code
+    assign ukrainian_languages = localization.available_languages | where: 'iso_code', 'uk'
+    assign english_languages = localization.available_languages | where: 'iso_code', 'en'
+    assign switcher_languages = ukrainian_languages | concat: english_languages
   -%}
   <hdt-popover popover-active-min-width="1150" data-auto-close="desktop" placement="bottom" color-scheme="{{ settings.color_scheme_dialog }}">
     <dialog id="popover-languages" class="hdt-popover hdt-popover-language hdt-dropdown hdt-text-start hdt-flag-size-{{ settings.size_currency }}" scroll-lock>
@@ -128,7 +132,7 @@
         <div class="hdt-popover__inner hdt-current-scrollbar">
           {%- form 'localization', id: 'localization_form_language' -%}
             <hdt-richlist role="listbox" selected="{{ current_locale_iso_code }}">
-              {%- for locale in localization.available_languages -%}
+              {%- for locale in switcher_languages -%}
                 <button type="submit" name="language_code" role="option" value="{{ locale.iso_code }}" aria-selected="{% if locale.iso_code == current_locale_iso_code %}true{% else %}false{% endif %}">{{ locale.endonym_name | escape }}</button>
               {%- endfor -%}
             </hdt-richlist>
