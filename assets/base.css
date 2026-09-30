@@ -635,15 +635,21 @@ h6:empty {
   margin-left: -15px;
 }
 
-/* Normalise the injected bell button to the same 4.4rem-tall, centred box as the
-   sibling header icons (.header__icon), so it sits on the same vertical line and
-   can't appear higher/lower than them. eSputnik's call-button host renders ~34px
-   tall by default, which misaligned it against the theme's 4.4rem icon boxes. */
+/* Normalise the injected bell button to the sibling header icons (.header__icon):
+   - 4.4rem-tall centred box so it shares their vertical line (eSputnik's host is
+     ~34px tall by default, which misaligned it);
+   - scale down: the bell glyph renders ~20px vs the ~15px wishlist, so it read too
+     big; scale it to ~16px to match;
+   - thicken: eSputnik's bell is drawn with thinner strokes than our icons, so it
+     read lighter — draw it offset in 4 directions to bolden it to the same weight. */
 #app-inbox .js-pull-notification-call-button-host-element {
   display: flex !important;
   align-items: center;
   justify-content: center;
   height: 4.4rem !important;
+  transform: scale(0.82);
+  filter: drop-shadow(0.5px 0 0 #000) drop-shadow(-0.5px 0 0 #000)
+    drop-shadow(0 0.5px 0 #000) drop-shadow(0 -0.5px 0 #000);
 }
 
 .js-pull-notification-host-element {
@@ -660,6 +666,17 @@ h6:empty {
 @media (max-width: 749px) {
   #app-inbox {
     left: -42px;
+  }
+}
+
+/* Even out the desktop header icon gaps: #icon-wishlist-header carries 1.2rem side
+   margins (>= 749px) that made its neighbours — including the swapped-in bell —
+   sit 27px apart instead of the 15px flex gap, so the bell looked off-balance.
+   Drop those margins so every icon gap matches the flex gap. */
+@media (min-width: 749px) {
+  #icon-wishlist-header {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 }
 
