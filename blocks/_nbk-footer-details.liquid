@@ -1,0 +1,24 @@
+<div class="nbk-footer-details hdt-rte" {{ block.shopify_attributes }}>
+  <p>NEWBORN K</p>
+  <p><a href="https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6">{{ 'nbk_contact.address' | t }}</a></p>
+  {%- if block.settings.google_review_count > 0 and block.settings.google_reviews_url != blank -%}
+    <p class="nbk-google-reviews">
+      <a href="{{ block.settings.google_reviews_url | escape }}">{{ block.settings.google_review_rating | escape }} ★ · {{ 'nbk_footer.google_reviews' | t: count: block.settings.google_review_count }}</a>
+    </p>
+  {%- endif -%}
+  <p><a href="mailto:info@newbornk.com">info@newbornk.com</a></p>
+  <p><a href="tel:+380970443333">+380 97 044 3333</a></p>
+</div>
+
+{% schema %}
+{
+  "name": "Kyiv contacts and reviews",
+  "tag": null,
+  "settings": [
+    {"type":"text","id":"google_review_rating","label":"Verified Google rating","default":"5.0"},
+    {"type":"number","id":"google_review_count","label":"Verified Google review count","default":0,"info":"Update manually after checking the Google profile. Set to 0 to hide reviews."},
+    {"type":"url","id":"google_reviews_url","label":"Google profile link"}
+  ],
+  "presets": [{"name":"Kyiv contacts and reviews"}]
+}
+{% endschema %}

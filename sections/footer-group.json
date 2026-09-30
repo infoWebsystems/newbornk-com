@@ -114,21 +114,11 @@
           },
           "blocks": {
             "text_b8jdAV": {
-              "type": "_liquid",
-              "name": "t:blocks.text.name",
+              "type": "_nbk-footer-details",
               "settings": {
-                "text": "<div class=\"nbk-footer-details\"><p>NEWBORN K</p><p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">{{ 'nbk_contact.address' | t }}</a></p><p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p><p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p></div>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "lg",
-                "font_weight": "normal",
-                "text_color": "hdt-s-text",
-                "font_size_text_lg": 16,
-                "font_size_text": 14,
-                "letter_spacing_text": 0,
-                "option_type": "liquid",
-                "page": ""
+                "google_review_rating": "5.0",
+                "google_review_count": 162,
+                "google_reviews_url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6"
               },
               "blocks": {}
             },

@@ -983,6 +983,12 @@
     "email": "Ваш электронный адрес",
     "subscribe": "Подписаться",
     "consent_html": "Подписываясь, вы соглашаетесь получать наши письма. Ознакомьтесь с <a href=\"{{ privacy_url }}\">политикой конфиденциальности</a>.",
-    "success": "Спасибо за подписку."
+    "success": "Спасибо за подписку.",
+    "google_reviews": {
+      "one": "{{ count }} отзыв Google",
+      "few": "{{ count }} отзыва Google",
+      "many": "{{ count }} отзывов Google",
+      "other": "{{ count }} отзыва Google"
+    }
   }
 }

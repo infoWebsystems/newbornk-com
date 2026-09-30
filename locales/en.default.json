@@ -983,6 +983,10 @@
     "email": "Your email address",
     "subscribe": "Subscribe",
     "consent_html": "By subscribing, you agree to receive our emails. Read our <a href=\"{{ privacy_url }}\">privacy policy</a>.",
-    "success": "Thank you for subscribing."
+    "success": "Thank you for subscribing.",
+    "google_reviews": {
+      "one": "{{ count }} Google review",
+      "other": "{{ count }} Google reviews"
+    }
   }
 }

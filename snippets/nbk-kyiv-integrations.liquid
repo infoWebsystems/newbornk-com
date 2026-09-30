@@ -1,18 +1,5 @@
 {% doc %}
-  Preserves Kyiv's existing Yespo account inbox and Ahrefs analytics integration.
+  Preserves Kyiv's Ahrefs analytics. The Yespo app embed manages customer identity
+  and App Inbox initialization; its widget mounts in the header's app-inbox element.
 {% enddoc %}
 <script async src="https://analytics.ahrefs.com/analytics.js" data-key="yEb09riFW9kGssXJWXQh1Q"></script>
-<script>
-  window.addEventListener('load', function () {
-    if (typeof window.es !== 'function') return;
-    {% if customer %}
-      window.es('setCustomer', {
-        email: {{ customer.email | json }},
-        firstName: {{ customer.first_name | json }},
-        lastName: {{ customer.last_name | json }}
-      });
-    {% endif %}
-    window.es('appInbox.init');
-    window.es('appInbox.checkMessages');
-  }, { once: true });
-</script>

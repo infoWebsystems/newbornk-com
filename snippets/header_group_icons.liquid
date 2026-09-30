@@ -158,6 +158,9 @@
       </shopify-account>
 		</div>
 	{%- endif -%}
+  {%- if icons_position == 'end' -%}
+    {%- render 'nbk-app-inbox' -%}
+  {%- endif -%}
 	{%- if settings.wishlist_mode != '0' -%}
 		{%- if section.settings.enabled_wishlist -%}
 			<div class="hdt-site-nav_icon hdt-site-nav_wishlist lg:hdt-inline-flex md:hdt-inline-flex hdt-align-center hdt-hidden">
