@@ -24,6 +24,26 @@ background. All logo pixels must fit within the centered safe circle whose radiu
 is 40% of the image width; verify this after changing artwork or padding. See
 [the maskable icon specification guidance](https://web.dev/articles/maskable-icon).
 
+## iPhone and iPad icons
+
+`layout/theme.liquid` links dedicated Apple Touch PNGs at 180px (iPhone), 167px
+and 152px (iPad), with explicit `sizes`. These are opaque exports of
+`assets/pwa-icon-maskable.svg`, preserving the same logo proportions and brand
+background as Android. Let iOS apply its icon shape; do not add transparent
+rounded corners. The HTML app title is `NBK`, matching the manifest's short name.
+The existing manifest's `display: standalone` provides Home Screen app mode.
+
+Apple Touch icons take precedence over manifest icons on iOS, so changing only
+the Android icons will not update them. See [Apple's icon size guidance](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
+and [WebKit's Home Screen app documentation](https://webkit.org/blog/13878/web-push-for-web-apps-on-ios-and-ipados/).
+
+These Apple Touch PNGs use `asset_url` and ship with the theme through Git;
+they do not require a separate Shopify Files upload. After deployment, check
+the rendered links and fetch each PNG to verify dimensions, opacity and color.
+For device QA, add the site to the Home Screen on an iPhone and iPad, check the
+icon and title, and open it to verify standalone mode. HTTP and image checks
+alone do not prove the appearance on a physical device.
+
 ## Publishing
 
 The live manifest is a **Shopify Files** resource, not a theme asset. The copy in
