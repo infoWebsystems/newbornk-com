@@ -20,7 +20,7 @@ The draft theme above remains the existing Kalles preview. Creating these branch
 
 ## Store behavior
 
-Kyiv's desktop/mobile menus, eight hero banners, collection references, contacts, pages, logos and Formular fonts are used. Existing resource handles and published store locales are retained. The Kyiv home introduction is available in a collapsed, accessible section instead of its former hidden HTML.
+Kyiv's desktop/mobile menus, nine hero banners, collection references, contacts, pages, logos and Formular fonts are used. Existing resource handles and published store locales are retained. The Kyiv home introduction is available in a collapsed, accessible section instead of its former hidden HTML.
 
 The native Kalles cart hands off to the existing Chekly checkout at `checkout.newbornk.com`. The existing Chekly script and attribution behavior are retained. AOV's embed is disabled in this theme. Warsaw payment logos, agreement blocks and accelerated buttons are removed from cart configuration; payment and final acceptance remain within Kyiv's checkout flow.
 
@@ -63,3 +63,32 @@ Review the draft on representative devices and complete the store's normal check
 The existing `carhartt-wip` collection has the malformed template suffix `Default collection`; Shopify falls back to the default collection template. This migration does not mutate that collection assignment.
 
 Merging future changes from `kalles-dev` into `kalles-main` and publishing the Kalles theme are separate review steps. Keep the live Dawn theme available for rollback.
+
+## September 30 refresh
+
+Reconciled Dawn/master through `f424f6a` with Kalles after PR #69. This is an adaptation on `kalles-dev` for review into `kalles-main`; live Dawn remains unchanged.
+
+- Ported the locale guard and extended it to Kalles `themeHDN.routes` initialization and nested-menu `data-url` navigation. Explicit language selections remain untouched.
+- Replaced native language labels with an accessible 44px globe button; the native popover offers Ukrainian and English. The footer globe follows About us and precedes the separate policy menu.
+- Retained Kalles Formular typography and uppercase desktop navigation across both locales.
+- Rebuilt the updated contact page using Kalles-compatible sections, translated content/form labels, the current storefront photographs, a single H1, localised help links and existing seller details.
+- Added the latest desktop/mobile hero slide, reconciled the homepage brand text, and retained the existing Yespo service-worker asset.
+- Did not transplant Dawn breadcrumb, pagination or product markup. Kalles already has its own implementations and an About-page H1.
+
+### Verification on September 30
+
+- All 29 Node regression tests pass, including six locale-routing checks and Kalles late route initialization / nested menu coverage.
+- All 17 changed/new theme files passed the Liquid validator using cached Shopify schemas (network schema refresh unavailable). The four files adjusted for contact labels were validated again.
+- Uploaded only the changed theme files to unpublished theme `199582843040`.
+- Browser: header/footer UA/EN switching, same contact-page return path, mobile language selector, Ukrainian collection/product navigation and predictive search verified.
+- Contact page: one H1, both photographs load, translated form labels and locale-aware help links; 390px viewport has no horizontal overflow.
+- Shopping smoke test: selected M for COLDFRONT DOWN JACKET, added one M to the native cart, confirmed the variant, removed only that test item. Existing two carabiners remained. Native wishlist added/removed the test product and returned to zero.
+- No contact message or order was submitted. Payment completion and external analytics receipt were not verified in this pass.
+
+### Remaining launch blockers / acceptance
+
+1. Translate & Adapt review must include Kalles `top-menu`, `mobile-menu` and theme settings. English still shows “To men” / “To women”, Ukrainian announcement/homepage and mobile toolbar labels, and the footer address. Ukrainian collection sorting also shows “Date, new to old”. These are existing resource/theme translations, not fixed by changing the font or switcher.
+2. Investigate a legacy extra wishlist button injected on the product page despite the Hero embed being disabled; keep only native Kalles controls.
+3. Resolve or confirm the Judge.me `jdgmSettings is not defined` error in the preview. Shopify Shop JS also logs unsupported locale `uk`; confirm affected features before launch.
+4. Run the final Chekly checkout/payment, consent and analytics acceptance checks, then review mobile/product layouts with the merchant.
+5. Merge the reviewed Kalles PR and connect the separate Kalles theme to `kalles-main` if desired. Publishing the theme remains a separate merchant decision.

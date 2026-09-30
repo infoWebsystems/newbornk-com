@@ -1,12 +1,9 @@
 {
   "sections": {
-    "main": {
-      "type": "nbk-kyiv-content",
-      "settings": {
-        "show_page_body": true
-      },
+    "1775141838ecb8939c": {
+      "type": "apps",
       "blocks": {
-        "app_1": {
+        "google_reviews_locations_widget_block_7w9yy6": {
           "type": "shopify://apps/google-reviews/blocks/locations-widget-block/8b378e9e-c56d-47ce-a754-feca5e0caf59",
           "settings": {
             "contentIndex": "all",
@@ -23,67 +20,154 @@
             "photoType": "large",
             "showMap": true
           }
-        },
-        "content_2": {
-          "type": "content",
+        }
+      },
+      "block_order": [
+        "google_reviews_locations_widget_block_7w9yy6"
+      ],
+      "settings": {
+        "include_margins": false
+      }
+    },
+    "info": {
+      "type": "nbk-contact-info",
+      "blocks": {
+        "12eef3a6-d223-4ef0-83b5-ba82b6c6e215": {
+          "type": "email",
           "settings": {
-            "heading": "",
-            "body": "<p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p>"
+            "email": "info@newbornk.com"
           }
         },
-        "content_3": {
-          "type": "content",
+        "c8ea31b6-bc74-4f49-81ca-abef5dc6eaf9": {
+          "type": "phone",
           "settings": {
-            "heading": "",
-            "body": "<p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p>"
+            "phone": "+380 97 044 3333"
           }
         },
-        "content_4": {
-          "type": "content",
+        "83665029-ada5-4004-82e9-11e95ca91c7c": {
+          "type": "working_hours",
           "settings": {
-            "heading": "",
-            "body": "<p>Щодня: 11:00 - 21:00</p>"
+            "view": "full",
+            "short_weekdays": "11:00 - 21:00",
+            "short_weekend": "11:00 - 21:00",
+            "monday": "11:00 - 21:00",
+            "tuesday": "11:00 - 21:00",
+            "wednesday": "11:00 - 21:00",
+            "thursday": "11:00 - 21:00",
+            "friday": "11:00 - 21:00",
+            "saturday": "11:00 - 21:00",
+            "sunday": "11:00 - 21:00"
           }
         },
-        "content_5": {
-          "type": "content",
+        "92db4d45-7fa4-4055-b13d-e755116eb814": {
+          "type": "address",
           "settings": {
-            "heading": "",
-            "body": "<p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">м Київ, вул. Велика Житомирська, 20</a></p>"
+            "street": "м Київ, вул. Велика Житомирська, 20",
+            "url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6"
           }
         },
-        "content_6": {
-          "type": "content",
+        "1fd21b55-8335-430b-8128-5a3e7c7fa39d": {
+          "type": "address",
           "settings": {
-            "heading": "",
-            "body": "<p>ФОП Амеган Аннет Мауанам</p>"
+            "street": "ФОП Амеган Аннет Мауанам",
+            "url": ""
           }
         },
-        "content_7": {
-          "type": "content",
+        "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f": {
+          "type": "address",
           "settings": {
-            "heading": "",
-            "body": "<p>ІПН\t3368316041</p>"
+            "street": "ІПН\t3368316041",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "12eef3a6-d223-4ef0-83b5-ba82b6c6e215",
+        "c8ea31b6-bc74-4f49-81ca-abef5dc6eaf9",
+        "83665029-ada5-4004-82e9-11e95ca91c7c",
+        "92db4d45-7fa4-4055-b13d-e755116eb814",
+        "1fd21b55-8335-430b-8128-5a3e7c7fa39d",
+        "709b3b9b-8ed9-4c42-b6e1-95dc652a3f2f"
+      ],
+      "settings": {}
+    },
+    "form": {
+      "type": "nbk-contact-form",
+      "blocks": {
+        "50cc8939-78bc-470d-9de2-2bb4c3fdf2c4": {
+          "type": "request",
+          "settings": {
+            "required": true,
+            "options": "Повернення, Статус покупки"
           }
         },
-        "content_8": {
-          "type": "contact_form",
+        "0848c785-83d8-43d2-abea-ab4945801fdf": {
+          "type": "name",
+          "settings": {
+            "required": true
+          }
+        },
+        "5d53a39d-5b05-4d25-b420-cd6942634159": {
+          "type": "email",
+          "settings": {
+            "required": true
+          }
+        },
+        "4625a754-5e73-46d3-ac66-f7be0d9e5fb0": {
+          "type": "phone",
+          "settings": {
+            "required": false
+          }
+        },
+        "18dda8e4-0a7f-4e90-80f7-a5e973ef0c04": {
+          "type": "body",
+          "settings": {
+            "required": true
+          }
+        },
+        "order_number": {
+          "type": "order_number",
           "settings": {}
         }
       },
       "block_order": [
-        "app_1",
-        "content_2",
-        "content_3",
-        "content_4",
-        "content_5",
-        "content_6",
-        "content_7",
-        "content_8"
-      ]
+        "50cc8939-78bc-470d-9de2-2bb4c3fdf2c4",
+        "0848c785-83d8-43d2-abea-ab4945801fdf",
+        "5d53a39d-5b05-4d25-b420-cd6942634159",
+        "4625a754-5e73-46d3-ac66-f7be0d9e5fb0",
+        "order_number",
+        "18dda8e4-0a7f-4e90-80f7-a5e973ef0c04"
+      ],
+      "settings": {
+        "heading": "Contact form",
+        "margin_bottom": 71
+      }
+    },
+    "seo_page_heading": {
+      "type": "seo-page-heading",
+      "settings": {}
+    },
+    "conceptstore": {
+      "type": "nbk-contact-intro",
+      "settings": {
+        "exterior": "shopify://shop_images/newbornk-store-entrance.jpg",
+        "interior": "shopify://shop_images/newbornk-store-interior-wide.webp"
+      }
+    },
+    "legal": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width nbk-contact-width\"><h2>{{ 'nbk_contact.legal' | t }}</h2><p>ФОП Амеган Аннет Мауанам</p><p>ІПН\t3368316041</p></div>",
+        "section_layout": "full_width"
+      }
     }
   },
   "order": [
-    "main"
+    "seo_page_heading",
+    "conceptstore",
+    "1775141838ecb8939c",
+    "info",
+    "form",
+    "legal"
   ]
 }

@@ -1,0 +1,179 @@
+<div class="contact page-width page-width--narrow">
+  <div class="contact-block">
+    {% for block in section.blocks %}
+      {% case block.type %}
+      {% when 'email' %}
+        <div class="contact__row" {{ block.shopify_attributes }}>
+          <h3 class="contact-block__title">{{ 'nbk_contact.email_label' | t }}</h3>
+          <a class="contact-block__text" href="mailto:{{ block.settings.email | escape }}">{{ block.settings.email | escape }}</a>
+        </div>
+      {% when 'phone' %}
+        {% assign phone = block.settings.phone | remove: ' ' | remove: '(' | remove: ')' %}
+        <div class="contact__row" {{ block.shopify_attributes }}>
+          <h3 class="contact-block__title">{{ 'nbk_contact.phone_label' | t }}</h3>
+          <a class="contact-block__text" href="tel:{{ phone | escape }}">{{ block.settings.phone | escape }}</a>
+        </div>
+      {% endcase %}
+    {% endfor %}
+    <p class="nbk-support-hours">{{ 'nbk_contact.support_hours' | t }}</p>
+  </div>
+</div>
+{% schema %}
+
+  {
+    "name": "Contact Information",
+    "settings": [
+      {
+        "type": "header",
+		"content": "Основные настройки",
+		"info": "powered by TRM"
+      }
+    ],
+    "blocks": [
+      {
+		"type": "@app"
+      },
+      {
+		"name": "Адреса",
+		"type": "address",
+		"limit": 3,
+		"settings": [
+          {
+			"type": "header",
+			"content": "Основні налаштування"
+          },
+          {
+            "type": "text",
+            "label": "Адреса",
+			"id": "street"
+          },
+          {
+			"type": "url",
+			"label": "Посилання",
+			"id": "url"
+          }
+		]
+      },
+      {
+        "name": "E-mail",
+		"type": "email",
+        "limit": 1,
+		"settings": [
+          {
+            "type": "header",
+            "content": "Основні налаштування"
+          },
+          {
+			"type": "text",
+			"label": "E-mail",
+			"id": "email",
+			"default": "info@newbornk.com"
+          }
+		]
+      },
+      {
+        "name": "Телефон",
+		"type": "phone",
+        "limit": 1,
+		"settings": [
+          {
+            "type": "header",
+            "content": "Основные настройки"
+          },
+          {
+			"type": "text",
+			"label": "Номер телефона",
+			"id": "phone",
+			"default": "+380 97 044 33 33"
+          }
+		]
+      },
+      {
+		"name": "Графік роботи",
+		"type": "working_hours",
+        "limit": 1,
+		"settings": [
+          {
+			"type": "header",
+			"content": "Основні налаштування"
+          },
+          {
+            "type": "select",
+            "id": "view",
+            "label": "Внешний вид",
+            "options": [
+              {
+                "value": "full",
+                "label": "Полный"
+              },
+              {
+                "value": "short",
+                "label": "Сокращенный"
+              }
+            ],
+            "default": "short"
+          },
+          {
+			"type": "header",
+			"content": "Данные"
+          },
+          {
+			"type": "text",
+			"id": "short_weekdays",
+			"label": "Робочі дні",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "short_weekend",
+			"label": "Вихідні дні",
+			"default": "11:00 - 19:00"
+          },
+          {
+			"type": "text",
+			"id": "monday",
+			"label": "Понедельник",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "tuesday",
+			"label": "Вторник",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "wednesday",
+			"label": "Среда",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "thursday",
+			"label": "Четверг",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "friday",
+			"label": "Пятница",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "saturday",
+			"label": "Суббота",
+			"default": "11:00 - 20:00"
+          },
+          {
+			"type": "text",
+			"id": "sunday",
+			"label": "Воскресенье",
+			"default": "11:00 - 19:00"
+          }
+		]
+      }
+    ]
+  }
+
+{% endschema %}

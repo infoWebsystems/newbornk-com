@@ -14,6 +14,8 @@ node --test tests/*.cjs tests/*.mjs
 
 The AOV-specific test and checklist were replaced with the Kalles cart adapter tests. The former `cart-quantity-error.cjs` exercised the removed Dawn `assets/cart.js`; it was removed with that implementation. These tests do not assert that Kalles has Dawn's custom recovery behavior after a failed quantity request. Verify cart quantity limits, server failures and retry behavior in the Shopify preview before publication.
 
+- `locale-routing.cjs` covers Ukrainian/Russian route correction, explicit language controls, dynamic links, Kalles late route initialization and nested-menu data URLs.
+
 ## Browser checks
 
 1. Use the unpublished Kyiv Kalles preview. Confirm the displayed preview theme before testing.

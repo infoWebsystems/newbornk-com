@@ -94,6 +94,7 @@
     -%}
 
     {{ content_for_header }}
+    {% render 'nbk-locale-routing' %}
     {%- if request.page_type == 'product' -%}
       {{ 'nbk-yespo-recommendations.css' | asset_url | stylesheet_tag }}
     {%- endif -%}

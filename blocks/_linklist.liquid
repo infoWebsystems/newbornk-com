@@ -2,8 +2,13 @@
   <div class="hdt-{{ block.id }}" {{ block.shopify_attributes }}>
     <ul class="hdt-menu-list {%- if block.settings.menu_inline == true %} hdt-flex hdt-justify-{{ block.settings.align_mb | replace: 'left', 'start' | replace: 'right', 'end' }} md:hdt-justify-{{ block.settings.align | replace: 'left', 'start' | replace: 'right', 'end' }} hdt-menu-inline{% endif %}">
       {% for link in block.settings.menu.links %}
+        {% unless link.title == 'switcher' %}
         <li> <a href="{{ link.url }}" class="hdt--menu_item hdt-s-text2 hdt-text-{{ block.settings.text_size }}"> {{ link.title }}</a></li>
+        {% endunless %}
       {% endfor %}
+      {% if block.settings.menu.handle == 'footer-top' %}
+        <li class="nbk-footer-language">{% render 'hdt_language' %}</li>
+      {% endif %}
     </ul>
   </div>
   {%- if block.settings.text_size == "custom" -%}
