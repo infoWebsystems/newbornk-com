@@ -47,10 +47,27 @@
       {% endif %}
     }
   {% endstyle %}
-  <div id="{{ block.id }}" class="hdt-row-grid hdt-grid-cols-1 hdt-text-{{ block.settings.alignment }} hdt-des-{{ block.settings.design_heading }} hdt-section-heading_block">
+  <div id="{{ block.id }}" class="hdt-row-grid hdt-grid-cols-1 hdt-text-{{ block.settings.alignment }} hdt-des-{{ block.settings.design_heading }} hdt-section-heading_block{% if block.settings.horizontal %} hdt-section-heading-horizontal{% endif %}">
     {% content_for 'blocks' %}
   </div>
 {%- endif -%}
+{% stylesheet %}
+  .hdt-section-heading_block > .hdt-button-block:not(.hdt-btn-full-width) {
+    width: fit-content;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+
+  .hdt-section-heading-horizontal > .hdt-button-block:not(.hdt-btn-full-width) {
+    justify-self: end;
+  }
+
+  .hdt-section-heading_block > .hdt-button-block.hdt-btn--size-xs {
+    --hdt-btn-padding-x: 18px;
+    --hdt-btn-padding-y: 10px;
+    min-height: 44px;
+  }
+{% endstylesheet %}
 {% schema %}
 {
   "name": "t:blocks.section_heading.name",

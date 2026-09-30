@@ -972,5 +972,17 @@
     "interior_alt": "Inside the NEWBORN K concept store in Kyiv",
     "email_label": "Email",
     "phone_label": "Phone"
+  },
+  "nbk_footer": {
+    "store_address": "Concept store address",
+    "call_us": "Call us",
+    "write_us": "Write to us",
+    "opening_hours": "Opening hours",
+    "newsletter_heading": "Join NEWBORN K",
+    "newsletter_text": "New arrivals, selected brands and news from our concept store.",
+    "email": "Your email address",
+    "subscribe": "Subscribe",
+    "consent_html": "By subscribing, you agree to receive our emails. Read our <a href=\"{{ privacy_url }}\">privacy policy</a>.",
+    "success": "Thank you for subscribing."
   }
 }

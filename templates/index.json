@@ -1050,7 +1050,7 @@
         "image_padding": 20,
         "image_ratio": "adapt_image",
         "image_size": false,
-        "img_effect": "translateToTop",
+        "img_effect": "none",
         "b_effect": "none",
         "col_dk": "6",
         "col_tb": "3",
@@ -1205,7 +1205,6 @@
         "product_carousel_RBNxE7"
       ],
       "custom_css": [
-        "@media (width < 1350px) {.hdt-button-block {justify-self: center; width: 110px; }}",
         ".hdt-mini-cart__title:hover {color: rgb(var(--hdt-btn-bg));}",
         "@media (min-width: 1150px) {.hdt-product-carousel .hdt-slider.lg\\:hdt-slides-6 {--slide-size: calc((100% - 5 * 20px) / 6) !important; } .hdt-product-carousel .hdt-slider__viewport {overflow: hidden !important; }}",
         "@media (max-width: 767px) {.hdt-product-carousel .hdt-slider {--slide-size: 64% !important; }}"
@@ -1344,7 +1343,6 @@
         "article_carousel_7y7pgJ"
       ],
       "custom_css": [
-        "@media (width < 1350px) {.hdt-button-block {justify-self: center; width: 110px; }}",
         ".hdt-article-content {color: rgb(var(--color-foreground));}"
       ],
       "name": "t:sections.feature-blog.name",
@@ -1358,293 +1356,6 @@
         "mg_mb": ",,30px,",
         "pd": "",
         "pd_mb": ""
-      }
-    },
-    "shipping_UNVL6y": {
-      "type": "shipping",
-      "blocks": {
-        "shipping_Y3ymfA": {
-          "type": "_shipping",
-          "settings": {
-            "icon_themes": "none",
-            "icon": ""
-          },
-          "blocks": {
-            "heading_4MeWYA": {
-              "type": "heading",
-              "settings": {
-                "heading": "<p>АДРЕСА МАГАЗИНУ</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "line_height": "hdt-lh-1-2",
-                "font_weight": "medium",
-                "heading_size": "h_custom",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 16,
-                "font_size_heading": 16,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            },
-            "spacer_b4hxjB": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 4,
-                "space_md": 4,
-                "space": 4
-              },
-              "blocks": {}
-            },
-            "text_LLkyBD": {
-              "type": "text",
-              "settings": {
-                "text": "<p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\" target=\"_blank\">м Київ, вул. Велика Житомирська, 20</a></p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "custom",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-s-text",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 13,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_4MeWYA",
-            "spacer_b4hxjB",
-            "text_LLkyBD"
-          ]
-        },
-        "shipping_Wbwfbp": {
-          "type": "_shipping",
-          "settings": {
-            "icon_themes": "none",
-            "icon": ""
-          },
-          "blocks": {
-            "heading_k9zMmx": {
-              "type": "heading",
-              "settings": {
-                "heading": "<p>ТЕЛЕФОН</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "line_height": "hdt-lh-1-2",
-                "font_weight": "medium",
-                "heading_size": "h_custom",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 16,
-                "font_size_heading": 16,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            },
-            "spacer_pE64Uf": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 4,
-                "space_md": 4,
-                "space": 4
-              },
-              "blocks": {}
-            },
-            "text_AE7YgW": {
-              "type": "text",
-              "settings": {
-                "text": "<p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "custom",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-text-secondary",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 13,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_k9zMmx",
-            "spacer_pE64Uf",
-            "text_AE7YgW"
-          ]
-        },
-        "shipping_Pi9aef": {
-          "type": "_shipping",
-          "settings": {
-            "icon_themes": "none",
-            "icon": ""
-          },
-          "blocks": {
-            "heading_fGfpc7": {
-              "type": "heading",
-              "settings": {
-                "heading": "<p>НАПИШІТЬ НАМ</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "line_height": "hdt-lh-1-2",
-                "font_weight": "medium",
-                "heading_size": "h_custom",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 16,
-                "font_size_heading": 16,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            },
-            "spacer_dp36TD": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 4,
-                "space_md": 4,
-                "space": 4
-              },
-              "blocks": {}
-            },
-            "text_wyFVEA": {
-              "type": "text",
-              "settings": {
-                "text": "<p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "custom",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-text-secondary",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 13,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_fGfpc7",
-            "spacer_dp36TD",
-            "text_wyFVEA"
-          ]
-        },
-        "shipping_ggtTGD": {
-          "type": "_shipping",
-          "settings": {
-            "icon_themes": "none",
-            "icon": ""
-          },
-          "blocks": {
-            "heading_k3kkYM": {
-              "type": "heading",
-              "settings": {
-                "heading": "<p>ГОДИНИ РОБОТИ</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "line_height": "hdt-lh-1-2",
-                "font_weight": "medium",
-                "heading_size": "h_custom",
-                "text_color": "hdt-s-text",
-                "font_size_heading_lg": 16,
-                "font_size_heading": 16,
-                "letter_spacing_heading": 0
-              },
-              "blocks": {}
-            },
-            "spacer_8Pdq6J": {
-              "type": "spacer",
-              "settings": {
-                "direction": false,
-                "space_lg": 4,
-                "space_md": 4,
-                "space": 4
-              },
-              "blocks": {}
-            },
-            "text_X7JbYP": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Щодня: 11:00–21:00</p>",
-                "hidden_br_mobile": false,
-                "hidden_on_mobile": false,
-                "ffamily": "",
-                "text_size": "custom",
-                "line_height": "",
-                "font_weight": "normal",
-                "text_color": "hdt-text-secondary",
-                "countdown": "2025-12-30 15:00:00",
-                "txt_day": "days",
-                "font_size_text_lg": 13,
-                "font_size_text": 14,
-                "letter_spacing_text": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading_k3kkYM",
-            "spacer_8Pdq6J",
-            "text_X7JbYP"
-          ]
-        },
-        "section-heading-shipping": {
-          "type": "section-heading",
-          "static": true,
-          "settings": {
-            "design_heading": "1",
-            "horizontal": false,
-            "alignment": "left",
-            "heading_gap": 15,
-            "margin_bottom": 30
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "shipping_Y3ymfA",
-        "shipping_Wbwfbp",
-        "shipping_Pi9aef",
-        "shipping_ggtTGD"
-      ],
-      "custom_css": [
-        ".hdt-icon {height: var(--icon-width, auto);}"
-      ],
-      "name": "t:sections.shipping.name",
-      "settings": {
-        "content_align": "center",
-        "align_center": true,
-        "icon_design": "default",
-        "use_border": false,
-        "space_padding": false,
-        "icon_size": "medium",
-        "icon_color": "hdt-icon-secondary",
-        "col_dk": "4",
-        "col_tb": "2",
-        "col_mb": "1",
-        "carousel_mobile": true,
-        "dot_color": "",
-        "dot_rounded": true,
-        "colors_by_section": true,
-        "color_scheme": "scheme-c9476b69-abc7-454f-a946-2d5a9f5f3a37",
-        "background_opacity": 1,
-        "section_layout": "wrapper_container",
-        "hdt_background_parallax": false,
-        "mg": "",
-        "mg_mb": ",,30px,",
-        "pd": "50px,,50px,",
-        "pd_mb": "50px,,30px,"
       }
     },
     "nbk_store_intro": {
@@ -1662,7 +1373,6 @@
     "collections_list_aqecLw",
     "featured_collection_QM7jFX",
     "blog_post_fGK7dC",
-    "shipping_UNVL6y",
     "nbk_store_intro"
   ]
 }
