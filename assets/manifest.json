@@ -22,6 +22,18 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "https://cdn.shopify.com/s/files/1/0578/7202/3712/files/pwa-icon-maskable-192-v1.png?v=1790801961",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://cdn.shopify.com/s/files/1/0578/7202/3712/files/pwa-icon-maskable-512-v1.png?v=1790801981",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
