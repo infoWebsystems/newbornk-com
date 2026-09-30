@@ -88,7 +88,7 @@
             "mega_width": "full",
             "mega_position": "bottom",
             "mega_custom_width": 1200,
-            "item_spacing": 20
+            "item_spacing": 30
           },
           "blocks": {
             "links_column_men": {
@@ -108,7 +108,9 @@
                   "settings": {
                     "title": "",
                     "linklist": "",
-                    "menu_collection": "cholovikam"
+                    "menu_collection": "cholovikam",
+                    "category_label": "men",
+                    "brands_menu": "brands-menu"
                   }
                 }
               },
@@ -120,7 +122,7 @@
               "type": "_nbk-menu-promo",
               "settings": {
                 "collection": "cholovikam",
-                "image": "shopify://shop_images/Frame119-2.webp",
+                "image": "shopify://shop_images/DSC_8547.webp",
                 "label": "men"
               }
             },
@@ -128,8 +130,8 @@
               "type": "_multi_column_12",
               "settings": {
                 "column_dk": "3",
-                "spacing_h_dk": 20,
-                "spacing_v_dk": 20,
+                "spacing_h_dk": 30,
+                "spacing_v_dk": 30,
                 "content_position": "auto",
                 "alignment": "center",
                 "background_color": "#fff",
@@ -209,7 +211,7 @@
             "mega_width": "full",
             "mega_position": "bottom",
             "mega_custom_width": 1200,
-            "item_spacing": 20
+            "item_spacing": 30
           },
           "blocks": {
             "links_column_women": {
@@ -229,7 +231,9 @@
                   "settings": {
                     "title": "",
                     "linklist": "",
-                    "menu_collection": "women"
+                    "menu_collection": "women",
+                    "category_label": "women",
+                    "brands_menu": "brands-menu"
                   }
                 }
               },
@@ -241,7 +245,7 @@
               "type": "_nbk-menu-promo",
               "settings": {
                 "collection": "women",
-                "image": "shopify://shop_images/Frame2.webp",
+                "image": "shopify://shop_images/1-2382.webp",
                 "label": "women"
               }
             },
@@ -249,8 +253,8 @@
               "type": "_multi_column_12",
               "settings": {
                 "column_dk": "3",
-                "spacing_h_dk": 20,
-                "spacing_v_dk": 20,
+                "spacing_h_dk": 30,
+                "spacing_v_dk": 30,
                 "content_position": "auto",
                 "alignment": "center",
                 "background_color": "#fff",
@@ -330,13 +334,13 @@
             "mega_width": "full",
             "mega_position": "bottom",
             "mega_custom_width": 1200,
-            "item_spacing": 20
+            "item_spacing": 30
           },
           "blocks": {
             "links_column_accessories": {
               "type": "_multi_column_12",
               "settings": {
-                "column_dk": "6",
+                "column_dk": "4",
                 "spacing_h_dk": 20,
                 "spacing_v_dk": 20,
                 "content_position": "auto",
@@ -350,7 +354,9 @@
                   "settings": {
                     "title": "",
                     "linklist": "",
-                    "menu_collection": "accessoires"
+                    "menu_collection": "accessoires",
+                    "category_label": "accessories",
+                    "brands_menu": ""
                   }
                 }
               },
@@ -362,7 +368,7 @@
               "type": "_nbk-menu-promo",
               "settings": {
                 "collection": "accessoires",
-                "image": "shopify://shop_images/Frame14.webp",
+                "image": "shopify://shop_images/Frame127_0e5a3321-3306-4d56-8c4c-64ca4618dbe0.webp",
                 "label": "accessories"
               }
             },
@@ -370,8 +376,8 @@
               "type": "_multi_column_12",
               "settings": {
                 "column_dk": "3",
-                "spacing_h_dk": 20,
-                "spacing_v_dk": 20,
+                "spacing_h_dk": 30,
+                "spacing_v_dk": 30,
                 "content_position": "auto",
                 "alignment": "center",
                 "background_color": "#fff",
@@ -433,9 +439,23 @@
               "block_order": [
                 "products_accessories"
               ]
+            },
+            "spacer_accessories": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "2",
+                "spacing_h_dk": 30,
+                "spacing_v_dk": 30,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
+            "spacer_accessories",
             "links_column_accessories",
             "promo_accessories",
             "products_column_accessories"

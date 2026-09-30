@@ -997,8 +997,12 @@
     "next_brands": "Наступні бренди"
   },
   "nbk_menu": {
-    "shop_men": "Переглянути чоловічу колекцію",
-    "shop_women": "Переглянути жіночу колекцію",
-    "shop_accessories": "Переглянути аксесуари"
+    "shop_men": "Новинки для чоловіків",
+    "shop_women": "Новинки для жінок",
+    "shop_accessories": "Аксесуари",
+    "categories_men": "Чоловічі категорії",
+    "categories_women": "Жіночі категорії",
+    "categories_accessories": "Категорії аксесуарів",
+    "brands": "Бренди"
   }
 }

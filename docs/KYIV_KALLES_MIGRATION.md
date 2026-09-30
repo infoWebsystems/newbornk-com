@@ -121,8 +121,9 @@ Adapted the active Warsaw feature set at `pl-newbornk-com/kalles-main` `915a99d3
 
 ### Navigation and homepage
 
-- Three desktop mega-menus retain Kyiv's current nested navigation and empty-collection guards, with a collection promotion and the native four-product carousel. Men, women and accessories match the destination collection, so translating menu titles does not disconnect their content. The mobile menu is unchanged.
-- Promotions use existing Kyiv images with lazy loading, uncropped product photographs and translated UA/EN/RU links.
+- Three desktop mega-menus use Warsaw's column layout: men/women have separate vertical category and brand lists, followed by a portrait promotion and native four-product carousel; accessories have one category list with the Warsaw spacer. Group headings have a single divider and links use uppercase Formular typography. Men, women and accessories match the destination collection, so translating menu titles does not disconnect their content. The mobile menu is unchanged.
+- Categories retain Kyiv's current navigation, nested links and empty-collection guards. Brands prefer the current main-menu branch, retain its real destinations, and are filtered by the selected collection's vendors and nonempty brand collections. Preview currently renders 34 men's brands and 35 women's brands.
+- Promotions use existing Kyiv portrait images with lazy loading, natural image ratios, 30px column padding and translated UA/EN/RU underlined links. Men/women promotions open the corresponding collection sorted by newest products.
 - Added two native collection-card rows: CARNE BOLLENTE / GRAMICCI / A-COLD-WALL, then CARHARTT WIP / NEW AMSTERDAM. Existing homepage sections, their settings and relative order are preserved.
 - Added a native ten-brand carousel. All ten linked collections were confirmed to contain products. It uses lightweight brand names; optional logo pickers accept real brand artwork later. No additional JavaScript is needed. Empty collections are hidden.
 
@@ -150,3 +151,5 @@ The footer continues to use Shopify's native customer newsletter form, including
 - Live-rendered collection and product JSON-LD parses correctly, contains one Organization and one resource H1. Page two retains CollectionPage without ItemList; product offers retain UAH.
 
 Before launch, finish the test newsletter signup, existing English resource/theme translation review (including “To men” / “To women” and Ukrainian homepage campaign text), and the separate Chekly/payment/analytics acceptance checks. Publishing remains a separate merchant decision. No Warsaw discount, Klaviyo account, AI chat, currency setup or campaign was copied.
+
+The mega-menu layout correction additionally passed validation for all seven affected theme files and five focused actual Liquid-render tests. Desktop checks covered three Ukrainian menus, English group labels, locale-preserving URLs, loaded portrait images, 30px padding and no horizontal overflow at 1440px. The existing mobile drawer and nested links open at 390px without horizontal overflow. When uploading new block setting definitions, upload the section-group settings again after the block schema is registered: Shopify can otherwise discard the new setting values during the same batch upload.

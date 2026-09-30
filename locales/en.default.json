@@ -995,8 +995,12 @@
     "next_brands": "Next brands"
   },
   "nbk_menu": {
-    "shop_men": "Shop men",
-    "shop_women": "Shop women",
-    "shop_accessories": "Shop accessories"
+    "shop_men": "New arrivals menswear",
+    "shop_women": "New arrivals womenswear",
+    "shop_accessories": "Accessories",
+    "categories_men": "Men’s categories",
+    "categories_women": "Women’s categories",
+    "categories_accessories": "Accessory categories",
+    "brands": "Brands"
   }
 }
