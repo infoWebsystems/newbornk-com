@@ -1,10 +1,14 @@
 # PWA launch assets
 
 The Android launch screen is generated from the web app manifest. Its background,
-theme color, HTML theme-color, and opaque icon backgrounds must all be `#c7ec51`.
+theme color, HTML theme-color, and opaque icon backgrounds must all match the
+announcement bar's brand accent, currently `#ccf951`. HTML theme-color reads
+`settings.colors_accent_2`, the same setting as the announcement bar. If this
+brand color changes, rebuild the icons and update both manifest colors together.
 `assets/pwa-icon.svg` uses the original letter paths from `snippets/icon-logo.liquid`
-in the stacked NEW/BORN/K arrangement. The 192px and 512px PNGs are raster exports
-of that source, with a solid background and no transparency.
+in the stacked NEW/BORN/K arrangement. The v3 192px and 512px PNGs are raster
+exports of that source, with a solid background and no transparency. Keep older
+Shopify Files icons available for clients with a cached manifest.
 
 ## Publishing
 
@@ -23,8 +27,10 @@ the manifest used by installed apps.
    and their border pixels against the manifest background. Check the app on
    Android after its WebAPK has updated.
 
-The previous bitmap had a different green background (`#cbf951`) from the splash,
-making its square visible. New filenames also let Android detect the icon change.
+The original bitmap had a different green background (`#cbf951`) from the splash
+(`#c7ec51`), making its square visible. v2 matched the old splash color; v3 also
+matches the storefront announcement bar to remove the Android status-bar seam.
+New filenames let Android detect the icon change.
 Invalid placeholder screenshot URLs were removed from the manifest.
 
 Android may keep an installed WebAPK's old launch assets until its next update.
