@@ -9,11 +9,19 @@
 -%}
 {% if chart_text != blank or chart_page.content != blank or chart_image != blank %}
   <hdt-accordion class="hdt-content" {{ block.shopify_attributes }}>
-    <details class="hdt-accordion-item">
-      <summary class="hdt-flex hdt-text-base hdt-font-medium hdt-justify-between">
-        <span>{{ 'products.product.size_chart_button' | t }}</span><span aria-hidden="true">+</span>
+    <details class="hdt-accordion-item" is_open>
+      <summary class="hdt-flex hdt-text-base hdt-font-medium hdt-justify-between" aria-expanded="false">
+        <span class="hdt-flex hdt-align-center hdt-accordion-title hdt-uppercase">{{ 'products.product.size_chart_button' | t }}</span>
+        <span class="hdt-accordion-icon hdt-relative hdt-inline-flex hdt-align-center hdt-justify-center" aria-hidden="true">
+          <svg class="hdt-icon-plus" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M12 6.85714H6.85714V12H5.14286V6.85714H0V5.14286H5.14286V0H6.85714V5.14286H12V6.85714Z" fill="currentColor"/>
+          </svg>
+          <svg class="hdt-icon-minus hdt-absolute hdt-top-0 hdt-left-0 hdt-right-0 hdt-bottom-0" width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="12" height="2" fill="currentColor"/>
+          </svg>
+        </span>
       </summary>
-      <div class="hdt-accordion-content hdt-rte" style="overflow-x:auto">
+      <div class="hdt-accordion-content hdt-text-base hdt-font-normal hdt-rte" style="overflow-x:auto">
         {% if chart_text != blank %}
           {{ chart_text }}
         {% elsif chart_page.content != blank %}

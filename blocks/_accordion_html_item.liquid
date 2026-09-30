@@ -29,8 +29,12 @@
     {%- unless block.settings.title == blank or block.settings.content == blank and block.settings.page.content == blank -%}
       <div id="{{ block.id }}-item" class="hdt-accordion-content hdt-text-base hdt-font-normal hdt-rte" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
         <div itemprop="text">
-          <div class="hdt-rte">{{ block.settings.content }}</div>
-          {{ block.settings.page.content }}
+          {% if block.settings.content != blank %}<div class="hdt-rte">{{ block.settings.content }}</div>{% endif %}
+          {% if block.settings.page.handle == 'order-and-delivery' %}
+            {% render 'nbk-product-delivery', content: block.settings.page.content %}
+          {% else %}
+            {{ block.settings.page.content }}
+          {% endif %}
         </div>
       </div>
     {%- endunless -%}

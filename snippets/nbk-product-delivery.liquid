@@ -1,0 +1,72 @@
+{% doc %}
+  Formats the delivery page for a product accordion without its global page CSS.
+  @param {string} content - The existing, localized delivery page HTML.
+{% enddoc %}
+{%- liquid
+  assign page_content = content
+  assign style_fragments = content | split: '<style'
+  for fragment in style_fragments offset: 1
+    assign style_tag = fragment | split: '</style>' | first | prepend: '<style' | append: '</style>'
+    assign page_content = page_content | remove: style_tag
+  endfor
+  assign page_content = page_content | remove: '<p>&nbsp;</p>' | remove: '<p> </p>' | replace: '&nbsp;', ' ' | replace: ' ', ' '
+-%}
+<div class="nbk-product-delivery">{{ page_content }}</div>
+{% stylesheet %}
+  .nbk-product-delivery .section {
+    margin: 0 0 16px;
+    padding: 16px;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  .nbk-product-delivery .section:last-child {
+    margin-bottom: 0;
+  }
+  .nbk-product-delivery :is(h2, h3, h4) {
+    margin: 0 0 12px;
+    padding: 0;
+    border: 0;
+    font-size: 18px;
+    font-weight: var(--font-medium);
+    line-height: 1.4;
+    text-transform: none;
+  }
+  .nbk-product-delivery :is(p, ul) {
+    margin: 0 0 12px;
+  }
+  .nbk-product-delivery ul {
+    padding-inline-start: 20px;
+  }
+  .nbk-product-delivery li + li {
+    margin-top: 8px;
+  }
+  .nbk-product-delivery .section > :last-child {
+    margin-bottom: 0;
+  }
+  .nbk-product-delivery > p:has(meta):first-child {
+    display: none;
+  }
+  .nbk-product-delivery .logo {
+    display: flex;
+    align-items: center;
+    margin: 0 0 12px;
+  }
+  .nbk-product-delivery .logo img {
+    display: block;
+    width: 150px;
+    height: 50px;
+    object-fit: contain;
+    object-position: left center;
+  }
+  .nbk-product-delivery .logo img[src*="223553a6a841c975b5a4ebd68fdf0740"] {
+    object-fit: cover;
+    object-position: center;
+  }
+  .nbk-product-delivery p > img {
+    display: block;
+    width: 200px;
+    height: auto;
+    max-width: 100%;
+    margin-block: 12px;
+  }
+{% endstylesheet %}

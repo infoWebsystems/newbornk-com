@@ -161,3 +161,11 @@ The homepage carousel uses real logo artwork transferred from Warsaw's `logo_lis
 Goldwin has no matching Kyiv collection and RIOTDIVISION currently has zero products, so neither is included. The previous text-only entries for Heliot Emil, Edwin and Arte Antwerp are omitted from this logo strip because no corresponding Warsaw logo artwork was found; their collections and other navigation remain available. No substitute artwork was invented.
 
 Validation: the homepage JSON passed Shopify schema validation and was selectively uploaded to unpublished theme `199582843040`. All eleven logo images load from Kyiv's CDN and link to Kyiv collections. Native previous/next controls work at 1440px and 390px, images retain `object-fit: contain`, and neither viewport has document overflow.
+
+### Product accordion alignment
+
+The inline size guide now uses the same native Kalles title and plus/minus markup as product details and delivery. All three rows have 18px titles and 47px height in the checked desktop and 390px mobile layouts. The size-guide label uses uppercase styling, while its localized text, content fallback order and measurement data are unchanged. Native keyboard activation and visible focus remain available.
+
+The `order-and-delivery` page is formatted inside the product accordion with scoped 18px headings, compact card spacing and readable payment logos. Its legacy global `<style>` elements and empty spacing paragraphs are removed only from this embedded rendering; the Shopify page itself and its payment/delivery wording are unchanged. The existing square mono image uses a centered CSS frame to remove surrounding whitespace without changing the artwork. Other accordion pages retain their existing rendering.
+
+Verification: all three changed/new Liquid files pass validation. The unpublished preview was checked in Chrome at desktop and 390px: aligned rows, Enter activation, correct plus/minus states, preserved M/L/XL table values, loaded payment/shipping logos, and no horizontal document overflow. The hidden leading metadata paragraph contains no visible text. These changes follow merged PR #78 on `kalles-dev`, targeting `kalles-main`; the live theme is untouched.
