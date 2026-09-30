@@ -10,8 +10,16 @@
     assign page_content = page_content | remove: style_tag
   endfor
   assign page_content = page_content | remove: '<p>&nbsp;</p>' | remove: '<p> </p>' | replace: '&nbsp;', ' ' | replace: ' ', ' '
+  assign page_sections = page_content | split: '<div class="section">'
 -%}
-<div class="nbk-product-delivery">{{ page_content }}</div>
+<div class="nbk-product-delivery">
+  {%- for page_section in page_sections -%}
+    {%- unless forloop.first -%}{% echo '<div class="section">' %}{%- endunless -%}
+    {{ page_section }}
+    {%- if forloop.index == 2 -%}{% render 'nbk-product-payment-methods' %}{%- endif -%}
+  {%- endfor -%}
+  {%- if page_sections.size < 2 -%}{% render 'nbk-product-payment-methods' %}{%- endif -%}
+</div>
 {% stylesheet %}
   .nbk-product-delivery .section {
     margin: 0 0 16px;

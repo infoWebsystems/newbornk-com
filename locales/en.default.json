@@ -1002,5 +1002,11 @@
     "categories_women": "Women’s categories",
     "categories_accessories": "Accessory categories",
     "brands": "Brands"
+  },
+  "nbk_payments": {
+    "liqpay_title": "Pay with LiqPay",
+    "liqpay_description": "Pay online with a Visa or Mastercard through LiqPay. Confirm your payment on the service’s secure payment page.",
+    "privat_title": "PrivatBank Payment in Instalments",
+    "privat_description": "Split your purchase into monthly payments with PrivatBank’s Payment in Instalments. A PrivatBank card and an available service limit are required. Check the number of payments and terms before confirming."
   }
 }

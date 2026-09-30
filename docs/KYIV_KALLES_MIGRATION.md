@@ -169,3 +169,16 @@ The inline size guide now uses the same native Kalles title and plus/minus marku
 The `order-and-delivery` page is formatted inside the product accordion with scoped 18px headings, compact card spacing and readable payment logos. Its legacy global `<style>` elements and empty spacing paragraphs are removed only from this embedded rendering; the Shopify page itself and its payment/delivery wording are unchanged. The existing square mono image uses a centered CSS frame to remove surrounding whitespace without changing the artwork. Other accordion pages retain their existing rendering.
 
 Verification: all three changed/new Liquid files pass validation. The unpublished preview was checked in Chrome at desktop and 390px: aligned rows, Enter activation, correct plus/minus states, preserved M/L/XL table values, loaded payment/shipping logos, and no horizontal document overflow. The hidden leading metadata paragraph contains no visible text. These changes follow merged PR #78 on `kalles-dev`, targeting `kalles-main`; the live theme is untouched.
+
+### LiqPay and PrivatBank payment information — October 1
+
+The product delivery accordion adds two informational cards after its existing payment card and before delivery details: LiqPay and PrivatBank's Payment in Instalments. UA/EN/RU descriptions use locale keys. The original page content is preserved, including mono and delivery information; a page without the legacy section markup retains its content and receives the cards at the end. These theme changes describe payment methods and do not configure a payment gateway.
+
+Both logos are unchanged official artwork served through the theme's Shopify CDN with dimensions, alt text and lazy loading:
+
+- `nbk-payment-liqpay.svg`: 500×104, 9,874 bytes, white-background version from the [LiqPay brandbook](https://www.liqpay.ua/uk/information/brand_book), downloaded from [its official SVG archive](https://www.liqpay.ua/logos/logo-liqpay-svg.zip).
+- `nbk-payment-privat-installments.png`: 403×225, 7,623 bytes, transparent `Лого/403x224_ОЧ_3.png` from the [PrivatBank brand materials](https://privatbank.ua/cpa/style?och_mp=another_material) and [official installment-logo archive](https://static.privatbank.ua/files/logo_och-mp_14_04_21.zip). The archive filename differs by one pixel from the actual image height.
+
+Copy follows the official [LiqPay card-payment explanation](https://www.liqpay.ua/uk/methods/card_pay) and [PrivatBank service description](https://privatbank.ua/kredyty/oplata-chastynamy-ta-myttyeva-rozstrochka). It makes no fixed payment-count, interest or fee claim. PrivatBank eligibility mentions its card and an available service limit.
+
+Validation: all seven changed/new theme files passed Shopify validation. Nine focused actual Liquid renders covered UA/EN/RU with the current section format, markup starting directly with a section, and the fallback. Browser checks confirmed exactly two cards in the intended order, both images loaded from Shopify CDN with `object-fit: contain`, Ukrainian/English descriptions, and no horizontal overflow at desktop and 390px. Only unpublished theme `199582843040` received the selective upload.
