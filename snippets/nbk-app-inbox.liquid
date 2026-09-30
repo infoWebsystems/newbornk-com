@@ -1,0 +1,32 @@
+{% doc %}
+  Provides the existing Kyiv eSputnik App Inbox widget's configured mount point.
+{% enddoc %}
+<div id="app-inbox" class="nbk-app-inbox"></div>
+
+{% stylesheet %}
+  .hdt-site-top_nav > .nbk-app-inbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 4;
+  }
+
+  .nbk-app-inbox .js-pull-notification-call-button-host-element {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .hdt-site-top_nav > .nbk-app-inbox:empty {
+    margin-inline-start: -16px;
+  }
+
+  .nbk-app-inbox .js-pull-notification-host-element {
+    display: block !important;
+    position: relative;
+    z-index: 4;
+  }
+{% endstylesheet %}

@@ -30,7 +30,7 @@ Kyiv product descriptions, size charts, subtitle/model data, pickup availability
 
 Legacy `product.default-outlet` and `product.gift-card-template` assignments have Kalles-compatible templates. Outlet products retain the existing next-day pickup notice. The Kyiv `robots.txt.liquid` template is retained byte-for-byte.
 
-The existing JSON-LD graph, robots and hreflang logic, Pandectes bootstrap, GTM, Yespo inbox/customer initialization and Ahrefs analytics are retained. Consent-gated GA4 product selection is connected to Kalles links, and cart-view tracking observes the Kalles drawer. No customer or catalog records are edited by this migration.
+The existing JSON-LD graph, robots and hreflang logic, Pandectes bootstrap, GTM, Yespo app embed and Ahrefs analytics are retained. Consent-gated GA4 product selection is connected to Kalles links, and cart-view tracking observes the Kalles drawer. No customer or catalog records are edited by this migration.
 
 ### Yespo product recommendations
 
@@ -102,3 +102,15 @@ Moved the homepage-only contact information into a translated footer-group secti
 The newsletter uses Shopify's native customer form and `newsletter` tag, with translated labels, consent copy, error/success states and a locale-aware privacy link. Warsaw's Klaviyo account and first-order discount were not copied. Forwarding Shopify subscribers into Kyiv's Yespo workflows remains unverified and requires separate integration acceptance before a newsletter campaign relies on it.
 
 Validation: all 11 changed/new theme files passed the Liquid validator with cached Shopify schemas; the final footer style adjustment passed again. Changes uploaded to draft theme `199582843040` only. Browser checks confirmed Ukrainian and English footer content, translated address/hours and privacy links, native language switching, and no horizontal overflow at 1280px desktop, 820px tablet and 390px mobile. No newsletter form was submitted and no subscriber was created during these checks.
+
+## Header, Google reviews and App Inbox — September 30
+
+The active Kyiv header now uses the existing wordmark's vector paths in a 3,141-byte black SVG (about 1.4 KB compressed), retaining desktop/mobile widths of 160/120px, the sticky header, localized home link, white transparent variant and merchant-image fallback. Brand-specific logo overrides remain unchanged.
+
+The footer's contact block displays **5.0 ★ · 162 Google reviews**, verified against [Kyiv's Google Maps profile](https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6) on September 30, 2026. Like Warsaw, this is a lightweight linked text line, not a live review feed. Edit the rating, count and profile URL in the **Kyiv contacts and reviews** footer block; count 0 hides it. UA/EN/RU labels use locale pluralization. The contact block is a theme block so its settings remain available during Liquid rendering.
+
+Added the legacy `#app-inbox` mount to the Kalles header once, with space for the Yespo bell on desktop/mobile and no extra gap while empty. Removed obsolete lowercase `es('appInbox.init')` / `checkMessages` calls. The installed Yespo Shopify app already initializes the SDK via `eS('init', {APP_INBOX:true}, ...)` and supplies its authentication callback; duplicating that logic in the theme is unnecessary. [Yespo documents App Inbox for authenticated customers](https://docs.esputnik.com/docs/configuring-app-inbox-for-websites). The anonymous session has no customer and therefore does not render a bell. **Authenticated bell placement, opening and message display still require acceptance testing**; the provider's authenticated appearance response determines the placement selector.
+
+The footer newsletter remains Shopify's native subscription form. Receipt/sync in Yespo is not verified. No subscriber or message was created during this work.
+
+Validation: all new/changed logo, footer, locale and Inbox host files passed Shopify Liquid validation using cached schemas. The reduced analytics snippet reports only the existing external Ahrefs CDN performance diagnostic; its loader is unchanged. Shopify accepted uploads to unpublished theme `199582843040`. Browser checks confirmed the SVG loads at 160px desktop and 120px mobile (including sticky state), one Inbox mount, UA/EN review text and profile link, and no horizontal overflow at 1280px and 390px. The live theme is unchanged.

@@ -1,3 +1,9 @@
+{% doc %}
+  Renders the responsive header logo with an optional lightweight NEWBORN K wordmark.
+  @param {section} [section] - Header section inherited from the rendering context.
+  @param {string} [page_handle] - Optional brand page used for a brand-specific logo and destination.
+  @param {string} [header_e_commerce_attr] - Optional additional wrapper classes.
+{% enddoc %}
 {%- liquid
   unless page_handle
     assign logo_default = section.settings.logo
@@ -7,6 +13,10 @@
     assign logo_default = page_brand.metafields.theme.brand.value.logo | default: section.settings.logo
     assign logo_sticky = page_brand.metafields.theme.brand.value.logo | default: section.settings.logo
   endunless
+  assign use_wordmark = false
+  if section.settings.use_wordmark and page_handle == blank
+    assign use_wordmark = true
+  endif
   assign logo = logo_default
   if section.settings.header_transparent and template.name == "index"
     assign logo_transparent = section.settings.logo_transparent
@@ -14,8 +24,24 @@
   endif
 -%}
 <div class="hdt-logo hdt-flex hdt-align-center{% if section.settings.header_layout == "logo_center" %} hdt-justify-center{% endif %} {{ header_e_commerce_attr }}">
-  {%- if logo != blank -%}
+  {%- if logo != blank or use_wordmark -%}
     <a class="hdt-inline-flex hdt-align-center" href="{{ page_brand.metafields.theme.brand.value.url.value.url | default: routes.root_url }}">
+      {%- if use_wordmark -%}
+        {%- liquid
+          assign wordmark_asset = 'nbk-wordmark-black.svg'
+          if section.settings.header_transparent and template.name == 'index'
+            assign wordmark_asset = 'nbk-wordmark-white.svg'
+          endif
+        -%}
+        <picture class="hdt-logo-default">
+          <img src="{{ wordmark_asset | asset_url }}" class="hdt-logo-img" width="138" height="17" alt="{{ shop.name | escape }}" loading="eager">
+        </picture>
+        {%- if section.settings.sticky_type != 'none' -%}
+          <picture class="hdt-logo-sticky">
+            <img src="{{ 'nbk-wordmark-black.svg' | asset_url }}" class="hdt-logo-img" width="138" height="17" alt="{{ shop.name | escape }}" loading="eager">
+          </picture>
+        {%- endif -%}
+      {%- else -%}
       {%- liquid
         assign logo_width_2x = section.settings.logo_width | times: 2
         assign logo_width_mb_2x = section.settings.logo_width_mb | times: 2
@@ -29,13 +55,12 @@
       -%}
       {%- capture sizes -%}(min-width: 768px) {{ section.settings.logo_width }}px, {{ section.settings.logo_width_mb }}px{%- endcapture -%}
       {%- capture srcset -%}{{ logo_mobile | image_url: width: section.settings.logo_width_mb }} 1x, {{ logo_mobile | image_url: width: logo_width_mb_2x }} 2x{%- endcapture -%}
-
       <picture class="hdt-logo-default">
         <source media="(min-width:768px)" srcset="{{ logo | image_url: width: section.settings.logo_width }} 1x, {{ logo | image_url: width: logo_width_2x }} 2x">
         {{- logo_mobile | image_url: width: logo_width_2x | image_tag: class: 'hdt-logo-img', widths: nil, height: logo_height, width: section.settings.logo_width, alt: logo_alt, sizes: sizes, srcset: srcset, reload: true -}}
       </picture>
       {% if section.settings.sticky_type != 'none' %}
-        {% assign assign logo_mobile = page_brand.metafields.theme.brand.value.logo_mobile | default: section.settings.logo_mobile | default: logo_default %}
+        {% assign logo_mobile = page_brand.metafields.theme.brand.value.logo_mobile | default: section.settings.logo_mobile | default: logo_default %}
         {%- capture srcset -%}{{ logo_sticky | image_url: width: section.settings.logo_width_mb }} 1x, {{ logo_sticky | image_url: width: logo_width_mb_2x }} 2x{%- endcapture -%}
         <picture class="hdt-logo-sticky">
           <source media="(max-width:767px)" srcset="{{ logo_mobile | image_url: width: section.settings.logo_width_mb }} 1x, {{ logo_mobile | image_url: width: logo_width_mb_2x }} 2x">
@@ -43,6 +68,7 @@
           {{- logo_sticky | image_url: width: logo_width_2x | image_tag: class: 'hdt-logo-img', widths: nil, height: logo_height, width: section.settings.logo_width, alt: logo_alt, sizes: sizes, srcset: srcset, reload: true -}}
         </picture>
       {% endif %}
+      {%- endif -%}
     </a>
     {%- style -%}
       .hdt-logo {
@@ -51,6 +77,7 @@
     	.hdt-logo a img{
     		width: {{ section.settings.logo_width_mb }}px !important;
         min-width: {{ section.settings.logo_width_mb }}px !important;
+        height: auto;
     	}
       .hdt-logo picture.hdt-logo-sticky {
         display: none;

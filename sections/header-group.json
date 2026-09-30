@@ -91,6 +91,7 @@
         "header_layout": "logo_left",
         "header_fullwidth": true,
         "header_height": 70,
+        "use_wordmark": true,
         "logo": "shopify://shop_images/newborn_logo.png",
         "logo_width": 160,
         "header_colors": "scheme-1",
