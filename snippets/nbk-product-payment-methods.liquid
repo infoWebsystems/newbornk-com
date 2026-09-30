@@ -1,37 +1,46 @@
 {% doc %}
-  Adds localized LiqPay and PrivatBank payment information after the existing payment card.
+  Lists the five checkout payment methods inside the product delivery summary.
 {% enddoc %}
-<div class="section nbk-payment-method">
-  <div class="nbk-payment-method__brand">
-    <img class="nbk-payment-method__logo" src="{{ 'nbk-payment-liqpay.svg' | asset_url }}" alt="LiqPay" width="500" height="104" loading="lazy">
-  </div>
-  <h4>{{ 'nbk_payments.liqpay_title' | t }}</h4>
-  <p>{{ 'nbk_payments.liqpay_description' | t }}</p>
-</div>
-<div class="section nbk-payment-method">
-  <div class="nbk-payment-method__brand">
-    <img class="nbk-payment-method__logo nbk-payment-method__logo--privat" src="{{ 'nbk-payment-privat-installments.png' | asset_url }}" alt="{{ 'nbk_payments.privat_title' | t | escape }}" width="403" height="225" loading="lazy">
-  </div>
-  <h4>{{ 'nbk_payments.privat_title' | t }}</h4>
-  <p>{{ 'nbk_payments.privat_description' | t }}</p>
-</div>
+<ul class="nbk-product-delivery__list" role="list">
+  <li class="nbk-product-delivery__row">
+    <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.plata_title' | t }}</strong>
+    <p class="nbk-product-delivery__description">{{ 'nbk_delivery.plata_description' | t }}</p>
+  </li>
+  <li class="nbk-product-delivery__row">
+    <strong class="nbk-product-delivery__name">
+      <img class="nbk-payment-method__logo" src="{{ 'nbk-payment-liqpay.svg' | asset_url }}" alt="{{ 'nbk_delivery.liqpay_title' | t | escape }}" width="500" height="104" loading="lazy">
+    </strong>
+    <p class="nbk-product-delivery__description">{{ 'nbk_delivery.liqpay_description' | t }}</p>
+  </li>
+  <li class="nbk-product-delivery__row">
+    <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.mono_installments_title' | t }}</strong>
+    <p class="nbk-product-delivery__description">{{ 'nbk_delivery.mono_installments_description' | t }}</p>
+  </li>
+  <li class="nbk-product-delivery__row">
+    <strong class="nbk-product-delivery__name">
+      {{ 'nbk_delivery.privat_title' | t }}
+      <img class="nbk-payment-method__logo nbk-payment-method__logo--privat" src="{{ 'nbk-payment-privat-installments.png' | asset_url }}" alt="" width="403" height="225" loading="lazy">
+    </strong>
+    <p class="nbk-product-delivery__description">{{ 'nbk_delivery.privat_description' | t }}</p>
+  </li>
+  <li class="nbk-product-delivery__row">
+    <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.pay_on_receipt_title' | t }}</strong>
+    <p class="nbk-product-delivery__description">{{ 'nbk_delivery.pay_on_receipt_description' | t }}</p>
+  </li>
+</ul>
 {% stylesheet %}
-  .nbk-payment-method__brand {
-    display: flex;
-    align-items: center;
-    min-height: 60px;
-    margin-bottom: 12px;
-  }
   .nbk-product-delivery .nbk-payment-method__logo {
     display: block;
-    width: 150px;
-    height: auto;
+    flex: 0 0 auto;
+    width: 76px;
+    height: 22px;
     max-width: 100%;
     margin: 0;
+    border-radius: 0;
     object-fit: contain;
-    object-position: left center;
   }
   .nbk-product-delivery .nbk-payment-method__logo--privat {
-    width: 220px;
+    width: 64px;
+    height: 36px;
   }
 {% endstylesheet %}

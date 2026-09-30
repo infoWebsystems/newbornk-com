@@ -170,15 +170,28 @@ The `order-and-delivery` page is formatted inside the product accordion with sco
 
 Verification: all three changed/new Liquid files pass validation. The unpublished preview was checked in Chrome at desktop and 390px: aligned rows, Enter activation, correct plus/minus states, preserved M/L/XL table values, loaded payment/shipping logos, and no horizontal document overflow. The hidden leading metadata paragraph contains no visible text. These changes follow merged PR #78 on `kalles-dev`, targeting `kalles-main`; the live theme is untouched.
 
-### LiqPay and PrivatBank payment information — October 1
+### Compact payment and delivery details — October 1
 
-The product delivery accordion adds two informational cards after its existing payment card and before delivery details: LiqPay and PrivatBank's Payment in Instalments. UA/EN/RU descriptions use locale keys. The original page content is preserved, including mono and delivery information; a page without the legacy section markup retains its content and receives the cards at the end. These theme changes describe payment methods and do not configure a payment gateway.
+The product accordion and quick-view delivery dialog use one localized, compact summary. The summary replaces legacy page-HTML parsing and stacked promotional cards with two lists. Other selected pages still render normally; the separate Shopify delivery page is unchanged and linked for complete terms.
 
-Both logos are unchanged official artwork served through the theme's Shopify CDN with dimensions, alt text and lazy loading:
+The list was verified in the store's Chekly checkout on October 1, 2026, without submitting an order or payment:
+
+- Card payment through plata by mono and LiqPay.
+- monobank Purchase in Instalments: the visible selector offered 2–3 payments, with no commission and a requirement that the buyer's telephone number match the bank's financial number.
+- PrivatBank Payment in Instalments: the visible selector offered 2–5 payments. The bank's [service description](https://privatbank.ua/kredyty/oplata-chastynamy-ta-myttyeva-rozstrochka) explains the available service-limit requirement.
+- Payment on receipt in the store or at the post office.
+- Nova Poshta: branch, parcel locker and address delivery.
+- Ukrposhta: branch and address delivery.
+- Pickup: Kyiv, 20 Velyka Zhytomyrska Street, entrance through the archway.
+- Uklon delivery in Kyiv: Chekly states free delivery for paid orders from UAH 20,000.
+
+The existing [store delivery policy](https://newbornk.com/pages/order-and-delivery) supplies Nova Poshta's free branch/locker delivery from UAH 5,000 with full prepayment, dispatch in 0–1 business day and delivery in 1–2 business days, plus the full-prepayment condition for taxi delivery. Checkout remains authoritative for availability, number of payments and final delivery cost. The theme summary is a checked snapshot, not an automatic Chekly configuration sync.
+
+UA/EN/RU text uses locale keys, with small, unchanged official logos served through Shopify CDN with dimensions and lazy loading:
 
 - `nbk-payment-liqpay.svg`: 500×104, 9,874 bytes, white-background version from the [LiqPay brandbook](https://www.liqpay.ua/uk/information/brand_book), downloaded from [its official SVG archive](https://www.liqpay.ua/logos/logo-liqpay-svg.zip).
 - `nbk-payment-privat-installments.png`: 403×225, 7,623 bytes, transparent `Лого/403x224_ОЧ_3.png` from the [PrivatBank brand materials](https://privatbank.ua/cpa/style?och_mp=another_material) and [official installment-logo archive](https://static.privatbank.ua/files/logo_och-mp_14_04_21.zip). The archive filename differs by one pixel from the actual image height.
 
-Copy follows the official [LiqPay card-payment explanation](https://www.liqpay.ua/uk/methods/card_pay) and [PrivatBank service description](https://privatbank.ua/kredyty/oplata-chastynamy-ta-myttyeva-rozstrochka). It makes no fixed payment-count, interest or fee claim. PrivatBank eligibility mentions its card and an available service limit.
+These are informational theme changes. No checkout configuration, payment gateway or shipping rate is changed.
 
-Validation: all seven changed/new theme files passed Shopify validation. Nine focused actual Liquid renders covered UA/EN/RU with the current section format, markup starting directly with a section, and the fallback. Browser checks confirmed exactly two cards in the intended order, both images loaded from Shopify CDN with `object-fit: contain`, Ukrainian/English descriptions, and no horizontal overflow at desktop and 390px. Only unpublished theme `199582843040` received the selective upload.
+Validation: all seven changed Liquid/locale files passed Shopify theme validation. Selective uploads to unpublished theme `199582843040` succeeded. Browser checks confirmed all nine method rows, loaded logos, a two-column desktop layout and a single-column 390px layout without horizontal overflow. Keyboard activation opens the mobile accordion. The English summary and `/en/pages/order-and-delivery` link render correctly. The quick-view call site uses the same validated snippet; it was not separately exercised in the browser.

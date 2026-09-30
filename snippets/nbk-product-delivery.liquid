@@ -1,80 +1,101 @@
 {% doc %}
-  Formats the delivery page for a product accordion without its global page CSS.
-  @param {string} content - The existing, localized delivery page HTML.
+  Displays a compact, localized summary of the payment and delivery methods.
+  @param {string} [page_url] - The localized URL of the full payment and delivery policy.
 {% enddoc %}
-{%- liquid
-  assign page_content = content
-  assign style_fragments = content | split: '<style'
-  for fragment in style_fragments offset: 1
-    assign style_tag = fragment | split: '</style>' | first | prepend: '<style' | append: '</style>'
-    assign page_content = page_content | remove: style_tag
-  endfor
-  assign page_content = page_content | remove: '<p>&nbsp;</p>' | remove: '<p> </p>' | replace: '&nbsp;', ' ' | replace: ' ', ' '
-  assign page_sections = page_content | split: '<div class="section">'
--%}
 <div class="nbk-product-delivery">
-  {%- for page_section in page_sections -%}
-    {%- unless forloop.first -%}{% echo '<div class="section">' %}{%- endunless -%}
-    {{ page_section }}
-    {%- if forloop.index == 2 -%}{% render 'nbk-product-payment-methods' %}{%- endif -%}
-  {%- endfor -%}
-  {%- if page_sections.size < 2 -%}{% render 'nbk-product-payment-methods' %}{%- endif -%}
+  <div class="nbk-product-delivery__groups">
+  <div class="nbk-product-delivery__group">
+    <h3 class="nbk-product-delivery__heading">{{ 'nbk_delivery.payment_heading' | t }}</h3>
+    {% render 'nbk-product-payment-methods' %}
+  </div>
+  <div class="nbk-product-delivery__group">
+    <h3 class="nbk-product-delivery__heading">{{ 'nbk_delivery.delivery_heading' | t }}</h3>
+    <ul class="nbk-product-delivery__list" role="list">
+      <li class="nbk-product-delivery__row">
+        <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.nova_poshta_title' | t }}</strong>
+        <p class="nbk-product-delivery__description">{{ 'nbk_delivery.nova_poshta_description' | t }}</p>
+      </li>
+      <li class="nbk-product-delivery__row">
+        <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.ukrposhta_title' | t }}</strong>
+        <p class="nbk-product-delivery__description">{{ 'nbk_delivery.ukrposhta_description' | t }}</p>
+      </li>
+      <li class="nbk-product-delivery__row">
+        <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.pickup_title' | t }}</strong>
+        <p class="nbk-product-delivery__description">{{ 'nbk_delivery.pickup_description' | t }}</p>
+      </li>
+      <li class="nbk-product-delivery__row">
+        <strong class="nbk-product-delivery__name">{{ 'nbk_delivery.uklon_title' | t }}</strong>
+        <p class="nbk-product-delivery__description">{{ 'nbk_delivery.uklon_description' | t }}</p>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <p class="nbk-product-delivery__note">{{ 'nbk_delivery.checkout_note' | t }}</p>
+  {%- if page_url != blank -%}
+    <p class="nbk-product-delivery__terms"><a href="{{ page_url | escape }}">{{ 'nbk_delivery.full_terms' | t }}</a></p>
+  {%- endif -%}
 </div>
 {% stylesheet %}
-  .nbk-product-delivery .section {
-    margin: 0 0 16px;
-    padding: 16px;
-    border-radius: 8px;
-    background: #f9f9f9;
+  .nbk-product-delivery {
+    container-type: inline-size;
+    font-size: 14px;
+    line-height: 1.5;
   }
-  .nbk-product-delivery .section:last-child {
-    margin-bottom: 0;
+  .nbk-product-delivery .nbk-product-delivery__group {
+    margin: 0;
   }
-  .nbk-product-delivery :is(h2, h3, h4) {
-    margin: 0 0 12px;
+  .nbk-product-delivery .nbk-product-delivery__groups {
+    display: grid;
+    gap: 20px;
+  }
+  .nbk-product-delivery .nbk-product-delivery__heading {
+    margin: 0;
     padding: 0;
     border: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: var(--font-medium);
-    line-height: 1.4;
+    line-height: 1.5;
     text-transform: none;
   }
-  .nbk-product-delivery :is(p, ul) {
-    margin: 0 0 12px;
+  .nbk-product-delivery .nbk-product-delivery__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .nbk-product-delivery ul {
-    padding-inline-start: 20px;
+  .nbk-product-delivery .nbk-product-delivery__row {
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    border-bottom: 1px solid rgb(var(--color-line-border) / 0.5);
   }
-  .nbk-product-delivery li + li {
-    margin-top: 8px;
-  }
-  .nbk-product-delivery .section > :last-child {
-    margin-bottom: 0;
-  }
-  .nbk-product-delivery > p:has(meta):first-child {
-    display: none;
-  }
-  .nbk-product-delivery .logo {
+  .nbk-product-delivery .nbk-product-delivery__name {
     display: flex;
     align-items: center;
-    margin: 0 0 12px;
+    gap: 10px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: var(--font-medium);
+    line-height: 1.5;
   }
-  .nbk-product-delivery .logo img {
-    display: block;
-    width: 150px;
-    height: 50px;
-    object-fit: contain;
-    object-position: left center;
+  .nbk-product-delivery .nbk-product-delivery__description {
+    margin: 4px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
   }
-  .nbk-product-delivery .logo img[src*="223553a6a841c975b5a4ebd68fdf0740"] {
-    object-fit: cover;
-    object-position: center;
+  .nbk-product-delivery .nbk-product-delivery__note {
+    margin: 16px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
   }
-  .nbk-product-delivery p > img {
-    display: block;
-    width: 200px;
-    height: auto;
-    max-width: 100%;
-    margin-block: 12px;
+  .nbk-product-delivery .nbk-product-delivery__terms {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  @container (min-width: 620px) {
+    .nbk-product-delivery .nbk-product-delivery__groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 28px;
+    }
   }
 {% endstylesheet %}
