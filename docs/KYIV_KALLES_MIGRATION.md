@@ -114,3 +114,39 @@ Added the legacy `#app-inbox` mount to the Kalles header once, with space for th
 The footer newsletter remains Shopify's native subscription form. Receipt/sync in Yespo is not verified. No subscriber or message was created during this work.
 
 Validation: all new/changed logo, footer, locale and Inbox host files passed Shopify Liquid validation using cached schemas. The reduced analytics snippet reports only the existing external Ahrefs CDN performance diagnostic; its loader is unchanged. Shopify accepted uploads to unpublished theme `199582843040`. Browser checks confirmed the SVG loads at 160px desktop and 120px mobile (including sticky state), one Inbox mount, UA/EN review text and profile link, and no horizontal overflow at 1280px and 390px. The live theme is unchanged.
+
+## Warsaw feature parity — September 30
+
+Adapted the active Warsaw feature set at `pl-newbornk-com/kalles-main` `915a99d3f6d8bfbef4db42c985b02be34a19f3a9` to Kyiv after PR #77. The additions remain on `kalles-dev` for review into `kalles-main` and unpublished theme `199582843040`.
+
+### Navigation and homepage
+
+- Three desktop mega-menus retain Kyiv's current nested navigation and empty-collection guards, with a collection promotion and the native four-product carousel. Men, women and accessories match the destination collection, so translating menu titles does not disconnect their content. The mobile menu is unchanged.
+- Promotions use existing Kyiv images with lazy loading, uncropped product photographs and translated UA/EN/RU links.
+- Added two native collection-card rows: CARNE BOLLENTE / GRAMICCI / A-COLD-WALL, then CARHARTT WIP / NEW AMSTERDAM. Existing homepage sections, their settings and relative order are preserved.
+- Added a native ten-brand carousel. All ten linked collections were confirmed to contain products. It uses lightweight brand names; optional logo pickers accept real brand artwork later. No additional JavaScript is needed. Empty collections are hidden.
+
+### SEO
+
+H1 uses the resource title rather than the search-engine title, retaining the wishlist translation. Removed duplicate Organization emission from all four header variants. The existing connected Kyiv JSON-LD graph now conditionally emits valid GTINs, taxonomy material/audience, and variant-specific color/material. Missing or ambiguous data is omitted. Existing review and Kyiv offer-policy values are preserved.
+
+CollectionPage remains on every collection page. ItemList is emitted only on page one and its count matches the rendered subset, preventing first-page products from being described again on later pages.
+
+### Yespo acceptance status
+
+The installed Yespo Shopify app shows **App Inbox Enabled**, **Web Tracking Enabled** and **Data Sync Enabled**. Its historical synchronization reports 7,201 customers synchronized / 33 failed, and 5,062 orders synchronized / 24 failed. No resync or configuration change was performed.
+
+Authenticated Chrome testing confirmed the header bell mounts in the existing `#app-inbox`, opens an existing Ukrainian message and closes normally. This resolves the authenticated desktop Inbox check left open after PR #77. No message was created or sent during this verification.
+
+The footer continues to use Shopify's native customer newsletter form, including marketing consent and the `newsletter` tag. The installed app supports Shopify-to-Yespo synchronization, but **a new signup's receipt and consent in both systems still need an end-to-end test using a merchant-provided test email**. Historical sync failures are not evidence that this new form failed. No subscriber was created during this work.
+
+### Verification and remaining acceptance
+
+- All 19 changed/new theme files pass Shopify Liquid/schema validation (cached Shopify schemas); the final brand-indicator contrast adjustment passes again.
+- Existing Node regression suite: 29 passing tests. New actual Liquid-render suite: 6 passing tests covering JSON validity, escaping, reviews/policies, GTINs, missing/variant taxonomy data, collection pagination and H1 selection. See `tests/liquid/README.md` for the command.
+- Shopify accepted selective uploads only to the unpublished theme.
+- Desktop Chrome: all three mega-menus open in UA/EN, promotion images load, nested URLs retain the locale, four product cards are present, Space/Enter open and Escape closes; tall menus retain native vertical scrolling.
+- Desktop carousel advances with native previous/next controls. At 390px, the mobile menu expands categories, the brand carousel advances, and the document has no horizontal overflow. Editorial images use `object-fit: contain`.
+- Live-rendered collection and product JSON-LD parses correctly, contains one Organization and one resource H1. Page two retains CollectionPage without ItemList; product offers retain UAH.
+
+Before launch, finish the test newsletter signup, existing English resource/theme translation review (including “To men” / “To women” and Ukrainian homepage campaign text), and the separate Chekly/payment/analytics acceptance checks. Publishing remains a separate merchant decision. No Warsaw discount, Klaviyo account, AI chat, currency setup or campaign was copied.

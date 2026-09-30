@@ -106,7 +106,7 @@
     {% comment %} {%- section 'product-card-configs' -%} {% endcomment %}
     {%- unless template == 'product.only_config' and request.design_mode == false -%}
     {%- if request.page_type == "index" or request.page_type == "policy" -%}
-    <h1 class="hdt-hidden">{{ page_title | default: shop.name }}</h1>
+    <h1 class="hdt-hidden">{% render 'nbk-page-h1' %}</h1>
     {%- endif -%}
     {%- render 's-dom-temp' -%}
     <a class="skip-to-content-link button sr-only " href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>

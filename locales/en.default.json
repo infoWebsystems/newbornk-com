@@ -988,5 +988,15 @@
       "one": "{{ count }} Google review",
       "other": "{{ count }} Google reviews"
     }
+  },
+  "nbk_home": {
+    "brands": "BRANDS",
+    "previous_brands": "Previous brands",
+    "next_brands": "Next brands"
+  },
+  "nbk_menu": {
+    "shop_men": "Shop men",
+    "shop_women": "Shop women",
+    "shop_accessories": "Shop accessories"
   }
 }

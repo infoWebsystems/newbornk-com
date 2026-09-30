@@ -77,9 +77,376 @@
             "header_mobile_colors": "",
             "note_mobile": "<p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p><p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p><p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">м Київ, вул. Велика Житомирська, 20</a></p>"
           }
+        },
+        "nbk_mega_men": {
+          "type": "_mega_block_column_12",
+          "settings": {
+            "is_categories": false,
+            "title": "ЧОЛОВІКАМ",
+            "menu_collection": "cholovikam",
+            "mega_menu_colors": "",
+            "mega_width": "full",
+            "mega_position": "bottom",
+            "mega_custom_width": 1200,
+            "item_spacing": 20
+          },
+          "blocks": {
+            "links_column_men": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "6",
+                "spacing_h_dk": 20,
+                "spacing_v_dk": 20,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {
+                "links_men": {
+                  "type": "_mega_link-list",
+                  "settings": {
+                    "title": "",
+                    "linklist": "",
+                    "menu_collection": "cholovikam"
+                  }
+                }
+              },
+              "block_order": [
+                "links_men"
+              ]
+            },
+            "promo_men": {
+              "type": "_nbk-menu-promo",
+              "settings": {
+                "collection": "cholovikam",
+                "image": "shopify://shop_images/Frame119-2.webp",
+                "label": "men"
+              }
+            },
+            "products_column_men": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "3",
+                "spacing_h_dk": 20,
+                "spacing_v_dk": 20,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {
+                "products_men": {
+                  "type": "_product-carousel",
+                  "name": "t:blocks.product_carousel.name",
+                  "settings": {
+                    "collection": "cholovikam",
+                    "products_count": 4,
+                    "product_list": [],
+                    "pr_border": "none",
+                    "product_des": "3",
+                    "image_ratio": "adapt_image",
+                    "image_size": false,
+                    "show_vendor": true,
+                    "hdt_slide_center": false,
+                    "hdt_opacity_out_container": false,
+                    "col_dk": "1",
+                    "col_tb": "1",
+                    "col_mb": "1",
+                    "space_items": "x",
+                    "pagination": false,
+                    "paginate_pos": "center",
+                    "dis_pagination": 30,
+                    "btn_label": "",
+                    "btn_style": "",
+                    "icon": "none",
+                    "size": "m",
+                    "btn_fw": "medium",
+                    "font_size_btn": 14,
+                    "padding_btn": 30,
+                    "min_width_btn": 100,
+                    "min_width_dt_btn": 100,
+                    "min_height_btn": 40,
+                    "loop": true,
+                    "autoplay": 0,
+                    "pauseOnHover": false,
+                    "navUI": false,
+                    "nav_position": "default",
+                    "nav_visible": "always",
+                    "nav_style": "default",
+                    "nav_shape": "default",
+                    "nav_size": "small",
+                    "nav_hide_mobile": false,
+                    "dotUI": true,
+                    "pag_style": "elessi",
+                    "pag_rounded": true,
+                    "pag_space": 10,
+                    "pag_mgt": 30,
+                    "only_show_mobile": false,
+                    "pag_hide_mobile": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "products_men"
+              ]
+            }
+          },
+          "block_order": [
+            "links_column_men",
+            "promo_men",
+            "products_column_men"
+          ]
+        },
+        "nbk_mega_women": {
+          "type": "_mega_block_column_12",
+          "settings": {
+            "is_categories": false,
+            "title": "ЖІНКАМ",
+            "menu_collection": "women",
+            "mega_menu_colors": "",
+            "mega_width": "full",
+            "mega_position": "bottom",
+            "mega_custom_width": 1200,
+            "item_spacing": 20
+          },
+          "blocks": {
+            "links_column_women": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "6",
+                "spacing_h_dk": 20,
+                "spacing_v_dk": 20,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {
+                "links_women": {
+                  "type": "_mega_link-list",
+                  "settings": {
+                    "title": "",
+                    "linklist": "",
+                    "menu_collection": "women"
+                  }
+                }
+              },
+              "block_order": [
+                "links_women"
+              ]
+            },
+            "promo_women": {
+              "type": "_nbk-menu-promo",
+              "settings": {
+                "collection": "women",
+                "image": "shopify://shop_images/Frame2.webp",
+                "label": "women"
+              }
+            },
+            "products_column_women": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "3",
+                "spacing_h_dk": 20,
+                "spacing_v_dk": 20,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {
+                "products_women": {
+                  "type": "_product-carousel",
+                  "name": "t:blocks.product_carousel.name",
+                  "settings": {
+                    "collection": "women",
+                    "products_count": 4,
+                    "product_list": [],
+                    "pr_border": "none",
+                    "product_des": "3",
+                    "image_ratio": "adapt_image",
+                    "image_size": false,
+                    "show_vendor": true,
+                    "hdt_slide_center": false,
+                    "hdt_opacity_out_container": false,
+                    "col_dk": "1",
+                    "col_tb": "1",
+                    "col_mb": "1",
+                    "space_items": "x",
+                    "pagination": false,
+                    "paginate_pos": "center",
+                    "dis_pagination": 30,
+                    "btn_label": "",
+                    "btn_style": "",
+                    "icon": "none",
+                    "size": "m",
+                    "btn_fw": "medium",
+                    "font_size_btn": 14,
+                    "padding_btn": 30,
+                    "min_width_btn": 100,
+                    "min_width_dt_btn": 100,
+                    "min_height_btn": 40,
+                    "loop": true,
+                    "autoplay": 0,
+                    "pauseOnHover": false,
+                    "navUI": false,
+                    "nav_position": "default",
+                    "nav_visible": "always",
+                    "nav_style": "default",
+                    "nav_shape": "default",
+                    "nav_size": "small",
+                    "nav_hide_mobile": false,
+                    "dotUI": true,
+                    "pag_style": "elessi",
+                    "pag_rounded": true,
+                    "pag_space": 10,
+                    "pag_mgt": 30,
+                    "only_show_mobile": false,
+                    "pag_hide_mobile": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "products_women"
+              ]
+            }
+          },
+          "block_order": [
+            "links_column_women",
+            "promo_women",
+            "products_column_women"
+          ]
+        },
+        "nbk_mega_accessories": {
+          "type": "_mega_block_column_12",
+          "settings": {
+            "is_categories": false,
+            "title": "АКСЕСУАРИ",
+            "menu_collection": "accessoires",
+            "mega_menu_colors": "",
+            "mega_width": "full",
+            "mega_position": "bottom",
+            "mega_custom_width": 1200,
+            "item_spacing": 20
+          },
+          "blocks": {
+            "links_column_accessories": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "6",
+                "spacing_h_dk": 20,
+                "spacing_v_dk": 20,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {
+                "links_accessories": {
+                  "type": "_mega_link-list",
+                  "settings": {
+                    "title": "",
+                    "linklist": "",
+                    "menu_collection": "accessoires"
+                  }
+                }
+              },
+              "block_order": [
+                "links_accessories"
+              ]
+            },
+            "promo_accessories": {
+              "type": "_nbk-menu-promo",
+              "settings": {
+                "collection": "accessoires",
+                "image": "shopify://shop_images/Frame14.webp",
+                "label": "accessories"
+              }
+            },
+            "products_column_accessories": {
+              "type": "_multi_column_12",
+              "settings": {
+                "column_dk": "3",
+                "spacing_h_dk": 20,
+                "spacing_v_dk": 20,
+                "content_position": "auto",
+                "alignment": "center",
+                "background_color": "#fff",
+                "rounded": "none"
+              },
+              "blocks": {
+                "products_accessories": {
+                  "type": "_product-carousel",
+                  "name": "t:blocks.product_carousel.name",
+                  "settings": {
+                    "collection": "accessoires",
+                    "products_count": 4,
+                    "product_list": [],
+                    "pr_border": "none",
+                    "product_des": "3",
+                    "image_ratio": "adapt_image",
+                    "image_size": false,
+                    "show_vendor": true,
+                    "hdt_slide_center": false,
+                    "hdt_opacity_out_container": false,
+                    "col_dk": "1",
+                    "col_tb": "1",
+                    "col_mb": "1",
+                    "space_items": "x",
+                    "pagination": false,
+                    "paginate_pos": "center",
+                    "dis_pagination": 30,
+                    "btn_label": "",
+                    "btn_style": "",
+                    "icon": "none",
+                    "size": "m",
+                    "btn_fw": "medium",
+                    "font_size_btn": 14,
+                    "padding_btn": 30,
+                    "min_width_btn": 100,
+                    "min_width_dt_btn": 100,
+                    "min_height_btn": 40,
+                    "loop": true,
+                    "autoplay": 0,
+                    "pauseOnHover": false,
+                    "navUI": false,
+                    "nav_position": "default",
+                    "nav_visible": "always",
+                    "nav_style": "default",
+                    "nav_shape": "default",
+                    "nav_size": "small",
+                    "nav_hide_mobile": false,
+                    "dotUI": true,
+                    "pag_style": "elessi",
+                    "pag_rounded": true,
+                    "pag_space": 10,
+                    "pag_mgt": 30,
+                    "only_show_mobile": false,
+                    "pag_hide_mobile": false
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "products_accessories"
+              ]
+            }
+          },
+          "block_order": [
+            "links_column_accessories",
+            "promo_accessories",
+            "products_column_accessories"
+          ]
         }
       },
-      "block_order": [],
+      "block_order": [
+        "nbk_mega_men",
+        "nbk_mega_women",
+        "nbk_mega_accessories"
+      ],
       "custom_css": [
         ".hdt-mini-cart__header-title {text-transform: uppercase;}",
         "@media (width >= 1350px) {.hdt-search_inner {width: 250px; }}",

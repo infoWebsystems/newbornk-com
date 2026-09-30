@@ -990,5 +990,15 @@
       "many": "{{ count }} отзывов Google",
       "other": "{{ count }} отзыва Google"
     }
+  },
+  "nbk_home": {
+    "brands": "БРЕНДЫ",
+    "previous_brands": "Предыдущие бренды",
+    "next_brands": "Следующие бренды"
+  },
+  "nbk_menu": {
+    "shop_men": "Посмотреть мужскую коллекцию",
+    "shop_women": "Посмотреть женскую коллекцию",
+    "shop_accessories": "Посмотреть аксессуары"
   }
 }

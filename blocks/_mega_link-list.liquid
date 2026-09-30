@@ -1,12 +1,19 @@
 {% liquid
   assign link = block.settings.linklist
-  if block.settings.title != blank and block.settings.linklist == blank
+  if block.settings.menu_collection != blank
+    for parent_link in section.settings.main_menu.links
+      assign parent_collection_handle = parent_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+      if parent_link.object.handle == block.settings.menu_collection.handle or parent_collection_handle == block.settings.menu_collection.handle
+        assign link = parent_link
+        break
+      endif
+    endfor
+  elsif block.settings.title != blank and block.settings.linklist == blank
     assign map_title_lv1 = section.settings.main_menu.links | map: 'title'
     for title in map_title_lv1
       assign title_trim = title | split: '['
       if title_trim[0] == block.settings.title
         assign link = section.settings.main_menu.links | where: 'title', title | first
-        assign index = section.settings.main_menu.links | find_index: 'title', title
         break
       endif
     endfor
@@ -24,7 +31,7 @@
   {%- endif -%}
 {%- endfor -%}
 {%- if nbk_columns > 0 -%}
-<div class="hdt-row-grid hdt-grid-cols-{{ nbk_columns | at_most: 6 }} hdt-text-start">
+<div class="hdt-row-grid hdt-grid-cols-{{ nbk_columns | at_most: 6 }} hdt-text-start{% if block.settings.menu_collection != blank %} nbk-menu-categories{% endif %}">
   {%- for link in link.links -%}
 {%- capture nbk_link_state -%}{%- render 'nbk-menu-state', item: link -%}{%- endcapture -%}
 {%- liquid
@@ -139,11 +146,21 @@
   {%- endfor -%}
 </div>
 {%- endif -%}
+{% stylesheet %}
+.nbk-menu-categories {grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.nbk-menu-categories a {overflow-wrap:anywhere;}
+{% endstylesheet %}
 {% schema %}
   {
     "name": "Mega Link List",
     "tag": null,
     "settings": [
+      {
+        "type": "collection",
+        "id": "menu_collection",
+        "label": "Use this main-menu collection’s links",
+        "info": "Preserves the store navigation and its translations. Leave blank to use the title or linklist below."
+      },
       {
         "type": "text",
         "id": "title",

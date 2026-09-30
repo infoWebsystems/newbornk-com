@@ -1,0 +1,42 @@
+{% doc %}
+  Displays a localized collection promotion inside a native Kalles mega-menu.
+{% enddoc %}
+{%- liquid
+  assign promo_collection = block.settings.collection
+  assign promo_image = block.settings.image | default: promo_collection.image | default: promo_collection.products.first.featured_image
+  assign label_key = 'nbk_menu.shop_' | append: block.settings.label
+-%}
+{%- if promo_collection != blank and promo_collection.all_products_count > 0 -%}
+  <div class="hdt-column hdt-g-col hdt-g-col-3 nbk-menu-promo" {{ block.shopify_attributes }}>
+    <a class="nbk-menu-promo__link" href="{{ promo_collection.url }}">
+      {%- if promo_image != blank -%}
+        {{ promo_image | image_url: width: 640 | image_tag: loading: 'lazy', fetchpriority: 'low', class: 'nbk-menu-promo__image', sizes: '(min-width: 1150px) 22vw, 280px', widths: '200,320,480,640', alt: '' }}
+      {%- endif -%}
+      <span class="nbk-menu-promo__label">{{ label_key | t }}<span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+{%- endif -%}
+{% stylesheet %}
+.nbk-menu-promo {padding:20px;align-self:start;}
+.nbk-menu-promo__link {display:block;color:inherit;}
+.nbk-menu-promo__image {display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:#f6f6f6;}
+.nbk-menu-promo__label {display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;margin-top:12px;font-size:14px;line-height:1.4;text-align:left;}
+.nbk-menu-promo__link:hover .nbk-menu-promo__label {text-decoration:underline;text-underline-offset:4px;}
+.nbk-menu-promo__link:focus-visible {outline:2px solid currentColor;outline-offset:4px;}
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Kyiv menu promotion",
+  "tag": null,
+  "settings": [
+    {"type":"collection","id":"collection","label":"Collection"},
+    {"type":"image_picker","id":"image","label":"Image","info":"Uses the collection or first product image when blank."},
+    {"type":"select","id":"label","label":"Link label","default":"men","options":[
+      {"value":"men","label":"Men"},
+      {"value":"women","label":"Women"},
+      {"value":"accessories","label":"Accessories"}
+    ]}
+  ],
+  "presets":[{"name":"Kyiv menu promotion"}]
+}
+{% endschema %}

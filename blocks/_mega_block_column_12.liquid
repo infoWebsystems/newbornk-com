@@ -13,7 +13,7 @@
   assign index = 0
 
   # Only proceed if block has a title
-  if block.settings.title != blank
+  if block.settings.title != blank or block.settings.menu_collection != blank
     # Split the title by " - " to handle different section types
     # Format: "Brand - MenuItem" for e-commerce, "MenuItem" for standard
     assign block_title_parts = block.settings.title | split: " - "
@@ -109,7 +109,16 @@
         # Split menu link title to handle labels in brackets [label1,label2]
         assign link_title_parts = menu_link.title | split: '['
         # Match the menu item name (before any labels)
-        if link_title_parts[0] == block_title_parts
+        assign matches_menu = false
+        if block.settings.menu_collection != blank
+          assign menu_collection_handle = menu_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+          if menu_link.object.handle == block.settings.menu_collection.handle or menu_collection_handle == block.settings.menu_collection.handle
+            assign matches_menu = true
+          endif
+        elsif link_title_parts[0] == block_title_parts
+          assign matches_menu = true
+        endif
+        if matches_menu
           assign link = menu_link
           assign index = forloop.index0
           break
@@ -148,10 +157,14 @@
     break
   endif
 -%}
+{%- capture nbk_parent_state -%}{%- render 'nbk-menu-state', item: link -%}{%- endcapture -%}
+{%- assign nbk_parent_state = nbk_parent_state | strip | split: '|' -%}
+{%- assign nbk_parent_children = nbk_parent_state[0] | plus: 0 -%}
+{%- if nbk_parent_children > 0 or nbk_parent_state[1] == '1' -%}
 <li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col {{ li_class }}" data-index="{{ index | plus: 1 }}" {{ block.shopify_attributes }} style="order: {{ index | plus: 1 }};">
   <hdt-header-menu class="hdt-contents" opened-able-click event="{{ section.settings.open_event }}" position="{{ mega_position }}" {{ block.shopify_attributes }}>
     <details {% if mega_width == "full" or mega_width == "container" %} not-need-calc {% elsif mega_width == "custom" %} style="--mega-width: {{ mega_custom_width }}px;"{% endif %}>
-      <summary data-url="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-{{ section.settings.menu_size }} hdt-font-{{ section.settings.menu_weight }}{% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}">
+      <summary {% if nbk_parent_state[1] == '1' %}data-url="{{ link.url }}"{% endif %} class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-{{ section.settings.menu_size }} hdt-font-{{ section.settings.menu_weight }}{% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}">
         <span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title.size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
           {%- if block.settings.is_categories and image_item != blank -%}
             <span class="hdt-category-img hdt-relative">
@@ -189,11 +202,18 @@
     </details>
   </hdt-header-menu>
 </li>
+{%- endif -%}
 {% schema %}
   {
     "name": "Mega Block Column (12)",
     "tag": null,
     "settings": [
+      {
+        "type": "collection",
+        "id": "menu_collection",
+        "label": "Match menu by collection",
+        "info": "Uses the collection destination across storefront languages. Leave blank to match by title."
+      },
       {
         "type": "checkbox",
         "id": "is_categories",
@@ -275,6 +295,9 @@
       }
     ],
     "blocks": [
+      {
+        "type": "_nbk-menu-promo"
+      },
       {
         "type": "@theme",
       },
