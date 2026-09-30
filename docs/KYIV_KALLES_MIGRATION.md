@@ -125,7 +125,7 @@ Adapted the active Warsaw feature set at `pl-newbornk-com/kalles-main` `915a99d3
 - Categories retain Kyiv's current navigation, nested links and empty-collection guards. Brands prefer the current main-menu branch, retain its real destinations, and are filtered by the selected collection's vendors and nonempty brand collections. Preview currently renders 34 men's brands and 35 women's brands.
 - Promotions use existing Kyiv portrait images with lazy loading, natural image ratios, 30px column padding and translated UA/EN/RU underlined links. Men/women promotions open the corresponding collection sorted by newest products.
 - Added two native collection-card rows: CARNE BOLLENTE / GRAMICCI / A-COLD-WALL, then CARHARTT WIP / NEW AMSTERDAM. Existing homepage sections, their settings and relative order are preserved.
-- Added a native ten-brand carousel. All ten linked collections were confirmed to contain products. It uses lightweight brand names; optional logo pickers accept real brand artwork later. No additional JavaScript is needed. Empty collections are hidden.
+- Added a native brand carousel, subsequently populated with eleven real Warsaw logos copied into Kyiv's Shopify Files. All linked Kyiv collections were confirmed to contain products. The logo image pickers remain editable, with collection-title fallback if cleared. No additional JavaScript is needed. Empty collections are hidden.
 
 ### SEO
 
@@ -153,3 +153,11 @@ The footer continues to use Shopify's native customer newsletter form, including
 Before launch, finish the test newsletter signup, existing English resource/theme translation review (including “To men” / “To women” and Ukrainian homepage campaign text), and the separate Chekly/payment/analytics acceptance checks. Publishing remains a separate merchant decision. No Warsaw discount, Klaviyo account, AI chat, currency setup or campaign was copied.
 
 The mega-menu layout correction additionally passed validation for all seven affected theme files and five focused actual Liquid-render tests. Desktop checks covered three Ukrainian menus, English group labels, locale-preserving URLs, loaded portrait images, 30px padding and no horizontal overflow at 1440px. The existing mobile drawer and nested links open at 390px without horizontal overflow. When uploading new block setting definitions, upload the section-group settings again after the block schema is registered: Shopify can otherwise discard the new setting values during the same batch upload.
+
+### Brand-logo transfer
+
+The homepage carousel uses real logo artwork transferred from Warsaw's `logo_list_NNyq4Q` to Kyiv's Shopify Files as `nbk-brand-<collection-handle>.png`: CARHARTT WIP, NEW AMSTERDAM, BAREEN, CARNE BOLLENTE, GRAMICCI, HAN KJØBENHAVN, A-COLD-WALL, CÔTE&CIEL, PAS NORMAL STUDIOS, ROMBAUT and XLARGE. The theme references Kyiv's own files through image pickers and serves responsive, lazy-loaded images with brand-name alt text and uncropped proportions. PAS NORMAL STUDIOS uses Kyiv's plural collection handle `pas-normal-studios`.
+
+Goldwin has no matching Kyiv collection and RIOTDIVISION currently has zero products, so neither is included. The previous text-only entries for Heliot Emil, Edwin and Arte Antwerp are omitted from this logo strip because no corresponding Warsaw logo artwork was found; their collections and other navigation remain available. No substitute artwork was invented.
+
+Validation: the homepage JSON passed Shopify schema validation and was selectively uploaded to unpublished theme `199582843040`. All eleven logo images load from Kyiv's CDN and link to Kyiv collections. Native previous/next controls work at 1440px and 390px, images retain `object-fit: contain`, and neither viewport has document overflow.

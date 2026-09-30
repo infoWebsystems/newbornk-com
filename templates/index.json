@@ -1555,61 +1555,78 @@
         "carhartt_wip": {
           "type": "brand",
           "settings": {
-            "collection": "carhartt-wip"
+            "collection": "carhartt-wip",
+            "logo": "shopify://shop_images/nbk-brand-carhartt-wip.png"
           }
         },
         "new_amsterdam": {
           "type": "brand",
           "settings": {
-            "collection": "new-amsterdam"
+            "collection": "new-amsterdam",
+            "logo": "shopify://shop_images/nbk-brand-new-amsterdam.png"
           }
         },
         "bareen": {
           "type": "brand",
           "settings": {
-            "collection": "bareen"
+            "collection": "bareen",
+            "logo": "shopify://shop_images/nbk-brand-bareen.png"
           }
         },
         "carne_bollente": {
           "type": "brand",
           "settings": {
-            "collection": "carne-bollente"
+            "collection": "carne-bollente",
+            "logo": "shopify://shop_images/nbk-brand-carne-bollente.png"
           }
         },
         "gramicci": {
           "type": "brand",
           "settings": {
-            "collection": "gramicci"
+            "collection": "gramicci",
+            "logo": "shopify://shop_images/nbk-brand-gramicci.png"
           }
         },
         "han_kjobenhavn": {
           "type": "brand",
           "settings": {
-            "collection": "han-kjobenhavn"
-          }
-        },
-        "heliot_emil": {
-          "type": "brand",
-          "settings": {
-            "collection": "heliot-emil"
-          }
-        },
-        "edwin": {
-          "type": "brand",
-          "settings": {
-            "collection": "edwin"
-          }
-        },
-        "arte_antwerp": {
-          "type": "brand",
-          "settings": {
-            "collection": "arte-antwerp"
+            "collection": "han-kjobenhavn",
+            "logo": "shopify://shop_images/nbk-brand-han-kjobenhavn.png"
           }
         },
         "a_cold_wall": {
           "type": "brand",
           "settings": {
-            "collection": "a-cold-wall"
+            "collection": "a-cold-wall",
+            "logo": "shopify://shop_images/nbk-brand-a-cold-wall.png"
+          }
+        },
+        "cote_ciel": {
+          "type": "brand",
+          "settings": {
+            "collection": "cote-ciel",
+            "logo": "shopify://shop_images/nbk-brand-cote-ciel.png"
+          }
+        },
+        "pas_normal_studios": {
+          "type": "brand",
+          "settings": {
+            "collection": "pas-normal-studios",
+            "logo": "shopify://shop_images/nbk-brand-pas-normal-studios.png"
+          }
+        },
+        "rombaut": {
+          "type": "brand",
+          "settings": {
+            "collection": "rombaut",
+            "logo": "shopify://shop_images/nbk-brand-rombaut.png"
+          }
+        },
+        "xlarge": {
+          "type": "brand",
+          "settings": {
+            "collection": "xlarge",
+            "logo": "shopify://shop_images/nbk-brand-xlarge.png"
           }
         }
       },
@@ -1620,10 +1637,11 @@
         "carne_bollente",
         "gramicci",
         "han_kjobenhavn",
-        "heliot_emil",
-        "edwin",
-        "arte_antwerp",
-        "a_cold_wall"
+        "a_cold_wall",
+        "cote_ciel",
+        "pas_normal_studios",
+        "rombaut",
+        "xlarge"
       ]
     }
   },
