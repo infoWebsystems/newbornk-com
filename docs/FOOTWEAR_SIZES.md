@@ -23,6 +23,8 @@ Kalles sorts the EU values numerically, including thirds, and labels selected ch
 
 Shopify Flow maintains these two fields. The inventory workflow uses **Product variant inventory quantity changed**; the new-variant workflow uses **Product variant added**. Each parses the variant's original size and updates/removes the canonical and availability fields. Stock, SKU and raw option values are never written by these workflows.
 
+An hourly reconciliation reads active tagged footwear and compares the two exact variant metadata fields. It emits only changed rows, so a fully synchronized catalog produces no writes. Query-completeness and output-size guards stop incomplete scans before changing data. Versioned scripts, exact Flow input/output GraphQL, alias setup, growth limits and tag-removal cleanup are documented in [the maintenance sources](../ops/shopify-flow/footwear-eu/README.md).
+
 Stock indexing is asynchronous: native Flow execution and Shopify's search index can introduce a delay. The picker still uses the variant's current native availability. Watch Flow failures in Shopify; do not treat the filter index as inventory or a reservation system.
 
 ## October 1 verification
@@ -32,6 +34,9 @@ Stock indexing is asynchronous: native Flow execution and Shopify's search index
 - Fourteen focused Liquid-render tests passed. The nine uploaded theme files passed targeted validation; the existing picker warning about `hide_update_value` is unchanged. Remote Liquid files and parsed locale JSON match the working tree.
 - On a 390px New Balance product page, the 16-size fieldset shrank from approximately 789px to 211px. Selecting available EU 42.5 after unavailable EU 42 updates the selected variant, original US/CM reference and purchase button. No cart item or order was created in this pass.
 - English Salomon buttons display ordered fractional EU values after recognizing its translated Ukrainian option name.
+- Collection cards display the `EU` prefix, four compact available size labels and the native remaining-size count; the original combined measurement stays hidden in the card's selected-value element.
+- Both active event workflows were exported and compared with their versioned script/input/output. Native Flow previews verified available EU 42.5 and the unavailable EU 42 removal branch, without changing stock. These previews are not evidence of a real inventory event.
+- Nine synthetic Flow test groups passed, covering parsing, unchanged metadata, changed availability, invalid-size cleanup, ID preservation, input immutability and complete-query/output guards. Native scripts, queries, schemas, alias mappings and mutation targets were independently checked against all three exported workflows.
 - Search & Discovery saved the new source and displays its 31 available values. Storefront filtering is still awaiting index propagation: the facet is absent and a direct EU 42 query currently returns no products. This is **not yet a passed end-to-end filter check**. Shopify documents up to 24–48 hours for new metafield values to appear; see [filter troubleshooting](https://help.shopify.com/en/manual/online-store/storefront-search/search-and-discovery-filters#troubleshooting-filter-display-issues). An unchanged-title save on one product was a no-op and did not force reindexing.
 
 Only the unpublished Kyiv Kalles preview received theme files. The Search & Discovery filter and metadata are store-level configuration, so any compatible live theme may display the filter once indexing completes.
