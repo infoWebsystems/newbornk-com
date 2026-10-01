@@ -1,0 +1,14 @@
+query {
+  getProductData {
+    id
+    tags
+    variantsCount { count }
+    variants {
+      id
+      canonicalEu { value }
+      availableEu { value }
+      availableForSale
+      selectedOptions { name value }
+    }
+  }
+}

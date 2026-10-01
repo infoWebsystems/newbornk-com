@@ -7,7 +7,13 @@
         <h3 class="hdt-product__modal-title">{{ block.settings.page_delivery.title }}</h3>
       </div> {% endcomment %}
       <div class="hdt-dialog-modal__inner hdt-current-scrollbar">
-        <div class="hdt-rte">{{ block.settings.page_delivery.content }}</div>
+        <div class="hdt-rte">
+          {% if block.settings.page_delivery.handle == 'order-and-delivery' %}
+            {% render 'nbk-product-delivery', page_url: block.settings.page_delivery.url %}
+          {% else %}
+            {{ block.settings.page_delivery.content }}
+          {% endif %}
+        </div>
       </div>
   </dialog>
   </hdt-modal>

@@ -252,7 +252,7 @@
   "products": {
     "theme_settings": {
       "color": "color,colors,couleur,colour",
-      "size": "size,sizes,Größe",
+      "size": "size,sizes,Größe,розмір,розміри,размер,размеры",
       "and": "and",
       "color_white": "white"
     },
@@ -400,6 +400,8 @@
       "label": "Media gallery"
     },
     "facets": {
+      "footwear_size_eu": "Shoe size (EU)",
+      "footwear_size_available": "Available sizes",
       "no_found": "No products match those filters.",
       "btn_filter": "Filter",
       "use_fewer_filters_html": "<div>Use fewer filters or <wrapp-hdt-facet-url><a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a></wrapp-hdt-facet-url></div>",
@@ -1002,5 +1004,32 @@
     "categories_women": "Women’s categories",
     "categories_accessories": "Accessory categories",
     "brands": "Brands"
+  },
+  "nbk_footwear": {
+    "size_label": "Size (EU)"
+  },
+  "nbk_delivery": {
+    "payment_heading": "Payment",
+    "delivery_heading": "Delivery",
+    "plata_title": "plata by mono",
+    "plata_description": "Pay online with Visa or Mastercard.",
+    "liqpay_title": "LiqPay",
+    "liqpay_description": "Pay online with Visa or Mastercard.",
+    "mono_installments_title": "monobank — Purchase in Instalments",
+    "mono_installments_description": "2–3 payments. No commission. The buyer’s phone number must match the financial phone number registered with monobank.",
+    "privat_title": "PrivatBank — Payment in Instalments",
+    "privat_description": "2–5 payments. A PrivatBank card and an available service limit are required.",
+    "pay_on_receipt_title": "Pay on receipt",
+    "pay_on_receipt_description": "Pay when collecting your order in store or at the post office.",
+    "nova_poshta_title": "Nova Poshta",
+    "nova_poshta_description": "Branch, parcel locker or address delivery. Free to a branch or parcel locker for fully prepaid orders from UAH 5,000. Dispatch: 0–1 business day; delivery: 1–2 business days.",
+    "ukrposhta_title": "Ukrposhta",
+    "ukrposhta_description": "Delivery to a branch or address.",
+    "pickup_title": "Store pickup",
+    "pickup_description": "20 Velyka Zhytomyrska Street, Kyiv. Entrance through the archway.",
+    "uklon_title": "Uklon in Kyiv",
+    "uklon_description": "Full prepayment required. Free delivery for paid orders from UAH 20,000.",
+    "checkout_note": "Available methods, the number of payments and the final delivery cost are confirmed at checkout.",
+    "full_terms": "Full payment and delivery terms"
   }
 }

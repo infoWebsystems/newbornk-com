@@ -1,0 +1,11 @@
+type Output {
+  rows: [VariantRow!]!
+  productCount: Int!
+  variantCount: Int!
+}
+type VariantRow {
+  id: String!
+  eu: String!
+  valid: Boolean!
+  available: Boolean!
+}

@@ -1,0 +1,13 @@
+query {
+  productVariant {
+    id
+    availableForSale
+    selectedOptions {
+      name
+      value
+    }
+  }
+  product {
+    tags
+  }
+}

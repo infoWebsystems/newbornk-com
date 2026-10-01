@@ -1,0 +1,8 @@
+type Output {
+  "True when product is tagged Взуття and an unambiguous EU size was parsed"
+  shouldWrite: Boolean!
+  "Extracted EU size string"
+  euSize: String!
+  "Whether product has the exact tag Взуття"
+  isTagged: Boolean!
+}

@@ -400,6 +400,8 @@
       "label": "Медіа-галерея"
     },
     "facets": {
+      "footwear_size_eu": "Розмір взуття (EU)",
+      "footwear_size_available": "Розміри у наявності",
       "no_found": "За цими фільтрами товарів не знайдено.",
       "btn_filter": "Фільтр",
       "use_fewer_filters_html": "<div>Зменште кількість фільтрів або <wrapp-hdt-facet-url><a class=\"{{ class }}\" href=\"{{ link }}\">скиньте всі</a></wrapp-hdt-facet-url></div>",
@@ -1004,5 +1006,32 @@
     "categories_women": "Жіночі категорії",
     "categories_accessories": "Категорії аксесуарів",
     "brands": "Бренди"
+  },
+  "nbk_footwear": {
+    "size_label": "Розмір (EU)"
+  },
+  "nbk_delivery": {
+    "payment_heading": "Оплата",
+    "delivery_heading": "Доставка",
+    "plata_title": "plata by mono",
+    "plata_description": "Онлайн-оплата карткою Visa або Mastercard.",
+    "liqpay_title": "LiqPay",
+    "liqpay_description": "Онлайн-оплата карткою Visa або Mastercard.",
+    "mono_installments_title": "monobank — Покупка частинами",
+    "mono_installments_description": "2–3 платежі. Комісія відсутня. Номер телефону покупця має збігатися з фінансовим номером клієнта monobank.",
+    "privat_title": "ПриватБанк — Оплата частинами",
+    "privat_description": "2–5 платежів. Потрібні картка ПриватБанку та доступний ліміт за сервісом.",
+    "pay_on_receipt_title": "Післяплата",
+    "pay_on_receipt_description": "Оплата під час отримання в магазині або на пошті.",
+    "nova_poshta_title": "Нова Пошта",
+    "nova_poshta_description": "Відділення, поштомат або адресна доставка. Безкоштовно від 5 000 грн при повній передплаті — у відділення або поштомат. Відправлення: 0–1 робочий день, доставка: 1–2 робочі дні.",
+    "ukrposhta_title": "Укрпошта",
+    "ukrposhta_description": "Доставка у відділення або за адресою.",
+    "pickup_title": "Самовивіз",
+    "pickup_description": "Київ, Велика Житомирська, 20. Вхід через арку.",
+    "uklon_title": "Уклон по Києву",
+    "uklon_description": "Повна передплата. Безкоштовна доставка на оплачене замовлення від 20 000 грн.",
+    "checkout_note": "Доступність способів, кількість платежів і остаточна вартість доставки — під час оформлення замовлення.",
+    "full_terms": "Повні умови оплати й доставки"
   }
 }
