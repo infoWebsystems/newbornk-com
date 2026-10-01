@@ -93,6 +93,7 @@
       endif
     -%}
 
+    {% render 'nbk-rez-kalles' %}
     {{ content_for_header }}
     {% render 'nbk-locale-routing' %}
     {%- if request.page_type == 'product' -%}
@@ -106,7 +107,7 @@
     {% comment %} {%- section 'product-card-configs' -%} {% endcomment %}
     {%- unless template == 'product.only_config' and request.design_mode == false -%}
     {%- if request.page_type == "index" or request.page_type == "policy" -%}
-    <h1 class="hdt-hidden">{% render 'nbk-page-h1' %}</h1>
+    <h1 class="sr-only">{% render 'nbk-page-h1' %}</h1>
     {%- endif -%}
     {%- render 's-dom-temp' -%}
     <a class="skip-to-content-link button sr-only " href="#MainContent">{{ 'accessibility.skip_to_text' | t }}</a>
@@ -138,6 +139,7 @@
    {%- endunless -%}
   {%- capture ecom_footer_content -%}{%- render 'ecom_footer' -%}{%- endcapture -%}{%- unless ecom_footer_content contains 'Liquid error' -%}{{ ecom_footer_content }}{%- endunless -%}  {% render 'nbk-kyiv-checkout' %}
     {% render 'nbk-kyiv-integrations' %}
+    {% render 'nbk-keycrm-chat' %}
     {%- if request.page_type == 'product' -%}
       {% render 'nbk-yespo-recommendations' %}
     {%- endif -%}

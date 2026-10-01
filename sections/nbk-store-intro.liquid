@@ -1,7 +1,7 @@
 {% if section.settings.content != blank %}
   <details class="hdt-container nbk-store-intro">
     <summary>{{ 'nbk.home.about' | t }}</summary>
-    <div class="hdt-rte">{{ section.settings.content }}</div>
+    <div class="hdt-rte">{{ section.settings.content | replace: '<h1', '<h2' | replace: '</h1>', '</h2>' }}</div>
   </details>
 {% endif %}
 {% stylesheet %}
