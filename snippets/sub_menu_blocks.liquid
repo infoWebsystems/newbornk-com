@@ -1,6 +1,13 @@
-<div class="hdt-sub-menu hdt-absolute hdt-dropdown-menu" color-scheme="{{ section.settings.header_menu_colors }}">
-  <ul class="hdt-menu-list hdt-sub-menu-lever-1" role="list"  >
-    {%- for childlink in link.links -%}
+{% doc %}
+  Renders native dropdown links with an optional full-width desktop panel.
+  @param {link} link - Existing menu item and its translated navigation links.
+  @param {boolean} [wide_panel] - Match the full-width desktop mega-menu layout.
+{% enddoc %}
+{%- assign nbk_dropdown_count = 0 -%}
+{%- capture nbk_dropdown_items -%}
+  {%- for menu_page in (0..4) -%}
+    {%- assign menu_offset = menu_page | times: 50 -%}
+    {%- for childlink in link.links limit: 50 offset: menu_offset -%}
 {%- capture nbk_childlink_state -%}{%- render 'nbk-menu-state', item: childlink -%}{%- endcapture -%}
 {%- liquid
   assign nbk_childlink_state = nbk_childlink_state | strip | split: '|'
@@ -8,6 +15,7 @@
   if nbk_childlink_children == 0 and nbk_childlink_state[1] != '1'
     continue
   endif
+  assign nbk_dropdown_count = nbk_dropdown_count | plus: 1
 -%}
       {%- if nbk_childlink_children > 0 -%}
         <li>
@@ -41,7 +49,7 @@
   endif
 -%}
                       <li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col">
-                        <a {% if nbk_grandchildlink_state[1] == '1' %}href="{{ grandchildlink.url }}"{% endif %} class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-base hdt-font-normal {% if childlink.current %} hdt-menu-link--active{% endif %}" {% if grandchildlink.current %} aria-current="page" {% endif %}>
+                        <a {% if nbk_grandchildlink_state[1] == '1' %}href="{{ grandchildlink.url }}"{% endif %} class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-base hdt-font-normal {% if grandchildlink.current %} hdt-menu-link--active{% endif %}" {% if grandchildlink.current %} aria-current="page" {% endif %}>
                           {%- assign arr_title = grandchildlink.title | remove: "[is_heading]" | split: '[' -%}
                           {%- assign arr_label = arr_title[1] | split: ',' -%}
                           <span class="hdt-menu-link-text hdt-block {%- if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
@@ -65,7 +73,7 @@
         </li>
       {% else %}
         <li class="hdt-menu-item hdt-flex hdt-justify-start hdt-align-center">
-          <a {% if nbk_childlink_state[1] == '1' %}href="{{ childlink.url }}"{% endif %} class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-base hdt-font-normal {% if childlink.current %} hdt-menu-link--active{% endif %}">
+          <a {% if nbk_childlink_state[1] == '1' %}href="{{ childlink.url }}"{% endif %} class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-base hdt-font-normal {% if childlink.current %} hdt-menu-link--active{% endif %}"{% if childlink.current %} aria-current="page"{% endif %}>
             {%- assign arr_title = childlink.title | remove: "[is_heading]" | split: '[' -%}
             {%- assign arr_label = arr_title[1] | split: ',' -%}
             <span class="hdt-menu-link-text hdt-block {%- if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
@@ -83,5 +91,118 @@
         </li>
       {% endif %}
     {%- endfor -%}
-  </ul>
+  {%- endfor -%}
+{%- endcapture -%}
+{%- liquid
+  assign nbk_dropdown_columns = nbk_dropdown_count | at_least: 1 | at_most: 4
+  if nbk_dropdown_count > 30
+    assign nbk_dropdown_columns = 4
+  elsif nbk_dropdown_count > 20
+    assign nbk_dropdown_columns = 3
+  elsif nbk_dropdown_count > 10
+    assign nbk_dropdown_columns = 2
+  endif
+-%}
+<div class="hdt-sub-menu hdt-absolute hdt-dropdown-menu{% if wide_panel %} nbk-dropdown-panel{% if nbk_dropdown_count <= 10 %} nbk-dropdown-panel--short{% endif %}{% endif %}" color-scheme="{{ section.settings.header_menu_colors }}"{% if wide_panel %} style="--nbk-dropdown-columns: {{ nbk_dropdown_columns }};"{% endif %}>
+  {%- if wide_panel -%}
+    <div class="nbk-dropdown-inner">
+      <h3 class="nbk-dropdown-title">{{ link.title | remove: '[is_heading]' | split: '[' | first | escape }}</h3>
+    {%- endif -%}
+    <ul class="hdt-menu-list hdt-sub-menu-lever-1" role="list">{{ nbk_dropdown_items }}</ul>
+  {%- if wide_panel -%}</div>{%- endif -%}
 </div>
+{% stylesheet %}
+@media (min-width: 1150px) {
+  #hdt-nav-ul > li > hdt-header-menu > details > .nbk-dropdown-panel {
+    inset-inline: 0;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    max-height: calc(100dvh - var(--header-height, 100px) - var(--top-bar-height, 0px) - 24px);
+    padding: 32px clamp(24px, 3vw, 60px) 36px;
+    background: #fff;
+    --color-foreground: 17 17 17;
+    --color-foreground2: 17 17 17;
+    --color-accent: 17 17 17;
+    color: #111;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #e5e5e5;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #hdt-nav-ul .nbk-dropdown-inner {
+    max-width: 1500px;
+    margin-inline: auto;
+    font-family: 'Formular', sans-serif;
+  }
+  #hdt-nav-ul .nbk-dropdown-title {
+    margin: 0 0 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #dedede;
+    font: 400 16px/1.4 'Formular', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel .hdt-sub-menu-lever-1 {
+    display: block;
+    columns: var(--nbk-dropdown-columns);
+    column-gap: clamp(28px, 4vw, 64px);
+    margin: 0;
+    padding: 0;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel--short .hdt-sub-menu-lever-1 {
+    display: grid;
+    grid-template-columns: repeat(var(--nbk-dropdown-columns), minmax(0, 1fr));
+    align-items: start;
+    columns: auto;
+    row-gap: 4px;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel .hdt-sub-menu-lever-1 > li {
+    break-inside: avoid;
+    margin: 0;
+    padding: 0;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel :is(.hdt-menu-link, summary) {
+    min-height: 40px;
+    padding: 9px 0;
+    font: 400 16px/1.4 'Formular', sans-serif;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel summary {
+    padding-inline-end: 24px;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel .hdt-menu-link-text {
+    min-width: 0;
+    max-width: 100%;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel .hdt-line-clamp {
+    display: block;
+    overflow: visible;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel :is(a, summary):is(:hover, :focus-visible) {
+    color: #111;
+    text-decoration: underline;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel :is(a, summary):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 0;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel .hdt-sub-menu-child {
+    margin: 4px 0 12px;
+    padding: 0 0 0 16px;
+    border-inline-start: 1px solid #dedede;
+    background: transparent;
+  }
+  #hdt-nav-ul .nbk-dropdown-panel .hdt-sub-menu-lever-2 {
+    gap: 0;
+  }
+}
+{% endstylesheet %}

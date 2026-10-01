@@ -20,6 +20,34 @@
   .hdt-menu-uppercase-true #hdt-nav-ul > li > hdt-header-menu > details > summary .hdt-menu-link-text {
     text-transform: uppercase;
   }
+  /* Reserve the actual logo and icon widths, including the native Yespo bell. */
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .hdt-header-logo_left [data-header-height] {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr) max-content;
+      column-gap: 10px;
+    }
+    #shopify-section-{{ section.id }} .hdt-header-logo_left [data-header-height] > div {
+      width: auto;
+      min-width: 0;
+    }
+  }
+  @media (min-width: 1150px) {
+    #shopify-section-{{ section.id }} .hdt-header-logo_left.hdt-menu-default [data-header-height] {
+      display: grid;
+      grid-template-columns: max-content minmax(0, 1fr) max-content;
+      column-gap: 20px;
+    }
+    #shopify-section-{{ section.id }} .hdt-header-logo_left.hdt-menu-default [data-header-height] > div {
+      width: auto;
+      min-width: 0;
+    }
+    #shopify-section-{{ section.id }} .hdt-header-logo_left.hdt-menu-default #hdt-nav-ul {
+      max-width: 100%;
+      column-gap: clamp(12px, 1.5vw, {{ section.settings.spacing_nav }}px);
+      row-gap: 8px;
+    }
+  }
   
   {% if section.settings.header_transparent -%}
     {%- assign scheme = section.settings.header_colors -%}

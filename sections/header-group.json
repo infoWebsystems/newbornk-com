@@ -5,21 +5,6 @@
     "top_bar_3qfcq8": {
       "type": "top-bar",
       "blocks": {
-        "text_rtCGAr": {
-          "type": "text",
-          "settings": {
-            "text1": "<a href=\"/collections/novi-nadkhodzhennia\">НОВІ НАДХОДЖЕННЯ →</a>",
-            "text2": "",
-            "text3": "",
-            "adding_border": false,
-            "countdown": "2024-12-30 15:00:00",
-            "txt_day": "days",
-            "effect": "fade",
-            "au_time": 3,
-            "pause_when_hover": false,
-            "hide": true
-          }
-        },
         "text_nnAPhR": {
           "type": "text",
           "settings": {
@@ -34,28 +19,14 @@
             "pause_when_hover": true,
             "hide": false
           }
-        },
-        "cur_4KAVdD": {
-          "type": "cur",
-          "settings": {
-            "show_currency": false,
-            "show_language": true,
-            "use_location": false,
-            "txt_location": "Адреса магазину",
-            "url_location": "shopify://pages/contact",
-            "open_link": "_self",
-            "hide": true
-          }
         }
       },
       "block_order": [
-        "text_rtCGAr",
-        "text_nnAPhR",
-        "cur_4KAVdD"
+        "text_nnAPhR"
       ],
       "custom_css": [],
       "settings": {
-        "height": 40,
+        "height": 32,
         "fontsize": 13,
         "show_line_separator": false,
         "full_width": true,

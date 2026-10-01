@@ -199,3 +199,13 @@ Validation: all seven changed Liquid/locale files passed Shopify theme validatio
 ### Footwear sizes — October 1
 
 Added compact, numerically ordered EU buttons and card labels for footwear, retaining the original selected US/EU/CM reference and unchanged variant identity. Prepared an available-variant EU facet backed by Shopify metadata and native Flow maintenance. See [Footwear sizes](FOOTWEAR_SIZES.md) for the data contract, verification, index-propagation status and remaining acceptance checks. This work remains in the unpublished Kalles preview and the draft PR from `kalles-dev` to `kalles-main`.
+
+### Header and remaining dropdowns — October 2
+
+The announcement strip now contains one centered link and measures 32px instead of 64px. Removed its duplicate language selector; the existing globe remains in the main header. Header columns reserve the actual logo and action widths, including Yespo's asynchronous bell, to avoid overlap on desktop and small phones.
+
+Footwear, Brands, Lifestyle and Sale use flat, full-width white panels with consistent Formular typography. Short menus use up to four columns; long lists use balanced columns. Existing URLs, translated menu labels, collection visibility rules, native nested accordions and the three existing mega menus are retained. Dropdown rendering supports up to 250 links without silently stopping at Liquid's 50-item loop limit.
+
+App Inbox required no integration change: the enabled Yespo app injects one real bell into `#app-inbox`. It opens existing messages for an authenticated customer. Guests do not receive the widget, as documented by [Yespo's App Inbox integration guide](https://docs.yespo.io/docs/how-to-set-up-integration-for-app-inbox). Do not add a placeholder bell or duplicate SDK initialization.
+
+Validation: ten Liquid render checks passed, and targeted Shopify theme validation reported no errors (existing snippet warnings remain). Preview theme `199582843040` remained unpublished, with all five uploaded theme files read back and matched. Browser checks covered UK/EN, the language selector, keyboard open/Escape, nested Sale links, mobile navigation and widths 1150/1280/1440px. Authenticated checks at 320/390px confirmed no horizontal overflow, no logo/search overlap and a functioning native Inbox panel. This update follows merged PR #80 and targets `kalles-main` through a separate PR.

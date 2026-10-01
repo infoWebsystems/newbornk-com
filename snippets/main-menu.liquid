@@ -32,7 +32,7 @@
 <li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col {{ li_class }}" data-index="{{ index }}" {{ block.shopify_attributes }} style="order: {{ index }};">
   {%- if li_class != blank -%}
     <hdt-header-menu class="hdt-contents" opened-able-click event="{{ section.settings.open_event }}" {{ block.shopify_attributes }}>
-      <details>
+      <details not-need-calc>
         <summary {% if nbk_link_state[1] == '1' %}data-url="{{ link.url }}"{% endif %} class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-{{ section.settings.menu_size }} hdt-font-{{ section.settings.menu_weight }}{% if link.current and section.settings.active_link %} hdt-menu-link--active{% endif %}">
           <span class="hdt-menu-link-text hdt-block{% if arr_label.size > 0 %} hdt-relative hdt-title_size-{{ arr_title[0].size | at_most: 20 }} hdt-has-{{ arr_label.size | at_most: 2 }}label{% endif %}">
             <span class="hdt-block hdt-line-clamp">{{ arr_title[0] }}</span>
@@ -49,7 +49,7 @@
             <svg class="hdt-menu-item-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M10 1.24243L5 6.24243L-2.18557e-07 1.24243L0.8875 0.354932L5 4.46743L9.1125 0.354931L10 1.24243Z" fill="currentColor"/></svg>
           {%- endif -%}
         </summary>
-        {%- render 'sub_menu_blocks', link: link -%}
+        {%- render 'sub_menu_blocks', link: link, wide_panel: true -%}
       </details>
     </hdt-header-menu>
   {%- else -%}
