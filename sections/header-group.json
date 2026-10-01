@@ -441,7 +441,7 @@
       "custom_css": [
         ".hdt-mini-cart__header-title {text-transform: uppercase;}",
         "@media (width >= 1350px) {.hdt-search_inner {width: 250px; }}",
-        "#hdt-nav-ul > li:nth-child(4) > hdt-header-menu > details > summary > span > span.hdt-block.hdt-line-clamp {color: red;}",
+        "#hdt-nav-ul > li > a[href$=\"/collections/sale\"] .hdt-menu-link-text, #hdt-nav-ul > li > hdt-header-menu > details > summary[data-url$=\"/collections/sale\"] .hdt-menu-link-text {color: red;}",
         "input::placeholder {color: rgb(var(--color-foreground));}",
         ".hdt-collection-wrapper {display: none;}"
       ],
