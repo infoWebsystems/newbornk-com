@@ -400,6 +400,8 @@
       "label": "Медіа-галерея"
     },
     "facets": {
+      "footwear_size_eu": "Розмір взуття (EU)",
+      "footwear_size_available": "Розміри у наявності",
       "no_found": "За цими фільтрами товарів не знайдено.",
       "btn_filter": "Фільтр",
       "use_fewer_filters_html": "<div>Зменште кількість фільтрів або <wrapp-hdt-facet-url><a class=\"{{ class }}\" href=\"{{ link }}\">скиньте всі</a></wrapp-hdt-facet-url></div>",
@@ -1004,6 +1006,9 @@
     "categories_women": "Жіночі категорії",
     "categories_accessories": "Категорії аксесуарів",
     "brands": "Бренди"
+  },
+  "nbk_footwear": {
+    "size_label": "Розмір (EU)"
   },
   "nbk_delivery": {
     "payment_heading": "Оплата",

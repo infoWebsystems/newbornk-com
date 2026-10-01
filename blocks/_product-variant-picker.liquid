@@ -81,6 +81,11 @@
           else
             assign no_dropdown = false
           endif
+          assign is_footwear_size = false
+          if product.tags contains 'Взуття' and option_type == 'size'
+            assign is_footwear_size = true
+            assign no_dropdown = true
+          endif
           if option.values.size == 1
             assign selected_value = option.values.first
           else
@@ -105,8 +110,8 @@
           {%- endif -%}
         {%- endcapture -%}
   
-        <fieldset class="hdt-product-form__input is-style-{{ option_type }}{% if size_list contains name_downcase and show_dialog_size_chart %} hdt-has-btn-size-chart{% endif %}" type="{% if option_type == 'color' %}{{ block.settings.color_picker_type }}{% else %}{{ block.settings.picker_type }}{% endif %}" data-index="{{ forloop.index0 }}">
-          <legend class="hdt-product-form__label hdt-s-text hdt-font-bold"><span>{{ option.name }}{% unless hide_update_value %}: <span update-value>{%- if values_available contains selected_value and un_no_pick -%}{{ selected_value }}{% else %}{{ choose_an_option }}{% endif %}</span>{% endunless %}</span> {{ btn_size_chart }}</legend>
+        <fieldset class="hdt-product-form__input is-style-{{ option_type }}{% if is_footwear_size %} nbk-footwear-sizes{% endif %}{% if size_list contains name_downcase and show_dialog_size_chart %} hdt-has-btn-size-chart{% endif %}" type="{% if is_footwear_size %}block{% elsif option_type == 'color' %}{{ block.settings.color_picker_type }}{% else %}{{ block.settings.picker_type }}{% endif %}" data-index="{{ forloop.index0 }}">
+          <legend class="hdt-product-form__label hdt-s-text hdt-font-bold"><span>{% if is_footwear_size %}{{ 'nbk_footwear.size_label' | t }}{% else %}{{ option.name }}{% unless hide_update_value %}: <span update-value>{%- if values_available contains selected_value and un_no_pick -%}{{ selected_value }}{% else %}{{ choose_an_option }}{% endif %}</span>{% endunless %}{% endif %}</span> {{ btn_size_chart }}</legend>
           {%- if no_dropdown -%}
             <div class="hdt-product-form__values">
               {%- render 'product-variant-options', hide_sold_out: hide_sold_out, option_type: option_type, product: product, option: option, block: block, product_form_id: product_form_id, color_option_index: color_option_index, un_no_pick: un_no_pick, selected_value: selected_value -%}
@@ -132,6 +137,9 @@
                 </dialog>
               </hdt-popover>
             </div>
+          {%- endif -%}
+          {%- if is_footwear_size -%}
+            <p class="nbk-footwear-sizes__reference"><span update-value>{%- if values_available contains selected_value and un_no_pick -%}{{ selected_value | escape }}{% else %}{{ choose_an_option }}{% endif %}</span></p>
           {%- endif -%}
         </fieldset>
   
@@ -198,6 +206,35 @@
     {%- endif -%}
   {%- endunless -%}
 </div>
+{% stylesheet %}
+  .hdt-product-form__input.nbk-footwear-sizes .hdt-product-form__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hdt-product-form__input.nbk-footwear-sizes .hdt-product-form_value.is-type-block {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  .hdt-product-form__input.nbk-footwear-sizes .hdt-product-form__label {
+    text-transform: none;
+  }
+  .hdt-product-form__input.nbk-footwear-sizes .nbk-footwear-sizes__reference {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    color: rgb(var(--color-foreground2));
+  }
+{% endstylesheet %}
+
 {% schema %}
 {
   "name": "t:sections.main-product.blocks.variant_picker.name",

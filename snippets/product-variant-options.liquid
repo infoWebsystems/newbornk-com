@@ -44,9 +44,29 @@
   endunless
 -%}
 
-{%- for value in option.values -%}
+{%- liquid
+  assign values_to_render = option.values
+  assign is_footwear_size = false
+  if product.tags contains 'Взуття' and option_type == 'size'
+    assign is_footwear_size = true
+    capture footwear_order
+      render 'nbk-footwear-size-order', option: option
+    endcapture
+    assign values_to_render = footwear_order | split: '|' | sort
+  endif
+-%}
+{%- for option_entry in values_to_render -%}
 
   {%- liquid
+    assign value = option_entry
+    if is_footwear_size
+      assign original_index = option_entry | split: ':' | last | plus: 0
+      assign value = option.values[original_index]
+      capture eu_size
+        render 'nbk-footwear-size', raw_size: value, variant: value.variant
+      endcapture
+      assign size_label = eu_size | default: value
+    endif
     assign option_unavailable = true
     assign option_soldout = true
     assign value_selected = false
@@ -63,7 +83,13 @@
     endif
   -%}
 
-    {%- if option_type == 'color' or option_type == 'color_rounded' -%}
+    {%- if is_footwear_size -%}
+      <input autocomplete="off" is-value type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" name="{{ option.name | escape }}" value="{{ value | escape }}" form="{{ product_form_id }}"{% if value_selected %} checked{% endif %} class="sr-only {% if option_unavailable %}is-unavailable{% elsif option_soldout %}is-disabled{% endif %}" data-value-id="{{ value.id }}">
+      <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="hdt-product-form_value is-type-block" title="{{ value | escape }}">
+        {%- if option_soldout %}<span class="sr-only">{{ 'products.product.variant_sold_out' | t }}</span>{% endif -%}
+        <span class="sr-only">{% if eu_size != blank %}EU {% endif %}</span>{{- size_label | escape -}}
+      </label>
+    {%- elsif option_type == 'color' or option_type == 'color_rounded' -%}
       {%- liquid
         if use_style_color
           assign color_downcase = value | downcase

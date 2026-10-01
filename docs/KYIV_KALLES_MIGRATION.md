@@ -195,3 +195,7 @@ UA/EN/RU text uses locale keys, with small, unchanged official logos served thro
 These are informational theme changes. No checkout configuration, payment gateway or shipping rate is changed.
 
 Validation: all seven changed Liquid/locale files passed Shopify theme validation. Selective uploads to unpublished theme `199582843040` succeeded. Browser checks confirmed all nine method rows, loaded logos, a two-column desktop layout and a single-column 390px layout without horizontal overflow. Keyboard activation opens the mobile accordion. The English summary and `/en/pages/order-and-delivery` link render correctly. The quick-view call site uses the same validated snippet; it was not separately exercised in the browser.
+
+### Footwear sizes — October 1
+
+Added compact, numerically ordered EU buttons and card labels for footwear, retaining the original selected US/EU/CM reference and unchanged variant identity. Prepared an available-variant EU facet backed by Shopify metadata and native Flow maintenance. See [Footwear sizes](FOOTWEAR_SIZES.md) for the data contract, verification, index-propagation status and remaining acceptance checks. This work remains in the unpublished Kalles preview and the draft PR from `kalles-dev` to `kalles-main`.

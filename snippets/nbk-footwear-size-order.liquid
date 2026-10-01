@@ -1,0 +1,9 @@
+{%- comment -%}
+  Return sortable "EU numeric key:index" entries separated by |.
+  The original option values remain the source for all submitted values and IDs.
+  Unrecognized sizes retain their source order after recognized EU sizes.
+{%- endcomment -%}
+{%- for size_value in option.values -%}
+  {%- capture size_key -%}{%- render 'nbk-footwear-size', raw_size: size_value, variant: size_value.variant, output: 'sort_key' -%}{%- endcapture -%}
+  {{- size_key | default: '999999' -}}:{{- forloop.index0 | prepend: '000' | slice: -3, 3 -}}|
+{%- endfor -%}

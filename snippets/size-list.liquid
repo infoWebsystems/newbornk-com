@@ -21,6 +21,15 @@
     if size_list contains option_downcase
       assign is_size = true
     endif
+    assign is_footwear_size = false
+    assign values_to_render = option.values
+    if is_size and product.tags contains 'Взуття'
+      assign is_footwear_size = true
+      capture footwear_order
+        render 'nbk-footwear-size-order', option: option
+      endcapture
+      assign values_to_render = footwear_order | split: '|' | sort
+    endif
   -%}
   {%- if is_size -%}
     {%- if settings.size_mode == 'size' -%} 
@@ -32,13 +41,18 @@
         endif
         assign first = true
       -%}
-      <hdt-variant-option class="hdt-variant-option--{%- if is_size -%} size hdt-pe-none{%- else -%} default{%- endif -%} {{ class }}" data-option-position="{{ forloop.index }}" event="click" {%- if is_size %} maximum="{{ size_maximum }}"{% if settings.enable_size_limit and option.values.size > size_maximum %} action-{{ settings.size_action }}{% endif %}{% if settings.enable_size_limit and settings.size_maximum == 0 %} auto-limit{% endif %}{%- endif -%}>
-        <span class="hdt-variant-label">{{ option.name }}:</span>
+      <hdt-variant-option class="hdt-variant-option--size hdt-pe-none{% if is_footwear_size %} nbk-footwear-card-sizes{% endif %} {{ class }}" data-option-position="{{ forloop.index }}" event="click" {%- if is_size %} maximum="{{ size_maximum }}"{% if settings.enable_size_limit and option.values.size > size_maximum %} action-{{ settings.size_action }}{% endif %}{% if settings.enable_size_limit and settings.size_maximum == 0 %} auto-limit{% endif %}{%- endif -%}>
+        <span class="hdt-variant-label">{% if is_footwear_size %}EU{% else %}{{ option.name }}{% endif %}:</span>
         <span class="hdt-variant-selected" update-value>{{ option.selected_value }}</span>
         
         <fieldset class="hdt-variants-list">
-          {%- for value in option.values -%}
+          {%- for option_entry in values_to_render -%}
             {%- liquid
+              assign value = option_entry
+              if is_footwear_size
+                assign original_index = option_entry | split: ':' | last | plus: 0
+                assign value = option.values[original_index]
+              endif
               unless value.variant
                 continue
               endunless
@@ -48,8 +62,8 @@
               assign index = index | plus: 1
             -%}
             <div class="hdt-swatch-item {%- if value == option.selected_value %} active{% endif %} {%- if settings.enable_size_limit and index > size_maximum and first %}{% assign first = false %} is--swatch-limit{% endif %}" data-available="{{ value.variant.available | json }}" {%- if section.id contains 'search' or section.id contains 'exit' %} inner{% endif %} placement="top" {% if settings.size_type == 'only' and value.variant.available == false %} hidden{% endif %}>
-              <hdt-swatch-card class="hdt-swatch-card" data-opt="{{ option.position }}" data-vrid="{{ variant.id }}" data-product-url="{{ value.product_url }}" data-value-id="{{ value.id }}">
-                <span class="hdt-swatch-title">{{ value }}</span>
+              <hdt-swatch-card class="hdt-swatch-card" data-opt="{{ option.position }}" data-vrid="{{ value.variant.id }}" data-product-url="{{ value.product_url }}" data-value-id="{{ value.id }}">
+                <span class="hdt-swatch-title">{%- if is_footwear_size -%}{%- capture eu_size -%}{%- render 'nbk-footwear-size', raw_size: value, variant: value.variant -%}{%- endcapture -%}{{ eu_size | default: value | escape }}{%- else -%}{{ value }}{%- endif -%}</span>
               </hdt-swatch-card>
             </div>
           {%- endfor -%}
@@ -67,3 +81,19 @@
     {%- endif -%}
   {%- endif -%}
 {%- endfor -%}
+{% stylesheet %}
+  .hdt-variant-option--size.nbk-footwear-card-sizes .hdt-variant-label {
+    display: inline-block;
+    margin-inline-end: 6px;
+    white-space: nowrap;
+  }
+  .hdt-variant-option--size.nbk-footwear-card-sizes .hdt-variants-list {
+    gap: 0 8px;
+  }
+  .hdt-variant-option--size.nbk-footwear-card-sizes .hdt-swatch-item:not(:last-child)::after {
+    content: none;
+  }
+  .hdt-variant-option--size.nbk-footwear-card-sizes .hdt-swatch-title {
+    white-space: nowrap;
+  }
+{% endstylesheet %}

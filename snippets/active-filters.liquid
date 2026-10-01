@@ -33,7 +33,7 @@
     {%- else -%}
       {%- assign total_active_values = total_active_values | plus: filter.active_values.size -%}
       {%- for filter_value in filter.active_values -%}
-        <wrapp-hdt-facet-url><a class="hdt-active-filters__remove" href="{{ filter_value.url_to_remove }}">{{ filter_value.label }}</a></wrapp-hdt-facet-url>
+        <wrapp-hdt-facet-url><a class="hdt-active-filters__remove" href="{{ filter_value.url_to_remove }}">{% if filter.param_name == 'filter.v.m.custom.footwear_size_eu_available' %}EU {% endif %}{{ filter_value.label }}</a></wrapp-hdt-facet-url>
       {%- endfor -%}
     {%- endif -%}
   {%- endfor -%}

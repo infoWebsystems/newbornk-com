@@ -252,7 +252,7 @@
   "products": {
     "theme_settings": {
       "color": "color,colors,couleur,colour",
-      "size": "size,sizes,Größe",
+      "size": "size,sizes,Größe,розмір,розміри,размер,размеры",
       "and": "and",
       "color_white": "white"
     },
@@ -400,6 +400,8 @@
       "label": "Media gallery"
     },
     "facets": {
+      "footwear_size_eu": "Shoe size (EU)",
+      "footwear_size_available": "Available sizes",
       "no_found": "No products match those filters.",
       "btn_filter": "Filter",
       "use_fewer_filters_html": "<div>Use fewer filters or <wrapp-hdt-facet-url><a class=\"{{ class }}\" href=\"{{ link }}\">remove all</a></wrapp-hdt-facet-url></div>",
@@ -1002,6 +1004,9 @@
     "categories_women": "Women’s categories",
     "categories_accessories": "Accessory categories",
     "brands": "Brands"
+  },
+  "nbk_footwear": {
+    "size_label": "Size (EU)"
   },
   "nbk_delivery": {
     "payment_heading": "Payment",
