@@ -1,0 +1,22 @@
+{% doc %}
+  Kyiv's existing KeyCRM customer-support channel. The widget token is the public
+  storefront identifier from Dawn; chat appearance and routing stay in KeyCRM.
+{% enddoc %}
+<script
+  src="{{ 'nbk-keycrm-chat.js' | asset_url }}"
+  data-widget-token="bc3f252a-342f-42cb-a3a6-3219b681731b"
+  defer
+></script>
+
+{% stylesheet %}
+  @media (max-width: 1024px) {
+    body:has(.hdt-toolbar) .KeyCRM-toggleButtonContainer {
+      right: 6.5rem !important;
+      bottom: calc(var(--toolbar-height, 5.5rem) + 1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    body.sticky-shown:has(.hdt-toolbar) .KeyCRM-toggleButtonContainer {
+      bottom: calc(var(--toolbar-height, 5.5rem) + var(--hdt-sticky-atc-height, 0px) + 1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+    }
+  }
+{% endstylesheet %}

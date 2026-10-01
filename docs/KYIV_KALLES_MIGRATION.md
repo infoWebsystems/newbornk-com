@@ -209,3 +209,24 @@ Footwear, Brands, Lifestyle and Sale use flat, full-width white panels with cons
 App Inbox required no integration change: the enabled Yespo app injects one real bell into `#app-inbox`. It opens existing messages for an authenticated customer. Guests do not receive the widget, as documented by [Yespo's App Inbox integration guide](https://docs.yespo.io/docs/how-to-set-up-integration-for-app-inbox). Do not add a placeholder bell or duplicate SDK initialization.
 
 Validation: ten Liquid render checks passed, and targeted Shopify theme validation reported no errors (existing snippet warnings remain). Preview theme `199582843040` remained unpublished, with all five uploaded theme files read back and matched. Browser checks covered UK/EN, the language selector, keyboard open/Escape, nested Sale links, mobile navigation and widths 1150/1280/1440px. Authenticated checks at 320/390px confirmed no horizontal overflow, no logo/search overlap and a functioning native Inbox panel. This update follows merged PR #80 and targets `kalles-main` through a separate PR.
+
+### Reviews, restock, support and final SEO checks — October 2
+
+Enabled the existing Judge.me core embed so the product review blocks initialize. REZ now uses the main Kalles product form instead of a product form inside the mega menu. Its supported hooks follow the selected product variant and ignore unrelated forms. An unavailable size opens the notification form with that size selected; an available size hides the notification button.
+
+Restored the same public KeyCRM support widget used by Dawn, loaded once after page load. On mobile, the launcher sits above the bottom toolbar and sticky purchase bar, beside the back-to-top button. Contact routing and appearance remain managed in KeyCRM. The existing Yespo App Inbox integration is retained.
+
+Chekly now encodes customer contact fields when constructing its redirect URL, preserving plus signs, ampersands and non-Latin names. No checkout payment or delivery settings changed. The newsletter remains a native Shopify customer/marketing-consent form; receiving its new subscribers in Yespo requires a separate end-to-end check.
+
+SEO corrections preserve the existing Dawn rules: read typed collection `custom.noindex` values, declare English in WebSite JSON-LD, serve one HTTPS social-image set while retaining the homepage share image, and render the supplementary store-intro headings as H2. The primary homepage H1 remains accessible without changing the visual design.
+
+Validation:
+
+- 48 automated checks passed, including REZ variant selection, encoded Chekly contact fields and rendered SEO regressions. Changed Liquid/config files passed targeted Shopify validation using cached schemas; JavaScript syntax and whitespace checks passed.
+- Browser checks covered Judge.me on products with zero and one review, unavailable/available size changes, a direct unavailable-variant URL, and the mobile notification form at 390px without horizontal overflow. No notification email was submitted.
+- KeyCRM opened its existing support channels. At 390px the launcher ended at y=774 and the bottom toolbar began at y=789, leaving a 15px gap. No chat message was sent.
+- The existing cart opened `checkout.newbornk.com` with the same three units and UAH 11,570 total, then returned intact. No order or payment was submitted.
+- Ten representative URLs covered UK/EN homepages, collection pagination, unrated/rated products, excluded and empty collections, a size-chart page and a legacy tag URL. Canonicals, four language alternates, JSON-LD parsing and exclusion rules were verified. Final UK/EN homepages each had exactly one H1.
+- Changed files were selectively uploaded to unpublished preview `199582843040` and read back. Existing preview-specific settings were preserved when enabling Judge.me. Shopify normalized three already-disabled app references; active app settings were retained. The live Dawn theme was not changed.
+
+Remaining verification: a merchant-approved test email is needed to prove Shopify subscription receipt in Yespo and any welcome-message delivery. Real restock email delivery and payment completion were not exercised. On the rated gift card, Judge.me and the theme repeat a Product node with the same `@id` and matching rating; Judge.me additionally includes individual review content. This is not a confirmed rich-results error, so its shop-wide schema setting remains unchanged. Existing excluded pages also retain an additional platform/app `noindex,nofollow` directive. English store-intro editorial copy remains Ukrainian and needs translation separately.

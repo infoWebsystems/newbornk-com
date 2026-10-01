@@ -1,0 +1,43 @@
+{% doc %}
+  Connects REZ's theme integration hooks to the main Kalles product form.
+  Render before content_for_header so the hooks exist before the app initializes.
+{% enddoc %}
+{%- if request.page_type == 'product' -%}
+  <script>
+    (() => {
+      if (window.newbornkRezKalles) return;
+      window.newbornkRezKalles = true;
+
+      const formSelector = '#MainContent .hdt-main-product-form';
+      const mainForm = () => document.querySelector(formSelector);
+      const listeners = new WeakMap();
+
+      window.rezSupportSelectForm = mainForm;
+      window.rezSupportBisBtnPosition = () => '#MainContent .hdt-product__buy-button';
+      window.rezSupportTrackVariant = (notify, tracker) => {
+        listeners.get(tracker)?.abort();
+        const controller = new AbortController();
+        listeners.set(tracker, controller);
+
+        const update = value => {
+          const variantId = Number(value);
+          if (window.REZ_DATA?.current_product?.variants?.some(variant => Number(variant.id) === variantId)) {
+            notify(variantId);
+          }
+        };
+
+        document.addEventListener('variant:change', event => {
+          if (event.target === mainForm()) update(event.detail?.variant?.id);
+        }, { capture: true, signal: controller.signal });
+
+        document.addEventListener('change', event => {
+          const form = mainForm();
+          if (event.target === form?.querySelector('[name="id"]')) update(event.target.value);
+        }, { capture: true, signal: controller.signal });
+
+        const form = mainForm();
+        if (form) update(form.querySelector('[name="id"]')?.value);
+      };
+    })();
+  </script>
+{%- endif -%}

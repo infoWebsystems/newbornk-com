@@ -16,7 +16,7 @@
                           
                             # --- 1) Primary: read metafield custom.noindex on collection page -----------
                               if request.page_type == 'collection'
-                                  if collection.metafields.custom.noindex == true
+                                  if collection.metafields.custom.noindex.value == true or collection.metafields.custom.noindex == true
                                         assign is_noindex = true
                                             endif
                                               endif

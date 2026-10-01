@@ -7,6 +7,8 @@ node --test tests/*.cjs tests/*.mjs
 ```
 
 - `checkout-tracking.cjs` exercises the unchanged Chekly tracking manager: fresh and saved click IDs, precedence, encoding, and existing campaign parameters.
+- `checkout-redirect.cjs` executes the shipped Chekly URL builder with synthetic customer data, checking guest/English redirects, phone/email encoding, duplicate events and the existing no-cart fallback.
+- `rez-kalles.cjs` covers the REZ adapter's main-product form selection, sold-out/available variant changes, localized cart actions, unrelated menu/recommendation events and duplicate initialization.
 - `product-selection-analytics.cjs` covers consent-gated GA4 selection events, normal/keyboard/middle-click navigation, excluded controls, malformed data, and Kalles image/title link integration with collection context.
 - `kalles-cart-analytics.cjs` covers drawer reopening, quantity changes while open, GA4 routing and amounts, duplicate initialization, delayed consent, refusal/revocation, stale requests, late mounting, missing config, empty/malformed carts and failed requests.
 - `kalles-product-runtime.mjs` executes the actual StickyATC and carousel ClassNames implementations in small DOM fixtures. It reproduces the former missing-input and empty-carousel crashes, verifies variant changes update the submitted ID, and checks carousel classes after selection and emptying.
