@@ -48,33 +48,6 @@
             "language": "UK"
           }
         },
-        "1630994380b1b22eeb-1": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/NASA_HOR.jpg",
-            "image_phone": "shopify://shop_images/NASA_VERT.jpg",
-            "banner_link": "shopify://collections/new-amsterdam",
-            "language": "UK"
-          }
-        },
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/pl_banner_desktop_1.webp",
-            "image_phone": "shopify://shop_images/ukr_banner_mobile_3b41b1c7-07ed-45d9-aa89-b7218ea2d940.webp",
-            "banner_link": "shopify://collections/sale",
-            "language": "UK"
-          }
-        },
-        "slide_BHnyDT": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/UA_Desktop_1_2.jpg",
-            "image_phone": "shopify://shop_images/UA_Mobile_2.jpg",
-            "banner_link": "shopify://collections/gift-cards",
-            "language": "UK"
-          }
-        },
         "slide_7qGUkq": {
           "type": "slide",
           "settings": {
@@ -83,15 +56,6 @@
             "banner_link": "shopify://collections/heliot-emil",
             "language": ""
           }
-        },
-        "slide_TyEeBH": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/HH_HOR.jpg",
-            "image_phone": "shopify://shop_images/HH_VERT.jpg",
-            "banner_link": "shopify://collections/han-kjobenhavn",
-            "language": "UK"
-          }
         }
       },
       "block_order": [
@@ -99,11 +63,7 @@
         "slide_mhh3dU",
         "slide_PziDkQ",
         "slide_wHpNAY",
-        "1630994380b1b22eeb-1",
-        "7b7d3efa-43a7-4e95-a5e3-f5208d21b021",
-        "slide_BHnyDT",
-        "slide_7qGUkq",
-        "slide_TyEeBH"
+        "slide_7qGUkq"
       ],
       "settings": {
         "image_width": "third",
