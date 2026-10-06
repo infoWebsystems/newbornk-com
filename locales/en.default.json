@@ -1050,5 +1050,6 @@
   },
   "nbk_navigation": {
     "new_arrivals": "New arrivals"
-  }
+  },
+  "nbk_collection_editorial": { "heading": "About the collection" }
 }
