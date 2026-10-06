@@ -1,0 +1,16 @@
+{%- comment -%}Keep brand trademarks intact when legacy menu translations translate them as words.{%- endcomment -%}
+{%- liquid
+  assign brand_handle = link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+  case brand_handle
+    when 'carrots'
+      echo 'CARROTS'
+    when 'rains'
+      echo 'RAINS'
+    when 'pleasures'
+      echo 'PLEASURES'
+    when 'gestalten'
+      echo 'GESTALTEN'
+    else
+      echo link.title
+  endcase
+-%}

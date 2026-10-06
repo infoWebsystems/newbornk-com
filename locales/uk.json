@@ -76,7 +76,7 @@
       "previous": "Назад",
       "load_more_articles": "Більше дописів",
       "load_more_items": "Показати більше",
-      "load_more_products": "Більше товарів",
+      "load_more_products": "Завантажити ще товари",
       "load_more_collections": "Більше колекцій"
     },
     "search": {
@@ -1040,5 +1040,17 @@
   "nbk_payment_icons": {
     "installments": "Покупка частинами",
     "on_receipt": "При отриманні"
+  },
+  "nbk_brands": {
+    "title": "Бренди",
+    "subtitle": "Відкрийте бренди, представлені в NEWBORN K Київ.",
+    "search_label": "Знайти бренд",
+    "search_placeholder": "Введіть назву бренду",
+    "clear": "Очистити пошук",
+    "alphabet": "Бренди за алфавітом A–Z",
+    "empty": "Брендів за вашим запитом не знайдено."
+  },
+  "nbk_navigation": {
+    "new_arrivals": "Нові надходження"
   }
 }

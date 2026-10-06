@@ -234,6 +234,7 @@
                   
                   {{ blocks_content }}
                   {%- assign main_menu = section.settings.main_menu | default: linklists.main-menu -%}
+                  {%- render 'nbk-new-arrivals-link', menu: main_menu -%}
                   {%- for link in main_menu.links -%}
                     {%- render 'main-menu', link: link, index: forloop.index, blocks_content: blocks_content -%}
                   {%- endfor -%}
@@ -329,7 +330,8 @@
                 
                 {{ blocks_content }}
                 {%- assign main_menu = section.settings.main_menu | default: linklists.main-menu -%}
-                {%- for link in main_menu.links -%}
+                {%- render 'nbk-new-arrivals-link', menu: main_menu -%}
+                  {%- for link in main_menu.links -%}
                   {%- render 'main-menu', link: link, index: forloop.index, blocks_content: blocks_content -%}
                 {%- endfor -%}
 
@@ -355,7 +357,8 @@
                 
               {{ blocks_content }}
               {%- assign main_menu = section.settings.main_menu | default: linklists.main-menu -%}
-              {%- for link in main_menu.links -%}
+              {%- render 'nbk-new-arrivals-link', menu: main_menu -%}
+                  {%- for link in main_menu.links -%}
                 {%- render 'main-menu', link: link, index: forloop.index, blocks_content: blocks_content -%}
                 {% if forloop.last %}
                   <li class="hdt_logo_split hdt-px-15" style="order: {{ main_menu.links.size | divided_by: 2.0 | ceil }};">

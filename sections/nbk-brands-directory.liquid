@@ -1,6 +1,17 @@
 {% liquid
-  assign alphabet = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ','
-  assign vendors = shop.vendors | sort_natural
+  assign alphabet = '#,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ','
+  assign brand_links = linklists['brands-menu'].links
+  for main_link in linklists['top-menu'].links
+    assign collection_handle = main_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+    if main_link.object.handle == 'brands' or collection_handle == 'brands'
+      if main_link.links != blank
+        assign brand_links = main_link.links
+      endif
+      break
+    endif
+  endfor
+  assign vendors = brand_links | sort_natural: 'title'
+  assign brand_batches = vendors.size | minus: 1 | divided_by: 50
 %}
 
 <section
@@ -24,13 +35,13 @@
 
         {% if section.settings.title != blank %}
           <{{ section.settings.heading_tag }} class="nbk-brands-title">
-            {{ section.settings.title }}
+            {{ 'nbk_brands.title' | t }}
           </{{ section.settings.heading_tag }}>
         {% endif %}
 
         {% if section.settings.subtitle != blank %}
           <div class="nbk-brands-subtitle">
-            {{ section.settings.subtitle }}
+            {{ 'nbk_brands.subtitle' | t }}
           </div>
         {% endif %}
 
@@ -43,7 +54,7 @@
           class="nbk-brands-search-label"
           for="NBKBrandsSearch-{{ section.id }}"
         >
-          {{ section.settings.search_label }}
+          {{ 'nbk_brands.search_label' | t }}
         </label>
 
         <div class="nbk-brands-search-field">
@@ -75,13 +86,13 @@
             class="nbk-brands-search-input"
             type="search"
             autocomplete="off"
-            placeholder="{{ section.settings.search_placeholder | escape }}"
+            placeholder="{{ 'nbk_brands.search_placeholder' | t | escape }}"
           >
 
           <button
             class="nbk-brands-search-clear"
             type="button"
-            aria-label="Wyczyść wyszukiwanie"
+            aria-label="{{ 'nbk_brands.clear' | t | escape }}"
             hidden
           >
             ×
@@ -93,24 +104,30 @@
     {% if section.settings.show_alphabet %}
       <nav
         class="nbk-brands-alphabet"
-        aria-label="Katalog marek A–Z"
+        aria-label="{{ 'nbk_brands.alphabet' | t | escape }}"
       >
         {% for letter in alphabet %}
           {% assign has_brands = false %}
 
-          {% for vendor in vendors %}
-            {% assign first_letter = vendor | strip | slice: 0 | upcase %}
+          {% for batch in (0..brand_batches) %}
+          {% assign brand_offset = batch | times: 50 %}
+          {% for vendor in vendors limit: 50 offset: brand_offset %}
+            {% if vendor.type == 'collection_link' and vendor.object.all_products_count == 0 %}{% continue %}{% endif %}
+            {% capture brand_label %}{% render 'nbk-brand-label', link: vendor %}{% endcapture %}
+            {% assign first_letter = brand_label | strip | slice: 0 | upcase %}
+            {% unless alphabet contains first_letter %}{% assign first_letter = '#' %}{% endunless %}
 
             {% if first_letter == letter %}
               {% assign has_brands = true %}
               {% break %}
             {% endif %}
           {% endfor %}
+          {% endfor %}
 
           {% if has_brands %}
             <a
               class="nbk-alphabet-item"
-              href="#NBKLetter-{{ section.id }}-{{ letter | downcase }}"
+              href="#NBKLetter-{{ section.id }}-{{ letter | handleize | default: 'other' }}"
               data-letter="{{ letter }}"
             >
               {{ letter }}
@@ -132,18 +149,24 @@
       {% for letter in alphabet %}
         {% assign has_brands = false %}
 
-        {% for vendor in vendors %}
-          {% assign first_letter = vendor | strip | slice: 0 | upcase %}
+        {% for batch in (0..brand_batches) %}
+          {% assign brand_offset = batch | times: 50 %}
+          {% for vendor in vendors limit: 50 offset: brand_offset %}
+            {% if vendor.type == 'collection_link' and vendor.object.all_products_count == 0 %}{% continue %}{% endif %}
+          {% capture brand_label %}{% render 'nbk-brand-label', link: vendor %}{% endcapture %}
+            {% assign first_letter = brand_label | strip | slice: 0 | upcase %}
+            {% unless alphabet contains first_letter %}{% assign first_letter = '#' %}{% endunless %}
 
           {% if first_letter == letter %}
             {% assign has_brands = true %}
             {% break %}
           {% endif %}
         {% endfor %}
+          {% endfor %}
 
         {% if has_brands %}
           <div
-            id="NBKLetter-{{ section.id }}-{{ letter | downcase }}"
+            id="NBKLetter-{{ section.id }}-{{ letter | handleize | default: 'other' }}"
             class="nbk-brand-group"
             data-brand-group="{{ letter }}"
           >
@@ -153,27 +176,24 @@
 
             <div class="nbk-brand-list">
 
-              {% for vendor in vendors %}
-                {% assign first_letter = vendor | strip | slice: 0 | upcase %}
+              {% for batch in (0..brand_batches) %}
+          {% assign brand_offset = batch | times: 50 %}
+          {% for vendor in vendors limit: 50 offset: brand_offset %}
+            {% if vendor.type == 'collection_link' and vendor.object.all_products_count == 0 %}{% continue %}{% endif %}
+                {% capture brand_label %}{% render 'nbk-brand-label', link: vendor %}{% endcapture %}
+            {% assign first_letter = brand_label | strip | slice: 0 | upcase %}
+            {% unless alphabet contains first_letter %}{% assign first_letter = '#' %}{% endunless %}
 
                 {% if first_letter == letter %}
 
-                  {% if section.settings.link_mode == 'brand_collection' %}
-                    {% capture brand_url %}
-                      {{ routes.collections_url }}/{{ vendor | handleize }}?sort_by={{ section.settings.default_sort }}
-                    {% endcapture %}
-                  {% else %}
-                    {% capture brand_url %}
-                      {{ routes.all_products_collection_url }}?filter.p.vendor={{ vendor | url_encode }}&sort_by={{ section.settings.default_sort }}
-                    {% endcapture %}
-                  {% endif %}
+                  {% assign brand_url = vendor.url %}
 
                   <a
                     class="nbk-brand-link"
-                    href="{{ brand_url | strip }}"
-                    data-brand-name="{{ vendor | escape | downcase }}"
+                    href="{{ brand_url | strip | escape }}"
+                    data-brand-name="{{ brand_label | strip | escape | downcase }}"
                   >
-                    <span>{{ vendor }}</span>
+                    <span>{{ brand_label | strip | escape }}</span>
 
                     {% if section.settings.show_arrow %}
                       <svg
@@ -196,6 +216,7 @@
 
                 {% endif %}
               {% endfor %}
+          {% endfor %}
 
             </div>
           </div>
@@ -204,8 +225,8 @@
 
     </div>
 
-    <div class="nbk-brands-empty" hidden>
-      {{ section.settings.empty_text }}
+    <div class="nbk-brands-empty" role="status" hidden>
+      {{ 'nbk_brands.empty' | t }}
     </div>
 
   </div>
@@ -322,7 +343,7 @@
 
   #shopify-section-{{ section.id }} .nbk-brands-alphabet {
     display: grid;
-    grid-template-columns: repeat(26, minmax(29px, 1fr));
+    grid-template-columns: repeat(27, minmax(40px, 1fr));
     margin-bottom: 64px;
     border-top: 1px solid var(--nbk-border);
     border-bottom: 1px solid var(--nbk-border);
@@ -559,13 +580,20 @@
     const clearButton = section.querySelector('.nbk-brands-search-clear');
     const emptyState = section.querySelector('.nbk-brands-empty');
     const groups = [...section.querySelectorAll('[data-brand-group]')];
+    // Sort by the displayed trademark, after correcting legacy translations.
+    groups.forEach((group) => {
+      const list = group.querySelector('.nbk-brand-list');
+      [...list.children]
+        .sort((a, b) => a.dataset.brandName.localeCompare(b.dataset.brandName, 'en', { sensitivity: 'base' }))
+        .forEach((link) => list.appendChild(link));
+    });
     const alphabetItems = [
       ...section.querySelectorAll('.nbk-alphabet-item[data-letter]')
     ];
 
     const normalizeText = (value) => {
       return value
-        .toLocaleLowerCase('pl')
+        .toLocaleLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .trim();

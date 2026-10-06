@@ -84,3 +84,26 @@
 		color: rgb(var(--color-foreground));
 	}
 }
+/* Collection progress and explicit loading share the Warsaw layout. */
+.hdt-page-type-collection [loadmore-btn-wrapp] {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding-bottom: 40px;
+}
+.hdt-page-type-collection [loadmore-btn-wrapp] .hdt-lm-bar-progress {
+  width: min(320px, 80vw);
+  height: 5px;
+}
+.hdt-page-type-collection [loadmore-btn-wrapp] .hdt-lm-bar--current {
+  background: #111;
+}
+.hdt-page-type-collection [loadmore-btn-wrapp] .hdt-loamore-btn {
+  min-height: 54px;
+  max-width: calc(100vw - 36px);
+  padding: 14px 32px;
+  border-radius: 10px;
+  color: #fff;
+  background: #000;
+  text-align: center;
+}
