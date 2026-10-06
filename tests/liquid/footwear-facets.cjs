@@ -16,6 +16,10 @@ engine.registerFilter('t', key => ({
 engine.registerFilter('handle', value => String(value || '').toLowerCase());
 engine.registerFilter('money', value => `${Number(value) / 100} UAH`);
 engine.registerFilter('image_url', value => value);
+engine.registerFilter('image_tag', value => value);
+engine.registerFilter('placeholder_svg_tag', value => value);
+engine.registerFilter('asset_url', value => value);
+engine.registerFilter('stylesheet_tag', value => `<link href="${value}">`);
 
 const footwearParam = 'filter.v.m.custom.footwear_size_eu_available';
 const ordinaryParam = 'filter.v.option.size';
@@ -124,3 +128,27 @@ test('boolean availability and price filters retain their native field names and
   assert.match(html, /name="filter\.v\.price\.gte"[^>]*value="125"/);
   assert.match(html, /name="filter\.v\.price\.lte"[^>]*value="300"/);
 });
+
+for (const renderer of ['facets', 'sidebar-collection']) {
+  test(`${renderer}: footwear replaces composite values and keeps numeric order and removable legacy choice`, async () => {
+    const filters = [facet(ordinaryParam, [
+      'US: 8/ EU: 41 1/3/ CM: 26', 'M',
+      { label: 'Euro: 42 • US:8.5 • См: 27.8', active: true }
+    ]), facet(footwearParam, ['42 2/3', '42.5', '42'])];
+    const ctx = context(filters);
+    ctx.collection = ctx.results;
+    ctx.section.blocks = [{ type: 'filter', settings: {} }];
+    const html = await engine.renderFile(renderer, ctx);
+    assert.deepEqual(checkboxes(html, ordinaryParam).map(x => x.value), ['M', 'Euro: 42 • US:8.5 • См: 27.8']);
+    assert.deepEqual(checkboxes(html, footwearParam).map(x => x.value), ['42', '42.5', '42 2/3']);
+    assert.match(html, /Розміри в наявності/);
+    const shoeOnly = context([facet(ordinaryParam, ['US: 8/ EU: 41 1/3/ CM: 26']), facet(footwearParam, ['41 1/3'])]);
+    shoeOnly.collection = shoeOnly.results;
+    shoeOnly.section.blocks = [{ type: 'filter', settings: {} }];
+    assert.equal(checkboxes(await engine.renderFile(renderer, shoeOnly), ordinaryParam).length, 0);
+    const fallback = context([facet(ordinaryParam, ['US: 8/ EU: 41 1/3/ CM: 26', 'S'])]);
+    fallback.collection = fallback.results;
+    fallback.section.blocks = [{ type: 'filter', settings: {} }];
+    assert.equal(checkboxes(await engine.renderFile(renderer, fallback), ordinaryParam).length, 2);
+  });
+}

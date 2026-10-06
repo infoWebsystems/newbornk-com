@@ -456,7 +456,7 @@ a.hdt-size-list-item::before {
   border-inline-start: thin solid rgb(var(--hdt-btn-bg) / .35);
   padding-inline-end: 7px;
 }
-.hdt-size-list>span:not(:last-of-type):after {
+.hdt-size-list>span:not(.hdt-variant-label):not(.hdt-variant-selected):not(:last-of-type):after {
   content: ",";
   display: inline-block;
 }
