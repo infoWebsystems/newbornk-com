@@ -1,7 +1,7 @@
 {% doc %}
   Shared payment badges for the Kyiv product page and footer.
-  The five Chekly methods were verified on 6 October 2026. Visa/Mastercard
-  identify the card networks, not additional checkout methods.
+  The five Chekly methods were verified on 6 October 2026. Google Pay and
+  Apple Pay badges were requested by the merchant; this does not enable wallets.
   @param {string} methods - Comma-separated payment keys from the block settings.
   @param {number} height - Badge height in pixels.
 {% enddoc %}
@@ -18,6 +18,10 @@
           assign label = 'Visa'
         when 'master'
           assign label = 'Mastercard'
+        when 'google_pay'
+          assign label = 'Google Pay'
+        when 'apple_pay'
+          assign label = 'Apple Pay'
         when 'plata'
           assign label = 'nbk_delivery.plata_title' | t
           assign logo = 'nbk-payment-plata.svg'
@@ -47,7 +51,7 @@
         <img src="{{ logo | asset_url }}" alt="" width="112" height="32" loading="lazy">
       {%- elsif key == 'pay_on_receipt' -%}
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5 9h2m10 6h2"/></svg>
-      {%- elsif key == 'visa' or key == 'master' -%}
+      {%- elsif key == 'visa' or key == 'master' or key == 'google_pay' or key == 'apple_pay' -%}
         <span class="nbk-payment-icons__network" aria-hidden="true">{{ key | payment_type_svg_tag }}</span>
       {%- elsif key contains 'cust4__' -%}
         {%- assign image_key = key | remove_first: 'cust4__' -%}

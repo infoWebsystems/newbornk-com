@@ -12,7 +12,8 @@ Verified against the visible Kyiv Chekly checkout on 6 October 2026:
 - `privat_installments`: PrivatBank Payment in Instalments
 - `pay_on_receipt`: payment on collection in store or at the post office
 
-Visa and Mastercard identify the existing card networks. The displayed list is
+Google Pay and Apple Pay replace the card-network badges at the merchant’s
+request. Their checkout availability was not independently tested. The displayed list is
 explicit, because Shopify's enabled payment types do not describe the external
 Chekly checkout. Recheck Chekly when enabling or disabling a method and update
 the `svg` lists in the three product templates and `sections/footer-group.json`.
@@ -20,7 +21,7 @@ Badges do not change gateway configuration or guarantee instalment eligibility.
 
 Artwork: plata and monobank SVGs come from the visible Chekly payment selector;
 the monobank wordmark uses the same black fill as that selector. LiqPay and
-PrivatBank reuse the existing theme assets. Visa/Mastercard use Shopify's
+PrivatBank reuse the existing theme assets. Google Pay/Apple Pay use Shopify's
 `payment_type_svg_tag`. Payment on receipt has a generic banknote icon and a
 localized label, because the checkout has no branded logo for that method.
 
