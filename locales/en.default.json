@@ -1031,5 +1031,9 @@
     "uklon_description": "Full prepayment required. Free delivery for paid orders from UAH 20,000.",
     "checkout_note": "Available methods, the number of payments and the final delivery cost are confirmed at checkout.",
     "full_terms": "Full payment and delivery terms"
+  },
+  "nbk_payment_icons": {
+    "installments": "Pay in parts",
+    "on_receipt": "On receipt"
   }
 }

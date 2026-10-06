@@ -146,8 +146,8 @@
                 "size": 15,
                 "source": "2",
                 "wimg": 370,
-                "svg": "visa,master",
-                "height": 22
+                "svg": "visa,master,plata,liqpay,mono_installments,privat_installments,pay_on_receipt",
+                "height": 32
               },
               "blocks": {}
             },
