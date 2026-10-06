@@ -4499,6 +4499,16 @@
         }
       }
   
+      // NEWBORN K product carousels start their mobile breakpoint at 320px.
+      // Browser zoom can make the layout viewport narrower: keep the smallest
+      // mobile preset instead of falling back to the desktop originalParams.
+      // This also covers the carousel injected by eSputnik. Other Swipers keep
+      // the upstream fallback behavior.
+      if (!breakpoint && containerEl && containerEl.classList.contains('swiper-container-collection') &&
+          points.length && Number(points[0].value) <= 320) {
+        breakpoint = points[0].point;
+      }
+
       return breakpoint || 'max';
     }
   
