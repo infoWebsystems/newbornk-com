@@ -1033,7 +1033,9 @@
       "custom_css": [
         "@media (width >= 1350px) {.hdt-collection-wrapper {padding: 5px; text-align: left; }}",
         ".hdt-heading-block {font-weight: 300;}",
-        "@media (width < 768px) {.hdt-heading-block {text-align: left; }}"
+        "@media (width < 768px) {.hdt-heading-block {text-align: left; }}",
+        ".hdt-collection-img .hdt-ratio {--ratio-percent: 150%; background: #e9e9e9;}",
+        ".hdt-collection-img .hdt-ratio > img {object-position: center top;}"
       ],
       "name": "t:sections.collections-list.name",
       "settings": {

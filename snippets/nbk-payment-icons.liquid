@@ -1,0 +1,139 @@
+{% doc %}
+  Shared payment badges for the Kyiv product page and footer.
+  The five Chekly methods were verified on 6 October 2026. Google Pay and
+  Apple Pay badges were requested by the merchant; this does not enable wallets.
+  @param {string} methods - Comma-separated payment keys from the block settings.
+  @param {number} height - Badge height in pixels.
+{% enddoc %}
+{%- assign payment_keys = methods | remove: ' ' | split: ',' -%}
+<div class="nbk-payment-icons" role="list" aria-label="{{ 'nbk_delivery.payment_heading' | t | escape }}" style="--nbk-payment-height:{{ height | default: 32 }}px;">
+  {%- for key in payment_keys -%}
+    {%- liquid
+      assign logo = blank
+      assign label = key | replace: '_', ' '
+      assign caption = blank
+      assign kind = 'standard'
+      case key
+        when 'visa'
+          assign label = 'Visa'
+        when 'master'
+          assign label = 'Mastercard'
+        when 'google_pay'
+          assign label = 'Google Pay'
+        when 'apple_pay'
+          assign label = 'Apple Pay'
+        when 'plata'
+          assign label = 'nbk_delivery.plata_title' | t
+          assign logo = 'nbk-payment-plata.svg'
+          assign kind = 'provider'
+        when 'liqpay'
+          assign label = 'nbk_delivery.liqpay_title' | t
+          assign logo = 'nbk-payment-liqpay.svg'
+          assign kind = 'provider'
+        when 'mono_installments'
+          assign label = 'nbk_delivery.mono_installments_title' | t
+          assign logo = 'nbk-payment-mono-installments.svg'
+          assign caption = 'nbk_payment_icons.installments' | t
+          assign kind = 'installments'
+        when 'privat_installments'
+          assign label = 'nbk_delivery.privat_title' | t
+          assign logo = 'nbk-payment-privat-installments.png'
+          assign kind = 'privat'
+        when 'pay_on_receipt'
+          assign label = 'nbk_delivery.pay_on_receipt_description' | t
+          assign caption = 'nbk_payment_icons.on_receipt' | t
+          assign kind = 'receipt'
+      endcase
+    -%}
+    {%- if key == blank -%}{%- continue -%}{%- endif -%}
+    <span class="nbk-payment-icons__badge nbk-payment-icons__badge--{{ kind }}" role="listitem" aria-label="{{ label | escape }}" title="{{ label | escape }}">
+      {%- if logo != blank -%}
+        <img src="{{ logo | asset_url }}" alt="" width="112" height="32" loading="lazy">
+      {%- elsif key == 'pay_on_receipt' -%}
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5 9h2m10 6h2"/></svg>
+      {%- elsif key == 'visa' or key == 'master' or key == 'google_pay' or key == 'apple_pay' -%}
+        <span class="nbk-payment-icons__network" aria-hidden="true">{{ key | payment_type_svg_tag }}</span>
+      {%- elsif key contains 'cust4__' -%}
+        {%- assign image_key = key | remove_first: 'cust4__' -%}
+        {%- assign custom_image = images[image_key] -%}
+        {%- if custom_image != blank -%}
+          {{ custom_image | image_url: width: 224 | image_tag: loading: 'lazy', alt: custom_image.alt }}
+        {%- endif -%}
+      {%- else -%}
+        <img src="https://raw.githubusercontent.com/activemerchant/payment_icons/refs/heads/master/app/assets/images/payment_icons/{{ key | escape }}.svg" alt="" width="38" height="24" loading="lazy">
+      {%- endif -%}
+      {%- if caption != blank -%}<span class="nbk-payment-icons__caption" aria-hidden="true">{{ caption }}</span>{%- endif -%}
+    </span>
+  {%- endfor -%}
+</div>
+{% stylesheet %}
+  .nbk-payment-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+  }
+  .nbk-payment-icons__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    height: var(--nbk-payment-height);
+    width: calc(var(--nbk-payment-height) * 1.5833);
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 3px;
+    background: #fff;
+    color: #111;
+    box-shadow: inset 0 0 0 1px #e5e5e5;
+    line-height: 1;
+  }
+  .nbk-payment-icons .nbk-payment-icons__badge > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0;
+    padding: 5px 7px;
+  }
+  .nbk-payment-icons__network, .nbk-payment-icons__network svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .nbk-payment-icons__badge--provider { width: calc(var(--nbk-payment-height) * 2.8); }
+  .nbk-payment-icons__badge--installments {
+    width: calc(var(--nbk-payment-height) * 3.2);
+    min-width: 112px;
+    flex-direction: column;
+    padding: 4px 6px;
+    gap: 2px;
+  }
+  .nbk-payment-icons .nbk-payment-icons__badge--installments > img {
+    height: calc(100% - 11px);
+    padding: 0;
+  }
+  .nbk-payment-icons__caption {
+    font: 500 9px/1 Arial, sans-serif;
+    white-space: nowrap;
+    color: #111;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .nbk-payment-icons__badge--privat { width: calc(var(--nbk-payment-height) * 3); min-width: 90px; }
+  .nbk-payment-icons .nbk-payment-icons__badge--privat > img {
+    height: 160%;
+    max-height: none;
+    padding: 0 5px;
+  }
+  .nbk-payment-icons__badge--receipt {
+    width: calc(var(--nbk-payment-height) * 3);
+    min-width: 96px;
+    gap: 4px;
+    padding: 4px;
+  }
+  .nbk-payment-icons__badge--receipt > svg { width: 18px; height: 18px; flex-shrink: 0; }
+  .hdt-product__trust-badge .nbk-payment-icons { justify-content: flex-start; }
+{% endstylesheet %}
