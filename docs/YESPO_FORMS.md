@@ -38,6 +38,6 @@ App embed settings were compared rather than copied wholesale. This change does 
 - Signup integration, Yespo recommendation and REZ regression suites: 16 passing tests.
 - Liquid block schema and both locale JSON files parse successfully.
 - Missing SDK function or synchronous SDK errors show a retry message. A queued SDK call does not itself prove the remote popup loaded; actual popup opening was checked in the browser.
-- The previously approved test address already exists in Yespo. The published form sends confirmation and the welcome event only to new contacts, so fresh-contact email delivery still needs a separately authorized test address.
+- A separately authorized fresh test alias was submitted through the real preview popup. The popup displayed its “check your email” confirmation, but the contact was not found in Yespo and neither the Yespo single-send report nor Gmail showed the confirmation email during the check. Double opt-in and welcome delivery are therefore **not verified**; resolve this before production launch. No automatic resubmission or changes to shared marketing rules were made.
 
 Only the newsletter block, its JS asset and Ukrainian/English locale files were pushed to the unpublished preview. Publication is a separate step.
