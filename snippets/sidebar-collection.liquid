@@ -297,6 +297,12 @@
         assign color_list = 'products.theme_settings.color' | t | downcase | strip | replace: ' ,', ',' | replace: ', ', ',' | split: ',' | uniq
         assign color_white = 'products.theme_settings.color_white' | t | downcase | strip
         assign sort_by = results.sort_by | default: results.default_sort_by
+        assign nbk_has_footwear_filter = false
+        for nbk_filter in results.filters
+          if nbk_filter.param_name == 'filter.v.m.custom.footwear_size_eu_available'
+            assign nbk_has_footwear_filter = true
+          endif
+        endfor
         if results.url
           assign results_url = results.url
           assign action = results_url
@@ -316,12 +322,50 @@
         <form class="hdt-filter" id="hdt-facet-filters-form-sidebar" method="GET" action="{{ action }}" section-id="{{ section.id }}"render-on-change>
           <input type="hidden" name="page" value="">
           {%- for filter in results.filters -%}
+            {%- liquid
+              assign nbk_filter_label = filter.label
+              assign nbk_is_footwear_filter = false
+              if filter.param_name == 'filter.v.m.custom.footwear_size_eu_available'
+                assign nbk_is_footwear_filter = true
+                assign nbk_filter_label = 'products.facets.footwear_size_eu' | t
+              endif
+              assign nbk_visible_values = 0
+              capture nbk_value_order
+                for nbk_value in filter.values
+                  assign nbk_skip_value = false
+                  if nbk_has_footwear_filter and filter.param_name == 'filter.v.option.size'
+                    capture nbk_raw_eu
+                      render 'nbk-footwear-size', raw_size: nbk_value.label
+                    endcapture
+                    if nbk_raw_eu != blank and nbk_value.active == false
+                      assign nbk_skip_value = true
+                    endif
+                  endif
+                  unless nbk_skip_value
+                    assign nbk_visible_values = nbk_visible_values | plus: 1
+                    if nbk_is_footwear_filter
+                      assign nbk_size_to_sort = 'EU: ' | append: nbk_value.label
+                      render 'nbk-footwear-size', raw_size: nbk_size_to_sort, output: 'sort_key'
+                    else
+                      echo forloop.index0 | prepend: '0000' | slice: -4, 4
+                    endif
+                    echo ':'
+                    echo forloop.index0
+                    echo '|'
+                  endunless
+                endfor
+              endcapture
+              assign nbk_value_order = nbk_value_order | split: '|' | sort
+              if filter.param_name == 'filter.v.option.size' and nbk_visible_values == 0
+                continue
+              endif
+            -%}
             <hdt-accordion class="hdt-contents">
               <details class="hdt-filter-group" open>
-                <summary class="hdt-filter-group-summary"{% if filter.type != 'price_range' %} aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"{% endif %}>
+                <summary class="hdt-filter-group-summary"{% if filter.type != 'price_range' %} aria-label="{{ nbk_filter_label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"{% endif %}>
                   <div class="hdt-facet-title hdt-text-lg lg:hdt-text-2xl hdt-font-normal hdt-s-text hdt-flex">
                     <span class="hdt-inline-flex hdt-facet-title_group">
-                      <span>{{ filter.label }}</span>
+                      <span>{{ nbk_filter_label | escape }}</span>
                       {% if filter.active_values.size > 0 %}
                         <span class="hdt-hidden">
                           ({{ filter.active_values.size }})
@@ -336,6 +380,9 @@
                   </div>
                 </summary>
                 <div class="hdt-filter-group__display">
+                  {%- if nbk_is_footwear_filter -%}
+                    <p class="hdt-text-sm hdt-s-text2">{{ 'products.facets.footwear_size_available' | t }}</p>
+                  {%- endif -%}
                   {%- if filter.type != 'price_range' -%}
                   <div class="hdt-filter-group__header hdt-hidden">
                     <span class="hdt-filter-group__header-selected hdt-base hdt-font-normal hdt-s-text">{{ 'products.facets.filters_selected' | t: count: filter.active_values.size }}</span>
@@ -410,7 +457,9 @@
                         </ul>
                       {%- else -%}
                         <ul class="hdt-filter-group__list">
-                          {%- for filter_value in filter.values -%}
+                          {%- for nbk_value_entry in nbk_value_order -%}
+                            {%- assign nbk_value_index = nbk_value_entry | split: ':' | last | plus: 0 -%}
+                            {%- assign filter_value = filter.values[nbk_value_index] -%}
                             <li class="hdt-filter-group__list-item">
                               <input class="sr-only" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
                               <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">
