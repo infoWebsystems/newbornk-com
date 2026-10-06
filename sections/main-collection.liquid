@@ -361,7 +361,7 @@
                     endif
                   -%}
                 </hdt-reval-items>
-                {%- if paginate.pages > 1 -%}
+                {%- if paginate.pages > 1 or section.settings.pagination_type == 'load_more' and section.settings.enable_progressbar and paginate.items > 0 -%}
                   {%- render 'pagination', paginate: paginate, anchor: '', section_id: section.id , pagination_type: section.settings.pagination_type, append_id: products_id, paginate_pos: section.settings.paginate_pos, dis_pagination: section.settings.dis_pagination, lm_text: section.settings.btn_label -%}
                 {%- endif -%}
               {%- endif -%}

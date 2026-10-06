@@ -1,0 +1,17 @@
+{%- liquid
+  assign arrivals = collections['novi-nadkhodzhennia']
+  assign has_arrivals = false
+  for item in menu.links
+    if item.object.handle == 'novi-nadkhodzhennia' or item.url contains '/collections/novi-nadkhodzhennia'
+      assign has_arrivals = true
+      break
+    endif
+  endfor
+-%}
+{%- if arrivals != blank and has_arrivals == false -%}
+  <li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col" style="order: 0;">
+    <a href="{{ arrivals.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-{{ section.settings.menu_size | default: 'base' }} hdt-font-{{ section.settings.menu_weight | default: 'normal' }}{% if collection.handle == arrivals.handle %} hdt-menu-link--active{% endif %}"{% if collection.handle == arrivals.handle %} aria-current="page"{% endif %}>
+      <span class="hdt-menu-link-text hdt-block"><span class="hdt-block">{{ 'nbk_navigation.new_arrivals' | t }}</span></span>
+    </a>
+  </li>
+{%- endif -%}

@@ -27,7 +27,8 @@
 			{%- else -%}
 				<nav id="sub-hdt-nav-mb" class="hdt-navigation hdt-navigation-mobile hdt-menu-uppercase-{{ section.settings.text_transform }} hdt-current-scrollbar" >
 					<ul id="hdt-nav-ul-mb" class="hdt-nav__ul-mb hdt-flex hdt-flex-col">
-						{%- for link in menu_mobile.links -%}
+						{%- render 'nbk-new-arrivals-link', menu: menu_mobile -%}
+                        {%- for link in menu_mobile.links -%}
 							{%- liquid
 								assign li_class = ""
 								if link.links != blank

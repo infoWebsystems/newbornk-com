@@ -16,9 +16,9 @@
   {%- endpaginate -%}
 {%- endcomment -%}
 {{ 'hdt-pagination.css' | asset_url | stylesheet_tag }}
-{%- if paginate.parts.size > 0 -%}
+{%- if paginate.parts.size > 0 or pagination_type == 'load_more' and paginate.items > 0 -%}
   {%- if pagination_type == 'load_more' or pagination_type == 'infinite' -%}
-    {%- if paginate.next.is_link -%}
+    {%- if paginate.next.is_link or pagination_type == 'load_more' and section.settings.enable_progressbar and paginate.items > 0 -%}
       {%- liquid
         if load_more_label == 'articles'
           assign label = 'general.pagination.load_more_articles' | t          
@@ -31,9 +31,11 @@
       -%}
       <div loadmore-btn-wrapp class="hdt-pagination-wrapper {{ class }} hdt-text-{{ paginate_pos }} hdt-justify-items-{{ paginate_pos }}" style="--pagination-distance:{{ dis_pagination }}px;">
         {%- if section.settings.enable_progressbar -%}
-          {% render 'progress_bar', paginate: paginate, results_count: collection.products_count %}
+          {% render 'progress_bar', paginate: paginate, collection: collection, results_count: collection.products_count %}
         {%- endif -%}
+        {%- if paginate.next.is_link -%}
         <wrapp-hdt-lm-main-url {%- if pagination_type == 'infinite' %} render-on-scroll{% endif %} section-id="{{ section_id }}" append="{{ append_id }}" {%- if is_prepend_btn %} prepend{% endif %}><a href="{{ paginate.next.url }}" {%- if is_prepend_btn %} prepend{% endif %} class="hdt-loamore-btn hdt-btn hdt-oh hdt-inline-flex hdt-align-center hdt-justify-center hdt-relative {{ section.settings.btn_style }} hdt-btn--size-{{ section.settings.size }} hdt-font-{{ section.settings.btn_fw }}"><span>{{ label | escape }}</span></a></wrapp-hdt-lm-main-url>
+        {%- endif -%}
       </div>
     {%- endif -%}
   {%- else -%}

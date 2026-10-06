@@ -1,4 +1,4 @@
-{% comment %} 
+{% comment %}
 
   assign results_count = collection.products_count
   render 'progress_bar', collection: collection, results_count: results_count
@@ -6,12 +6,14 @@
 {% endcomment %}
 {%liquid
   unless current_pr_size
-    assign current_pr_size = collection.products.size | plus: paginate.current_offset 
+    assign current_pr_size = collection.products.size | plus: paginate.current_offset | at_most: results_count
   endunless
 %}
-<div class="hdt-lm-bar">
+{%- if results_count > 0 -%}
+<div class="hdt-lm-bar" role="status" aria-live="polite">
   <span class="hdt-lm-bar-text">{{ 'collections.pagination.bar_with_count_html' | t: current_count: current_pr_size, total_count: results_count }}</span>
-  <div class="hdt-lm-bar-progress hdt-relative">
+  <div class="hdt-lm-bar-progress hdt-relative" aria-hidden="true">
     <span class="hdt-lm-bar--current hdt-absolute hdt-left-0 hdt-top-0 hdt-right-0 hdt-bottom-0" style="width: {{ current_pr_size | times: 100.0 | divided_by: results_count }}%"></span>
   </div>
 </div>
+{%- endif -%}

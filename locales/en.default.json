@@ -980,6 +980,9 @@
     "call_us": "Call us",
     "write_us": "Write to us",
     "opening_hours": "Opening hours",
+    "unavailable": "The signup form could not be opened. Please try again or check your ad blocker settings.",
+    "javascript_required": "Enable JavaScript in your browser to open the signup form.",
+    "yespo_signup_hint": "Enter your email in the form, then confirm your address using the email we send.",
     "newsletter_heading": "Join NEWBORN K",
     "newsletter_text": "New arrivals, selected brands and news from our concept store.",
     "email": "Your email address",
@@ -1035,5 +1038,17 @@
   "nbk_payment_icons": {
     "installments": "Pay in parts",
     "on_receipt": "On receipt"
+  },
+  "nbk_brands": {
+    "title": "Brands",
+    "subtitle": "Discover the brands available at NEWBORN K Kyiv.",
+    "search_label": "Find a brand",
+    "search_placeholder": "Enter a brand name",
+    "clear": "Clear search",
+    "alphabet": "Brands A–Z",
+    "empty": "No brands found."
+  },
+  "nbk_navigation": {
+    "new_arrivals": "New arrivals"
   }
 }

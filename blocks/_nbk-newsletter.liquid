@@ -1,39 +1,20 @@
 {% doc %}
-  Displays Kyiv's newsletter signup using Shopify's native customer form.
+  Opens Kyiv's published Yespo welcome form (35732), shared with the live Dawn theme.
+  Yespo owns email collection, consent, double opt-in and the welcome event.
 {% enddoc %}
 {%- liquid
   assign form_id = 'nbk-footer-newsletter-' | append: block.id
-  assign privacy_url = pages['privacy-policy'].url | default: shop.privacy_policy.url
 -%}
 <div class="nbk-footer-newsletter" {{ block.shopify_attributes }}>
   <h3 class="nbk-footer-newsletter__heading" id="{{ form_id }}-heading">{{ 'nbk_footer.newsletter_heading' | t }}</h3>
   <p class="nbk-footer-newsletter__text">{{ 'nbk_footer.newsletter_text' | t }}</p>
-  {%- form 'customer', id: form_id, class: 'nbk-footer-newsletter__form' -%}
-    <input type="hidden" name="contact[tags]" value="newsletter">
-    <label class="nbk-footer-newsletter__label" for="{{ form_id }}-email">{{ 'nbk_footer.email' | t }}</label>
-    <input
-      class="nbk-footer-newsletter__email"
-      id="{{ form_id }}-email"
-      type="email"
-      name="contact[email]"
-      value="{{ form.email | escape }}"
-      placeholder="{{ 'nbk_footer.email' | t | escape }}"
-      autocomplete="email"
-      autocorrect="off"
-      autocapitalize="off"
-      required
-      aria-required="true"
-      aria-describedby="{{ form_id }}-consent{% if form.errors %} {{ form_id }}-error{% elsif form.posted_successfully? %} {{ form_id }}-success{% endif %}"
-      {% if form.errors %}aria-invalid="true" autofocus{% endif %}
-    >
-    <button class="nbk-footer-newsletter__submit" type="submit" name="commit">{{ 'nbk_footer.subscribe' | t }}</button>
-    {%- if form.errors -%}
-      <div class="nbk-footer-newsletter__message" id="{{ form_id }}-error" role="alert">{{ form.errors | default_errors }}</div>
-    {%- elsif form.posted_successfully? -%}
-      <p class="nbk-footer-newsletter__message" id="{{ form_id }}-success" role="status" tabindex="-1" autofocus>{{ 'nbk_footer.success' | t }}</p>
-    {%- endif -%}
-    <p class="nbk-footer-newsletter__consent" id="{{ form_id }}-consent">{{ 'nbk_footer.consent_html' | t: privacy_url: privacy_url }}</p>
-  {%- endform -%}
+  <nbk-yespo-signup data-form-variant-id="f35732v35732">
+    <button class="nbk-footer-newsletter__submit" type="button" aria-haspopup="dialog" aria-describedby="{{ form_id }}-consent" disabled>{{ 'nbk_footer.subscribe' | t }}</button>
+    <p class="nbk-footer-newsletter__message" role="status" hidden>{{ 'nbk_footer.unavailable' | t }}</p>
+    <noscript><p>{{ 'nbk_footer.javascript_required' | t }}</p></noscript>
+    <p class="nbk-footer-newsletter__consent" id="{{ form_id }}-consent">{{ 'nbk_footer.yespo_signup_hint' | t }}</p>
+  </nbk-yespo-signup>
+  <script src="{{ 'nbk-yespo-signup.js' | asset_url }}" defer="defer"></script>
 </div>
 
 {% stylesheet %}
@@ -59,41 +40,13 @@
     font-size: 14px;
     line-height: 1.5;
   }
-  .nbk-footer-newsletter__form {
+  nbk-yespo-signup {
     display: grid;
     gap: 14px;
-    position: relative;
-    margin: 0;
   }
-  .nbk-footer-newsletter__label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border: 0;
-  }
-  .nbk-footer-newsletter .nbk-footer-newsletter__email {
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    min-width: 0;
-    min-height: 50px;
-    padding: 14px 18px;
-    border: 1px solid #ddd;
-    border-radius: 0;
-    background: #fff;
-    color: #111;
-    font: inherit;
-    font-size: 16px;
-    line-height: 1.4;
-    text-align: left;
-  }
-  .nbk-footer-newsletter__email::placeholder {
-    color: #6b6b6b;
-    opacity: 1;
+  .nbk-footer-newsletter__submit:disabled {
+    cursor: wait;
+    opacity: 0.65;
   }
   .nbk-footer-newsletter .nbk-footer-newsletter__submit {
     display: block;
@@ -114,7 +67,6 @@
   .nbk-footer-newsletter__submit:hover {
     background: #c5f235;
   }
-  .nbk-footer-newsletter__email:focus-visible,
   .nbk-footer-newsletter__submit:focus-visible,
   .nbk-footer-newsletter__consent a:focus-visible {
     outline: 2px solid #fff;
