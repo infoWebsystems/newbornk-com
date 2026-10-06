@@ -1,0 +1,32 @@
+{%- liquid
+  assign copy = collection.description | strip
+  assign words = copy | strip_html | split: ' ' | size
+  assign opening = copy | slice: 0, 3
+  assign starts_with_paragraph = false
+  if opening == '<p>' or opening == '<p '
+    assign starts_with_paragraph = true
+  endif
+  assign lead = ''
+  assign remainder = copy
+  if words > 120 and starts_with_paragraph and copy contains '</p>'
+    assign paragraphs = copy | split: '</p>'
+    assign lead = paragraphs.first | append: '</p>'
+    assign remainder = copy | remove_first: lead | strip
+  endif
+-%}
+{%- if copy != blank -%}
+  <section class="nbk-collection-editorial" aria-labelledby="CollectionEditorial-{{ section_id }}">
+    <div class="nbk-collection-editorial__inner">
+      <h2 id="CollectionEditorial-{{ section_id }}">{{ 'nbk_collection_editorial.heading' | t: title: collection.title }}</h2>
+      {%- if lead != blank and remainder != blank -%}
+        <div class="nbk-collection-editorial__copy">{{ lead }}</div>
+        <details class="nbk-collection-editorial__details">
+          <summary><span class="nbk-editorial-more">{{ 'general.read_more' | t }}</span><span class="nbk-editorial-less">{{ 'general.read_less' | t }}</span></summary>
+          <div class="nbk-collection-editorial__copy">{{ remainder }}</div>
+        </details>
+      {%- else -%}
+        <div class="nbk-collection-editorial__copy">{{ copy }}</div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}

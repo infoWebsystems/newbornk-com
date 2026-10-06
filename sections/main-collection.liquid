@@ -135,26 +135,9 @@
  {%- render 'sizes', enable_list: true, full_width: nbk_full_width, col_mobile: col_mobile, col_tablet: col_tablet, col_desktop: col_desktop -%}
 {%- endcapture -%}
 {%- if section.settings.show_description and collection.description != blank -%}
+  {{ 'nbk-collection-editorial.css' | asset_url | stylesheet_tag }}
   {%- capture collection_description -%}
-    <div class="hdt-main-collection-description-wrap">
-      <div class="{{ parent }} {% if section.settings.hdt_background_parallax %} hdt-animate--parallax-bg {% endif %}" {%- if section.settings.colors_by_section %} color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};"{%- endif %}>
-        <div class="{{ child }}">
-          <readmore-less-wrap class="hdt-contents hdt-collection-description" hdt-reveal="slide-in" timeline>
-            <div class="wrapper" wrap-content style="--max-height: {{ section.settings.read_more_height }}px;">
-              <readmore-less config='{"useReadMore": {{ section.settings.use_read_more | default: false }}, "readMoreHeight": {{ section.settings.read_more_height }} }'>
-                <div class="hdt-rte" >
-                  {{ collection.description }}
-                </div>
-              </readmore-less>
-            </div>
-            <div class="hdt-form-wrapper">
-              <input type="checkbox" id="readmore-less-checkbox-{{ section.id }}" class="hdt-hidden">
-              <label for="readmore-less-checkbox-{{ section.id }}" data-more="{{ 'general.read_more' | t }}" data-less="{{ 'general.read_less' | t }}" ></label>
-            </div>
-          </readmore-less-wrap>
-        </div>
-      </div>
-    </div>
+    {% render 'nbk-collection-editorial', collection: collection, section_id: section.id %}
   {%- endcapture -%}
 {%- endif -%}
 <div id="{{ section.id }}" main-content class="hdt-main-collection-content hdt-section-spacing hdt-section-spacing-{{ section.id }}">
@@ -416,26 +399,6 @@
       "id": "show_description",
       "label": "t:sections.main-collection.settings.show_description.label",
       "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "use_read_more",
-      "label": "t:sections.main-collection.settings.use_read_more.label",
-      "default": false,
-      "info": "t:sections.main-collection.settings.use_read_more.info",
-      "visible_if": "{{ section.settings.show_description }}"
-    },
-    {
-      "type": "range",
-      "id": "read_more_height",
-      "label": "t:sections.main-collection.settings.read_more_height.label",
-      "min": 100,
-      "max": 1000,
-      "step": 10,
-      "default": 300,
-      "unit": "px",
-      "info": "t:sections.main-collection.settings.read_more_height.info",
-      "visible_if": "{{ section.settings.use_read_more and section.settings.show_description }}"
     },
     {
       "type": "select",

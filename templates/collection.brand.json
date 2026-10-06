@@ -57,8 +57,6 @@
       ],
       "settings": {
         "show_description": true,
-        "use_read_more": false,
-        "read_more_height": 300,
         "description_position": "after",
         "product_des": "8",
         "image_ratio": "adapt_image",
