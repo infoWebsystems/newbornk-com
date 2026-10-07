@@ -505,13 +505,11 @@
 
 
                 <div class="menu-drawer__utility-links">
-                  <div class="nbk-mobile-inbox-row">
-                    <span>{{ 'sections.header.notifications' | t }}</span>
-                    <div class="nbk-mobile-inbox-slot"></div>
-                  </div>
+                  <div class="nbk-mobile-account-wishlist-row">
                   {%- if shop.customer_accounts_enabled -%}
                     <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__account link link--text focus-inset h5">
                       {% render 'icon-account' %}
+                      <span class="visually-hidden">
                       {%- liquid
                         if customer
                           echo 'customer.account_fallback' | t
@@ -519,8 +517,11 @@
                           echo 'customer.log_in' | t
                         endif
                       -%}
+                      </span>
                     </a>
                   {%- endif -%}
+                    <div class="nbk-mobile-wishlist-slot"></div>
+                  </div>
                   <ul class="list list-social list-unstyled" role="list">
                     {%- if settings.social_twitter_link != blank -%}
                       <li class="list-social__item">

@@ -6,9 +6,9 @@
       header.dataset.nbkMobileHeader = 'true';
       const heading = header.querySelector('.header__heading');
       const search = header.querySelector('.header__icons .header__search');
-      const inbox = header.querySelector('#app-inbox');
-      const inboxSlot = header.querySelector('.nbk-mobile-inbox-slot');
-      const controls = [[search, heading?.parentNode, heading], [inbox, inboxSlot, null]];
+      const wishlist = header.querySelector('#icon-wishlist-header');
+      const wishlistSlot = header.querySelector('.nbk-mobile-wishlist-slot');
+      const controls = [[search, heading?.parentNode, heading], [wishlist, wishlistSlot, null]];
       const anchors = controls.map(([control]) => {
         if (!control) return null;
         const anchor = document.createComment('NBK desktop control position');
