@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -540,7 +549,16 @@
         "mobile_phone_number": "Mobile phone number",
         "terms_and_privacy_html": "By continuing, you agree to Shop Pay’s {{ privacy_href }} and {{ terms_href }}.",
         "privacy_policy": "Privacy Policy",
-        "terms_of_service": "Terms of Service"
+        "terms_of_service": "Terms of Service",
+        "shopify_pay_label": "Shop Pay",
+        "description_html": "Next time you check out here or on other stores powered by Shopify, you’ll receive a code by text message to securely purchase with Shop Pay.",
+        "errors": {
+          "optin": "Shop Pay isn’t available"
+        },
+        "installments": {
+          "paid_in_installments": "Paid in installments with Shop Pay.",
+          "view_schedule": "View Schedule"
+        }
       }
     },
     "errors": {
