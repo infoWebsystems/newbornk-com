@@ -259,6 +259,7 @@
   },
   "sections": {
     "header": {
+      "notifications": "Notifications",
       "announcement": "Announcement",
       "menu": "Menu",
       "cart_count": {

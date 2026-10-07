@@ -285,6 +285,7 @@
   },
   "sections": {
     "header": {
+      "notifications": "Уведомления",
       "announcement": "Объявление",
       "menu": "Меню",
       "cart_count": {

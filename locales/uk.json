@@ -1,6 +1,7 @@
 {
   "sections": {
     "header": {
+      "notifications": "Сповіщення",
       "announcement": "Cповіщення",
       "menu": "Меню",
       "cart_count": {

@@ -505,6 +505,10 @@
 
 
                 <div class="menu-drawer__utility-links">
+                  <div class="nbk-mobile-inbox-row">
+                    <span>{{ 'sections.header.notifications' | t }}</span>
+                    <div class="nbk-mobile-inbox-slot"></div>
+                  </div>
                   {%- if shop.customer_accounts_enabled -%}
                     <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__account link link--text focus-inset h5">
                       {% render 'icon-account' %}
@@ -948,6 +952,9 @@ twq('config','opld2');
 <!-- End Twitter conversion tracking base code -->
   </header>
 </{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %}>
+
+{{ 'nbk-mobile-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'nbk-mobile-header.js' | asset_url }}" defer="defer"></script>
 {% comment %}
 {%- if request.page_type != 'cart' -%}
   {%- render 'cart-notification' -%}
