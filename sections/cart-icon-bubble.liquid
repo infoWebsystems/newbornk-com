@@ -1,8 +1,9 @@
 {%- liquid
-  if cart == empty
-    render 'icon-cart-empty'
+  assign discount_size = cart.discount_applications | size
+  if discount_size > 0
+    render 'nbk-header-icon', icon: 'cart', discount: true
   else
-    render 'icon-cart'
+    render 'nbk-header-icon', icon: 'cart'
   endif
 -%}
 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>

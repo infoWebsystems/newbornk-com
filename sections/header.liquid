@@ -17,12 +17,11 @@
 <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
 
 <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-  <symbol id="icon-search" viewbox="0 0 18 19" fill="none">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"/>
+  <symbol id="icon-search" viewBox="2 2 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>
   </symbol>
-
-  <symbol id="icon-close" class="icon icon-close" fill="none" viewBox="0 0 18 17">
-    <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"/>
+  <symbol id="icon-close" class="icon icon-close" viewBox="2 2 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m3 3 18 18M3 21 21 3"/>
   </symbol>
 </svg>
 <style>
@@ -383,7 +382,7 @@
         <details class="menu-drawer-container">
           <summary class="header__icon header__icon--menu header__icon--summary link link--text focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
             <span>
-              {% render 'icon-hamburger' %}
+              {% render 'nbk-header-icon', icon: 'hamburger' %}
               {% comment %}{% render 'icon-close' %}{% endcomment %}
             </span>
           </summary>
@@ -505,13 +504,11 @@
 
 
                 <div class="menu-drawer__utility-links">
-                  <div class="nbk-mobile-inbox-row">
-                    <span>{{ 'sections.header.notifications' | t }}</span>
-                    <div class="nbk-mobile-inbox-slot"></div>
-                  </div>
+                  <div class="nbk-mobile-account-wishlist-row">
                   {%- if shop.customer_accounts_enabled -%}
                     <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__account link link--text focus-inset h5">
-                      {% render 'icon-account' %}
+                      {% render 'nbk-header-icon', icon: 'account' %}
+                      <span class="visually-hidden">
                       {%- liquid
                         if customer
                           echo 'customer.account_fallback' | t
@@ -519,8 +516,11 @@
                           echo 'customer.log_in' | t
                         endif
                       -%}
+                      </span>
                     </a>
                   {%- endif -%}
+                    <div class="nbk-mobile-wishlist-slot"></div>
+                  </div>
                   <ul class="list list-social list-unstyled" role="list">
                     {%- if settings.social_twitter_link != blank -%}
                       <li class="list-social__item">
@@ -794,6 +794,8 @@
 
       {%- comment -%} eSputnik App Inbox host — widget (bell) is injected here client-side; selector #app-inbox {%- endcomment -%}
       <div id="app-inbox" class="header__icon header__icon--app-inbox"></div>
+      <template class="nbk-header-bell-template">{% render 'nbk-header-icon', icon: 'bell' %}</template>
+      <template class="nbk-header-wishlist-template">{% render 'nbk-header-icon', icon: 'wishlist' %}</template>
 
       {% if settings.show_wishlist == true %}
         {% comment %}{% render 'wishlisthero-header-icon' %}{% endcomment %}
@@ -801,7 +803,7 @@
         link's innerHTML at runtime, dropping the visually-hidden span {%- endcomment -%}
         <a id="icon-wishlist-header" href="#hero-wishlist" class="header__icon header__icon--wishlist link link--text focus-inset" aria-label="{{ 'wishlist.header_link' | t }}">
           <span class="visually-hidden">{{ 'wishlist.header_link' | t }}</span>
-          {% render 'icon-wishlist' %}
+          {% render 'nbk-header-icon', icon: 'wishlist' %}
         </a>
       {% endif %}
 
@@ -919,18 +921,18 @@
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account account link link--text focus-inset" aria-label="{{ 'customer.account_fallback' | t }}">
-         {% render 'icon-account' %}
+         {% render 'nbk-header-icon', icon: 'account' %}
         </a>
       {%- endif -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble">
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble" aria-label="{{ 'templates.cart.cart' | t }}">
         {% assign discount_size = cart.discount_applications | size %}
         {% if discount_size > 0 %}
-          {%- render 'icon-cart-discount' -%}
+          {%- render 'nbk-header-icon', icon: 'cart', discount: true -%}
         {% else %}
-          {%- render 'icon-cart' -%}
+          {%- render 'nbk-header-icon', icon: 'cart' -%}
         {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
             {%- if cart.item_count < 100 -%}
@@ -939,7 +941,6 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-      </span>
       </a>
     </div>
 <!-- Twitter conversion tracking base code -->

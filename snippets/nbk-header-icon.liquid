@@ -1,0 +1,16 @@
+{%- comment -%}One outline style for header controls and their mobile drawer counterparts.{%- endcomment -%}
+<svg class="icon nbk-header-icon icon-{{ icon }}" width="24" height="24" viewBox="2 2 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  {%- case icon -%}
+    {%- when 'hamburger' -%}
+      <path d="M3 3h18M3 12h18M3 21h18"/>
+    {%- when 'account' -%}
+      <circle cx="12" cy="7" r="4"/><path d="M3 21v-2a9 9 0 0 1 18 0v2Z"/>
+    {%- when 'wishlist' -%}
+      <path d="m12 21-8-8a5.5 5.5 0 0 1 8-7.5 5.5 5.5 0 0 1 8 7.5Z"/>
+    {%- when 'bell' -%}
+      <path d="M4 18h16l-2-3V9a6 6 0 0 0-12 0v6ZM10 21h4"/>
+    {%- when 'cart' -%}
+      <path d="M3 8h18v13H3ZM8 8V7a4 4 0 0 1 8 0v1"/>
+      {%- if discount -%}<g stroke="#f00" stroke-width="1.2"><path d="m10 18 4-7"/><circle cx="9" cy="12" r="0.7"/><circle cx="15" cy="17" r="0.7"/></g>{%- endif -%}
+  {%- endcase -%}
+</svg>
