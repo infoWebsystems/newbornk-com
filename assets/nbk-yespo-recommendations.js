@@ -50,9 +50,9 @@
     });
   }
 
-  async function addWishlist(card) {
+  async function hydrateCard(card) {
     const link = card.querySelector('a.full-unstyled-link');
-    if (!link || !wishlistTemplate?.content.querySelector('hdt-wishlist')) return;
+    if (!link) return;
     let url;
     try { url = new URL(link.href, location.origin); } catch { return; }
     if (url.origin !== location.origin) return;
@@ -61,7 +61,18 @@
     let handle;
     try { handle = decodeURIComponent(match[1]); } catch { return; }
     const product = await getProduct(handle);
-    if (!product || !card.isConnected || !link.isConnected || link.href !== url.href || card.querySelector('.nbk-yespo-wishlist')) return;
+    if (!product || !card.isConnected || !link.isConnected || link.href !== url.href) return;
+    // Yespo's feed has Ukrainian names. Reuse the locale-aware wishlist lookup
+    // so visible and accessible names match the current storefront language.
+    if (typeof product.title === 'string' && product.title.trim()) {
+      const title = card.querySelector('.card-information__text');
+      const accessibleTitle = link.querySelector(':scope > .visually-hidden');
+      [title, accessibleTitle].forEach(node => {
+        if (node && node.textContent !== product.title) node.textContent = product.title;
+      });
+      card.querySelectorAll('.media img').forEach(img => img.setAttribute('alt', product.title));
+    }
+    if (!wishlistTemplate?.content.querySelector('hdt-wishlist') || card.querySelector('.nbk-yespo-wishlist')) return;
     await customElements.whenDefined('hdt-wishlist');
     if (!card.isConnected) return;
     const fragment = wishlistTemplate.content.cloneNode(true);
@@ -78,7 +89,7 @@
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       cardObserver.unobserve(entry.target);
-      addWishlist(entry.target);
+      hydrateCard(entry.target);
     });
   }, { rootMargin: '200px' });
 
@@ -136,6 +147,11 @@
     addNavigation(slider);
     cards.forEach(card => {
       localizeProductLinks(card);
+      const priceLabels = { 'Звичайна ціна': config.regularPrice, 'Ціна розпродажу': config.salePrice, 'Ціна за одиницю': config.unitPrice, 'за': config.unitPriceSeparator };
+      card.querySelectorAll('.price .visually-hidden').forEach(node => {
+        const label = priceLabels[node.textContent.trim()];
+        if (label && node.textContent !== label) node.textContent = label;
+      });
       if (preparedCards.has(card)) return;
       preparedCards.add(card);
       const slide = card.closest('.swiper-slide');
