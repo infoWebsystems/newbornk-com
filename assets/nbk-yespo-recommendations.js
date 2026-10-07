@@ -36,6 +36,20 @@
     return products.get(handle);
   }
 
+  function localizeProductLinks(card) {
+    card.querySelectorAll('a').forEach(link => {
+      let url;
+      try { url = new URL(link.href, location.origin); } catch { return; }
+      if (url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return;
+      let path = url.pathname;
+      const prefix = (config.localePrefixes || []).find(value => path.startsWith(value));
+      if (prefix) path = path.slice(prefix.length - 1);
+      if (!/^\/(?:collections\/[^/]+\/)?products\/[^/]+\/?$/.test(path)) return;
+      url.pathname = config.root.replace(/\/?$/, '/') + path.slice(1);
+      if (link.href !== url.href) link.href = url.href;
+    });
+  }
+
   async function addWishlist(card) {
     const link = card.querySelector('a.full-unstyled-link');
     if (!link || !wishlistTemplate?.content.querySelector('hdt-wishlist')) return;
@@ -121,6 +135,7 @@
     slider.setAttribute('tabindex', '0');
     addNavigation(slider);
     cards.forEach(card => {
+      localizeProductLinks(card);
       if (preparedCards.has(card)) return;
       preparedCards.add(card);
       const slide = card.closest('.swiper-slide');

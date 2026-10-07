@@ -437,7 +437,9 @@
       "from_price": "Цена от",
       "to_price": "Цена до",
       "clear_filter": "Убрать фильтр",
-      "price": "Цена:"
+      "price": "Цена:",
+      "footwear_size_eu": "Размер обуви (EU)",
+      "footwear_size_available": "Размеры в наличии"
     },
     "breadcrumb": {
       "home": "Главная",
@@ -989,7 +991,10 @@
       "few": "{{ count }} отзыва Google",
       "many": "{{ count }} отзывов Google",
       "other": "{{ count }} отзыва Google"
-    }
+    },
+    "unavailable": "Форма временно недоступна. Попробуйте ещё раз.",
+    "javascript_required": "Для подписки включите JavaScript.",
+    "yespo_signup_hint": "Откроется форма подписки NEWBORN K."
   },
   "nbk_home": {
     "brands": "БРЕНДЫ",
@@ -1028,5 +1033,70 @@
     "uklon_description": "Полная предоплата. Бесплатная доставка на оплаченный заказ от 20 000 грн.",
     "checkout_note": "Доступность способов, количество платежей и окончательная стоимость доставки — при оформлении заказа.",
     "full_terms": "Полные условия оплаты и доставки"
+  },
+  "nbk_browse": {
+    "sort": {
+      "manual": "Рекомендуемые",
+      "best_selling": "Популярные",
+      "title_ascending": "По названию: А–Я",
+      "title_descending": "По названию: Я–А",
+      "price_ascending": "От дешёвых к дорогим",
+      "price_descending": "От дорогих к дешёвым",
+      "created_ascending": "Сначала старые",
+      "created_descending": "Сначала новые",
+      "relevance": "По соответствию",
+      "most_relevant": "Наиболее подходящие"
+    },
+    "filter_names": {
+      "brand": "Бренд",
+      "category": "Категория",
+      "gender": "Пол",
+      "color": "Цвет"
+    },
+    "gender": {
+      "male": "Мужское",
+      "female": "Женское",
+      "unisex": "Унисекс"
+    },
+    "colors": {
+      "beige": "Бежевый",
+      "black": "Чёрный",
+      "blue": "Синий",
+      "brown": "Коричневый",
+      "gold": "Золотой",
+      "gray": "Серый",
+      "green": "Зелёный",
+      "multicolor": "Разноцветный",
+      "navy": "Тёмно-синий",
+      "orange": "Оранжевый",
+      "pink": "Розовый",
+      "purple": "Фиолетовый",
+      "red": "Красный",
+      "silver": "Серебряный",
+      "white": "Белый",
+      "yellow": "Жёлтый"
+    }
+  },
+  "nbk_footwear": {
+    "size_label": "Размер (EU)"
+  },
+  "nbk_payment_icons": {
+    "installments": "Покупка частями",
+    "on_receipt": "При получении"
+  },
+  "nbk_brands": {
+    "title": "Бренды",
+    "subtitle": "Откройте бренды, представленные в NEWBORN K Киев.",
+    "search_label": "Найти бренд",
+    "search_placeholder": "Введите название бренда",
+    "clear": "Очистить поиск",
+    "alphabet": "Бренды по алфавиту A–Z",
+    "empty": "Бренды по вашему запросу не найдены."
+  },
+  "nbk_navigation": {
+    "new_arrivals": "Новые поступления"
+  },
+  "nbk_collection_editorial": {
+    "heading": "О коллекции"
   }
 }

@@ -1,0 +1,40 @@
+{% doc %}
+  Localizes known facet labels without changing Shopify filter values.
+  @param {object} filter - Shopify filter
+  @param {object} [value] - Shopify filter value; omit for group heading
+{% enddoc %}
+{%- liquid
+  assign key = ''
+  if value == blank
+    assign label = filter.label
+    case filter.param_name
+      when 'filter.p.vendor'
+        assign key = 'nbk_browse.filter_names.brand'
+      when 'filter.p.product_type'
+        assign key = 'nbk_browse.filter_names.category'
+      when 'filter.v.t.shopify.target-gender', 'filter.p.m.shopify.target-gender'
+        assign key = 'nbk_browse.filter_names.gender'
+      when 'filter.v.t.shopify.color-pattern', 'filter.p.m.shopify.color-pattern'
+        assign key = 'nbk_browse.filter_names.color'
+    endcase
+  else
+    assign label = value.label
+    assign normalized = label | strip | downcase
+    case filter.param_name
+      when 'filter.v.t.shopify.target-gender', 'filter.p.m.shopify.target-gender'
+        if normalized == 'male' or normalized == 'female' or normalized == 'unisex'
+          assign key = normalized | prepend: 'nbk_browse.gender.'
+        endif
+      when 'filter.v.t.shopify.color-pattern', 'filter.p.m.shopify.color-pattern'
+        assign colors = 'beige,black,blue,brown,gold,gray,green,multicolor,navy,orange,pink,purple,red,silver,white,yellow' | split: ','
+        if colors contains normalized
+          assign key = normalized | prepend: 'nbk_browse.colors.'
+        endif
+    endcase
+  endif
+  if key != blank
+    echo key | t | escape
+  else
+    echo label | escape
+  endif
+-%}

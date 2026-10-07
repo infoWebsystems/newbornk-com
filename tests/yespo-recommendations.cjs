@@ -114,7 +114,7 @@ function setup({ handles = ['helmet'], root = '/uk', defined = true, empty = fal
   const templateButton = new Element('hdt-wishlist', 'nbk-yespo-wishlist hdt-pr_btn');
   templateButton.dataset.id = '19041994'; templateButton.setAttribute('action', 'add');
   template.content.append(templateButton);
-  const config = { textContent: JSON.stringify({ root, heading: 'Рекомендовані товари', previous: 'Попередні', next: 'Наступні' }) };
+  const config = { textContent: JSON.stringify({ root, localePrefixes: ['/uk/', '/en/', '/ru/'], heading: 'Рекомендовані товари', previous: 'Попередні', next: 'Наступні' }) };
   function makeCard(handle, href = `https://newbornk.com/uk/products/${handle}?variant=${LEGACY_VARIANT_ID}&es_source=product&es_request_id=keep-me`) {
     const slide = new Element('div', 'swiper-slide'); slide.setAttribute('role', 'group'); slide.setAttribute('aria-label', '1 / 3');
     const card = new Element('div', 'card-wrapper');
@@ -267,4 +267,34 @@ test('product lookups never exceed three in flight and queued cards still resolv
   assert.equal(app.requests.length, 5);
   for (const index of [2, 3, 4]) await app.respond(index, { id: PRODUCT_ID + index, handle: ['three', 'four', 'five'][index - 2] });
   assert.equal(app.upgraded.length, 4);
+});
+
+for (const root of ['/', '/en', '/ru/']) {
+  test(`recommendation links keep current locale ${root}, attribution and variant`, async () => {
+    const app = setup({ empty: true, root });
+    for (const path of ['/products/helmet', '/uk/products/helmet', '/en/collections/new/products/helmet', '/ru/products/helmet']) {
+      const item = app.insert('helmet', `https://newbornk.com${path}?variant=${LEGACY_VARIANT_ID}&es_request_id=keep-me#details`);
+      const url = new URL(item.link.href);
+      const expected = root.replace(/\/?$/, '/') + path.replace(/^\/(?:uk|en|ru)\//, '/').slice(1);
+      assert.equal(url.pathname, expected);
+      assert.equal(url.searchParams.get('variant'), String(LEGACY_VARIANT_ID));
+      assert.equal(url.searchParams.get('es_request_id'), 'keep-me');
+      assert.equal(url.hash, '#details');
+      app.mutate();
+      assert.equal(new URL(item.link.href).pathname, expected, 'Repeated renders must not duplicate locale prefixes');
+      app.intersect(item.card);
+    }
+    assert.equal(app.requests.length, 1);
+    assert.equal(app.requests[0].url, root.replace(/\/?$/, '/') + 'products/helmet.js');
+    await app.respond(0);
+    assert.equal(app.upgraded.length, 4);
+  });
+}
+
+test('recommendation locale correction leaves external tracking and non-product links intact', () => {
+  const app = setup({ empty: true, root: '/en/' });
+  for (const href of ['https://tracker.example/products/helmet?url=abc', 'https://newbornk.com/pages/about', 'https://newbornk.com/collections/new']) {
+    const item = app.insert('helmet', href);
+    assert.equal(item.link.href, href);
+  }
 });

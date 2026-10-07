@@ -7,6 +7,13 @@ const engine = new Liquid({
   root: path.resolve(__dirname, '../../snippets'),
   extname: '.liquid', strictFilters: true, jsTruthy: false
 });
+engine.registerTag('doc', {
+  parse(token, tokens) {
+    while (tokens.length) if (tokens.shift().name === 'enddoc') return;
+    throw new Error('Unclosed LiquidDoc');
+  },
+  render() { return ''; }
+});
 engine.registerFilter('t', key => ({
   'products.theme_settings.color': 'Color,Колір',
   'products.theme_settings.color_white': 'White',

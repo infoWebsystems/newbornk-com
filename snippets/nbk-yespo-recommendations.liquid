@@ -1,6 +1,17 @@
 {% doc %}
   Adapts existing Yespo product recommendations to Kyiv Kalles and its native wishlist.
 {% enddoc %}
+{%- liquid
+  assign recommendation_root = routes.root_url
+  if request.locale.iso_code == 'uk' or request.locale.iso_code == 'ru'
+    if routes.root_url == '/en' or routes.root_url == '/en/'
+      assign recommendation_root = '/'
+      unless request.locale.primary
+        assign recommendation_root = '/' | append: request.locale.iso_code
+      endunless
+    endif
+  endif
+-%}
 <template id="nbk-yespo-wishlist-template">
   {%- render 'btn-wishlist', class: 'nbk-yespo-wishlist hdt-pr_btn', placement: 'none' -%}
 </template>
@@ -9,7 +20,8 @@
     "heading": {{ 'nbk.recommendations.heading' | t | json }},
     "previous": {{ 'general.pagination.previous' | t | json }},
     "next": {{ 'general.pagination.next' | t | json }},
-    "root": {{ routes.root_url | json }}
+    "root": {{ recommendation_root | json }},
+    "localePrefixes": [{%- for language in localization.available_languages -%}{{ language.iso_code | prepend: '/' | append: '/' | json }}{% unless forloop.last %},{% endunless %}{%- endfor -%}]
   }
 </script>
 <script src="{{ 'nbk-yespo-recommendations.js' | asset_url }}" defer></script>

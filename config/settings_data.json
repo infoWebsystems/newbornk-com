@@ -62,6 +62,7 @@
     "label_onsale_style": "percentage",
     "use_new_badge": true,
     "new_day_added": 30,
+    "wishlist_mode": "1",
     "wis_atc_added": "2",
     "compare_mode": "0",
     "enable_compare_popup": false,
@@ -101,6 +102,7 @@
     "pick_mode": "first_available",
     "hide_sold_out": false,
     "show_phone_ask_question": false,
+    "action_after_atc": "open_cart_drawer",
     "empty_cart_link": "shopify://collections/novi-nadkhodzhennia",
     "free_ship_pr_fast": "",
     "free_ship_pr_express": "",
@@ -140,18 +142,11 @@
         "settings": {
           "greeting_message": "👋 Привіт!\nНапиши нам з будь-якого питання - ми завжди раді допомогти!",
           "button_color": "#ccf951",
-          "secondary_color": "#000000",
-          "ternary_color": "#6a6a6a",
           "button_icon": "team",
           "button_text": "chat_with_us",
           "button_horizontal_position": "bottom_right",
           "button_vertical_position": "lowest"
         }
-      },
-      "11560147490181472608": {
-        "type": "shopify://apps/rivo-loyalty-rewards-referrals/blocks/app-embed/580e9665-b2cd-4dbc-b6ba-6445ac9e6871",
-        "disabled": true,
-        "settings": {}
       },
       "15351435345818755577": {
         "type": "shopify://apps/pandectes-gdpr/blocks/banner/58c0baa2-6cc1-480c-9ea6-38d6d559556a",
@@ -195,11 +190,6 @@
           "mobile_bottom_margin": 46
         }
       },
-      "5269207691391943459": {
-        "type": "shopify://apps/gtm-data-layer/blocks/gropulse-gtm/ec1066b4-8b00-4630-a216-c88f51204a28",
-        "disabled": true,
-        "settings": {}
-      },
       "12108174171315376258": {
         "type": "shopify://apps/aov-ai-cart-drawer/blocks/avada-embed/938869e1-3feb-48fa-ab79-27fdfe609836",
         "disabled": true,
@@ -223,11 +213,6 @@
       "14060646107696862457": {
         "type": "shopify://apps/judge-me-reviews/blocks/judgeme_core/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
         "disabled": false,
-        "settings": {}
-      },
-      "9664103760669878543": {
-        "type": "shopify://apps/avada-seo-ai-blog/blocks/avada-seoon-setting/a45c3e67-be9f-4255-a194-b255a24f37c9",
-        "disabled": true,
         "settings": {}
       },
       "855628211100114053": {
@@ -447,10 +432,7 @@
           "input_secondary": "#878787"
         }
       }
-    },
-    "sections": {},
-    "wishlist_mode": "1",
-    "action_after_atc": "open_cart_drawer"
+    }
   },
   "platform_customizations": {
     "custom_css": [

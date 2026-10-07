@@ -1053,5 +1053,50 @@
   "nbk_navigation": {
     "new_arrivals": "Нові надходження"
   },
-  "nbk_collection_editorial": { "heading": "Про колекцію" }
+  "nbk_collection_editorial": {
+    "heading": "Про колекцію"
+  },
+  "nbk_browse": {
+    "sort": {
+      "manual": "Рекомендовані",
+      "best_selling": "Популярні",
+      "title_ascending": "За назвою: А–Я",
+      "title_descending": "За назвою: Я–А",
+      "price_ascending": "Від дешевих до дорогих",
+      "price_descending": "Від дорогих до дешевих",
+      "created_ascending": "Спочатку найстаріші",
+      "created_descending": "Спочатку найновіші",
+      "relevance": "За відповідністю",
+      "most_relevant": "Найвідповідніші"
+    },
+    "filter_names": {
+      "brand": "Бренд",
+      "category": "Категорія",
+      "gender": "Стать",
+      "color": "Колір"
+    },
+    "gender": {
+      "male": "Чоловіче",
+      "female": "Жіноче",
+      "unisex": "Унісекс"
+    },
+    "colors": {
+      "beige": "Бежевий",
+      "black": "Чорний",
+      "blue": "Синій",
+      "brown": "Коричневий",
+      "gold": "Золотий",
+      "gray": "Сірий",
+      "green": "Зелений",
+      "multicolor": "Різнокольоровий",
+      "navy": "Темно-синій",
+      "orange": "Помаранчевий",
+      "pink": "Рожевий",
+      "purple": "Фіолетовий",
+      "red": "Червоний",
+      "silver": "Срібний",
+      "white": "Білий",
+      "yellow": "Жовтий"
+    }
+  }
 }

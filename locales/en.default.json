@@ -1051,5 +1051,50 @@
   "nbk_navigation": {
     "new_arrivals": "New arrivals"
   },
-  "nbk_collection_editorial": { "heading": "About the collection" }
+  "nbk_collection_editorial": {
+    "heading": "About the collection"
+  },
+  "nbk_browse": {
+    "sort": {
+      "manual": "Featured",
+      "best_selling": "Best selling",
+      "title_ascending": "Alphabetically, A–Z",
+      "title_descending": "Alphabetically, Z–A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "created_ascending": "Date, old to new",
+      "created_descending": "Date, new to old",
+      "relevance": "Relevance",
+      "most_relevant": "Most relevant"
+    },
+    "filter_names": {
+      "brand": "Brand",
+      "category": "Category",
+      "gender": "Gender",
+      "color": "Color"
+    },
+    "gender": {
+      "male": "Men",
+      "female": "Women",
+      "unisex": "Unisex"
+    },
+    "colors": {
+      "beige": "Beige",
+      "black": "Black",
+      "blue": "Blue",
+      "brown": "Brown",
+      "gold": "Gold",
+      "gray": "Gray",
+      "green": "Green",
+      "multicolor": "Multicolor",
+      "navy": "Navy",
+      "orange": "Orange",
+      "pink": "Pink",
+      "purple": "Purple",
+      "red": "Red",
+      "silver": "Silver",
+      "white": "White",
+      "yellow": "Yellow"
+    }
+  }
 }
