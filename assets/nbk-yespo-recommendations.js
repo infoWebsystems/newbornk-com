@@ -152,6 +152,12 @@
         const label = priceLabels[node.textContent.trim()];
         if (label && node.textContent !== label) node.textContent = label;
       });
+      card.querySelectorAll('.card__badge .color-sale-badge').forEach(badge => {
+        const text = badge.textContent.trim();
+        if (config.saleBadge && /^Розпродаж(?=\s|$)/u.test(text)) {
+          badge.textContent = text.replace(/^Розпродаж/u, () => config.saleBadge);
+        }
+      });
       if (preparedCards.has(card)) return;
       preparedCards.add(card);
       const slide = card.closest('.swiper-slide');

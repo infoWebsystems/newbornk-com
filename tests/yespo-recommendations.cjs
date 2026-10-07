@@ -114,13 +114,15 @@ function setup({ handles = ['helmet'], root = '/uk', defined = true, empty = fal
   const templateButton = new Element('hdt-wishlist', 'nbk-yespo-wishlist hdt-pr_btn');
   templateButton.dataset.id = '19041994'; templateButton.setAttribute('action', 'add');
   if (wishlist) template.content.append(templateButton);
-  const config = { textContent: JSON.stringify({ root, localePrefixes: ['/uk/', '/en/', '/ru/'], heading: 'Рекомендовані товари', previous: 'Попередні', next: 'Наступні' }) };
+  const config = { textContent: JSON.stringify({ root, localePrefixes: ['/uk/', '/en/', '/ru/'], heading: 'Рекомендовані товари', previous: 'Попередні', next: 'Наступні', saleBadge: root === '/en/' ? 'Sale' : 'Розпродаж' }) };
   function makeCard(handle, href = `https://newbornk.com/uk/products/${handle}?variant=${LEGACY_VARIANT_ID}&es_source=product&es_request_id=keep-me`) {
     const slide = new Element('div', 'swiper-slide'); slide.setAttribute('role', 'group'); slide.setAttribute('aria-label', '1 / 3');
     const card = new Element('div', 'card-wrapper');
     const link = new Element('a', 'full-unstyled-link'); link.href = href; card.append(link);
     const accessibleTitle = new Element('span', 'visually-hidden'); accessibleTitle.textContent = 'Назва з фіда'; link.append(accessibleTitle);
     const title = new Element('span', 'card-information__text'); title.textContent = 'Назва з фіда'; link.append(title);
+    const badges = new Element('div', 'card__badge');
+    const saleBadge = new Element('span', 'color-sale-badge'); saleBadge.textContent = 'Розпродаж 50%'; badges.append(saleBadge); link.append(badges);
     const media = new Element('div', 'media'); const image = new Element('img'); image.setAttribute('fetchpriority', 'high'); media.append(image); link.append(media);
     const hero = new Element('button', 'wishlist-hero-custom-button'); hero.setAttribute('data-wlh-id', LEGACY_VARIANT_ID); card.append(hero);
     const add = new Element('button', 'card__add-to-cart'); card.append(add);
@@ -311,6 +313,7 @@ test('visible and accessible recommendation names use the localized product with
   assert.equal(item.title.textContent, title, 'Use text, never HTML from a product title');
   assert.equal(item.accessibleTitle.textContent, title);
   assert.equal(item.image.getAttribute('alt'), title);
+  assert.equal(item.card.querySelector('.color-sale-badge').textContent, 'Sale 50%');
   assert.equal(item.card.querySelector('hdt-wishlist'), null);
   app.mutate();
   assert.equal(app.requests.length, 1);
