@@ -41,10 +41,12 @@ Publishing is a separate action from merging a PR. Do not assume GitHub automati
 - Payment & Delivery, Returns and FAQ source/EN bodies were updated using the owner's approved payment/delivery list and refund-processing deadline. These are store-wide content changes, separate from Git/theme deployment.
 - Latest validation: 63 JavaScript tests, 50 Liquid render tests, and no new Theme Check findings against the 3,872-error vendor baseline. Twelve changed theme files were uploaded only to preview `199582843040` and read back; generated locale comments were normalized for comparison.
 
+- After owner approval of the full review document, `/policies/shipping-policy`, `/policies/refund-policy`, `/pages/public-agreement`, `/policies/legal-notice` and `/policies/terms-of-service` received the exact reviewed Ukrainian bodies and five matching English translations. Native UI saves succeeded for policies; Admin readback confirms all EN fields match and are not outdated. The three offer copies match after normalizing Shopify tag whitespace. EN shipping was verified in the storefront. These are live store-wide content updates; Kalles remains unpublished.
+
 ## Outstanding acceptance findings
 
 1. **Footwear filter:** EU 42 still includes an unavailable-size Saucony, despite correct Admin fields and an ungrouped native filter. Stock was not changed. A same-value product save did not establish reindexing. Search-index lag is possible but unproven; repeat the regression before closing this finding.
-2. **Policy / offer copies:** three ordinary pages are updated, but shipping/refund policies and three offer destinations still need the prepared full UA/EN text reviewed. Policy API writes lack scope; automatic approval review rejected the unreviewed offer/shipping replacements. Exact proposals are in the local `policies-review.html` evidence artifact. No rejected action was bypassed. FAQ return-window wording (purchase vs receipt) also remains to reconcile.
+2. **Return-window wording:** the owner-approved full UA/EN shipping/refund policies and three offer destinations are now published and read back. The earlier approval-review block was resolved by presenting the complete replacement and receiving owner approval. FAQ wording still says purchase while Returns says receipt for the 14-day window; the separate clarification is pending.
 3. **KeyCRM localization:** English greeting needs the account/settings URL and a native EN widget. Existing Ukrainian support remains available. REZ, mobile address and recognized Size label are now corrected.
 
 ## Owner-deferred follow-up checks

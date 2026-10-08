@@ -106,3 +106,16 @@ The UA body and fresh EN translation were updated and read back for `/pages/orde
 Sources: [Shopify filter troubleshooting](https://help.shopify.com/en/manual/online-store/storefront-search/search-and-discovery-filters), [KeyCRM widget FAQ](https://help.keycrm.app/uk/communication-channels/pitannia-vidpovidi-faq-vidzhiet-onlain-chatu).
 
 Follow-up evidence: `work/kalles-final-fixes-2026-10-08/` alongside this repository. The policy preview and app configuration changes are not applied by merging this PR.
+
+
+## Owner-approved policy publication
+
+After reviewing `policies-review.html`, the owner approved publication. Fresh source readback confirmed that none of the five destinations had changed since the review; all six reviewed source/translation files matched the saved SHA-256 manifest.
+
+- Published the reviewed Ukrainian shipping and refund policy bodies through Shopify's native policy editor, each with a successful save.
+- Published the reviewed complete offer at `/pages/public-agreement`, `/policies/legal-notice` and `/policies/terms-of-service`.
+- Registered all five English body translations against fresh source digests, with no user errors. Final readback confirms exact EN matches and `outdated=false` on all five resources.
+- Policy source bodies match byte-for-byte. The Page body differs only in Shopify's whitespace between HTML tags. All three offer copies therefore contain the same reviewed text.
+- Browser verification of `/en/policies/shipping-policy` in the exact Kalles preview showed all five payment choices, the approved delivery methods/thresholds and English copy. Publication evidence is `policies-published-verified.json` and `policies-published-en.png` in the existing evidence archive.
+- The previous policy/offer publication block is resolved. The separate FAQ purchase-vs-receipt wording question is still pending. EU filtering and KeyCRM EN also remain open; deferred Yespo/Chekly/billing checks are unchanged.
+- No theme publication occurred: Dawn is MAIN and Kalles is UNPUBLISHED.
