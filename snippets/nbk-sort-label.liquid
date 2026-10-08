@@ -1,0 +1,13 @@
+{% doc %}
+  Localizes built-in sort choices while preserving app-defined labels.
+  @param {object} option - Shopify sort option
+{% enddoc %}
+{%- liquid
+  assign known = 'manual,most-relevant,best-selling,title-ascending,title-descending,price-ascending,price-descending,created-ascending,created-descending,relevance' | split: ','
+  if known contains option.value
+    assign key = option.value | replace: '-', '_' | prepend: 'nbk_browse.sort.'
+    echo key | t | escape
+  else
+    echo option.name | escape
+  endif
+-%}

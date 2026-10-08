@@ -95,7 +95,7 @@ class Element {
   }
 }
 
-function setup({ handles = ['helmet'], root = '/uk', defined = true, empty = false } = {}) {
+function setup({ handles = ['helmet'], root = '/uk', defined = true, empty = false, wishlist = true } = {}) {
   const requests = [];
   const intersections = [];
   const mutations = [];
@@ -113,12 +113,16 @@ function setup({ handles = ['helmet'], root = '/uk', defined = true, empty = fal
   const template = new Element('template'); template.content = new Element('fragment');
   const templateButton = new Element('hdt-wishlist', 'nbk-yespo-wishlist hdt-pr_btn');
   templateButton.dataset.id = '19041994'; templateButton.setAttribute('action', 'add');
-  template.content.append(templateButton);
-  const config = { textContent: JSON.stringify({ root, heading: 'Рекомендовані товари', previous: 'Попередні', next: 'Наступні' }) };
+  if (wishlist) template.content.append(templateButton);
+  const config = { textContent: JSON.stringify({ root, localePrefixes: ['/uk/', '/en/', '/ru/'], heading: 'Рекомендовані товари', previous: 'Попередні', next: 'Наступні', saleBadge: root === '/en/' ? 'Sale' : 'Розпродаж' }) };
   function makeCard(handle, href = `https://newbornk.com/uk/products/${handle}?variant=${LEGACY_VARIANT_ID}&es_source=product&es_request_id=keep-me`) {
     const slide = new Element('div', 'swiper-slide'); slide.setAttribute('role', 'group'); slide.setAttribute('aria-label', '1 / 3');
     const card = new Element('div', 'card-wrapper');
     const link = new Element('a', 'full-unstyled-link'); link.href = href; card.append(link);
+    const accessibleTitle = new Element('span', 'visually-hidden'); accessibleTitle.textContent = 'Назва з фіда'; link.append(accessibleTitle);
+    const title = new Element('span', 'card-information__text'); title.textContent = 'Назва з фіда'; link.append(title);
+    const badges = new Element('div', 'card__badge');
+    const saleBadge = new Element('span', 'color-sale-badge'); saleBadge.textContent = 'Розпродаж 50%'; badges.append(saleBadge); link.append(badges);
     const media = new Element('div', 'media'); const image = new Element('img'); image.setAttribute('fetchpriority', 'high'); media.append(image); link.append(media);
     const hero = new Element('button', 'wishlist-hero-custom-button'); hero.setAttribute('data-wlh-id', LEGACY_VARIANT_ID); card.append(hero);
     const add = new Element('button', 'card__add-to-cart'); card.append(add);
@@ -128,7 +132,7 @@ function setup({ handles = ['helmet'], root = '/uk', defined = true, empty = fal
       upgraded.push({ id: button.dataset.id, handle: button.dataset.handle });
     };
     slide.append(card); slider.append(slide);
-    return { card, link, hero, image, slide, originalHref: href };
+    return { card, link, hero, image, slide, title, accessibleTitle, originalHref: href };
   }
   const cards = empty ? [] : handles.map(handle => makeCard(handle));
   const context = vm.createContext({
@@ -267,4 +271,61 @@ test('product lookups never exceed three in flight and queued cards still resolv
   assert.equal(app.requests.length, 5);
   for (const index of [2, 3, 4]) await app.respond(index, { id: PRODUCT_ID + index, handle: ['three', 'four', 'five'][index - 2] });
   assert.equal(app.upgraded.length, 4);
+});
+
+for (const root of ['/', '/en', '/ru/']) {
+  test(`recommendation links keep current locale ${root}, attribution and variant`, async () => {
+    const app = setup({ empty: true, root });
+    for (const path of ['/products/helmet', '/uk/products/helmet', '/en/collections/new/products/helmet', '/ru/products/helmet']) {
+      const item = app.insert('helmet', `https://newbornk.com${path}?variant=${LEGACY_VARIANT_ID}&es_request_id=keep-me#details`);
+      const url = new URL(item.link.href);
+      const expected = root.replace(/\/?$/, '/') + path.replace(/^\/(?:uk|en|ru)\//, '/').slice(1);
+      assert.equal(url.pathname, expected);
+      assert.equal(url.searchParams.get('variant'), String(LEGACY_VARIANT_ID));
+      assert.equal(url.searchParams.get('es_request_id'), 'keep-me');
+      assert.equal(url.hash, '#details');
+      app.mutate();
+      assert.equal(new URL(item.link.href).pathname, expected, 'Repeated renders must not duplicate locale prefixes');
+      app.intersect(item.card);
+    }
+    assert.equal(app.requests.length, 1);
+    assert.equal(app.requests[0].url, root.replace(/\/?$/, '/') + 'products/helmet.js');
+    await app.respond(0);
+    assert.equal(app.upgraded.length, 4);
+  });
+}
+
+test('recommendation locale correction leaves external tracking and non-product links intact', () => {
+  const app = setup({ empty: true, root: '/en/' });
+  for (const href of ['https://tracker.example/products/helmet?url=abc', 'https://newbornk.com/pages/about', 'https://newbornk.com/collections/new']) {
+    const item = app.insert('helmet', href);
+    assert.equal(item.link.href, href);
+  }
+});
+
+test('visible and accessible recommendation names use the localized product without extra requests', async () => {
+  const app = setup({ root: '/en/', wishlist: false });
+  const item = app.cards[0];
+  app.intersect(item.card);
+  const title = 'SIMPLE PANT trousers — brown <limited>';
+  await app.respond(0, { id: PRODUCT_ID, handle: 'helmet', title });
+  assert.equal(app.requests[0].url, '/en/products/helmet.js');
+  assert.equal(item.title.textContent, title, 'Use text, never HTML from a product title');
+  assert.equal(item.accessibleTitle.textContent, title);
+  assert.equal(item.image.getAttribute('alt'), title);
+  assert.equal(item.card.querySelector('.color-sale-badge').textContent, 'Sale 50%');
+  assert.equal(item.card.querySelector('hdt-wishlist'), null);
+  app.mutate();
+  assert.equal(app.requests.length, 1);
+  assert.equal(new URL(item.link.href).searchParams.get('es_request_id'), 'keep-me');
+});
+
+test('failed or stale product lookups keep the original recommendation title', async () => {
+  const app = setup({ root: '/en/', handles: ['failed', 'changed', 'empty'] });
+  for (const item of app.cards) app.intersect(item.card);
+  await app.reject(0);
+  app.cards[1].link.href = 'https://newbornk.com/en/products/new-product';
+  await app.respond(1, { id: PRODUCT_ID, handle: 'changed', title: 'Old product' });
+  await app.respond(2, { id: PRODUCT_ID, handle: 'empty', title: '  ' });
+  for (const item of app.cards) assert.equal(item.title.textContent, 'Назва з фіда');
 });

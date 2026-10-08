@@ -36,9 +36,23 @@
     return products.get(handle);
   }
 
-  async function addWishlist(card) {
+  function localizeProductLinks(card) {
+    card.querySelectorAll('a').forEach(link => {
+      let url;
+      try { url = new URL(link.href, location.origin); } catch { return; }
+      if (url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return;
+      let path = url.pathname;
+      const prefix = (config.localePrefixes || []).find(value => path.startsWith(value));
+      if (prefix) path = path.slice(prefix.length - 1);
+      if (!/^\/(?:collections\/[^/]+\/)?products\/[^/]+\/?$/.test(path)) return;
+      url.pathname = config.root.replace(/\/?$/, '/') + path.slice(1);
+      if (link.href !== url.href) link.href = url.href;
+    });
+  }
+
+  async function hydrateCard(card) {
     const link = card.querySelector('a.full-unstyled-link');
-    if (!link || !wishlistTemplate?.content.querySelector('hdt-wishlist')) return;
+    if (!link) return;
     let url;
     try { url = new URL(link.href, location.origin); } catch { return; }
     if (url.origin !== location.origin) return;
@@ -47,7 +61,18 @@
     let handle;
     try { handle = decodeURIComponent(match[1]); } catch { return; }
     const product = await getProduct(handle);
-    if (!product || !card.isConnected || !link.isConnected || link.href !== url.href || card.querySelector('.nbk-yespo-wishlist')) return;
+    if (!product || !card.isConnected || !link.isConnected || link.href !== url.href) return;
+    // Yespo's feed has Ukrainian names. Reuse the locale-aware wishlist lookup
+    // so visible and accessible names match the current storefront language.
+    if (typeof product.title === 'string' && product.title.trim()) {
+      const title = card.querySelector('.card-information__text');
+      const accessibleTitle = link.querySelector(':scope > .visually-hidden');
+      [title, accessibleTitle].forEach(node => {
+        if (node && node.textContent !== product.title) node.textContent = product.title;
+      });
+      card.querySelectorAll('.media img').forEach(img => img.setAttribute('alt', product.title));
+    }
+    if (!wishlistTemplate?.content.querySelector('hdt-wishlist') || card.querySelector('.nbk-yespo-wishlist')) return;
     await customElements.whenDefined('hdt-wishlist');
     if (!card.isConnected) return;
     const fragment = wishlistTemplate.content.cloneNode(true);
@@ -64,7 +89,7 @@
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       cardObserver.unobserve(entry.target);
-      addWishlist(entry.target);
+      hydrateCard(entry.target);
     });
   }, { rootMargin: '200px' });
 
@@ -121,6 +146,18 @@
     slider.setAttribute('tabindex', '0');
     addNavigation(slider);
     cards.forEach(card => {
+      localizeProductLinks(card);
+      const priceLabels = { 'Звичайна ціна': config.regularPrice, 'Ціна розпродажу': config.salePrice, 'Ціна за одиницю': config.unitPrice, 'за': config.unitPriceSeparator };
+      card.querySelectorAll('.price .visually-hidden').forEach(node => {
+        const label = priceLabels[node.textContent.trim()];
+        if (label && node.textContent !== label) node.textContent = label;
+      });
+      card.querySelectorAll('.card__badge .color-sale-badge').forEach(badge => {
+        const text = badge.textContent.trim();
+        if (config.saleBadge && /^Розпродаж(?=\s|$)/u.test(text)) {
+          badge.textContent = text.replace(/^Розпродаж/u, () => config.saleBadge);
+        }
+      });
       if (preparedCards.has(card)) return;
       preparedCards.add(card);
       const slide = card.closest('.swiper-slide');

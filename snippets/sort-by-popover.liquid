@@ -17,7 +17,7 @@
 
 <hdt-popover-sorting class="hdt-popover__sorting" section-id="{{ section_id }}">
   <button aria-controls="dropdown{{ id }}" aria-owns="listbox{{ id }}">
-    <span class="md:hdt-block hdt-hidden" change-text>{{ option_selected.name }}</span>
+    <span class="md:hdt-block hdt-hidden" change-text>{% render 'nbk-sort-label', option: option_selected %}</span>
     <span class="hdt-block md:hdt-hidden">{{ 'sections.collection_template.short_by_txt' | t -}}</span>
     <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 12"><polyline fill="none" stroke="currentColor" points="17 2 9.5 10 2 2" fill-rule="evenodd" stroke-width="2" stroke-linecap="square"></polyline></svg>
   </button>
@@ -32,7 +32,7 @@
         <div class="hdt-popover__inner hdt-current-scrollbar">
           <hdt-richlist role="listbox" selected="{{ option_selected.value }}" id="listbox{{ id }}">
             {%- for option in results.sort_options -%}
-            <button type="button" role="option" value="{{ option.value }}" aria-selected="{% if option.value == sort_by %}true{% else %}false{% endif %}">{{ option.name | escape }}</button>
+            <button type="button" role="option" value="{{ option.value }}" aria-selected="{% if option.value == sort_by %}true{% else %}false{% endif %}">{% render 'nbk-sort-label', option: option %}</button>
             {%- endfor -%}
           </hdt-richlist>
         </div>

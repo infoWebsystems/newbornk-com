@@ -40,8 +40,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_1": {
           "type": "_slide-item",
@@ -80,8 +79,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_2": {
           "type": "_slide-item",
@@ -120,8 +118,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_3": {
           "type": "_slide-item",
@@ -160,8 +157,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_4": {
           "type": "_slide-item",
@@ -200,8 +196,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_5": {
           "type": "_slide-item",
@@ -240,8 +235,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_6": {
           "type": "_slide-item",
@@ -280,8 +274,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_7": {
           "type": "_slide-item",
@@ -320,8 +313,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         },
         "kyiv_slide_september": {
           "type": "_slide-item",
@@ -360,8 +352,7 @@
             "min_width_content": 350,
             "border_pd": 0
           },
-          "blocks": {},
-          "block_order": []
+          "blocks": {}
         }
       },
       "block_order": [
@@ -1552,7 +1543,6 @@
     },
     "nbk_brand_directory": {
       "type": "nbk-brand-directory",
-      "settings": {},
       "blocks": {
         "carhartt_wip": {
           "type": "brand",
@@ -1644,7 +1634,8 @@
         "pas_normal_studios",
         "rombaut",
         "xlarge"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [

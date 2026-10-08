@@ -323,7 +323,9 @@
           <input type="hidden" name="page" value="">
           {%- for filter in results.filters -%}
             {%- liquid
-              assign nbk_filter_label = filter.label
+              capture nbk_filter_label
+                render 'nbk-filter-label', filter: filter
+              endcapture
               assign nbk_is_footwear_filter = false
               if filter.param_name == 'filter.v.m.custom.footwear_size_eu_available'
                 assign nbk_is_footwear_filter = true
@@ -362,10 +364,10 @@
             -%}
             <hdt-accordion class="hdt-contents">
               <details class="hdt-filter-group" open>
-                <summary class="hdt-filter-group-summary"{% if filter.type != 'price_range' %} aria-label="{{ nbk_filter_label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"{% endif %}>
+                <summary class="hdt-filter-group-summary"{% if filter.type != 'price_range' %} aria-label="{{ nbk_filter_label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"{% endif %}>
                   <div class="hdt-facet-title hdt-text-lg lg:hdt-text-2xl hdt-font-normal hdt-s-text hdt-flex">
                     <span class="hdt-inline-flex hdt-facet-title_group">
-                      <span>{{ nbk_filter_label | escape }}</span>
+                      <span>{{ nbk_filter_label }}</span>
                       {% if filter.active_values.size > 0 %}
                         <span class="hdt-hidden">
                           ({{ filter.active_values.size }})
@@ -397,7 +399,7 @@
                         {%- for filter_value in filter.values -%}
                           <li class="hdt-filter-group__list-item">
                             <input class="" type="checkbox" name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" id="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}"{% if filter_value.active %} checked{% endif %}{% if filter_value.count == 0 and filter_value.active == false %} disabled{% endif %}>
-                            <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">{{ filter_value.label }}</label>
+                            <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">{% render 'nbk-filter-label', filter: filter, value: filter_value %}</label>
                           </li>
                         {%- endfor -%}
                       </ul>
@@ -444,13 +446,13 @@
                               <label for="Filter-sidebar-{{ filter.param_name }}-{{ forloop.index }}">
                                 <span class="hdt-relative">
                                   <span class="hdt-facets-checkbox-color hdt-filter-group__color{% if color_white == color_downcase %} hdt-bg-color-white{% endif %}" style="{{ color_image_style }}{{ color_style_inline }} {{ swatch_value }} {{ swatch_focal_point }}">
-                                    <span class="sr-only">{{ filter_value.label }}</span>
+                                    <span class="sr-only">{% render 'nbk-filter-label', filter: filter, value: filter_value %}</span>
                                   </span>
                                   <span class="hdt-facets-color-icon hdt-full-width-link hdt-flex hdt-align-center hdt-justify-center hdt-pe-none">
                                     <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" role="presentation"><path fill="currentColor" d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg>
                                   </span>
                                 </span>
-                                <span class="hdt-base hdt-font-normal hdt-filter-group__color-label"><span>{{ filter_value.label }}</span> <span> ({{ filter_value.count }})</span></span>
+                                <span class="hdt-base hdt-font-normal hdt-filter-group__color-label"><span>{% render 'nbk-filter-label', filter: filter, value: filter_value %}</span> <span> ({{ filter_value.count }})</span></span>
                               </label>
                             </li>
                           {%- endfor -%}
@@ -467,7 +469,7 @@
                                   <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" role="presentation"><path fill="currentColor" d="M9 20l-7-7 3-3 4 4L19 4l3 3z"></path></svg>
                                 </span>
                                 <span class="hdt-facets-label hdt-base hdt-normal">
-                                  <span>{{ filter_value.label }}</span> <span> ({{ filter_value.count }})</span>
+                                  <span>{% render 'nbk-filter-label', filter: filter, value: filter_value %}</span> <span> ({{ filter_value.count }})</span>
                                 </span>
                               </label>
                             </li>
