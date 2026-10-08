@@ -219,7 +219,8 @@
 							{%- endif -%}
 						</div>
 						{%- if block.settings.note_mobile != blank -%}
-							<div class="hdt-notice-mobile">{{ block.settings.note_mobile }}</div>
+							{%- assign mobile_address = 'nbk_contact.address' | t -%}
+							<div class="hdt-notice-mobile">{{ block.settings.note_mobile | replace: 'м Київ, вул. Велика Житомирська, 20', mobile_address }}</div>
 						{%- endif -%}
 					</div>
 					<div slot="footer" class="hdt-mobile_bottom">

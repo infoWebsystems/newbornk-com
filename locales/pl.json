@@ -399,7 +399,9 @@
         "email": "E-mail*",
         "submit": "Wyślij",
         "success": "Powiadomimy Cię, gdy produkt będzie dostępny"
-      }
+      },
+      "size_label": "Rozmiar",
+      "variant_error": "Nie udało się zmienić rozmiaru. Poprzedni wybór pozostaje bez zmian. Spróbuj ponownie."
     },
     "modal": {
       "label": "Galeria multimediów"

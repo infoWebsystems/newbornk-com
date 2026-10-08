@@ -366,7 +366,9 @@
         "email": "E-mail*",
         "submit": "Soumettre",
         "success": "Nous vous notifierons lorsque l'article sera disponible"
-      }
+      },
+      "size_label": "Taille",
+      "variant_error": "Impossible de mettre à jour la taille. Votre sélection précédente est conservée. Veuillez réessayer."
     },
     "modal": {
       "label": "Galerie de médias"

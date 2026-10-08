@@ -394,7 +394,9 @@
         "email": "Email*",
         "submit": "Submit",
         "success": "We will notify you when the item is available"
-      }
+      },
+      "size_label": "Size",
+      "variant_error": "We couldn’t update the size. Your previous selection is unchanged. Please try again."
     },
     "modal": {
       "label": "Media gallery"

@@ -366,7 +366,9 @@
         "email": "E-Mail*",
         "submit": "Senden",
         "success": "Wir benachrichtigen Sie, wenn der Artikel verfügbar ist"
-      }
+      },
+      "size_label": "Größe",
+      "variant_error": "Die Größe konnte nicht aktualisiert werden. Deine vorherige Auswahl bleibt bestehen. Bitte versuche es erneut."
     },
     "modal": {
       "label": "Mediengalerie"
