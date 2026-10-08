@@ -119,3 +119,15 @@ After reviewing `policies-review.html`, the owner approved publication. Fresh so
 - Browser verification of `/en/policies/shipping-policy` in the exact Kalles preview showed all five payment choices, the approved delivery methods/thresholds and English copy. Publication evidence is `policies-published-verified.json` and `policies-published-en.png` in the existing evidence archive.
 - The previous policy/offer publication block is resolved. The separate FAQ purchase-vs-receipt wording question is still pending. EU filtering and KeyCRM EN also remain open; deferred Yespo/Chekly/billing checks are unchanged.
 - No theme publication occurred: Dawn is MAIN and Kalles is UNPUBLISHED.
+
+## Refund-policy rendering correction — 9 October 2026
+
+The Ukrainian refund source was a standalone HTML document. Shopify's policy renderer removed its document/style tags but displayed the stylesheet contents as prose. The previous source readback and English shipping check did not catch this Ukrainian rendering defect.
+
+- Replaced the refund policy body with a semantic HTML fragment. All approved body prose and link destinations are unchanged; only document metadata, CSS, decorative section numbers and the redundant body heading were removed. Verified text and link equivalence before saving.
+- Refreshed the existing English translation against the new digest; the English text is unchanged and `outdated=false`. The other seven audited resources are unchanged in final readback.
+- Kalles uses the existing UA/EN/RU labels for refund and shipping titles, including page/social titles, retains one native H1, and applies readable policy-only typography. Other policy types and locales retain their Shopify titles.
+- Verified Ukrainian refund in the user's narrow browser view and English refund plus Ukrainian shipping on desktop: no printed CSS, one H1, localized titles, unchanged processing terms and no desktop horizontal overflow. Saved `refund-uk-mobile.png` and `refund-en-desktop.png`.
+- All 53 Liquid render tests pass, including actual layout fixtures for localized policies, fallback titles and unchanged ordinary pages. Shopify CLI Theme Check reports the same 3,872 inherited errors with no findings on the three changed theme files. The skill's standalone validator could not run because its installed package lacks `@shopify/theme-check-common`; the installed Shopify CLI provided validation instead.
+- Uploaded three files only to unpublished theme `199582843040`, with exact readback. The preview contains an app-injected Chekly block absent from Git; it was preserved byte-for-byte when applying the layout patch. Future layout deployments must preserve or reconcile app-managed changes rather than overwrite them blindly. No checkout configuration was changed.
+- Evidence and before/after source snapshots are in `work/kalles-policy-format-fix-2026-10-09/` alongside this repository. Dawn remains MAIN; Kalles was not published.

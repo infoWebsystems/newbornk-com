@@ -1,0 +1,20 @@
+{% doc %}
+  Renders a plain-text policy title using the store's existing translated labels.
+  Other policy types and locales retain Shopify's own title.
+{% enddoc %}
+{%- liquid
+  assign policy_handle = request.path | split: '/' | last
+  assign policy_locale = request.locale.iso_code | split: '-' | first
+  assign policy_title = page_title
+  if request.page_type == 'policy'
+    if policy_locale == 'uk' or policy_locale == 'en' or policy_locale == 'ru'
+      case policy_handle
+        when 'refund-policy'
+          assign policy_title = 'nbk_contact.returns' | t
+        when 'shipping-policy'
+          assign policy_title = 'nbk_contact.delivery' | t
+      endcase
+    endif
+  endif
+  echo policy_title
+-%}
