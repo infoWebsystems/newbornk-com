@@ -1,6 +1,16 @@
-<div class="hdt-container hdt-rte nbk-kyiv-content">
-  <h1>{{ page.title | escape }}</h1>
-  {% if section.settings.show_page_body %}{{ page.content }}{% endif %}
+{%- assign is_about = false -%}
+{%- if page.handle == 'about-us' -%}{%- assign is_about = true -%}{%- endif -%}
+<div class="{% if is_about %}nbk-service-page{% else %}hdt-container hdt-rte nbk-kyiv-content{% endif %}">
+  {% if is_about %}<header class="nbk-service-page__header">{% endif %}
+    <h1>{{ page.title | escape }}</h1>
+  {% if is_about %}</header><div class="nbk-service-page__body">{% endif %}
+  {% if section.settings.show_page_body %}
+    {% if is_about %}
+      {% render 'nbk-service-content', content: page.content, page_body: true, handle: page.handle, title: page.title %}
+    {% else %}
+      {{ page.content }}
+    {% endif %}
+  {% endif %}
   {% for block in section.blocks %}
     <div {{ block.shopify_attributes }} class="nbk-kyiv-content__block">
       {% case block.type %}
@@ -33,11 +43,12 @@
       {% endcase %}
     </div>
   {% endfor %}
+  {% if is_about %}</div>{% endif %}
 </div>
 {% stylesheet %}
 .nbk-kyiv-content {max-width: 1000px; padding-block: 40px;}
 .nbk-kyiv-content__block {margin-block: 32px;}
-.nbk-kyiv-content img {max-width: 100%; height: auto;}
+.nbk-kyiv-content img, .nbk-service-page .nbk-kyiv-content__block img {max-width: 100%; height: auto;}
 .nbk-kyiv-content label, .nbk-kyiv-content input, .nbk-kyiv-content textarea, .nbk-kyiv-content select {display: block; width: 100%; margin-block: 12px;}
 .nbk-kyiv-content input, .nbk-kyiv-content textarea, .nbk-kyiv-content select {border: 1px solid #aaa; padding: 12px;}
 {% endstylesheet %}

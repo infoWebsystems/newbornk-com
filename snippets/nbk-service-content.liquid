@@ -6,9 +6,18 @@
   @param {string} content - Localized page body or native policy layout
   @param {boolean} [page_body] - Remove legacy page classes and demote embedded H1s
   @param {string} [handle] - Page/policy handle for legacy formatting variants
+  @param {string} [title] - Localized page title for a matching leading About heading
 {% enddoc %}
 {%- liquid
   assign output = content
+  if handle == 'about-us' and title != blank
+    assign opening = output | strip | slice: 0, 3
+    assign leading_heading = output | split: '</h1>' | first | append: '</h1>'
+    assign heading_text = leading_heading | strip_html | strip
+    if opening == '<h1' and heading_text == title
+      assign output = output | remove_first: leading_heading
+    endif
+  endif
   assign excluded_tags = 'style,script,head' | split: ','
   for tag in excluded_tags
     assign opening = '<' | append: tag

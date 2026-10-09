@@ -91,3 +91,23 @@ test('legacy privacy spacing and offer headings become semantic without promotin
   assert(html.includes('<strong>+380970443333</strong>, Kyiv.'));
   assert(!html.includes('<br><br>'));
 });
+
+test('About keeps one localized page heading while preserving prose and section blocks', async () => {
+  for (const [locale, title] of [['uk', 'Про нас'], ['en', 'About us']]) {
+    const ctx = context(locale, 'page', 'about-us');
+    ctx.page = { handle: 'about-us', title, content: `<h1>${title}</h1><p>Original story.</p>` };
+    ctx.section = { settings: {show_page_body:true}, blocks:[{type:'content',settings:{heading:'Founder',body:'<p>Original biography.</p>'}}] };
+    const engine = engineFor(locale, ctx);
+    engine.registerTag('stylesheet', { parse(token, tokens) { while (tokens.length) if (tokens.shift().name === 'endstylesheet') return; }, render() { return ''; } });
+    engine.registerTag('form', { parse(token, tokens) { while (tokens.length) if (tokens.shift().name === 'endform') return; }, render() { return ''; } });
+    const html = await engine.renderFile('nbk-kyiv-content',ctx);
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.equal((html.match(new RegExp(title, 'g')) || []).length, 1);
+    assert(html.includes('nbk-service-page__header'));
+    assert(html.includes('<p>Original story.</p>'));
+    assert(html.includes('<h2>Founder</h2>'));
+    assert(html.includes('<p>Original biography.</p>'));
+    const different = await engine.renderFile('nbk-service-content',{content:'<h1>Our story</h1><p>Copy.</p>',handle:'about-us',title,page_body:true});
+    assert(different.includes('<h2>Our story</h2>'), 'a distinct body heading must remain');
+  }
+});

@@ -141,3 +141,10 @@ The Ukrainian refund source was a standalone HTML document. Shopify's policy ren
 - All 57 Liquid render tests pass. Shopify CLI Theme Check reports the same 3,872 inherited errors and no findings on the five changed theme files. The bundled skill validator still lacks its installed dependency; the CLI provided validation.
 - Browser checks cover all five pages at desktop and 390 px, plus EN Returns, EN Privacy Policy, UA Refund Policy and EN Shipping Policy. Titles, body font and column widths are consistent; no printed CSS or horizontal overflow was found. Screenshots and checks are in `work/kalles-service-pages-2026-10-10/` alongside the repository.
 - The five theme files were uploaded selectively and read back byte-for-byte. Existing app-injected Chekly layout code was preserved. Dawn remains MAIN and Kalles `199582843040` remains UNPUBLISHED.
+
+### About page follow-up
+
+- `/pages/about-us` uses the same typography and reading width while retaining its existing section, six configured content blocks and three photos. Only a leading body H1 whose text matches the localized page title is removed during rendering; distinct body headings remain.
+- Verified UA/EN each render one primary heading. At 390 px, the body and images fit a 350 px column without horizontal overflow. Existing page bodies, translations, template assignments and block configuration are unchanged in readback; this update does not rewrite the older block copy.
+- All 58 Liquid tests pass. Theme Check remains at 3,872 inherited errors with no findings in the three modified theme files. The same skill-validator dependency limitation applies. Three selectively uploaded files match exact readback, with the app-managed Chekly layout injection preserved.
+- Evidence: `about-before.json`, `about-upload.json`, `about-theme-check.json`, `about-liquid-tests.log`, `about-desktop.png` and `about-mobile.png` in the shared information-page evidence directory. Kalles is still unpublished.
