@@ -15,7 +15,20 @@
     assign is_rtl = true
     assign dir = 'rtl'
   endif
+  assign nbk_service_page = false
+  if request.page_type == 'page'
+    assign nbk_service_handles = 'order-and-delivery,return,faq,public-agreement,privacy-policy' | split: ','
+    if nbk_service_handles contains page.handle
+      assign nbk_service_page = true
+    endif
+  endif
 -%}
+{%- if request.page_type == 'policy' -%}
+  {%- capture nbk_native_policy_heading -%}<h1>{{ page_title | escape }}</h1>{%- endcapture -%}
+  {%- capture nbk_policy_title -%}{%- render 'nbk-policy-title' -%}{%- endcapture -%}
+  {%- assign page_title = nbk_policy_title | strip -%}
+  {%- capture nbk_policy_heading -%}<h1>{{ page_title | escape }}</h1>{%- endcapture -%}
+{%- endif -%}
 
 <html class="no-js hdt-pr-img__effect-{{ settings.effect_secondary_image }} hdt-badge__shape-{{ settings.badge_shape }} dir--{{ dir }}{% if request.design_mode %} shopify-design-mode{% endif %} {% if settings.minimal_products %} hdt-minimal-products{% endif %}{% if settings.hidden_badges %} hdt-hidden-pr-badges{% endif %}{% if settings.hidden_quickview %} hdt-hidden-pr-quickview{% endif %}{% if settings.hidden_wishlist %} hdt-hidden-pr-wishlist{% endif %}{% if settings.hidden_compare %} hdt-hidden-pr-compare{% endif %}{% if settings.uppercase_title %} hdt-pr-uppercase_title{% endif %} {% if settings.layout_boxed %} hdt-layout-boxed{% endif %}" lang="{{ request.locale.iso_code }}" dir="{{ dir }}">
   <head>
@@ -84,7 +97,7 @@
     {%- if page_description and current_page == 1 %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
 
     {%- liquid
-      render 'social-meta-tags'
+      render 'social-meta-tags', page_title: page_title
       render 'css-variables', is_rtl: is_rtl
       render 'js-variables'
       render 'scripts'
@@ -96,6 +109,9 @@
     {% render 'nbk-rez-kalles' %}
     {{ content_for_header }}
     {% render 'nbk-locale-routing' %}
+    {%- if request.page_type == 'policy' or nbk_service_page or page.handle == 'about-us' -%}
+      {{ 'nbk-policy.css' | asset_url | stylesheet_tag }}
+    {%- endif -%}
     {%- if request.page_type == 'product' -%}
       {{ 'nbk-yespo-recommendations.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
@@ -106,7 +122,7 @@
   <body class="hdt-page-type-{{ request.page_type }}">
     {% comment %} {%- section 'product-card-configs' -%} {% endcomment %}
     {%- unless template == 'product.only_config' and request.design_mode == false -%}
-    {%- if request.page_type == "index" or request.page_type == "policy" -%}
+    {%- if request.page_type == "index" -%}
     <h1 class="sr-only">{% render 'nbk-page-h1' %}</h1>
     {%- endif -%}
     {%- render 's-dom-temp' -%}
@@ -117,6 +133,14 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {% if request.page_type == 'collection' and collection.handle == 'brands' %}
         {% section 'nbk-brands-directory' %}
+      {% elsif nbk_service_page %}
+        {% section 'nbk-service-page' %}
+      {% elsif request.page_type == 'policy' %}
+        {%- assign nbk_policy_content = content_for_layout | replace_first: nbk_native_policy_heading, nbk_policy_heading -%}
+        {%- assign nbk_policy_handle = request.path | split: '/' | last -%}
+        <div class="nbk-service-page nbk-service-page--policy">
+          {% render 'nbk-service-content', content: nbk_policy_content, handle: nbk_policy_handle %}
+        </div>
       {% else %}
         {{ content_for_layout }}
       {% endif %}

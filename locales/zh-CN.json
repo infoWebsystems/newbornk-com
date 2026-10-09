@@ -366,7 +366,9 @@
         "email": "电子邮件*",
         "submit": "提交",
         "success": "当商品有货时我们会通知您"
-      }
+      },
+      "size_label": "尺码",
+      "variant_error": "无法更新尺码。已保留之前的选择，请重试。"
     },
     "modal": {
       "label": "媒体图库"

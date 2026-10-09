@@ -12,6 +12,7 @@
   };
   document.dispatchEvent(new Event('nbk:routes-ready'));
   window.themeHDN.extras = {
+    variantError: {{ 'products.product.variant_error' | t | json }},
     addToCart: `{{ 'products.product.add_to_cart' | t }}`,
     soldOut: `{{ 'products.product.sold_out' | t }}`,
     preOrder: `{{ 'products.product.pre_order' | t }}`,

@@ -1,6 +1,6 @@
 # Kyiv Kalles: release checklist
 
-Checked 8 October 2026. **Prepared for acceptance; not yet cleared for publication.** PRs #90 and #91 are merged into `kalles-main`; the candidate is still unpublished in Shopify.
+Checked 8 October 2026. **Acceptance run completed with outstanding findings; not yet published.** PRs #90–#92 are merged into `kalles-main`; the candidate is still unpublished in Shopify. The owner deferred Yespo end-to-end testing, a paid Chekly order and the App Inbox plan upgrade. See the [fresh acceptance audit](KALLES_ACCEPTANCE_2026-10-08.md) for exact results and policy differences.
 
 ## Release and rollback targets
 
@@ -34,21 +34,36 @@ Publishing is a separate action from merging a PR. Do not assume GitHub automati
 - The owner-approved free-shipping rule now appears in both source policies (refund and shipping) and the return page: orders from UAH 5,000, paid in full in advance, delivered to a Nova Poshta branch or parcel locker. Exact readback confirms only that condition changed in the Ukrainian bodies. Three EN bodies were added or refreshed against those current sources; the return page's stale office address was replaced by 20 Velyka Zhytomyrska Street. These bodies match the submitted translations and are not outdated.
 - GSC Instagram Feed's requested permission update was accepted after explicit owner approval. Its existing widget 76962 now has native EN localization for the introduction and viewer link. The rendered EN product page shows the English introduction; the UA product page retains the Ukrainian introduction. No theme code or Instagram captions were changed.
 
-## Gates before publication
+## Latest acceptance fixes
+
+- Product requests now retry transient failures once and clear failed caches. Variant-selection failures restore the confirmed choice and show a localized retry message. EN unavailable EU 42 → available EU 46 was verified in the updated preview.
+- REZ's native EN button/modal copy is corrected and verified; no subscription or email was sent. UA One size uses `Розмір`, remains preselected and is ready to add. The mobile EN contact address is translated.
+- Payment & Delivery, Returns and FAQ source/EN bodies were updated using the owner's approved payment/delivery list and refund-processing deadline. These are store-wide content changes, separate from Git/theme deployment.
+- Latest validation: 63 JavaScript tests, 50 Liquid render tests, and no new Theme Check findings against the 3,872-error vendor baseline. Twelve changed theme files were uploaded only to preview `199582843040` and read back; generated locale comments were normalized for comparison.
+
+- After owner approval of the full review document, `/policies/shipping-policy`, `/policies/refund-policy`, `/pages/public-agreement`, `/policies/legal-notice` and `/policies/terms-of-service` received the exact reviewed Ukrainian bodies and five matching English translations. Native UI saves succeeded for policies; Admin readback confirms all EN fields match and are not outdated. The three offer copies match after normalizing Shopify tag whitespace. EN shipping was verified in the storefront. These are live store-wide content updates; Kalles remains unpublished.
+
+## Outstanding acceptance findings
+
+1. **Footwear filter:** EU 42 still includes an unavailable-size Saucony, despite correct Admin fields and an ungrouped native filter. Stock was not changed. A same-value product save did not establish reindexing. Search-index lag is possible but unproven; repeat the regression before closing this finding.
+2. **Return-window wording:** the owner-approved full UA/EN shipping/refund policies and three offer destinations are now published and read back. The earlier approval-review block was resolved by presenting the complete replacement and receiving owner approval. FAQ wording still says purchase while Returns says receipt for the 14-day window; the separate clarification is pending.
+3. **KeyCRM localization:** English greeting needs the account/settings URL and a native EN widget. Existing Ukrainian support remains available. REZ, mobile address and recognized Size label are now corrected.
+
+## Owner-deferred follow-up checks
+
+On 8 October the owner explicitly moved Yespo, Chekly purchase testing and the Inbox plan decision until later. Do not reinstate them as approval gates or call them passed. No billing change, subscription or payment is authorized by this deferral.
 
 1. **Yespo:** verify a new subscriber receives the confirmation email, confirmation creates/activates the intended contact, and the automatic welcome follows. The authorized test alias previously showed success but no email was found. Yespo access works again on 8 October; no new subscription or email was sent in this pass. Manual QA welcome delivery is separate evidence and does not close this gate. The live signup form now selects UK/EN correctly, but the confirmation email, confirmation landing page and welcome flow still need locale checks: the selected confirmation message and redirect preview showed Ukrainian.
 2. **Payment / orders:** owner completes an agreed test purchase, or authorizes a specific product and amount. Verify payment status, one matching Shopify order, KeyCRM receipt, and one purchase event with matching amount/currency/order ID. Test wallet availability on actual compatible devices. Do not pay the existing cart as an implicit test.
-3. **Translations / terms:** core EN catalog and navigation coverage gaps and nine additional page/policy bodies are closed. The approved free-shipping threshold is reconciled. Other source differences remain: the old shipping policy mentions cryptocurrency, DHL and cash to a courier, while the checked Chekly/product payment block lists different options. These terms were faithfully translated, not silently removed or treated as newly verified services. The public offer also retains a missing clause 7.2.4 reference and refund periods that differ across the source texts. Reconcile these content differences before treating legal content as final.
-4. **External app localization:** Yespo signup and the GSC Instagram introduction now switch correctly between UK/EN. Existing App Inbox messages and displayed dates remain Ukrainian on an English preview page. This is Yespo message content, separate from theme labels; no delivered message, promo code or send flow was altered. Instagram post captions and customer reviews remain original user-generated content.
-5. **Inbox reach:** on 8 October Yespo reported 7,139 contacts against a 5,000-contact plan, with 2,139 contacts unable to receive App Inbox messages. Resolve the plan/audience decision with the owner; do not silently upgrade billing. Panel rendering works, but delivery to all contacts is not verified.
+3. **External app localization / reach:** Yespo signup and the GSC Instagram introduction switch between UK/EN. Existing App Inbox messages and dates remain Ukrainian on EN; delivered messages and routing have not changed. Yespo reported 7,139 contacts against a 5,000-contact plan, with 2,139 contacts unable to receive App Inbox messages. The owner will revisit the tariff later. Rendering is verified; delivery to all contacts is not. Instagram captions and customer reviews remain original user-generated content.
 
 ## Publication procedure
 
-1. Close the gates above; approve and merge the release PR into `kalles-main`. Freeze theme-editor/code changes for the release window.
+1. Resolve the outstanding acceptance findings and record the owner's deferred checks. Merge any resulting fixes into `kalles-main`; freeze theme-editor/code changes for the release window.
 2. Reconcile the candidate against the exact merged commit, taking a fresh snapshot of settings and app embeds before any sync. Preserve Shopify-managed translations and the tested theme ID. Download current Dawn and candidate archives immediately before publishing; retain Dawn in the theme library.
 3. With the owner/team available to check orders, publish **199582843040** in Shopify. Keep the domain, Markets, product/collection handles, redirects and checkout configuration unchanged.
 4. In a clean session without preview cookies, check UA/EN home, collection, filtering, search, product size, wishlist, cart, Chekly, newsletter, REZ, reviews and chat at mobile/desktop widths. Inspect canonical, hreflang, robots and JSON-LD on live URLs.
-5. Verify the agreed transaction and order/analytics receipt. Compare checkout errors and orders with the normal baseline before announcing the new site broadly.
+5. Compare checkout errors and actual orders with the normal baseline before announcing the new site broadly. Complete a test transaction and order/analytics receipt only when the owner resumes the deferred payment test.
 
 ## Rollback
 
