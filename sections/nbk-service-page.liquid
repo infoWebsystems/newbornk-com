@@ -1,0 +1,26 @@
+{%- liquid
+  assign service_title = page.title
+  if request.locale.iso_code == 'uk' or request.locale.iso_code == 'en' or request.locale.iso_code == 'ru'
+    case page.handle
+      when 'order-and-delivery'
+        assign service_title = 'nbk_contact.delivery' | t
+      when 'return'
+        assign service_title = 'nbk_contact.returns' | t
+    endcase
+  endif
+-%}
+<article class="nbk-service-page" aria-labelledby="nbk-service-title">
+  <header class="nbk-service-page__header">
+    <h1 id="nbk-service-title">{{ service_title | escape }}</h1>
+  </header>
+  <div class="nbk-service-page__body">
+    {% render 'nbk-service-content', content: page.content, page_body: true, handle: page.handle %}
+  </div>
+</article>
+{% schema %}
+{
+  "name": "Information page",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

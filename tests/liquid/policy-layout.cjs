@@ -8,14 +8,16 @@ const root = path.resolve(__dirname, '../..');
 const layout = readFileSync(path.join(root, 'layout/theme.liquid'), 'utf8');
 // Render the real layout with unrelated header, footer and head integrations stubbed.
 function engineFor(locale, globals = {}) {
-  const engine = new Liquid({ root: path.join(root, 'snippets'), extname: '.liquid', globals });
+  const engine = new Liquid({ root: [path.join(root, 'snippets'), path.join(root, 'sections')], extname: '.liquid', globals });
   const labels = JSON.parse(readFileSync(path.join(root, 'locales', locale === 'en' ? 'en.default.json' : `${locale}.json`), 'utf8'));
   engine.registerFilter('t', key => key.split('.').reduce((value, part) => value?.[part], labels) ?? key);
   engine.registerTag('doc', { parse(token, tokens) { while (tokens.length) if (tokens.shift().name === 'enddoc') return; }, render() { return ''; } });
+  engine.registerTag('schema', { parse(token, tokens) { while (tokens.length) if (tokens.shift().name === 'endschema') return; }, render() { return ''; } });
   for (const tag of ['section', 'sections']) engine.registerTag(tag, { parse() {}, render() { return ''; } });
   return engine;
 }
-const isolated = layout.replace(/\{%-?\s*render\s+'([^']+)'[^%]*-?%\}/g, (tag, name) => name === 'nbk-policy-title' || name === 'nbk-page-h1' ? tag : '')
+const isolated = layout.replace(/\{%-?\s*render\s+'([^']+)'[^%]*-?%\}/g, (tag, name) => ['nbk-policy-title', 'nbk-page-h1', 'nbk-service-content'].includes(name) ? tag : '')
+  .replace("{% section 'nbk-service-page' %}", "{% render 'nbk-service-page' %}")
   .replace(/^\s*render\s+'[^']+'.*$/gm, '');
 function context(locale, type = 'policy', handle = 'refund-policy') {
   return { request: { page_type: type, path: `/${locale}/policies/${handle}`, locale: { iso_code: locale } },
@@ -44,4 +46,48 @@ test('ordinary pages retain their original title and content with no policy styl
   assert(html.includes(ctx.content_for_layout));
   assert(html.includes('<title>Refund policy &ndash; NEWBORN K</title>'));
   assert(!html.includes('nbk-policy.css'));
+});
+
+test('all five information pages use the same section in both languages without changing body copy', async () => {
+  for (const locale of ['uk', 'en']) {
+    for (const handle of ['order-and-delivery', 'return', 'faq', 'public-agreement', 'privacy-policy']) {
+      const ctx = context(locale, 'page', handle);
+      ctx.page = { handle, title: 'Page title', content: '<h2>Approved heading</h2><p>Approved terms.</p>' };
+      const html = await engineFor(locale, ctx).parseAndRender(isolated, ctx);
+      assert.equal((html.match(/<h1\b/g) || []).length, 1, `${locale}/${handle}`);
+      assert(html.includes('class="nbk-service-page"'));
+      assert(html.includes(ctx.page.content));
+      assert(html.includes('nbk-policy.css'));
+      assert(!html.includes(ctx.content_for_layout), 'old page template must not duplicate its heading/body');
+    }
+  }
+});
+
+test('native privacy and offer headings use their translated page titles', async () => {
+  const ctx = context('uk');
+  ctx.pages = { 'privacy-policy': {title:'Політика конфіденційності'}, 'public-agreement':{title:'Договір публічної оферти'} };
+  for (const [handle,title] of [['privacy-policy','Політика конфіденційності'],['legal-notice','Договір публічної оферти'],['terms-of-service','Договір публічної оферти']]) {
+    ctx.request.path = `/policies/${handle}`;
+    assert.equal((await engineFor('uk',ctx).renderFile('nbk-policy-title',ctx)).trim(),title);
+  }
+});
+
+test('legacy return layout loses global styles while preserving text, links and semantic sections', async () => {
+  const content = '<style>body {font-family:other} .hero {color:red}</style><meta charset="utf-8"><div class="return-page-content" style="padding:90px"><span class="sec-title">Conditions</span><p class="method-title">Postal return</p><p><strong>14 days</strong> after receipt. <a href="mailto:info@newbornk.com" style=\'color:red\'>Contact</a></p></div>';
+  const html = await engineFor('uk').renderFile('nbk-service-content',{content,page_body:true,handle:'return'});
+  assert(!html.includes('<style') && !html.includes('body {') && !html.includes('<meta') && !html.includes(' style='));
+  assert(html.includes('data-nbk-legacy="return-page-content"'));
+  assert(html.includes('<h2>Conditions</h2>'));
+  assert(html.includes('<h3>Postal return</h3>'));
+  assert(html.includes('<strong>14 days</strong> after receipt. <a href="mailto:info@newbornk.com">Contact</a>'));
+});
+
+test('legacy privacy spacing and offer headings become semantic without promoting inline emphasis', async () => {
+  const content = '<p>Introduction.<br><br><br><strong>Privacy section:</strong><br><br>Approved terms. <strong>+380970443333</strong>, Kyiv.<br><br><br><br></p><p><b>7. Responsibilities</b>:</p><p><b>Emphasis</b> inside prose.</p>';
+  const html = await engineFor('en').renderFile('nbk-service-content',{content,page_body:true,handle:'privacy-policy'});
+  assert(html.includes('<h2>Privacy section:</h2>'));
+  assert(html.includes('<h2>7. Responsibilities:</h2>'));
+  assert(html.includes('<p><b>Emphasis</b> inside prose.</p>'));
+  assert(html.includes('<strong>+380970443333</strong>, Kyiv.'));
+  assert(!html.includes('<br><br>'));
 });

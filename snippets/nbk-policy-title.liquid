@@ -13,6 +13,12 @@
           assign policy_title = 'nbk_contact.returns' | t
         when 'shipping-policy'
           assign policy_title = 'nbk_contact.delivery' | t
+        when 'privacy-policy'
+          assign policy_title = pages['privacy-policy'].title | default: page_title
+        when 'terms-of-service', 'legal-notice'
+          assign policy_title = pages['public-agreement'].title | default: page_title
+        when 'contact-information'
+          assign policy_title = pages['contact'].title | default: page_title
       endcase
     endif
   endif

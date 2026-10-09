@@ -1,0 +1,125 @@
+{% doc %}
+  Normalizes presentation in the store's legacy information-page HTML.
+  Text, links and approved policy terms stay in the original Shopify resource.
+  This is a formatting adapter for trusted merchant content, not an HTML sanitizer.
+
+  @param {string} content - Localized page body or native policy layout
+  @param {boolean} [page_body] - Remove legacy page classes and demote embedded H1s
+  @param {string} [handle] - Page/policy handle for legacy formatting variants
+{% enddoc %}
+{%- liquid
+  assign output = content
+  assign excluded_tags = 'style,script,head' | split: ','
+  for tag in excluded_tags
+    assign opening = '<' | append: tag
+    assign closing = '</' | append: tag | append: '>'
+    assign parts = output | split: opening
+    capture output
+      for part in parts
+        if forloop.first
+          echo part
+        elsif part contains closing
+          echo part | split: closing | last
+        else
+          echo opening | append: part
+        endif
+      endfor
+    endcapture
+  endfor
+
+  assign parts = output | split: '<meta '
+  capture output
+    for part in parts
+      if forloop.first
+        echo part
+      else
+        assign tag_end = part | split: '>' | first | append: '>'
+        echo part | remove_first: tag_end
+      endif
+    endfor
+  endcapture
+
+  assign quotes = 'double,single' | split: ','
+  for quote_type in quotes
+    assign quote = '"'
+    if quote_type == 'single'
+      assign quote = "'"
+    endif
+    assign style_start = ' style=' | append: quote
+    assign parts = output | split: style_start
+    capture output
+      for part in parts
+        if forloop.first
+          echo part
+        else
+          assign attribute = part | split: quote | first | append: quote
+          echo part | remove_first: attribute
+        endif
+      endfor
+    endcapture
+  endfor
+
+  if handle == 'privacy-policy'
+    assign output = output | replace: '<br />', '<br>' | replace: '<br/>', '<br>'
+    for pass in (1..4)
+      assign output = output | replace: '<br><br><br>', '<br><br>'
+    endfor
+    assign output = output | replace: '<br><br>', '</p><p>' | replace: '<p><br>', '<p>' | replace: '<br></p>', '</p>' | replace: '<p></p>', ''
+  endif
+
+  assign bold_tags = 'b,strong' | split: ','
+  for tag in bold_tags
+    assign opening = '<p><' | append: tag | append: '>'
+    assign closing = '</' | append: tag | append: '></p>'
+    assign closing_colon = '</' | append: tag | append: '>:</p>'
+    assign parts = output | split: opening
+    capture output
+      for part in parts
+        if forloop.first
+          echo part
+        else
+          assign first_paragraph = part | split: '</p>' | first | append: '</p>'
+          if first_paragraph contains closing
+            echo '<h2>'
+            echo part | replace_first: closing, '</h2>'
+          elsif first_paragraph contains closing_colon
+            echo '<h2>'
+            echo part | replace_first: closing_colon, ':</h2>'
+          else
+            echo opening | append: part
+          endif
+        endif
+      endfor
+    endcapture
+  endfor
+
+  if page_body
+    assign parts = output | split: '<span class="sec-title">'
+    capture output
+      for part in parts
+        if forloop.first
+          echo part
+        else
+          echo '<h2>'
+          echo part | replace_first: '</span>', '</h2>'
+        endif
+      endfor
+    endcapture
+    assign parts = output | split: '<p class="method-title">'
+    capture output
+      for part in parts
+        if forloop.first
+          echo part
+        else
+          echo '<h3>'
+          echo part | replace_first: '</p>', '</h3>'
+        endif
+      endfor
+    endcapture
+    assign output = output | replace: 'class=', 'data-nbk-legacy=' | replace: '<h1', '<h2' | replace: '</h1>', '</h2>'
+    if handle == 'faq'
+      assign output = output | replace: '<h3', '<h2' | replace: '</h3>', '</h2>'
+    endif
+  endif
+  echo output
+-%}

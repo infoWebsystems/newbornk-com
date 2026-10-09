@@ -15,6 +15,13 @@
     assign is_rtl = true
     assign dir = 'rtl'
   endif
+  assign nbk_service_page = false
+  if request.page_type == 'page'
+    assign nbk_service_handles = 'order-and-delivery,return,faq,public-agreement,privacy-policy' | split: ','
+    if nbk_service_handles contains page.handle
+      assign nbk_service_page = true
+    endif
+  endif
 -%}
 {%- if request.page_type == 'policy' -%}
   {%- capture nbk_native_policy_heading -%}<h1>{{ page_title | escape }}</h1>{%- endcapture -%}
@@ -102,7 +109,7 @@
     {% render 'nbk-rez-kalles' %}
     {{ content_for_header }}
     {% render 'nbk-locale-routing' %}
-    {%- if request.page_type == 'policy' -%}
+    {%- if request.page_type == 'policy' or nbk_service_page -%}
       {{ 'nbk-policy.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
     {%- if request.page_type == 'product' -%}
@@ -126,8 +133,14 @@
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {% if request.page_type == 'collection' and collection.handle == 'brands' %}
         {% section 'nbk-brands-directory' %}
+      {% elsif nbk_service_page %}
+        {% section 'nbk-service-page' %}
       {% elsif request.page_type == 'policy' %}
-        {{ content_for_layout | replace_first: nbk_native_policy_heading, nbk_policy_heading }}
+        {%- assign nbk_policy_content = content_for_layout | replace_first: nbk_native_policy_heading, nbk_policy_heading -%}
+        {%- assign nbk_policy_handle = request.path | split: '/' | last -%}
+        <div class="nbk-service-page nbk-service-page--policy">
+          {% render 'nbk-service-content', content: nbk_policy_content, handle: nbk_policy_handle %}
+        </div>
       {% else %}
         {{ content_for_layout }}
       {% endif %}
