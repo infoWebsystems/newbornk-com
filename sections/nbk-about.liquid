@@ -1,0 +1,110 @@
+<article class="nbk-about" aria-labelledby="nbk-about-title-{{ section.id }}">
+  <header class="nbk-about__heading">
+    <h1 id="nbk-about-title-{{ section.id }}">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="nbk-about__brand">
+    <img src="{{ 'nbk-wordmark-black.svg' | asset_url }}" width="200" height="25" alt="{{ shop.name | escape }}">
+    <a href="{{ section.settings.map_url }}">
+      <svg width="18" height="22" viewBox="0 0 18 22" fill="none" aria-hidden="true"><path d="M16 8.5c0 5-7 11.5-7 11.5S2 13.5 2 8.5a7 7 0 1 1 14 0Z" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="8.5" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+      {{ 'nbk_contact.address' | t }}
+    </a>
+  </div>
+
+  <div class="nbk-about__story{% if section.settings.image == blank %} nbk-about__story--text{% endif %}">
+    {% if section.settings.image != blank %}
+      {%- assign store_alt = 'nbk_contact.interior_alt' | t -%}
+      <div class="nbk-about__store-image">
+        {{ section.settings.image | image_url: width: 1400 | image_tag: widths: '360,600,900,1200,1400', sizes: '(min-width: 1440px) 680px, (min-width: 750px) 50vw, 100vw', loading: 'eager', fetchpriority: 'high', alt: store_alt }}
+      </div>
+    {% endif %}
+    <div class="nbk-about__story-copy">
+      <p>{{ 'nbk_about.intro' | t }}</p>
+      <p>{{ 'nbk_about.founded' | t }}</p>
+    </div>
+  </div>
+
+  {% if section.blocks.size > 0 %}
+    <section class="nbk-about__founders" aria-labelledby="nbk-founders-title-{{ section.id }}">
+      <h2 id="nbk-founders-title-{{ section.id }}">{{ 'nbk_about.founders' | t }}</h2>
+      <div class="nbk-about__grid">
+        {% for block in section.blocks %}
+          {%- liquid
+            assign name_key = 'nbk_about.' | append: block.settings.person | append: '_name'
+            assign bio_key = 'nbk_about.' | append: block.settings.person | append: '_bio'
+            assign founder_name = name_key | t
+          -%}
+          <article class="nbk-about__founder{% if block.settings.image == blank %} nbk-about__founder--text{% endif %}" {{ block.shopify_attributes }}>
+            {% if block.settings.image != blank %}
+              <div class="nbk-about__portrait">
+                {{ block.settings.image | image_url: width: 1200 | image_tag: widths: '360,600,900,1200', sizes: '(min-width: 1440px) 680px, (min-width: 750px) 50vw, 100vw', loading: 'lazy', alt: founder_name }}
+              </div>
+            {% endif %}
+            <div class="nbk-about__bio">
+              <h3>{{ founder_name }}</h3>
+              <p>{{ bio_key | t }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  <p class="nbk-about__closing">{{ 'nbk_about.closing' | t }}</p>
+</article>
+
+{% stylesheet %}
+.nbk-about { width: min(1440px, calc(100% - 64px)); margin-inline: auto; padding: 32px 0 80px; color: #111; font: 400 16px / 1.7 var(--font-body-family, sans-serif); }
+.nbk-about :is(h1, h2, h3, p) { margin: 0; font-family: inherit; letter-spacing: normal; color: inherit; }
+.nbk-about__heading h1 { font-size: 22px; line-height: 1.3; font-weight: 500; text-transform: none; }
+.nbk-about__brand { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 56px 0 64px; text-align: center; }
+.nbk-about__brand > img { width: 200px; height: auto; }
+.nbk-about__brand a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; color: inherit; font-size: 22px; line-height: 1.4; }
+.nbk-about__brand svg { flex: 0 0 18px; }
+.nbk-about__brand a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.nbk-about a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.nbk-about__story { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: center; gap: 48px; }
+.nbk-about__story--text { display: block; max-width: 800px; margin-inline: auto; }
+.nbk-about__store-image { aspect-ratio: 4 / 3; overflow: hidden; }
+.nbk-about :is(.nbk-about__store-image, .nbk-about__portrait) img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.nbk-about__story-copy p + p { margin-top: 24px; }
+.nbk-about__founders { margin-top: 80px; }
+.nbk-about__founders > h2 { margin-bottom: 32px; text-align: center; font-size: 30px; line-height: 1.3; font-weight: 400; text-transform: uppercase; }
+.nbk-about__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: start; }
+.nbk-about__portrait { aspect-ratio: 4 / 5; overflow: hidden; }
+.nbk-about__bio { position: relative; margin: -56px 24px 0; padding: 24px; background: #fff; }
+.nbk-about__bio h3 { margin-bottom: 12px; font-size: 26px; line-height: 1.25; font-weight: 400; text-transform: uppercase; }
+.nbk-about__bio p { font-size: 16px; line-height: 1.7; }
+.nbk-about__founder--text .nbk-about__bio { margin-top: 0; }
+.nbk-about .nbk-about__closing { max-width: 980px; margin: 64px auto 0; text-align: center; font-size: 28px; line-height: 1.4; text-transform: uppercase; }
+@media (max-width: 749px) {
+  .nbk-about { width: calc(100% - 40px); padding-block: 24px 48px; }
+  .nbk-about__brand { gap: 20px; padding-block: 36px; }
+  .nbk-about__brand a { font-size: 18px; }
+  .nbk-about__story, .nbk-about__grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .nbk-about__founders { margin-top: 48px; }
+  .nbk-about__founders > h2 { margin-bottom: 24px; font-size: 24px; }
+  .nbk-about__bio { margin: -40px 16px 0; padding: 20px 16px 0; }
+  .nbk-about__bio h3 { font-size: 23px; }
+  .nbk-about .nbk-about__closing { margin-top: 48px; font-size: 22px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Kyiv about",
+  "tag": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Store photo" },
+    { "type": "url", "id": "map_url", "label": "Store location" }
+  ],
+  "blocks": [{
+    "type": "founder", "name": "Founder", "limit": 2,
+    "settings": [
+      { "type": "select", "id": "person", "label": "Founder", "options": [{"value":"anton","label":"Anton Busko"},{"value":"dmytro","label":"Dmytro Rudakov"}], "default": "anton" },
+      { "type": "image_picker", "id": "image", "label": "Portrait" }
+    ]
+  }],
+  "presets": [{"name":"Kyiv about","blocks":[{"type":"founder","settings":{"person":"anton"}},{"type":"founder","settings":{"person":"dmytro"}}]}]
+}
+{% endschema %}

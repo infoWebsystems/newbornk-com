@@ -1098,5 +1098,15 @@
       "white": "White",
       "yellow": "Yellow"
     }
+  },
+  "nbk_about": {
+    "intro": "NEWBORN K is an online concept store with a unique selection of clothing and lifestyle products from local and international brands.",
+    "founded": "The store was founded in 2021 by two friends:",
+    "founders": "Founders",
+    "closing": "NEWBORN K is a place that brings together Kyiv's creative community.",
+    "anton_name": "Anton Busko",
+    "anton_bio": "Has many years of experience with international advertising agencies and leading fashion retailers in Kyiv. He is the founder of DITCH, Ukraine's first streetwear brand, and the Tony Talks Telegram channel.",
+    "dmytro_name": "Dmytro Rudakov",
+    "dmytro_bio": "A technical expert and veteran of the 3rd Separate Assault Brigade. He has helped create and launch fintech, GIS and influencer marketplace projects, with six years of experience working with leading Ukrainian and international IT companies."
   }
 }
