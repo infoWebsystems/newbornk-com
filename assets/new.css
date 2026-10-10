@@ -696,9 +696,6 @@ span.cart-item-price{
   .slider-mobile-gutter .slider-buttons {
     display: none;
   }
-  .css-1dztziv {
-    bottom: 105px !important;
-  }
   .accordion__title {
     font-size: 16px;
   }
@@ -706,5 +703,28 @@ span.cart-item-price{
     height: auto !important;
     right: unset !important;
     top: unset !important;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+  body {
+    --nbk-floating-widget-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.template-product {
+    --nbk-floating-widget-bottom: calc(105px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .KeyCRM-toggleButtonContainer,
+  .cl-launcher[cl-widget-id="f35733v35733"] {
+    top: auto !important;
+    bottom: var(--nbk-floating-widget-bottom) !important;
+  }
+
+  .cl-launcher[cl-widget-id="f35733v35733"] [cl-type="VIEW"] {
+    height: 56px !important;
+    min-height: 56px !important;
+    /* The image inside Yespo's shadow root overflows its 10px padding below. */
+    padding-block: 0 20px !important;
   }
 }
