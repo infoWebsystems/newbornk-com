@@ -1,62 +1,30 @@
 {
   "sections": {
     "main": {
-      "type": "nbk-kyiv-content",
+      "type": "nbk-about",
       "settings": {
-        "show_page_body": true
+        "image": "shopify://shop_images/newbornk-store-interior-wide.webp",
+        "map_url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6"
       },
       "blocks": {
-        "content_1": {
-          "type": "content",
+        "anton": {
+          "type": "founder",
           "settings": {
-            "image": "shopify://shop_images/Group_149.png"
+            "person": "anton",
+            "image": "shopify://shop_images/254827446_288865236453523_8434811695550782982_n.jpg"
           }
         },
-        "content_2": {
-          "type": "content",
+        "dmytro": {
+          "type": "founder",
           "settings": {
-            "heading": "",
-            "body": "<p>онлайн концепт-стор з унікальною селекцією товарів, що поєднує в собі магазин одягу та lifestyle-продукції від локальних та іноземних брендів.</p>"
-          }
-        },
-        "content_3": {
-          "type": "content",
-          "settings": {
-            "heading": "",
-            "body": "<p>Магазин засновано у 2021 році двома друзями:</p>"
-          }
-        },
-        "content_4": {
-          "type": "content",
-          "settings": {
-            "image": "shopify://shop_images/photo_me.webp",
-            "heading": "ДМИТРО РУДАКОВ",
-            "body": "<p>Технічний експерт. Брав участь у створенні та запуску фінтех, GIS та Influencer Marketplace проєктів. Має 6-річний досвід роботи з українськими та міжнародними TOP IT компаніями.</p><p>Ветеран ЗСУ.</p>"
-          }
-        },
-        "content_5": {
-          "type": "content",
-          "settings": {
-            "image": "shopify://shop_images/254827446_288865236453523_8434811695550782982_n.jpg",
-            "heading": "АНТОН БУСЬКО",
-            "body": "<p>за плечима якого є багаторічний досвід у міжнародних рекламних агенціях і топових фешн-ретейлерах Києва. Засновник першого українського streetwear-бренду DITCH і телеграм-каналу Tony Talks.</p>"
-          }
-        },
-        "content_6": {
-          "type": "content",
-          "settings": {
-            "heading": "",
-            "body": "<p>NEWBORN K - місце, що об'єднує ком'юніті креативного класу Києва.</p>"
+            "person": "dmytro",
+            "image": "shopify://shop_images/photo_me.webp"
           }
         }
       },
       "block_order": [
-        "content_1",
-        "content_2",
-        "content_3",
-        "content_4",
-        "content_5",
-        "content_6"
+        "anton",
+        "dmytro"
       ]
     }
   },

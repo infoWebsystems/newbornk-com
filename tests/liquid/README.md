@@ -1,5 +1,7 @@
 # Liquid render checks
 
+The About-page checks in `about-page.cjs` cover the Warsaw composition with Kyiv photos, single UK/EN/RU story and founder biographies, English-only EN copy, and rendering without optional images or founder blocks.
+
 These checks render the actual theme blocks and snippets with LiquidJS 10.29.0.
 
 - `jsonld-graph.cjs` checks JSON-LD validity, incomplete taxonomy fields, variant-specific data, barcode validation, review/policy preservation, pagination and H1 fallback/escaping.

@@ -109,7 +109,7 @@
     {% render 'nbk-rez-kalles' %}
     {{ content_for_header }}
     {% render 'nbk-locale-routing' %}
-    {%- if request.page_type == 'policy' or nbk_service_page or page.handle == 'about-us' -%}
+    {%- if request.page_type == 'policy' or nbk_service_page -%}
       {{ 'nbk-policy.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
     {%- if request.page_type == 'product' -%}
