@@ -1,6 +1,6 @@
 # Kyiv Kalles: release checklist
 
-Checked 8 October 2026. **Acceptance run completed with outstanding findings; not yet published.** PRs #90–#92 are merged into `kalles-main`; the candidate is still unpublished in Shopify. The owner deferred Yespo end-to-end testing, a paid Chekly order and the App Inbox plan upgrade. See the [fresh acceptance audit](KALLES_ACCEPTANCE_2026-10-08.md) for exact results and policy differences.
+Checked 15 October 2026. **The three remaining acceptance findings are closed; Kalles is not yet published.** The release candidate contains `kalles-main` at `7ec4a4e` plus the localized KeyCRM snippet in this release change and the preserved Shopify/app-managed differences listed in the [final preparation record](KALLES_PREPARATION_2026-10-15.md). Merge the release change before publication. Yespo end-to-end testing, a paid Chekly order and the App Inbox plan upgrade remain explicitly owner-deferred, not passed.
 
 ## Release and rollback targets
 
@@ -43,11 +43,11 @@ Publishing is a separate action from merging a PR. Do not assume GitHub automati
 
 - After owner approval of the full review document, `/policies/shipping-policy`, `/policies/refund-policy`, `/pages/public-agreement`, `/policies/legal-notice` and `/policies/terms-of-service` received the exact reviewed Ukrainian bodies and five matching English translations. Native UI saves succeeded for policies; Admin readback confirms all EN fields match and are not outdated. The three offer copies match after normalizing Shopify tag whitespace. EN shipping was verified in the storefront. These are live store-wide content updates; Kalles remains unpublished.
 
-## Outstanding acceptance findings
+## Final acceptance findings — 15 October
 
-1. **Footwear filter:** EU 42 still includes an unavailable-size Saucony, despite correct Admin fields and an ungrouped native filter. Stock was not changed. A same-value product save did not establish reindexing. Search-index lag is possible but unproven; repeat the regression before closing this finding.
-2. **Return-window wording:** the owner-approved full UA/EN shipping/refund policies and three offer destinations are now published and read back. The earlier approval-review block was resolved by presenting the complete replacement and receiving owner approval. FAQ wording still says purchase while Returns says receipt for the 14-day window; the separate clarification is pending.
-3. **KeyCRM localization:** English greeting needs the account/settings URL and a native EN widget. Existing Ukrainian support remains available. REZ, mobile address and recognized Size label are now corrected.
+1. **Footwear filter — passed:** EU 42 returns 11 matching products in UK and EN; EU 42 + 42.5 returns 13; EU 42 2/3 returns one. All 36 displayed-result checks match an available product variant. The unavailable Saucony EU 42 is excluded. Clearing filters works. No stock, SKU, option or metafield was changed; the historical cause remains unproven.
+2. **Return-window wording — corrected:** the store-wide FAQ now says 14 days from receipt in both Ukrainian and English, matching the existing Returns page. Only that phrase changed. Admin readback confirms the EN body is current; the storefront shows the corrected wording.
+3. **KeyCRM localization — corrected:** a native English widget uses the existing `Чат` support channel, contacts, daily 11:30–20:30 schedule and `#C7EC51` color. Kalles selects it on `/en/`; other locales retain the original Ukrainian widget. Both rendered greetings and placeholders were verified. No chat message was sent.
 
 ## Owner-deferred follow-up checks
 

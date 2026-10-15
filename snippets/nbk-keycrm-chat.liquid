@@ -1,10 +1,16 @@
 {% doc %}
-  Kyiv's existing KeyCRM customer-support channel. The widget token is the public
-  storefront identifier from Dawn; chat appearance and routing stay in KeyCRM.
+  Kyiv's KeyCRM customer-support channel. Each language uses a public storefront
+  widget identifier; both widgets route to the existing support channel.
 {% enddoc %}
+{%- liquid
+  assign keycrm_widget_token = 'bc3f252a-342f-42cb-a3a6-3219b681731b'
+  if request.locale.iso_code == 'en'
+    assign keycrm_widget_token = 'b3871707-9529-4524-800a-476735d3b8c6'
+  endif
+-%}
 <script
   src="{{ 'nbk-keycrm-chat.js' | asset_url }}"
-  data-widget-token="bc3f252a-342f-42cb-a3a6-3219b681731b"
+  data-widget-token="{{ keycrm_widget_token }}"
   defer
 ></script>
 
