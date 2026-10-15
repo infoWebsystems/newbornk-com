@@ -78,6 +78,13 @@
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'wss.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'breadcrumbs-custom-item.js' | asset_url }}" defer="defer"></script>
+    {% if request.page_type == 'index' %}
+      <script
+        src="{{ 'nbk-popular-link.js' | asset_url }}"
+        data-catalog-url="{{ routes.all_products_collection_url }}?sort_by=best-selling"
+        defer="defer"
+      ></script>
+    {% endif %}
 
     {% if template.name == 'product' %}
       <script src="{{ 'product-redesigned.js' | asset_url }}" defer="defer"></script>
