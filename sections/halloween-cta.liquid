@@ -1,6 +1,6 @@
 {{ 'section-halloween.css' | asset_url | stylesheet_tag }}
 
-<section class="hw hw-cta" style="--hw-accent: {{ section.settings.accent }};">
+<section class="hw hw-cta">
   <div class="hw-wrap hw-cta__row">
     <h2 class="hw-h2">{{ section.settings.heading }}</h2>
     {%- if section.settings.button_label != blank -%}
@@ -15,7 +15,7 @@
   "tag": "div",
   "class": "section-halloween-cta",
   "settings": [
-    { "type": "color", "id": "accent", "label": "Акцент кнопки", "default": "#FF6A1A" },
+    { "type": "color", "id": "accent", "label": "Акцент кнопки", "default": "#CCF951" },
     { "type": "textarea", "id": "heading", "label": "Заголовок", "default": "Halloween — гарний привід оновити гардероб" },
     { "type": "text", "id": "button_label", "label": "Кнопка", "default": "До розпродажу" },
     { "type": "url", "id": "button_link", "label": "Посилання кнопки" }

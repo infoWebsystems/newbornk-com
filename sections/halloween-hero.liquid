@@ -1,6 +1,6 @@
 {{ 'section-halloween.css' | asset_url | stylesheet_tag }}
 
-<section class="hw hw-hero" style="--hw-accent: {{ section.settings.accent }};">
+<section class="hw hw-hero">
   {%- if section.settings.image != blank -%}
     <div class="hw-hero__photo">
       {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 760px) 64vw, 100vw', widths: '750, 1100, 1500, 2000', alt: section.settings.image.alt }}
@@ -10,9 +10,9 @@
   {%- if section.settings.show_decor -%}
     <div class="hw-web hw-web--l" aria-hidden="true">{% render 'hw-icon', icon: 'web', size: 300 %}</div>
     <div class="hw-web hw-web--r" aria-hidden="true">{% render 'hw-icon', icon: 'web', size: 240 %}</div>
-    <div class="hw-spider hw-hide-m" style="left: 60%;" aria-hidden="true"><span class="hw-spider__thread" style="height: 170px;"></span>{% render 'hw-icon', icon: 'spider', size: 40 %}</div>
-    <div class="hw-spider hw-hide-m" style="left: 76%; animation-duration: 3.4s; animation-delay: -1.2s;" aria-hidden="true"><span class="hw-spider__thread" style="height: 80px; animation-duration: 5.8s;"></span>{% render 'hw-icon', icon: 'spider', size: 26 %}</div>
-    <div class="hw-spider" style="left: 88%; animation-duration: 5s; animation-delay: -2.5s;" aria-hidden="true"><span class="hw-spider__thread" style="height: 250px; animation-duration: 8.5s;"></span>{% render 'hw-icon', icon: 'spider', size: 32 %}</div>
+    <div class="hw-spider hw-hide-m" style="left: 60%;" aria-hidden="true"><span class="hw-spider__thread" style="height: 170px;"></span>{% render 'hw-icon', icon: 'spider', size: 54 %}</div>
+    <div class="hw-spider hw-hide-m" style="left: 76%; animation-duration: 3.4s; animation-delay: -1.2s;" aria-hidden="true"><span class="hw-spider__thread" style="height: 80px; animation-duration: 5.8s;"></span>{% render 'hw-icon', icon: 'spider', size: 38 %}</div>
+    <div class="hw-spider" style="left: 88%; animation-duration: 5s; animation-delay: -2.5s;" aria-hidden="true"><span class="hw-spider__thread" style="height: 250px; animation-duration: 8.5s;"></span>{% render 'hw-icon', icon: 'spider', size: 46 %}</div>
   {%- endif -%}
 
   <div class="hw-wrap hw-hero__content">
@@ -51,7 +51,7 @@
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Фото магазину (справа, з градієнтом)" },
     { "type": "checkbox", "id": "show_decor", "label": "Павутина й павуки", "default": true },
-    { "type": "color", "id": "accent", "label": "Акцент", "default": "#FF6A1A" },
+    { "type": "color", "id": "accent", "label": "Акцент", "default": "#CCF951" },
     { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "Halloween у NEWBORN K · 31.10" },
     { "type": "textarea", "id": "heading", "label": "Заголовок", "default": "Страшно\nвигідно" },
     { "type": "textarea", "id": "text", "label": "Текст", "default": "Знижки до −80% на розпродаж, бренди, за якими до нас приходять, і свіжі надходження сезону." },
