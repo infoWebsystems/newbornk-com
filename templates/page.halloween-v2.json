@@ -12,6 +12,7 @@
     "hero": {
       "type": "hw2-hero",
       "settings": {
+        "image": "shopify://shop_images/hero-kyiv.jpg",
         "eyebrow": "Halloween у NEWBORN K · 31.10",
         "heading": "Страшно\nвигідно",
         "text": "Знижки до −80% на розпродаж, бренди, за якими до нас приходять, і свіжі надходження сезону.",
@@ -38,13 +39,6 @@
     },
     "brands": {
       "type": "hw2-brands",
-      "settings": {
-        "eyebrow": "02 · Бренди",
-        "heading": "Хто під маскою?",
-        "text": "Скільки речей бренду зараз у розпродажі та яка найбільша знижка.",
-        "link_label": "",
-        "link": ""
-      },
       "blocks": {
         "brand_1": {
           "type": "brand",
@@ -180,7 +174,14 @@
         "brand_10",
         "brand_11",
         "brand_12"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "02 · Бренди",
+        "heading": "Хто під маскою?",
+        "text": "Скільки речей бренду зараз у розпродажі та яка найбільша знижка.",
+        "link_label": "",
+        "link": ""
+      }
     },
     "new": {
       "type": "hw2-products",
@@ -208,19 +209,15 @@
         "phone": "097 044 3333",
         "map_label": "Прокласти маршрут",
         "map_link": "https://www.google.com/maps/search/?api=1&query=NEWBORN%20K%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0%2C%2020%2C%20%D0%9A%D0%B8%D1%97%D0%B2",
-        "call_label": "Подзвонити"
+        "call_label": "Подзвонити",
+        "image_1": "shopify://shop_images/kyiv-facade.jpg",
+        "image_2": "shopify://shop_images/kyiv-shoes.jpg",
+        "image_3": "shopify://shop_images/kyiv-glasses.jpg",
+        "image_4": "shopify://shop_images/kyiv-counter.jpg"
       }
     },
     "reviews": {
       "type": "hw2-reviews",
-      "settings": {
-        "eyebrow": "05 · Відгуки",
-        "heading": "Що кажуть гості",
-        "rating": "5,0",
-        "count_label": "173 відгуки в Google",
-        "link_label": "Усі відгуки →",
-        "link": "https://www.google.com/maps/search/?api=1&query=NEWBORN%20K%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0%2C%2020%2C%20%D0%9A%D0%B8%D1%97%D0%B2"
-      },
       "blocks": {
         "review_1": {
           "type": "review",
@@ -260,7 +257,15 @@
         "review_2",
         "review_3",
         "review_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "05 · Відгуки",
+        "heading": "Що кажуть гості",
+        "rating": "5,0",
+        "count_label": "173 відгуки в Google",
+        "link_label": "Усі відгуки →",
+        "link": "https://www.google.com/maps/search/?api=1&query=NEWBORN%20K%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0%2C%2020%2C%20%D0%9A%D0%B8%D1%97%D0%B2"
+      }
     },
     "cta": {
       "type": "hw2-cta",
