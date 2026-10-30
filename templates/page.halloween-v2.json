@@ -13,6 +13,8 @@
       "type": "hw2-hero",
       "settings": {
         "image": "shopify://shop_images/hero-kyiv.jpg",
+        "overlay": 30,
+        "gradient": 50,
         "eyebrow": "Halloween у NEWBORN K · 31.10",
         "heading": "Страшно\nвигідно",
         "text": "Знижки до −80% на розпродаж, бренди, за якими до нас приходять, і свіжі надходження сезону.",
