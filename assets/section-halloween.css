@@ -127,7 +127,7 @@
 .hw-stars path{fill:#FBBC04}
 .hw-rv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .hw-rv__card{margin:0;background:var(--hw-grey);padding:26px;display:flex;flex-direction:column;gap:16px;justify-content:space-between;min-height:220px}
-.hw-rv__card blockquote{margin:0;font-size:16px;line-height:1.5;color:#1A1A1A}
+.hw .hw-rv__card blockquote{margin:0;padding:0;border:0;font-style:normal;font-size:16px;line-height:1.5;color:#1A1A1A}
 .hw-rv__card figcaption{font-size:13px;font-weight:700;letter-spacing:.04em}
 .hw-rv__card figcaption span{font-weight:500;color:#6B6B6B}
 
