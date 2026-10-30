@@ -37,14 +37,15 @@
 /* ---------- hero ---------- */
 .hw-hero{padding:0}
 .hw-hero__media{position:relative;height:clamp(440px,62vh,720px);background:#1a1a1a;overflow:hidden;color:#fff}
-.hw-hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.hw-hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;z-index:0}
 /* functional scrim only behind the copy, for legibility */
-.hw-hero__media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(0deg,rgba(0,0,0,.6),rgba(0,0,0,0));pointer-events:none}
-.hw-hero__content{position:absolute;left:24px;bottom:28px;z-index:1;display:flex;flex-direction:column;gap:14px;max-width:640px}
+.hw-hero__media::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,var(--hw-ov,.25));pointer-events:none;z-index:1}
+.hw-hero__media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(0deg,rgba(0,0,0,var(--hw-grad,.55)),rgba(0,0,0,0));pointer-events:none;z-index:1}
+.hw-hero__content{position:absolute;left:24px;bottom:28px;z-index:2;display:flex;flex-direction:column;gap:14px;max-width:640px}
 .hw-label--light{color:#fff}
 .hw-hero__text{margin:0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.88);max-width:520px}
 .hw-hero .hw-buttons{margin-top:6px}
-.hw-hero__chip{position:absolute;right:24px;bottom:28px;z-index:1}
+.hw-hero__chip{position:absolute;right:24px;bottom:28px;z-index:2}
 
 /* ---------- products ---------- */
 .hw-section{padding:56px 0 24px}
@@ -124,7 +125,7 @@
   .hw-bgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hw-rv{grid-template-columns:minmax(0,1fr)}
   .hw-hero__media{height:auto;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end}
-  .hw-hero__media::after{height:85%;background:linear-gradient(0deg,rgba(0,0,0,.72),rgba(0,0,0,.15))}
+  .hw-hero__media::after{height:85%}
   .hw-hero__content{position:relative;left:auto;bottom:auto;padding:0 16px 16px}
   .hw-hero__chip{position:relative;right:auto;bottom:auto;margin:0 16px 16px;align-self:flex-start}
   .hw-btn{flex:1 1 auto}
