@@ -1,7 +1,7 @@
 {{ 'section-halloween-v2.css' | asset_url | stylesheet_tag }}
 
 <section class="hw hw-hero">
-  <div class="hw-hero__media">
+  <div class="hw-hero__media" style="--hw-ov: {{ section.settings.overlay | divided_by: 100.0 }}; --hw-grad: {{ section.settings.gradient | divided_by: 100.0 }};">
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750, 1100, 1500, 2000, 2400', alt: section.settings.image.alt }}
     {%- endif -%}
@@ -34,6 +34,8 @@
   "class": "section-halloween-hero",
   "settings": [
     { "type": "image_picker", "id": "image", "label": "Фото магазину (на всю ширину)" },
+    { "type": "range", "id": "overlay", "label": "Притемнення фото (рівномірне)", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 25 },
+    { "type": "range", "id": "gradient", "label": "Притемнення знизу (під текстом)", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 55 },
     { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "Halloween у NEWBORN K · 31.10" },
     { "type": "textarea", "id": "heading", "label": "Заголовок", "default": "Страшно\nвигідно" },
     { "type": "textarea", "id": "text", "label": "Текст", "default": "Знижки до −80% на розпродаж, бренди, за якими до нас приходять, і свіжі надходження сезону." },
