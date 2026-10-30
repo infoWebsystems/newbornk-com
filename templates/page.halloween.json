@@ -222,14 +222,6 @@
     "reviews": {
       "type": "halloween-reviews",
       "blocks": {
-        "review_Xwbbgc": {
-          "type": "review",
-          "settings": {
-            "text": "",
-            "author": "",
-            "source": "Google"
-          }
-        },
         "review_1": {
           "type": "review",
           "settings": {
@@ -264,7 +256,6 @@
         }
       },
       "block_order": [
-        "review_Xwbbgc",
         "review_1",
         "review_2",
         "review_3",
