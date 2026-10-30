@@ -1,0 +1,287 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "halloween-hero",
+      "settings": {
+        "show_decor": true,
+        "accent": "#FF6A1A",
+        "eyebrow": "Halloween у NEWBORN K · 31.10",
+        "heading": "Страшно\nвигідно",
+        "text": "Знижки до −80% на розпродаж, бренди, за якими до нас приходять, і свіжі надходження сезону.",
+        "button_1_label": "Дивитися sale",
+        "button_1_link": "shopify://collections/sale",
+        "button_2_label": "Новинки",
+        "button_2_link": "shopify://collections/novi-nadkhodzhennia",
+        "address_line_1": "Велика Житомирська, 20",
+        "address_line_2": "Щодня 11:00–21:00 · NEWBORN K Київ",
+        "address_link": "https://www.google.com/maps/search/?api=1&query=NEWBORN%20K%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0%2C%2020%2C%20%D0%9A%D0%B8%D1%97%D0%B2"
+      }
+    },
+    "sale": {
+      "type": "halloween-products",
+      "settings": {
+        "eyebrow": "01 · Sale",
+        "heading": "Розпродаж до −80%",
+        "collection": "sale",
+        "limit": 8,
+        "badge": "sale",
+        "link_label": "Весь sale →",
+        "anchor": "sale"
+      }
+    },
+    "brands": {
+      "type": "halloween-brands",
+      "settings": {
+        "show_marquee": true,
+        "eyebrow": "02 · Бренди",
+        "heading": "Хто під маскою?",
+        "text": "Наведи на бренд — і побачиш, скільки його речей зараз у розпродажі та яка найбільша знижка.",
+        "link_label": "",
+        "link": ""
+      },
+      "blocks": {
+        "brand_1": {
+          "type": "brand",
+          "settings": {
+            "collection": "han-kjobenhavn",
+            "name": "Han Kjøbenhavn",
+            "tag": "до −65%",
+            "sub": "31 річ у sale",
+            "is_new": false
+          }
+        },
+        "brand_2": {
+          "type": "brand",
+          "settings": {
+            "collection": "carhartt-wip",
+            "name": "Carhartt WIP",
+            "tag": "до −60%",
+            "sub": "60 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_3": {
+          "type": "brand",
+          "settings": {
+            "collection": "aries",
+            "name": "Aries",
+            "tag": "до −65%",
+            "sub": "5 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_4": {
+          "type": "brand",
+          "settings": {
+            "collection": "etudes-studio",
+            "name": "Études Studio",
+            "tag": "до −65%",
+            "sub": "16 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_5": {
+          "type": "brand",
+          "settings": {
+            "collection": "a-cold-wall",
+            "name": "A-Cold-Wall*",
+            "tag": "до −65%",
+            "sub": "6 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_6": {
+          "type": "brand",
+          "settings": {
+            "collection": "gramicci",
+            "name": "Gramicci",
+            "tag": "до −60%",
+            "sub": "14 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_7": {
+          "type": "brand",
+          "settings": {
+            "collection": "edwin",
+            "name": "Edwin",
+            "tag": "до −55%",
+            "sub": "10 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_8": {
+          "type": "brand",
+          "settings": {
+            "collection": "alpha-industries",
+            "name": "Alpha Industries",
+            "tag": "до −55%",
+            "sub": "5 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_9": {
+          "type": "brand",
+          "settings": {
+            "collection": "bareen",
+            "name": "Bareen",
+            "tag": "до −50%",
+            "sub": "12 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_10": {
+          "type": "brand",
+          "settings": {
+            "collection": "cote-ciel",
+            "name": "Côte&Ciel",
+            "tag": "до −40%",
+            "sub": "15 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_11": {
+          "type": "brand",
+          "settings": {
+            "collection": "oakley",
+            "name": "Oakley",
+            "tag": "до −40%",
+            "sub": "8 речей у sale",
+            "is_new": false
+          }
+        },
+        "brand_12": {
+          "type": "brand",
+          "settings": {
+            "collection": "norda-run",
+            "name": "Norda",
+            "tag": "Новинки",
+            "sub": "свіжа поставка",
+            "is_new": true
+          }
+        }
+      },
+      "block_order": [
+        "brand_1",
+        "brand_2",
+        "brand_3",
+        "brand_4",
+        "brand_5",
+        "brand_6",
+        "brand_7",
+        "brand_8",
+        "brand_9",
+        "brand_10",
+        "brand_11",
+        "brand_12"
+      ]
+    },
+    "new": {
+      "type": "halloween-products",
+      "settings": {
+        "eyebrow": "03 · Новинки",
+        "heading": "Щойно приїхали",
+        "collection": "novi-nadkhodzhennia",
+        "limit": 8,
+        "badge": "new",
+        "link_label": "Усі новинки →",
+        "anchor": "new"
+      }
+    },
+    "store": {
+      "type": "halloween-store",
+      "settings": {
+        "eyebrow": "04 · Концепт-стор",
+        "heading": "Заходь у гості на Halloween",
+        "text": "Приміряй, порадься з командою — хлопці знають кожен бренд у залі й підберуть образ. Понад 50 брендів наживо, у центрі Києва.",
+        "address_label": "Адреса",
+        "address": "вул. Велика Житомирська, 20, Київ",
+        "hours_label": "Години",
+        "hours": "Пн–Нд, 11:00–21:00",
+        "phone_label": "Телефон",
+        "phone": "097 044 3333",
+        "map_label": "Прокласти маршрут",
+        "map_link": "https://www.google.com/maps/search/?api=1&query=NEWBORN%20K%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0%2C%2020%2C%20%D0%9A%D0%B8%D1%97%D0%B2",
+        "call_label": "Подзвонити"
+      }
+    },
+    "reviews": {
+      "type": "halloween-reviews",
+      "settings": {
+        "eyebrow": "05 · Відгуки",
+        "heading": "Що кажуть гості",
+        "rating": "5,0",
+        "count_label": "173 відгуки в Google",
+        "link_label": "Усі відгуки →",
+        "link": "https://www.google.com/maps/search/?api=1&query=NEWBORN%20K%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B0%2C%2020%2C%20%D0%9A%D0%B8%D1%97%D0%B2"
+      },
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "text": "Класний магазин у центрі міста, хороший асортимент. Хлопці дуже привітні, душевні, завжди допоможуть і підкажуть.",
+            "author": "Dendy",
+            "source": "Google"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "text": "Все супер, великий вибір якісного брендового одягу і аксесуарів. Часто купую тут подарунки собі і друзям…",
+            "author": "Dmytro Mazhuga",
+            "source": "Google"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "text": "Дуже багато гарних речей, дуже задоволена обслугованням! Раджу всім…",
+            "author": "Annie Regain",
+            "source": "Google"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "text": "Шикарний вибір класних брендів. Персонал - супер-уважний, приємний…",
+            "author": "Liudmyla",
+            "source": "Google"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4"
+      ]
+    },
+    "cta": {
+      "type": "halloween-cta",
+      "settings": {
+        "accent": "#FF6A1A",
+        "heading": "Halloween — гарний привід оновити гардероб",
+        "button_label": "До розпродажу",
+        "button_link": "shopify://collections/sale"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "sale",
+    "brands",
+    "new",
+    "store",
+    "reviews",
+    "cta"
+  ]
+}
