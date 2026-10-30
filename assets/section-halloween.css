@@ -2,6 +2,8 @@
 .hw{--hw-black:#0B0B0B;--hw-bone:#EDE8DF;--hw-muted:#A8A298;--hw-lime:#CCF951;--hw-orange:#FF6A1A;--hw-grey:#F2F2F2;
   font-family:var(--font-body-family,inherit);color:#000;}
 .hw *,.hw *::before,.hw *::after{box-sizing:border-box}
+/* keep our z-index layers inside each section, below the sticky theme header */
+.hw{position:relative;isolation:isolate;z-index:0}
 :where(.hw) a{text-decoration:none;color:inherit}
 .hw-wrap{max-width:1320px;margin:0 auto;padding:0 24px}
 .hw-h1,.hw-h2{font-family:var(--font-heading-family,inherit);font-weight:300;text-transform:uppercase;margin:0;letter-spacing:-.01em}
