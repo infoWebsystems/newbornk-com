@@ -13,7 +13,7 @@
       "type": "halloween-hero",
       "settings": {
         "image": "shopify://shop_images/hero-kyiv.jpg",
-        "show_decor": true,
+        "show_decor": false,
         "accent": "#ff6a1a",
         "eyebrow": "Halloween у NEWBORN K · 31.10",
         "heading": "Страшно\nвигідно",
