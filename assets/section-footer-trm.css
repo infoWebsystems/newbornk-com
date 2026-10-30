@@ -1,7 +1,7 @@
 .footer {
     position: relative;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 .footer__content-top {
     padding-top: 2rem;
