@@ -1,0 +1,78 @@
+{{ 'section-halloween.css' | asset_url | stylesheet_tag }}
+
+{%- assign collection = section.settings.collection -%}
+<section class="hw hw-section" id="{{ section.settings.anchor | default: section.id }}">
+  <div class="hw-wrap">
+    <div class="hw-head">
+      <div class="hw-head__titles">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="hw-eyebrow">{% render 'hw-icon', icon: 'pumpkin' %}{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="hw-h2">{{ section.settings.heading }}</h2>
+      </div>
+      {%- if section.settings.link_label != blank and collection != blank -%}
+        <a class="hw-more" href="{{ collection.url }}">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <ul class="hw-grid" role="list">
+      {%- if collection != blank -%}
+        {%- assign shown = 0 -%}
+        {%- for product in collection.products -%}
+          {%- if shown >= section.settings.limit -%}{%- break -%}{%- endif -%}
+          {%- unless product.available -%}{%- continue -%}{%- endunless -%}
+          {%- assign variant = product.selected_or_first_available_variant -%}
+          {%- if section.settings.badge == 'sale' -%}
+            {%- unless variant.compare_at_price > variant.price -%}{%- continue -%}{%- endunless -%}
+          {%- endif -%}
+          {%- assign shown = shown | plus: 1 -%}
+          <li>
+            <a class="hw-card" href="{{ product.url }}">
+              <div class="hw-card__media">
+                {%- if product.featured_media -%}
+                  {%- assign img_alt = product.featured_media.alt | default: product.title | escape -%}
+                  {{ product.featured_media | image_url: width: 800 | image_tag: loading: 'lazy', sizes: '(min-width: 760px) 25vw, 50vw', widths: '360, 540, 800', alt: img_alt }}
+                {%- endif -%}
+                {%- if section.settings.badge == 'sale' -%}
+                  {%- assign off = variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | round -%}
+                  <span class="hw-badge hw-badge--sale">−{{ off }}%</span>
+                {%- elsif section.settings.badge == 'new' -%}
+                  <span class="hw-badge hw-badge--new">New</span>
+                {%- endif -%}
+              </div>
+              <span class="hw-card__vendor">{{ product.vendor }}</span>
+              <span class="hw-card__title">{{ product.title }}</span>
+              <span class="hw-card__price">
+                <b>{{ variant.price | money }}</b>
+                {%- if variant.compare_at_price > variant.price -%}<s>{{ variant.compare_at_price | money }}</s>{%- endif -%}
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Halloween · Товари",
+  "tag": "div",
+  "class": "section-halloween-products",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "01 · Sale" },
+    { "type": "text", "id": "heading", "label": "Заголовок", "default": "Розпродаж до −80%" },
+    { "type": "collection", "id": "collection", "label": "Колекція" },
+    { "type": "range", "id": "limit", "label": "Кількість товарів", "min": 4, "max": 16, "step": 4, "default": 8 },
+    { "type": "select", "id": "badge", "label": "Бейдж", "default": "sale",
+      "options": [
+        { "value": "sale", "label": "Знижка −% (лише товари зі знижкою)" },
+        { "value": "new", "label": "New" },
+        { "value": "none", "label": "Без бейджа" }
+      ] },
+    { "type": "text", "id": "link_label", "label": "Посилання на колекцію", "default": "Весь sale →" },
+    { "type": "text", "id": "anchor", "label": "Якір (id)", "default": "sale" }
+  ],
+  "presets": [{ "name": "Halloween · Товари" }]
+}
+{% endschema %}

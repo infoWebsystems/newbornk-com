@@ -1,0 +1,85 @@
+{{ 'section-halloween.css' | asset_url | stylesheet_tag }}
+
+<section class="hw hw-brands" id="brands">
+  <div class="hw-fade-in" aria-hidden="true"></div>
+
+  {%- if section.settings.show_marquee and section.blocks.size > 0 -%}
+    <div class="hw-marquee" aria-hidden="true">
+      <div class="hw-marquee__track">
+        {%- for i in (1..2) -%}
+          {%- for block in section.blocks -%}
+            {%- assign bname = block.settings.name | default: block.settings.collection.title -%}
+            <span class="hw-marquee__item">{{ bname }} ✶</span>
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="hw-wrap" style="padding-top: 40px; padding-bottom: 72px;">
+    <div class="hw-head">
+      <div class="hw-head__titles">
+        {%- if section.settings.eyebrow != blank -%}<p class="hw-eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 class="hw-h2">{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}<p class="hw-brands__sub">{{ section.settings.text }}</p>{%- endif -%}
+      </div>
+      {%- if section.settings.link_label != blank and section.settings.link != blank -%}
+        <a class="hw-more" href="{{ section.settings.link }}">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="hw-bgrid">
+      {%- for block in section.blocks -%}
+        {%- assign c = block.settings.collection -%}
+        {%- assign bname = block.settings.name | default: c.title -%}
+        <a class="hw-tile" href="{{ c.url | default: '#' }}" {{ block.shopify_attributes }}>
+          <span class="hw-tile__web" aria-hidden="true">{% render 'hw-icon', icon: 'web', size: 70 %}</span>
+          <span class="hw-tile__drop" aria-hidden="true"><i></i>{% render 'hw-icon', icon: 'spider-dark' %}</span>
+          <span class="hw-tile__name">{{ bname }}</span>
+          <span class="hw-tile__meta">
+            <span class="hw-tile__info">
+              {%- if block.settings.tag != blank -%}
+                <span class="hw-tile__tag{% if block.settings.is_new %} hw-tile__tag--new{% endif %}">{{ block.settings.tag }}</span>
+              {%- endif -%}
+              {%- if block.settings.sub != blank -%}<span class="hw-tile__sub">{{ block.settings.sub }}</span>{%- endif -%}
+            </span>
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="hw-fade-out" aria-hidden="true"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Halloween · Бренди",
+  "tag": "div",
+  "class": "section-halloween-brands",
+  "max_blocks": 16,
+  "settings": [
+    { "type": "checkbox", "id": "show_marquee", "label": "Бігучий рядок з брендами", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "02 · Бренди" },
+    { "type": "text", "id": "heading", "label": "Заголовок", "default": "Хто під маскою?" },
+    { "type": "textarea", "id": "text", "label": "Підзаголовок", "default": "Наведи на бренд — і побачиш, скільки його речей зараз у розпродажі та яка найбільша знижка." },
+    { "type": "text", "id": "link_label", "label": "Посилання «усі бренди»" },
+    { "type": "url", "id": "link", "label": "URL «усі бренди»" }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Бренд",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Колекція бренду" },
+        { "type": "text", "id": "name", "label": "Назва (якщо інша, ніж у колекції)" },
+        { "type": "text", "id": "tag", "label": "Бейдж", "default": "до −50%" },
+        { "type": "text", "id": "sub", "label": "Підпис", "default": "10 речей у sale" },
+        { "type": "checkbox", "id": "is_new", "label": "Лаймовий бейдж (новинки)", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Halloween · Бренди" }]
+}
+{% endschema %}

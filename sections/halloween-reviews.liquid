@@ -1,0 +1,63 @@
+{{ 'section-halloween.css' | asset_url | stylesheet_tag }}
+
+<section class="hw hw-section" id="reviews">
+  <div class="hw-wrap">
+    <div class="hw-head">
+      <div class="hw-head__titles">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="hw-eyebrow">{% render 'hw-icon', icon: 'pumpkin' %}{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="hw-h2">{{ section.settings.heading }}</h2>
+        <p class="hw-score">
+          <span class="hw-score__num">{{ section.settings.rating }}</span>
+          <span class="hw-stars">{%- for i in (1..5) -%}{% render 'hw-icon', icon: 'star', size: 22 %}{%- endfor -%}</span>
+          <span>{{ section.settings.count_label }}</span>
+        </p>
+      </div>
+      {%- if section.settings.link != blank -%}
+        <a class="hw-more" href="{{ section.settings.link }}" target="_blank" rel="noopener">{{ section.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="hw-rv">
+      {%- for block in section.blocks -%}
+        <figure class="hw-rv__card" {{ block.shopify_attributes }}>
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <span class="hw-stars">{%- for i in (1..5) -%}{% render 'hw-icon', icon: 'star', size: 16 %}{%- endfor -%}</span>
+            <blockquote>«{{ block.settings.text }}»</blockquote>
+          </div>
+          <figcaption>{{ block.settings.author }} <span>· {{ block.settings.source }}</span></figcaption>
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Halloween · Відгуки",
+  "tag": "div",
+  "class": "section-halloween-reviews",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "05 · Відгуки" },
+    { "type": "text", "id": "heading", "label": "Заголовок", "default": "Що кажуть гості" },
+    { "type": "text", "id": "rating", "label": "Рейтинг", "default": "5,0" },
+    { "type": "text", "id": "count_label", "label": "Кількість відгуків", "default": "173 відгуки в Google" },
+    { "type": "text", "id": "link_label", "label": "Текст посилання", "default": "Усі відгуки →" },
+    { "type": "url", "id": "link", "label": "Посилання на відгуки" }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Відгук",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Текст" },
+        { "type": "text", "id": "author", "label": "Автор" },
+        { "type": "text", "id": "source", "label": "Джерело", "default": "Google" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Halloween · Відгуки" }]
+}
+{% endschema %}

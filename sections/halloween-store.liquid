@@ -1,0 +1,68 @@
+{{ 'section-halloween.css' | asset_url | stylesheet_tag }}
+
+<section class="hw hw-section" id="store">
+  <div class="hw-wrap">
+    <div class="hw-store">
+      <div class="hw-store__text">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="hw-eyebrow">{% render 'hw-icon', icon: 'pumpkin' %}{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="hw-h2">{{ section.settings.heading }}</h2>
+        {%- if section.settings.text != blank -%}<p class="hw-store__lead">{{ section.settings.text }}</p>{%- endif -%}
+        <dl class="hw-dl">
+          {%- if section.settings.address != blank -%}<dt>{{ section.settings.address_label }}</dt><dd>{{ section.settings.address }}</dd>{%- endif -%}
+          {%- if section.settings.hours != blank -%}<dt>{{ section.settings.hours_label }}</dt><dd>{{ section.settings.hours }}</dd>{%- endif -%}
+          {%- if section.settings.phone != blank -%}<dt>{{ section.settings.phone_label }}</dt><dd>{{ section.settings.phone }}</dd>{%- endif -%}
+        </dl>
+        <div class="hw-hero__buttons">
+          {%- if section.settings.map_link != blank -%}
+            <a class="hw-btn hw-btn--dark" href="{{ section.settings.map_link }}" target="_blank" rel="noopener">{{ section.settings.map_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.phone != blank -%}
+            <a class="hw-btn hw-btn--line" href="tel:{{ section.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ section.settings.call_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="hw-mosaic">
+        {%- assign imgs = 'image_1,image_2,image_3,image_4' | split: ',' -%}
+        {%- for key in imgs -%}
+          {%- assign img = section.settings[key] -%}
+          <div class="{% if forloop.index == 1 %}is-tall{% elsif forloop.index == 2 %}is-wide{% endif %}">
+            {%- if img != blank -%}
+              {{ img | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 900px) 40vw, 100vw', widths: '400, 800, 1200', alt: img.alt }}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Halloween · Концепт-стор",
+  "tag": "div",
+  "class": "section-halloween-store",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "04 · Концепт-стор" },
+    { "type": "text", "id": "heading", "label": "Заголовок", "default": "Заходь у гості на Halloween" },
+    { "type": "textarea", "id": "text", "label": "Текст", "default": "Приміряй, порадься з командою — хлопці знають кожен бренд у залі й підберуть образ. Понад 50 брендів наживо, у центрі Києва." },
+    { "type": "text", "id": "address_label", "label": "Підпис адреси", "default": "Адреса" },
+    { "type": "text", "id": "address", "label": "Адреса", "default": "вул. Велика Житомирська, 20, Київ" },
+    { "type": "text", "id": "hours_label", "label": "Підпис годин", "default": "Години" },
+    { "type": "text", "id": "hours", "label": "Години роботи", "default": "Пн–Нд, 11:00–21:00" },
+    { "type": "text", "id": "phone_label", "label": "Підпис телефону", "default": "Телефон" },
+    { "type": "text", "id": "phone", "label": "Телефон", "default": "097 044 3333" },
+    { "type": "text", "id": "map_label", "label": "Кнопка маршруту", "default": "Прокласти маршрут" },
+    { "type": "url", "id": "map_link", "label": "Посилання на Google Maps" },
+    { "type": "text", "id": "call_label", "label": "Кнопка дзвінка", "default": "Подзвонити" },
+    { "type": "header", "content": "Фото (мозаїка)" },
+    { "type": "image_picker", "id": "image_1", "label": "Фото 1 — високе (фасад)" },
+    { "type": "image_picker", "id": "image_2", "label": "Фото 2 — широке" },
+    { "type": "image_picker", "id": "image_3", "label": "Фото 3" },
+    { "type": "image_picker", "id": "image_4", "label": "Фото 4" }
+  ],
+  "presets": [{ "name": "Halloween · Концепт-стор" }]
+}
+{% endschema %}
