@@ -21,6 +21,7 @@
 
     <div class="hw-rv">
       {%- for block in section.blocks -%}
+        {%- if block.settings.text == blank -%}{%- continue -%}{%- endif -%}
         <figure class="hw-rv__card" {{ block.shopify_attributes }}>
           <div style="display: flex; flex-direction: column; gap: 14px;">
             <span class="hw-stars">{%- for i in (1..5) -%}{% render 'hw-icon', icon: 'star', size: 16 %}{%- endfor -%}</span>
