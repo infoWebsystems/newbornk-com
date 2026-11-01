@@ -143,7 +143,14 @@
           <input type="hidden" name="options[prefix]" value="last">
           <input type="hidden" name="options[unavailable_products]" value="last">
           {%- endif -%}
-          {%- for filter in results.filters -%}
+          {%- liquid
+            assign nbk_gender_filters = results.filters | where: 'param_name', 'filter.v.t.shopify.target-gender'
+            assign nbk_legacy_gender_filters = results.filters | where: 'param_name', 'filter.p.m.shopify.target-gender'
+            assign nbk_category_filters = results.filters | where: 'param_name', 'filter.p.product_type'
+            assign nbk_other_filters = results.filters | reject: 'param_name', 'filter.v.t.shopify.target-gender' | reject: 'param_name', 'filter.p.m.shopify.target-gender' | reject: 'param_name', 'filter.p.product_type'
+            assign nbk_ordered_filters = nbk_gender_filters | concat: nbk_legacy_gender_filters | concat: nbk_category_filters | concat: nbk_other_filters
+          -%}
+          {%- for filter in nbk_ordered_filters -%}
             {%- liquid
               capture nbk_filter_label
                 render 'nbk-filter-label', filter: filter

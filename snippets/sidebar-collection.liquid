@@ -321,7 +321,14 @@
         {% endif %}
         <form class="hdt-filter" id="hdt-facet-filters-form-sidebar" method="GET" action="{{ action }}" section-id="{{ section.id }}"render-on-change>
           <input type="hidden" name="page" value="">
-          {%- for filter in results.filters -%}
+          {%- liquid
+            assign nbk_gender_filters = results.filters | where: 'param_name', 'filter.v.t.shopify.target-gender'
+            assign nbk_legacy_gender_filters = results.filters | where: 'param_name', 'filter.p.m.shopify.target-gender'
+            assign nbk_category_filters = results.filters | where: 'param_name', 'filter.p.product_type'
+            assign nbk_other_filters = results.filters | reject: 'param_name', 'filter.v.t.shopify.target-gender' | reject: 'param_name', 'filter.p.m.shopify.target-gender' | reject: 'param_name', 'filter.p.product_type'
+            assign nbk_ordered_filters = nbk_gender_filters | concat: nbk_legacy_gender_filters | concat: nbk_category_filters | concat: nbk_other_filters
+          -%}
+          {%- for filter in nbk_ordered_filters -%}
             {%- liquid
               capture nbk_filter_label
                 render 'nbk-filter-label', filter: filter

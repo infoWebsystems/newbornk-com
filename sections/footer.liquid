@@ -1,6 +1,9 @@
 {%- liquid
   assign sticky = settings.footer_sticky
 -%}
+{%- if section.settings.balanced_layout -%}
+  {%- render 'nbk-krew-teaser', placement: 'footer' -%}
+{%- endif -%}
 {%- style -%}
   {% render 'spacing-vars', box: section %}
   .hdt-footer-col-block .hdt-footer-heading+.hdt-collapse-content {

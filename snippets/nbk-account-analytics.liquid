@@ -1,0 +1,12 @@
+{% doc %}
+  Consent-gated, non-identifying account / loyalty funnel configuration.
+  A storefront return is not a count of all successful hosted-account logins.
+{% enddoc %}
+<script type="application/json" id="nbk-account-analytics-config">
+  {
+    "signedIn": {% if customer %}true{% else %}false{% endif %},
+    "locale": {{ request.locale.iso_code | json }},
+    "designMode": {{ request.design_mode | json }}
+  }
+</script>
+<script src="{{ 'nbk-account-analytics.js' | asset_url }}" defer="defer"></script>

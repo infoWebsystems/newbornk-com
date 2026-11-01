@@ -44,22 +44,12 @@
     "main-collection": {
       "type": "main-collection",
       "blocks": {
-        "categories_FD6ixP": {
-          "type": "categories",
-          "settings": {
-            "widget_heading": "MENU",
-            "cat_source": "2",
-            "cat_link_list": "sidebar-menu",
-            "count": false
-          }
-        },
         "filter_KX6bJW": {
           "type": "filter",
           "settings": {}
         }
       },
       "block_order": [
-        "categories_FD6ixP",
         "filter_KX6bJW"
       ],
       "custom_css": [

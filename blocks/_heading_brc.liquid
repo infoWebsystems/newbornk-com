@@ -2,6 +2,8 @@
 {%- liquid 
   capture heading_title
     case request.page_type
+      when 'cart'
+        echo 'templates.cart.cart' | t
       when 'page'
         echo page.title | default: page_title | escape
       when 'customers/login'

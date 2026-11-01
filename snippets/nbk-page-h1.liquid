@@ -4,6 +4,8 @@
 {%- liquid
   assign heading = ''
   case request.page_type
+    when 'cart'
+      assign heading = 'templates.cart.cart' | t
     when 'collection'
       assign heading = collection.title
     when 'product'

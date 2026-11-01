@@ -59,3 +59,24 @@ test('Shopify collection relevance sort is localized separately from search rele
   const liquid = engine('uk');
   assert.equal((await liquid.renderFile('nbk-sort-label', { option: { value: 'most-relevant', name: 'Most relevant' } })).trim(), 'Найвідповідніші');
 });
+
+test('gender and product type lead both filter layouts without losing other facets or active values', async () => {
+  const liquid = engine('uk');
+  for (const genderKey of ['filter.v.t.shopify.target-gender', 'filter.p.m.shopify.target-gender']) {
+    const names = ['filter.p.vendor', 'filter.p.product_type', 'filter.v.option.size', genderKey];
+    const filters = names.map((param_name, index) => ({
+      label: `Group ${index}`, param_name, type: 'list',
+      values: [{ label: `Value ${index}`, value: `value-${index}`, param_name, active: index === 3, count: 2 }],
+      active_values: [],
+    }));
+    const results = { url: '/collections/all', filters };
+    const ctx = { results, collection: results, section: { id: 'browse', settings: {}, blocks: [{ type: 'filter', settings: {} }] }, settings: {} };
+    for (const renderer of ['facets', 'sidebar-collection']) {
+      const html = await liquid.renderFile(renderer, ctx);
+      const inputs = [...html.matchAll(/name="(filter\.[^"]+)" value="(value-\d)"([^>]*)/g)];
+      assert.deepEqual(inputs.map(match => match[1]), [genderKey, names[1], names[0], names[2]]);
+      assert.equal(inputs[0][2], 'value-3');
+      assert.match(inputs[0][3], /checked/);
+    }
+  }
+});

@@ -21,6 +21,7 @@
 
 			<div id="tab-mobile" class="hdt-current-scrollbar hdt-menu-on-mobile">
 				<div class="hdt-tab-item" tab-item tab-selected >
+					{%- render 'nbk-krew-teaser', placement: 'menu' -%}
 					{%- if menu_mobile != blank -%}
 						{%- liquid
 							if request.design_mode or search.terms == "submenu" or section.index == null
