@@ -43,7 +43,7 @@
           "static": true,
           "settings": {
             "main_menu_mobile": "mobile-menu",
-            "menu_categories": "sidebar-menu",
+            "menu_categories": "kyiv-product-categories",
             "only_click_icon": false,
             "header_mobile_colors": "",
             "note_mobile": "<p><a href=\"mailto:info@newbornk.com\">info@newbornk.com</a></p><p><a href=\"tel:+380970443333\">+380 97 044 3333</a></p><p><a href=\"https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6\">м Київ, вул. Велика Житомирська, 20</a></p>"
