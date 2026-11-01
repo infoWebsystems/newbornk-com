@@ -6,7 +6,7 @@
   window.nbkKeyCRMChatLoaded = true;
 
   const start = () => {
-    const render = () => window.KeyCRM.render({ token });
+    const render = () => window.KeyCRM.render({ token, popUpInitialMessage: false });
     if (window.KeyCRM?.render) {
       render();
       return;
@@ -26,6 +26,7 @@
     document.head.appendChild(script);
   };
 
-  if (document.readyState === 'complete') start();
-  else window.addEventListener('load', start, { once: true });
+  const schedule = () => window.setTimeout(start, Math.max(0, 30000 - performance.now()));
+  if (document.readyState === 'complete') schedule();
+  else window.addEventListener('load', schedule, { once: true });
 })();
