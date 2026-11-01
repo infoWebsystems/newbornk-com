@@ -3,6 +3,7 @@
   and native signup action; only the published Kyiv launcher is restyled.
 {% enddoc %}
 <script src="{{ 'nbk-floating-widgets.js' | asset_url }}" defer></script>
+<script src="{{ 'nbk-yespo-popup.js' | asset_url }}" defer></script>
 
 {% stylesheet %}
   body {
@@ -54,6 +55,60 @@
 
   body:has(.KeyCRM-toggleButton) .hdt-back-to-top {
     bottom: calc(var(--nbk-floating-bottom) + 56px) !important;
+  }
+
+  body:has(.nbk-yespo-popup) {
+    overflow: hidden !important;
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] {
+    inset: var(--nbk-popup-top, 0px) 0 auto !important;
+    width: 100% !important;
+    height: var(--nbk-popup-height, 100dvh) !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    display: grid !important;
+    place-items: center !important;
+    background: rgb(0 0 0 / 40%) !important;
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-inner-content {
+    width: min(360px, 100%) !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-height: 0;
+    display: flex;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 48px rgb(0 0 0 / 18%);
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-content {
+    width: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: inherit;
+    scrollbar-width: thin;
+  }
+
+  .cl-widget-f35732v35732 {
+    width: 100%;
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon {
+    top: 4px !important;
+    right: 4px !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: grid !important;
+    place-items: center;
+    color: #111 !important;
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon svg {
+    width: 24px !important;
+    height: 24px !important;
   }
 
   @media (max-width: 1024px) {
