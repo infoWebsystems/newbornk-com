@@ -13,16 +13,4 @@
   data-widget-token="{{ keycrm_widget_token }}"
   defer
 ></script>
-
-{% stylesheet %}
-  @media (max-width: 1024px) {
-    body:has(.hdt-toolbar) .KeyCRM-toggleButtonContainer {
-      right: 6.5rem !important;
-      bottom: calc(var(--toolbar-height, 5.5rem) + 1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-    }
-
-    body.sticky-shown:has(.hdt-toolbar) .KeyCRM-toggleButtonContainer {
-      bottom: calc(var(--toolbar-height, 5.5rem) + var(--hdt-sticky-atc-height, 0px) + 1.5rem + env(safe-area-inset-bottom, 0px)) !important;
-    }
-  }
-{% endstylesheet %}
+{% render 'nbk-floating-widgets' %}

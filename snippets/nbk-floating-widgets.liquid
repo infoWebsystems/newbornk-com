@@ -1,0 +1,77 @@
+{% doc %}
+  Compact support and Yespo gift launchers. Yespo retains its own display rules
+  and native signup action; only the published Kyiv launcher is restyled.
+{% enddoc %}
+<script src="{{ 'nbk-floating-widgets.js' | asset_url }}" defer></script>
+
+{% stylesheet %}
+  body {
+    --nbk-floating-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    --nbk-floating-edge: 16px;
+  }
+
+  .KeyCRM-toggleButtonContainer {
+    right: var(--nbk-floating-edge) !important;
+    bottom: var(--nbk-floating-bottom) !important;
+  }
+
+  .KeyCRM-toggleButton,
+  .cl-widget-f35733v35733 > es-sys-container-static {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+  }
+
+  .KeyCRM-toggleButton {
+    background: #111 !important;
+  }
+
+  .KeyCRM-toggleButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cl-launcher[cl-widget-id="f35733v35733"] {
+    left: var(--nbk-floating-edge) !important;
+    bottom: var(--nbk-floating-bottom) !important;
+  }
+
+  .cl-widget-f35733v35733 > es-sys-container-static {
+    overflow: hidden;
+    background: #ccf951 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 11v10h16V11M3 7h18v4H3zM12 7v14'/%3E%3Cpath d='M12 7H7.5A2.5 2.5 0 1 1 10 4.5L12 7Zm0 0h4.5A2.5 2.5 0 1 0 14 4.5L12 7Z'/%3E%3C/svg%3E") center / 24px 24px no-repeat !important;
+  }
+
+  .KeyCRM-toggleButton:focus-visible,
+  .cl-widget-f35733v35733 > es-sys-container-static:focus-visible {
+    outline: 2px solid #111 !important;
+    outline-offset: 3px;
+  }
+
+  body:has(.KeyCRM-toggleButton) .hdt-back-to-top {
+    bottom: calc(var(--nbk-floating-bottom) + 56px) !important;
+  }
+
+  @media (max-width: 1024px) {
+    body {
+      --nbk-floating-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+      --nbk-floating-edge: 12px;
+    }
+
+    body:has(.hdt-toolbar) {
+      --nbk-floating-bottom: calc(var(--toolbar-height, 5.5rem) + 12px + env(safe-area-inset-bottom, 0px));
+    }
+
+    body.sticky-shown {
+      --nbk-floating-bottom: calc(var(--hdt-sticky-atc-height, 0px) + 12px + env(safe-area-inset-bottom, 0px));
+    }
+
+    body.sticky-shown:has(.hdt-toolbar) {
+      --nbk-floating-bottom: calc(var(--toolbar-height, 5.5rem) + var(--hdt-sticky-atc-height, 0px) + 12px + env(safe-area-inset-bottom, 0px));
+    }
+  }
+{% endstylesheet %}

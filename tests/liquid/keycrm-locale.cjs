@@ -19,7 +19,8 @@ test('KeyCRM renders one localized widget and preserves the existing channel fal
     [undefined, 'bc3f252a-342f-42cb-a3a6-3219b681731b']
   ]) {
     const html = await engine.renderFile('nbk-keycrm-chat', {request: {locale: {iso_code: locale}}});
-    assert.equal((html.match(/<script\b/g) || []).length, 1);
+    assert.equal((html.match(/data-widget-token=/g) || []).length, 1);
+    assert.equal((html.match(/nbk-floating-widgets\.js/g) || []).length, 1);
     assert.match(html, new RegExp(`data-widget-token="${token}"`));
     assert.match(html, /nbk-keycrm-chat\.js/);
   }
