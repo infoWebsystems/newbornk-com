@@ -135,5 +135,25 @@
     padding: 4px;
   }
   .nbk-payment-icons__badge--receipt > svg { width: 18px; height: 18px; flex-shrink: 0; }
-  .hdt-product__trust-badge .nbk-payment-icons { justify-content: flex-start; }
+  .hdt-product__trust-badge .nbk-payment-icons {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 520px;
+  }
+  .hdt-product__trust-badge .nbk-payment-icons__badge {
+    grid-column: span 2;
+    width: 100%;
+    min-width: 0;
+  }
+  .hdt-product__trust-badge .nbk-payment-icons__badge--standard {
+    grid-column: span 1;
+  }
+  @media (max-width: 374px) {
+    .hdt-product__trust-badge .nbk-payment-icons { gap: 8px; }
+    .hdt-product__trust-badge .nbk-payment-icons__caption { font-size: 8px; }
+    .hdt-product__trust-badge .nbk-payment-icons__badge--receipt { gap: 3px; padding: 3px; }
+    .hdt-product__trust-badge .nbk-payment-icons__badge--receipt > svg { width: 16px; height: 16px; }
+  }
 {% endstylesheet %}

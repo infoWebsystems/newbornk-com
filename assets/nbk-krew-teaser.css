@@ -1,0 +1,14 @@
+.nbk-krew-teaser{background:#f5f5f3;color:#111;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid #e4e4e4}
+.nbk-krew-teaser p{margin:0;text-transform:none}
+.nbk-krew-teaser .nbk-krew-teaser__title{font-size:18px;line-height:1.35;font-weight:600}
+.nbk-krew-teaser .nbk-krew-teaser__text{font-size:14px;line-height:1.55;max-width:52ch;margin-top:8px}
+.nbk-krew-teaser__actions{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.nbk-krew-teaser__actions a{font-size:14px;line-height:1.3;text-transform:none;text-align:center;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.nbk-krew-teaser__account{background:#111;color:#fff;padding:12px 20px;border-radius:4px}
+.nbk-krew-teaser__account:hover{background:#333;color:#fff}
+.nbk-krew-teaser__program{color:#111;text-decoration:underline;text-underline-offset:4px;gap:6px}
+.nbk-krew-teaser a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.nbk-krew-teaser--menu{display:block;margin:20px 16px 12px;padding:18px;border:1px solid #e4e4e4;border-radius:6px}
+.nbk-krew-teaser--menu .nbk-krew-teaser__actions{margin-top:16px;flex-wrap:wrap;gap:10px 16px}
+.nbk-krew-teaser--footer{padding-inline:max(24px,calc((100% - 1376px)/2));padding-block:28px}
+@media(max-width:767px){.nbk-krew-teaser--footer{display:block}.nbk-krew-teaser--footer .nbk-krew-teaser__actions{margin-top:18px;flex-wrap:wrap}}

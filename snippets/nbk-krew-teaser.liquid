@@ -1,0 +1,16 @@
+{% doc %}
+  Account and loyalty entry point. Do not show unverified customer balances.
+  @param {string} placement - menu or footer
+{% enddoc %}
+{%- if shop.customer_accounts_enabled -%}
+  <aside class="nbk-krew-teaser nbk-krew-teaser--{{ placement | escape }}" data-nbk-krew-teaser="{{ placement | escape }}" aria-label="NEWBORN K KREW">
+    <div class="nbk-krew-teaser__copy">
+      <p class="nbk-krew-teaser__title">{{ 'nbk_krew.teaser.title' | t }}</p>
+      <p class="nbk-krew-teaser__text">{% if customer %}{{ 'nbk_krew.teaser.member_text' | t }}{% else %}{{ 'nbk_krew.teaser.guest_text' | t }}{% endif %}</p>
+    </div>
+    <div class="nbk-krew-teaser__actions">
+      <a class="nbk-krew-teaser__account" href="{{ routes.account_url }}" data-nbk-account-link="{{ placement | escape }}">{% if customer %}{{ 'nbk_krew.teaser.account' | t }}{% else %}{{ 'nbk_krew.teaser.login' | t }}{% endif %}</a>
+      <a class="nbk-krew-teaser__program" href="{{ pages['newborn-krew'].url | default: '/pages/newborn-krew' }}" data-nbk-krew-link="{{ placement | escape }}">{{ 'nbk_krew.teaser.program' | t }} <span aria-hidden="true">↗</span></a>
+    </div>
+  </aside>
+{%- endif -%}

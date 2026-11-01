@@ -1110,5 +1110,53 @@
     "anton_bio": "Має багаторічний досвід у міжнародних рекламних агенціях і топових фешн-ретейлерах Києва. Засновник першого українського streetwear-бренду DITCH і телеграм-каналу Tony Talks.",
     "dmytro_name": "Дмитро Рудаков",
     "dmytro_bio": "Технічний експерт. Ветеран 3 окремої штурмової бригади. Брав участь у створенні та запуску фінтех, GIS та Influencer Marketplace проєктів. Має 6-річний досвід роботи з українськими та міжнародними TOP IT компаніями."
+  },
+  "customer_accounts": {
+    "account_menu": {
+      "signed_out_state": {
+        "sheet_title": "Увійти або створити акаунт",
+        "section_divider": "Інші способи входу",
+        "alternate_divider": "АБО",
+        "use_email_button": "Використати email",
+        "email_field_label": "Електронна пошта",
+        "shop_login_button": "Увійти через Shop",
+        "continue_with_google": "Продовжити з Google",
+        "continue_with_facebook": "Продовжити з Facebook",
+        "continue_with_apple": "Продовжити з Apple",
+        "marketing_consent_label": "Отримувати новини та пропозиції на email",
+        "orders_button": "Замовлення",
+        "profile_button": "Профіль"
+      },
+      "signed_in_state": {
+        "greeting_with_name": "Вітаємо, {{first_name}}",
+        "greeting_without_name": "Акаунт",
+        "orders_button": "Замовлення",
+        "profile_button": "Профіль"
+      },
+      "location_picker": {
+        "sheet_title": "Локації",
+        "search_field_placeholder": "Пошук"
+      },
+      "aria_labels": {
+        "close_menu": "Закрити меню",
+        "back_to_main_menu": "Повернутися з «{{title}}» до головного меню",
+        "open_submenu": "{{title}} — відкрити підменю",
+        "loading_menu": "Завантаження меню",
+        "loading": "Завантаження",
+        "account": "Акаунт",
+        "sign_in_with_email": "Увійти за допомогою email",
+        "sign_in": "Увійти"
+      }
+    }
+  },
+  "nbk_krew": {
+    "teaser": {
+      "title": "Твій NEWBORN K KREW",
+      "guest_text": "Увійди, щоб бачити свої замовлення. Дізнайся, як покупки відкривають нові рівні KREW.",
+      "member_text": "Твої замовлення та програма привілеїв — завжди поруч.",
+      "login": "Увійти",
+      "account": "Мій акаунт",
+      "program": "Рівні та умови KREW"
+    }
   }
 }

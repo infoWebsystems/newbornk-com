@@ -2,6 +2,8 @@
 {%- liquid 
   capture heading_title
     case request.page_type
+      when 'cart'
+        echo 'templates.cart.cart' | t
       when 'page'
         echo page.title | default: page_title | escape
       when 'customers/login'
@@ -36,7 +38,11 @@
   endcapture
 -%}
 <div hdt-reveal="slide-in" timeline id="block-{{ block.id }}" class="hdt-text-warry hdt-heading-liquid {{ block.settings.text_color }} hdt-text-{{ block.settings.text_size }} {{ block.settings.font_family }} {{ block.settings.line_height }}{% if block.settings.italic %} hdt-italic{% endif %}{% if block.settings.uppercase %} hdt-uppercase{% endif %}" {{ block.shopify_attributes }}>
-  {{- block.settings.text | default: heading_title -}}
+  {%- if request.page_type == 'cart' -%}
+    {{- heading_title -}}
+  {%- else -%}
+    {{- block.settings.text | default: heading_title -}}
+  {%- endif -%}
   {%- if block.settings.text_size == "custom" -%}
     {%- style -%}
       #block-{{ block.id }} {
