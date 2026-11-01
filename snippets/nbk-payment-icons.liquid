@@ -1,9 +1,10 @@
 {% doc %}
-  Shared payment badges for the Kyiv product page and footer.
+  Shared payment badges for the Kyiv product page, footer and cart drawer.
   The five Chekly methods were verified on 6 October 2026. Google Pay and
   Apple Pay badges were requested by the merchant; this does not enable wallets.
   @param {string} methods - Comma-separated payment keys from the block settings.
   @param {number} height - Badge height in pixels.
+  @param {boolean} [compact] - Use standalone brand symbols without captions in the cart.
 {% enddoc %}
 {%- assign payment_keys = methods | remove: ' ' | split: ',' -%}
 <div class="nbk-payment-icons" role="list" aria-label="{{ 'nbk_delivery.payment_heading' | t | escape }}" style="--nbk-payment-height:{{ height | default: 32 }}px;">
@@ -13,6 +14,9 @@
       assign label = key | replace: '_', ' '
       assign caption = blank
       assign kind = 'standard'
+      assign compact_viewbox = blank
+      assign logo_width = 0
+      assign logo_height = 0
       case key
         when 'visa'
           assign label = 'Visa'
@@ -26,6 +30,9 @@
           assign label = 'nbk_delivery.plata_title' | t
           assign logo = 'nbk-payment-plata.svg'
           assign kind = 'provider'
+          assign compact_viewbox = '0 0 262 130'
+          assign logo_width = 700
+          assign logo_height = 130
         when 'liqpay'
           assign label = 'nbk_delivery.liqpay_title' | t
           assign logo = 'nbk-payment-liqpay.svg'
@@ -35,10 +42,16 @@
           assign logo = 'nbk-payment-mono-installments.svg'
           assign caption = 'nbk_payment_icons.installments' | t
           assign kind = 'installments'
+          assign compact_viewbox = '0 0 21 22'
+          assign logo_width = 155
+          assign logo_height = 22
         when 'privat_installments'
           assign label = 'nbk_delivery.privat_title' | t
           assign logo = 'nbk-payment-privat-installments.png'
           assign kind = 'privat'
+          assign compact_viewbox = '12 50 116 110'
+          assign logo_width = 403
+          assign logo_height = 225
         when 'pay_on_receipt'
           assign label = 'nbk_delivery.pay_on_receipt_description' | t
           assign caption = 'nbk_payment_icons.on_receipt' | t
@@ -46,8 +59,12 @@
       endcase
     -%}
     {%- if key == blank -%}{%- continue -%}{%- endif -%}
-    <span class="nbk-payment-icons__badge nbk-payment-icons__badge--{{ kind }}" role="listitem" aria-label="{{ label | escape }}" title="{{ label | escape }}">
-      {%- if logo != blank -%}
+    <span class="nbk-payment-icons__badge nbk-payment-icons__badge--{{ kind }}" data-payment="{{ key | escape }}" role="listitem" aria-label="{{ label | escape }}" title="{{ label | escape }}">
+      {%- if compact and compact_viewbox != blank -%}
+        <svg class="nbk-payment-icons__symbol" viewBox="{{ compact_viewbox }}" width="32" height="16" aria-hidden="true" focusable="false">
+          <image href="{{ logo | asset_url }}" width="{{ logo_width }}" height="{{ logo_height }}"/>
+        </svg>
+      {%- elsif logo != blank -%}
         <img src="{{ logo | asset_url }}" alt="" width="112" height="32" loading="lazy">
       {%- elsif key == 'pay_on_receipt' -%}
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M5 9h2m10 6h2"/></svg>
@@ -62,7 +79,9 @@
       {%- else -%}
         <img src="https://raw.githubusercontent.com/activemerchant/payment_icons/refs/heads/master/app/assets/images/payment_icons/{{ key | escape }}.svg" alt="" width="38" height="24" loading="lazy">
       {%- endif -%}
-      {%- if caption != blank -%}<span class="nbk-payment-icons__caption" aria-hidden="true">{{ caption }}</span>{%- endif -%}
+      {%- unless compact -%}
+        {%- if caption != blank -%}<span class="nbk-payment-icons__caption" aria-hidden="true">{{ caption }}</span>{%- endif -%}
+      {%- endunless -%}
     </span>
   {%- endfor -%}
 </div>

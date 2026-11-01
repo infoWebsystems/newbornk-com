@@ -19,12 +19,6 @@
           "type": "subtotal",
           "settings": {}
         },
-        "tax_rkEdFK": {
-          "type": "tax",
-          "settings": {
-            "url": "shopify://pages/order-and-delivery"
-          }
-        },
         "btn_cart_74AGUK": {
           "type": "btn_cart",
           "settings": {
@@ -50,13 +44,12 @@
           "settings": {
             "wimg": 350,
             "svg": "google_pay,apple_pay,plata,liqpay,mono_installments,privat_installments,pay_on_receipt",
-            "height": 32
+            "height": 16
           }
         }
       },
       "block_order": [
         "subtotal_hPmjgN",
-        "tax_rkEdFK",
         "btn_cart_74AGUK",
         "btn_checkout_bcnmpT",
         "img_trust_zatTgB"
