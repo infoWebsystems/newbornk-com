@@ -1,0 +1,6 @@
+{
+  "sections": {
+    "main": { "type": "nbk-service-page", "settings": {} }
+  },
+  "order": ["main"]
+}

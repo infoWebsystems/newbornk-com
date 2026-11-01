@@ -7,11 +7,13 @@
   const active = new Map();
   const styleId = 'nbk-welcome-popup-style';
   const styles = `
-    :host { box-sizing: border-box !important; font-family: Formular, Arial, sans-serif !important; }
+    :host { box-sizing: border-box !important; font-family: Formular, Arial, sans-serif !important; flex: 0 0 auto !important; }
     :host([cl-type="VIEW"]) { width: 100% !important; min-width: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; overflow: visible !important; padding: 40px 20px 20px !important; gap: 0 !important; background: #fff !important; }
     :host([cl-type="COLUMNS"]), :host([cl-type="COLUMN"]) { width: 100% !important; min-width: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; overflow: visible !important; padding: 0 !important; margin: 0 !important; gap: 10px !important; }
     :host([cl-type="COLUMN"][cl-path="0,0,0"]) { display: none !important; }
-    [cl-content-container] { min-width: 0 !important; max-height: none !important; overflow: visible !important; gap: inherit !important; }
+    :host([cl-type="VIEW"]), :host([cl-type="COLUMNS"]) { display: block !important; }
+    :host([cl-type="COLUMN"]) { flex-direction: column !important; }
+    [cl-content-container] { height: auto !important; min-height: 0 !important; min-width: 0 !important; max-height: none !important; flex: 0 0 auto !important; overflow: visible !important; gap: inherit !important; }
     :host([cl-type="IMAGE"]) { width: 140px !important; min-width: 0 !important; height: auto !important; min-height: 0 !important; margin: 0 auto 4px !important; padding: 0 !important; }
     img { height: auto !important; min-height: 0 !important; object-fit: contain !important; }
     :host([cl-type="TEXT"]) { width: 100% !important; margin: 0 !important; }
@@ -30,6 +32,7 @@
     if (active.has(popup)) return;
     const observers = [];
     const seen = new WeakSet();
+    const pending = new WeakSet();
     const decorate = (root) => {
       if (root instanceof ShadowRoot) {
         if (!root.getElementById(styleId)) {
@@ -47,6 +50,12 @@
       }
       root.querySelectorAll('*').forEach((element) => {
         if (element.shadowRoot) decorate(element.shadowRoot);
+        else if (element.localName.startsWith('es-') && !pending.has(element)) {
+          pending.add(element);
+          customElements.whenDefined(element.localName).then(() => {
+            if (popup.isConnected) decorate(popup);
+          });
+        }
       });
     };
     const close = () => popup.querySelector('.cl-floating-box-close-icon')?.click();
@@ -68,6 +77,8 @@
     viewport?.addEventListener('scroll', resize);
     window.addEventListener('resize', resize);
     active.set(popup, () => {
+      clearInterval(upgradeTimer);
+      clearTimeout(upgradeDeadline);
       observers.forEach((observer) => observer.disconnect());
       viewport?.removeEventListener('resize', resize);
       viewport?.removeEventListener('scroll', resize);
@@ -80,6 +91,8 @@
     observers.push(observer);
     decorate(popup);
     resize();
+    const upgradeTimer = setInterval(() => decorate(popup), 250);
+    const upgradeDeadline = setTimeout(() => clearInterval(upgradeTimer), 10000);
   }
 
   const scan = () => {
