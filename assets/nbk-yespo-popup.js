@@ -8,19 +8,19 @@
   const styleId = 'nbk-welcome-popup-style';
   const styles = `
     :host { box-sizing: border-box !important; font-family: Formular, Arial, sans-serif !important; }
-    :host([cl-type="VIEW"]) { width: 100% !important; min-width: 0 !important; min-height: 0 !important; height: auto !important; padding: 40px 20px 20px !important; gap: 0 !important; background: #fff !important; }
-    :host([cl-type="COLUMNS"]), :host([cl-type="COLUMN"]) { width: 100% !important; min-width: 0 !important; min-height: 0 !important; height: auto !important; padding: 0 !important; margin: 0 !important; gap: 10px !important; }
+    :host([cl-type="VIEW"]) { width: 100% !important; min-width: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; overflow: visible !important; padding: 40px 20px 20px !important; gap: 0 !important; background: #fff !important; }
+    :host([cl-type="COLUMNS"]), :host([cl-type="COLUMN"]) { width: 100% !important; min-width: 0 !important; min-height: 0 !important; height: auto !important; max-height: none !important; overflow: visible !important; padding: 0 !important; margin: 0 !important; gap: 10px !important; }
     :host([cl-type="COLUMN"][cl-path="0,0,0"]) { display: none !important; }
-    [cl-content-container] { min-width: 0 !important; gap: inherit !important; }
+    [cl-content-container] { min-width: 0 !important; max-height: none !important; overflow: visible !important; gap: inherit !important; }
     :host([cl-type="IMAGE"]) { width: 140px !important; min-width: 0 !important; height: auto !important; min-height: 0 !important; margin: 0 auto 4px !important; padding: 0 !important; }
     img { height: auto !important; min-height: 0 !important; object-fit: contain !important; }
     :host([cl-type="TEXT"]) { width: 100% !important; margin: 0 !important; }
-    [cl-element="text"], [cl-element="text"] * { font-family: inherit !important; font-size: 12px !important; line-height: 1.4 !important; font-weight: 400 !important; text-align: center !important; color: #666 !important; letter-spacing: normal !important; }
-    :host([cl-path="0,0,1,1"]) [cl-element="text"] { font-size: 20px !important; line-height: 1.2 !important; font-weight: 500 !important; color: #111 !important; margin: 4px 0 6px !important; }
+    [cl-element="text"], [cl-element="text"] * { font-family: inherit !important; font-size: 13px !important; line-height: 1.4 !important; font-weight: 400 !important; text-align: center !important; color: #666 !important; letter-spacing: normal !important; }
+    :host([cl-path="0,0,1,1"]) [cl-element="text"] { font-size: 22px !important; line-height: 1.2 !important; font-weight: 500 !important; color: #111 !important; margin: 4px 0 6px !important; }
     :host([cl-type="INPUT"]), :host([cl-type="BUTTON"]) { width: 100% !important; min-width: 0 !important; height: auto !important; min-height: 44px !important; max-height: none !important; margin: 0 !important; }
     input { box-sizing: border-box !important; width: 100% !important; min-width: 0 !important; height: 44px !important; min-height: 44px !important; padding: 10px 12px !important; font-family: inherit !important; font-size: 16px !important; text-align: center !important; border: 1px solid #aaa !important; border-radius: 0 !important; }
     button { box-sizing: border-box !important; width: 100% !important; min-height: 44px !important; height: auto !important; padding: 10px 8px !important; }
-    button, button .editable-text { font-family: inherit !important; font-size: 14px !important; line-height: 1.3 !important; text-align: center !important; }
+    button, button .editable-text { font-family: inherit !important; font-size: 15px !important; line-height: 1.3 !important; text-align: center !important; }
     button .editable-text { width: auto !important; white-space: normal !important; }
     :host([cl-path="0,0,1,4"]), :host([cl-path="0,0,1,4"]) button { min-height: 32px !important; }
     :host([cl-path="0,0,1,4"]) button { padding: 4px !important; }
