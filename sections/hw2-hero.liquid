@@ -1,0 +1,53 @@
+{{ 'section-halloween-v2.css' | asset_url | stylesheet_tag }}
+
+<section class="hw hw-hero">
+  <div class="hw-hero__media" style="--hw-ov: {{ section.settings.overlay | divided_by: 100.0 }}; --hw-grad: {{ section.settings.gradient | divided_by: 100.0 }};">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750, 1100, 1500, 2000, 2400', alt: section.settings.image.alt }}
+    {%- endif -%}
+    <div class="hw-hero__content">
+      {%- if section.settings.eyebrow != blank -%}<p class="hw-label hw-label--light">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1 class="hw-h1">{{ section.settings.heading | newline_to_br }}</h1>
+      {%- if section.settings.text != blank -%}<p class="hw-hero__text">{{ section.settings.text }}</p>{%- endif -%}
+      <div class="hw-buttons">
+        {%- if section.settings.button_1_label != blank -%}
+          <a class="hw-btn hw-btn--white" href="{{ section.settings.button_1_link | default: '#' }}">{{ section.settings.button_1_label }}</a>
+        {%- endif -%}
+        {%- if section.settings.button_2_label != blank -%}
+          <a class="hw-btn hw-btn--outline-light" href="{{ section.settings.button_2_link | default: '#' }}">{{ section.settings.button_2_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    {%- if section.settings.address_line_1 != blank -%}
+      <a class="hw-chip hw-hero__chip" href="{{ section.settings.address_link | default: '#' }}" target="_blank" rel="noopener">
+        <span>{{ section.settings.address_line_1 }}{% if section.settings.address_line_2 != blank %}<span class="hw-chip__sub">{{ section.settings.address_line_2 }}</span>{% endif %}</span>
+        <span aria-hidden="true">›</span>
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "HW2 · Hero",
+  "tag": "div",
+  "class": "section-halloween-hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Фото магазину (на всю ширину)" },
+    { "type": "range", "id": "overlay", "label": "Притемнення фото (рівномірне)", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 25 },
+    { "type": "range", "id": "gradient", "label": "Притемнення знизу (під текстом)", "min": 0, "max": 90, "step": 5, "unit": "%", "default": 55 },
+    { "type": "text", "id": "eyebrow", "label": "Надзаголовок", "default": "Halloween у NEWBORN K · 31.10" },
+    { "type": "textarea", "id": "heading", "label": "Заголовок", "default": "Страшно\nвигідно" },
+    { "type": "textarea", "id": "text", "label": "Текст", "default": "Знижки до −80% на розпродаж, бренди, за якими до нас приходять, і свіжі надходження сезону." },
+    { "type": "text", "id": "button_1_label", "label": "Кнопка 1", "default": "Дивитися sale" },
+    { "type": "url", "id": "button_1_link", "label": "Посилання кнопки 1" },
+    { "type": "text", "id": "button_2_label", "label": "Кнопка 2", "default": "Новинки" },
+    { "type": "url", "id": "button_2_link", "label": "Посилання кнопки 2" },
+    { "type": "header", "content": "Плашка з адресою" },
+    { "type": "text", "id": "address_line_1", "label": "Рядок 1", "default": "Велика Житомирська, 20" },
+    { "type": "text", "id": "address_line_2", "label": "Рядок 2", "default": "Щодня 11:00–21:00 · NEWBORN K Київ" },
+    { "type": "url", "id": "address_link", "label": "Посилання (Google Maps)" }
+  ],
+  "presets": [{ "name": "HW2 · Hero" }]
+}
+{% endschema %}
