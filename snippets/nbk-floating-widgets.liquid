@@ -62,6 +62,7 @@
   }
 
   .cl-floating-box[cl-widget-id="f35732v35732"] {
+    position: fixed !important;
     inset: var(--nbk-popup-top, 0px) 0 auto !important;
     width: 100% !important;
     height: var(--nbk-popup-height, 100dvh) !important;
@@ -75,6 +76,9 @@
   }
 
   .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-inner-content {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
     width: min(420px, 100%) !important;
     max-width: 100% !important;
     height: auto !important;
@@ -82,9 +86,9 @@
     min-height: 0;
     flex: 0 0 auto;
     margin: auto !important;
-    display: block;
+    display: block !important;
     border-radius: 12px;
-    background: #fff;
+    background: #fff !important;
     box-shadow: 0 12px 48px rgb(0 0 0 / 18%);
   }
 
@@ -102,6 +106,8 @@
   }
 
   .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon {
+    position: absolute !important;
+    z-index: 2;
     top: 4px !important;
     right: 4px !important;
     width: 44px !important;

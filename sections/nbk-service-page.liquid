@@ -9,12 +9,20 @@
     endcase
   endif
 -%}
+{%- if page.handle == 'newborn-krew' -%}
+  {{ 'nbk-policy.css' | asset_url | stylesheet_tag }}
+  {{ 'nbk-krew-page.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 <article class="nbk-service-page" aria-labelledby="nbk-service-title">
   <header class="nbk-service-page__header">
     <h1 id="nbk-service-title">{{ service_title | escape }}</h1>
   </header>
   <div class="nbk-service-page__body">
-    {% render 'nbk-service-content', content: page.content, page_body: true, handle: page.handle %}
+    {% if page.handle == 'newborn-krew' %}
+      {{ page.content }}
+    {% else %}
+      {% render 'nbk-service-content', content: page.content, page_body: true, handle: page.handle %}
+    {% endif %}
   </div>
 </article>
 {% schema %}
