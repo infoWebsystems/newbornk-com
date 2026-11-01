@@ -1,6 +1,6 @@
 # Kyiv Kalles: release checklist
 
-Checked 15 October 2026. **The three remaining acceptance findings are closed; Kalles is not yet published.** The release candidate contains `kalles-main` at `7ec4a4e` plus the localized KeyCRM snippet in this release change and the preserved Shopify/app-managed differences listed in the [final preparation record](KALLES_PREPARATION_2026-10-15.md). Merge the release change before publication. Yespo end-to-end testing, a paid Chekly order and the App Inbox plan upgrade remain explicitly owner-deferred, not passed.
+Checked again 1 November 2026. **Kalles is not yet published.** PR #97 is merged into `kalles-main` at `10369a6`. The existing candidate also contains the copied Dawn Halloween landing and October homepage banner described in the [copy record](KALLES_COPY_2026-11-01.md); merge this copy change before publication. Preserve the Shopify/app-managed differences listed in the [October preparation record](KALLES_PREPARATION_2026-10-15.md), including the newer Chekly configuration recorded on 1 November. The October acceptance findings remain closed; this is not a repeat of the full October acceptance suite. Yespo end-to-end testing, a paid Chekly order and the App Inbox plan upgrade remain explicitly owner-deferred, not passed.
 
 ## Release and rollback targets
 
