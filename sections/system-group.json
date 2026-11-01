@@ -49,8 +49,8 @@
           "type": "img_trust",
           "settings": {
             "wimg": 350,
-            "svg": "visa,master",
-            "height": 20
+            "svg": "google_pay,apple_pay,plata,liqpay,mono_installments,privat_installments,pay_on_receipt",
+            "height": 32
           }
         }
       },

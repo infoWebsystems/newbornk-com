@@ -1,4 +1,5 @@
 <!-- sections/cart-drawer.liquid -->
+{{ 'nbk-cart-drawer.css' | asset_url | stylesheet_tag }}
 {%- liquid
   assign form_id = 'CartDrawer-Form'
   assign shipping_amount = settings.free_ship_pr.metafields.theme.shipping_money.value | default: settings.free_ship_pr.price | default: -1
@@ -183,12 +184,7 @@
                             <img width="{{ block.settings.image.width }}" class="hdt-inline-block" height="{{ block.settings.image.height }}" srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x" src="{{ block.settings.image | image_url: width: 760 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy">
                           </div>
                         {%- elsif block.settings.svg != blank -%}
-                          {%- assign arr = block.settings.svg | remove: ' ' | split: "," -%}
-                          <div class="hdt-mini-cart__imgtrust-svgs hdt-block lg:hdt-inline-block" style="--height-img:{{ block.settings.height }}px;">
-                            {%- for img in arr -%}
-                              <div class="hdt-payment-item hdt-inline-block"><img src="https://raw.githubusercontent.com/activemerchant/payment_icons/refs/heads/master/app/assets/images/payment_icons/{{ img }}.svg" width="{{ 38 | times: block.settings.height | divided_by: 24 | round }}" height="{{ block.settings.height }}" class="hdt-icon-payment hdt-inline-block"></div>
-                            {%- endfor -%}
-                          </div>
+                          {%- render 'nbk-payment-icons', methods: block.settings.svg, height: block.settings.height -%}
                         {%- endif -%}
                       {%- endcapture -%}
                       {{- html_trust -}}
