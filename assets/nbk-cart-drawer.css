@@ -79,15 +79,28 @@
 }
 #CartDrawer .hdt-minicart-recommendation__dots button.hdt-slider__dot--selected::before { background: #111; }
 
-/* The same payment providers as the product page, in aligned compact rows. */
+/* Informational payment marks at half their previous height. */
 #CartDrawer .nbk-payment-icons {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
   width: 100%;
 }
-#CartDrawer .nbk-payment-icons__badge { grid-column: span 2; width: 100%; min-width: 0; }
-#CartDrawer .nbk-payment-icons__badge--standard { grid-column: span 1; }
+#CartDrawer .nbk-payment-icons__badge {
+  height: var(--nbk-payment-height);
+  width: calc(var(--nbk-payment-height) * 4.5);
+  min-width: 0;
+  border-radius: 2px;
+}
+#CartDrawer .nbk-payment-icons__badge--standard { width: calc(var(--nbk-payment-height) * 2); }
+#CartDrawer .nbk-payment-icons__badge > img { padding: 2px 4px; }
+#CartDrawer .nbk-payment-icons__badge--installments { padding: 2px 3px; gap: 1px; }
+#CartDrawer .nbk-payment-icons__badge--installments > img { height: calc(100% - 6px); padding: 0; }
+#CartDrawer .nbk-payment-icons__caption { font-size: 5px; }
+#CartDrawer .nbk-payment-icons__badge--privat > img { padding: 0 3px; }
+#CartDrawer .nbk-payment-icons__badge--receipt { gap: 2px; padding: 2px; }
+#CartDrawer .nbk-payment-icons__badge--receipt > svg { width: 10px; height: 10px; }
 @media (max-width: 374px) {
   #CartDrawer .hdt-mini-cart__bottom-wrap { padding: 16px; }
   #CartDrawer .hdt-minicart-recommendations { margin: 16px; width: calc(100% - 32px); }
