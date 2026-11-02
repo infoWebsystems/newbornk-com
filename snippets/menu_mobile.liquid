@@ -60,6 +60,11 @@
 												{%- endif -%}
 											</summary>
 											<ul class="hdt-mb-sub-menu hdt-menu-list hdt-mb-sub-menu-lever-1" role="list"  >
+                      {%- if link.object.handle == 'cholovikam' or link.object.handle == 'women' -%}
+                        <li class="hdt-menu-item hdt-flex hdt-flex-col">
+                          <a href="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-text-base hdt-font-semibold"{% if link.current %} aria-current="page"{% endif %}>{{ 'general.pagination.view_all' | t }}</a>
+                        </li>
+                      {%- endif -%}
 												{%- for childlink in link.links -%}
 													<li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col {% if childlink.links != blank %} hdt-has-children hdt-relative {% endif %}">
 														{%- if childlink.links != blank -%}			     
