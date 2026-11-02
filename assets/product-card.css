@@ -177,6 +177,20 @@ hdt-card-product{
   text-transform: uppercase;
 }
 
+/* Keep discount labels compact so they obscure less of the product photo. */
+.hdt-card-product .hdt-badge__wrapp .hdt-badge__on-sale {
+  width: auto;
+  min-width: 0;
+  min-height: 20px;
+  aspect-ratio: auto;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: var(--font-normal);
+  white-space: nowrap;
+}
+
 .hdt-card-product__vendor {
   line-height: 1;
   color: rgb(var(--color-pr-text));
