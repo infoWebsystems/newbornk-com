@@ -1004,7 +1004,20 @@
     "google_reviews": {
       "one": "{{ count }} Google review",
       "other": "{{ count }} Google reviews"
-    }
+    },
+    "help_heading": "Customer care",
+    "store_heading": "Our Kyiv store",
+    "legal_heading": "Legal information",
+    "account": "My account",
+    "loyalty": "KREW loyalty programme",
+    "contact": "Contact us",
+    "about": "About us",
+    "terms": "Terms of sale",
+    "privacy": "Privacy policy",
+    "payment_terms": "Payment methods and terms",
+    "fallback_contact": "Contact us",
+    "return_action": "Ask about a return",
+    "return_hint": "Include your order number and the item you would like to return or exchange."
   },
   "nbk_home": {
     "brands": "BRANDS",
@@ -1107,7 +1120,8 @@
       "silver": "Silver",
       "white": "White",
       "yellow": "Yellow"
-    }
+    },
+    "catalog": "All products"
   },
   "nbk_about": {
     "intro": "NEWBORN K is an online concept store with a unique selection of clothing and lifestyle products from local and international brands.",

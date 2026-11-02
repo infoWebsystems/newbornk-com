@@ -17,6 +17,12 @@
   <header class="nbk-service-page__header">
     <h1 id="nbk-service-title">{{ service_title | escape }}</h1>
   </header>
+  {% if page.handle == 'return' %}
+    <aside class="nbk-service-help">
+      <a class="nbk-service-help__action" href="{{ pages['contact'].url }}#ContactForm">{{ 'nbk_footer.return_action' | t }}</a>
+      <p>{{ 'nbk_footer.return_hint' | t }}</p>
+    </aside>
+  {% endif %}
   <div class="nbk-service-page__body">
     {% if page.handle == 'newborn-krew' %}
       {{ page.content }}

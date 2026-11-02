@@ -21,7 +21,11 @@
       when 'customers/account'
         echo 'customer.account.title' | t
       when 'collection'
-        echo collection.title | escape
+        if collection.handle == 'all'
+          echo 'nbk_browse.catalog' | t
+        else
+          echo collection.title | escape
+        endif
       when 'blog'
         echo blog.title | escape
       when 'search'

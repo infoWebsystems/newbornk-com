@@ -21,7 +21,11 @@
       when 'customers/account'
         echo 'customer.account.title' | t
       when 'collection'
-        echo collection.title | escape
+        if collection.handle == 'all'
+          echo 'nbk_browse.catalog' | t
+        else
+          echo collection.title | escape
+        endif
       when 'blog'
         echo blog.title | escape
       when 'article'
@@ -39,6 +43,8 @@
 -%}
 <div hdt-reveal="slide-in" timeline id="block-{{ block.id }}" class="hdt-text-warry hdt-heading-liquid {{ block.settings.text_color }} hdt-text-{{ block.settings.text_size }} {{ block.settings.font_family }} {{ block.settings.line_height }}{% if block.settings.italic %} hdt-italic{% endif %}{% if block.settings.uppercase %} hdt-uppercase{% endif %}" {{ block.shopify_attributes }}>
   {%- if request.page_type == 'cart' -%}
+    {{- heading_title -}}
+  {%- elsif request.page_type == 'collection' and collection.handle == 'all' -%}
     {{- heading_title -}}
   {%- else -%}
     {{- block.settings.text | default: heading_title -}}

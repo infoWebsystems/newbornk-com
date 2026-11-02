@@ -7311,6 +7311,13 @@ shopify-account-wrapp.hdt-toolbar-item-btn {
     margin: 0 !important;
     width: auto !important;
     flex: 1 1 auto !important;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+
+  .hdt-section-heading_block.hdt-section-heading-horizontal > h2 {
+    font-size: clamp(14px, 4.6vw, 18px);
   }
 
   .hdt-section-heading_block.hdt-row-grid > .hdt-button-block,

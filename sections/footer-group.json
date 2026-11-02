@@ -240,7 +240,8 @@
         "color_scheme": "scheme-77e4ef58-56a9-4631-876a-12098ba7d57d",
         "background_opacity": 1,
         "balanced_layout": true
-      }
+      },
+      "disabled": true
     },
     "footer_ziwVXA": {
       "type": "footer",
@@ -312,7 +313,8 @@
         "colors_by_section": true,
         "color_scheme": "scheme-77e4ef58-56a9-4631-876a-12098ba7d57d",
         "background_opacity": 1
-      }
+      },
+      "disabled": true
     },
     "kyiv_contact_strip": {
       "type": "nbk-contact-strip",
@@ -320,12 +322,55 @@
         "map_url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6",
         "phone": "+380 97 044 3333",
         "email": "info@newbornk.com"
+      },
+      "disabled": true
+    },
+    "kyiv_compact_footer": {
+      "type": "nbk-footer",
+      "blocks": {
+        "newsletter": {
+          "type": "_nbk-newsletter",
+          "static": true,
+          "settings": {}
+        },
+        "socials": {
+          "type": "socials",
+          "settings": {
+            "text_color": "hdt-text-secondary",
+            "type": "follow",
+            "share_facebook": false,
+            "share_x": false,
+            "share_pinterest": false,
+            "share_tumblr": false,
+            "share_telegram": false,
+            "share_email": false,
+            "share_whatsapp": false,
+            "socials_style": "default",
+            "socials_size": "small",
+            "bd_radius": 30,
+            "space_item": 40
+          },
+          "blocks": {},
+          "static": true
+        }
+      },
+      "settings": {
+        "help_menu": "footer-top",
+        "legal_menu": "footer-policy",
+        "map_url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6",
+        "phone": "+380 97 044 3333",
+        "email": "info@newbornk.com",
+        "google_review_rating": "5.0",
+        "google_review_count": 162,
+        "google_reviews_url": "https://maps.app.goo.gl/VtaNBz5cXNtQKzAF6",
+        "payment_methods": "google_pay,apple_pay,plata,liqpay,mono_installments,privat_installments,pay_on_receipt"
       }
     }
   },
   "order": [
     "kyiv_contact_strip",
     "footer_KwXhWr",
-    "footer_ziwVXA"
+    "footer_ziwVXA",
+    "kyiv_compact_footer"
   ]
 }
