@@ -83,7 +83,7 @@
     <div class="hdt-row-grid hdt-text-start nbk-menu-groups{% if category_items != blank and brand_items != blank %} nbk-menu-groups--two{% endif %}">
       {%- if category_items != blank -%}
         <div class="hdt-mega-item hdt-text-start">
-          <h3 class="hdt-mega-heading">{{ category_key | t }}</h3>
+          <h3 class="hdt-mega-heading"><a href="{{ block.settings.menu_collection.url }}"{% if collection.handle == block.settings.menu_collection.handle %} aria-current="page"{% endif %}>{{ category_key | t }}</a></h3>
           <ul class="hdt-mega-menu-list" role="list">{{ category_items }}</ul>
         </div>
       {%- endif -%}
