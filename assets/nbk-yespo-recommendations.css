@@ -44,7 +44,7 @@
   scroll-behavior: smooth;
   scroll-padding-inline: 0;
   overscroll-behavior-x: contain;
-  scrollbar-width: thin;
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -55,7 +55,7 @@
   width: 100% !important;
   height: auto !important;
   margin: 0;
-  padding: 0 0 8px;
+  padding: 0;
   transform: none !important;
   transition: none !important;
   box-sizing: border-box;
@@ -254,45 +254,9 @@
   color: #e81e1e;
 }
 
-.nbk-yespo-recommendations .nbk-yespo-nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.nbk-yespo-recommendations .nbk-yespo-nav[hidden] {
-  display: none;
-}
-
-.nbk-yespo-recommendations .nbk-yespo-nav button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  background: transparent;
-  color: inherit;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.nbk-yespo-recommendations .nbk-yespo-nav button:disabled {
-  opacity: .35;
-  cursor: default;
-}
-
-.nbk-yespo-recommendations .nbk-yespo-nav svg {
-  width: 16px;
-  height: 16px;
-}
-
 .nbk-yespo-recommendations a:focus-visible,
 .nbk-yespo-recommendations .es-productsSlider:focus-visible,
-.nbk-yespo-recommendations .nbk-yespo-wishlist:focus-visible,
-.nbk-yespo-recommendations .nbk-yespo-nav button:focus-visible {
+.nbk-yespo-recommendations .nbk-yespo-wishlist:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: -2px;
 }
@@ -334,5 +298,130 @@
 
   .nbk-yespo-recommendations .card .media > img {
     transition: none;
+  }
+}
+
+/* Product-page carousels share one grid and type scale, including the native
+   fallback used when Yespo is unavailable. Other product sliders are unchanged. */
+.hdt-page-type-product :is(.nbk-yespo-recommendations, .hdt-related-products, .hdt-recently-products) {
+  --nbk-yespo-columns: 2;
+  --nbk-yespo-gap: 12px;
+  --nbk-carousel-heading: 18px;
+  --nbk-carousel-heading-gap: 16px;
+  width: min(var(--container-max-width, 1440px), calc(100% - 30px));
+  margin: 32px auto;
+  font-family: var(--font-body-family);
+  font-weight: var(--font-body-weight);
+}
+
+.hdt-page-type-product :is(.hdt-related-products, .hdt-recently-products) :is(.hdt-container, .hdt-container-full, .hdt-section-spacing) {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.hdt-page-type-product :is(.hdt-related-products, .hdt-recently-products) .hdt-section-heading_block {
+  margin-bottom: var(--nbk-carousel-heading-gap) !important;
+  text-align: start;
+  justify-items: start;
+}
+
+.hdt-page-type-product :is(.nbk-yespo-recommendations h2, .hdt-related-products .hdt-section-heading_block h2, .hdt-recently-products .hdt-section-heading_block h2) {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-heading-family);
+  font-size: var(--nbk-carousel-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-align: start;
+}
+
+.hdt-page-type-product .nbk-yespo-recommendations h2.title {
+  margin-bottom: var(--nbk-carousel-heading-gap);
+}
+
+.hdt-page-type-product :is(.hdt-related-products, .hdt-recently-products) .hdt-slider {
+  --slide-size: calc(100% / var(--nbk-yespo-columns));
+  --slide-spacing: var(--nbk-yespo-gap);
+}
+
+.hdt-page-type-product :is(.hdt-related-products, .hdt-recently-products) :is(.hdt-slider__dots, .hdt-slider__button, .hdt-slider-nav) {
+  display: none !important;
+}
+
+.nbk-yespo-recommendations .es-productsSlider::-webkit-scrollbar {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nbk-yespo-recommendations .es-productsSlider { cursor: grab; }
+}
+
+.nbk-yespo-recommendations .es-productsSlider.is-dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  cursor: grabbing;
+  user-select: none;
+}
+
+.hdt-page-type-product :is(.hdt-related-products, .hdt-recently-products) .hdt-card-product__info {
+  margin-top: 12px;
+  gap: 6px;
+  text-align: start;
+}
+
+.hdt-page-type-product :is(.nbk-yespo-recommendations .caption-with-letter-spacing, .hdt-related-products .hdt-card-product__vendor, .hdt-recently-products .hdt-card-product__vendor) {
+  font-family: var(--font-body-family);
+  font-size: 12px;
+  font-weight: var(--font-body-weight);
+  line-height: 1.4;
+  letter-spacing: .04em;
+}
+
+.hdt-page-type-product :is(.nbk-yespo-recommendations .card-information__text, .hdt-related-products .hdt-card-product__title, .hdt-recently-products .hdt-card-product__title) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 2.8em;
+  overflow: hidden;
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  font-weight: var(--font-body-weight);
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+
+.hdt-page-type-product :is(.nbk-yespo-recommendations .price, .nbk-yespo-recommendations .price-item, .hdt-related-products .hdt-price-wrapp, .hdt-recently-products .hdt-price-wrapp, .hdt-related-products .hdt-price, .hdt-recently-products .hdt-price, .hdt-related-products .hdt-compare-at-price, .hdt-recently-products .hdt-compare-at-price) {
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  font-weight: var(--font-body-weight);
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.hdt-page-type-product :is(.nbk-yespo-recommendations .price-item, .hdt-related-products .hdt-money, .hdt-recently-products .hdt-money) {
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .hdt-page-type-product :is(.nbk-yespo-recommendations, .hdt-related-products, .hdt-recently-products) {
+    --nbk-yespo-columns: 4;
+    --nbk-yespo-gap: 16px;
+    --nbk-carousel-heading: 24px;
+    --nbk-carousel-heading-gap: 24px;
+    width: min(var(--container-max-width, 1440px), calc(100% - 80px));
+    margin-block: 48px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .hdt-page-type-product :is(.nbk-yespo-recommendations, .hdt-related-products, .hdt-recently-products) {
+    --nbk-yespo-columns: 5;
+    --nbk-yespo-gap: 20px;
   }
 }
