@@ -946,7 +946,17 @@
     "home": {
       "about": "About NEWBORN K"
     },
-    "language_label": "Language"
+    "language_label": "Language",
+    "welcome_popup": {
+      "heading": "–10% on your first order",
+      "intro": "When you subscribe to our emails.",
+      "submit": "Subscribe and get –10%",
+      "dismiss": "Not now",
+      "restriction": "Not valid on discounted items.",
+      "consent": "By clicking “Subscribe and get –10%”, I agree to receive NEWBORN K emails and to the processing of my data under the",
+      "privacy": "Privacy Policy.",
+      "error": "Enter a valid email address."
+    }
   },
   "nbk_contact": {
     "intro_title": "NEWBORN K — a concept store in central Kyiv",

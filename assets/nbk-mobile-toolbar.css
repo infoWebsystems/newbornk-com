@@ -1,0 +1,53 @@
+/* One baseline for all five actions, including the native Shopify account. */
+.hdt-toolbar {
+  height: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding: .5rem 0 calc(.5rem + env(safe-area-inset-bottom, 0px));
+  overflow: visible;
+}
+.hdt-toolbar .hdt-toolbar-item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.hdt-toolbar-label-true .hdt-toolbar-item > a,
+.hdt-toolbar-label-true .hdt-toolbar-item > .hdt-contents > a,
+.hdt-toolbar .hdt-toolbar-item-btn {
+  position: relative;
+  width: 100%;
+  height: 4.5rem;
+  min-height: 44px;
+  padding: 0 .2rem 1.6rem;
+  gap: 0;
+}
+.hdt-toolbar .hdt-toolbar-label {
+  position: absolute;
+  left: .2rem;
+  right: .2rem;
+  bottom: .3rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+.hdt-toolbar .hdt-toolbar-icon,
+.hdt-toolbar .hdt-toolbart-account shopify-account {
+  height: 24px;
+  line-height: 1;
+}
+.hdt-toolbar [aria-current="page"] .hdt-toolbar-label {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.hdt-toolbar a:focus-visible,
+.hdt-toolbar shopify-account:focus-within {
+  outline: 2px solid #111;
+  outline-offset: -2px;
+}
+.hdt-toolbar .hdt-toolbar__count-box[hidden] {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .hdt-toolbar-mobile { height: calc(5.5rem + env(safe-area-inset-bottom, 0px)); }
+  body:has(.hdt-toolbar) .hdt-sticky-btn-atc {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+}

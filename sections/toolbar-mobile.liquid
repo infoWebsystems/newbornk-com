@@ -3,12 +3,14 @@
   {%- style -%}
     @media(max-width:1024px){.hdt-toolbar-mobile{height:5.5rem}.hdt-sticky-btn-atc{bottom:5.5rem;border-bottom:.1rem solid rgb(var(--color-line-border));-webkit-transform:translate3d(0,calc(105% + 5.5rem),0)!important;transform:translate3d(0,calc(105% + 5.5rem),0)!important}.sticky-shown back-to-top.hdt-back-to-top{bottom:calc(6rem + var(--hdt-sticky-atc-height,0))}}.hdt-toolbar{z-index:24;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;height:5.5rem;padding:.5rem;box-shadow:0 0 .9rem #0000001f;transform:none;transition:transform .25s}.hdt-toolbar .hdt-toolbar-item{-ms-flex:1 0 20%;flex:1 0 20%}.hdt-toolbar-item>.hdt-contents>a,.hdt-toolbar-item>a{padding:0 1rem;line-height:1;height:4.5rem;flex-direction:row}.hdt-toolbar-label-true .hdt-toolbar-item>.hdt-contents>a,.hdt-toolbar-label-true .hdt-toolbar-item>a{position:relative;padding-bottom:1.5rem}.hdt-toolbar-label{overflow:hidden;text-align:center;text-overflow:ellipsis;white-space:nowrap;line-height:1;left:1rem;right:1rem;bottom:.5rem;font-size:1.1rem}.hdt-toolbar-icon svg{width:2rem;height:2rem}.hdt-toolbar__count-box{width:1.5rem;height:1.5rem;line-height:1.5rem;box-shadow:.1rem .1rem .3rem #0000004d;color:rgb(var(--hdt-btn-color));background-color:rgb(var(--hdt-btn-bg));top:-.5rem;right:-.9rem}.hdt-toolbar-item img{max-height:2.2rem;width:auto}#hdt-shop-toolbar-mb::part(body){padding-top:0;padding-bottom:0}.hdt-back-to-top{--backtop-bottom:90px}
   {%- endstyle -%}
-  <div class="hdt-toolbar lg:hdt-hidden hdt-s-gradient hdt-toolbar-label-{{ section.settings.show_txt }} hdt-fixed hdt-right-0 hdt-left-0 hdt-bottom-0 hdt-flex hdt-align-center hdt-justify-between hdt-text-sm hdt-font-semibold hdt-s-text" color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};backdrop-filter: blur(8px);">
+  {{ 'nbk-mobile-toolbar.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'nbk-mobile-toolbar.js' | asset_url }}" defer></script>
+  <div role="navigation" aria-label="{{ 'sections.header.menu' | t | escape }}" class="hdt-toolbar lg:hdt-hidden hdt-s-gradient hdt-toolbar-label-{{ section.settings.show_txt }} hdt-fixed hdt-right-0 hdt-left-0 hdt-bottom-0 hdt-flex hdt-align-center hdt-justify-between hdt-text-sm hdt-font-semibold hdt-s-text" color-scheme="{{ section.settings.color_scheme }}" style="--background-opacity: {{ section.settings.background_opacity }};backdrop-filter: blur(8px);">
     {%- for block in section.blocks -%}
       {%- case block.type -%}
         {%- when 'shop' -%}
           <div class="hdt-toolbart-{{ block.type }} hdt-toolbar-item hdt-relative">
-            <a href="{{ block.settings.link.url | default: routes.all_products_collection_url }}" class="hdt-flex hdt-align-center hdt-justify-center">
+            <a href="{{ block.settings.link.url | default: routes.all_products_collection_url }}"{% if request.page_type == 'collection' %} aria-current="page"{% endif %} class="hdt-flex hdt-align-center hdt-justify-center">
               <span class="hdt-toolbar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
               </span>
@@ -17,7 +19,7 @@
           </div>
         {%- when 'search' -%}
           <div class="hdt-toolbart-{{ block.type }} hdt-toolbar-item hdt-relative">
-            <a href="{{ routes.search_url }}" class="hdt-flex hdt-align-center hdt-justify-center" aria-controls="drawer-search-form{% if settings.search_fullwidth %}-full{% endif %}" aria-label="drawer-search">
+            <a href="{{ routes.search_url }}" class="hdt-flex hdt-align-center hdt-justify-center" aria-controls="drawer-search-form{% if settings.search_fullwidth %}-full{% endif %}" aria-label="{{ block.settings.title | escape }}">
               <span class="hdt-toolbar-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               </span>
@@ -44,7 +46,7 @@
               <a href="{{ routes.search_url }}/?view=wishlist" class="hdt-flex hdt-align-center hdt-justify-center">
                 <span class="hdt-toolbar-icon hdt-relative">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                  <hdt-wishlist-count class="hdt-toolbar__count-box hdt-absolute hdt-absolute hdt-radius-full hdt-text-center hdt-text-xs hdt-font-medium">0</hdt-wishlist-count>
+                  <hdt-wishlist-count hidden class="hdt-toolbar__count-box hdt-absolute hdt-absolute hdt-radius-full hdt-text-center hdt-text-xs hdt-font-medium">0</hdt-wishlist-count>
                 </span>
                 {%- if section.settings.show_txt -%}<span class="hdt-toolbar-label hdt-absolute hdt-font-semibold">{{ block.settings.title }}</span>{%- endif -%}
               </a>
@@ -60,10 +62,10 @@
             endif
           %}
           <div class="hdt-toolbart-{{ block.type }} hdt-toolbar-item hdt-relative">
-            <a href="{{ routes.cart_url }}" class="hdt-flex hdt-align-center hdt-justify-center"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
+            <a href="{{ routes.cart_url }}"{% if request.page_type == 'cart' %} aria-current="page"{% endif %} class="hdt-flex hdt-align-center hdt-justify-center"{% if request.page_type != 'cart' %} aria-controls="CartDrawer"{% endif %}>
               <span class="hdt-toolbar-icon hdt-relative">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                <hdt-cart-count class="hdt-toolbar__count-box hdt-absolute hdt-absolute hdt-radius-full hdt-text-center hdt-text-xs hdt-font-medium">{{ cart.item_count | minus: has_protect_product }}</hdt-cart-count>
+                <hdt-cart-count {% if cart.item_count == has_protect_product %}hidden{% endif %} class="hdt-toolbar__count-box hdt-absolute hdt-absolute hdt-radius-full hdt-text-center hdt-text-xs hdt-font-medium">{{ cart.item_count | minus: has_protect_product }}</hdt-cart-count>
               </span>
               {%- if section.settings.show_txt -%}<span class="hdt-toolbar-label hdt-absolute hdt-font-semibold">{{ block.settings.title }}</span>{%- endif -%}
             </a>
