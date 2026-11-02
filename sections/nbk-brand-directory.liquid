@@ -1,6 +1,6 @@
 <section class="nbk-brand-directory" aria-labelledby="BrandHeading-{{ section.id }}">
   <div class="hdt-container">
-    <h2 id="BrandHeading-{{ section.id }}" class="nbk-brand-directory__heading">{{ 'nbk_home.brands' | t }}</h2>
+    <h2 id="BrandHeading-{{ section.id }}" class="nbk-brand-directory__heading">{{ 'nbk_home.featured_brands' | t }}</h2>
     <hdt-slider id="Slider-{{ section.id }}" class="hdt-slider hdt-relative hdt-slides-2 md:hdt-slides-3 lg:hdt-slides-6" config='{ "id": "Slider-{{ section.id }}", "navUI": true, "dotUI": true, "loop": false, "autoPlay": 0 }'>
       <div class="hdt-slider__viewport">
         <div class="hdt-slider__container">
@@ -30,6 +30,7 @@
         </button>
       </div>
     </hdt-slider>
+    <a class="nbk-brand-directory__all" href="{{ collections['brands'].url }}">{{ 'nbk_home.all_brands' | t }} <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -96,6 +97,18 @@
     background-color: #000;
     border-color: #000;
   }
+  .nbk-brand-directory__all {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    margin: 24px auto 0;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .nbk-brand-directory__all:focus-visible,
   .nbk-brand-directory__link:focus-visible,
   .nbk-brand-directory__controls button:focus-visible {
     outline: 2px solid currentColor;

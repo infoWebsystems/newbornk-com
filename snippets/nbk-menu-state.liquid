@@ -19,7 +19,11 @@
     elsif item.url != blank and item.url != '#'
       assign destination_visible = 1
     endif
-    for child in item.links
+    assign child_links = item.links
+    if item.object.handle == 'brands' and linklists['brands-menu'].links != blank
+      assign child_links = linklists['brands-menu'].links
+    endif
+    for child in child_links
       capture child_state
         render 'nbk-menu-state', item: child, collections_only: collections_only
       endcapture

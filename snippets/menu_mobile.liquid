@@ -32,7 +32,7 @@
                         {%- for link in menu_mobile.links -%}
 							{%- liquid
 								assign li_class = ""
-								if link.links != blank
+								if link.links != blank or link.object.handle == 'brands' and linklists['brands-menu'].links != blank
 									assign li_class = "hdt-has-children hdt-relative"
 								endif
 							-%}
@@ -65,7 +65,10 @@
                           <a href="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-text-base hdt-font-semibold"{% if link.current %} aria-current="page"{% endif %}>{{ 'general.pagination.view_all' | t }}</a>
                         </li>
                       {%- endif -%}
-												{%- for childlink in link.links -%}
+												{%- if link.object.handle == 'brands' and linklists['brands-menu'].links != blank -%}
+                      {%- render 'nbk-brand-menu-items' -%}
+                    {%- else -%}
+{%- for childlink in link.links -%}
 													<li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col {% if childlink.links != blank %} hdt-has-children hdt-relative {% endif %}">
 														{%- if childlink.links != blank -%}			     
 															<hdt-accordion class="hdt-contents" {{ only_click_icon }}> 		
@@ -131,6 +134,7 @@
 														{%- endif -%}
 													</li>
 												{%- endfor -%}
+                    {%- endif -%}
 											</ul>
 										</details>
 									</hdt-accordion>

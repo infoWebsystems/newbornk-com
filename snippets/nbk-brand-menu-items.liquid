@@ -1,0 +1,16 @@
+{% doc %}
+  Mobile brand links from the same registry as the directory and desktop menu.
+{% enddoc %}
+{%- assign brand_links = linklists['brands-menu'].links -%}
+{%- assign brand_batches = brand_links.size | minus: 1 | divided_by: 50 -%}
+{%- for batch in (0..brand_batches) -%}
+  {%- assign brand_offset = batch | times: 50 -%}
+  {%- for brand_link in brand_links limit: 50 offset: brand_offset -%}
+    {%- if brand_link.type != 'collection_link' or brand_link.object == blank or brand_link.object.all_products_count == 0 or brand_link.object.handle == 'gift-cards' -%}{%- continue -%}{%- endif -%}
+    <li class="hdt-menu-item hdt-flex hdt-justify-center hdt-flex-col">
+      <a href="{{ brand_link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-justify-between hdt-relative hdt-text-base hdt-font-normal{% if brand_link.current %} hdt-menu-link--active{% endif %}"{% if brand_link.current %} aria-current="page"{% endif %}>
+        <span class="hdt-menu-link-text hdt-block"><span class="hdt-block">{%- capture brand_label -%}{%- render 'nbk-brand-label', link: brand_link -%}{%- endcapture -%}{{ brand_label | strip | escape }}</span></span>
+      </a>
+    </li>
+  {%- endfor -%}
+{%- endfor -%}

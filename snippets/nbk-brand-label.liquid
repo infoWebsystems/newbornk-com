@@ -2,6 +2,12 @@
 {%- liquid
   assign brand_handle = link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
   case brand_handle
+    when 'post-archive-fachion'
+      echo 'POST ARCHIVE FACTION'
+    when 'a-cold-wall'
+      echo 'A-COLD-WALL'
+    when 'ochis'
+      echo 'OCHIS'
     when 'carrots'
       echo 'CARROTS'
     when 'rains'
