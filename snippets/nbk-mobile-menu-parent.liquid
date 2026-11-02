@@ -1,0 +1,36 @@
+{% doc %}
+  Renders the destination independently of its sibling disclosure control.
+  @param {link} item - Navigation item.
+  @param {string} destination_visible - "1" when its destination is available.
+  @param {boolean} [category] - Include the category thumbnail.
+{% enddoc %}
+{%- liquid
+  assign tag = 'span'
+  if destination_visible == '1'
+    assign tag = 'a'
+  endif
+  assign title_parts = item.title | remove: '[is_heading]' | split: '['
+  assign labels = title_parts[1] | split: ','
+-%}
+<{{ tag }}{% if tag == 'a' %} href="{{ item.url | escape }}"{% if item.current %} aria-current="page"{% endif %}{% endif %} class="hdt-menu-link nbk-mobile-menu-parent{% if item.current %} hdt-menu-link--active{% endif %}">
+  {%- if category and item.type == 'collection_link' -%}
+    {%- assign image_item = item.object.image | default: item.object.metafields.theme.category_image.value | default: item.object.products.first.featured_image -%}
+    {%- if image_item != null -%}
+      <span class="hdt-category-img hdt-relative">
+        {{ image_item | image_url: width: 16, height: 16, crop: 'center' | image_tag: loading: 'lazy', width: 16, height: 16, class: 'hdt-radius-f hdt-radius-full', sizes: '16px', widths: '16,32' }}
+      </span>
+    {%- endif -%}
+  {%- endif -%}
+  <span class="hdt-menu-link-text hdt-block{% if labels.size > 0 %} hdt-relative hdt-title_size-{{ title_parts[0].size | at_most: 20 }} hdt-has-{{ labels.size | at_most: 2 }}label{% endif %}">
+    <span class="hdt-block">{{ title_parts[0] | escape }}
+      {%- if labels.size > 0 -%}
+        <span class="hdt_label_menu hdt-inline-flex hdt-align-center hdt-justify-center hdt-text-xs">
+          {%- for label in labels limit: 2 -%}
+            {%- assign label_text = label | remove: 'label_' | remove: ',' | remove: ']' | strip -%}
+            <span class="hdt_label_{{ label_text | handleize }} hdt-flex hdt-align-center hdt-justify-center">{{ label_text | escape }}</span>
+          {%- endfor -%}
+        </span>
+      {%- endif -%}
+    </span>
+  </span>
+</{{ tag }}>
