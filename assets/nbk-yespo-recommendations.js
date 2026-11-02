@@ -7,7 +7,7 @@
   main.dataset.nbkYespoInitialized = 'true';
   const widgets = '.es-recom-container';
   const preparedCards = new WeakSet();
-  const preparedSliders = new WeakMap();
+  const preparedSliders = new WeakSet();
   const products = new Map();
   const queue = [];
   let activeRequests = 0;
@@ -93,35 +93,56 @@
     });
   }, { rootMargin: '200px' });
 
-  function addNavigation(slider) {
-    if (preparedSliders.has(slider)) { preparedSliders.get(slider)(); return; }
+  function prepareSlider(slider) {
+    if (preparedSliders.has(slider)) return;
+    preparedSliders.add(slider);
     if (slider.swiper && !slider.swiper.destroyed) slider.swiper.destroy(true, true);
-    const nav = document.createElement('div');
-    nav.className = 'nbk-yespo-nav';
-    const buttons = [-1, 1].map(direction => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.setAttribute('aria-label', direction < 0 ? config.previous : config.next);
-      button.setAttribute('aria-controls', slider.id);
-      button.textContent = direction < 0 ? '←' : '→';
-      button.addEventListener('click', () => {
-        const step = slider.clientWidth;
-        slider.scrollBy({ left: direction * step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-      });
-      nav.append(button);
-      return button;
+    // Native touch/trackpad scrolling, with keyboard and mouse equivalents.
+    slider.addEventListener('keydown', event => {
+      if (event.target !== slider || event.altKey || event.ctrlKey || event.metaKey) return;
+      const distance = { ArrowLeft: -slider.clientWidth, ArrowRight: slider.clientWidth,
+        Home: -slider.scrollWidth, End: slider.scrollWidth }[event.key];
+      if (distance === undefined) return;
+      event.preventDefault();
+      slider.scrollBy({ left: distance, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
     });
-    const update = () => {
-      const maximum = Math.max(0, slider.scrollWidth - slider.clientWidth);
-      buttons[0].disabled = slider.scrollLeft <= 1;
-      buttons[1].disabled = slider.scrollLeft >= maximum - 1;
-      nav.hidden = maximum <= 1;
+    let drag = null;
+    let dragged = false;
+    slider.addEventListener('pointerdown', event => {
+      dragged = false;
+      if (event.pointerType !== 'mouse' || event.button !== 0 || event.ctrlKey || event.metaKey ||
+        event.target.closest('button, hdt-wishlist, input, select, textarea')) return;
+      drag = { id: event.pointerId, x: event.clientX, scroll: slider.scrollLeft };
+    });
+    slider.addEventListener('pointermove', event => {
+      if (!drag || event.pointerId !== drag.id) return;
+      const distance = event.clientX - drag.x;
+      if (!dragged && Math.abs(distance) < 8) return;
+      if (!dragged) {
+        dragged = true;
+        slider.setPointerCapture(event.pointerId);
+        slider.classList.add('is-dragging');
+      }
+      event.preventDefault();
+      slider.scrollLeft = drag.scroll - distance;
+    });
+    const endDrag = event => {
+      if (!drag || event.pointerId !== drag.id) return;
+      if (slider.hasPointerCapture(event.pointerId)) slider.releasePointerCapture(event.pointerId);
+      drag = null;
+      slider.classList.remove('is-dragging');
     };
-    preparedSliders.set(slider, update);
-    slider.addEventListener('scroll', update, { passive: true });
-    new ResizeObserver(update).observe(slider);
-    slider.after(nav);
-    update();
+    slider.addEventListener('pointerup', endDrag);
+    slider.addEventListener('pointercancel', endDrag);
+    slider.addEventListener('lostpointercapture', endDrag);
+    slider.addEventListener('pointerleave', event => { if (!dragged) endDrag(event); });
+    slider.addEventListener('dragstart', event => event.preventDefault());
+    slider.addEventListener('click', event => {
+      if (!dragged || event.detail === 0) return;
+      dragged = false;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }, true);
   }
 
   function adaptWidget(widget) {
@@ -144,7 +165,7 @@
     if (!slider.id) slider.id = `${widget.id}-slider`;
     slider.setAttribute('aria-label', config.heading);
     slider.setAttribute('tabindex', '0');
-    addNavigation(slider);
+    prepareSlider(slider);
     cards.forEach(card => {
       localizeProductLinks(card);
       const priceLabels = { 'Звичайна ціна': config.regularPrice, 'Ціна розпродажу': config.salePrice, 'Ціна за одиницю': config.unitPrice, 'за': config.unitPriceSeparator };

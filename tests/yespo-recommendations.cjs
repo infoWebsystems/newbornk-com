@@ -34,6 +34,7 @@ class Element {
   removeAttribute(name) { delete this.attributes[name]; }
   getAttribute(name) { return this.attributes[name] ?? null; }
   matches(selector) {
+    if (selector.includes(',')) return selector.split(',').some(item => this.matches(item.trim()));
     const match = selector.match(/^([\w-]+)?(?:\.([\w-]+))?$/);
     return Boolean(match && (!match[1] || this.tag === match[1]) && (!match[2] || this.classList.contains(match[2])));
   }
@@ -86,6 +87,9 @@ class Element {
   emit(name, event = {}) { for (const callback of this.listeners[name] || []) callback(event); }
   click() { this.clicks = (this.clicks || 0) + 1; }
   scrollBy(options) { this.lastScroll = options; this.scrollLeft += options.left; this.emit('scroll'); }
+  setPointerCapture(id) { this.capturedPointer = id; }
+  hasPointerCapture(id) { return this.capturedPointer === id; }
+  releasePointerCapture() { this.capturedPointer = null; }
   cloneNode(deep) {
     const copy = new Element(this.tag, this.className);
     copy.attributes = { ...this.attributes };
@@ -198,7 +202,8 @@ test('asynchronously inserted cards initialize once; repeated widgets share prod
   app.rerun(); app.mutate();
   assert.equal(app.intersections.length, 1);
   assert.equal(app.mutations.length, 1);
-  assert.equal(app.widget.querySelectorAll('.nbk-yespo-nav').length, 1);
+  assert.equal(app.widget.querySelectorAll('.nbk-yespo-nav').length, 0);
+  assert.equal(app.slider.listeners.keydown.length, 1);
   assert.equal(app.heading.textContent, 'Рекомендовані товари');
   const second = app.insert('helmet');
   app.intersect(first.card); app.intersect(second.card);
@@ -231,7 +236,58 @@ test('two recommendation widgets settle after positioning without repeated DOM m
   assert.deepEqual(app.main.children, positionedOrder);
   assert.equal(app.widget.nextElementSibling, secondWidget);
   assert.equal(secondWidget.nextElementSibling, related);
-  assert.equal(app.main.querySelectorAll('.nbk-yespo-nav').length, 2);
+  assert.equal(app.main.querySelectorAll('.nbk-yespo-nav').length, 0);
+});
+
+test('recommendations remain keyboard scrollable without arrow controls', () => {
+  const { slider, cards } = setup();
+  let prevented = 0;
+  const key = (value, target = slider) => slider.emit('keydown', { key: value, target, preventDefault() { prevented++; } });
+  key('ArrowRight');
+  assert.equal(slider.lastScroll.left, slider.clientWidth);
+  key('ArrowLeft');
+  assert.equal(slider.scrollLeft, 0);
+  key('End');
+  assert.equal(slider.lastScroll.left, slider.scrollWidth);
+  key('Home');
+  assert.equal(slider.lastScroll.left, -slider.scrollWidth);
+  key('ArrowRight', cards[0].link);
+  key('Enter');
+  assert.equal(prevented, 4, 'Nested links and unrelated keys keep their own behavior');
+});
+
+test('mouse dragging scrolls recommendations without opening the dragged product', () => {
+  const { slider, cards } = setup();
+  const pointer = { pointerType: 'mouse', button: 0, pointerId: 1, clientX: 200, target: cards[0].link, preventDefault() {} };
+  slider.emit('pointerdown', pointer);
+  slider.emit('pointermove', { ...pointer, clientX: 100 });
+  assert.equal(slider.scrollLeft, 100);
+  assert.equal(slider.classList.contains('is-dragging'), true);
+  slider.emit('pointerup', pointer);
+  assert.equal(slider.classList.contains('is-dragging'), false);
+  assert.equal(slider.hasPointerCapture(1), false);
+  let prevented = 0;
+  const click = { detail: 1, preventDefault() { prevented++; }, stopImmediatePropagation() {} };
+  slider.emit('click', click);
+  assert.equal(prevented, 1);
+  slider.emit('pointerdown', pointer);
+  slider.emit('pointermove', { ...pointer, clientX: 196 });
+  slider.emit('pointerup', pointer);
+  slider.emit('click', click);
+  assert.equal(prevented, 1, 'A normal click, with slight pointer movement, still opens the product');
+});
+
+test('touch gestures and wishlist controls are not captured by mouse dragging', () => {
+  const { slider } = setup();
+  const wishlist = new Element('hdt-wishlist');
+  for (const [pointerType, target] of [['touch', slider], ['mouse', wishlist]]) {
+    const event = { pointerType, button: 0, target, pointerId: 2, clientX: 200 };
+    slider.emit('pointerdown', event);
+    slider.emit('pointermove', { ...event, clientX: 100 });
+    slider.emit('pointercancel', event);
+    assert.equal(slider.scrollLeft, 0);
+    assert.equal(slider.classList.contains('is-dragging'), false);
+  }
 });
 
 test('waits for native wishlist definition and ignores cards removed before registration', async () => {
