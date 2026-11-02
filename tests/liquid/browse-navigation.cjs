@@ -45,7 +45,7 @@ test('Warsaw directory renders all Kyiv menu brands, safe original URLs and non-
  links.push({title:'032c',url:'/en/collections/032c',object:{all_products_count:1},type:'collection_link'});
  links.push({title:'Їжак',url:'/en/collections/izhak',object:{all_products_count:1},type:'collection_link'});
  links.push({title:'Empty',url:'/collections/empty',object:{all_products_count:0},type:'collection_link'});
- const html=await engine.parseAndRender(source,{section:{id:'test',settings},linklists:{'brands-menu':{links:[]},'top-menu':{links:[{url:'/en/collections/brands',links}]}}});
+ const html=await engine.parseAndRender(source,{section:{id:'test',settings},linklists:{'brands-menu':{links},'top-menu':{links:[{url:'/en/collections/brands',links:[{title:'Stale brand',url:'/collections/stale'}]}]}}});
  assert.equal((html.match(/class="nbk-brand-link"/g)||[]).length,67);
  assert.match(html,/href="\/en\/collections\/real-64"/);
  assert.match(html,/id="NBKLetter-test-other"/);assert.match(html,/Їжак/);

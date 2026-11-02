@@ -24,16 +24,19 @@
 {%- if block.settings.menu_collection != blank -%}
   {%- liquid
     assign category_key = 'nbk_menu.categories_' | append: block.settings.category_label
-    assign brand_links = block.settings.brands_menu.links
-    for main_link in section.settings.main_menu.links
-      assign main_collection_handle = main_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
-      if main_link.object.handle == 'brands' or main_collection_handle == 'brands'
-        if main_link.links != blank
-          assign brand_links = main_link.links
+    assign brand_links = linklists['brands-menu'].links
+    if brand_links == blank
+      assign brand_links = block.settings.brands_menu.links
+      for main_link in section.settings.main_menu.links
+        assign main_collection_handle = main_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
+        if main_link.object.handle == 'brands' or main_collection_handle == 'brands'
+          if main_link.links != blank
+            assign brand_links = main_link.links
+          endif
+          break
         endif
-        break
-      endif
-    endfor
+      endfor
+    endif
     capture vendor_handles
       for vendor_page in (0..4)
         assign vendor_offset = vendor_page | times: 50

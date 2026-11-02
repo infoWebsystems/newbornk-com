@@ -1,15 +1,6 @@
 {% liquid
   assign alphabet = '#,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ','
   assign brand_links = linklists['brands-menu'].links
-  for main_link in linklists['top-menu'].links
-    assign collection_handle = main_link.url | split: '/collections/' | last | split: '?' | first | split: '#' | first | split: '/' | first
-    if main_link.object.handle == 'brands' or collection_handle == 'brands'
-      if main_link.links != blank
-        assign brand_links = main_link.links
-      endif
-      break
-    endif
-  endfor
   assign vendors = brand_links | sort_natural: 'title'
   assign brand_batches = vendors.size | minus: 1 | divided_by: 50
 %}
@@ -112,9 +103,9 @@
           {% for batch in (0..brand_batches) %}
           {% assign brand_offset = batch | times: 50 %}
           {% for vendor in vendors limit: 50 offset: brand_offset %}
-            {% if vendor.type == 'collection_link' and vendor.object.all_products_count == 0 %}{% continue %}{% endif %}
+            {% if vendor.type != 'collection_link' or vendor.object == blank or vendor.object.all_products_count == 0 or vendor.object.handle == 'gift-cards' %}{% continue %}{% endif %}
             {% capture brand_label %}{% render 'nbk-brand-label', link: vendor %}{% endcapture %}
-            {% assign first_letter = brand_label | strip | slice: 0 | upcase %}
+            {% assign first_letter = brand_label | strip | handleize | slice: 0 | upcase %}
             {% unless alphabet contains first_letter %}{% assign first_letter = '#' %}{% endunless %}
 
             {% if first_letter == letter %}
@@ -152,9 +143,9 @@
         {% for batch in (0..brand_batches) %}
           {% assign brand_offset = batch | times: 50 %}
           {% for vendor in vendors limit: 50 offset: brand_offset %}
-            {% if vendor.type == 'collection_link' and vendor.object.all_products_count == 0 %}{% continue %}{% endif %}
+            {% if vendor.type != 'collection_link' or vendor.object == blank or vendor.object.all_products_count == 0 or vendor.object.handle == 'gift-cards' %}{% continue %}{% endif %}
           {% capture brand_label %}{% render 'nbk-brand-label', link: vendor %}{% endcapture %}
-            {% assign first_letter = brand_label | strip | slice: 0 | upcase %}
+            {% assign first_letter = brand_label | strip | handleize | slice: 0 | upcase %}
             {% unless alphabet contains first_letter %}{% assign first_letter = '#' %}{% endunless %}
 
           {% if first_letter == letter %}
@@ -179,9 +170,9 @@
               {% for batch in (0..brand_batches) %}
           {% assign brand_offset = batch | times: 50 %}
           {% for vendor in vendors limit: 50 offset: brand_offset %}
-            {% if vendor.type == 'collection_link' and vendor.object.all_products_count == 0 %}{% continue %}{% endif %}
+            {% if vendor.type != 'collection_link' or vendor.object == blank or vendor.object.all_products_count == 0 or vendor.object.handle == 'gift-cards' %}{% continue %}{% endif %}
                 {% capture brand_label %}{% render 'nbk-brand-label', link: vendor %}{% endcapture %}
-            {% assign first_letter = brand_label | strip | slice: 0 | upcase %}
+            {% assign first_letter = brand_label | strip | handleize | slice: 0 | upcase %}
             {% unless alphabet contains first_letter %}{% assign first_letter = '#' %}{% endunless %}
 
                 {% if first_letter == letter %}

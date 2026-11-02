@@ -9,14 +9,7 @@
   {% render 'vendor' with card_product.vendor, class: 'xxx' %}
 {%- endcomment -%}
 
-{%-liquid
-  assign vendor_handle = vendor | handle
-  if settings.use_url_collection_vendor and collections[vendor_handle] != blank
-    assign vendor_url = collections[vendor_handle].url
-  else
-    assign vendor_url = vendor | url_for_vendor
-  endif
--%}
+{%- capture vendor_url -%}{%- render 'nbk-brand-url', vendor: vendor -%}{%- endcapture -%}
 
 <span class="sr-only">{{ 'accessibility.vendor' | t }}</span>
-<a href="{{ vendor_url }}" class="hdt-card-product__vendor {{ class }}">{{ vendor | escape }}</a>
+<a href="{{ vendor_url | strip | escape }}" class="hdt-card-product__vendor {{ class }}">{{ vendor | escape }}</a>

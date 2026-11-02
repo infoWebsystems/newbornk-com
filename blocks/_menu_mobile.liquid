@@ -80,7 +80,10 @@
                           <a href="{{ link.url }}" class="hdt-menu-link hdt-flex hdt-align-center hdt-text-base hdt-font-semibold"{% if link.current %} aria-current="page"{% endif %}>{{ 'general.pagination.view_all' | t }}</a>
                         </li>
                       {%- endif -%}
-															{%- for childlink in link.links -%}
+															{%- if link.object.handle == 'brands' and linklists['brands-menu'].links != blank -%}
+                      {%- render 'nbk-brand-menu-items' -%}
+                    {%- else -%}
+{%- for childlink in link.links -%}
 {%- capture nbk_childlink_state -%}{%- render 'nbk-menu-state', item: childlink -%}{%- endcapture -%}
 {%- liquid
   assign nbk_childlink_state = nbk_childlink_state | strip | split: '|'
@@ -162,6 +165,7 @@
 																	{%- endif -%}
 																</li>
 															{%- endfor -%}
+                    {%- endif -%}
 														</ul>
 													</details>
 												</hdt-accordion>
