@@ -10,8 +10,8 @@
   <p class="nbk-footer-newsletter__text">{{ 'nbk_footer.newsletter_text' | t }}</p>
   <nbk-yespo-signup data-form-variant-id="f35732v35732">
     <button class="nbk-footer-newsletter__submit" type="button" aria-haspopup="dialog" aria-describedby="{{ form_id }}-consent" disabled>{{ 'nbk_footer.subscribe' | t }}</button>
-    <p class="nbk-footer-newsletter__message" role="status" hidden>{{ 'nbk_footer.unavailable' | t }}</p>
-    <noscript><p>{{ 'nbk_footer.javascript_required' | t }}</p></noscript>
+    <p class="nbk-footer-newsletter__message" role="status" hidden>{{ 'nbk_footer.unavailable' | t }} <a href="{{ pages['contact'].url }}">{{ 'nbk_footer.fallback_contact' | t }}</a></p>
+    <noscript><p>{{ 'nbk_footer.javascript_required' | t }} <a href="{{ pages['contact'].url }}">{{ 'nbk_footer.fallback_contact' | t }}</a></p></noscript>
     <p class="nbk-footer-newsletter__consent" id="{{ form_id }}-consent">{{ 'nbk_footer.yespo_signup_hint' | t }}</p>
   </nbk-yespo-signup>
   <script src="{{ 'nbk-yespo-signup.js' | asset_url }}" defer="defer"></script>

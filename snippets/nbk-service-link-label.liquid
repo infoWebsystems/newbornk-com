@@ -1,0 +1,25 @@
+{% doc %}
+  Consistent service names for Kyiv's existing, localized Shopify menu URLs.
+  @param {object} link - Shopify menu link
+{% enddoc %}
+{%- liquid
+  assign handle = link.object.handle
+  case handle
+    when 'order-and-delivery'
+      echo 'nbk_contact.delivery' | t
+    when 'return'
+      echo 'nbk_contact.returns' | t
+    when 'newborn-krew', 'loyalty-program'
+      echo 'nbk_footer.loyalty' | t
+    when 'contact'
+      echo 'nbk_footer.contact' | t
+    when 'about-us'
+      echo 'nbk_footer.about' | t
+    when 'public-agreement'
+      echo 'nbk_footer.terms' | t
+    when 'privacy-policy'
+      echo 'nbk_footer.privacy' | t
+    else
+      echo link.title | escape
+  endcase
+-%}

@@ -1,0 +1,65 @@
+.nbk-footer {display:block;background:#080808;color:#fff;font-size:14px;line-height:1.5;}
+.nbk-footer__inner {max-width:1440px;margin-inline:auto;padding:40px 32px 24px;}
+.nbk-footer a {color:inherit;text-decoration:none;text-underline-offset:4px;}
+.nbk-footer a:hover {text-decoration:underline;}
+.nbk-footer :is(a,button,summary):focus-visible {outline:2px solid #d1ff46;outline-offset:4px;}
+.nbk-footer__brand {display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:28px;}
+.nbk-footer__brand > a {display:flex;align-items:center;min-height:44px;}
+.nbk-footer__brand img {width:190px;height:auto;}
+.nbk-footer__grid {display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:48px;align-items:start;}
+.nbk-footer__grid > * {min-width:0;}
+.nbk-footer .nbk-footer-newsletter {text-align:left;max-width:380px;margin:0;}
+.nbk-footer .nbk-footer-newsletter__heading {font-size:20px;line-height:1.3;text-transform:none;text-wrap:initial;}
+.nbk-footer .nbk-footer-newsletter__text {margin:12px 0 16px;}
+.nbk-footer .nbk-footer-newsletter__submit {min-height:48px;font-size:14px;font-weight:500;letter-spacing:0;text-transform:none;}
+.nbk-footer .nbk-footer-newsletter__consent {margin:0;font-size:13px;line-height:1.5;color:#c9c9c9;}
+.nbk-footer nbk-yespo-signup {gap:10px;}
+.nbk-footer :is(h2,summary) {margin:0;color:inherit;font-family:inherit;font-size:16px;font-weight:500;line-height:1.5;}
+.nbk-footer summary {display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:44px;list-style:none;cursor:pointer;}
+.nbk-footer summary::-webkit-details-marker {display:none;}
+.nbk-footer summary span {position:relative;width:16px;height:16px;flex-shrink:0;}
+.nbk-footer summary span::before,.nbk-footer summary span::after {content:"";position:absolute;inset:7px 1px auto;height:1px;background:currentColor;}
+.nbk-footer summary span::after {transform:rotate(90deg);}
+.nbk-footer details[open] > summary span::after {display:none;}
+.nbk-footer__links {list-style:none;margin:8px 0 0;padding:0;}
+.nbk-footer__links a {display:flex;align-items:center;min-height:44px;padding-block:8px;font-size:14px;line-height:1.4;}
+.nbk-footer__store h2 {min-height:44px;display:flex;align-items:center;}
+.nbk-footer__store address {font-style:normal;}
+.nbk-footer__store address p {margin:4px 0 8px;color:#c9c9c9;}
+.nbk-footer__address {display:inline-block;padding-block:8px;}
+.nbk-footer__contact-actions {display:flex;flex-direction:column;align-items:flex-start;}
+.nbk-footer__contact-actions a {display:inline-flex;align-items:center;min-height:44px;}
+.nbk-footer__reviews {display:inline-flex;align-items:center;min-height:44px;font-size:13px;}
+.nbk-footer__brand .nbk-language-globe > button {color:#fff;background:transparent;}
+.nbk-footer__store .hdt-socials__list {display:flex;margin-top:8px;gap:8px;justify-content:flex-start;color:#fff;}
+.nbk-footer__store .hdt-socials__list a {width:44px;height:44px;color:#fff;background:#242424;border-radius:50%;}
+.nbk-footer__store .hdt-socials__list svg {width:18px;height:18px;fill:currentColor;}
+.nbk-footer__bottom {margin-top:28px;border-top:1px solid #353535;padding-top:20px;display:grid;grid-template-columns:1fr auto;gap:16px 32px;align-items:start;}
+.nbk-footer__legal .nbk-footer__links {display:flex;flex-wrap:wrap;gap:8px 24px;margin:0;}
+.nbk-footer__legal summary {font-size:14px;}
+.nbk-footer__legal a {color:#c9c9c9;font-size:13px;}
+.nbk-footer__payments {min-width:0;}
+.nbk-footer .nbk-payment-icons {display:flex;flex-wrap:nowrap;gap:7px;width:max-content;max-width:100%;background:#fff;border-radius:3px;padding:5px 6px;}
+.nbk-footer .nbk-payment-icons__badge {width:30px;min-width:0;height:20px;box-shadow:none;border-radius:0;padding:0;gap:0;}
+.nbk-footer .nbk-payment-icons__badge[data-payment="liqpay"] {width:40px;}
+.nbk-footer .nbk-payment-icons__badge--installments,.nbk-footer .nbk-payment-icons__badge--privat {width:18px;}
+.nbk-footer .nbk-payment-icons__badge--receipt {width:20px;}
+.nbk-footer .nbk-payment-icons__symbol,.nbk-footer .nbk-payment-icons__badge > img,.nbk-footer .nbk-payment-icons__badge--receipt > svg {display:block;width:100%;height:18px;max-height:18px;padding:0;object-fit:contain;}
+.nbk-footer__payment-link {display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:#c9c9c9!important;}
+.nbk-footer__copyright {font-size:12px;color:#c9c9c9;grid-column:1 / -1;}
+@media(min-width:768px) {.nbk-footer__group > summary {pointer-events:none;}.nbk-footer__group > summary span {display:none;}.nbk-footer__payments {margin-right:52px;}}
+@media(max-width:767px) {
+  .nbk-footer__inner {padding:24px 20px;}
+  .nbk-footer__brand {margin-bottom:20px;}
+  .nbk-footer__brand img {width:160px;}
+  .nbk-footer__grid {grid-template-columns:1fr;gap:20px;}
+  .nbk-footer .nbk-footer-newsletter {max-width:none;}
+  .nbk-footer__group {border-top:1px solid #353535;padding-top:8px;}
+  .nbk-footer__store {border-top:1px solid #353535;padding-top:12px;}
+  .nbk-footer__store h2 {min-height:32px;}
+  .nbk-footer__store address p {margin-bottom:4px;}
+  .nbk-footer__bottom {display:block;margin-top:16px;padding-top:0;border-top:0;}
+  .nbk-footer__legal .nbk-footer__links {display:block;}
+  .nbk-footer__payments {margin-top:16px;}
+  .nbk-footer__copyright {display:block;margin-top:8px;}
+}

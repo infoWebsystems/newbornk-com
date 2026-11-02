@@ -7,7 +7,11 @@
     when 'cart'
       assign heading = 'templates.cart.cart' | t
     when 'collection'
-      assign heading = collection.title
+      if collection.handle == 'all'
+        assign heading = 'nbk_browse.catalog' | t
+      else
+        assign heading = collection.title
+      endif
     when 'product'
       assign heading = product.title
     when 'article'

@@ -1,0 +1,82 @@
+{{ 'nbk-footer.css' | asset_url | stylesheet_tag }}
+<nbk-footer class="nbk-footer" role="contentinfo">
+  <div class="nbk-footer__inner">
+    <div class="nbk-footer__brand">
+      <a href="{{ routes.root_url }}" aria-label="NEWBORN K">
+        <img src="{{ 'nbk-wordmark-white.svg' | asset_url }}" width="190" height="24" alt="NEWBORN K" loading="lazy">
+      </a>
+      {% render 'hdt_language' %}
+    </div>
+    <div class="nbk-footer__grid">
+      <div class="nbk-footer__signup">
+        {%- content_for 'block', type: '_nbk-newsletter', id: 'newsletter' -%}
+      </div>
+      <details class="nbk-footer__group" data-mobile-collapse open>
+        <summary>{{ 'nbk_footer.help_heading' | t }}<span aria-hidden="true"></span></summary>
+        <nav aria-label="{{ 'nbk_footer.help_heading' | t | escape }}">
+          <ul class="nbk-footer__links" role="list">
+            {% for link in section.settings.help_menu.links %}
+              {% unless link.title == 'switcher' %}
+                <li><a href="{{ link.url }}"{% if link.object.handle == 'newborn-krew' or link.object.handle == 'loyalty-program' %} data-nbk-krew-link="footer"{% endif %}>{% render 'nbk-service-link-label', link: link %}</a></li>
+              {% endunless %}
+            {% endfor %}
+            {% if shop.customer_accounts_enabled %}
+              <li><a href="{{ routes.account_url }}" data-nbk-account-link="footer">{{ 'nbk_footer.account' | t }}</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </details>
+      <div class="nbk-footer__store">
+        <h2>{{ 'nbk_footer.store_heading' | t }}</h2>
+        <address>
+          <a class="nbk-footer__address" href="{{ section.settings.map_url }}">{{ 'nbk_contact.address' | t }}</a>
+          <p>{{ 'nbk_contact.daily' | t }}</p>
+          <div class="nbk-footer__contact-actions">
+            <a href="tel:{{ section.settings.phone | remove: ' ' | escape }}">{{ section.settings.phone | escape }}</a>
+            <a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a>
+          </div>
+        </address>
+        {% if section.settings.google_review_count > 0 and section.settings.google_reviews_url != blank %}
+          <a class="nbk-footer__reviews" href="{{ section.settings.google_reviews_url | escape }}">{{ section.settings.google_review_rating | escape }} ★ · {{ 'nbk_footer.google_reviews' | t: count: section.settings.google_review_count }}</a>
+        {% endif %}
+        {%- content_for 'block', type: 'socials', id: 'socials' -%}
+      </div>
+    </div>
+    <div class="nbk-footer__bottom">
+      <details class="nbk-footer__group nbk-footer__legal" data-mobile-collapse open>
+        <summary>{{ 'nbk_footer.legal_heading' | t }}<span aria-hidden="true"></span></summary>
+        <nav aria-label="{{ 'nbk_footer.legal_heading' | t | escape }}">
+          <ul class="nbk-footer__links" role="list">
+            {% for link in section.settings.legal_menu.links %}
+              <li><a href="{{ link.url }}">{% render 'nbk-service-link-label', link: link %}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </details>
+      <div class="nbk-footer__payments">
+        {% render 'nbk-payment-icons', methods: section.settings.payment_methods, height: 24, compact: true %}
+        <a class="nbk-footer__payment-link" href="{{ pages['order-and-delivery'].url }}">{{ 'nbk_footer.payment_terms' | t }}</a>
+      </div>
+      <small class="nbk-footer__copyright">© {{ 'now' | date: '%Y' }} NEWBORN K</small>
+    </div>
+  </div>
+</nbk-footer>
+<script src="{{ 'nbk-footer.js' | asset_url }}" defer="defer"></script>
+{% schema %}
+{
+  "name": "Kyiv compact footer",
+  "enabled_on": {"groups": ["footer"]},
+  "settings": [
+    {"type":"link_list","id":"help_menu","label":"Customer help menu"},
+    {"type":"link_list","id":"legal_menu","label":"Legal menu"},
+    {"type":"url","id":"map_url","label":"Map link"},
+    {"type":"text","id":"phone","label":"Phone","default":"+380 97 044 3333"},
+    {"type":"text","id":"email","label":"Email","default":"info@newbornk.com"},
+    {"type":"text","id":"google_review_rating","label":"Verified Google rating","default":"5.0"},
+    {"type":"number","id":"google_review_count","label":"Verified Google review count","default":0},
+    {"type":"url","id":"google_reviews_url","label":"Google profile link"},
+    {"type":"textarea","id":"payment_methods","label":"Payment method keys"}
+  ],
+  "presets": [{"name":"Kyiv compact footer"}]
+}
+{% endschema %}
