@@ -6,7 +6,12 @@
   window.nbkKeyCRMChatLoaded = true;
 
   const start = () => {
-    const render = () => window.KeyCRM.render({ token, popUpInitialMessage: false });
+    const render = () => window.KeyCRM.render({
+      token,
+      popUpInitialMessage: false,
+      defaultIsOpen: false,
+      persistOpenState: false
+    });
     if (window.KeyCRM?.render) {
       render();
       return;

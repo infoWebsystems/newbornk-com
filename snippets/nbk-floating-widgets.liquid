@@ -3,6 +3,20 @@
   and native signup action; only the published Kyiv launcher is restyled.
 {% enddoc %}
 <script src="{{ 'nbk-floating-widgets.js' | asset_url }}" defer></script>
+<script type="application/json" id="nbk-welcome-popup-copy">
+  {
+    "heading": {{ 'nbk.welcome_popup.heading' | t | json }},
+    "intro": {{ 'nbk.welcome_popup.intro' | t | json }},
+    "submit": {{ 'nbk.welcome_popup.submit' | t | json }},
+    "dismiss": {{ 'nbk.welcome_popup.dismiss' | t | json }},
+    "restriction": {{ 'nbk.welcome_popup.restriction' | t | json }},
+    "consent": {{ 'nbk.welcome_popup.consent' | t | json }},
+    "privacy": {{ 'nbk.welcome_popup.privacy' | t | json }},
+    "error": {{ 'nbk.welcome_popup.error' | t | json }},
+    "close": {{ 'accessibility.close' | t | json }},
+    "logo": {{ 'nbk-wordmark-black.svg' | asset_url | json }}
+  }
+</script>
 <script src="{{ 'nbk-yespo-popup.js' | asset_url }}" defer></script>
 
 {% stylesheet %}
@@ -37,6 +51,18 @@
     height: 20px;
   }
 
+  /* KeyCRM's unread-message preview can open independently of its initial
+     greeting. Keep the unread badge, but show the conversation only on request. */
+  [id^="keycrm-"]:has(.KeyCRM-toggleButton[aria-label="Open chat widget"]) .KeyCRM-chatWindowContainer {
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  body:has(.nbk-yespo-popup) .KeyCRM-toggleButtonContainer,
+  body:has(.nbk-yespo-popup) .cl-launcher[cl-widget-id="f35733v35733"] {
+    visibility: hidden !important;
+  }
+
   .cl-launcher[cl-widget-id="f35733v35733"] {
     left: var(--nbk-floating-edge) !important;
     bottom: var(--nbk-floating-bottom) !important;
@@ -66,7 +92,7 @@
     inset: var(--nbk-popup-top, 0px) 0 auto !important;
     width: 100% !important;
     height: var(--nbk-popup-height, 100dvh) !important;
-    padding: 16px 12px !important;
+    padding: 16px !important;
     box-sizing: border-box !important;
     display: flex !important;
     overflow-y: auto !important;
@@ -87,7 +113,7 @@
     flex: 0 0 auto;
     margin: auto !important;
     display: block !important;
-    border-radius: 12px;
+    border-radius: 16px;
     background: #fff !important;
     box-shadow: 0 12px 48px rgb(0 0 0 / 18%);
   }
@@ -108,8 +134,8 @@
   .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon {
     position: absolute !important;
     z-index: 2;
-    top: 4px !important;
-    right: 4px !important;
+    top: 12px !important;
+    right: 10px !important;
     width: 44px !important;
     height: 44px !important;
     display: grid !important;
@@ -118,8 +144,26 @@
   }
 
   .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon svg {
-    width: 24px !important;
-    height: 24px !important;
+    display: none;
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon::before,
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 1.5px;
+    background: currentColor;
+    transform: rotate(45deg);
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon::after {
+    transform: rotate(-45deg);
+  }
+
+  .cl-floating-box[cl-widget-id="f35732v35732"] .cl-floating-box-close-icon:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: -4px;
   }
 
   @media (max-width: 1024px) {
