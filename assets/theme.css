@@ -7301,6 +7301,7 @@ shopify-account-wrapp.hdt-toolbar-item-btn {
 @media (max-width: 767px) {
   .hdt-section-heading_block.hdt-row-grid {
     display: flex !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 12px !important;
@@ -7310,7 +7311,11 @@ shopify-account-wrapp.hdt-toolbar-item-btn {
   .hdt-section-heading_block.hdt-row-grid > h2 {
     margin: 0 !important;
     width: auto !important;
-    flex: 1 1 auto !important;
+    /* Let the action wrap before squeezing the heading below its longest word. */
+    flex: 1 1 min-content !important;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
 
   .hdt-section-heading_block.hdt-row-grid > .hdt-button-block,

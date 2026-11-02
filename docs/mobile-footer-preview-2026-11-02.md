@@ -12,6 +12,7 @@ Base: `kalles-main` at `1675fde` (includes PRs 105 and 106).
 - Keep the seven configured payment methods in one compact row and link to their terms. Icons do not activate a gateway or guarantee wallet availability.
 - Translate service labels in Ukrainian and English while preserving existing page URLs. The generic collection heading and breadcrumb say “Всі товари / All products”.
 - Add a visible return enquiry link to the existing contact form, with a request for the order number. It does not create a return automatically.
+- Allow a mobile section-heading action to wrap below the title before splitting a word. Long headings keep whole words; short headings such as SALE can keep the action alongside. Desktop styling is unchanged.
 
 ## Validation
 
@@ -24,6 +25,7 @@ Base: `kalles-main` at `1675fde` (includes PRs 105 and 106).
 - 24 targeted policy-layout, browse-localization, Yespo-signup and JSON-LD/H1 regression checks pass.
 - Theme Check has no findings in changed files. Existing findings remain elsewhere in 91 theme files; the whole-theme check is not clean.
 - Footer schema IDs are unique; static blocks are excluded from dynamic block order.
+- Follow-up heading check: Ukrainian at 320, 360, 375, 390, 414, 430 and 1280 px, and English at 320, 390, 430 and 1280 px. DOM text ranges confirm each word in New arrivals occupies one line, with no horizontal page overflow.
 
 ## Acceptance still required
 
