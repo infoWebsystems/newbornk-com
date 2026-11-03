@@ -73,7 +73,7 @@ test('ordinary clothing facet keeps its original order, values and checked state
   const inputs = checkboxes(html, ordinaryParam);
   assert.deepEqual(inputs.map(input => input.value), ['XL', '28', 'S', 'M']);
   assert.match(inputs[2].tag, /\schecked/);
-  assert.doesNotMatch(html, /Розміри в наявності/);
+  assert.match(html, /Розміри в наявності/);
 });
 
 test('canonical EU filter replaces inactive composite sizes while active legacy sizes remain removable', async () => {
@@ -157,5 +157,42 @@ for (const renderer of ['facets', 'sidebar-collection']) {
     fallback.collection = fallback.results;
     fallback.section.blocks = [{ type: 'filter', settings: {} }];
     assert.equal(checkboxes(await engine.renderFile(renderer, fallback), ordinaryParam).length, 2);
+  });
+}
+
+for (const renderer of ['facets', 'sidebar-collection']) {
+  const render = async filters => {
+    const ctx = context(filters);
+    ctx.collection = ctx.results;
+    ctx.section.blocks = [{ type: 'filter', settings: {} }];
+    return engine.renderFile(renderer, ctx);
+  };
+  test(`${renderer}: empty and all-zero groups disappear, while active zero-count choices stay removable`, async () => {
+    const html = await render([
+      facet(footwearParam, [{ label: '42', count: 0 }, { label: '43', count: 0 }], 'Empty EU'),
+      facet('filter.p.vendor', [], 'Empty brand'),
+      facet(ordinaryParam, [{ label: 'L', count: 0, active: true }, { label: 'S', count: 0 }]),
+      { type: 'price_range', label: 'Price', param_name: 'filter.v.price',
+        min_value: { param_name: 'filter.v.price.gte' }, max_value: { param_name: 'filter.v.price.lte' }, range_max: 50000 }
+    ]);
+    assert.equal(checkboxes(html, footwearParam).length, 0);
+    assert.doesNotMatch(html, /Розмір взуття \(EU\)|Empty brand/);
+    const sizes = checkboxes(html, ordinaryParam);
+    assert.equal(sizes.length, 2);
+    assert.match(sizes[0].tag, /checked/);
+    assert.doesNotMatch(sizes[0].tag, /disabled/);
+    assert.match(html, /name="filter.v.price.gte"/);
+  });
+  test(`${renderer}: active sizes carry stock in the form without a conflicting availability control`, async () => {
+    const availability = facet('filter.v.availability', [{ label: 'In stock', value: '1', active: true }, { label: 'Sold out', value: '0' }]);
+    availability.type = 'boolean';
+    const size = facet(ordinaryParam, [{ label: 'L', active: true }]);
+    const html = await render([availability, size]);
+    assert.match(html, /type="hidden" name="filter.v.availability" value="1"/);
+    assert.equal(checkboxes(html, 'filter.v.availability').length, 0);
+    assert.equal(checkboxes(html, ordinaryParam).length, 1);
+    const active = await engine.renderFile('active-filters', context([availability, size]));
+    assert.doesNotMatch(active, /In stock|Sold out/);
+    assert.match(active, />L<\/a>/);
   });
 }

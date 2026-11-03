@@ -846,5 +846,15 @@
     "october": "Oktober",
     "november": "November",
     "december": "Dezember"
+  },
+  "nbk_browse": {
+    "stock": {
+      "in_stock": "Auf Lager",
+      "sold_out": "Ausverkauft"
+    },
+    "filter_names": {
+      "availability": "Verfügbarkeit",
+      "size": "Größe"
+    }
   }
 }

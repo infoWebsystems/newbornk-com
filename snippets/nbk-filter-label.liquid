@@ -8,6 +8,10 @@
   if value == blank
     assign label = filter.label
     case filter.param_name
+      when 'filter.v.availability'
+        assign key = 'nbk_browse.filter_names.availability'
+      when 'filter.v.option.size'
+        assign key = 'nbk_browse.filter_names.size'
       when 'filter.p.vendor'
         assign key = 'nbk_browse.filter_names.brand'
       when 'filter.p.product_type'
@@ -21,6 +25,12 @@
     assign label = value.label
     assign normalized = label | strip | downcase
     case filter.param_name
+      when 'filter.v.availability'
+        if value.value == '1'
+          assign key = 'nbk_browse.stock.in_stock'
+        else
+          assign key = 'nbk_browse.stock.sold_out'
+        endif
       when 'filter.v.t.shopify.target-gender', 'filter.p.m.shopify.target-gender'
         if normalized == 'male' or normalized == 'female' or normalized == 'unisex'
           assign key = normalized | prepend: 'nbk_browse.gender.'

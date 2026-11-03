@@ -809,5 +809,15 @@
     "prev": "上一个",
     "next": "下一个",
     "errorMsg": "无法加载图像"
+  },
+  "nbk_browse": {
+    "stock": {
+      "in_stock": "有货",
+      "sold_out": "售罄"
+    },
+    "filter_names": {
+      "availability": "库存状态",
+      "size": "尺码"
+    }
   }
 }

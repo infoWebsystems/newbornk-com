@@ -11,6 +11,9 @@
 {%- liquid
   assign sort_by = results.sort_by | default: results.default_sort_by
   assign total_active_values = 0
+  capture nbk_size_filter_active
+    render 'nbk-size-filter-active', filters: results.filters
+  endcapture
   if results.url
     assign results_url = results.url
   else
@@ -21,6 +24,7 @@
 
 {%- capture filters_active -%}
   {%- for filter in results.filters -%}
+    {%- if filter.param_name == 'filter.v.availability' and nbk_size_filter_active != blank -%}{%- continue -%}{%- endif -%}
     {%- if filter.type == "price_range" -%}
       {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
         {%- assign total_active_values = total_active_values | plus: 1 -%}

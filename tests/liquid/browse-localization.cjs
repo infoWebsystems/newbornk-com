@@ -80,3 +80,18 @@ test('gender and product type lead both filter layouts without losing other face
     }
   }
 });
+
+test('availability and size labels are translated in UA, EN and RU without changing submitted values', async () => {
+  for (const [locale, heading, size, available, soldOut] of [
+    ['uk', 'Наявність', 'Розмір', 'У наявності', 'Немає в наявності'],
+    ['en.default', 'Availability', 'Size', 'In stock', 'Sold out'],
+    ['ru', 'Наличие', 'Размер', 'В наличии', 'Нет в наличии']
+  ]) {
+    const liquid = engine(locale);
+    const filter = { param_name: 'filter.v.availability', label: 'Доступність' };
+    assert.equal((await liquid.renderFile('nbk-filter-label', { filter })).trim(), heading);
+    assert.equal((await liquid.renderFile('nbk-filter-label', { filter, value: { label: 'In stock', value: '1' } })).trim(), available);
+    assert.equal((await liquid.renderFile('nbk-filter-label', { filter, value: { label: 'Out of stock', value: '0' } })).trim(), soldOut);
+    assert.equal((await liquid.renderFile('nbk-filter-label', { filter: { param_name: 'filter.v.option.size', label: 'Розмір' } })).trim(), size);
+  }
+});

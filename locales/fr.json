@@ -809,5 +809,15 @@
     "prev": "Précédent",
     "next": "Suivant",
     "errorMsg": "L'image ne peut pas être chargée"
+  },
+  "nbk_browse": {
+    "stock": {
+      "in_stock": "En stock",
+      "sold_out": "Épuisé"
+    },
+    "filter_names": {
+      "availability": "Disponibilité",
+      "size": "Taille"
+    }
   }
 }
