@@ -1096,7 +1096,13 @@
       "relevance": "За відповідністю",
       "most_relevant": "Найвідповідніші"
     },
+    "stock": {
+      "in_stock": "У наявності",
+      "sold_out": "Немає в наявності"
+    },
     "filter_names": {
+      "availability": "Наявність",
+      "size": "Розмір",
       "brand": "Бренд",
       "category": "Категорія",
       "gender": "Стать",

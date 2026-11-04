@@ -1,0 +1,9 @@
+{% doc %}
+  Returns true when a native size or canonical EU size filter is selected.
+  @param {object} filters - Shopify collection or search filters
+{% enddoc %}
+{%- for filter in filters -%}
+  {%- if filter.param_name == 'filter.v.option.size' or filter.param_name == 'filter.v.m.custom.footwear_size_eu_available' -%}
+    {%- if filter.active_values.size > 0 -%}true{%- break -%}{%- endif -%}
+  {%- endif -%}
+{%- endfor -%}

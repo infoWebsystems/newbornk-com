@@ -322,6 +322,9 @@
         <form class="hdt-filter" id="hdt-facet-filters-form-sidebar" method="GET" action="{{ action }}" section-id="{{ section.id }}"render-on-change>
           <input type="hidden" name="page" value="">
           {%- liquid
+            capture nbk_size_filter_active
+              render 'nbk-size-filter-active', filters: results.filters
+            endcapture
             assign nbk_gender_filters = results.filters | where: 'param_name', 'filter.v.t.shopify.target-gender'
             assign nbk_legacy_gender_filters = results.filters | where: 'param_name', 'filter.p.m.shopify.target-gender'
             assign nbk_category_filters = results.filters | where: 'param_name', 'filter.p.product_type'
@@ -329,6 +332,10 @@
             assign nbk_ordered_filters = nbk_gender_filters | concat: nbk_legacy_gender_filters | concat: nbk_category_filters | concat: nbk_other_filters
           -%}
           {%- for filter in nbk_ordered_filters -%}
+            {%- if filter.param_name == 'filter.v.availability' and nbk_size_filter_active != blank -%}
+              <input type="hidden" name="filter.v.availability" value="1">
+              {%- continue -%}
+            {%- endif -%}
             {%- liquid
               capture nbk_filter_label
                 render 'nbk-filter-label', filter: filter
@@ -338,7 +345,7 @@
                 assign nbk_is_footwear_filter = true
                 assign nbk_filter_label = 'products.facets.footwear_size_eu' | t
               endif
-              assign nbk_visible_values = 0
+              assign nbk_selectable_values = 0
               capture nbk_value_order
                 for nbk_value in filter.values
                   assign nbk_skip_value = false
@@ -351,7 +358,9 @@
                     endif
                   endif
                   unless nbk_skip_value
-                    assign nbk_visible_values = nbk_visible_values | plus: 1
+                    if nbk_value.count > 0 or nbk_value.active
+                      assign nbk_selectable_values = nbk_selectable_values | plus: 1
+                    endif
                     if nbk_is_footwear_filter
                       assign nbk_size_to_sort = 'EU: ' | append: nbk_value.label
                       render 'nbk-footwear-size', raw_size: nbk_size_to_sort, output: 'sort_key'
@@ -365,7 +374,7 @@
                 endfor
               endcapture
               assign nbk_value_order = nbk_value_order | split: '|' | sort
-              if filter.param_name == 'filter.v.option.size' and nbk_visible_values == 0
+              if filter.type != 'price_range' and nbk_selectable_values == 0
                 continue
               endif
             -%}
@@ -389,7 +398,7 @@
                   </div>
                 </summary>
                 <div class="hdt-filter-group__display">
-                  {%- if nbk_is_footwear_filter -%}
+                  {%- if nbk_is_footwear_filter or filter.param_name == 'filter.v.option.size' -%}
                     <p class="hdt-text-sm hdt-s-text2">{{ 'products.facets.footwear_size_available' | t }}</p>
                   {%- endif -%}
                   {%- if filter.type != 'price_range' -%}

@@ -1094,7 +1094,13 @@
       "relevance": "Relevance",
       "most_relevant": "Most relevant"
     },
+    "stock": {
+      "in_stock": "In stock",
+      "sold_out": "Sold out"
+    },
     "filter_names": {
+      "availability": "Availability",
+      "size": "Size",
       "brand": "Brand",
       "category": "Category",
       "gender": "Gender",

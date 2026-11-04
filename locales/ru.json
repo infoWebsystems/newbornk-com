@@ -1049,7 +1049,13 @@
       "relevance": "По соответствию",
       "most_relevant": "Наиболее подходящие"
     },
+    "stock": {
+      "in_stock": "В наличии",
+      "sold_out": "Нет в наличии"
+    },
     "filter_names": {
+      "availability": "Наличие",
+      "size": "Размер",
       "brand": "Бренд",
       "category": "Категория",
       "gender": "Пол",
