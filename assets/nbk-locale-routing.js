@@ -2,7 +2,7 @@
   const { locale, root } = document.currentScript?.dataset || {};
   if (window.nbkLocaleRouting || document.documentElement.lang !== locale) return;
   if (!((locale === 'uk' && root === '/') || (locale === 'ru' && root === '/ru/'))) return;
-  if (window.Shopify?.routes?.root !== '/en/') return;
+  const repairStorefrontLocale = window.Shopify?.routes?.root === '/en/';
   window.nbkLocaleRouting = true;
 
   const controls = '[hreflang], a[lang], [data-language-code], [data-locale], [data-nbk-keep-locale], localization-form, localization-form-header, .localization-form, .translation-lab-language-switcher, .language-switcher-custom, .language-switcher-mobile';
@@ -13,9 +13,13 @@
     let url;
     try { url = new URL(value, document.baseURI); } catch { return value; }
     if (url.origin !== location.origin || !/^https?:$/.test(url.protocol)) return value;
-    if (!/^\/en(?:\/|$)/.test(url.pathname)) return value;
-    if (/^\/en\/localization\/?$/.test(url.pathname)) return value;
-    url.pathname = root + url.pathname.slice(3).replace(/^\//, '');
+    if (/^\/(?:en|ru|uk)\/customer_authentication\//.test(url.pathname)) {
+      url.pathname = url.pathname.replace(/^\/(?:en|ru|uk)/, '');
+    } else {
+      if (!repairStorefrontLocale || !/^\/en(?:\/|$)/.test(url.pathname)) return value;
+      if (/^\/en\/localization\/?$/.test(url.pathname)) return value;
+      url.pathname = root + url.pathname.slice(3).replace(/^\//, '');
+    }
     if (/^https?:\/\//i.test(value)) return url.href;
     if (value.startsWith('//')) return `//${url.host}${url.pathname}${url.search}${url.hash}`;
     const corrected = `${url.pathname}${url.search}${url.hash}`;
@@ -23,6 +27,7 @@
   }
 
   function repairRoutes() {
+    if (!repairStorefrontLocale) return;
     if (window.Shopify?.routes?.root === '/en/') window.Shopify.routes.root = root;
     [window.routes, window.themeHDN?.routes].filter(Boolean).forEach(routes => {
       routeKeys.forEach(key => {

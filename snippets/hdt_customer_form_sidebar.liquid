@@ -76,7 +76,7 @@
           </div>
           <div class="hdt-field">
             <button class="hdt-login-form__submit hdt-btn hdt-oh hdt-btn-accent hdt-btn-solid hdt-font-semibold hdt-btn-full-width"><span class="hdt-truncate">{{ 'customer.register.submit' | t }}</span></button>
-            <a class="hdt-inline-block hdt-link-login hdt-link-underline hdt-s-text2" href="{{ routes.account_login_url }}" aria-controls="login-form-sidebar" close-dialog="register-form-sidebar">{{ 'customer.register.login_here' | t }}</a>
+            <a class="hdt-inline-block hdt-link-login hdt-link-underline hdt-s-text2" href="{{ routes.account_login_url | replace: '/en/customer_authentication/', '/customer_authentication/' | replace: '/ru/customer_authentication/', '/customer_authentication/' | replace: '/uk/customer_authentication/', '/customer_authentication/' | escape }}" aria-controls="login-form-sidebar" close-dialog="register-form-sidebar">{{ 'customer.register.login_here' | t }}</a>
           </div>
         {%- endform -%}
       </div>

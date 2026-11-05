@@ -119,6 +119,7 @@
     {%- endif -%}
     <div class="hdt-row-flex {%- if has_sidebar and section.settings.sidebar_mode != "drawer" %} hdt-sidebar_drawer_{% if section.settings.sidebar_mode == 'drawer' %}true{% else %}false{% endif %} hdt-flex-cols-1 lg:hdt-flex-cols-2{% else %} hdt-flex-cols-1{% endif %} ">
       <div class="hdt-blogs-content hdt-col">
+        <h1 class="hdt-h4 hdt-font-normal" style="margin-bottom: 24px">{% render 'nbk-page-h1' %}</h1>
         {%- paginate blog.articles by section.settings.blogs_count -%}
           <hdt-reval-items reveal-on-scroll="true" id="{{ blogs_id }}" scroll-into-view selector=".hdt-main-article-item"class="hdt-row-grid hdt-ratio--{{ section.settings.image_ratio }} {% unless section.settings.image_size %} hdt-ratio--contain{% endunless %} lg:hdt-grid-cols-{{ section.settings.col_dk }} md:hdt-grid-cols-{{ section.settings.col_tb }} hdt-grid-cols-{{ section.settings.col_mb }}">
             {%- liquid
@@ -694,7 +695,7 @@
       {
         "type": "color_scheme",
         "id": "color_scheme",
-        "label": "t:sections.all.colors.color_scheme",
+        "label": "t:sections.all.colors.label",
         "visible_if": "{{ section.settings.colors_by_section }}"
       },
       {

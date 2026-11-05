@@ -13,6 +13,15 @@
                       
                         assign path = request.path
                           assign is_noindex = false
+                          if request.page_type == 'cart' or request.page_type == 'search' or request.page_type == '404' or request.page_type contains 'customers/'
+                            assign is_noindex = true
+                          endif
+                          if request.page_type == 'page'
+                            assign utility_page_handles = 'size-chart-touchof,carhartt-size-guide' | split: ','
+                            if utility_page_handles contains page.handle
+                              assign is_noindex = true
+                            endif
+                          endif
                           
                             # --- 1) Primary: read metafield custom.noindex on collection page -----------
                               if request.page_type == 'collection'
