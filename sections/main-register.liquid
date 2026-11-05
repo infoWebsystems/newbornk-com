@@ -76,7 +76,7 @@
           <div class="hdt-field">
             <button class="hdt-register-form__submit hdt-relative hdt-btn hdt-btn-accent hdt-oh hdt-btn-solid hdt-font-semibold hdt-btn-full-width"><span class="hdt-truncate">{{ 'customer.register.submit' | t }}</span></button>
           </div>
-          <a class="hdt-inline-block hdt-link-login hdt-link-underline hdt-s-text2" href="{{ routes.account_login_url }}">{{ 'customer.register.login_here' | t }}</a>
+          <a class="hdt-inline-block hdt-link-login hdt-link-underline hdt-s-text2" href="{{ routes.account_login_url | replace: '/en/customer_authentication/', '/customer_authentication/' | replace: '/ru/customer_authentication/', '/customer_authentication/' | replace: '/uk/customer_authentication/', '/customer_authentication/' | escape }}">{{ 'customer.register.login_here' | t }}</a>
         {%- endform -%}
       </div>
     </div>

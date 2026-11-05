@@ -54,6 +54,26 @@ async function robots(ctx) {
   return tags.get('robots').split(',')[0];
 }
 
+test('utility pages are noindex while products, collections and paginated blogs stay crawlable', async () => {
+  for (const type of ['cart', 'search', '404', 'customers/account', 'customers/login']) {
+    assert.equal(await robots(context(type)), 'noindex', type);
+  }
+  for (const handle of ['size-chart-touchof', 'carhartt-size-guide']) {
+    assert.equal(await robots({ ...context('page'), page: { handle } }), 'noindex');
+  }
+  for (const type of ['product', 'collection', 'article', 'blog']) {
+    assert.equal(await robots({ ...context(type), current_page: 2 }), 'index', type);
+  }
+});
+
+test('pagination supplies an escaped description without duplicating the first-page layout tag', async () => {
+  const ctx = { ...context(), current_page: 2 };
+  const tags = metadata(await engine.renderFile('social-meta-tags', ctx));
+  assert.equal(tags.get('description'), 'general.meta.page 2. Description &amp; details');
+  assert.equal(metadata(await engine.renderFile('social-meta-tags', { ...ctx, current_page: 1 })).get('description'), undefined);
+  assert.equal(metadata(await engine.renderFile('social-meta-tags', { ...ctx, page_description: '' })).get('description'), undefined);
+});
+
 test('collection robots respects typed Shopify booleans and direct legacy booleans without treating false values as true', async () => {
   for (const [field, expected] of [[{ value: true }, 'noindex'], [true, 'noindex'], [{ value: false }, 'index'], [false, 'index'], [undefined, 'index'], ['true', 'index'], ['false', 'index'], [{ value: 'false' }, 'index']]) {
     const ctx = context();
@@ -134,4 +154,18 @@ test('supplementary homepage copy keeps content and links without introducing an
     assert(html.includes(content.slice(content.indexOf('<p>'))));
   }
   assert.equal((await engine.parseAndRender(source, { section: { settings: { content: '' } } })).trim(), '');
+});
+
+
+test('server-rendered account links use the Shopify root endpoint and preserve login parameters', async () => {
+  for (const file of ['sections/main-register.liquid', 'snippets/hdt_customer_form_sidebar.liquid']) {
+    const source = readFileSync(path.resolve(__dirname, '../..', file), 'utf8');
+    const expression = source.match(/{{ routes.account_login_url[^}]*}}/)[0];
+    for (const prefix of ['', '/en', '/ru', '/uk']) {
+      const html = await engine.parseAndRender(expression, { routes: { account_login_url: `https://newbornk.com${prefix}/customer_authentication/redirect?locale=ru&return_to=%2Fru%2Fcollections%2Fnew` } });
+      assert.equal(html, 'https://newbornk.com/customer_authentication/redirect?locale=ru&amp;return_to=%2Fru%2Fcollections%2Fnew');
+    }
+    assert.equal(await engine.parseAndRender(expression, { routes: { account_login_url: '/ru/account/login' } }), '/ru/account/login');
+    assert.equal(await engine.parseAndRender(expression, { routes: { account_login_url: 'https://account.newbornk.com/login?locale=en' } }), 'https://account.newbornk.com/login?locale=en');
+  }
 });

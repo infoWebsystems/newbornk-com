@@ -94,8 +94,23 @@ test('Russian page keeps Russian navigation; correct English and unrelated marke
     const app = setup(options); const node = app.add('a', { href: '/en/products/test' }); app.run();
     assert.equal(node.getAttribute('href'), '/en/products/test');
     assert.equal(app.window.Shopify.routes.root, options.serverRoot || '/en/');
-    assert.equal(app.observers.length, 0);
+    assert.equal(app.observers.length, options.locale === 'en' || options.htmlLang === 'en' ? 0 : 1);
   }
+});
+
+test('Shopify authentication stays at the root while Russian storefront links remain localized', () => {
+  const app = setup({ locale: 'ru', root: '/ru/' });
+  const query = '?locale=ru&region_country=UA&return_to=%2Fru%2Fcollections%2Fnew';
+  const login = app.add('a', { href: `https://newbornk.com/en/customer_authentication/redirect${query}` });
+  const social = app.add('a', { href: `/customer_authentication/login${query}` });
+  const explicit = app.add('a', { href: `https://accounts.example.com/en/customer_authentication/redirect${query}` });
+  app.run();
+  assert.equal(login.getAttribute('href'), `https://newbornk.com/customer_authentication/redirect${query}`);
+  assert.equal(social.getAttribute('href'), `/customer_authentication/login${query}`);
+  assert.equal(explicit.getAttribute('href'), `https://accounts.example.com/en/customer_authentication/redirect${query}`);
+  login.setAttribute('href', `/en/customer_authentication/redirect${query}`);
+  app.flush();
+  assert.equal(login.getAttribute('href'), `/customer_authentication/redirect${query}`);
 });
 
 test('preserves explicit language choices, localization forms, external destinations and hashes', () => {
@@ -165,4 +180,19 @@ test('repairs Kalles routes before modules initialize and keeps later menu targe
   assert.equal(menu.getAttribute('data-url'), '/collections/sale');
   const foreign = app.add('summary', { 'data-url': 'https://example.com/en/path' }); app.flush();
   assert.equal(foreign.getAttribute('data-url'), 'https://example.com/en/path');
+});
+
+
+test('already-localized authentication paths are repaired even when Shopify storefront root is correct', () => {
+  for (const serverRoot of ['/ru/', '/en/']) {
+    const app = setup({ locale: 'ru', root: '/ru/', serverRoot });
+    const login = app.add('a', { href: '/ru/customer_authentication/redirect?locale=ru&region_country=UA' });
+    const storefront = app.add('a', { href: '/en/products/explicit' });
+    app.run();
+    assert.equal(login.getAttribute('href'), '/customer_authentication/redirect?locale=ru&region_country=UA');
+    assert.equal(storefront.getAttribute('href'), serverRoot === '/en/' ? '/ru/products/explicit' : '/en/products/explicit');
+    login.setAttribute('href', '/ru/customer_authentication/redirect?locale=ru');
+    app.flush();
+    assert.equal(login.getAttribute('href'), '/customer_authentication/redirect?locale=ru');
+  }
 });

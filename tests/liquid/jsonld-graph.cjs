@@ -14,7 +14,10 @@ engine.registerTag('doc', {
   render() { return ''; }
 });
 engine.registerFilter('json', value => JSON.stringify(value ?? null));
-engine.registerFilter('image_url', image => `//cdn.example.test/${image?.src ?? image ?? 'missing.jpg'}`);
+engine.registerFilter('image_url', image => {
+  assert(image?.src, 'image_url must never receive a missing image or non-image media');
+  return `//cdn.example.test/${image.src}`;
+});
 engine.registerFilter('t', key => key === 'general.wishlist.wishlist_page' ? 'Обране' : key);
 
 function context(type = 'product') {
@@ -36,7 +39,7 @@ function product() {
   return {
     id: 123, title: 'Coat "Special" & New', description: '<p>Text with "quotes"</p>',
     vendor: 'Brand', type: 'Coats', price: 12500, available: true,
-    featured_image: { src: 'main.jpg' }, media: [{ src: 'main.jpg' }],
+    featured_image: { src: 'main.jpg' }, images: [{ src: 'main.jpg' }], media: [{ src: 'main.jpg' }, { media_type: 'video' }],
     has_only_default_variant: false, variants, selected_or_first_available_variant: variants[0],
     options_with_values: [{ name: 'Розмір', values: ['M', 'L'] }, { name: 'Колір', values: ['Blue "Sky"', 'Black'] }],
     metafields: { shopify: {}, reviews: { rating: { value: '4.8' }, rating_count: 7 } }
@@ -51,7 +54,33 @@ async function graph(ctx) {
 const entity = (nodes, type) => nodes.find(node => node['@type'] === type);
 const labels = values => ({ value: values.map(value => ({ label: { value } })) });
 
-test('rendered graph keeps valid JSON, one organization, reviews and Kyiv offer policies', async () => {
+test('missing product images cannot corrupt the entire JSON-LD graph', async () => {
+  const p = product();
+  p.featured_image = null;
+  p.images = [];
+  p.media = [];
+  p.variants.forEach(v => { v.image = null; });
+  const nodes = await graph({ ...context(), product: p });
+  assert.equal(entity(nodes, 'Product').image, undefined);
+  assert(entity(nodes, 'ProductGroup').hasVariant.every(v => v.image === undefined));
+  assert.equal(entity(nodes, 'Product').offers.length, 2);
+  p.featured_image = { src: 'fallback.jpg' };
+  p.images = [p.featured_image];
+  const restored = await graph({ ...context(), product: p });
+  assert.deepEqual(entity(restored, 'Product').image, ['https://cdn.example.test/fallback.jpg']);
+  assert(entity(restored, 'ProductGroup').hasVariant.every(v => v.image === 'https://cdn.example.test/fallback.jpg'));
+});
+
+test('paginated collection graph keeps the same canonical identity as the HTML page', async () => {
+  const canonical_url = 'https://newbornk.com/en/collections/new?page=2';
+  const nodes = await graph({ ...context('collection'), canonical_url, current_page: 2,
+    collection: { title: 'New arrivals', products_count: 2, products: [] } });
+  assert.equal(entity(nodes, 'CollectionPage').url, canonical_url);
+  assert.equal(entity(nodes, 'CollectionPage')['@id'], `${canonical_url}#collectionpage`);
+  assert.equal(entity(nodes, 'BreadcrumbList').itemListElement[1].item, canonical_url);
+});
+
+test('rendered graph keeps valid JSON, one organization, reviews and truthful Kyiv offers', async () => {
   const p = product();
   p.metafields.shopify.fabric = labels(['', 'Cotton "organic"', ' ']);
   p.metafields.shopify['target-gender'] = labels(['Female']);
@@ -60,6 +89,8 @@ test('rendered graph keeps valid JSON, one organization, reviews and Kyiv offer 
   const group = entity(nodes, 'ProductGroup');
   assert.equal(main.name, p.title);
   assert.equal(nodes.filter(n => [].concat(n['@type']).includes('Organization')).length, 1);
+  assert.deepEqual(nodes.find(n => [].concat(n['@type']).includes('Organization')).hasMerchantReturnPolicy,
+    { '@type': 'MerchantReturnPolicy', merchantReturnLink: 'https://newbornk.com/pages/return' });
   assert.deepEqual(main.aggregateRating, { '@type': 'AggregateRating', ratingValue: '4.8', reviewCount: 7, bestRating: 5, worstRating: 1 });
   assert.equal(group.aggregateRating, undefined);
   assert.equal(main.material, 'Cotton "organic"');
@@ -72,10 +103,8 @@ test('rendered graph keeps valid JSON, one organization, reviews and Kyiv offer 
   for (const offer of [...main.offers, ...group.hasVariant.map(v => v.offers)]) {
     assert.equal(offer.priceCurrency, 'UAH');
     assert.equal(offer.price, 125);
-    assert.equal(offer.shippingDetails.shippingDestination.addressCountry, 'UA');
-    assert.equal(offer.shippingDetails.shippingRate.value, '0');
-    assert.equal(offer.hasMerchantReturnPolicy.merchantReturnDays, 14);
-    assert.equal(offer.hasMerchantReturnPolicy.returnFees, 'https://schema.org/FreeReturn');
+    assert.equal(offer.shippingDetails, undefined, 'shipping depends on carrier, order value and payment method');
+    assert.equal(offer.hasMerchantReturnPolicy, undefined, 'return costs and eligibility differ by product and method');
   }
   for (const header of ['header-inline-blocks', 'header-e-commerce-blocks', 'header-menu-bottom-blocks', 'header-vertical']) {
     assert.doesNotMatch(readFileSync(path.join(root, 'sections', `${header}.liquid`), 'utf8'), /"@type":\s*"Organization"/);

@@ -1,5 +1,5 @@
 {% doc %}
-  Renders social metadata, preserving the homepage share image when it exists.
+  Renders social metadata and descriptions for subsequent pages, preserving the homepage share image.
 {% enddoc %}
 {% liquid
   assign og_title = page_title | default: shop.name
@@ -20,6 +20,11 @@
     assign og_url = request.origin
   endif
 -%}
+
+{%- if current_page > 1 and page_description != blank -%}
+  {%- capture paginated_description -%}{{ 'general.meta.page' | t }} {{ current_page }}. {{ page_description }}{%- endcapture -%}
+  <meta name="description" content="{{ paginated_description | escape }}">
+{%- endif -%}
 
 {%- case request.page_type -%}
   {%- when 'index' -%}
