@@ -1188,5 +1188,9 @@
       "account": "My account",
       "program": "KREW levels & terms"
     }
+  },
+  "nbk_seo": {
+    "privacy_description": "Read the NEWBORN K privacy policy for information about how personal data is processed, used and protected when you visit and shop on our website.",
+    "terms_description": "Read the terms of service for the NEWBORN K online store, including placing orders, payment, delivery, and the rights and responsibilities of buyers and sellers."
   }
 }
