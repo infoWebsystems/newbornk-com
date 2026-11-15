@@ -14,7 +14,7 @@ engine.registerTag('doc', {
 });
 engine.registerFilter('image_url', (image, ...args) => {
   const width = args.find(arg => Array.isArray(arg) && arg[0] === 'width')?.[1];
-  assert.equal(width, image.width, 'Shopify image_url requires a size; OG dimensions must describe that image');
+  assert.equal(width, Math.min(image.width, 1200), 'share images are capped without upscaling');
   assert(width > 0);
   return `//cdn.example.test/${image.src}?width=${width}`;
 });
@@ -167,5 +167,37 @@ test('server-rendered account links use the Shopify root endpoint and preserve l
     }
     assert.equal(await engine.parseAndRender(expression, { routes: { account_login_url: '/ru/account/login' } }), '/ru/account/login');
     assert.equal(await engine.parseAndRender(expression, { routes: { account_login_url: 'https://account.newbornk.com/login?locale=en' } }), 'https://account.newbornk.com/login?locale=en');
+  }
+});
+
+test('large social images use a 1200px rendition with proportional dimensions; small images are not enlarged', async () => {
+  for (const [width, height, expectedWidth, expectedHeight] of [[4160, 6240, 1200, 1800], [2560, 3329, 1200, 1560], [3000, 1500, 1200, 600], [800, 600, 800, 600]]) {
+    const tags = metadata(await engine.renderFile('social-meta-tags', { ...context('article'), page_image: { src: 'image.png', width, height } }));
+    assert.equal(tags.get('og:image'), `https://cdn.example.test/image.png?width=${expectedWidth}`);
+    assert.equal(tags.get('og:image:width'), String(expectedWidth));
+    assert.equal(tags.get('og:image:height'), String(expectedHeight));
+    assert.equal(tags.get('og:image:secure_url'), tags.get('og:image'));
+  }
+});
+
+test('policy descriptions fill missing terms/privacy metadata, preserve existing copy and match social metadata', async () => {
+  for (const [handle, key] of [['terms-of-service', 'terms_description'], ['privacy-policy', 'privacy_description']]) {
+    for (const prefix of ['', '/en', '/ru']) {
+      const ctx = { ...context('policy'), page_description: undefined, request: { page_type: 'policy', path: `${prefix}/policies/${handle}` } };
+      const tags = metadata(await engine.renderFile('social-meta-tags', ctx));
+      assert.equal(tags.get('description'), `nbk_seo.${key}`);
+      assert.equal(tags.get('og:description'), tags.get('description'));
+      assert.equal(tags.get('twitter:description'), tags.get('description'));
+      for (const description of ['Existing policy description', '']) {
+        const kept = metadata(await engine.renderFile('social-meta-tags', { ...ctx, page_description: description }));
+        assert.equal(kept.get('description'), undefined, 'the layout owns an existing description tag');
+      }
+    }
+  }
+  const other = { ...context('policy'), page_description: undefined, request: { page_type: 'policy', path: '/policies/refund-policy' } };
+  assert.equal(metadata(await engine.renderFile('social-meta-tags', other)).get('description'), undefined);
+  for (const locale of ['uk', 'en.default', 'ru']) {
+    const translations = JSON.parse(readFileSync(path.resolve(__dirname, `../../locales/${locale}.json`), 'utf8')).nbk_seo;
+    for (const value of Object.values(translations)) assert(value.length > 80 && value.length <= 170);
   }
 });

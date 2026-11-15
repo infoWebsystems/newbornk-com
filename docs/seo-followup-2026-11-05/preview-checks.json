@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/en/policies/privacy-policy",
+    "description": [
+      "Read the NEWBORN K privacy policy for information about how personal data is processed, used and protected when you visit and shop on our website."
+    ],
+    "errors": false,
+    "h1": "Privacy Policy",
+    "ogHeight": "628",
+    "ogImage": "https://newbornk.com/cdn/shop/files/Frame_567194.jpg?v=1778087171&width=1200",
+    "ogWidth": "1200",
+    "title": "Privacy Policy – NEWBORN K"
+  },
+  {
+    "path": "/ru/policies/terms-of-service",
+    "description": [
+      "Условия использования интернет-магазина NEWBORN K: оформление заказов, оплата, доставка, права и обязанности покупателя и продавца."
+    ],
+    "errors": false,
+    "h1": "Договор публичной оферты",
+    "ogHeight": "628",
+    "ogImage": "https://newbornk.com/cdn/shop/files/Frame_567194.jpg?v=1778087171&width=1200",
+    "ogWidth": "1200",
+    "title": "Договор публичной оферты – NEWBORN K"
+  },
+  {
+    "path": "/en/collections/pidnogamy",
+    "description": [
+      "Explore PIDNOGAMY rugs at NEWBORN K. Discover the SHASHKA and ZEBRA designs in black and white, browse the collection and choose a rug for your home."
+    ],
+    "errors": false,
+    "h1": "\nPIDNOGAMY",
+    "ogHeight": "628",
+    "ogImage": "https://newbornk.com/cdn/shop/files/Frame_567194.jpg?v=1778087171&width=1200",
+    "ogWidth": "1200",
+    "title": "PIDNOGAMY Rugs | NEWBORN K"
+  },
+  {
+    "path": "/ru/collections/pidnogamy",
+    "description": [
+      "Ковры PIDNOGAMY в NEWBORN K: модели SHASHKA и ZEBRA в чёрно-белом дизайне. Посмотрите коллекцию для дома и выберите свой ковёр онлайн."
+    ],
+    "errors": false,
+    "h1": "\nPIDNOGAMY",
+    "ogHeight": "628",
+    "ogImage": "https://newbornk.com/cdn/shop/files/Frame_567194.jpg?v=1778087171&width=1200",
+    "ogWidth": "1200",
+    "title": "PIDNOGAMY — ковры для дома | NEWBORN K"
+  },
+  {
+    "path": "/products/trail-sling-bag-green",
+    "description": [
+      "Сумка Rains TRAIL SLING BAG зелена — сумка Rains через плече для активного відпочинку. Rains купити у Києві — NEWBORN K. Швидка відправка по Україні."
+    ],
+    "errors": false,
+    "h1": "Сумка TRAIL SLING BAG зелена",
+    "ogHeight": "1800",
+    "ogImage": "https://newbornk.com/cdn/shop/files/14560_green_1.jpg?v=1778081773&width=1200",
+    "ogWidth": "1200",
+    "title": "Сумка Rains TRAIL SLING BAG зелена | NEWBORN K"
+  }
+]

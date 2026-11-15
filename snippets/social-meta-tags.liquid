@@ -8,6 +8,19 @@
   assign og_description = page_description | default: shop.description | default: shop.name
   assign og_image = page_image
 
+  if request.page_type == 'policy' and page_description == nil
+    assign policy_handle = request.path | split: '/' | last
+    case policy_handle
+      when 'privacy-policy'
+        assign policy_description = 'nbk_seo.privacy_description' | t
+      when 'terms-of-service'
+        assign policy_description = 'nbk_seo.terms_description' | t
+    endcase
+    if policy_description != blank
+      assign og_description = policy_description
+    endif
+  endif
+
   if request.page_type == 'index'
     assign og_image = images['Frame_567194.jpg'] | default: page_image
   endif
@@ -24,6 +37,9 @@
 {%- if current_page > 1 and page_description != blank -%}
   {%- capture paginated_description -%}{{ 'general.meta.page' | t }} {{ current_page }}. {{ page_description }}{%- endcapture -%}
   <meta name="description" content="{{ paginated_description | escape }}">
+{%- endif -%}
+{%- if policy_description != blank -%}
+  <meta name="description" content="{{ policy_description | escape }}">
 {%- endif -%}
 
 {%- case request.page_type -%}
@@ -52,10 +68,14 @@
 <meta property="og:description" content="{{ og_description | escape }}">
 
 {%- if og_image -%}
-  <meta property="og:image" content="https:{{ og_image | image_url: width: og_image.width }}">
-  <meta property="og:image:secure_url" content="https:{{ og_image | image_url: width: og_image.width }}">
-  <meta property="og:image:width" content="{{ og_image.width }}">
-  <meta property="og:image:height" content="{{ og_image.height }}">
+  {%- liquid
+    assign og_image_width = og_image.width | at_most: 1200
+    assign og_image_height = og_image.height | times: 1.0 | times: og_image_width | divided_by: og_image.width | round
+  -%}
+  <meta property="og:image" content="https:{{ og_image | image_url: width: og_image_width }}">
+  <meta property="og:image:secure_url" content="https:{{ og_image | image_url: width: og_image_width }}">
+  <meta property="og:image:width" content="{{ og_image_width }}">
+  <meta property="og:image:height" content="{{ og_image_height }}">
 {%- endif -%}
 
 {%- if request.page_type == 'product' -%}

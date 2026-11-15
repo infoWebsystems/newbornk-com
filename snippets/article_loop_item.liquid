@@ -1,5 +1,6 @@
 {%- liquid
   assign image = article.image
+  assign image_width = image.width | at_most: 720
   unless size
     assign size = '700px'
   endunless
@@ -9,7 +10,7 @@
     <div class="hdt-loop-img hdt-relative hdt-oh" style="--aspect-ratioapt: {{ image.aspect_ratio | default: 1.2 }};">
       <span class="hdt-ratio">
         {%- if image != blank -%}
-          {{ image | image_url: width: image.width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: size, widths: '720, 600, 500, 400, 300' }} 
+          {{ image | image_url: width: image_width | image_tag: loading: 'lazy', width: image.width, height: image.height, class: '', sizes: size, widths: '720, 600, 500, 400, 300' }}
         {%- endif -%}
       </span>
       <a data-pr-href class="hdt-full-width-link"  aria-label="link" href="{{ article.url }}"></a>
