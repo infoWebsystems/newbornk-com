@@ -1,8 +1,8 @@
 (() => {
   const { locale, root } = document.currentScript?.dataset || {};
   if (window.nbkLocaleRouting || document.documentElement.lang !== locale) return;
-  if (!((locale === 'uk' && root === '/') || (locale === 'ru' && root === '/ru/'))) return;
-  const repairStorefrontLocale = window.Shopify?.routes?.root === '/en/';
+  if (!((locale === 'uk' && root === '/') || (locale === 'ru' && root === '/ru/') || (locale === 'en' && root === '/en/'))) return;
+  const repairStorefrontLocale = locale !== 'en' && window.Shopify?.routes?.root === '/en/';
   window.nbkLocaleRouting = true;
 
   const controls = '[hreflang], a[lang], [data-language-code], [data-locale], [data-nbk-keep-locale], localization-form, localization-form-header, .localization-form, .translation-lab-language-switcher, .language-switcher-custom, .language-switcher-mobile';

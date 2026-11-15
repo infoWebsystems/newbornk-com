@@ -1,0 +1,56 @@
+{
+  "auth": {
+    "errors": false,
+    "login": [
+      "https://newbornk.com/customer_authentication/redirect?locale=en&region_country=UA"
+    ],
+    "url": "https://newbornk.com/en/blogs/blog"
+  },
+  "facets": {
+    "badBrandLinks": [],
+    "categories": [
+      {
+        "title": "Куртки",
+        "url": "/collections/all?filter.p.product_type=%D0%9A%D1%83%D1%80%D1%82%D0%BA%D0%B8&filter.p.product_type=Jackets"
+      },
+      {
+        "title": "Пальта",
+        "url": "/collections/all?filter.p.product_type=%D0%9F%D0%B0%D0%BB%D1%8C%D1%82%D0%B0"
+      },
+      {
+        "title": "Жилети",
+        "url": "/collections/all?filter.p.product_type=%D0%96%D0%B8%D0%BB%D0%B5%D1%82%D0%B8&filter.p.product_type=Vests"
+      },
+      {
+        "title": "Худі",
+        "url": "/collections/all?filter.p.product_type=%D0%A5%D1%83%D0%B4%D1%96&filter.p.product_type=Hoodie"
+      },
+      {
+        "title": "Світшоти",
+        "url": "/collections/all?filter.p.product_type=%D0%A1%D0%B2%D1%96%D1%82%D1%88%D0%BE%D1%82%D0%B8&filter.p.product_type=Sweatshirts"
+      },
+      {
+        "title": "Светри та кардигани",
+        "url": "/collections/all?filter.p.product_type=%D0%A1%D0%B2%D0%B5%D1%82%D1%80%D0%B8%20%26%20%D0%9A%D0%B0%D1%80%D0%B4%D0%B8%D0%B3%D0%B0%D0%BD%D0%B8%20%26%20%D0%93%D0%BE%D0%BB%D1%8C%D1%84%D0%B8&filter.p.product_type=Sweaters%20%26%20Cardigans%20%26%20Turtlenecks"
+      },
+      {
+        "title": "Сорочки",
+        "url": "/collections/all?filter.p.product_type=%D0%A1%D0%BE%D1%80%D0%BE%D1%87%D0%BA%D0%B8&filter.p.product_type=Shirts"
+      },
+      {
+        "title": "Футболки",
+        "url": "/collections/all?filter.p.product_type=%D0%A4%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B8&filter.p.product_type=T-shirts&filter.p.product_type=T-Shirts"
+      },
+      {
+        "title": "Лонгсліви",
+        "url": "/collections/all?filter.p.product_type=%D0%9B%D0%BE%D0%BD%D0%B3%D1%81%D0%BB%D1%96%D0%B2%D0%B8&filter.p.product_type=Longsleeves"
+      },
+      {
+        "title": "Джерсі та поло",
+        "url": "/collections/all?filter.p.product_type=%D0%94%D0%B6%D0%B5%D1%80%D1%81%D1%96%20%D1%82%D0%B0%20%D0%BF%D0%BE%D0%BB%D0%BE&filter.p.product_type=Jersey%20and%20polo"
+      }
+    ],
+    "errors": false,
+    "title": "Carhartt WIP Київ — Кархарт купити в Україні | NEWBORN K"
+  }
+}

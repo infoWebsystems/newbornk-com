@@ -1,0 +1,34 @@
+[
+  {
+    "id": "gid://shopify/Collection/693071282336",
+    "handle": "club-mate",
+    "uk": {
+      "title": "CLUB-MATE — напої в Києві | NEWBORN K",
+      "description": "Напої CLUB-MATE у NEWBORN K. Перегляньте асортимент бренду, актуальні ціни й наявність та замовляйте онлайн або завітайте до магазину в Києві."
+    },
+    "en": {
+      "title": "CLUB-MATE Drinks in Kyiv | NEWBORN K",
+      "description": "Explore CLUB-MATE drinks at NEWBORN K. Browse the range, check current prices and availability, and order online or visit our store in Kyiv."
+    },
+    "ru": {
+      "title": "CLUB-MATE — напитки в Киеве | NEWBORN K",
+      "description": "Напитки CLUB-MATE в NEWBORN K. Посмотрите ассортимент бренда, актуальные цены и наличие, заказывайте онлайн или посетите наш магазин в Киеве."
+    }
+  },
+  {
+    "id": "gid://shopify/Collection/693071315104",
+    "handle": "rute",
+    "uk": {
+      "title": "RÜTE — кава BRAINBOOSTER LION’S MANE | NEWBORN K",
+      "description": "Кава RÜTE BRAINBOOSTER LION’S MANE у NEWBORN K. Перегляньте склад, опис і ціну в картці товару, перевірте наявність та замовляйте онлайн."
+    },
+    "en": {
+      "title": "RÜTE BRAINBOOSTER LION’S MANE Coffee | NEWBORN K",
+      "description": "Discover RÜTE BRAINBOOSTER LION’S MANE coffee at NEWBORN K. View ingredients, product details and pricing, check availability and order online."
+    },
+    "ru": {
+      "title": "RÜTE — кофе BRAINBOOSTER LION’S MANE | NEWBORN K",
+      "description": "Кофе RÜTE BRAINBOOSTER LION’S MANE в NEWBORN K. Изучите состав, описание и цену в карточке товара, проверьте наличие и заказывайте онлайн."
+    }
+  }
+]
