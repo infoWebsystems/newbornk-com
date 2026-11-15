@@ -94,8 +94,25 @@ test('Russian page keeps Russian navigation; correct English and unrelated marke
     const app = setup(options); const node = app.add('a', { href: '/en/products/test' }); app.run();
     assert.equal(node.getAttribute('href'), '/en/products/test');
     assert.equal(app.window.Shopify.routes.root, options.serverRoot || '/en/');
-    assert.equal(app.observers.length, options.locale === 'en' || options.htmlLang === 'en' ? 0 : 1);
+    assert.equal(app.observers.length, options.htmlLang === 'en' ? 0 : 1);
   }
+});
+
+test('English repairs late localized authentication without rewriting storefront or Ajax routes', () => {
+  const app = setup({ locale: 'en', root: '/en/', baseURI: 'https://newbornk.com/en/blogs/blog' });
+  const product = app.add('a', { href: '/en/products/example?variant=42' });
+  app.window.routes = { cart_url: '/en/cart', cart_add_url: '/en/cart/add' };
+  app.run();
+  const query = '?locale=en&region_country=UA&return_to=%2Fen%2Fcollections%2Fnew';
+  const login = app.add('a', { href: `https://newbornk.com/en/customer_authentication/redirect${query}` });
+  app.flush();
+  assert.equal(login.getAttribute('href'), `https://newbornk.com/customer_authentication/redirect${query}`);
+  login.setAttribute('href', `/en/customer_authentication/redirect${query}`);
+  app.flush();
+  assert.equal(login.getAttribute('href'), `/customer_authentication/redirect${query}`);
+  assert.equal(product.getAttribute('href'), '/en/products/example?variant=42');
+  assert.equal(app.window.Shopify.routes.root, '/en/');
+  assert.deepEqual(app.window.routes, { cart_url: '/en/cart', cart_add_url: '/en/cart/add' });
 });
 
 test('Shopify authentication stays at the root while Russian storefront links remain localized', () => {

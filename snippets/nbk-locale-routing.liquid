@@ -1,10 +1,10 @@
 {% doc %}
-  Keeps Kyiv storefront navigation in the rendered language when Shopify returns an English route prefix.
+  Keeps Kyiv storefront navigation in the rendered language and authentication at Shopify's root endpoint.
   @example
   {% render 'nbk-locale-routing' %}
 {% enddoc %}
 
-{%- if request.locale.iso_code == 'uk' or request.locale.iso_code == 'ru' -%}
+{%- if request.locale.iso_code == 'uk' or request.locale.iso_code == 'ru' or request.locale.iso_code == 'en' -%}
   {%- liquid
     assign locale_root = '/'
     unless request.locale.primary

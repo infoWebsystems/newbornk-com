@@ -71,10 +71,18 @@
                     {%- endif -%}
                   {%- else -%}
                   {%- for link in linklists[section.settings.cat_link_list].links -%}
+                    {%- capture nbk_link_state -%}{%- render 'nbk-menu-state', item: link, collections_only: true -%}{%- endcapture -%}
+                    {%- liquid
+                      assign nbk_link_state = nbk_link_state | strip | split: '|'
+                      assign nbk_link_children = nbk_link_state[0] | plus: 0
+                      if nbk_link_children == 0 and nbk_link_state[1] != '1'
+                        continue
+                      endif
+                    -%}
                     {%- if link.type == 'collection_link' or link.type == 'catalog_link' -%}
-                      {%- if link.links != blank -%}
+                      {%- if nbk_link_children > 0 -%}
                         <details aria-expanded="false" only-click-icon class="hdt-pr hdt-menu_nested hdt-cate-item hdt-relative hdt-relative">
-                          <summary id="hdt-menu-{{ link.handle }}" data-url="{{ link.url }}" class="has_cats_toggle hdt-flex hdt-align-center hdt-justify-between hdt-relative">
+                          <summary id="hdt-menu-{{ link.handle }}" {% if nbk_link_state[1] == '1' %}data-url="{{ link.url }}"{% endif %} class="has_cats_toggle hdt-flex hdt-align-center hdt-justify-between hdt-relative">
                             <span class="hdt-link_sm hdt-relative{%- if link.active %} hdt-current-cate{%- endif -%}">
                               {{ link.title }} {%- if section.settings.count == true -%} <span class="hdt-count">({{ link.object.all_products_count | default: shop.products_count }})</span>{%- endif -%}
                             </span>
@@ -84,10 +92,18 @@
                           </summary>
                           <div class="hdt-sub-menu hdt-children">
                             {%- for child_link in link.links -%}
+                              {%- capture nbk_child_state -%}{%- render 'nbk-menu-state', item: child_link, collections_only: true -%}{%- endcapture -%}
+                              {%- liquid
+                                assign nbk_child_state = nbk_child_state | strip | split: '|'
+                                assign nbk_child_children = nbk_child_state[0] | plus: 0
+                                if nbk_child_children == 0 and nbk_child_state[1] != '1'
+                                  continue
+                                endif
+                              -%}
                               {%- if child_link.type == 'collection_link' or child_link.type == 'catalog_link' -%}
-                                {%- if child_link.links != blank -%}
+                                {%- if nbk_child_children > 0 -%}
                                   <details aria-expanded="false" only-click-icon class="hdt-pr hdt-menu_nested2 hdt-cate-item hdt-relative">
-                                    <summary id="hdt-menu-{{ child_link.handle }}" data-url="{{ child_link.url }}" class="hdt-cat-count hdt-flex hdt-align-center hdt-justify-between hdt-relative">
+                                    <summary id="hdt-menu-{{ child_link.handle }}" {% if nbk_child_state[1] == '1' %}data-url="{{ child_link.url }}"{% endif %} class="hdt-cat-count hdt-flex hdt-align-center hdt-justify-between hdt-relative">
                                       <span class="hdt-link_sm hdt-relative{%- if child_link.active %} hdt-current-cate{%- endif -%}">
                                         {{ child_link.title }} 
                                       {%- if section.settings.count == true -%}  
@@ -100,6 +116,9 @@
                                     </summary>
                                     <div class="hdt-sub-menu hdt-children">
                                       {%- for third_link in child_link.links -%}
+                                        {%- capture nbk_third_state -%}{%- render 'nbk-menu-state', item: third_link, collections_only: true -%}{%- endcapture -%}
+                                        {%- assign nbk_third_state = nbk_third_state | strip | split: '|' -%}
+                                        {%- if nbk_third_state[1] != '1' -%}{%- continue -%}{%- endif -%}
                                         {%- if third_link.type == 'collection_link' or third_link.type == 'catalog_link' -%}
                                           <a href="{{ third_link.url }}" class="hdt-link_sm hdt-relative{%- if third_link.active %} hdt-current-cate{%- endif -%}">{{ third_link.title }} 
                                             {%- if section.settings.count == true -%} 
@@ -112,7 +131,7 @@
                                   </details>
                                 {%- else -%}
                                   <div class="hdt-cate-item hdt-relative{%- if child_link.active %} hdt-current-cate{%- endif -%}">
-                                    <a href="{{ child_link.url }}">{{ child_link.title }} {%- if section.settings.count == true -%} <span class="hdt-count">({{ child_link.object.all_products_count | default: shop.products_count }})</span> {%- endif -%}</a>
+                                    <a {% if nbk_child_state[1] == '1' %}href="{{ child_link.url }}"{% endif %}>{{ child_link.title }} {%- if section.settings.count == true -%} <span class="hdt-count">({{ child_link.object.all_products_count | default: shop.products_count }})</span> {%- endif -%}</a>
                                   </div>
                                 {%- endif -%}
                               {%- endif -%}
@@ -120,7 +139,7 @@
                           </div>
                         </details>
                       {%- else -%} 
-                        <div class="hdt-cate-item hdt-relative{%- if link.active %} hdt-current-cate{%- endif -%}"><a href="{{ link.url }}">{{ link.title }} {%- if section.settings.count == true -%} <span class="hdt-count">({{ link.object.all_products_count | default: shop.products_count }})</span>{%- endif -%}</a></div>
+                        <div class="hdt-cate-item hdt-relative{%- if link.active %} hdt-current-cate{%- endif -%}"><a {% if nbk_link_state[1] == '1' %}href="{{ link.url }}"{% endif %}>{{ link.title }} {%- if section.settings.count == true -%} <span class="hdt-count">({{ link.object.all_products_count | default: shop.products_count }})</span>{%- endif -%}</a></div>
                       {%- endif -%}
                     {%- endif -%}
                   {%- endfor -%}
