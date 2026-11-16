@@ -34,7 +34,8 @@ test('UA/EN directory, desktop and mobile use the registry past 50 entries, not 
     const expected = ctx.linklists['brands-menu'].links.filter(x => x.object.all_products_count).map(x => x.url).sort();
     for (const file of ['nbk-brands-directory', 'sub_menu_blocks', 'nbk-brand-menu-items', '_menu_mobile']) {
       const html = await render(file, ctx);
-      assert.deepEqual(collectionHrefs(html).sort(), expected, `${locale} ${file}`);
+      const destinations = file === '_menu_mobile' ? [...expected, ctx.link.url].sort() : expected;
+      assert.deepEqual(collectionHrefs(html).sort(), destinations, `${locale} ${file}`);
       assert(!html.includes('/collections/stale'));
       assert(!html.includes('/collections/empty'));
       if (file === 'nbk-brands-directory') {
